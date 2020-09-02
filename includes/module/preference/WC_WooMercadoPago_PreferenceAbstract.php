@@ -408,6 +408,7 @@ abstract class WC_WooMercadoPago_PreferenceAbstract extends WC_Payment_Gateway
         if ($this->payment->getOption('checkout_credential_prod', '') == 'no') {
             $test_mode = true;
         }
+        $analytics = new WC_WooMercadoPago_PreferenceAnalytics();
 
         $seller = explode('-', $accessToken);
         $w = WC_WooMercadoPago_Module::woocommerce_instance();
@@ -419,7 +420,10 @@ abstract class WC_WooMercadoPago_PreferenceAbstract extends WC_Payment_Gateway
             "sponsor_id" => $this->get_sponsor_id(),
             "collector" => end($seller),
             "test_mode" => $test_mode,
-            "details" => ""
+            "details" => "",
+            "basic_settings" => json_encode($analytics->getBasicSettings(), true),
+            "custom_settings" => json_encode($analytics->getCustomSettings(), true),
+            "ticket_settings" => json_encode($analytics->getTicketSettings(), true)
         );
 
         return $internal_metadata;
