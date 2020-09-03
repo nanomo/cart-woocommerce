@@ -7,13 +7,13 @@ if (!defined('ABSPATH')) {
 class WC_WooMercadoPago_PreferenceAnalytics {
     public static $ignoreFields = ['_mp_public_key_prod', '_mp_public_key_test', 'title','description', '_mp_access_token_prod', '_mp_access_token_test'];
 
-    function getBasicSettings(){
+    public function getBasicSettings(){
        return $this->getSettings('woocommerce_woo-mercado-pago-basic_settings');
     }
-    function getCustomSettings(){
+    public function getCustomSettings(){
         return $this->getSettings('woocommerce_woo-mercado-pago-custom_settings');
     }
-    function getTicketSettings(){
+    public function getTicketSettings(){
         return $this->getSettings('woocommerce_woo-mercado-pago-ticket_settings');
     }
 
