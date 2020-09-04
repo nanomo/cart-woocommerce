@@ -56,7 +56,7 @@ class AbstractRestClient
 
         $headers = array('accept: application/json');
         if ($request['method'] == 'POST' ) {
-            $headers[] = 'x-product-id:' . WC_WooMercadoPago_Module::is_mobile() ? WC_WooMercadoPago_Constants::PRODUCT_ID_MOBILE : WC_WooMercadoPago_Constants::PRODUCT_ID_DESKTOP;
+            $headers[] = 'x-product-id:' . (WC_WooMercadoPago_Module::is_mobile() ? WC_WooMercadoPago_Constants::PRODUCT_ID_MOBILE : WC_WooMercadoPago_Constants::PRODUCT_ID_DESKTOP);
             $headers[] = 'x-platform-id:' . WC_WooMercadoPago_Constants::PLATAFORM_ID;
             $headers[] = 'x-integrator-id:' . get_option('_mp_integrator_id', null);
         }
