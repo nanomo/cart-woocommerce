@@ -17,12 +17,10 @@ class WC_WooMercadoPago_PreferenceAnalytics {
         return $this->getSettings('woocommerce_woo-mercado-pago-ticket_settings');
     }
 
-    public function getSettings($option)
-{
-    $db_options = get_option($option);
-    if (empty($db_options)) {
-        return [];
-    }
+    public function getSettings($option){
+
+    $db_options = get_option($option, []);
+
     $validValues = array();
     foreach ($db_options as $key => $value) {
         if (!empty($value) && !in_array($key, WC_WooMercadoPago_PreferenceAnalytics::$ignoreFields)) {
