@@ -31,6 +31,7 @@ class WC_WooMercadoPago_Module extends WC_WooMercadoPago_Configs
             $this->loadPreferences();
             $this->loadPayments();
             $this->loadNotifications();
+            $this->loadStockManager();
 
             add_action('admin_enqueue_scripts', [$this, 'loadAdminCss']);
 
@@ -166,6 +167,7 @@ class WC_WooMercadoPago_Module extends WC_WooMercadoPago_Configs
         include_once dirname(__FILE__) . '/preference/WC_WooMercadoPago_PreferenceBasic.php';
         include_once dirname(__FILE__) . '/preference/WC_WooMercadoPago_PreferenceCustom.php';
         include_once dirname(__FILE__) . '/preference/WC_WooMercadoPago_PreferenceTicket.php';
+        include_once dirname(__FILE__) . '/preference/analytics/WC_WooMercadoPago_PreferenceAnalytics.php';
     }
 
     /**
@@ -209,6 +211,14 @@ class WC_WooMercadoPago_Module extends WC_WooMercadoPago_Configs
                 plugins_url('../assets/css/config_mercadopago.css', plugin_dir_path(__FILE__))
             );
         }
+    }
+
+    /**
+     * Stock Manager
+     */
+    public function loadStockManager()
+    {
+        include_once dirname(__FILE__) . '/../stock/WC_WooMercadoPago_Stock_Manager.php';
     }
 
     /**
@@ -585,34 +595,34 @@ class WC_WooMercadoPago_Module extends WC_WooMercadoPago_Configs
             $gateway_name . '</a>';
     }
 
-    public static function get_map($selector_id)	
-    {	
-        $html = '';	
-        $arr = explode('_', $selector_id);	
-        $defaults = array(	
-            'pending' => 'pending',	
-            'approved' => 'processing',	
-            'inprocess' => 'on_hold',	
-            'inmediation' => 'on_hold',	
-            'rejected' => 'failed',	
-            'cancelled' => 'cancelled',	
-            'refunded' => 'refunded',	
-            'chargedback' => 'refunded'	
-        );	
-        $selection = get_option('_mp_' . $selector_id, $defaults[$arr[2]]);	
+    public static function get_map($selector_id)
+    {
+        $html = '';
+        $arr = explode('_', $selector_id);
+        $defaults = array(
+            'pending' => 'pending',
+            'approved' => 'processing',
+            'inprocess' => 'on_hold',
+            'inmediation' => 'on_hold',
+            'rejected' => 'failed',
+            'cancelled' => 'cancelled',
+            'refunded' => 'refunded',
+            'chargedback' => 'refunded'
+        );
+        $selection = get_option('_mp_' . $selector_id, $defaults[$arr[2]]);
 
-        foreach (wc_get_order_statuses() as $slug => $status) {	
-            $slug = str_replace(array('wc-', '-'), array('', '_'), $slug);	
-            $html .= sprintf(	
-                '<option value="%s"%s>%s %s</option>',	
-                $slug,	
-                selected($selection, $slug, false),	
-                __('Update the WooCommerce order to ', 'woocommerce-mercadopago'),	
-                $status	
-            );	
-        }	
+        foreach (wc_get_order_statuses() as $slug => $status) {
+            $slug = str_replace(array('wc-', '-'), array('', '_'), $slug);
+            $html .= sprintf(
+                '<option value="%s"%s>%s %s</option>',
+                $slug,
+                selected($selection, $slug, false),
+                __('Update the WooCommerce order to ', 'woocommerce-mercadopago'),
+                $status
+            );
+        }
 
-        return $html;	
+        return $html;
     }
 
     public static function generate_refund_cancel_subscription($domain, $success_msg, $fail_msg, $options, $str1, $str2, $str3, $str4)
