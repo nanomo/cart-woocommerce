@@ -231,17 +231,6 @@ class WC_WooMercadoPago_Module extends WC_WooMercadoPago_Configs
         if (!isset($session)) {
             return $methods;
         }
-        $chosen_methods = $session->get('chosen_shipping_methods');
-        $chosen_shipping = $chosen_methods[0];
-        if (strpos($chosen_shipping, 'woo-mercado-pago-me-normal') !== false || strpos($chosen_shipping, 'woo-mercado-pago-me-express') !== false) {
-            $new_array = array();
-            foreach ($methods as $payment_method => $payment_method_object) {
-                if ($payment_method == 'woo-mercado-pago-basic') {
-                    $new_array['woo-mercado-pago-basic'] = $payment_method_object;
-                }
-            }
-            return $new_array;
-        }
         return $methods;
     }
 
