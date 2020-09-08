@@ -227,10 +227,6 @@ class WC_WooMercadoPago_Module extends WC_WooMercadoPago_Configs
      */
     public function filterPaymentMethodByShipping($methods)
     {
-        $session = WC()->session;
-        if (!isset($session)) {
-            return $methods;
-        }
         return $methods;
     }
 
