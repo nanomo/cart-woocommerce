@@ -165,10 +165,10 @@ class MP
 	{
 
 		$request = array(
-			'uri' => '/v1/customers',
-			'params' => array(
-				'access_token' => $this->get_access_token()
-			),
+            'headers' => array(
+                'Authorization' => 'Bearer ' . $this->get_access_token()
+            ),
+            'uri' => '/v1/customers',
 			'data' => array(
 				'email' => $email
 			)
@@ -188,9 +188,11 @@ class MP
 	{
 
 		$request = array(
+            'headers' => array(
+                'Authorization' => 'Bearer ' . $this->get_access_token()
+            ),
 			'uri' => '/v1/customers/search',
 			'params' => array(
-				'access_token' => $this->get_access_token(),
 				'email' => $email
 			)
 		);
@@ -213,10 +215,10 @@ class MP
 	{
 
 		$request = array(
+            'headers' => array(
+                'Authorization' => 'Bearer ' . $this->get_access_token()
+            ),
 			'uri' => '/v1/customers/' . $customer_id . '/cards',
-			'params' => array(
-				'access_token' => $this->get_access_token()
-			),
 			'data' => array(
 				'token' => $token,
 				'issuer_id' => $issuer_id,
@@ -239,10 +241,10 @@ class MP
 	{
 
 		$request = array(
+            'headers' => array(
+                'Authorization' => 'Bearer ' . $this->get_access_token()
+            ),
 			'uri' => '/v1/customers/' . $customer_id . '/cards',
-			'params' => array(
-				'access_token' => $this->get_access_token()
-			)
 		);
 
 		$cards = MPRestClient::get($request);
@@ -261,9 +263,11 @@ class MP
 	public function check_discount_campaigns($transaction_amount, $payer_email, $coupon_code)
 	{
 		$request = array(
+            'headers' => array(
+                'Authorization' => 'Bearer ' . $this->get_access_token()
+            ),
 			'uri' => '/discount_campaigns',
 			'params' => array(
-				'access_token' => $this->get_access_token(),
 				'transaction_amount' => $transaction_amount,
 				'payer_email' => $payer_email,
 				'coupon_code' => $coupon_code
@@ -284,10 +288,10 @@ class MP
 	{
 
 		$request = array(
+            'headers' => array(
+                'Authorization' => 'Bearer ' . $this->get_access_token()
+            ),
 			'uri' => '/authorized_payments/{$id}',
-			'params' => array(
-				'access_token' => $this->get_access_token()
-			)
 		);
 
 		$authorized_payment_info = MPRestClient::get($request);
@@ -305,11 +309,9 @@ class MP
 
 		$request = array(
 			'uri' => '/checkout/preferences',
-			'params' => array(
-				'access_token' => $this->get_access_token()
-			),
 			'headers' => array(
-				'user-agent' => 'platform:desktop,type:woocommerce,so:' . WC_WooMercadoPago_Constants::VERSION
+                'user-agent' => 'platform:desktop,type:woocommerce,so:' . WC_WooMercadoPago_Constants::VERSION,
+                'Authorization' => 'Bearer ' . $this->get_access_token()
 			),
 			'data' => $preference
 		);
@@ -329,10 +331,10 @@ class MP
 	{
 
 		$request = array(
+            'headers' => array(
+                'Authorization' => 'Bearer ' . $this->get_access_token()
+            ),
 			'uri' => '/checkout/preferences/{$id}',
-			'params' => array(
-				'access_token' => $this->get_access_token()
-			),
 			'data' => $preference
 		);
 
@@ -350,10 +352,10 @@ class MP
 	{
 
 		$request = array(
+            'headers' => array(
+                'Authorization' => 'Bearer ' . $this->get_access_token()
+            ),
 			'uri' => '/checkout/preferences/{$id}',
-			'params' => array(
-				'access_token' => $this->get_access_token()
-			)
 		);
 
 		$preference_result = MPRestClient::get($request);
@@ -371,12 +373,10 @@ class MP
 
 		$request = array(
 			'uri' => '/v1/payments',
-			'params' => array(
-				'access_token' => $this->get_access_token()
-			),
 			'headers' => array(
-				'X-Tracking-Id' => 'platform:v1-whitelabel,type:woocommerce,so:' . WC_WooMercadoPago_Constants::VERSION
-			),
+				'X-Tracking-Id' => 'platform:v1-whitelabel,type:woocommerce,so:' . WC_WooMercadoPago_Constants::VERSION,
+                'Authorization' => 'Bearer ' . $this->get_access_token()
+            ),
 			'data' => $preference
 		);
 
@@ -393,10 +393,10 @@ class MP
 	{
 
 		$request = array(
+            'headers' => array(
+                'Authorization' => 'Bearer ' . $this->get_access_token()
+            ),
 			'uri' => '/preapproval',
-			'params' => array(
-				'access_token' => $this->get_access_token()
-			),
 			'data' => $preapproval_payment
 		);
 
@@ -414,10 +414,10 @@ class MP
 	{
 
 		$request = array(
-			'uri' => '/preapproval/' . $id,
-			'params' => array(
-				'access_token' => $this->get_access_token()
-			)
+            'headers' => array(
+                'Authorization' => 'Bearer ' . $this->get_access_token()
+            ),
+			'uri' => '/preapproval/' . $id
 		);
 
 		$preapproval_payment_result = MPRestClient::get($request);
@@ -435,10 +435,10 @@ class MP
 	{
 
 		$request = array(
+            'headers' => array(
+                'Authorization' => 'Bearer ' . $this->get_access_token()
+            ),
 			'uri' => '/preapproval/' . $id,
-			'params' => array(
-				'access_token' => $this->get_access_token()
-			),
 			'data' => $preapproval_payment
 		);
 
@@ -456,10 +456,10 @@ class MP
 	{
 
 		$request = array(
+            'headers' => array(
+                'Authorization' => 'Bearer ' . $this->get_access_token()
+            ),
 			'uri' => '/preapproval/' . $id,
-			'params' => array(
-				'access_token' => $this->get_access_token()
-			),
 			'data' => array(
 				'status' => 'cancelled'
 			)
@@ -481,10 +481,10 @@ class MP
 	{
 
 		$request = array(
-			'uri' => '/v1/payments/' . $id . '/refunds',
-			'params' => array(
-				'access_token' => $this->get_access_token()
-			)
+            'headers' => array(
+                'Authorization' => 'Bearer ' . $this->get_access_token()
+            ),
+			'uri' => '/v1/payments/' . $id . '/refunds'
 		);
 
 		$response = MPRestClient::post($request);
@@ -504,7 +504,10 @@ class MP
 	{
 
 		$request = array(
-			'uri' => '/v1/payments/' . $id . '/refunds?access_token=' . $this->get_access_token(),
+            'headers' => array(
+                'Authorization' => 'Bearer ' . $this->get_access_token()
+            ),
+			'uri' => '/v1/payments/' . $id . '/refunds',
 			'data' => array(
 				'amount' => $amount,
 				'metadata' => array(
@@ -528,10 +531,10 @@ class MP
 	{
 
 		$request = array(
+            'headers' => array(
+                'Authorization' => 'Bearer ' . $this->get_access_token()
+            ),
 			'uri' => '/v1/payments/' . $id,
-			'params' => array(
-				'access_token' => $this->get_access_token()
-			),
 			'data' => '{"status":"cancelled"}'
 		);
 
@@ -547,10 +550,10 @@ class MP
 	public function get_payment_methods()
 	{
 		$request = array(
+            'headers' => array(
+                'Authorization' => 'Bearer ' . $this->get_access_token()
+            ),
 			'uri' => '/v1/payment_methods',
-			'params' => array(
-				'access_token' => $this->get_access_token()
-			)
 		);
 
 		$response = MPRestClient::get($request);
@@ -567,24 +570,23 @@ class MP
 	 * @return array|null
 	 * @throws WC_WooMercadoPago_Exception
 	 */
-	public function get($request, $params = null, $authenticate = true)
+	public function get($request, $headers = [], $authenticate = true)
 	{
 
 		if (is_string($request)) {
 			$request = array(
-				'uri' => $request,
-				'params' => $params,
-				'authenticate' => $authenticate
+                'headers' => $headers,
+                'uri' => $request,
+                'authenticate' => $authenticate
 			);
 		}
 
-		$request['params'] = isset($request['params']) && is_array($request['params']) ?
-			$request['params'] :
-			array();
-
-		if (!isset($request['authenticate']) || $request['authenticate'] !== false) {
-			$request['params']['access_token'] = $this->get_access_token();
-		}
+        if (!isset($request['authenticate']) || $request['authenticate'] !== false) {
+            $access_token = $this->get_access_token();
+            if(!empty($access_token)) {
+                $request['headers'] = 'Authorization: Bearer ' . $access_token;
+            }
+        }
 
 		$result = MPRestClient::get($request);
 		return $result;
@@ -603,6 +605,7 @@ class MP
 
 		if (is_string($request)) {
 			$request = array(
+                'headers' => array('Authorization' => 'Bearer ' . $this->get_access_token()),
 				'uri' => $request,
 				'data' => $data,
 				'params' => $params
@@ -612,10 +615,6 @@ class MP
 		$request['params'] = isset($request['params']) && is_array($request['params']) ?
 			$request["params"] :
 			array();
-
-		if (!isset ($request['authenticate']) || $request['authenticate'] !== false) {
-			$request['params']['access_token'] = $this->get_access_token();
-		}
 
 		$result = MPRestClient::post($request);
 		return $result;
@@ -634,6 +633,7 @@ class MP
 
 		if (is_string($request)) {
 			$request = array(
+                'headers' => array('Authorization' => 'Bearer ' . $this->get_access_token()),
 				'uri' => $request,
 				'data' => $data,
 				'params' => $params
@@ -643,10 +643,6 @@ class MP
 		$request['params'] = isset($request['params']) && is_array($request['params']) ?
 			$request['params'] :
 			array();
-
-		if (!isset ($request['authenticate']) || $request['authenticate'] !== false) {
-			$request['params']['access_token'] = $this->get_access_token();
-		}
 
 		$result = MPRestClient::put($request);
 		return $result;
@@ -664,6 +660,7 @@ class MP
 
 		if (is_string($request)) {
 			$request = array(
+                'headers' => array('Authorization' => 'Bearer ' . $this->get_access_token()),
 				'uri' => $request,
 				'params' => $params
 			);
@@ -672,10 +669,6 @@ class MP
 		$request['params'] = isset($request['params']) && is_array($request['params']) ?
 			$request['params'] :
 			array();
-
-		if (!isset($request['authenticate']) || $request['authenticate'] !== false) {
-			$request['params']['access_token'] = $this->get_access_token();
-		}
 
 		$result = MPRestClient::delete($request);
 		return $result;

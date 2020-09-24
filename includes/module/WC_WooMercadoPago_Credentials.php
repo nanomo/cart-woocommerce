@@ -119,7 +119,7 @@ class WC_WooMercadoPago_Credentials
         if (empty($mp_v1)) {
             return false;
         }
-        $get_request = $mp_v1->get('/users/me?access_token=' . $access_token);
+        $get_request = $mp_v1->get('/users/me', array('Authorization' => 'Bearer ' . $access_token));
         if ($get_request['status'] > 202) {
             $log = WC_WooMercadoPago_Log::init_mercado_pago_log('WC_WooMercadoPago_Credentials');
             $log->write_log('API valid_access_token error:', $get_request['response']['message']);
@@ -151,7 +151,7 @@ class WC_WooMercadoPago_Credentials
             'params' => array(
                 'public_key' => $public_key
             ),
-            'authenticate' => false 
+            'authenticate' => false
         );
         $get_request = $mp_v1->post($request);
         if ($get_request['status'] > 202) {
@@ -185,7 +185,7 @@ class WC_WooMercadoPago_Credentials
                 return false;
             }
             $access_token = $mp_v1->get_access_token();
-            $get_request = $mp_v1->get('/users/me?access_token=' . $access_token);
+            $get_request = $mp_v1->get('/users/me', array('Authorization' => 'Bearer ' . $access_token));
             if (isset($get_request['response']['site_id']) && (!empty($credentials->publicKey) || $basicIsEnabled == 'yes')) {
 
                 update_option('_test_user_v1', in_array('test_user', $get_request['response']['tags']), true);
@@ -224,7 +224,7 @@ class WC_WooMercadoPago_Credentials
     public static function getPaymentResponse($mpInstance, $accessToken)
     {
         $seller = explode('-', $accessToken);
-        $payments = $mpInstance->get('/users/' . end($seller) . '/accepted_payment_methods?marketplace=NONE');
+        $payments = $mpInstance->get('/users/' . end($seller) . '/accepted_payment_methods?marketplace=NONE', array('Authorization' => 'Bearer ' . $accessToken));
         if (isset($payments['response'])) {
             return $payments['response'];
         }

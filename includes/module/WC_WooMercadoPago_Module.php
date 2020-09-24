@@ -356,7 +356,7 @@ class WC_WooMercadoPago_Module extends WC_WooMercadoPago_Configs
 
         if ($varify_sponsor) {
             $mp_sponsor_id = WC_WooMercadoPago_Module::getMpInstanceSingleton();
-            $get_sponor_id = $mp_sponsor_id->get('/users/' . $sponsor_id, $access_token, false);
+            $get_sponor_id = $mp_sponsor_id->get('/users/' . $sponsor_id, array('Authorization' => 'Bearer ' . $access_token), false);
             if (!is_wp_error($get_sponor_id) && ($get_sponor_id['status'] == 200 || $get_sponor_id['status'] == 201)) {
                 if ($get_sponor_id['response']['site_id'] == $site_id) {
                     update_option('_mp_sponsor_id', $sponsor_id, true);
