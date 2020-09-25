@@ -1,7 +1,7 @@
 <?php
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
+if (!defined('ABSPATH')) {
+    exit;
 }
 
 /**
@@ -300,7 +300,6 @@ class WC_WooMercadoPago_Module extends WC_WooMercadoPago_Configs
         if ($wc_country != '') {
 
             $sufix_country = strlen($wc_country) > 2 ? substr($wc_country, 0, 2) : $wc_country;
-
         }
 
         $sufix_country = strtoupper($sufix_country);
@@ -576,7 +575,7 @@ class WC_WooMercadoPago_Module extends WC_WooMercadoPago_Configs
     public static function build_log_path_string($gateway_id, $gateway_name)
     {
         return '<a href="' . esc_url(admin_url('admin.php?page=wc-status&tab=logs&log_file=' .
-                esc_attr($gateway_id) . '-' . sanitize_file_name(wp_hash($gateway_id)) . '.log')) . '">' .
+            esc_attr($gateway_id) . '-' . sanitize_file_name(wp_hash($gateway_id)) . '.log')) . '">' .
             $gateway_name . '</a>';
     }
 

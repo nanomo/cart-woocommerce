@@ -1,7 +1,7 @@
 <?php
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
+if (!defined('ABSPATH')) {
+    exit;
 }
 
 /**
@@ -248,7 +248,7 @@ class WC_WooMercadoPago_Credentials
         }
 
         if (empty($paymentsResponse) || (isset($paymentsResponse['status']) && $paymentsResponse['status'] != 200 &&
-                $paymentsResponse['status'] != 201)) {
+            $paymentsResponse['status'] != 201)) {
             return;
         }
 
@@ -292,7 +292,7 @@ class WC_WooMercadoPago_Credentials
         }
 
         if (empty($paymentsResponse) || (isset($paymentsResponse['status']) && $paymentsResponse['status'] != 200 &&
-                $paymentsResponse['status'] != 201)) {
+            $paymentsResponse['status'] != 201)) {
             return;
         }
 
@@ -300,7 +300,8 @@ class WC_WooMercadoPago_Credentials
         $excluded = array('consumer_credits', 'paypal', 'pse');
 
         foreach ($paymentsResponse as $payment) {
-            if (!in_array($payment['id'], $excluded) &&
+            if (
+                !in_array($payment['id'], $excluded) &&
                 $payment['payment_type_id'] != 'account_money' &&
                 $payment['payment_type_id'] != 'credit_card' &&
                 $payment['payment_type_id'] != 'debit_card' &&

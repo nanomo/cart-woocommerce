@@ -8,8 +8,8 @@
  * License - https://www.gnu.org/licenses/gpl.html GPL version 2 or higher
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
+if (!defined('ABSPATH')) {
+    exit;
 }
 /**
  * Class AbstractRestClient
@@ -55,7 +55,7 @@ class AbstractRestClient
         }
 
         $headers = array('accept: application/json');
-        if ($request['method'] == 'POST' ) {
+        if ($request['method'] == 'POST') {
             $headers[] = 'x-product-id:' . (WC_WooMercadoPago_Module::is_mobile() ? WC_WooMercadoPago_Constants::PRODUCT_ID_MOBILE : WC_WooMercadoPago_Constants::PRODUCT_ID_DESKTOP);
             $headers[] = 'x-platform-id:' . WC_WooMercadoPago_Constants::PLATAFORM_ID;
             $headers[] = 'x-integrator-id:' . get_option('_mp_integrator_id', null);
@@ -129,7 +129,7 @@ class AbstractRestClient
         $response = null;
         $api_result = curl_exec($connect);
         if (curl_errno($connect)) {
-            throw new WC_WooMercadoPago_Exception (curl_error($connect));
+            throw new WC_WooMercadoPago_Exception(curl_error($connect));
         }
         $api_http_code = curl_getinfo($connect, CURLINFO_HTTP_CODE);
 
