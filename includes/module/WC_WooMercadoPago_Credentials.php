@@ -131,6 +131,10 @@ class WC_WooMercadoPago_Credentials
             update_option('_test_user_v1', in_array('test_user', $get_request['response']['tags']), true);
         }
 
+        if (isset($get_request['response']['id'])) {
+            update_option('_collector_id_v1', $get_request['response']['id'], true);
+        }
+
         return true;
     }
 
@@ -186,6 +190,7 @@ class WC_WooMercadoPago_Credentials
             }
             $access_token = $mp_v1->get_access_token();
             $get_request = $mp_v1->get('/users/me', array('Authorization' => 'Bearer ' . $access_token));
+
             if (isset($get_request['response']['site_id']) && (!empty($credentials->publicKey) || $basicIsEnabled == 'yes')) {
 
                 update_option('_test_user_v1', in_array('test_user', $get_request['response']['tags']), true);
@@ -223,8 +228,8 @@ class WC_WooMercadoPago_Credentials
      */
     public static function getPaymentResponse($mpInstance, $accessToken)
     {
-        $seller = explode('-', $accessToken);
-        $payments = $mpInstance->get('/users/' . end($seller) . '/accepted_payment_methods?marketplace=NONE', array('Authorization' => 'Bearer ' . $accessToken));
+        $seller = get_option('_collector_id_v1', '');
+        $payments = $mpInstance->get('/users/' . $seller . '/accepted_payment_methods?marketplace=NONE', array('Authorization' => 'Bearer ' . $accessToken));
         if (isset($payments['response'])) {
             return $payments['response'];
         }

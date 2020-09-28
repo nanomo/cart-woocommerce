@@ -548,6 +548,38 @@ class MP
         return $response;
     }
 
+    /**
+     * Validate if the seller is homologated
+     * @param $access_token
+     * @param $public_key
+     * @return array|null
+     * @throws WC_WooMercadoPago_Exception
+     */
+    public function getCredentialsWrapper($access_token = null, $public_key = null)
+    {
+        $request = array(
+            'uri' => '/plugins-credentials-wrapper/credentials',
+        );
+
+        if (!empty($access_token) && empty($public_key)) {
+            $request['headers'] = array('Authorization' => 'Bearer ' . $access_token);
+        }
+
+        if (empty($access_token) && !empty($public_key)) {
+            $request['params'] = array('public_key' => $public_key);
+        }
+
+        $response = MPRestClient::get($request);
+
+        if ($response['status'] > 202) {
+            $log = WC_WooMercadoPago_Log::init_mercado_pago_log('getCredentialsWrapper');
+            $log->write_log('API GET Credentials Wrapper error:', $response['response']['message']);
+            return false;
+        }
+
+        return $response['response'];
+    }
+
     //=== GENERIC RESOURCE CALL METHODS ===
 
     /**
@@ -571,7 +603,7 @@ class MP
         if (!isset($request['authenticate']) || $request['authenticate'] !== false) {
             $access_token = $this->get_access_token();
             if (!empty($access_token)) {
-                $request['headers'] = 'Authorization: Bearer ' . $access_token;
+                $request['headers'] = array('Authorization'=> 'Bearer ' . $access_token);
             }
         }
 
@@ -699,38 +731,4 @@ class MP
         return $this->paymentClass;
     }
 
-    /**
-     * @param $accessToken
-     * @return int
-     * @throws WC_WooMercadoPago_Exception
-     */
-    public function homologValidate($accessToken)
-    {
-        $session = 'homolog_validate_' . $accessToken;
-        if (isset($_SESSION[$session])) {
-            return $_SESSION[$session];
-        }
-
-        $seller = explode('-', $accessToken);
-        $response = MeliRestClient::get(
-            array('uri' => '/applications/' . $seller[1]),
-            WC_WooMercadoPago_Constants::VERSION
-        );
-
-        //in case of failures
-        if ($response['status'] > 202) {
-            $log = WC_WooMercadoPago_Log::init_mercado_pago_log('WC_WooMercadoPago_Module');
-            $log->write_log('API application_search_owner_id error:', $response['response']['message']);
-            $_SESSION[$session] = 0;
-            return 0;
-        }
-        //response treatment
-        $result = $response['response'];
-        if (in_array('payments', $result['scopes'])) {
-            $_SESSION[$session] = 1;
-            return 1;
-        }
-        $_SESSION[$session] = 0;
-        return 0;
-    }
 }
