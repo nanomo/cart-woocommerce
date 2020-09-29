@@ -531,7 +531,10 @@ class WC_WooMercadoPago_PaymentAbstract extends WC_Payment_Gateway
             return '';
         } else {
             $application_id = $this->mp->getCredentialsWrapper($this->mp_access_token_prod);
-            return $application_id['client_id'];
+            if (is_array($application_id) && isset($application_id['client_id'])) {
+                return $application_id['client_id'];
+            }
+            return '';
         }
     }
 
