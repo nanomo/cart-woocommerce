@@ -5,6 +5,7 @@ const rename = require('gulp-rename');
 const jshint = require('gulp-jshint');
 const jshintStylish = require('jshint-stylish');
 const wpPot = require('gulp-wp-pot');
+const cleanCSS = require('gulp-clean-css');
 
 const config = {
   scripts: [
@@ -58,5 +59,3 @@ gulp.task('git-add', function() {
 });
 
 gulp.task('pre-commit', gulp.series('jshint', 'scripts', 'stylesheets', 'wpPot', 'git-add'));
-
-gulp.task('default', gulp.series('scripts', 'stylesheets'));

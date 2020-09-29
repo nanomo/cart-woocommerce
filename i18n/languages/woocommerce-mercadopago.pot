@@ -18,19 +18,19 @@ msgstr ""
 msgid "Activate this option so that the value of the currency set in WooCommerce is compatible with the value of the currency you use in Mercado Pago."
 msgstr ""
 
-#: includes/helpers/WC_WooMercadoPago_Helpers_CurrencyConverter.php:311
+#: includes/helpers/WC_WooMercadoPago_Helpers_CurrencyConverter.php:327
 msgid "Convert Currency"
 msgstr ""
 
-#: includes/helpers/WC_WooMercadoPago_Helpers_CurrencyConverter.php:378
+#: includes/helpers/WC_WooMercadoPago_Helpers_CurrencyConverter.php:394
 msgid "Now we convert your currency from %s to %s."
 msgstr ""
 
-#: includes/helpers/WC_WooMercadoPago_Helpers_CurrencyConverter.php:394
+#: includes/helpers/WC_WooMercadoPago_Helpers_CurrencyConverter.php:410
 msgid "We no longer convert your currency from %s to %s."
 msgstr ""
 
-#: includes/helpers/WC_WooMercadoPago_Helpers_CurrencyConverter.php:411
+#: includes/helpers/WC_WooMercadoPago_Helpers_CurrencyConverter.php:427
 msgid "<b>Attention:</b> The currency settings you have in WooCommerce are not compatible with the currency you use in your Mercado Pago account. Please activate the currency conversion."
 msgstr ""
 
@@ -74,107 +74,107 @@ msgstr ""
 msgid "Report Problem"
 msgstr ""
 
-#: includes/module/WC_WooMercadoPago_Module.php:323
+#: includes/module/WC_WooMercadoPago_Module.php:322
 msgid "By Mercado Pago"
 msgstr ""
 
-#: includes/module/WC_WooMercadoPago_Module.php:348, includes/module/WC_WooMercadoPago_Module.php:369
+#: includes/module/WC_WooMercadoPago_Module.php:347, includes/module/WC_WooMercadoPago_Module.php:368
 msgid "The <strong> Sponsor ID  </strong> must be valid!"
 msgstr ""
 
-#: includes/module/WC_WooMercadoPago_Module.php:365
+#: includes/module/WC_WooMercadoPago_Module.php:364
 msgid "The <strong>Sponsor ID</strong> must be from the same country as the seller!"
 msgstr ""
 
-#: includes/module/WC_WooMercadoPago_Module.php:396
+#: includes/module/WC_WooMercadoPago_Module.php:395
 msgid "The payment method is not valid or not available."
 msgstr ""
 
-#: includes/module/WC_WooMercadoPago_Module.php:399
+#: includes/module/WC_WooMercadoPago_Module.php:398
 msgid "The transaction amount cannot be processed by Mercado Pago."
 msgstr ""
 
-#: includes/module/WC_WooMercadoPago_Module.php:400
+#: includes/module/WC_WooMercadoPago_Module.php:399
 msgid "Possible causes: Currency not supported; Amounts below the minimum or above the maximum allowed."
 msgstr ""
 
-#: includes/module/WC_WooMercadoPago_Module.php:403
+#: includes/module/WC_WooMercadoPago_Module.php:402
 msgid "The users are not valid."
 msgstr ""
 
-#: includes/module/WC_WooMercadoPago_Module.php:404
+#: includes/module/WC_WooMercadoPago_Module.php:403
 msgid "Possible causes: Buyer and seller have the same account in Mercado Pago; The transaction involving production and test users."
 msgstr ""
 
-#: includes/module/WC_WooMercadoPago_Module.php:407
+#: includes/module/WC_WooMercadoPago_Module.php:406
 msgid "Unauthorized use of production credentials."
 msgstr ""
 
-#: includes/module/WC_WooMercadoPago_Module.php:408
+#: includes/module/WC_WooMercadoPago_Module.php:407
 msgid "Possible causes: Use permission in use for the credential of the seller."
 msgstr ""
 
-#: includes/module/WC_WooMercadoPago_Module.php:526
+#: includes/module/WC_WooMercadoPago_Module.php:525
 msgid "ERROR: It was not possible to convert the unsupported currency"
 msgstr ""
 
-#: includes/module/WC_WooMercadoPago_Module.php:528
+#: includes/module/WC_WooMercadoPago_Module.php:527
 msgid "a"
 msgstr ""
 
-#: includes/module/WC_WooMercadoPago_Module.php:529, includes/module/WC_WooMercadoPago_Module.php:540
+#: includes/module/WC_WooMercadoPago_Module.php:528, includes/module/WC_WooMercadoPago_Module.php:539
 msgid "Currency conversions should be done outside of this module."
 msgstr ""
 
-#: includes/module/WC_WooMercadoPago_Module.php:536
+#: includes/module/WC_WooMercadoPago_Module.php:535
 msgid "ATTENTION: The currency"
 msgstr ""
 
-#: includes/module/WC_WooMercadoPago_Module.php:538
+#: includes/module/WC_WooMercadoPago_Module.php:537
 msgid "defined in WooCommerce is different from that used by the credentials of your country.<br>The currency for transactions made with this payment method will be"
 msgstr ""
 
-#: includes/module/WC_WooMercadoPago_Module.php:547
+#: includes/module/WC_WooMercadoPago_Module.php:546
 msgid "CONVERTED CURRENCY: Your store is converting currency of"
 msgstr ""
 
-#: includes/module/WC_WooMercadoPago_Module.php:549, templates/checkout/custom_checkout.php:135
+#: includes/module/WC_WooMercadoPago_Module.php:548, templates/checkout/custom_checkout.php:135
 msgid "for"
 msgstr ""
 
-#: includes/module/WC_WooMercadoPago_Module.php:556, includes/payments/WC_WooMercadoPago_PaymentAbstract.php:515
+#: includes/module/WC_WooMercadoPago_Module.php:555, includes/payments/WC_WooMercadoPago_PaymentAbstract.php:515
 msgid "Colombia"
 msgstr ""
 
-#: includes/module/WC_WooMercadoPago_Module.php:558, includes/payments/WC_WooMercadoPago_PaymentAbstract.php:512
+#: includes/module/WC_WooMercadoPago_Module.php:557, includes/payments/WC_WooMercadoPago_PaymentAbstract.php:512
 msgid "Argentina"
 msgstr ""
 
-#: includes/module/WC_WooMercadoPago_Module.php:560, includes/payments/WC_WooMercadoPago_PaymentAbstract.php:513
+#: includes/module/WC_WooMercadoPago_Module.php:559, includes/payments/WC_WooMercadoPago_PaymentAbstract.php:513
 msgid "Brazil"
 msgstr ""
 
-#: includes/module/WC_WooMercadoPago_Module.php:562, includes/payments/WC_WooMercadoPago_PaymentAbstract.php:514
+#: includes/module/WC_WooMercadoPago_Module.php:561, includes/payments/WC_WooMercadoPago_PaymentAbstract.php:514
 msgid "Chile"
 msgstr ""
 
-#: includes/module/WC_WooMercadoPago_Module.php:564, includes/payments/WC_WooMercadoPago_PaymentAbstract.php:516
+#: includes/module/WC_WooMercadoPago_Module.php:563, includes/payments/WC_WooMercadoPago_PaymentAbstract.php:516
 msgid "Mexico"
 msgstr ""
 
-#: includes/module/WC_WooMercadoPago_Module.php:566, includes/payments/WC_WooMercadoPago_PaymentAbstract.php:518
+#: includes/module/WC_WooMercadoPago_Module.php:565, includes/payments/WC_WooMercadoPago_PaymentAbstract.php:518
 msgid "Uruguay"
 msgstr ""
 
-#: includes/module/WC_WooMercadoPago_Module.php:568
+#: includes/module/WC_WooMercadoPago_Module.php:567
 msgid "Venezuela"
 msgstr ""
 
-#: includes/module/WC_WooMercadoPago_Module.php:570, includes/payments/WC_WooMercadoPago_PaymentAbstract.php:517
+#: includes/module/WC_WooMercadoPago_Module.php:569, includes/payments/WC_WooMercadoPago_PaymentAbstract.php:517
 msgid "Peru"
 msgstr ""
 
-#: includes/module/WC_WooMercadoPago_Module.php:605
+#: includes/module/WC_WooMercadoPago_Module.php:604
 msgid "Update the WooCommerce order to "
 msgstr ""
 
@@ -226,11 +226,11 @@ msgstr ""
 msgid "Not found Payments into Merchant_Order"
 msgstr ""
 
-#: includes/notification/WC_WooMercadoPago_Notification_IPN.php:147, includes/notification/WC_WooMercadoPago_Notification_IPN.php:122, includes/notification/WC_WooMercadoPago_Notification_Webhook.php:157, includes/notification/WC_WooMercadoPago_Notification_Webhook.php:139
+#: includes/notification/WC_WooMercadoPago_Notification_IPN.php:148, includes/notification/WC_WooMercadoPago_Notification_IPN.php:122, includes/notification/WC_WooMercadoPago_Notification_Webhook.php:156, includes/notification/WC_WooMercadoPago_Notification_Webhook.php:138
 msgid "Buyer email"
 msgstr ""
 
-#: includes/notification/WC_WooMercadoPago_Notification_IPN.php:150, includes/notification/WC_WooMercadoPago_Notification_IPN.php:125, includes/notification/WC_WooMercadoPago_Notification_Webhook.php:160, includes/notification/WC_WooMercadoPago_Notification_Webhook.php:142
+#: includes/notification/WC_WooMercadoPago_Notification_IPN.php:151, includes/notification/WC_WooMercadoPago_Notification_IPN.php:125, includes/notification/WC_WooMercadoPago_Notification_Webhook.php:159, includes/notification/WC_WooMercadoPago_Notification_Webhook.php:141
 msgid "Payment method"
 msgstr ""
 
