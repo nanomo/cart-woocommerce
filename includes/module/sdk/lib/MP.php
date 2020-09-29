@@ -571,7 +571,7 @@ class MP
         if (!isset($request['authenticate']) || $request['authenticate'] !== false) {
             $access_token = $this->get_access_token();
             if (!empty($access_token)) {
-                $request['headers'] = 'Authorization: Bearer ' . $access_token;
+                $request['headers'] = array('Authorization'=> 'Bearer ' . $access_token);
             }
         }
 
