@@ -85,13 +85,6 @@ class WC_WooMercadoPago_Credentials
             return false;
         }
 
-        if (strpos($this->publicKey, 'APP_USR') === false && strpos($this->publicKey, 'TEST') === false) {
-            return false;
-        }
-        if (strpos($this->accessToken, 'APP_USR') === false && strpos($this->accessToken, 'TEST') === false) {
-            return false;
-        }
-
         return true;
     }
 
@@ -133,35 +126,6 @@ class WC_WooMercadoPago_Credentials
 
         if (isset($get_request['response']['id'])) {
             update_option('_collector_id_v1', $get_request['response']['id'], true);
-        }
-
-        return true;
-    }
-
-    /**
-     * @param $public_key
-     * @return bool
-     * @throws WC_WooMercadoPago_Exception
-     */
-    public static function public_key_is_valid($public_key)
-    {
-        $mp_v1 = WC_WooMercadoPago_Module::getMpInstanceSingleton();
-        if (empty($mp_v1)) {
-            return false;
-        }
-        $request = array(
-            'uri' => '/v1/card_tokens',
-            'data' => null,
-            'params' => array(
-                'public_key' => $public_key
-            ),
-            'authenticate' => false
-        );
-        $get_request = $mp_v1->post($request);
-        if ($get_request['status'] > 202) {
-            $log = WC_WooMercadoPago_Log::init_mercado_pago_log('WC_WooMercadoPago_Credentials');
-            $log->write_log('API public_key_is_valid error: ', $get_request['response']['message']);
-            return false;
         }
 
         return true;
@@ -335,5 +299,29 @@ class WC_WooMercadoPago_Credentials
         }
 
         return $basicIsEnabled;
+    }
+
+    /**
+     * @throws WC_WooMercadoPago_Exception
+     */
+    public static function validateCredentialsTest($mpInstance, $access_token = null, $public_key = null)
+    {
+        $isTeste = $mpInstance->getCredentialsWrapper($access_token, $public_key);
+        if (is_array($isTeste) && isset($isTeste['is_test']) && $isTeste['is_test'] == true) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * @throws WC_WooMercadoPago_Exception
+     */
+    public static function validateCredentialsProd($mpInstance, $access_token = null, $public_key = null)
+    {
+        $isTeste = $mpInstance->getCredentialsWrapper($access_token, $public_key);
+        if (is_array($isTeste) && isset($isTeste['is_test']) && $isTeste['is_test'] == false) {
+            return true;
+        }
+        return false;
     }
 }

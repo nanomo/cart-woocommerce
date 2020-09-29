@@ -272,24 +272,15 @@ abstract class WC_WooMercadoPago_Hook_Abstract
             return false;
         }
 
-        if ($key == '_mp_public_key_prod' && strpos($value, 'APP_USR') === false) {
+        if($key == '_mp_public_key_prod' && WC_WooMercadoPago_Credentials::validateCredentialsProd($this->mpInstance, null ,$value) == false) {
             update_option($key, '', true);
+            add_action('admin_notices', array($this, 'noticeInvalidPublicKeyProd'));
             return true;
         }
 
-        if ($key == '_mp_public_key_test' && strpos($value, 'TEST') === false) {
+        if($key == '_mp_public_key_test' && WC_WooMercadoPago_Credentials::validateCredentialsTest($this->mpInstance, null ,$value) == false) {
             update_option($key, '', true);
-            return true;
-        }
-
-        if (WC_WooMercadoPago_Credentials::public_key_is_valid($value) === false) {
-            update_option($key, '', true);
-
-            if ($key == '_mp_public_key_prod') {
-                add_action('admin_notices', array($this, 'noticeInvalidPublicKeyProd'));
-            } else {
-                add_action('admin_notices', array($this, 'noticeInvalidPublicKeyTest'));
-            }
+            add_action('admin_notices', array($this, 'noticeInvalidPublicKeyTest'));
             return true;
         }
 
