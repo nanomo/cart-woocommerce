@@ -206,9 +206,11 @@ class WC_WooMercadoPago_Module extends WC_WooMercadoPago_Configs
     public function loadAdminCss()
     {
         if (is_admin()) {
+            $suffix = defined('SCRIPT_DEBUG') && SCRIPT_DEBUG ? '' : '.min';
+
             wp_enqueue_style(
                 'woocommerce-mercadopago-basic-config-styles',
-                plugins_url('../assets/css/config_mercadopago.css', plugin_dir_path(__FILE__))
+                plugins_url('../assets/css/config_mercadopago' . $suffix . '.css', plugin_dir_path(__FILE__))
             );
         }
     }

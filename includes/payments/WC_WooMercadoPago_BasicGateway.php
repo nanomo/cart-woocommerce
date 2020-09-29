@@ -517,7 +517,7 @@ class WC_WooMercadoPago_BasicGateway extends WC_WooMercadoPago_PaymentAbstract
         //add css
         wp_enqueue_style(
             'woocommerce-mercadopago-basic-checkout-styles',
-            plugins_url('../assets/css/basic_checkout_mercadopago.css', plugin_dir_path(__FILE__))
+            plugins_url('../assets/css/basic_checkout_mercadopago' . $suffix . '.css', plugin_dir_path(__FILE__))
         );
 
         //validate active payments methods
