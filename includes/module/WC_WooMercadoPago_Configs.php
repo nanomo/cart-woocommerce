@@ -243,18 +243,20 @@ class WC_WooMercadoPago_Configs
      */
     public function setPaymentGateway($methods = null)
     {
+        $mp_methods = array('WC_WooMercadoPago_BasicGateway',
+                            'WC_WooMercadoPago_CustomGateway',
+                            'WC_WooMercadoPago_TicketGateway');
+
         global $wp;
         if (!empty($wp) && isset($wp->query_vars['wc-api'])) {
-            $api_request = strtolower(wc_clean($wp->query_vars['wc-api']));
-            if (!empty($api_request)) {
+            $api_request = wc_clean($wp->query_vars['wc-api']);
+            if (!empty($api_request) && in_array($api_request, $mp_methods)) {
                 $methods[] = $api_request;
                 return $methods;
             }
         }
 
-        $methods[] = 'WC_WooMercadoPago_BasicGateway';
-        $methods[] = 'WC_WooMercadoPago_CustomGateway';
-        $methods[] = 'WC_WooMercadoPago_TicketGateway';
+        $methods = array_merge($mp_methods, $methods == null ? [] : $methods);
         return $methods;
     }
 }
