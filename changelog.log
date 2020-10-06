@@ -1,6 +1,6 @@
 CHANGELOG:
 == Changelog ==
-= v4.5.0 (xx/10/2020) =
+= v4.5.0 (19/10/2020) =
 * Features
   - Improved security (added access token in the header for all calls to Mercado Livre and Mercado Pago endpoints)
   - Add new endpoint to validate Access Token and Public key to substitute old process to validation
