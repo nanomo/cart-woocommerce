@@ -225,7 +225,7 @@ abstract class WC_WooMercadoPago_Notification_Abstract
      */
     public function mp_rule_rejected($order)
     {
-        if (method_exists($order, 'get_status') && $order->get_status() !== 'completed' && $this->countOrderPayments($order) > 1) {
+        if (method_exists($order, 'get_status') && $order->get_status() !== 'completed' && $this->countOrderPayments($order) <= 1) {
             $order->update_status(
                 self::get_wc_status_for_mp_status('rejected'),
                 'Mercado Pago: ' . __('Payment was declined. The customer can try again.', 'woocommerce-mercadopago')
@@ -251,7 +251,7 @@ abstract class WC_WooMercadoPago_Notification_Abstract
      */
     public function mp_rule_cancelled($order)
     {
-        if (method_exists($order, 'get_status') && $order->get_status() !== 'completed' && $this->countOrderPayments($order) > 1) {
+        if (method_exists($order, 'get_status') && $order->get_status() !== 'completed' && $this->countOrderPayments($order) <= 1) {
             $order->update_status(
                 self::get_wc_status_for_mp_status('cancelled'),
                 'Mercado Pago: ' . __('Payment was canceled.', 'woocommerce-mercadopago')
