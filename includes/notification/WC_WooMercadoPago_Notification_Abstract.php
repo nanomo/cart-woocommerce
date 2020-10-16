@@ -140,7 +140,14 @@ abstract class WC_WooMercadoPago_Notification_Abstract
     public function mp_rule_approved($data, $order, $used_gateway)
     {
         $order->add_order_note('Mercado Pago: ' . __('Payment approved.', 'woocommerce-mercadopago'));
-        $payment_completed_status = apply_filters('woocommerce_payment_complete_order_status', $order->needs_processing() ? 'processing' : 'completed', $order->get_id(), $order);
+
+        $payment_completed_status = apply_filters(
+            'woocommerce_payment_complete_order_status',
+            $order->needs_processing() ? 'processing' : 'completed',
+            $order->get_id(),
+            $order
+        );
+
         if (method_exists($order, 'get_status') && $order->get_status() !== 'completed') {
             switch ($used_gateway) {
                 case 'WC_WooMercadoPago_CustomGateway':
@@ -193,7 +200,9 @@ abstract class WC_WooMercadoPago_Notification_Abstract
                 }
                 break;
             default:
-                $order->add_order_note('Mercado Pago: ' . __('The customer has not made the payment yet.', 'woocommerce-mercadopago'));
+                $order->add_order_note(
+                    'Mercado Pago: ' . __('The customer has not made the payment yet.', 'woocommerce-mercadopago')
+                );
                 break;
         }
         return;
@@ -204,7 +213,10 @@ abstract class WC_WooMercadoPago_Notification_Abstract
      */
     public function mp_rule_in_process($order)
     {
-        $order->update_status(self::get_wc_status_for_mp_status('inprocess'), 'Mercado Pago: ' . __('Payment is pending review.', 'woocommerce-mercadopago'));
+        $order->update_status(
+            self::get_wc_status_for_mp_status('inprocess'),
+            'Mercado Pago: ' . __('Payment is pending review.', 'woocommerce-mercadopago')
+        );
         return;
     }
 
@@ -213,7 +225,12 @@ abstract class WC_WooMercadoPago_Notification_Abstract
      */
     public function mp_rule_rejected($order)
     {
-        $order->update_status(self::get_wc_status_for_mp_status('rejected'), 'Mercado Pago: ' . __('Payment was declined. The customer can try again.', 'woocommerce-mercadopago'));
+        if (method_exists($order, 'get_status') && $order->get_status() !== 'completed' && $this->countOrderPayments($order) > 1) {
+            $order->update_status(
+                self::get_wc_status_for_mp_status('rejected'),
+                'Mercado Pago: ' . __('Payment was declined. The customer can try again.', 'woocommerce-mercadopago')
+            );
+        }
         return;
     }
 
@@ -222,7 +239,10 @@ abstract class WC_WooMercadoPago_Notification_Abstract
      */
     public function mp_rule_refunded($order)
     {
-        $order->update_status(self::get_wc_status_for_mp_status('refunded'), 'Mercado Pago: ' . __('Payment was returned to the customer.', 'woocommerce-mercadopago'));
+        $order->update_status(
+            self::get_wc_status_for_mp_status('refunded'),
+            'Mercado Pago: ' . __('Payment was returned to the customer.', 'woocommerce-mercadopago')
+        );
         return;
     }
 
@@ -231,7 +251,12 @@ abstract class WC_WooMercadoPago_Notification_Abstract
      */
     public function mp_rule_cancelled($order)
     {
-        $order->update_status(self::get_wc_status_for_mp_status('cancelled'), 'Mercado Pago: ' . __('Payment was canceled.', 'woocommerce-mercadopago'));
+        if (method_exists($order, 'get_status') && $order->get_status() !== 'completed' && $this->countOrderPayments($order) > 1) {
+            $order->update_status(
+                self::get_wc_status_for_mp_status('cancelled'),
+                'Mercado Pago: ' . __('Payment was canceled.', 'woocommerce-mercadopago')
+            );
+        }
         return;
     }
 
@@ -241,7 +266,9 @@ abstract class WC_WooMercadoPago_Notification_Abstract
     public function mp_rule_in_mediation($order)
     {
         $order->update_status(self::get_wc_status_for_mp_status('inmediation'));
-        $order->add_order_note('Mercado Pago: ' . __('The payment is in mediation or the purchase was unknown by the customer.', 'woocommerce-mercadopago'));
+        $order->add_order_note(
+            'Mercado Pago: ' . __('The payment is in mediation or the purchase was unknown by the customer.', 'woocommerce-mercadopago')
+        );
         return;
     }
 
@@ -251,7 +278,10 @@ abstract class WC_WooMercadoPago_Notification_Abstract
     public function mp_rule_charged_back($order)
     {
         $order->update_status(self::get_wc_status_for_mp_status('chargedback'));
-        $order->add_order_note('Mercado Pago: ' . __('The payment is in mediation or the purchase was unknown by the customer.', 'woocommerce-mercadopago'));
+        $order->add_order_note(
+            'Mercado Pago: ' . __('The payment is in mediation or the purchase was unknown by the customer.',
+            'woocommerce-mercadopago')
+        );
         return;
     }
 
@@ -315,6 +345,26 @@ abstract class WC_WooMercadoPago_Notification_Abstract
     }
 
     /**
+     * @param $order
+     * @return void
+     */
+    public function countOrderPayments($order)
+    {
+        $count_payments = 0;
+        $metadatas = $order->get_meta_data();
+
+        foreach($metadatas as $metadata){
+            $keys = ($metadata->get_data());
+            $pos = stristr($keys['key'], 'Mercado Pago - Payment');
+            if ($pos !== false) {
+                $count_payments++;
+            }
+        }
+
+        return $count_payments;
+    }
+
+    /**
      * @param $code
      * @param $code_message
      * @param $body
@@ -324,5 +374,4 @@ abstract class WC_WooMercadoPago_Notification_Abstract
         status_header($code, $code_message);
         die($body);
     }
-
 }
