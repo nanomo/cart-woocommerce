@@ -210,6 +210,10 @@ msgstr ""
 msgid "The payment is in mediation or the purchase was unknown by the customer."
 msgstr ""
 
+#: includes/notification/WC_WooMercadoPago_Notification_Abstract.php:384
+msgid "Mercado Pago: The payment %s was notified by Mercado Pago with status %s."
+msgstr ""
+
 #: includes/notification/WC_WooMercadoPago_Notification_IPN.php:35
 msgid "No ID or TOPIC param in Request IPN"
 msgstr ""

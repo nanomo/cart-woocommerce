@@ -380,9 +380,10 @@ abstract class WC_WooMercadoPago_Notification_Abstract
         }
 
         $order->add_order_note(
-            'Mercado Pago: ' . __(
-                'The payment ' . $paymentId . ' was notified at MP with status ' . $status . '.',
-                'woocommerce-mercadopago'
+            sprintf(
+                __('Mercado Pago: The payment %s was notified by Mercado Pago with status %s.', 'woocommerce-mercadopago'),
+                $paymentId,
+                $status
             )
         );
     }
