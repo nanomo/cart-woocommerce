@@ -182,32 +182,36 @@ msgstr ""
 msgid "Payment approved."
 msgstr ""
 
-#: includes/notification/WC_WooMercadoPago_Notification_Abstract.php:187, includes/notification/WC_WooMercadoPago_Notification_Abstract.php:190
+#: includes/notification/WC_WooMercadoPago_Notification_Abstract.php:195, includes/notification/WC_WooMercadoPago_Notification_Abstract.php:198
 msgid "Waiting for the ticket payment."
 msgstr ""
 
-#: includes/notification/WC_WooMercadoPago_Notification_Abstract.php:196
+#: includes/notification/WC_WooMercadoPago_Notification_Abstract.php:205
 msgid "The customer has not made the payment yet."
 msgstr ""
 
-#: includes/notification/WC_WooMercadoPago_Notification_Abstract.php:207
+#: includes/notification/WC_WooMercadoPago_Notification_Abstract.php:224
 msgid "Payment is pending review."
 msgstr ""
 
-#: includes/notification/WC_WooMercadoPago_Notification_Abstract.php:216
+#: includes/notification/WC_WooMercadoPago_Notification_Abstract.php:241
 msgid "Payment was declined. The customer can try again."
 msgstr ""
 
-#: includes/notification/WC_WooMercadoPago_Notification_Abstract.php:225
+#: includes/notification/WC_WooMercadoPago_Notification_Abstract.php:257
 msgid "Payment was returned to the customer."
 msgstr ""
 
-#: includes/notification/WC_WooMercadoPago_Notification_Abstract.php:234
+#: includes/notification/WC_WooMercadoPago_Notification_Abstract.php:270
 msgid "Payment was canceled."
 msgstr ""
 
-#: includes/notification/WC_WooMercadoPago_Notification_Abstract.php:244, includes/notification/WC_WooMercadoPago_Notification_Abstract.php:254
+#: includes/notification/WC_WooMercadoPago_Notification_Abstract.php:286, includes/notification/WC_WooMercadoPago_Notification_Abstract.php:298
 msgid "The payment is in mediation or the purchase was unknown by the customer."
+msgstr ""
+
+#: includes/notification/WC_WooMercadoPago_Notification_Abstract.php:388
+msgid "Mercado Pago: The payment %s was notified by Mercado Pago with status %s."
 msgstr ""
 
 #: includes/notification/WC_WooMercadoPago_Notification_IPN.php:35
@@ -370,11 +374,11 @@ msgstr ""
 msgid "installment"
 msgstr ""
 
-#: includes/payments/WC_WooMercadoPago_BasicGateway.php:597, includes/payments/WC_WooMercadoPago_BasicGateway.php:597, includes/payments/WC_WooMercadoPago_BasicGateway.php:584, includes/payments/WC_WooMercadoPago_BasicGateway.php:584, includes/payments/WC_WooMercadoPago_CustomGateway.php:347, includes/payments/WC_WooMercadoPago_CustomGateway.php:347, includes/payments/WC_WooMercadoPago_CustomGateway.php:335, includes/payments/WC_WooMercadoPago_CustomGateway.php:335, includes/payments/WC_WooMercadoPago_TicketGateway.php:446, includes/payments/WC_WooMercadoPago_TicketGateway.php:446, includes/payments/WC_WooMercadoPago_TicketGateway.php:433, includes/payments/WC_WooMercadoPago_TicketGateway.php:433, includes/payments/hooks/WC_WooMercadoPago_Hook_Abstract.php:134, includes/payments/hooks/WC_WooMercadoPago_Hook_Abstract.php:132
+#: includes/payments/WC_WooMercadoPago_BasicGateway.php:598, includes/payments/WC_WooMercadoPago_BasicGateway.php:598, includes/payments/WC_WooMercadoPago_BasicGateway.php:585, includes/payments/WC_WooMercadoPago_BasicGateway.php:585, includes/payments/WC_WooMercadoPago_CustomGateway.php:347, includes/payments/WC_WooMercadoPago_CustomGateway.php:347, includes/payments/WC_WooMercadoPago_CustomGateway.php:335, includes/payments/WC_WooMercadoPago_CustomGateway.php:335, includes/payments/WC_WooMercadoPago_TicketGateway.php:446, includes/payments/WC_WooMercadoPago_TicketGateway.php:446, includes/payments/WC_WooMercadoPago_TicketGateway.php:433, includes/payments/WC_WooMercadoPago_TicketGateway.php:433, includes/payments/hooks/WC_WooMercadoPago_Hook_Abstract.php:134, includes/payments/hooks/WC_WooMercadoPago_Hook_Abstract.php:132
 msgid "discount of"
 msgstr ""
 
-#: includes/payments/WC_WooMercadoPago_BasicGateway.php:602, includes/payments/WC_WooMercadoPago_BasicGateway.php:602, includes/payments/WC_WooMercadoPago_BasicGateway.php:589, includes/payments/WC_WooMercadoPago_BasicGateway.php:589, includes/payments/WC_WooMercadoPago_CustomGateway.php:352, includes/payments/WC_WooMercadoPago_CustomGateway.php:352, includes/payments/WC_WooMercadoPago_CustomGateway.php:340, includes/payments/WC_WooMercadoPago_CustomGateway.php:340, includes/payments/WC_WooMercadoPago_TicketGateway.php:451, includes/payments/WC_WooMercadoPago_TicketGateway.php:451, includes/payments/WC_WooMercadoPago_TicketGateway.php:438, includes/payments/WC_WooMercadoPago_TicketGateway.php:438, includes/payments/hooks/WC_WooMercadoPago_Hook_Abstract.php:136
+#: includes/payments/WC_WooMercadoPago_BasicGateway.php:603, includes/payments/WC_WooMercadoPago_BasicGateway.php:603, includes/payments/WC_WooMercadoPago_BasicGateway.php:590, includes/payments/WC_WooMercadoPago_BasicGateway.php:590, includes/payments/WC_WooMercadoPago_CustomGateway.php:352, includes/payments/WC_WooMercadoPago_CustomGateway.php:352, includes/payments/WC_WooMercadoPago_CustomGateway.php:340, includes/payments/WC_WooMercadoPago_CustomGateway.php:340, includes/payments/WC_WooMercadoPago_TicketGateway.php:451, includes/payments/WC_WooMercadoPago_TicketGateway.php:451, includes/payments/WC_WooMercadoPago_TicketGateway.php:438, includes/payments/WC_WooMercadoPago_TicketGateway.php:438, includes/payments/hooks/WC_WooMercadoPago_Hook_Abstract.php:136
 msgid "fee of"
 msgstr ""
 
