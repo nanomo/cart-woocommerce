@@ -361,11 +361,7 @@ abstract class WC_WooMercadoPago_Notification_Abstract
     }
 
     protected function canUpdateOrderStatus($order) {
-        if (method_exists($order, 'get_status') && $order->get_status() !== 'completed' && $order->get_status() !== 'processing') {
-            true;
-        }
-
-        return false;
+        return method_exists($order, 'get_status') && $order->get_status() !== 'completed' && $order->get_status() !== 'processing';
     }
 
     /**
