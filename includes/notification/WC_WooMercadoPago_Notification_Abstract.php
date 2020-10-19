@@ -180,7 +180,7 @@ abstract class WC_WooMercadoPago_Notification_Abstract
      */
     public function mp_rule_pending($data, $order, $used_gateway)
     {
-        if (method_exists($order, 'get_status') && $order->get_status() !== 'completed' && $order->get_status() !== 'processing') {
+        if ($this->canUpdateOrderStatus($order)) {
             $order->update_status(self::get_wc_status_for_mp_status('pending'));
             switch ($used_gateway) {
                 case 'WC_WooMercadoPago_TicketGateway':
@@ -218,7 +218,7 @@ abstract class WC_WooMercadoPago_Notification_Abstract
      */
     public function mp_rule_in_process($data, $order)
     {
-        if (method_exists($order, 'get_status') && $order->get_status() !== 'completed' && $order->get_status() !== 'processing') {
+        if ($this->canUpdateOrderStatus($order)) {
             $order->update_status(
                 self::get_wc_status_for_mp_status('inprocess'),
                 'Mercado Pago: ' . __('Payment is pending review.', 'woocommerce-mercadopago')
@@ -235,7 +235,7 @@ abstract class WC_WooMercadoPago_Notification_Abstract
      */
     public function mp_rule_rejected($data, $order)
     {
-        if (method_exists($order, 'get_status') && $order->get_status() !== 'completed' && $order->get_status() !== 'processing') {
+        if ($this->canUpdateOrderStatus($order)) {
             $order->update_status(
                 self::get_wc_status_for_mp_status('rejected'),
                 'Mercado Pago: ' . __('Payment was declined. The customer can try again.', 'woocommerce-mercadopago')
@@ -264,7 +264,7 @@ abstract class WC_WooMercadoPago_Notification_Abstract
      */
     public function mp_rule_cancelled($data, $order)
     {
-        if (method_exists($order, 'get_status') && $order->get_status() !== 'completed' && $order->get_status() !== 'processing') {
+        if ($this->canUpdateOrderStatus($order)) {
             $order->update_status(
                 self::get_wc_status_for_mp_status('cancelled'),
                 'Mercado Pago: ' . __('Payment was canceled.', 'woocommerce-mercadopago')
@@ -360,13 +360,21 @@ abstract class WC_WooMercadoPago_Notification_Abstract
         }
     }
 
+    protected function canUpdateOrderStatus($order) {
+        if (method_exists($order, 'get_status') && $order->get_status() !== 'completed' && $order->get_status() !== 'processing') {
+            true;
+        }
+
+        return false;
+    }
+
     /**
      * @param $data
      * @param $order
      * @param $status
      * @return void
      */
-    public function validateOrderNoteType($data, $order, $status)
+    protected function validateOrderNoteType($data, $order, $status)
     {
         $paymentId = $data['id'];
 
