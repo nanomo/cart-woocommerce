@@ -300,12 +300,14 @@ abstract class WC_WooMercadoPago_Hook_Abstract
             return false;
         }
 
-        if ($key == '_mp_access_token_prod' && strpos($value, 'APP_USR') === false) {
+        if ($key == '_mp_access_token_prod' && WC_WooMercadoPago_Credentials::validateCredentialsProd($this->mpInstance, $value, null) == false) {
+            add_action('admin_notices', array($this, 'noticeInvalidProdCredentials'));
             update_option($key, '', true);
             return true;
         }
 
-        if ($key == '_mp_access_token_test' && strpos($value, 'TEST') === false) {
+        if ($key == '_mp_access_token_test' && WC_WooMercadoPago_Credentials::validateCredentialsTest($this->mpInstance, $value, null) == false) {
+            add_action('admin_notices', array($this, 'noticeInvalidTestCredentials'));
             update_option($key, '', true);
             return true;
         }
