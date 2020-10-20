@@ -22,15 +22,15 @@ msgstr ""
 msgid "Convert Currency"
 msgstr ""
 
-#: includes/helpers/WC_WooMercadoPago_Helpers_CurrencyConverter.php:393
+#: includes/helpers/WC_WooMercadoPago_Helpers_CurrencyConverter.php:395
 msgid "Now we convert your currency from %s to %s."
 msgstr ""
 
-#: includes/helpers/WC_WooMercadoPago_Helpers_CurrencyConverter.php:408
+#: includes/helpers/WC_WooMercadoPago_Helpers_CurrencyConverter.php:410
 msgid "We no longer convert your currency from %s to %s."
 msgstr ""
 
-#: includes/helpers/WC_WooMercadoPago_Helpers_CurrencyConverter.php:425
+#: includes/helpers/WC_WooMercadoPago_Helpers_CurrencyConverter.php:427
 msgid "<b>Attention:</b> The currency settings you have in WooCommerce are not compatible with the currency you use in your Mercado Pago account. Please activate the currency conversion."
 msgstr ""
 

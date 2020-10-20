@@ -362,7 +362,9 @@ class WC_WooMercadoPago_Helpers_CurrencyConverter
         $show = isset($_SESSION[self::CONFIG_KEY]) ? $_SESSION[self::CONFIG_KEY] : array();
         $localCurrency = get_woocommerce_currency();
 
-        if ($localCurrency == $this->getAccountCurrency($method)) {
+        $accountCurrency = $this->getAccountCurrency($method);
+
+        if ($localCurrency == $accountCurrency || empty($accountCurrency) ) {
             return;
         }
 
