@@ -22,6 +22,14 @@ msgstr ""
 msgid "Convert Currency"
 msgstr ""
 
+#: includes/helpers/WC_WooMercadoPago_Helpers_CurrencyConverter.php:332, includes/payments/WC_WooMercadoPago_BasicGateway.php:500, includes/payments/WC_WooMercadoPago_PaymentAbstract.php:573, includes/payments/WC_WooMercadoPago_PaymentAbstract.php:657, includes/payments/WC_WooMercadoPago_PaymentAbstract.php:943, includes/payments/WC_WooMercadoPago_PaymentAbstract.php:1050, includes/payments/WC_WooMercadoPago_PaymentAbstract.php:1085, includes/payments/WC_WooMercadoPago_TicketGateway.php:276
+msgid "No"
+msgstr ""
+
+#: includes/helpers/WC_WooMercadoPago_Helpers_CurrencyConverter.php:333, includes/payments/WC_WooMercadoPago_BasicGateway.php:499, includes/payments/WC_WooMercadoPago_PaymentAbstract.php:574, includes/payments/WC_WooMercadoPago_PaymentAbstract.php:658, includes/payments/WC_WooMercadoPago_PaymentAbstract.php:944, includes/payments/WC_WooMercadoPago_PaymentAbstract.php:1051, includes/payments/WC_WooMercadoPago_PaymentAbstract.php:1084, includes/payments/WC_WooMercadoPago_TicketGateway.php:277
+msgid "Yes"
+msgstr ""
+
 #: includes/helpers/WC_WooMercadoPago_Helpers_CurrencyConverter.php:393
 msgid "Now we convert your currency from %s to %s."
 msgstr ""
@@ -356,14 +364,6 @@ msgstr ""
 
 #: includes/payments/WC_WooMercadoPago_BasicGateway.php:497
 msgid "Do you want your customer to automatically return to the store after payment?"
-msgstr ""
-
-#: includes/payments/WC_WooMercadoPago_BasicGateway.php:499, includes/payments/WC_WooMercadoPago_PaymentAbstract.php:574, includes/payments/WC_WooMercadoPago_PaymentAbstract.php:658, includes/payments/WC_WooMercadoPago_PaymentAbstract.php:944, includes/payments/WC_WooMercadoPago_PaymentAbstract.php:1051, includes/payments/WC_WooMercadoPago_PaymentAbstract.php:1084, includes/payments/WC_WooMercadoPago_TicketGateway.php:277
-msgid "Yes"
-msgstr ""
-
-#: includes/payments/WC_WooMercadoPago_BasicGateway.php:500, includes/payments/WC_WooMercadoPago_PaymentAbstract.php:573, includes/payments/WC_WooMercadoPago_PaymentAbstract.php:657, includes/payments/WC_WooMercadoPago_PaymentAbstract.php:943, includes/payments/WC_WooMercadoPago_PaymentAbstract.php:1050, includes/payments/WC_WooMercadoPago_PaymentAbstract.php:1085, includes/payments/WC_WooMercadoPago_TicketGateway.php:276
-msgid "No"
 msgstr ""
 
 #: includes/payments/WC_WooMercadoPago_BasicGateway.php:526

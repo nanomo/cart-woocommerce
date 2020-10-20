@@ -329,8 +329,8 @@ class WC_WooMercadoPago_Helpers_CurrencyConverter
             'default'     => 'no',
             'description' => $this->msg_description,
             'options'     => array(
-                'no'  => $this->__('No'),
-                'yes' => $this->__('Yes'),
+                'no'  => __('No', 'woocommerce-mercadopago'),
+                'yes' => __('Yes', 'woocommerce-mercadopago'),
             ),
         );
     }
