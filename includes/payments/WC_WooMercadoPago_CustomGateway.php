@@ -522,7 +522,7 @@ class WC_WooMercadoPago_CustomGateway extends WC_WooMercadoPago_PaymentAbstract
         }
 
         $_mp_access_token = get_option('_mp_access_token_prod');
-        $is_prod_credentials = WC_WooMercadoPago_Credentials::validateCredentialsTest($this->mpInstance, $_mp_access_token, null) == false;
+        $is_prod_credentials = WC_WooMercadoPago_Credentials::validateCredentialsTest($this->mp, $_mp_access_token, null) == false;
 
         if ((empty($_SERVER['HTTPS']) || $_SERVER['HTTPS'] == 'off') && $is_prod_credentials) {
             $this->log->write_log(__FUNCTION__, 'NO HTTPS, Custom unavailable.');
