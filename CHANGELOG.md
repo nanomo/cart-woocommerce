@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [4.5.0] - 2020-10-19
+## [4.5.0] - 2020-10-26
 
 ### Added
   - Improved security (added access token in the header for all calls to Mercado Livre and Mercado Pago endpoints)
@@ -14,6 +14,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
   - Fixed conflict with wc-api webhook and Mercado Pago webhook/IPN.
+  - Fixed alert in currency conversion
+  - Fixed tranlate in currency conversion
+  - Bug fixed when updating orders that have two or more payments associated.
 
 ## [4.4.0] - 2020-09-21
 
