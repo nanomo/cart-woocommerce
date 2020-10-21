@@ -30,16 +30,20 @@ msgstr ""
 msgid "Yes"
 msgstr ""
 
-#: includes/helpers/WC_WooMercadoPago_Helpers_CurrencyConverter.php:393
+#: includes/helpers/WC_WooMercadoPago_Helpers_CurrencyConverter.php:395
 msgid "Now we convert your currency from %s to %s."
 msgstr ""
 
-#: includes/helpers/WC_WooMercadoPago_Helpers_CurrencyConverter.php:408
+#: includes/helpers/WC_WooMercadoPago_Helpers_CurrencyConverter.php:410
 msgid "We no longer convert your currency from %s to %s."
 msgstr ""
 
-#: includes/helpers/WC_WooMercadoPago_Helpers_CurrencyConverter.php:425
+#: includes/helpers/WC_WooMercadoPago_Helpers_CurrencyConverter.php:427
 msgid "<b>Attention:</b> The currency settings you have in WooCommerce are not compatible with the currency you use in your Mercado Pago account. Please activate the currency conversion."
+msgstr ""
+
+#: includes/module/WC_WooMercadoPago_Configs.php:101
+msgid "Update your credentials with the Access Token and Public Key, you need them to continue receiving payments!"
 msgstr ""
 
 #: includes/module/WC_WooMercadoPago_Configs.php:111
@@ -62,7 +66,7 @@ msgstr ""
 msgid "Cancel order"
 msgstr ""
 
-#: includes/module/WC_WooMercadoPago_Module.php:241, includes/payments/hooks/WC_WooMercadoPago_Hook_Abstract.php:397
+#: includes/module/WC_WooMercadoPago_Module.php:241, includes/payments/hooks/WC_WooMercadoPago_Hook_Abstract.php:399
 msgid "Fill in your credentials to enable payment methods."
 msgstr ""
 
@@ -1169,19 +1173,19 @@ msgstr ""
 msgid " and fee of"
 msgstr ""
 
-#: includes/payments/hooks/WC_WooMercadoPago_Hook_Abstract.php:357
+#: includes/payments/hooks/WC_WooMercadoPago_Hook_Abstract.php:359
 msgid "<b>Public Key</b> production credential is invalid. Review the field to receive real payments."
 msgstr ""
 
-#: includes/payments/hooks/WC_WooMercadoPago_Hook_Abstract.php:367
+#: includes/payments/hooks/WC_WooMercadoPago_Hook_Abstract.php:369
 msgid "<b>Public Key</b> test credential is invalid. Review the field to perform tests in your store."
 msgstr ""
 
-#: includes/payments/hooks/WC_WooMercadoPago_Hook_Abstract.php:377
+#: includes/payments/hooks/WC_WooMercadoPago_Hook_Abstract.php:379
 msgid "<b>Access Token</b> production credential is invalid. Remember that it must be complete to receive real payments."
 msgstr ""
 
-#: includes/payments/hooks/WC_WooMercadoPago_Hook_Abstract.php:387
+#: includes/payments/hooks/WC_WooMercadoPago_Hook_Abstract.php:389
 msgid "<b>Access Token</b> test credential is invalid. Review the field to perform tests in your store."
 msgstr ""
 
