@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [4.5.0] - 2020-10-26
 
 ### Added
+  - Compatibility with WooCommerce v4.6.x
   - Improved security (added access token in the header for all calls to Mercado Livre and Mercado Pago endpoints)
   - Add new endpoint to validate Access Token and Public key to substitute old process to validation
   - Improved performance with CSS minification
