@@ -117,6 +117,7 @@ Check out our <a href="https://www.mercadopago.com.br/developers/pt/plugins_sdks
 == Changelog ==
 = v4.5.0 (26/10/2020) =
 * Features
+  - Compatibility with WooCommerce v4.6.x
   - Improved security (added access token in the header for all calls to Mercado Livre and Mercado Pago endpoints)
   - Add new endpoint to validate Access Token and Public key to substitute old process to validation
   - Improved performance with CSS minification

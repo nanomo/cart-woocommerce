@@ -374,7 +374,7 @@ abstract class WC_WooMercadoPago_Notification_Abstract
     {
         $paymentId = $data['id'];
 
-        if($data['ipn_type'] === 'merchant_order') {
+        if(isset($data['ipn_type']) && $data['ipn_type'] === 'merchant_order') {
             $payments = [];
             foreach($data['payments'] as $payment) {
                 $payments[] = $payment['id'];
