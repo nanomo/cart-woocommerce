@@ -147,7 +147,7 @@ class WC_WooMercadoPago_Notices
      * @param $type
      * @return string
      */
-    public static function getSellerRating()
+    public static function getPluginReviewBanner()
     {
         $inline = null;
         if (

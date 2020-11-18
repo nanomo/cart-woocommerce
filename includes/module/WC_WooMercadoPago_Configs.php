@@ -24,6 +24,8 @@ class WC_WooMercadoPago_Configs
      */
     private function showNotices()
     {
+        add_action('admin_notices', array($this, 'plugin_review'));
+
         if (empty(get_option('_mp_public_key_prod')) && empty(get_option('_mp_access_token_prod'))) {
             if (!empty(get_option('_mp_client_id')) && !empty(get_option('_mp_client_secret'))) {
                 add_action('admin_notices', array($this, 'noticeUpdateAccessToken'));
@@ -33,8 +35,6 @@ class WC_WooMercadoPago_Configs
         if ((empty($_SERVER['HTTPS']) || $_SERVER['HTTPS'] == 'off')) {
             add_action('admin_notices', array($this, 'noticeHttps'));
         }
-
-        add_action('admin_notices', array($this, 'teste'));
     }
 
     /**
@@ -114,13 +114,13 @@ class WC_WooMercadoPago_Configs
         echo WC_WooMercadoPago_Notices::getAlertFrame($message, $type);
     }
 
-    public function teste()
+    public function plugin_review()
     {
         if (!in_array(get_current_screen()->id, array( 'dashboard', 'plugins', 'woocommerce_page_wc-settings' ), true))  {
 			return false;
         }
 
-        echo WC_WooMercadoPago_Notices::getSellerRating();
+        echo WC_WooMercadoPago_Notices::getPluginReviewBanner();
     }
 
     /**
