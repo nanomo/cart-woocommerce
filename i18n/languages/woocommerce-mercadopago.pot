@@ -1141,31 +1141,31 @@ msgstr ""
 msgid "Select the issuer with whom you want to process the payment"
 msgstr ""
 
-#: includes/admin/notices/WC_WooMercadoPago_Notices.php:80, includes/admin/notices/WC_WooMercadoPago_Notices.php:135, includes/admin/notices/WC_WooMercadoPago_Notices.php:186
+#: includes/admin/notices/WC_WooMercadoPago_Notices.php:101, includes/admin/notices/WC_WooMercadoPago_Notices.php:156, includes/admin/notices/WC_WooMercadoPago_Notices.php:207
 msgid "Discard"
 msgstr ""
 
-#: includes/admin/notices/WC_WooMercadoPago_Notices.php:111
+#: includes/admin/notices/WC_WooMercadoPago_Notices.php:132
 msgid "See WooCommerce"
 msgstr ""
 
-#: includes/admin/notices/WC_WooMercadoPago_Notices.php:109
+#: includes/admin/notices/WC_WooMercadoPago_Notices.php:130
 msgid "Install WooCommerce"
 msgstr ""
 
-#: includes/admin/notices/WC_WooMercadoPago_Notices.php:106
+#: includes/admin/notices/WC_WooMercadoPago_Notices.php:127
 msgid "Activate WooCommerce"
 msgstr ""
 
-#: includes/admin/notices/WC_WooMercadoPago_Notices.php:169
+#: includes/admin/notices/WC_WooMercadoPago_Notices.php:190
 msgid "do you have a minute to share your experience with our plugin?"
 msgstr ""
 
-#: includes/admin/notices/WC_WooMercadoPago_Notices.php:172
+#: includes/admin/notices/WC_WooMercadoPago_Notices.php:193
 msgid "Your opinion is very important so that we can offer you the best possible payment solution and continue to improve."
 msgstr ""
 
-#: includes/admin/notices/WC_WooMercadoPago_Notices.php:181
+#: includes/admin/notices/WC_WooMercadoPago_Notices.php:202
 msgid "Rate the plugin"
 msgstr ""
 

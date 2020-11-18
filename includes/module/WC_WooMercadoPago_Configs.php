@@ -116,7 +116,10 @@ class WC_WooMercadoPago_Configs
 
     public function plugin_review()
     {
-        if (!in_array(get_current_screen()->id, array( 'dashboard', 'plugins', 'woocommerce_page_wc-settings' ), true))  {
+        $pagesToShow = array('dashboard', 'plugins', 'woocommerce_page_wc-settings');
+        $dismissedReview = (int) get_option('_mp_dismiss_review', 0);
+
+        if (!in_array(get_current_screen()->id, $pagesToShow , true) || $dismissedReview != 0)  {
 			return false;
         }
 
