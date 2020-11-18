@@ -1157,6 +1157,18 @@ msgstr ""
 msgid "Activate WooCommerce"
 msgstr ""
 
+#: includes/admin/notices/WC_WooMercadoPago_Notices.php:169
+msgid "do you have a minute to share your experience with our plugin?"
+msgstr ""
+
+#: includes/admin/notices/WC_WooMercadoPago_Notices.php:172
+msgid "Your opinion is very important so that we can offer you the best possible payment solution and continue to improve."
+msgstr ""
+
+#: includes/admin/notices/WC_WooMercadoPago_Notices.php:181
+msgid "Rate the plugin"
+msgstr ""
+
 #: includes/module/preference/WC_WooMercadoPago_PreferenceAbstract.php:225
 msgid "Shipping service used by the store."
 msgstr ""

@@ -166,10 +166,10 @@ class WC_WooMercadoPago_Notices
                             <div>
                                 <p class="mp-rating-title">' .
                                     wp_get_current_user()->user_login . ', ' .
-                                    __('do you have a minute to share your experience with our plugin?') .
+                                    __('do you have a minute to share your experience with our plugin?', 'woocommerce-mercadopago') .
                                 '</p>
                                 <p class="mp-rating-subtitle">' .
-                                    __('Your opinion is very important so that we can offer you the best possible payment solution and continue to improve.') .
+                                    __('Your opinion is very important so that we can offer you the best possible payment solution and continue to improve.', 'woocommerce-mercadopago') .
                                 '</p>
                             </div>
                         </div>
@@ -178,7 +178,7 @@ class WC_WooMercadoPago_Notices
                                 class="mp-rating-link"
                                 href="https://wordpress.org/support/plugin/woocommerce-mercadopago/reviews/?filter=5#new-post" target="blank"
                             >'
-                                . __('Rate the plugin') .
+                                . __('Rate the plugin', 'woocommerce-mercadopago') .
                             '</a>
                         </div>
                     </div>

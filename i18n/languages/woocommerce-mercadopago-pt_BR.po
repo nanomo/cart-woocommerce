@@ -9,8 +9,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2019-09-05T23:48:06-04:00\n"
-"PO-Revision-Date: 2020-10-19 15:27-0300\n"
-"X-Generator: Poedit 2.4.1\n"
+"PO-Revision-Date: 2020-11-18 16:52-0300\n"
+"X-Generator: Poedit 2.4.2\n"
 "X-Domain: woocommerce-mercadopago\n"
 "Last-Translator: \n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
@@ -1230,6 +1230,18 @@ msgstr "Pagamento aprovado."
 #: includes/payments/hooks/WC_WooMercadoPago_Hook_Abstract.php:130
 msgid "discount of"
 msgstr "desconto de"
+
+#: includes/admin/notices/WC_WooMercadoPago_Notices.php:169
+msgid "do you have a minute to share your experience with our plugin?"
+msgstr "você tem um minuto para compartilhar sua experiência com o nosso plugin?"
+
+#: includes/admin/notices/WC_WooMercadoPago_Notices.php:172
+msgid "Your opinion is very important so that we can offer you the best possible payment solution and continue to improve."
+msgstr "Sua opinião é muito importante para poder te oferecer a melhor solução de pagamentos possível e continuar melhorando."
+
+#: includes/admin/notices/WC_WooMercadoPago_Notices.php:181
+msgid "Rate the plugin"
+msgstr "Avaliar o plugin"
 
 #: includes/module/preference/WC_WooMercadoPago_PreferenceAbstract.php:214
 msgid "Shipping service used by the store."
