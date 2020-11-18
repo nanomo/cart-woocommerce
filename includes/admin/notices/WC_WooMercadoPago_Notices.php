@@ -188,7 +188,7 @@ class WC_WooMercadoPago_Notices
                                     __('do you have a minute to share your experience with our plugin?', 'woocommerce-mercadopago') .
                                 '</p>
                                 <p class="mp-rating-subtitle">' .
-                                    __('Your opinion is very important so that we can offer you the best possible payment solution and continue to improve.', 'woocommerce-mercadopago') . get_option('_mp_dismiss_review', 0) .
+                                    __('Your opinion is very important so that we can offer you the best possible payment solution and continue to improve.', 'woocommerce-mercadopago') .
                                 '</p>
                             </div>
                         </div>
