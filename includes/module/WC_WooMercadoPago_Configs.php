@@ -116,6 +116,10 @@ class WC_WooMercadoPago_Configs
 
     public function teste()
     {
+        if (!in_array(get_current_screen()->id, array( 'dashboard', 'plugins', 'woocommerce_page_wc-settings' ), true))  {
+			return false;
+        }
+
         echo WC_WooMercadoPago_Notices::getSellerRating();
     }
 
