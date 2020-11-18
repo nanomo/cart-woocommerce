@@ -154,6 +154,11 @@ class WC_WooMercadoPago_TicketGateway extends WC_WooMercadoPago_PaymentAbstract
             'stock_reduce_mode',
             'gateway_discount',
             'commission',
+            // Support session
+            'checkout_support_title',
+            'checkout_support_description',
+            'checkout_support_description_link',
+            'checkout_support_problem',
             // Everything ready for the takeoff of your sales?
             'checkout_ready_title',
             'checkout_ready_description',

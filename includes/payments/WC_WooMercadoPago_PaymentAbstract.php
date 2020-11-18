@@ -336,6 +336,10 @@ class WC_WooMercadoPago_PaymentAbstract extends WC_Payment_Gateway
                 $form_fields['gateway_discount'] = $this->field_gateway_discount();
                 $form_fields['commission'] = $this->field_commission();
                 $form_fields['checkout_payments_advanced_description'] = $this->field_checkout_payments_advanced_description();
+                $form_fields['checkout_support_title'] = $this->field_checkout_support_title();
+                $form_fields['checkout_support_description'] = $this->field_checkout_support_description();
+                $form_fields['checkout_support_description_link'] = $this->field_checkout_support_description_link();
+                $form_fields['checkout_support_problem'] = $this->field_checkout_support_problem();
                 $form_fields['checkout_ready_title'] = $this->field_checkout_ready_title();
                 $form_fields['checkout_ready_description'] = $this->field_checkout_ready_description();
                 $form_fields['checkout_ready_description_link'] = $this->field_checkout_ready_description_link();
@@ -1129,6 +1133,68 @@ class WC_WooMercadoPago_PaymentAbstract extends WC_Payment_Gateway
     public function field_currency_conversion(WC_WooMercadoPago_PaymentAbstract $method)
     {
         return WC_WooMercadoPago_Helpers_CurrencyConverter::getInstance()->getField($method);
+    }
+
+    /**
+     * @return array
+     */
+    public function field_checkout_support_title()
+    {
+        $message_support_title = __('Questions?', 'woocommerce-mercadopago');
+        $checkout_options_title = array(
+            'title' => $message_support_title,
+            'type' => 'title',
+            'class' => 'mp_subtitle_bd_mb mp-mg-0'
+        );
+        return $checkout_options_title;
+    }
+
+    /**
+     * @return array
+     */
+    public function field_checkout_support_description()
+    {
+        $message_support_description = __('Check out the step-by-step of how to integrate the Mercado Pago Plugin for WooCommerce in our developer website.', 'woocommerce-mercadopago');
+        $checkout_options_subtitle = array(
+            'title' => $message_support_description,
+            'type' => 'title',
+            'class' => 'mp_small_text'
+        );
+        return $checkout_options_subtitle;
+    }
+
+    /**
+     * @return array
+     */
+    public function field_checkout_support_description_link()
+    {
+        $message_link = __('Review documentation', 'woocommerce-mercadopago');
+        $checkout_options_subtitle = array(
+            'title' => sprintf(
+                __('%s', 'woocommerce-mercadopago'),
+                '<a href="' . $this->getCountryLinkGuide($this->checkout_country) . 'guides/plugins/woocommerce/integration" target="_blank">' . $message_link . '</a>'
+            ),
+            'type' => 'title',
+            'class' => 'mp_tienda_link'
+        );
+        return $checkout_options_subtitle;
+    }
+
+    /**
+     * @return array
+     */
+    public function field_checkout_support_problem()
+    {
+        $message_support_problem = sprintf(
+            __('Still having problems? Contact our support team through their %s', 'woocommerce-mercadopago'),
+            '<a href="' . $this->getCountryLinkGuide($this->checkout_country) . 'support/" target="_blank">' . __('contact form.', 'woocommerce-mercadopago') . '</a>'
+        );
+        $checkout_options_title = array(
+            'title' => $message_support_problem,
+            'type' => 'title',
+            'class' => 'mp-text-support'
+        );
+        return $checkout_options_title;
     }
 
     /**
