@@ -9,8 +9,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2019-09-05T23:48:06-04:00\n"
-"PO-Revision-Date: 2020-10-19 15:27-0300\n"
-"X-Generator: Poedit 2.4.1\n"
+"PO-Revision-Date: 2020-11-18 12:23-0300\n"
+"X-Generator: Poedit 2.4.2\n"
 "X-Domain: woocommerce-mercadopago\n"
 "Last-Translator: \n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -452,6 +452,26 @@ msgstr "Visitar mi tienda"
 #: includes/payments/WC_WooMercadoPago_PaymentAbstract.php:1166
 msgid "Visit your store as if you were one of your customers and check that everything is fine. If you already went to Production,<br> bring your customers and increase your sales with the best online shopping experience."
 msgstr "Visita tu tienda como si fueras uno de tus clientes y revisa que todo esté bien. Si ya saliste a Producción,<br> trae a tus clientes y aumenta tus ventas con la mejor experiencia de compra online."
+
+#: includes/payments/WC_WooMercadoPago_PaymentAbstract.php:1143
+msgid "Questions?"
+msgstr "¿Tienes alguna duda?"
+
+#: includes/payments/WC_WooMercadoPago_PaymentAbstract.php:1157
+msgid "Check out the step-by-step of how to integrate the Mercado Pago Plugin for WooCommerce in our developer website."
+msgstr "Revisa el paso a paso de cómo integrar el Plugin de Mercado Pago para WooCommerce en nuestro sitio de desarrolladores."
+
+#: includes/payments/WC_WooMercadoPago_PaymentAbstract.php:1171
+msgid "Review documentation"
+msgstr "Revisar documentación"
+
+#: includes/payments/WC_WooMercadoPago_PaymentAbstract.php:1189
+msgid "Still having problems? Contact our support team through their %s"
+msgstr "¿Sigues con problemas? Comunícate con nuestro equipo de soporte a través de su %s"
+
+#: includes/payments/WC_WooMercadoPago_PaymentAbstract.php:1190
+msgid "contact form."
+msgstr "formulario de contacto."
 
 #: includes/payments/WC_WooMercadoPago_PaymentAbstract.php:1149
 msgid "Everything set up? Go to your store in Sandbox mode"
