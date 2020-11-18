@@ -112,7 +112,7 @@ class WC_WooMercadoPago_Credentials
         if (empty($mp_v1)) {
             return false;
         }
-        $get_request = $mp_v1->get('/users/me', array('Authorization' => 'Bearer ' . $access_token));
+        $get_request = $mp_v1->get('/users/me', array('Authorization' => 'Bearer ' . $access_token), false);
         if ($get_request['status'] > 202) {
             $log = WC_WooMercadoPago_Log::init_mercado_pago_log('WC_WooMercadoPago_Credentials');
             $log->write_log('API valid_access_token error:', $get_request['response']['message']);

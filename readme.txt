@@ -115,11 +115,18 @@ Set up both the plugin and the checkouts you want to activate on your payment av
 Check out our <a href="https://www.mercadopago.com.br/developers/pt/plugins_sdks/plugins/official/woo-commerce/">official documentation</a> for more information on the specific fields to configure.
 
 == Changelog ==
-= v4.5.0 (19/10/2020) =
+= v4.5.0 (26/10/2020) =
 * Features
+  - Compatibility with WooCommerce v4.6.x
   - Improved security (added access token in the header for all calls to Mercado Livre and Mercado Pago endpoints)
   - Add new endpoint to validate Access Token and Public key to substitute old process to validation
   - Improved performance with CSS minification
+
+* Bug fixes
+  - Fixed conflict with wc-api webhook and Mercado Pago webhook/IPN.
+  - Fixed alert in currency conversion
+  - Fixed tranlate in currency conversion
+  - Bug fixed when updating orders that have two or more payments associated.
 
 * Bug fixes
   - Fixed conflict with wc-api webhook and Mercado Pago webhook/IPN.

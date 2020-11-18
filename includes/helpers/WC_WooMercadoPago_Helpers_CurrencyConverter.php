@@ -329,8 +329,8 @@ class WC_WooMercadoPago_Helpers_CurrencyConverter
             'default'     => 'no',
             'description' => $this->msg_description,
             'options'     => array(
-                'no'  => $this->__('No'),
-                'yes' => $this->__('Yes'),
+                'no'  => __('No', 'woocommerce-mercadopago'),
+                'yes' => __('Yes', 'woocommerce-mercadopago'),
             ),
         );
     }
@@ -362,7 +362,9 @@ class WC_WooMercadoPago_Helpers_CurrencyConverter
         $show = isset($_SESSION[self::CONFIG_KEY]) ? $_SESSION[self::CONFIG_KEY] : array();
         $localCurrency = get_woocommerce_currency();
 
-        if ($localCurrency == $this->getAccountCurrency($method)) {
+        $accountCurrency = $this->getAccountCurrency($method);
+
+        if ($localCurrency == $accountCurrency || empty($accountCurrency) ) {
             return;
         }
 
@@ -389,11 +391,10 @@ class WC_WooMercadoPago_Helpers_CurrencyConverter
         $localCurrency = get_woocommerce_currency();
         $currency = $this->getAccountCurrency($method);
 
-        return '
-            <div class="notice notice-success">
-                <p>' . sprintf(__('Now we convert your currency from %s to %s.', 'woocommerce-mercadopago'), $localCurrency, $currency) . '</p>
-                </div>
-        ';
+        $type = 'notice-error';
+        $message = sprintf(__('Now we convert your currency from %s to %s.', 'woocommerce-mercadopago'), $localCurrency, $currency);
+
+        return WC_WooMercadoPago_Notices::getAlertFrame($message, $type);
     }
 
     /**
@@ -405,11 +406,10 @@ class WC_WooMercadoPago_Helpers_CurrencyConverter
         $localCurrency = get_woocommerce_currency();
         $currency = $this->getAccountCurrency($method);
 
-        return '
-            <div class="notice notice-error">
-                <p>' . sprintf(__('We no longer convert your currency from %s to %s.', 'woocommerce-mercadopago'), $localCurrency, $currency) . '</p>
-            </div>
-        ';
+        $type = 'notice-error';
+        $message =  sprintf(__('We no longer convert your currency from %s to %s.', 'woocommerce-mercadopago'), $localCurrency, $currency);
+
+        return WC_WooMercadoPago_Notices::getAlertFrame($message, $type);
     }
 
     /**
