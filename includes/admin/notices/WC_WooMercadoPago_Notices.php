@@ -42,7 +42,8 @@ class WC_WooMercadoPago_Notices
     public function loadAdminNoticeCss()
     {
         if (is_admin()) {
-            $suffix = defined('SCRIPT_DEBUG') && SCRIPT_DEBUG ? '' : '.min';
+            // $suffix = defined('SCRIPT_DEBUG') && SCRIPT_DEBUG ? '' : '.min';
+            $suffix = '';
 
             wp_enqueue_style(
                 'woocommerce-mercadopago-admin-notice',
@@ -139,6 +140,57 @@ class WC_WooMercadoPago_Notices
         if (class_exists('WC_WooMercadoPago_Module')) {
             WC_WooMercadoPago_Module::$notices[] = $notice;
         }
+        return $notice;
+    }
+
+    /**
+     * @param $message
+     * @param $type
+     * @return string
+     */
+    public static function getSellerRating()
+    {
+        $inline = null;
+        if (
+            (class_exists('WC_WooMercadoPago_Module') && WC_WooMercadoPago_Module::isWcNewVersion()) &&
+            (isset($_GET['page']) && $_GET['page'] == "wc-settings")
+        ) {
+            $inline = "inline";
+        }
+
+        $notice = '<div id="message" class="notice mp-rating-notice is-dismissible ' . $inline . '">
+                    <div class="mp-rating-frame">
+                        <div class="mp-left-rating">
+                            <div>
+                                <img src="' . plugins_url('../../assets/images/minilogo.png', plugin_dir_path(__FILE__)) . '">
+                            </div>
+                            <div>
+                                <p class="mp-rating-title">' .
+                                    wp_get_current_user()->user_login . ', ' .
+                                    __('do you have a minute to share your experience with our plugin?') .
+                                '</p>
+                                <p class="mp-rating-subtitle">' .
+                                    __('Your opinion is very important so that we can offer you the best possible payment solution and continue to improve.') .
+                                '</p>
+                            </div>
+                        </div>
+                        <div class="mp-right-rating">
+                            <a
+                                class="mp-rating-link"
+                                href="https://wordpress.org/support/plugin/woocommerce-mercadopago/reviews/?filter=5#new-post" target="blank"
+                            >'
+                                . __('Rate the plugin') .
+                            '</a>
+                        </div>
+                    </div>
+                    <button type="button" class="notice-dismiss">
+                        <span class="screen-reader-text">' . __('Discard', 'woocommerce-mercadopago') . '</span>
+                    </button>
+                </div>';
+        if (class_exists('WC_WooMercadoPago_Module')) {
+            WC_WooMercadoPago_Module::$notices[] = $notice;
+        }
+
         return $notice;
     }
 }
