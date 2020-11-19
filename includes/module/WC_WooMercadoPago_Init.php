@@ -6,7 +6,6 @@ if (!defined('ABSPATH')) {
 
 class WC_WooMercadoPago_Init
 {
-
     /**
      * Load plugin text domain.
      *
@@ -85,10 +84,26 @@ class WC_WooMercadoPago_Init
         }
     }
 
+    /**
+     * Activation plugin hook
+     */
+    public static function mercadopago_plugin_activation()
+    {
+        $dismissedReview = (int) get_option('_mp_dismiss_review');
+
+        if (!isset($dismissedReview) || $dismissedReview == 1) {
+            update_option('_mp_dismiss_review', 0, true);
+        }
+
+        return;
+    }
+
+    /**
+     * Init the plugin
+     */
     public static function woocommerce_mercadopago_init()
     {
-
-        self::woocommerce_mercadopago_load_plugin_textdomain();
+        self::woocommerce_mercadopago_load_plugin_textdomain();   
         require_once dirname(__FILE__) . '../../admin/notices/WC_WooMercadoPago_Notices.php';
         WC_WooMercadoPago_Notices::initMercadopagoNnotice();
 
