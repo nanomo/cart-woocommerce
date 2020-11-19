@@ -310,7 +310,7 @@ class WC_WooMercadoPago_CustomGateway extends WC_WooMercadoPago_PaymentAbstract
             'public_key' => $this->getPublicKey(),
             'coupon_mode' => isset($this->logged_user_email) ? $this->coupon_mode : 'no',
             'discount_action_url' => $this->discount_action_url,
-            'payer_email' => $this->logged_user_email,
+            'payer_email' => esc_js($this->logged_user_email),
             'images_path' => plugins_url('../assets/images/', plugin_dir_path(__FILE__)),
             'currency_ratio' => $currency_ratio,
             'woocommerce_currency' => get_woocommerce_currency(),
