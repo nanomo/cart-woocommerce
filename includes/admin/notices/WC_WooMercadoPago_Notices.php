@@ -39,12 +39,20 @@ class WC_WooMercadoPago_Notices
     }
 
     /**
+     * Get sufix to static files
+     */
+    public function getSufix()
+    {
+        return defined('SCRIPT_DEBUG') && SCRIPT_DEBUG ? '' : '.min';
+    }
+
+    /**
      * Load admin notices CSS
      */
     public function loadAdminNoticeCss()
     {
         if (is_admin()) {
-            $suffix = defined('SCRIPT_DEBUG') && SCRIPT_DEBUG ? '' : '.min';
+            $suffix = $this->getSufix();
 
             wp_enqueue_style(
                 'woocommerce-mercadopago-admin-notice',
@@ -59,7 +67,7 @@ class WC_WooMercadoPago_Notices
     public function loadAdminNoticeJs()
     {
         if (is_admin()) {
-            $suffix = defined('SCRIPT_DEBUG') && SCRIPT_DEBUG ? '' : '.min';
+            $suffix = $this->getSufix();
 
             wp_enqueue_script(
                 'woocommerce-mercadopago-admin-notice-review',

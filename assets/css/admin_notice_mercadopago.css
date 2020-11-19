@@ -18,6 +18,7 @@
 .mp-right-alert {
     padding-top: 0px;
 }
+
 .mp-rating-notice {
     border: 1px solid #ccc !important;
 }
@@ -87,6 +88,7 @@
     }
     .mp-left-rating img {
         padding-right: 8px;
+        padding-top: 0.5em;
     }
     .mp-right-rating {
         width: 100%;
