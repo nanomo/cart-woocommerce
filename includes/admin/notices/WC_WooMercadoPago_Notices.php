@@ -22,15 +22,13 @@ class WC_WooMercadoPago_Notices
     private function __construct()
     {
         add_action('admin_enqueue_scripts', [$this, 'loadAdminNoticeCss']);
-        add_action('admin_enqueue_scripts', [$this, 'loadAdminNoticeJs']);
-        add_action('wp_ajax_mercadopago_review_dismiss', array($this, 'reviewDismiss') );
     }
 
     /**
-     * @return WC_WooMercadoPago_Module|null
+     * @return WC_WooMercadoPago_Notices|null
      * Singleton
      */
-    public static function initMercadopagoNnotice()
+    public static function initMercadopagoNotice()
     {
         if (self::$instance === null) {
             self::$instance = new self;
@@ -76,6 +74,15 @@ class WC_WooMercadoPago_Notices
                 WC_WooMercadoPago_Constants::VERSION
             );
         }
+    }
+
+    /**
+     * Get JS to show plugin review baner
+     */
+    public static function getPluginReviewAjax()
+    {
+        add_action('admin_enqueue_scripts', ['WC_WooMercadoPago_Init', 'loadAdminNoticeJs']);
+        add_action('wp_ajax_mercadopago_review_dismiss', array('WC_WooMercadoPago_Init', 'reviewDismiss'));
     }
 
     /**
@@ -184,6 +191,7 @@ class WC_WooMercadoPago_Notices
             $inline = "inline";
         }
 
+        WC_WooMercadoPago_Notices::getPluginReviewAjax();
         $notice = '<div id="message" class="notice is-dismissible mp-rating-notice ' . $inline . '">
                     <div class="mp-rating-frame">
                         <div class="mp-left-rating">
