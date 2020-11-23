@@ -24,6 +24,8 @@ class WC_WooMercadoPago_Configs
      */
     private function showNotices()
     {
+        add_action('admin_notices', array($this, 'plugin_review'));
+
         if (empty(get_option('_mp_public_key_prod')) && empty(get_option('_mp_access_token_prod'))) {
             if (!empty(get_option('_mp_client_id')) && !empty(get_option('_mp_client_secret'))) {
                 add_action('admin_notices', array($this, 'noticeUpdateAccessToken'));
@@ -110,6 +112,18 @@ class WC_WooMercadoPago_Configs
         $type = 'notice-warning';
         $message = __('The store should have HTTPS in order to activate both Checkout Personalizado and Ticket Checkout.', 'woocommerce-mercadopago');
         echo WC_WooMercadoPago_Notices::getAlertFrame($message, $type);
+    }
+
+    public function plugin_review()
+    {
+        $pagesToShow = array('dashboard', 'plugins', 'woocommerce_page_wc-settings');
+        $dismissedReview = (int) get_option('_mp_dismiss_review', 0);
+
+        if (!in_array(get_current_screen()->id, $pagesToShow , true) || $dismissedReview != 0)  {
+			return false;
+        }
+
+        echo WC_WooMercadoPago_Notices::getPluginReviewBanner();
     }
 
     /**

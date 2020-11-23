@@ -42,27 +42,27 @@ msgstr ""
 msgid "<b>Attention:</b> The currency settings you have in WooCommerce are not compatible with the currency you use in your Mercado Pago account. Please activate the currency conversion."
 msgstr ""
 
-#: includes/module/WC_WooMercadoPago_Configs.php:101
+#: includes/module/WC_WooMercadoPago_Configs.php:103
 msgid "Update your credentials with the Access Token and Public Key, you need them to continue receiving payments!"
 msgstr ""
 
-#: includes/module/WC_WooMercadoPago_Configs.php:111
+#: includes/module/WC_WooMercadoPago_Configs.php:113
 msgid "The store should have HTTPS in order to activate both Checkout Personalizado and Ticket Checkout."
 msgstr ""
 
-#: includes/module/WC_WooMercadoPago_Init.php:38
+#: includes/module/WC_WooMercadoPago_Init.php:37
 msgid "Mercado Pago payments for WooCommerce requires PHP version 5.6 or later. Please update your PHP version."
 msgstr ""
 
-#: includes/module/WC_WooMercadoPago_Init.php:48
+#: includes/module/WC_WooMercadoPago_Init.php:47
 msgid "Mercado Pago Error: PHP Extension CURL is not installed."
 msgstr ""
 
-#: includes/module/WC_WooMercadoPago_Init.php:60
+#: includes/module/WC_WooMercadoPago_Init.php:59
 msgid "The Mercado Pago module needs an active version of %s in order to work!"
 msgstr ""
 
-#: includes/module/WC_WooMercadoPago_Init.php:68
+#: includes/module/WC_WooMercadoPago_Init.php:67
 msgid "Cancel order"
 msgstr ""
 
@@ -1161,20 +1161,32 @@ msgstr ""
 msgid "Select the issuer with whom you want to process the payment"
 msgstr ""
 
-#: includes/admin/notices/WC_WooMercadoPago_Notices.php:80, includes/admin/notices/WC_WooMercadoPago_Notices.php:135
+#: includes/admin/notices/WC_WooMercadoPago_Notices.php:107, includes/admin/notices/WC_WooMercadoPago_Notices.php:162, includes/admin/notices/WC_WooMercadoPago_Notices.php:213
 msgid "Discard"
 msgstr ""
 
-#: includes/admin/notices/WC_WooMercadoPago_Notices.php:111
+#: includes/admin/notices/WC_WooMercadoPago_Notices.php:138
 msgid "See WooCommerce"
 msgstr ""
 
-#: includes/admin/notices/WC_WooMercadoPago_Notices.php:109
+#: includes/admin/notices/WC_WooMercadoPago_Notices.php:136
 msgid "Install WooCommerce"
 msgstr ""
 
-#: includes/admin/notices/WC_WooMercadoPago_Notices.php:106
+#: includes/admin/notices/WC_WooMercadoPago_Notices.php:133
 msgid "Activate WooCommerce"
+msgstr ""
+
+#: includes/admin/notices/WC_WooMercadoPago_Notices.php:196
+msgid "do you have a minute to share your experience with our plugin?"
+msgstr ""
+
+#: includes/admin/notices/WC_WooMercadoPago_Notices.php:199
+msgid "Your opinion is very important so that we can offer you the best possible payment solution and continue to improve."
+msgstr ""
+
+#: includes/admin/notices/WC_WooMercadoPago_Notices.php:208
+msgid "Rate the plugin"
 msgstr ""
 
 #: includes/module/preference/WC_WooMercadoPago_PreferenceAbstract.php:225
