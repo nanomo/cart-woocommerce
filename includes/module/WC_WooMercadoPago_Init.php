@@ -102,7 +102,7 @@ class WC_WooMercadoPago_Init
     {
         self::woocommerce_mercadopago_load_plugin_textdomain();
         require_once dirname(__FILE__) . '../../admin/notices/WC_WooMercadoPago_Notices.php';
-        WC_WooMercadoPago_Notices::initMercadopagoNnotice();
+        WC_WooMercadoPago_Notices::initMercadopagoNotice();
 
         // Check for PHP version and throw notice.
         if (version_compare(PHP_VERSION, '5.6', '<=')) {
