@@ -116,6 +116,15 @@ Set up both the plugin and the checkouts you want to activate on your payment av
 Check out our <a href="https://www.mercadopago.com.br/developers/pt/plugins_sdks/plugins/official/woo-commerce/">official documentation</a> for more information on the specific fields to configure.
 
 == Changelog ==
+= v4.6.0 (01/12/2020) =
+* Features
+  - Add review rating banner
+  - Improve security on checkouts, xss javascript sanitizer
+  - Support section block added in checkout settings
+
+* Bug fixes
+  - Fixed error that prevents configuring the Mercado Pago plugin
+  
 = v4.5.0 (26/10/2020) =
 * Features
   - Compatibility with WooCommerce v4.6.x
