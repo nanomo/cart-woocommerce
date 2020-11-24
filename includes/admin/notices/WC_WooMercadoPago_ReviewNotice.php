@@ -13,7 +13,7 @@ if (!defined('ABSPATH')) {
 }
 
 /**
- * Class WC_WooMercadoPago_Notification
+ * Class WC_WooMercadoPago_ReviewNotice
  */
 class WC_WooMercadoPago_ReviewNotice
 {
