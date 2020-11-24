@@ -126,8 +126,10 @@ class WC_WooMercadoPago_Init
             require_once dirname(__FILE__) . '/log/WC_WooMercadoPago_Log.php';
             require_once dirname(__FILE__) . '/WC_WooMercadoPago_Module.php';
             require_once dirname(__FILE__) . '/WC_WooMercadoPago_Credentials.php';
+            require_once dirname(__FILE__) . '../../admin/notices/WC_WooMercadoPago_ReviewNotice.php';
 
             WC_WooMercadoPago_Module::init_mercado_pago_class();
+            WC_WooMercadoPago_ReviewNotice::initMercadopagoReviewNotice();
 
             add_action('woocommerce_order_actions', array(__CLASS__, 'add_mp_order_meta_box_actions'));
         } else {
