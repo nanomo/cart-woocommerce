@@ -1,6 +1,6 @@
 <?php
 
-if (!defined( 'ABSPATH')) {
+if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
@@ -274,12 +274,18 @@ class WC_WooMercadoPago_Configs
         if (!empty($wp) && isset($wp->query_vars['wc-api'])) {
             $api_request = wc_clean($wp->query_vars['wc-api']);
             if (!empty($api_request) && in_array($api_request, $mp_methods)) {
-                $methods[] = $api_request;
+                if (!empty($api_request) && in_array($api_request, ['WC_WooMercadoPago_BasicGateway', 'WC_WooMercadoPago_CustomGateway', 'WC_WooMercadoPago_TicketGateway'])) {
+                    $methods[] = $api_request;
+                    return $methods;
+                }
                 return $methods;
             }
-        }
 
-        $methods = array_merge($mp_methods, $methods == null ? [] : $methods);
-        return $methods;
+            $methods = array_merge($mp_methods, $methods == null ? [] : $methods);
+            $methods[] = 'WC_WooMercadoPago_BasicGateway';
+            $methods[] = 'WC_WooMercadoPago_CustomGateway';
+            $methods[] = 'WC_WooMercadoPago_TicketGateway';
+            return $methods;
+        }
     }
 }
