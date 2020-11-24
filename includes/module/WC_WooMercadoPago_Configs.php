@@ -1,7 +1,7 @@
 <?php
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
+if (!defined('ABSPATH')) {
+    exit;
 }
 
 /**
@@ -24,6 +24,8 @@ class WC_WooMercadoPago_Configs
      */
     private function showNotices()
     {
+        add_action('admin_notices', array($this, 'plugin_review'));
+
         if (empty(get_option('_mp_public_key_prod')) && empty(get_option('_mp_access_token_prod'))) {
             if (!empty(get_option('_mp_client_id')) && !empty(get_option('_mp_client_secret'))) {
                 add_action('admin_notices', array($this, 'noticeUpdateAccessToken'));
@@ -110,6 +112,18 @@ class WC_WooMercadoPago_Configs
         $type = 'notice-warning';
         $message = __('The store should have HTTPS in order to activate both Checkout Personalizado and Ticket Checkout.', 'woocommerce-mercadopago');
         echo WC_WooMercadoPago_Notices::getAlertFrame($message, $type);
+    }
+
+    public function plugin_review()
+    {
+        $pagesToShow = array('dashboard', 'plugins', 'woocommerce_page_wc-settings');
+        $dismissedReview = (int) get_option('_mp_dismiss_review', 0);
+
+        if (!in_array(get_current_screen()->id, $pagesToShow, true) || $dismissedReview != 0) {
+            return false;
+        }
+
+        echo WC_WooMercadoPago_Notices::getPluginReviewBanner();
     }
 
     /**
@@ -224,25 +238,25 @@ class WC_WooMercadoPago_Configs
     {
         return array(
             'store_categories_id' =>
-                [
-                    "art", "baby", "coupons", "donations", "computing", "cameras", "video games", "television",
-                    "car electronics", "electronics", "automotive", "entertainment", "fashion", "games", "home",
-                    "musical", "phones", "services", "learnings", "tickets", "travels", "virtual goods", "others"
-                ],
+            [
+                "art", "baby", "coupons", "donations", "computing", "cameras", "video games", "television",
+                "car electronics", "electronics", "automotive", "entertainment", "fashion", "games", "home",
+                "musical", "phones", "services", "learnings", "tickets", "travels", "virtual goods", "others"
+            ],
             'store_categories_description' =>
-                [
-                    "Collectibles & Art", "Toys for Baby, Stroller, Stroller Accessories, Car Safety Seats", "Coupons",
-                    "Donations", "Computers & Tablets", "Cameras & Photography", "Video Games & Consoles",
-                    "LCD, LED, Smart TV, Plasmas, TVs", "Car Audio, Car Alarm Systems & Security, Car DVRs, Car Video Players, Car PC",
-                    "Audio & Surveillance, Video & GPS, Others", "Parts & Accessories", "Music, Movies & Series, Books, Magazines & Comics, Board Games & Toys",
-                    "Men's, Women's, Kids & baby, Handbags & Accessories, Health & Beauty, Shoes, Jewelry & Watches",
-                    "Online Games & Credits", "Home appliances. Home & Garden", "Instruments & Gear",
-                    "Cell Phones & Accessories", "General services", "Trainings, Conferences, Workshops",
-                    "Tickets for Concerts, Sports, Arts, Theater, Family, Excursions tickets, Events & more",
-                    "Plane tickets, Hotel vouchers, Travel vouchers",
-                    "E-books, Music Files, Software, Digital Images,  PDF Files and any item which can be electronically stored in a file, Mobile Recharge, DTH Recharge and any Online Recharge",
-                    "Other categories"
-                ]
+            [
+                "Collectibles & Art", "Toys for Baby, Stroller, Stroller Accessories, Car Safety Seats", "Coupons",
+                "Donations", "Computers & Tablets", "Cameras & Photography", "Video Games & Consoles",
+                "LCD, LED, Smart TV, Plasmas, TVs", "Car Audio, Car Alarm Systems & Security, Car DVRs, Car Video Players, Car PC",
+                "Audio & Surveillance, Video & GPS, Others", "Parts & Accessories", "Music, Movies & Series, Books, Magazines & Comics, Board Games & Toys",
+                "Men's, Women's, Kids & baby, Handbags & Accessories, Health & Beauty, Shoes, Jewelry & Watches",
+                "Online Games & Credits", "Home appliances. Home & Garden", "Instruments & Gear",
+                "Cell Phones & Accessories", "General services", "Trainings, Conferences, Workshops",
+                "Tickets for Concerts, Sports, Arts, Theater, Family, Excursions tickets, Events & more",
+                "Plane tickets, Hotel vouchers, Travel vouchers",
+                "E-books, Music Files, Software, Digital Images,  PDF Files and any item which can be electronically stored in a file, Mobile Recharge, DTH Recharge and any Online Recharge",
+                "Other categories"
+            ]
         );
     }
 
@@ -252,20 +266,18 @@ class WC_WooMercadoPago_Configs
      */
     public function setPaymentGateway($methods = null)
     {
-        $mp_methods = array('WC_WooMercadoPago_BasicGateway',
-                            'WC_WooMercadoPago_CustomGateway',
-                            'WC_WooMercadoPago_TicketGateway');
-
         global $wp;
         if (!empty($wp) && isset($wp->query_vars['wc-api'])) {
             $api_request = wc_clean($wp->query_vars['wc-api']);
-            if (!empty($api_request) && in_array($api_request, $mp_methods)) {
+            if (!empty($api_request) && in_array($api_request, ['WC_WooMercadoPago_BasicGateway', 'WC_WooMercadoPago_CustomGateway', 'WC_WooMercadoPago_TicketGateway'])) {
                 $methods[] = $api_request;
-                return $methods;
             }
+            return $methods;
         }
 
-        $methods = array_merge($mp_methods, $methods == null ? [] : $methods);
+        $methods[] = 'WC_WooMercadoPago_BasicGateway';
+        $methods[] = 'WC_WooMercadoPago_CustomGateway';
+        $methods[] = 'WC_WooMercadoPago_TicketGateway';
         return $methods;
     }
 }

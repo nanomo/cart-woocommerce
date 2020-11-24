@@ -31,5 +31,7 @@ if (!function_exists('is_plugin_active')) {
 
 if (!class_exists('WC_WooMercadoPago_Init')) {
     include_once dirname(__FILE__) . '/includes/module/WC_WooMercadoPago_Init.php';
+
+    register_activation_hook(__FILE__, array('WC_WooMercadoPago_Init', 'mercadopago_plugin_activation'));
     add_action('plugins_loaded', array('WC_WooMercadoPago_Init', 'woocommerce_mercadopago_init'));
 }

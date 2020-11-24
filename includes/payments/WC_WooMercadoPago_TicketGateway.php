@@ -154,6 +154,11 @@ class WC_WooMercadoPago_TicketGateway extends WC_WooMercadoPago_PaymentAbstract
             'stock_reduce_mode',
             'gateway_discount',
             'commission',
+            // Support session
+            'checkout_support_title',
+            'checkout_support_description',
+            'checkout_support_description_link',
+            'checkout_support_problem',
             // Everything ready for the takeoff of your sales?
             'checkout_ready_title',
             'checkout_ready_description',
@@ -384,20 +389,20 @@ class WC_WooMercadoPago_TicketGateway extends WC_WooMercadoPago_PaymentAbstract
             'site_id' => $this->getOption('_site_id_v1'),
             'coupon_mode' => isset($logged_user_email) ? $this->coupon_mode : 'no',
             'discount_action_url' => $this->discount_action_url,
-            'payer_email' => $logged_user_email,
+            'payer_email' => esc_js($logged_user_email),
             'currency_ratio' => $currency_ratio,
             'woocommerce_currency' => get_woocommerce_currency(),
             'account_currency' => $this->site_data['currency'],
             'febraban' => (wp_get_current_user()->ID != 0) ?
                 array(
-                    'firstname' => wp_get_current_user()->user_firstname,
-                    'lastname' => wp_get_current_user()->user_lastname,
+                    'firstname' => esc_js(wp_get_current_user()->user_firstname),
+                    'lastname' => esc_js(wp_get_current_user()->user_lastname),
                     'docNumber' => '',
-                    'address' => $address,
+                    'address' => esc_js($address),
                     'number' => '',
-                    'city' => get_user_meta(wp_get_current_user()->ID, 'billing_city', true),
-                    'state' => get_user_meta(wp_get_current_user()->ID, 'billing_state', true),
-                    'zipcode' => get_user_meta(wp_get_current_user()->ID, 'billing_postcode', true)
+                    'city' => esc_js(get_user_meta(wp_get_current_user()->ID, 'billing_city', true)),
+                    'state' => esc_js(get_user_meta(wp_get_current_user()->ID, 'billing_state', true)),
+                    'zipcode' => esc_js(get_user_meta(wp_get_current_user()->ID, 'billing_postcode', true))
                 ) :
                 array(
                     'firstname' => '',

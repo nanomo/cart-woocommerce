@@ -15,6 +15,7 @@ const config = {
     './assets/js/custom_config_mercadopago.js',
     './assets/js/ticket_config_mercadopago.js',
     './assets/js/ticket.js',
+    './assets/js/review.js',
   ],
   stylesheets: [
     './assets/css/admin_notice_mercadopago.css',
