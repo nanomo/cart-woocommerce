@@ -2,14 +2,14 @@
 # This file is distributed under the same license as the Mercado Pago payments for WooCommerce plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: Mercado Pago payments for WooCommerce 4.5.0\n"
+"Project-Id-Version: Mercado Pago payments for WooCommerce 4.6.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/woocommerce-mercadopago\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2019-09-05T23:48:06-04:00\n"
-"PO-Revision-Date: 2020-11-18 19:20-0300\n"
+"PO-Revision-Date: 2020-11-24 18:02-0300\n"
 "X-Generator: Poedit 2.4.2\n"
 "X-Domain: woocommerce-mercadopago\n"
 "Last-Translator: \n"
@@ -662,7 +662,7 @@ msgstr "Em qual país a sua conta do Mercado Pago opera?"
 
 #: includes/payments/WC_WooMercadoPago_PaymentAbstract.php:462
 msgid "approved account"
-msgstr "Homologue sua conta"
+msgstr "homologue sua conta"
 
 #: includes/payments/WC_WooMercadoPago_PaymentAbstract.php:461
 msgid "Credentials are the keys we provide you to integrate quickly <br>and securely. You must have a %s in Mercado Pago to obtain and collect them <br>on your website. You do not need to know how to design or program to do it"
