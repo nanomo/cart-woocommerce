@@ -53,7 +53,7 @@ class WC_WooMercadoPago_BasicGateway extends WC_WooMercadoPago_PaymentAbstract
      */
     public function getFormFields($label)
     {
-        if (is_admin() && $this->validateSection()) {
+        if (is_admin() && $this->isManageSection()) {
             $suffix = defined('SCRIPT_DEBUG') && SCRIPT_DEBUG ? '' : '.min';
             wp_enqueue_script(
                 'woocommerce-mercadopago-basic-config-script',
