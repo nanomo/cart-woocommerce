@@ -173,7 +173,6 @@ abstract class WC_WooMercadoPago_Hook_Abstract
                     }
                     update_option($key, $value, true);
                 }
-
                 $value = $this->payment->get_field_value($key, $field, $post_data);
                 $this->payment->settings[$key] = $value;
             }

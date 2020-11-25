@@ -206,19 +206,21 @@ class WC_WooMercadoPago_PaymentAbstract extends WC_Payment_Gateway
      */
     public function validateSection()
     {
-        if (isset($_GET['section']) && !empty($_GET['section']) && ($this->id != $_GET['section'])) {
+        $allowedClasses = [
+            'wc_woomercadopago_basicgateway',
+            'wc_woomercadopago_customgateway',
+            'wc_woomercadopago_ticketgateway'
+        ];
+
+        if (empty($_GET['section'])) {
             return false;
         }
 
-        return true;
-    }
+        if ($this->id != $_GET['section']) {
+            return false;
+        }
 
-    /**
-     * @return bool
-     */
-    public function isManageSection()
-    {
-        if (!isset($_GET['section']) || ($this->id !== $_GET['section'])) {
+        if (!in_array($_GET['section'], $allowedClasses)) {
             return false;
         }
 

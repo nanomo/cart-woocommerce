@@ -44,7 +44,7 @@ class WC_WooMercadoPago_CustomGateway extends WC_WooMercadoPago_PaymentAbstract
      */
     public function getFormFields($label)
     {
-        if (is_admin() && $this->isManageSection()) {
+        if (is_admin() && $this->validateSection()) {
             $suffix = defined('SCRIPT_DEBUG') && SCRIPT_DEBUG ? '' : '.min';
             wp_enqueue_script(
                 'woocommerce-mercadopago-custom-config-script',
