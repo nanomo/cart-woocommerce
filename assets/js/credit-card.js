@@ -191,7 +191,7 @@
           document.getElementById('mp-issuer-div').style.display = 'block';
           document.getElementById('installments-div').classList.remove('mp-col-md-12');
           document.getElementById('installments-div').classList.add('mp-col-md-8');
-          Mercadopago.getIssuers(objPaymentMethod.id, issuersHandler);
+          Mercadopago.getIssuers(objPaymentMethod.id, getBin(), issuersHandler);
         } else {
           clearIssuer();
           setInstallments();
