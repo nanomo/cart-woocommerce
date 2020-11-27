@@ -2,15 +2,15 @@
 # This file is distributed under the same license as the Mercado Pago payments for WooCommerce plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: Mercado Pago payments for WooCommerce 4.5.0\n"
+"Project-Id-Version: Mercado Pago payments for WooCommerce 4.6.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/woocommerce-mercadopago\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2019-09-05T23:48:06-04:00\n"
-"PO-Revision-Date: 2020-10-19 15:28-0300\n"
-"X-Generator: Poedit 2.4.1\n"
+"PO-Revision-Date: 2020-11-24 18:00-0300\n"
+"X-Generator: Poedit 2.4.2\n"
 "X-Domain: woocommerce-mercadopago\n"
 "Last-Translator: \n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -452,6 +452,26 @@ msgstr "Visitar mi tienda"
 #: includes/payments/WC_WooMercadoPago_PaymentAbstract.php:1166
 msgid "Visit your store as if you were one of your customers and check that everything is fine. If you already went to Production,<br> bring your customers and increase your sales with the best online shopping experience."
 msgstr "Visita tu tienda como si fueras uno de tus clientes y revisa que todo esté bien. Si ya saliste a Producción,<br> trae a tus clientes y aumenta tus ventas con la mejor experiencia de compra online."
+
+#: includes/payments/WC_WooMercadoPago_PaymentAbstract.php:1143
+msgid "Questions?"
+msgstr "¿Tienes alguna duda?"
+
+#: includes/payments/WC_WooMercadoPago_PaymentAbstract.php:1157
+msgid "Check out the step-by-step of how to integrate the Mercado Pago Plugin for WooCommerce in our developer website."
+msgstr "Revisa el paso a paso de cómo integrar el Plugin de Mercado Pago para WooCommerce en nuestro sitio de desarrolladores."
+
+#: includes/payments/WC_WooMercadoPago_PaymentAbstract.php:1171
+msgid "Review documentation"
+msgstr "Revisar documentación"
+
+#: includes/payments/WC_WooMercadoPago_PaymentAbstract.php:1189
+msgid "Still having problems? Contact our support team through their %s"
+msgstr "¿Sigues con problemas? Comunícate con nuestro equipo de soporte a través de su %s"
+
+#: includes/payments/WC_WooMercadoPago_PaymentAbstract.php:1190
+msgid "contact form."
+msgstr "formulario de contacto."
 
 #: includes/payments/WC_WooMercadoPago_PaymentAbstract.php:1149
 msgid "Everything set up? Go to your store in Sandbox mode"
@@ -1230,6 +1250,18 @@ msgstr "Pago aprobado."
 #: includes/payments/hooks/WC_WooMercadoPago_Hook_Abstract.php:130
 msgid "discount of"
 msgstr "descuento de"
+
+#: includes/admin/notices/WC_WooMercadoPago_Notices.php:169
+msgid "do you have a minute to share your experience with our plugin?"
+msgstr "¿tienes un minuto para compartir tu experiencia con nuestro plugin?"
+
+#: includes/admin/notices/WC_WooMercadoPago_Notices.php:172
+msgid "Your opinion is very important so that we can offer you the best possible payment solution and continue to improve."
+msgstr "Tu opinión es muy importante para poder ofrecerte la mejor solución de pagos posible y seguir mejorando."
+
+#: includes/admin/notices/WC_WooMercadoPago_Notices.php:181
+msgid "Rate the plugin"
+msgstr "Valorar el plugin"
 
 #: includes/module/preference/WC_WooMercadoPago_PreferenceAbstract.php:214
 msgid "Shipping service used by the store."

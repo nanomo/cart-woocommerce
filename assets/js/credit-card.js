@@ -44,7 +44,6 @@
       showPaymentsLink();
     });
 
-    $('body').on('keyup', '#mp-card-number', guessingPaymentMethod);
     $('body').on('change', '#mp-card-number', guessingPaymentMethod);
 
     /**
@@ -84,7 +83,7 @@
      *
      * @param {object} event
      */
-    function guessingPaymentMethod(event) {
+    function guessingPaymentMethod() {
       hideErrors();
       clearHolderName();
       clearExpirationDate();
@@ -101,20 +100,10 @@
         return;
       }
 
-      if (event.type === 'keyup') {
-        if (bin.length >= 6) {
-          Mercadopago.getPaymentMethod({
-            'bin': bin
-          }, paymentMethodHandler);
-        }
-      } else {
-        setTimeout(function () {
-          if (bin.length >= 6) {
-            Mercadopago.getPaymentMethod({
-              'bin': bin
-            }, paymentMethodHandler);
-          }
-        }, 100);
+      if (bin.length >= 6) {
+        Mercadopago.getPaymentMethod({
+          'bin': bin
+        }, paymentMethodHandler);
       }
     }
 
@@ -191,7 +180,7 @@
           document.getElementById('mp-issuer-div').style.display = 'block';
           document.getElementById('installments-div').classList.remove('mp-col-md-12');
           document.getElementById('installments-div').classList.add('mp-col-md-8');
-          Mercadopago.getIssuers(objPaymentMethod.id, issuersHandler);
+          Mercadopago.getIssuers(objPaymentMethod.id, getBin(), issuersHandler);
         } else {
           clearIssuer();
           setInstallments();
@@ -341,24 +330,37 @@
       document.getElementById('mp-issuer').innerHTML = '';
     }
 
+    /**
+     * Clear input and change to default layout
+     */
     function clearDoc() {
       document.getElementById('mp-doc-div').style.display = 'none';
       document.getElementById('mp-doc-type-div').style.display = 'none';
       document.getElementById('docType').innerHTML = '';
       document.getElementById('docNumber').value = '';
     }
+
     /**
      * Clear input
      */
     function clearHolderName() {
       document.getElementById('mp-card-holder-name').value = '';
     }
+
+    /**
+     * Clear input
+     */
     function clearExpirationDate() {
       document.getElementById('mp-card-expiration-date').value = '';
     }
+
+    /**
+     * Clear input
+     */
     function clearSecurityCode() {
       document.getElementById('mp-security-code').value = '';
     }
+
     /**
      * Call insttalments with issuer ou not, depends on additionalInfoHandler()
      */
@@ -609,7 +611,7 @@
     /**
      *
      * @param { obje } response
-    */
+     */
     function showErrors(response) {
       var form = getForm();
       for (var x = 0; x < response.cause.length; x++) {
