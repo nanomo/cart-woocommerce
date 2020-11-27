@@ -4,7 +4,7 @@ Tags: ecommerce, mercadopago, woocommerce
 Requires at least: 4.9.10
 Tested up to: 5.5
 Requires PHP: 5.6
-Stable tag: 4.5.0
+Stable tag: 4.6.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,61 +12,62 @@ Offer to your clients the best experience in e-Commerce by using Mercado Pago as
 
 == Description ==
 
-Mercado Pago leads the technological transformation of finance in Latin America and develops tools to take its collections to another level. Integrate a payment avenue in your website with our official WooCommerce plugin. With out checkout options you can offer the payment methods that everyone prefers, with the best possible financing: purchases in up to 24 installments, credit and debit cards, in-person payments and money in the Mercado Pago account.
+The official Mercado Pago plugin allows you to process payments for your online store, allowing users to finalize their purchase with their preferred payment method.
 
-= Why choose Mercado Pago? =
+To install it, **you don't need to have technical knowledge:** you can follow the [step by step of how to integrate it](https://www.mercadopago.com.ar/developers/es/guides/plugins/woocommerce/introduction/). from our developer website and start selling today.
 
-We operate in Argentina, Brazil, Mexico, Peru, Chile, Uruguay and Colombia with businesses of all sizes. They choose us, from entrepreneurs who are just beginning to consolidated big brands in the market.
+### What to do with the Mercado Pago Plugin?
+* Activate **Checkout Pro** to offer logged-in payments with money in Mercado Pago account, saved cards and off means.
+* Offer payments without the need of having a Mercado Pago account, through the **Custom Checkout** for cards and off means (cash or bank transfer).
+* Automatically convert the currency of your products: from Mexican pesos to U.S. dollars and vice versa.
+* Sell in **installments** and offer the current promotions in Checkout Pro or apply your own discount coupon in Custom Checkout.
+* Test your store before going into production with our Sandbox environment.
+* **Receive the money** from your sales on the same day.
+* **IMPORTANT:** At the moment the Mercado Envíos service is deactivated.
 
-We process more than 6 million transactions with Visa and Mastercard cards every year and we do so protecting your money, always. Accept payments with the most used cards and offer installments with the best possible financing. With our ready-to-use solutions, going further is in your hands.
+### Adapted to your business
 
-You can trust us as you trust a strategic partner. Use the money from your sales once it is available in your Mercado Pago account, with our prepaid card, or withdraw it to your bank at no additional cost. View our fees and have the money from your sales instantly.
+Prepared for any type of store and category: electronics, clothing, kitchen, bazaar, whatever you want!
+Just focus on selling and **we'll take care of the security:** keep your store's payments protected with our fraud prevention and analysis tool.
 
-= Main Functionalities of Mercado Pago =
-* Processing via IPN / Webhook online and in real time;
-* High approval rates thanks to a robust fraud analysis;
-* Potential clients: more than 120 million users in Latin America trust us;
-* Sandbox test environment;
-* Log and debug options;
-* PCI level 1 Certification;
-* Accept the payment methods everyone prefers;
-* Installment payments;
-* Payments in advance from 2 to 14 business days, according to our Terms and Conditions;
-* One-click payments with the basic and personalized Mercado Pago checkouts;
-* Payments via tickets (Boletos);
-* Seller Protection Program.
-
-= Compatibility =
-- WooCommerce 3.0 or higher.
+Boost your sales with Mercado Pago payments for WooCommerce!
 
 == Screenshots ==
 
-1. `High approval rates.`
-2. `Your money available instantly.`
-3. `All payment methods.`
-4. `You do not need to write a single line of code to receive payments.`
-5. `01 Create an account in Mercado Pago.`
-6. `02 Activate the module in your store.`
-7. `03 Receive the money from your sales.`
+1. RECEIVE THE MONEY FROM YOUR SALES ON THE SAME DAY
+2. This is what the Checkout Pro looks like in your store. You can choose between a modal experience or a redirect experience.
+3. This is what the Customized Checkout looks like in your store. You can activate payments with cards and also cash.
+4. Once you install the Mercado Pago Plugin, you will find the 3 checkouts available in the Payment settings in WooCommerce. You can activate them simultaneously or choose one of them. Remember that they must be configured before enabling them.
+5. To configure it, follow the step by step indicated in each Checkout. Remember that you can review the official documentation of our plugin on the Mercado Pago developer website.
+6. ACCEPT ALL PAYMENT METHODS
 
 == Frequently Asked Questions ==
 
-= How do we protect the sellers =
+= I had a question during setup, where can I check the documentation? =
 
-We take care of the money with maximum security
-We help you in case of problems
-We protect your sales against chargebacks
+In our developer website you will find the step by step of [how to integrate the Mercado Pago Plugin](https://www.mercadopago.com.ar/developers/es/guides/plugins/woocommerce/introduction/) in your online store.
 
-= Where can I find the documentation? =
+= What are the requirements for the plugin to work properly? =
 
-Check out our official documentation for installing and configuring the Mercado Pago plugin in your store.
+You must have an SSL certificate, connecting your website with the HTTPS protocol.
 
-= Where and how can I contribute? =
+If you need to check the protocol configuration, [test it here](https://www.ssllabs.com/ssltest/).
 
-Suggest documentation improvement on [our website](https://www.mercadopago.com.br/developers/es/plugins_sdks/plugins/official/woo-commerce/) for integrators and developers,
-Subscribe to the [development log](https://plugins.trac.wordpress.org/log/woocommerce-mercadopago/) by [RSS](https://plugins.trac.wordpress.org/log/woocommerce-mercadopago/?limit=100&mode=stop_on_copy&format=rss),
-[Review the code](https://plugins.trac.wordpress.org/browser/woocommerce-mercadopago/) and visit the [SVN repository](https://plugins.svn.wordpress.org/woocommerce-mercadopago/),
-Help us translate WordPress: [Translate](https://translate.wordpress.org/projects/wp-plugins/woocommerce-mercadopago/) the plugin for your country.
+Finally, remember that the plugin receives IPN (Instant Payment Notification) notifications automatically, you don't need to configure it!
+
+= I already finished the configuration but the Sandbox environment is not working. =
+
+Remember that to test the Checkout Pro you must log out of your Mercado Pago account, as it is not possible to use it to sell and buy at the same time.
+
+Please note that with the Test Environment enabled, the Checkout Pro does not send notifications as does the Custom Checkout.
+
+= How do I configure the sending of emails to my customers? =
+
+The configuration of sending emails must be done from the WooCommerce administrator. The Mercado Pago Plugin only contemplates sending transactions made in the Checkout Pro.
+
+= I reviewed the documentation and these FAQs but still have problems in my store, what can I do? =
+
+If you have already reviewed the documentation and have not found a solution, you can contact our support team through their [contact form](https://www.mercadopago.com.ar/developers/es/support/). Please note that we guarantee a response within {7 days} of your query.
 
 == Installation ==
 
@@ -115,6 +116,15 @@ Set up both the plugin and the checkouts you want to activate on your payment av
 Check out our <a href="https://www.mercadopago.com.br/developers/pt/plugins_sdks/plugins/official/woo-commerce/">official documentation</a> for more information on the specific fields to configure.
 
 == Changelog ==
+= v4.6.0 (01/12/2020) =
+* Features
+  - Add review rating banner
+  - Improve security on checkouts, xss javascript sanitizer
+  - Support section block added in checkout settings
+
+* Bug fixes
+  - Fixed error that prevents configuring the Mercado Pago plugin
+  
 = v4.5.0 (26/10/2020) =
 * Features
   - Compatibility with WooCommerce v4.6.x

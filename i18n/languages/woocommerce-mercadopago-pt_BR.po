@@ -2,15 +2,15 @@
 # This file is distributed under the same license as the Mercado Pago payments for WooCommerce plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: Mercado Pago payments for WooCommerce 4.5.0\n"
+"Project-Id-Version: Mercado Pago payments for WooCommerce 4.6.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/woocommerce-mercadopago\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2019-09-05T23:48:06-04:00\n"
-"PO-Revision-Date: 2020-10-19 15:27-0300\n"
-"X-Generator: Poedit 2.4.1\n"
+"PO-Revision-Date: 2020-11-27 11:51-0300\n"
+"X-Generator: Poedit 2.4.2\n"
 "X-Domain: woocommerce-mercadopago\n"
 "Last-Translator: \n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
@@ -113,7 +113,7 @@ msgstr "CI"
 
 #. Author URI of the plugin
 msgid "https://developers.mercadopago.com/"
-msgstr "https://developers.mercadopago.com.br/"
+msgstr "https://developers.mercadopago.com/"
 
 #: includes/payments/WC_WooMercadoPago_PaymentAbstract.php:1168
 msgid "Visit your store and simulate a payment to check that everything is fine."
@@ -453,6 +453,26 @@ msgstr "Visitar minha loja"
 msgid "Visit your store as if you were one of your customers and check that everything is fine. If you already went to Production,<br> bring your customers and increase your sales with the best online shopping experience."
 msgstr "Visite sua loja como se você fosse um de seus clientes e verifique se está tudo bem. Se você já foi à Produção,<br> traga seus clientes e aumente suas vendas com a melhor experiência de compra on-line."
 
+#: includes/payments/WC_WooMercadoPago_PaymentAbstract.php:1143
+msgid "Questions?"
+msgstr "Dúvidas?"
+
+#: includes/payments/WC_WooMercadoPago_PaymentAbstract.php:1157
+msgid "Check out the step-by-step of how to integrate the Mercado Pago Plugin for WooCommerce in our developer website."
+msgstr "Revise o passo a passo de como integrar o Plugin do Mercado Pago para WooCommerce no nosso site de desenvolvedores."
+
+#: includes/payments/WC_WooMercadoPago_PaymentAbstract.php:1171
+msgid "Review documentation"
+msgstr "Revisar documentação"
+
+#: includes/payments/WC_WooMercadoPago_PaymentAbstract.php:1189
+msgid "Still having problems? Contact our support team through their %s"
+msgstr "Continua com problemas? Fale com a nossa equipe de suporte pelo %s"
+
+#: includes/payments/WC_WooMercadoPago_PaymentAbstract.php:1190
+msgid "contact form."
+msgstr "formulário de contato."
+
 #: includes/payments/WC_WooMercadoPago_PaymentAbstract.php:1149
 msgid "Everything set up? Go to your store in Sandbox mode"
 msgstr "Tudo configurado? Vá para sua loja no modo Sandbox"
@@ -642,7 +662,7 @@ msgstr "Em qual país a sua conta do Mercado Pago opera?"
 
 #: includes/payments/WC_WooMercadoPago_PaymentAbstract.php:462
 msgid "approved account"
-msgstr "Homologue sua conta"
+msgstr "homologue sua conta"
 
 #: includes/payments/WC_WooMercadoPago_PaymentAbstract.php:461
 msgid "Credentials are the keys we provide you to integrate quickly <br>and securely. You must have a %s in Mercado Pago to obtain and collect them <br>on your website. You do not need to know how to design or program to do it"
@@ -1230,6 +1250,18 @@ msgstr "Pagamento aprovado."
 #: includes/payments/hooks/WC_WooMercadoPago_Hook_Abstract.php:130
 msgid "discount of"
 msgstr "desconto de"
+
+#: includes/admin/notices/WC_WooMercadoPago_Notices.php:169
+msgid "do you have a minute to share your experience with our plugin?"
+msgstr "você tem um minuto para compartilhar sua experiência com o nosso plugin?"
+
+#: includes/admin/notices/WC_WooMercadoPago_Notices.php:172
+msgid "Your opinion is very important so that we can offer you the best possible payment solution and continue to improve."
+msgstr "Sua opinião é muito importante para poder te oferecer a melhor solução de pagamentos possível e continuar melhorando."
+
+#: includes/admin/notices/WC_WooMercadoPago_Notices.php:181
+msgid "Rate the plugin"
+msgstr "Avaliar o plugin"
 
 #: includes/module/preference/WC_WooMercadoPago_PreferenceAbstract.php:214
 msgid "Shipping service used by the store."
