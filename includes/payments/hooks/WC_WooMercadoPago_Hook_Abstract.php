@@ -109,9 +109,10 @@ abstract class WC_WooMercadoPago_Hook_Abstract
      */
     public function add_mp_settings_script()
     {
-        if (!empty($this->publicKey) && !$this->testUser) {
+        if (!empty($this->publicKey) && !$this->testUser && isset(WC()->payment_gateways)) {
             $woo = WC_WooMercadoPago_Module::woocommerce_instance();
             $gateways = $woo->payment_gateways->get_available_payment_gateways();
+           
 
             $available_payments = array();
             foreach ($gateways as $gateway) {
@@ -173,7 +174,6 @@ abstract class WC_WooMercadoPago_Hook_Abstract
                     }
                     update_option($key, $value, true);
                 }
-
                 $value = $this->payment->get_field_value($key, $field, $post_data);
                 $this->payment->settings[$key] = $value;
             }

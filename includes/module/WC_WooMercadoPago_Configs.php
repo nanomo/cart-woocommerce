@@ -123,7 +123,7 @@ class WC_WooMercadoPago_Configs
             return false;
         }
 
-        echo WC_WooMercadoPago_Notices::getPluginReviewBanner();
+        echo WC_WooMercadoPago_ReviewNotice::getPluginReviewBanner();
     }
 
     /**

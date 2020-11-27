@@ -32,6 +32,12 @@ class WC_WooMercadoPago_PaymentAbstract extends WC_Payment_Gateway
         '_mp_access_token_prod'
     );
 
+    const ALLOWED_CLASSES = [
+        'wc_woomercadopago_basicgateway',
+        'wc_woomercadopago_customgateway',
+        'wc_woomercadopago_ticketgateway'
+    ];
+
     public $field_forms_order;
     public $id;
     public $method_title;
@@ -206,7 +212,14 @@ class WC_WooMercadoPago_PaymentAbstract extends WC_Payment_Gateway
      */
     public function validateSection()
     {
-        if (isset($_GET['section']) && !empty($_GET['section']) && ($this->id != $_GET['section'])) {
+        if (
+            isset($_GET['section'])
+            && !empty($_GET['section'])
+            && (
+                $this->id !== $_GET['section'])
+                && !in_array($_GET['section'], self::ALLOWED_CLASSES)
+            )
+            {
             return false;
         }
 
@@ -218,7 +231,10 @@ class WC_WooMercadoPago_PaymentAbstract extends WC_Payment_Gateway
      */
     public function isManageSection()
     {
-        if (!isset($_GET['section']) || ($this->id !== $_GET['section'])) {
+        if (!isset($_GET['section']) || (
+            $this->id !== $_GET['section'])
+            && !in_array($_GET['section'], self::ALLOWED_CLASSES)
+        ) {
             return false;
         }
 
