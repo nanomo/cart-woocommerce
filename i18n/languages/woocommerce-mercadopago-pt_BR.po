@@ -9,7 +9,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2019-09-05T23:48:06-04:00\n"
-"PO-Revision-Date: 2020-11-24 18:02-0300\n"
+"PO-Revision-Date: 2020-11-27 11:51-0300\n"
 "X-Generator: Poedit 2.4.2\n"
 "X-Domain: woocommerce-mercadopago\n"
 "Last-Translator: \n"
@@ -113,7 +113,7 @@ msgstr "CI"
 
 #. Author URI of the plugin
 msgid "https://developers.mercadopago.com/"
-msgstr "https://developers.mercadopago.com.br/"
+msgstr "https://developers.mercadopago.com/"
 
 #: includes/payments/WC_WooMercadoPago_PaymentAbstract.php:1168
 msgid "Visit your store and simulate a payment to check that everything is fine."
