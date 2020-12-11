@@ -803,9 +803,8 @@
       return mercadoPagoFormHandler();
     });
 
-    window.onload = function() {
-      var body = document.querySelector('body');
-      body.append(sdkTagScript);
-    };
+    window.addEventListener('load', function() {
+      document.querySelector('body').append(sdkTagScript);
+    });
   });
 }(jQuery));
