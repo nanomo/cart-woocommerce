@@ -66,7 +66,7 @@ msgstr ""
 msgid "Cancel order"
 msgstr ""
 
-#: includes/module/WC_WooMercadoPago_Module.php:241, includes/payments/hooks/WC_WooMercadoPago_Hook_Abstract.php:363
+#: includes/module/WC_WooMercadoPago_Module.php:241, includes/payments/hooks/WC_WooMercadoPago_Hook_Abstract.php:364
 msgid "Fill in your credentials to enable payment methods."
 msgstr ""
 
@@ -1205,19 +1205,19 @@ msgstr ""
 msgid " and fee of"
 msgstr ""
 
-#: includes/payments/hooks/WC_WooMercadoPago_Hook_Abstract.php:323
+#: includes/payments/hooks/WC_WooMercadoPago_Hook_Abstract.php:324
 msgid "<b>Public Key</b> production credential is invalid. Review the field to receive real payments."
 msgstr ""
 
-#: includes/payments/hooks/WC_WooMercadoPago_Hook_Abstract.php:333
+#: includes/payments/hooks/WC_WooMercadoPago_Hook_Abstract.php:334
 msgid "<b>Public Key</b> test credential is invalid. Review the field to perform tests in your store."
 msgstr ""
 
-#: includes/payments/hooks/WC_WooMercadoPago_Hook_Abstract.php:343
+#: includes/payments/hooks/WC_WooMercadoPago_Hook_Abstract.php:344
 msgid "<b>Access Token</b> production credential is invalid. Remember that it must be complete to receive real payments."
 msgstr ""
 
-#: includes/payments/hooks/WC_WooMercadoPago_Hook_Abstract.php:353
+#: includes/payments/hooks/WC_WooMercadoPago_Hook_Abstract.php:354
 msgid "<b>Access Token</b> test credential is invalid. Review the field to perform tests in your store."
 msgstr ""
 
