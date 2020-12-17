@@ -193,7 +193,7 @@ class WC_WooMercadoPago_Credentials
     public static function getPaymentResponse($mpInstance, $accessToken)
     {
         $seller = get_option('_collector_id_v1', '');
-        $payments = $mpInstance->get('/users/' . $seller . '/accepted_payment_methods?marketplace=NONE', array('Authorization' => 'Bearer ' . $accessToken));
+        $payments = $mpInstance->get_payment_methods($accessToken);
         if (isset($payments['response'])) {
             return $payments['response'];
         }
@@ -266,7 +266,7 @@ class WC_WooMercadoPago_Credentials
         }
 
         $payment_methods_ticket = array();
-        $excluded = array('consumer_credits', 'paypal', 'pse', 'pix');
+        $excluded = array('paypal');
 
         foreach ($paymentsResponse as $payment) {
             if (
