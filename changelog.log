@@ -1,5 +1,12 @@
 CHANGELOG:
 == Changelog ==
+= v4.6.1 (21/12/2020) =
+* Features
+  - Add support to LearnPress
+  - Compatibility with Wordpress v5.6 and WooCommerce v4.8
+* Bug fixes
+  - Changed event load of credit-card.js in checkout page
+
 = v4.6.0 (01/12/2020) =
 * Features
   - Add review rating banner
@@ -8,7 +15,7 @@ CHANGELOG:
 
 * Bug fixes
   - Fixed error that prevents configuring the Mercado Pago plugin
-  
+
 = v4.5.0 (26/10/2020) =
 * Features
   - Compatibility with WooCommerce v4.6.x
