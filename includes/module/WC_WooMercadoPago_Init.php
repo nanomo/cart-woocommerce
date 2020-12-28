@@ -96,6 +96,18 @@ class WC_WooMercadoPago_Init
     }
 
     /**
+     * Update plugin version in db
+     */
+    public static function update_plugin_version()
+    {
+        $oldVersion = get_option('_mp_version', '0');
+        if (version_compare(WC_WooMercadoPago_Constants::VERSION, $oldVersion, '>')) {
+            do_action('mercadopago_plugin_updated');
+            update_option('_mp_version', WC_WooMercadoPago_Constants::VERSION, true);
+        }
+    }
+
+    /**
      * Init the plugin
      */
     public static function woocommerce_mercadopago_init()
@@ -130,6 +142,7 @@ class WC_WooMercadoPago_Init
 
             WC_WooMercadoPago_Module::init_mercado_pago_class();
             WC_WooMercadoPago_ReviewNotice::initMercadopagoReviewNotice();
+            self::update_plugin_version();
 
             add_action('woocommerce_order_actions', array(__CLASS__, 'add_mp_order_meta_box_actions'));
         } else {
