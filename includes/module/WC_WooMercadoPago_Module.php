@@ -38,6 +38,7 @@ class WC_WooMercadoPago_Module extends WC_WooMercadoPago_Configs
             add_filter('woocommerce_available_payment_gateways', array($this, 'filterPaymentMethodByShipping'));
             add_filter('plugin_action_links_' . WC_MERCADOPAGO_BASENAME, array($this, 'woomercadopago_settings_link'));
             add_filter('plugin_row_meta', array($this, 'mp_plugin_row_meta'), 10, 2);
+            add_action('mercadopago_plugin_updated', array('WC_WooMercadoPago_Credentials', 'mercadopago_payment_update'));
 
             if (is_admin()) {
                 //validate credentials
@@ -613,6 +614,7 @@ class WC_WooMercadoPago_Module extends WC_WooMercadoPago_Configs
 
     public static function generate_refund_cancel_subscription($domain, $success_msg, $fail_msg, $options, $str1, $str2, $str3, $str4)
     {
+        error_log('generate_refund_cancel_subscription');
         $subscription_js = '<script type="text/javascript">
 				( function() {
 					var MPSubscription = {}
