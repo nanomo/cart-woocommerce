@@ -259,7 +259,7 @@ msgid "It offers all means of payment: credit and debit cards, cash and account 
 msgstr ""
 
 #: includes/payments/WC_WooMercadoPago_BasicGateway.php:30
-msgid "Checkout Pro"
+msgid "Mercado Pago - Checkout Pro"
 msgstr ""
 
 #: includes/payments/WC_WooMercadoPago_BasicGateway.php:32

@@ -9,7 +9,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2019-09-05T23:48:06-04:00\n"
-"PO-Revision-Date: 2020-12-29 18:29-0300\n"
+"PO-Revision-Date: 2020-12-29 19:45-0300\n"
 "X-Generator: Poedit 2.4.2\n"
 "X-Domain: woocommerce-mercadopago\n"
 "Last-Translator: \n"
@@ -148,8 +148,8 @@ msgid "Checkout Pro %s"
 msgstr "Checkout Pro %s"
 
 #: includes/payments/WC_WooMercadoPago_BasicGateway.php:29
-msgid "Checkout Pro"
-msgstr "Checkout Pro"
+msgid "Mercado Pago - Checkout Pro"
+msgstr "Mercado Pago - Checkout Pro"
 
 #: includes/payments/WC_WooMercadoPago_TicketGateway.php:220
 #: includes/payments/WC_WooMercadoPago_BasicGateway.php:269
