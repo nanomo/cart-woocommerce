@@ -11,7 +11,7 @@
     };
 
     var sdkTagScript = document.createElement('script');
-    sdkTagScript.src = 'https://secure.mlstatic.com/sdk/javascript/v1/mercadopago.js?_=' + new Date().getTime();
+    sdkTagScript.src = 'https://secure.mlstatic.com/sdk/javascript/v1/mercadopago.js?_=wc' + wc_mercadopago_params.plugin_version;
     sdkTagScript.onload = function () {
       Mercadopago.setPublishableKey(seller.public_key);
     };
