@@ -259,7 +259,7 @@ msgid "It offers all means of payment: credit and debit cards, cash and account 
 msgstr ""
 
 #: includes/payments/WC_WooMercadoPago_BasicGateway.php:30
-msgid "Mercado Pago Checkout"
+msgid "Mercado Pago - Checkout Pro"
 msgstr ""
 
 #: includes/payments/WC_WooMercadoPago_BasicGateway.php:32
@@ -267,7 +267,7 @@ msgid "Pay with the payment method you prefer"
 msgstr ""
 
 #: includes/payments/WC_WooMercadoPago_BasicGateway.php:246
-msgid "Mercado Pago checkout %s"
+msgid "Checkout Pro %s"
 msgstr ""
 
 #: includes/payments/WC_WooMercadoPago_BasicGateway.php:249
@@ -283,7 +283,7 @@ msgid "Configure Mercado Pago for WooCommerce"
 msgstr ""
 
 #: includes/payments/WC_WooMercadoPago_BasicGateway.php:283
-msgid "Enable the experience of the Mercado Pago Checkout in your online store, select the means of payment available to your customers and<br> define the maximum fees in which they can pay you."
+msgid "Enable the experience of the Checkout Pro in your online store, select the means of payment available to your customers and<br> define the maximum fees in which they can pay you."
 msgstr ""
 
 #: includes/payments/WC_WooMercadoPago_BasicGateway.php:296
