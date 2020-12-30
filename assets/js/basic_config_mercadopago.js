@@ -1,6 +1,6 @@
 /*jshint multistr: true */
 
-window.onload = function () {
+window.addEventListener('load', function() {
   var makeCollapsibleOptions = function (id_plus, id_less) {
     return '<span class="mp-btn-collapsible" id="' + id_plus + '" style="display:block">+</span>\
       <span class="mp-btn-collapsible" id="'+ id_less + '" style="display:none">-</span>';
@@ -211,7 +211,7 @@ window.onload = function () {
     });
   }
 
-};
+
 
 //Online payments
 window.completeOnlineCheckbox = function () {
@@ -253,3 +253,4 @@ window.completeOfflineCheckboxMP = function () {
     }
   }
 };
+});
