@@ -1,6 +1,6 @@
 /*jshint multistr: true */
 
-window.onload = function () {
+window.addEventListener('load', function() {
   //remove link breadcrumb, header and save button
   document.querySelector('.wc-admin-breadcrumb').style.display = 'none';
   document.querySelector('.mp-header-logo').style.display = 'none';
@@ -149,7 +149,7 @@ window.onload = function () {
     });
   }
 
-};
+
 
 //Offline payments
 window.completeOfflineCheckbox = function () {
@@ -163,4 +163,5 @@ window.completeOfflineCheckbox = function () {
       offlineInputs[i].checked = false;
     }
   }
-};
+  };
+});
