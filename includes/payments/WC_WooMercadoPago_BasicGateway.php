@@ -415,10 +415,8 @@ class WC_WooMercadoPago_BasicGateway extends WC_WooMercadoPago_PaymentAbstract
 
         //change type atm to ticket
         foreach ($all_payments as $key => $value) {
-            if ($value['type'] == 'atm') {
+            if ($value['type'] == 'atm' || $value['type'] == 'bank_transfer') {
                 $all_payments[$key]['type'] = 'ticket';
-            } else {
-                continue;
             }
         }
 

@@ -1,4 +1,4 @@
-# Copyright (C) 2020 woocommerce-mercadopago
+# Copyright (C) 2021 woocommerce-mercadopago
 # This file is distributed under the same license as the woocommerce-mercadopago package.
 msgid ""
 msgstr ""
@@ -22,11 +22,11 @@ msgstr ""
 msgid "Convert Currency"
 msgstr ""
 
-#: includes/helpers/WC_WooMercadoPago_Helpers_CurrencyConverter.php:332, includes/payments/WC_WooMercadoPago_BasicGateway.php:502, includes/payments/WC_WooMercadoPago_PaymentAbstract.php:593, includes/payments/WC_WooMercadoPago_PaymentAbstract.php:677, includes/payments/WC_WooMercadoPago_PaymentAbstract.php:963, includes/payments/WC_WooMercadoPago_PaymentAbstract.php:1070, includes/payments/WC_WooMercadoPago_PaymentAbstract.php:1105, includes/payments/WC_WooMercadoPago_TicketGateway.php:281
+#: includes/helpers/WC_WooMercadoPago_Helpers_CurrencyConverter.php:332, includes/payments/WC_WooMercadoPago_BasicGateway.php:500, includes/payments/WC_WooMercadoPago_PaymentAbstract.php:593, includes/payments/WC_WooMercadoPago_PaymentAbstract.php:677, includes/payments/WC_WooMercadoPago_PaymentAbstract.php:963, includes/payments/WC_WooMercadoPago_PaymentAbstract.php:1070, includes/payments/WC_WooMercadoPago_PaymentAbstract.php:1105, includes/payments/WC_WooMercadoPago_TicketGateway.php:281
 msgid "No"
 msgstr ""
 
-#: includes/helpers/WC_WooMercadoPago_Helpers_CurrencyConverter.php:333, includes/payments/WC_WooMercadoPago_BasicGateway.php:501, includes/payments/WC_WooMercadoPago_PaymentAbstract.php:594, includes/payments/WC_WooMercadoPago_PaymentAbstract.php:678, includes/payments/WC_WooMercadoPago_PaymentAbstract.php:964, includes/payments/WC_WooMercadoPago_PaymentAbstract.php:1071, includes/payments/WC_WooMercadoPago_PaymentAbstract.php:1104, includes/payments/WC_WooMercadoPago_TicketGateway.php:282
+#: includes/helpers/WC_WooMercadoPago_Helpers_CurrencyConverter.php:333, includes/payments/WC_WooMercadoPago_BasicGateway.php:499, includes/payments/WC_WooMercadoPago_PaymentAbstract.php:594, includes/payments/WC_WooMercadoPago_PaymentAbstract.php:678, includes/payments/WC_WooMercadoPago_PaymentAbstract.php:964, includes/payments/WC_WooMercadoPago_PaymentAbstract.php:1071, includes/payments/WC_WooMercadoPago_PaymentAbstract.php:1104, includes/payments/WC_WooMercadoPago_TicketGateway.php:282
 msgid "Yes"
 msgstr ""
 
@@ -338,51 +338,51 @@ msgstr ""
 msgid "Payment URL pending"
 msgstr ""
 
-#: includes/payments/WC_WooMercadoPago_BasicGateway.php:464
+#: includes/payments/WC_WooMercadoPago_BasicGateway.php:462
 msgid "Select offline payments"
 msgstr ""
 
-#: includes/payments/WC_WooMercadoPago_BasicGateway.php:453
+#: includes/payments/WC_WooMercadoPago_BasicGateway.php:451
 msgid "Select debit cards"
 msgstr ""
 
-#: includes/payments/WC_WooMercadoPago_BasicGateway.php:442
+#: includes/payments/WC_WooMercadoPago_BasicGateway.php:440
 msgid "Select credit cards"
 msgstr ""
 
-#: includes/payments/WC_WooMercadoPago_BasicGateway.php:471, includes/payments/WC_WooMercadoPago_TicketGateway.php:331
+#: includes/payments/WC_WooMercadoPago_BasicGateway.php:469, includes/payments/WC_WooMercadoPago_TicketGateway.php:331
 msgid "Payment methods"
 msgstr ""
 
-#: includes/payments/WC_WooMercadoPago_BasicGateway.php:472, includes/payments/WC_WooMercadoPago_TicketGateway.php:332
+#: includes/payments/WC_WooMercadoPago_BasicGateway.php:470, includes/payments/WC_WooMercadoPago_TicketGateway.php:332
 msgid "Choose the available payment methods in your store."
 msgstr ""
 
-#: includes/payments/WC_WooMercadoPago_BasicGateway.php:478, includes/payments/WC_WooMercadoPago_TicketGateway.php:335
+#: includes/payments/WC_WooMercadoPago_BasicGateway.php:476, includes/payments/WC_WooMercadoPago_TicketGateway.php:335
 msgid "Activate the available payment methods to your clients."
 msgstr ""
 
-#: includes/payments/WC_WooMercadoPago_BasicGateway.php:496
+#: includes/payments/WC_WooMercadoPago_BasicGateway.php:494
 msgid "Return to the store"
 msgstr ""
 
-#: includes/payments/WC_WooMercadoPago_BasicGateway.php:499
+#: includes/payments/WC_WooMercadoPago_BasicGateway.php:497
 msgid "Do you want your customer to automatically return to the store after payment?"
 msgstr ""
 
-#: includes/payments/WC_WooMercadoPago_BasicGateway.php:528
+#: includes/payments/WC_WooMercadoPago_BasicGateway.php:526
 msgid "installments"
 msgstr ""
 
-#: includes/payments/WC_WooMercadoPago_BasicGateway.php:532
+#: includes/payments/WC_WooMercadoPago_BasicGateway.php:530
 msgid "installment"
 msgstr ""
 
-#: includes/payments/WC_WooMercadoPago_BasicGateway.php:600, includes/payments/WC_WooMercadoPago_BasicGateway.php:600, includes/payments/WC_WooMercadoPago_BasicGateway.php:587, includes/payments/WC_WooMercadoPago_BasicGateway.php:587, includes/payments/WC_WooMercadoPago_CustomGateway.php:352, includes/payments/WC_WooMercadoPago_CustomGateway.php:352, includes/payments/WC_WooMercadoPago_CustomGateway.php:340, includes/payments/WC_WooMercadoPago_CustomGateway.php:340, includes/payments/WC_WooMercadoPago_TicketGateway.php:451, includes/payments/WC_WooMercadoPago_TicketGateway.php:451, includes/payments/WC_WooMercadoPago_TicketGateway.php:438, includes/payments/WC_WooMercadoPago_TicketGateway.php:438, includes/payments/hooks/WC_WooMercadoPago_Hook_Abstract.php:100, includes/payments/hooks/WC_WooMercadoPago_Hook_Abstract.php:98
+#: includes/payments/WC_WooMercadoPago_BasicGateway.php:598, includes/payments/WC_WooMercadoPago_BasicGateway.php:598, includes/payments/WC_WooMercadoPago_BasicGateway.php:585, includes/payments/WC_WooMercadoPago_BasicGateway.php:585, includes/payments/WC_WooMercadoPago_CustomGateway.php:352, includes/payments/WC_WooMercadoPago_CustomGateway.php:352, includes/payments/WC_WooMercadoPago_CustomGateway.php:340, includes/payments/WC_WooMercadoPago_CustomGateway.php:340, includes/payments/WC_WooMercadoPago_TicketGateway.php:451, includes/payments/WC_WooMercadoPago_TicketGateway.php:451, includes/payments/WC_WooMercadoPago_TicketGateway.php:438, includes/payments/WC_WooMercadoPago_TicketGateway.php:438, includes/payments/hooks/WC_WooMercadoPago_Hook_Abstract.php:100, includes/payments/hooks/WC_WooMercadoPago_Hook_Abstract.php:98
 msgid "discount of"
 msgstr ""
 
-#: includes/payments/WC_WooMercadoPago_BasicGateway.php:605, includes/payments/WC_WooMercadoPago_BasicGateway.php:605, includes/payments/WC_WooMercadoPago_BasicGateway.php:592, includes/payments/WC_WooMercadoPago_BasicGateway.php:592, includes/payments/WC_WooMercadoPago_CustomGateway.php:357, includes/payments/WC_WooMercadoPago_CustomGateway.php:357, includes/payments/WC_WooMercadoPago_CustomGateway.php:345, includes/payments/WC_WooMercadoPago_CustomGateway.php:345, includes/payments/WC_WooMercadoPago_TicketGateway.php:456, includes/payments/WC_WooMercadoPago_TicketGateway.php:456, includes/payments/WC_WooMercadoPago_TicketGateway.php:443, includes/payments/WC_WooMercadoPago_TicketGateway.php:443, includes/payments/hooks/WC_WooMercadoPago_Hook_Abstract.php:102
+#: includes/payments/WC_WooMercadoPago_BasicGateway.php:603, includes/payments/WC_WooMercadoPago_BasicGateway.php:603, includes/payments/WC_WooMercadoPago_BasicGateway.php:590, includes/payments/WC_WooMercadoPago_BasicGateway.php:590, includes/payments/WC_WooMercadoPago_CustomGateway.php:357, includes/payments/WC_WooMercadoPago_CustomGateway.php:357, includes/payments/WC_WooMercadoPago_CustomGateway.php:345, includes/payments/WC_WooMercadoPago_CustomGateway.php:345, includes/payments/WC_WooMercadoPago_TicketGateway.php:456, includes/payments/WC_WooMercadoPago_TicketGateway.php:456, includes/payments/WC_WooMercadoPago_TicketGateway.php:443, includes/payments/WC_WooMercadoPago_TicketGateway.php:443, includes/payments/hooks/WC_WooMercadoPago_Hook_Abstract.php:102
 msgid "fee of"
 msgstr ""
 
