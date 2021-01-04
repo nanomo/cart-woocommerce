@@ -181,7 +181,7 @@ abstract class WC_WooMercadoPago_PreferenceAbstract extends WC_Payment_Gateway
         $items = array();
         foreach ($this->order->get_items() as $item) {
             if ($item['qty']) {
-                $product = new WC_product($item['product_id']);
+                $product = wc_get_product($item['product_id']);
                 $product_title = method_exists($product, 'get_description') ? $product->get_name() : $product->post->post_title;
                 $product_content = method_exists($product, 'get_description') ? $product->get_description() : $product->post->post_content;
                 // Calculates line amount and discounts.

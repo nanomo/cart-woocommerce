@@ -90,7 +90,8 @@ class WC_WooMercadoPago_Hook_Custom extends WC_WooMercadoPago_Hook_Abstract
                     'discount_info6'        => __('Terms and conditions of use', 'woocommerce-mercadopago'),
                     'loading'               => plugins_url('../../assets/images/', plugin_dir_path(__FILE__)) . 'loading.gif',
                     'check'                 => plugins_url('../../assets/images/', plugin_dir_path(__FILE__)) . 'check.png',
-                    'error'                 => plugins_url('../../assets/images/', plugin_dir_path(__FILE__)) . 'error.png'
+                    'error'                 => plugins_url('../../assets/images/', plugin_dir_path(__FILE__)) . 'error.png',
+                    'plugin_version'        => WC_WooMercadoPago_Constants::VERSION
                 )
             );
         }

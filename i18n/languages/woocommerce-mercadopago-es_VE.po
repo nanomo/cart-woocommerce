@@ -2,14 +2,14 @@
 # This file is distributed under the same license as the Mercado Pago payments for WooCommerce plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: Mercado Pago payments for WooCommerce 4.6.0\n"
+"Project-Id-Version: Mercado Pago payments for WooCommerce 4.6.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/woocommerce-mercadopago\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2019-09-05T23:48:06-04:00\n"
-"PO-Revision-Date: 2020-11-24 18:02-0300\n"
+"PO-Revision-Date: 2020-12-29 19:46-0300\n"
 "X-Generator: Poedit 2.4.2\n"
 "X-Domain: woocommerce-mercadopago\n"
 "Last-Translator: \n"
@@ -144,12 +144,12 @@ msgid "Accept all method of payment and take your charges to another level"
 msgstr "Acepta todos los medios de pago y lleva tus cobros a otro nivel"
 
 #: includes/payments/WC_WooMercadoPago_BasicGateway.php:245
-msgid "Mercado Pago checkout %s"
-msgstr "Checkout de Mercado Pago %s"
+msgid "Checkout Pro %s"
+msgstr "Checkout Pro %s"
 
 #: includes/payments/WC_WooMercadoPago_BasicGateway.php:29
-msgid "Mercado Pago Checkout"
-msgstr "Checkout de Mercado Pago"
+msgid "Mercado Pago - Checkout Pro"
+msgstr "Mercado Pago - Checkout Pro"
 
 #: includes/payments/WC_WooMercadoPago_TicketGateway.php:220
 #: includes/payments/WC_WooMercadoPago_BasicGateway.php:269
@@ -285,8 +285,8 @@ msgid "Set payment preferences in your store"
 msgstr "Configura las preferencias de pago en tu tienda"
 
 #: includes/payments/WC_WooMercadoPago_BasicGateway.php:282
-msgid "Enable the experience of the Mercado Pago Checkout in your online store, select the means of payment available to your customers and<br> define the maximum fees in which they can pay you."
-msgstr "Habilita la experiencia del Checkout de Mercado Pago en tu tienda online, selecciona los medios de pago disponibles para tus clientes y<br> define el máximo de cuotas en el que podrán pagarte."
+msgid "Enable the experience of the Checkout Pro in your online store, select the means of payment available to your customers and<br> define the maximum fees in which they can pay you."
+msgstr "Habilita la experiencia del Checkout Pro en tu tienda online, selecciona los medios de pago disponibles para tus clientes y<br> define el máximo de cuotas en el que podrán pagarte."
 
 #: includes/payments/WC_WooMercadoPago_BasicGateway.php:252
 msgid "Turn your online store into your customers preferred payment gateway. Choose if the final payment experience will be inside or outside your store."
