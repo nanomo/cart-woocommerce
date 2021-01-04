@@ -49,6 +49,27 @@ class WC_WooMercadoPago_Credentials
         $this->clientSecret = get_option('_mp_client_secret');
     }
 
+    public static function mercadopago_payment_update()
+    {
+        try {
+            $mp_v1 = WC_WooMercadoPago_Module::getMpInstanceSingleton();
+            if ($mp_v1 instanceof MP == false) {
+                self::setNoCredentials();
+                return;
+            }
+
+            $access_token = $mp_v1->get_access_token();
+            if (!empty($access_token)) {
+                $payments_response = self::getPaymentResponse($mp_v1, $access_token);
+                self::updatePaymentMethods($mp_v1, $access_token, $payments_response);
+                self::updateTicketMethod($mp_v1, $access_token, $payments_response);
+            }
+        } catch (WC_WooMercadoPago_Exception $e) {
+            $log = WC_WooMercadoPago_Log::init_mercado_pago_log('WC_WooMercadoPago_Credentials');
+            $log->write_log('mercadopago_payment_update', 'Exception ERROR' . $e->getMessage());
+        }
+    }
+
     /**
      * @return bool|string
      */
@@ -161,9 +182,7 @@ class WC_WooMercadoPago_Credentials
                 update_option('_site_id_v1', $get_request['response']['site_id'], true);
                 update_option('_collector_id_v1', $get_request['response']['id'], true);
 
-                $payments_response = self::getPaymentResponse($mp_v1, $access_token);
-                self::updatePaymentMethods($mp_v1, $access_token, $payments_response);
-                self::updateTicketMethod($mp_v1, $access_token, $payments_response);
+                self::mercadopago_payment_update();
 
                 $currency_ratio = WC_WooMercadoPago_Module::get_conversion_rate(
                     WC_WooMercadoPago_Module::$country_configs[$get_request['response']['site_id']]['currency']
@@ -178,7 +197,7 @@ class WC_WooMercadoPago_Credentials
             }
         } catch (WC_WooMercadoPago_Exception $e) {
             $log = WC_WooMercadoPago_Log::init_mercado_pago_log('WC_WooMercadoPago_Credentials');
-            $log->write_log('validate_credentials_v1', 'Exception ERROR');
+            $log->write_log('validate_credentials_v1', 'Exception ERROR' . $e->getMessage());
         }
 
         self::setNoCredentials();
@@ -193,7 +212,7 @@ class WC_WooMercadoPago_Credentials
     public static function getPaymentResponse($mpInstance, $accessToken)
     {
         $seller = get_option('_collector_id_v1', '');
-        $payments = $mpInstance->get('/users/' . $seller . '/accepted_payment_methods?marketplace=NONE', array('Authorization' => 'Bearer ' . $accessToken));
+        $payments = $mpInstance->get_payment_methods($accessToken);
         if (isset($payments['response'])) {
             return $payments['response'];
         }
@@ -266,7 +285,7 @@ class WC_WooMercadoPago_Credentials
         }
 
         $payment_methods_ticket = array();
-        $excluded = array('consumer_credits', 'paypal', 'pse');
+        $excluded = array('paypal');
 
         foreach ($paymentsResponse as $payment) {
             if (

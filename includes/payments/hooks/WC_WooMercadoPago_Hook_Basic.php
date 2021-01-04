@@ -75,7 +75,7 @@ class WC_WooMercadoPago_Hook_Basic extends WC_WooMercadoPago_Hook_Abstract
                 '</a>';
             return $html;
         } else {
-            $this->payment->log->write_log(__FUNCTION__, 'unable to build Mercado Pago checkout URL.');
+            $this->payment->log->write_log(__FUNCTION__, 'unable to build Checkout Pro URL.');
             $html = '<p>' .
                 __('There was an error processing your payment. Please try again or contact us for Assistance.', 'woocommerce-mercadopago') .
                 '</p>' .

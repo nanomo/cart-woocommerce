@@ -27,7 +27,7 @@ class WC_WooMercadoPago_BasicGateway extends WC_WooMercadoPago_PaymentAbstract
         $this->description = __('It offers all means of payment: credit and debit cards, cash and account money. Your customers choose whether they pay as guests or from their Mercado Pago account.', 'woocommerce-mercadopago');
 
         $this->form_fields = array();
-        $this->method_title = __('Mercado Pago Checkout', 'woocommerce-mercadopago');
+        $this->method_title = __('Mercado Pago - Checkout Pro', 'woocommerce-mercadopago');
         $this->method = $this->getOption('method', 'redirect');
         $this->title = __('Pay with the payment method you prefer', 'woocommerce-mercadopago');
         $this->method_description = $this->getMethodDescription($this->description);
@@ -243,7 +243,7 @@ class WC_WooMercadoPago_BasicGateway extends WC_WooMercadoPago_PaymentAbstract
     {
         $checkout_header = array(
             'title' => sprintf(
-                __('Mercado Pago checkout %s', 'woocommerce-mercadopago'),
+                __('Checkout Pro %s', 'woocommerce-mercadopago'),
                 '<div class="row">
                 <div class="mp-col-md-12 mp_subtitle_header">
                 ' . __('Accept all method of payment and take your charges to another level', 'woocommerce-mercadopago') . '
@@ -280,7 +280,7 @@ class WC_WooMercadoPago_BasicGateway extends WC_WooMercadoPago_PaymentAbstract
     public function field_checkout_options_description()
     {
         $checkout_options_description = array(
-            'title' => __('Enable the experience of the Mercado Pago Checkout in your online store, select the means of payment available to your customers and<br> define the maximum fees in which they can pay you.', 'woocommerce-mercadopago'),
+            'title' => __('Enable the experience of the Checkout Pro in your online store, select the means of payment available to your customers and<br> define the maximum fees in which they can pay you.', 'woocommerce-mercadopago'),
             'type' => 'title',
             'class' => 'mp_small_text'
         );
@@ -415,10 +415,8 @@ class WC_WooMercadoPago_BasicGateway extends WC_WooMercadoPago_PaymentAbstract
 
         //change type atm to ticket
         foreach ($all_payments as $key => $value) {
-            if ($value['type'] == 'atm') {
+            if ($value['type'] == 'atm' || $value['type'] == 'bank_transfer') {
                 $all_payments[$key]['type'] = 'ticket';
-            } else {
-                continue;
             }
         }
 
@@ -431,10 +429,6 @@ class WC_WooMercadoPago_BasicGateway extends WC_WooMercadoPago_PaymentAbstract
         $count_payment = 0;
 
         foreach ($all_payments as $payment_method) {
-            if ($payment_method['type'] == 'account_money') {
-                $count_payment++;
-                continue;
-            } else {
                 if ($payment_method['type'] == 'credit_card') {
                     $element = array(
                         'label' => $payment_method['name'],
@@ -469,17 +463,18 @@ class WC_WooMercadoPago_BasicGateway extends WC_WooMercadoPago_PaymentAbstract
                         ),
                     );
                 }
-            }
 
-            if ($count_payment == 1) {
+
+            if ($count_payment == 0) {
                 $element['title'] = __('Payment methods', 'woocommerce-mercadopago');
                 $element['desc_tip'] = __('Choose the available payment methods in your store.', 'woocommerce-mercadopago');
             }
+
+            $count_payment++;
+
             if ($count_payment == count($get_payment_methods)) {
                 $element['description'] = __('Activate the available payment methods to your clients.', 'woocommerce-mercadopago');
             }
-
-            $count_payment++;
 
             $ex_payments["ex_payments_" . $payment_method['id']] = $element;
             $ex_payments_sort[] = "ex_payments_" . $payment_method['id'];
@@ -616,7 +611,7 @@ class WC_WooMercadoPago_BasicGateway extends WC_WooMercadoPago_PaymentAbstract
                 'redirect' => $this->create_preference($order)
             );
         } elseif ('modal' == $this->method) {
-            $this->log->write_log(__FUNCTION__, 'preparing to render Mercado Pago checkout view.');
+            $this->log->write_log(__FUNCTION__, 'preparing to render Checkout Pro view.');
             return array(
                 'result' => 'success',
                 'redirect' => $order->get_checkout_payment_url(true)

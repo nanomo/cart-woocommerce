@@ -1,6 +1,6 @@
 /*jshint multistr: true */
 
-window.onload = function () {
+window.addEventListener('load', function() {
   //remove link breadcrumb, header and save button
   document.querySelector('.wc-admin-breadcrumb').style.display = 'none';
   document.querySelector('.mp-header-logo').style.display = 'none';
@@ -18,7 +18,7 @@ window.onload = function () {
   var label = document.querySelectorAll('th.titledesc');
   for (var j = 0; j < label.length; j++) {
     label[j].id = 'mp_field_text';
-    if (label[j].children[0].children[0] != null) {
+    if (label[j] && label[j].children[0] && label[j].children[0].children[0]) {
       label[j].children[0].children[0].style.position = 'relative';
       label[j].children[0].children[0].style.fontSize = '22px';
     }
@@ -149,7 +149,7 @@ window.onload = function () {
     });
   }
 
-};
+
 
 //Offline payments
 window.completeOfflineCheckbox = function () {
@@ -163,4 +163,5 @@ window.completeOfflineCheckbox = function () {
       offlineInputs[i].checked = false;
     }
   }
-};
+  };
+});

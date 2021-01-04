@@ -2,9 +2,9 @@
 Contributors: mercadopago, mercadolivre, claudiosanches, marcelohama
 Tags: ecommerce, mercadopago, woocommerce
 Requires at least: 4.9.10
-Tested up to: 5.5
+Tested up to: 5.6
 Requires PHP: 5.6
-Stable tag: 4.6.0
+Stable tag: 4.6.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -116,6 +116,20 @@ Set up both the plugin and the checkouts you want to activate on your payment av
 Check out our <a href="https://www.mercadopago.com.br/developers/pt/plugins_sdks/plugins/official/woo-commerce/">official documentation</a> for more information on the specific fields to configure.
 
 == Changelog ==
+= v4.6.1 (04/01/2021) =
+
+* Features
+ - Add support to LearnPress
+ - Compatibility with Wordpress v5.6 and WooCommerce v4.8
+ - Added version in SDK Mercado Pago
+ - Added compatibility with WooCommerce Accepted Payment Methods plugin
+
+* Bug fixes
+  - Changed event load of credit-card.js in checkout page
+  - Changed API to get payment_methods in Checkout Custo Offline and Checkout pro
+  - Changed event load in admin payments config
+  - Changed name Checkout Mercado Pago to Checkout Pro
+
 = v4.6.0 (01/12/2020) =
 * Features
   - Add review rating banner
@@ -124,7 +138,7 @@ Check out our <a href="https://www.mercadopago.com.br/developers/pt/plugins_sdks
 
 * Bug fixes
   - Fixed error that prevents configuring the Mercado Pago plugin
-  
+
 = v4.5.0 (26/10/2020) =
 * Features
   - Compatibility with WooCommerce v4.6.x
