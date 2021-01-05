@@ -534,17 +534,25 @@ class MP
      * @return array|null
      * @throws WC_WooMercadoPago_Exception
      */
-    public function get_payment_methods()
+    public function get_payment_methods($accessToken)
     {
         $request = array(
             'headers' => array(
-                'Authorization' => 'Bearer ' . $this->get_access_token()
+                'Authorization' => 'Bearer ' . $accessToken
             ),
             'uri' => '/v1/payment_methods',
         );
 
         $response = MPRestClient::get($request);
-        asort($result);
+
+        if ($response['status'] > 202) {
+            $log = WC_WooMercadoPago_Log::init_mercado_pago_log('get_payment_methods');
+            $log->write_log('API get_payment_methods error: ', $response['response']['message']);
+            return null;
+        }
+
+        asort($response);
+
         return $response;
     }
 

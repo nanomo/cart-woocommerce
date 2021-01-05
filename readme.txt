@@ -116,12 +116,19 @@ Set up both the plugin and the checkouts you want to activate on your payment av
 Check out our <a href="https://www.mercadopago.com.br/developers/pt/plugins_sdks/plugins/official/woo-commerce/">official documentation</a> for more information on the specific fields to configure.
 
 == Changelog ==
-= v4.6.1 (21/12/2020) =
+= v4.6.1 (04/01/2021) =
+
 * Features
-  - Add support to LearnPress
-  - Compatibility with Wordpress v5.6 and WooCommerce v4.8
+ - Add support to LearnPress
+ - Compatibility with Wordpress v5.6 and WooCommerce v4.8
+ - Added version in SDK Mercado Pago
+ - Added compatibility with WooCommerce Accepted Payment Methods plugin
+
 * Bug fixes
   - Changed event load of credit-card.js in checkout page
+  - Changed API to get payment_methods in Checkout Custo Offline and Checkout pro
+  - Changed event load in admin payments config
+  - Changed name Checkout Mercado Pago to Checkout Pro
 
 = v4.6.0 (01/12/2020) =
 * Features

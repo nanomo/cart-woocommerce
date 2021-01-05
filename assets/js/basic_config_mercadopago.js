@@ -1,6 +1,6 @@
 /*jshint multistr: true */
 
-window.onload = function () {
+window.addEventListener('load', function() {
   var makeCollapsibleOptions = function (id_plus, id_less) {
     return '<span class="mp-btn-collapsible" id="' + id_plus + '" style="display:block">+</span>\
       <span class="mp-btn-collapsible" id="'+ id_less + '" style="display:none">-</span>';
@@ -24,7 +24,7 @@ window.onload = function () {
   var label = document.querySelectorAll('th.titledesc');
   for (var j = 0; j < label.length; j++) {
     label[j].id = 'mp_field_text';
-    if (label[j].children[0].children[0] != null) {
+    if (label[j] && label[j].children[0] && label[j].children[0].children[0]) {
       label[j].children[0].children[0].style.position = 'relative';
       label[j].children[0].children[0].style.fontSize = '22px';
     }
@@ -211,7 +211,7 @@ window.onload = function () {
     });
   }
 
-};
+
 
 //Online payments
 window.completeOnlineCheckbox = function () {
@@ -253,3 +253,4 @@ window.completeOfflineCheckboxMP = function () {
     }
   }
 };
+});
