@@ -9,13 +9,14 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class WC_WooMercadoPago_Exception extends Exception {
 
-    /**
-     * WC_WooMercadoPago_Exception constructor.
-     * @param $message
-     * @param int $code
-     * @param Exception|null $previous
-     */
-    public function __construct( $message, $code = 500, Exception $previous = null ) {
-        parent::__construct( $message, $code, $previous );
-    }
+	/**
+	 * WC_WooMercadoPago_Exception constructor.
+	 *
+	 * @param $message
+	 * @param int            $code
+	 * @param Exception|null $previous
+	 */
+	public function __construct( $message, $code = 500, Exception $previous = null ) {
+		parent::__construct( $message, $code, $previous );
+	}
 }
