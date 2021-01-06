@@ -1,5 +1,9 @@
 CHANGELOG:
 == Changelog ==
+= v4.6.2 (06/01/2021) =
+* Bug fixes
+  - Changed loading of Mercado Pago SDK at custom checkout
+
 = v4.6.1 (04/01/2021) =
 
 * Features
