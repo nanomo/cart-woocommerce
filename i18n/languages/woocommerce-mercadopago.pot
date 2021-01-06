@@ -1035,6 +1035,7 @@ msgid "Select the number of installment"
 msgstr ""
 
 #: templates/checkout/custom_checkout.php:131
+msgid ""
 msgstr ""
 
 #: templates/checkout/custom_checkout.php:134
