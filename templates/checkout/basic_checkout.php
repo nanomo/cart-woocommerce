@@ -6,18 +6,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 <div class="mp-panel-checkout">
   <div class="mp-row-checkout">
-	<?php if ( $credito != 0 ) : ?>
+	<?php if ( 0 !== (int) $credito) : ?>
 	<div id="framePayments" class="mp-col-md-12">
 		<div class="frame-tarjetas">
 			<p class="mp-subtitle-basic-checkout">
-				<?php echo __( 'Credit cards', 'woocommerce-mercadopago' ); ?>
-				<span class="mp-badge-checkout"><?php echo __( 'Until', 'woocommerce-mercadopago' ); ?> <?php echo $installments; ?> <?php echo __( $str_cuotas, 'woocommerce-mercadopago' ); ?></span>
+				<?php echo esc_html_e( 'Credit cards', 'woocommerce-mercadopago' ); ?>
+				<span class="mp-badge-checkout"><?php echo esc_html_e( 'Until', 'woocommerce-mercadopago' ); ?> <?php echo $installments; ?> <?php echo __( $str_cuotas, 'woocommerce-mercadopago' ); ?></span>
 			</p>
-
 			<?php foreach ( $tarjetas as $tarjeta ) : ?>
 				<?php if ( $tarjeta['type'] == 'credit_card' ) : ?>
-				<img src="<?php echo $tarjeta['image']; ?>" class="mp-img-fluid mp-img-tarjetas" alt=""/>
-			  <?php endif; ?>
+				<img src="<?php echo esc_html( $tarjeta['image']); ?>" class="mp-img-fluid mp-img-tarjetas" alt=""/>
+				<?php endif; ?>
 			<?php endforeach; ?>
 		</div>
 	</div>

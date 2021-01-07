@@ -954,15 +954,15 @@ msgstr ""
 msgid "Until"
 msgstr ""
 
-#: templates/checkout/basic_checkout.php:29, templates/checkout/custom_checkout.php:36
+#: templates/checkout/basic_checkout.php:28, templates/checkout/custom_checkout.php:36
 msgid "Debit card"
 msgstr ""
 
-#: templates/checkout/basic_checkout.php:43
+#: templates/checkout/basic_checkout.php:42
 msgid "Payments in cash"
 msgstr ""
 
-#: templates/checkout/basic_checkout.php:58
+#: templates/checkout/basic_checkout.php:57
 msgid "We take you to our site to complete the payment"
 msgstr ""
 

@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Plugin Name: Mercado Pago payments for WooCommerce
  * Plugin URI: https://github.com/mercadopago/cart-woocommerce
