@@ -323,7 +323,7 @@ class WC_WooMercadoPago_CustomGateway extends WC_WooMercadoPago_PaymentAbstract 
 			'credit_card'          => $credit_card,
 		);
 
-		wc_get_template( 'checkout/custom_checkout.php', $parameters, 'woo/mercado/pago/module/', WC_WooMercadoPago_Module::get_templates_path() );
+		wc_get_template( 'checkout/custom-checkout.php', $parameters, 'woo/mercado/pago/module/', WC_WooMercadoPago_Module::get_templates_path() );
 	}
 
 	/**

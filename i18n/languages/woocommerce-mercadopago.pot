@@ -150,7 +150,7 @@ msgstr ""
 msgid "CONVERTED CURRENCY: Your store is converting currency of"
 msgstr ""
 
-#: includes/module/WC_WooMercadoPago_Module.php:537, templates/checkout/custom_checkout.php:146
+#: includes/module/WC_WooMercadoPago_Module.php:537, templates/checkout/custom-checkout.php:146
 msgid "for"
 msgstr ""
 
@@ -446,7 +446,7 @@ msgstr ""
 msgid "Check the information provided."
 msgstr ""
 
-#: includes/payments/WC_WooMercadoPago_CustomGateway.php:245, templates/checkout/custom_checkout.php:118, templates/checkout/custom_checkout.php:119
+#: includes/payments/WC_WooMercadoPago_CustomGateway.php:245, templates/checkout/custom-checkout.php:118, templates/checkout/custom-checkout.php:119
 msgid "Check the informed security code."
 msgstr ""
 
@@ -946,7 +946,7 @@ msgstr ""
 msgid "here"
 msgstr ""
 
-#: templates/checkout/basic_checkout.php:24, templates/checkout/custom_checkout.php:40
+#: templates/checkout/basic_checkout.php:24, templates/checkout/custom-checkout.php:40
 msgid "Credit cards"
 msgstr ""
 
@@ -954,7 +954,7 @@ msgstr ""
 msgid "Until"
 msgstr ""
 
-#: templates/checkout/basic_checkout.php:39, templates/checkout/custom_checkout.php:47
+#: templates/checkout/basic_checkout.php:39, templates/checkout/custom-checkout.php:47
 msgid "Debit card"
 msgstr ""
 
@@ -966,102 +966,102 @@ msgstr ""
 msgid "We take you to our site to complete the payment"
 msgstr ""
 
-#: templates/checkout/custom_checkout.php:25
+#: templates/checkout/custom-checkout.php:25
 msgid "With what cards can I pay"
 msgstr ""
 
-#: templates/checkout/custom_checkout.php:30
+#: templates/checkout/custom-checkout.php:30
 msgid "See current promotions"
 msgstr ""
 
-#: templates/checkout/custom_checkout.php:60, templates/checkout/ticket-checkout.php:26
+#: templates/checkout/custom-checkout.php:60, templates/checkout/ticket-checkout.php:26
 msgid "Enter your discount coupon"
 msgstr ""
 
-#: templates/checkout/custom_checkout.php:64, templates/checkout/ticket-checkout.php:30
+#: templates/checkout/custom-checkout.php:64, templates/checkout/ticket-checkout.php:30
 msgid "Enter your coupon"
 msgstr ""
 
-#: templates/checkout/custom_checkout.php:68, templates/checkout/ticket-checkout.php:34, includes/payments/hooks/WC_WooMercadoPago_Hook_Custom.php:87, includes/payments/hooks/WC_WooMercadoPago_Hook_Ticket.php:89
+#: templates/checkout/custom-checkout.php:68, templates/checkout/ticket-checkout.php:34, includes/payments/hooks/WC_WooMercadoPago_Hook_Custom.php:87, includes/payments/hooks/WC_WooMercadoPago_Hook_Ticket.php:89
 msgid "Apply"
 msgstr ""
 
-#: templates/checkout/custom_checkout.php:71, templates/checkout/ticket-checkout.php:37
+#: templates/checkout/custom-checkout.php:71, templates/checkout/ticket-checkout.php:37
 msgid "The code you entered is incorrect"
 msgstr ""
 
-#: templates/checkout/custom_checkout.php:80
+#: templates/checkout/custom-checkout.php:80
 msgid "Enter your card details"
 msgstr ""
 
-#: templates/checkout/custom_checkout.php:86, templates/checkout/custom_checkout.php:89
+#: templates/checkout/custom-checkout.php:86, templates/checkout/custom-checkout.php:89
 msgid "Card number"
 msgstr ""
 
-#: templates/checkout/custom_checkout.php:90, templates/checkout/custom_checkout.php:99, templates/checkout/custom_checkout.php:100
+#: templates/checkout/custom-checkout.php:90, templates/checkout/custom-checkout.php:99, templates/checkout/custom-checkout.php:100
 msgid "Invalid Card Number"
 msgstr ""
 
-#: templates/checkout/custom_checkout.php:96
+#: templates/checkout/custom-checkout.php:96
 msgid "Name and surname of the cardholder"
 msgstr ""
 
-#: templates/checkout/custom_checkout.php:107
+#: templates/checkout/custom-checkout.php:107
 msgid "Expiration date"
 msgstr ""
 
-#: templates/checkout/custom_checkout.php:111
+#: templates/checkout/custom-checkout.php:111
 msgid "Invalid Expiration Date"
 msgstr ""
 
-#: templates/checkout/custom_checkout.php:115
+#: templates/checkout/custom-checkout.php:115
 msgid "Security code"
 msgstr ""
 
-#: templates/checkout/custom_checkout.php:117
+#: templates/checkout/custom-checkout.php:117
 msgid "Last 3 numbers on the back"
 msgstr ""
 
-#: templates/checkout/custom_checkout.php:126
+#: templates/checkout/custom-checkout.php:126
 msgid "In how many installments do you want to pay"
 msgstr ""
 
-#: templates/checkout/custom_checkout.php:132
+#: templates/checkout/custom-checkout.php:132
 msgid "Issuer"
 msgstr ""
 
-#: templates/checkout/custom_checkout.php:154
+#: templates/checkout/custom-checkout.php:154
 msgid "Select the number of installment"
 msgstr ""
 
-#: templates/checkout/custom_checkout.php:142
+#: templates/checkout/custom-checkout.php:142
 msgstr ""
 
-#: templates/checkout/custom_checkout.php:145
+#: templates/checkout/custom-checkout.php:145
 msgid "Converted payment of"
 msgstr ""
 
-#: templates/checkout/custom_checkout.php:173, templates/checkout/ticket-checkout.php:50
+#: templates/checkout/custom-checkout.php:173, templates/checkout/ticket-checkout.php:50
 msgid "Enter your document number"
 msgstr ""
 
-#: templates/checkout/custom_checkout.php:179, templates/checkout/ticket-checkout.php:52
+#: templates/checkout/custom-checkout.php:179, templates/checkout/ticket-checkout.php:52
 msgid "Type"
 msgstr ""
 
-#: templates/checkout/custom_checkout.php:186, templates/checkout/ticket-checkout.php:58
+#: templates/checkout/custom-checkout.php:186, templates/checkout/ticket-checkout.php:58
 msgid "Document number"
 msgstr ""
 
-#: templates/checkout/custom_checkout.php:188
+#: templates/checkout/custom-checkout.php:188
 msgid "Only numbers"
 msgstr ""
 
-#: templates/checkout/custom_checkout.php:189, templates/checkout/custom_checkout.php:190, templates/checkout/ticket-checkout.php:61, templates/checkout/ticket-checkout.php:111
+#: templates/checkout/custom-checkout.php:189, templates/checkout/custom-checkout.php:190, templates/checkout/ticket-checkout.php:61, templates/checkout/ticket-checkout.php:111
 msgid "Invalid Document Number"
 msgstr ""
 
-#: templates/checkout/custom_checkout.php:200
+#: templates/checkout/custom-checkout.php:200
 msgid "Obligatory field"
 msgstr ""
 

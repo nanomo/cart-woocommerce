@@ -333,8 +333,8 @@ msgstr "Você já realizou o pagamento para esse valor. Se precisa pagar novamen
 msgid "Your payment cannot be processed."
 msgstr "Não foi possível processar seu pagamento."
 
-#: templates/checkout/custom_checkout.php:106
-#: templates/checkout/custom_checkout.php:107
+#: templates/checkout/custom-checkout.php:106
+#: templates/checkout/custom-checkout.php:107
 #: includes/payments/WC_WooMercadoPago_CustomGateway.php:251
 msgid "Check the informed security code."
 msgstr "Verifique o código de segurança informado."
@@ -741,38 +741,38 @@ msgstr "Sua opinião nos ajuda a melhorar"
 msgid "Set up"
 msgstr "Configurar"
 
-#: templates/checkout/custom_checkout.php:176
+#: templates/checkout/custom-checkout.php:176
 msgid "Only numbers"
 msgstr "Apenas números"
 
-#: templates/checkout/custom_checkout.php:167
+#: templates/checkout/custom-checkout.php:167
 #: templates/checkout/ticket-checkout.php:40
 msgid "Type"
 msgstr "Tipo"
 
-#: templates/checkout/custom_checkout.php:161
+#: templates/checkout/custom-checkout.php:161
 #: templates/checkout/ticket-checkout.php:38
 msgid "Enter your document number"
 msgstr "Informe seu número de documento"
 
-#: templates/checkout/custom_checkout.php:142
+#: templates/checkout/custom-checkout.php:142
 msgid "Select the number of installment"
 msgstr "Em quantas parcelas você quer pagar"
 
-#: templates/checkout/custom_checkout.php:134
+#: templates/checkout/custom-checkout.php:134
 #: includes/module/WC_WooMercadoPago_Module.php:553
 msgid "for"
 msgstr "para"
 
-#: templates/checkout/custom_checkout.php:133
+#: templates/checkout/custom-checkout.php:133
 msgid "Converted payment of"
 msgstr "Pagamento convertido de"
 
-#: templates/checkout/custom_checkout.php:114
+#: templates/checkout/custom-checkout.php:114
 msgid "In how many installments do you want to pay"
 msgstr "Em quantas parcelas você quer pagar"
 
-#: templates/checkout/custom_checkout.php:188
+#: templates/checkout/custom-checkout.php:188
 msgid "Obligatory field"
 msgstr "Campo obrigatório"
 
@@ -781,24 +781,24 @@ msgstr "Campo obrigatório"
 msgid "Discard"
 msgstr "Descartar"
 
-#: templates/checkout/custom_checkout.php:105
+#: templates/checkout/custom-checkout.php:105
 msgid "Last 3 numbers on the back"
 msgstr "Últimos 3 números do verso"
 
-#: templates/checkout/custom_checkout.php:84
+#: templates/checkout/custom-checkout.php:84
 msgid "Name and surname of the cardholder"
 msgstr "Nome completo do titular do cartão"
 
-#: templates/checkout/custom_checkout.php:74
-#: templates/checkout/custom_checkout.php:77
+#: templates/checkout/custom-checkout.php:74
+#: templates/checkout/custom-checkout.php:77
 msgid "Card number"
 msgstr "Número do cartão"
 
-#: templates/checkout/custom_checkout.php:68
+#: templates/checkout/custom-checkout.php:68
 msgid "Enter your card details"
 msgstr "Informe os dados do seu cartão"
 
-#: templates/checkout/custom_checkout.php:18
+#: templates/checkout/custom-checkout.php:18
 msgid "See current promotions"
 msgstr "Promoções vigentes"
 
@@ -877,11 +877,11 @@ msgstr "Razão social"
 msgid "Name"
 msgstr "Nome"
 
-#: templates/checkout/custom_checkout.php:95
+#: templates/checkout/custom-checkout.php:95
 msgid "Expiration date"
 msgstr "Data de vencimento"
 
-#: templates/checkout/custom_checkout.php:13
+#: templates/checkout/custom-checkout.php:13
 msgid "With what cards can I pay"
 msgstr "Com quais cartões posso pagar?"
 
@@ -889,17 +889,17 @@ msgstr "Com quais cartões posso pagar?"
 msgid "Physical person"
 msgstr "Pessoa física"
 
-#: templates/checkout/custom_checkout.php:59
+#: templates/checkout/custom-checkout.php:59
 #: templates/checkout/ticket-checkout.php:25
 msgid "The code you entered is incorrect"
 msgstr "O código que digitou não foi encontrado"
 
-#: templates/checkout/custom_checkout.php:52
+#: templates/checkout/custom-checkout.php:52
 #: templates/checkout/ticket-checkout.php:18
 msgid "Enter your coupon"
 msgstr "Insira seu cupom"
 
-#: templates/checkout/custom_checkout.php:48
+#: templates/checkout/custom-checkout.php:48
 #: templates/checkout/ticket-checkout.php:14
 msgid "Enter your discount coupon"
 msgstr "Insira seu cupom de desconto"
@@ -912,7 +912,7 @@ msgstr "Você será redirecionado para o site do Mercado Pago para concluir o pa
 msgid "Payments in cash"
 msgstr "Transferência bancária"
 
-#: templates/checkout/custom_checkout.php:35
+#: templates/checkout/custom-checkout.php:35
 #: templates/checkout/basic_checkout.php:28
 msgid "Debit card"
 msgstr "Cartões de débito"
@@ -921,7 +921,7 @@ msgstr "Cartões de débito"
 msgid "Until"
 msgstr "Em até"
 
-#: templates/checkout/custom_checkout.php:28
+#: templates/checkout/custom-checkout.php:28
 #: templates/checkout/basic_checkout.php:12
 msgid "Credit cards"
 msgstr "Cartões de crédito"
@@ -1123,37 +1123,37 @@ msgstr "Remover"
 msgid "installment"
 msgstr "x"
 
-#: templates/checkout/custom_checkout.php:120
+#: templates/checkout/custom-checkout.php:120
 msgid "Issuer"
 msgstr "Banco emissor"
 
-#: templates/checkout/custom_checkout.php:177
-#: templates/checkout/custom_checkout.php:178
+#: templates/checkout/custom-checkout.php:177
+#: templates/checkout/custom-checkout.php:178
 #: templates/checkout/ticket-checkout.php:49
 #: templates/checkout/ticket-checkout.php:99
 msgid "Invalid Document Number"
 msgstr "Número de documento inválido"
 
-#: templates/checkout/custom_checkout.php:174
+#: templates/checkout/custom-checkout.php:174
 #: templates/checkout/ticket-checkout.php:46
 msgid "Document number"
 msgstr "Número de documento"
 
-#: templates/checkout/custom_checkout.php:99
+#: templates/checkout/custom-checkout.php:99
 msgid "Invalid Expiration Date"
 msgstr "Data de vencimento inválida"
 
-#: templates/checkout/custom_checkout.php:78
-#: templates/checkout/custom_checkout.php:87
-#: templates/checkout/custom_checkout.php:88
+#: templates/checkout/custom-checkout.php:78
+#: templates/checkout/custom-checkout.php:87
+#: templates/checkout/custom-checkout.php:88
 msgid "Invalid Card Number"
 msgstr "Número de cartão inválido"
 
-#: templates/checkout/custom_checkout.php:103
+#: templates/checkout/custom-checkout.php:103
 msgid "Security code"
 msgstr "Código de segurança"
 
-#: templates/checkout/custom_checkout.php:56
+#: templates/checkout/custom-checkout.php:56
 #: templates/checkout/ticket-checkout.php:22
 #: includes/payments/hooks/WC_WooMercadoPago_Hook_Ticket.php:78
 #: includes/payments/hooks/WC_WooMercadoPago_Hook_Custom.php:76

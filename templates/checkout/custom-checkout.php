@@ -22,12 +22,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<!-- Links cards can pay | current promotions only Argentina -->
 		<div class="mp-frame-links">
 			<a class="mp-checkout-link mp-pr-10" id="button-show-payments">
-				<?php echo __( 'With what cards can I pay', 'woocommerce-mercadopago' ); ?> ⌵
+				<?php echo esc_html__( 'With what cards can I pay', 'woocommerce-mercadopago' ); ?> ⌵
 			</a>
-			<?php if ( $site_id == 'MLA' ) : ?>
+			<?php if ( 'MLA' === $site_id ) : ?>
 				<span id="mp_promotion_link"> | </span>
 				<a href="https://www.mercadopago.com.ar/cuotas" id="mp_checkout_link" class="mp-checkout-link mp-pl-10" target="_blank">
-					<?php echo __( 'See current promotions', 'woocommerce-mercadopago' ); ?>
+					<?php echo esc_html__( 'See current promotions', 'woocommerce-mercadopago' ); ?>
 				</a>
 			<?php endif; ?>
 		</div>
@@ -36,17 +36,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="mp-frame-payments" id="mp-frame-payments">
 			<div class="mp-col-md-12">
 				<div class="frame-tarjetas">
-					<?php if ( count( $credit_card ) != 0 ) : ?>
-						<p class="submp-title-checkout-custom"><?php echo __( 'Credit cards', 'woocommerce-mercadopago' ); ?></p>
+					<?php if ( 0 !== count( $credit_card ) ) : ?>
+						<p class="submp-title-checkout-custom"><?php echo esc_html__( 'Credit cards', 'woocommerce-mercadopago' ); ?></p>
 						<?php foreach ( $credit_card as $credit_image ) : ?>
-							<img src="<?php echo $credit_image; ?>" class="mp-img-fluid mp-img-tarjetas" alt="" />
+							<img src="<?php echo esc_attr( $credit_image ); ?>" class="mp-img-fluid mp-img-tarjetas" alt="" />
 						<?php endforeach; ?>
 					<?php endif; ?>
 
-					<?php if ( count( $debit_card ) != 0 ) : ?>
-						<p class="submp-title-checkout-custom mp-pt-10"><?php echo __( 'Debit card', 'woocommerce-mercadopago' ); ?></p>
+					<?php if ( 0 !== count( $credit_card ) ) : ?>
+						<p class="submp-title-checkout-custom mp-pt-10"><?php echo esc_html__( 'Debit card', 'woocommerce-mercadopago' ); ?></p>
 						<?php foreach ( $debit_card as $debit_image ) : ?>
-							<img src="<?php echo $debit_image; ?>" class="mp-img-fluid mp-img-tarjetas" alt="" />
+							<img src="<?php echo esc_attr( $debit_image ); ?>" class="mp-img-fluid mp-img-tarjetas" alt="" />
 						<?php endforeach; ?>
 					<?php endif; ?>
 				</div>
@@ -54,21 +54,21 @@ if ( ! defined( 'ABSPATH' ) ) {
 		</div>
 
 		<!-- Cupom mode, creat a campaign on mercado pago -->
-		<?php if ( $coupon_mode == 'yes' ) : ?>
+		<?php if ( 'yes' === $coupon_mode ) : ?>
 			<div class="mp-col-md-12" id="mercadopago-form-coupon">
 				<div class="frame-tarjetas mp-text-justify">
-					<p class="mp-subtitle-custom-checkout"><?php echo __( 'Enter your discount coupon', 'woocommerce-mercadopago' ); ?></p>
+					<p class="mp-subtitle-custom-checkout"><?php echo esc_html__( 'Enter your discount coupon', 'woocommerce-mercadopago' ); ?></p>
 
 					<div class="mp-row-checkout mp-pt-10">
 						<div class="mp-col-md-9 mp-pr-15">
-							<input type="text" class="mp-form-control" id="couponCode" name="mercadopago_custom[coupon_code]" autocomplete="off" maxlength="24" placeholder="<?php echo __( 'Enter your coupon', 'woocommerce-mercadopago' ); ?>" />
+							<input type="text" class="mp-form-control" id="couponCode" name="mercadopago_custom[coupon_code]" autocomplete="off" maxlength="24" placeholder="<?php echo esc_html__( 'Enter your coupon', 'woocommerce-mercadopago' ); ?>" />
 						</div>
 
 						<div class="mp-col-md-3">
 							<input type="button" class="mp-button mp-pointer" id="applyCoupon" value="<?php echo esc_html__( 'Apply', 'woocommerce-mercadopago' ); ?>">
 						</div>
 						<div class="mp-discount mp-col-md-9 mp-pr-15" id="mpCouponApplyed"></div>
-						<span class="mp-error" id="mpCouponError"><?php echo __( 'The code you entered is incorrect', 'woocommerce-mercadopago' ); ?></span>
+						<span class="mp-error" id="mpCouponError"><?php echo esc_html__( 'The code you entered is incorrect', 'woocommerce-mercadopago' ); ?></span>
 					</div>
 				</div>
 			</div>
@@ -77,7 +77,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="mp-col-md-12">
 			<div class="frame-tarjetas">
 				<!-- Title enter your card details -->
-				<p class="mp-subtitle-custom-checkout"><?php echo __( 'Enter your card details', 'woocommerce-mercadopago' ); ?></p>
+				<p class="mp-subtitle-custom-checkout"><?php echo esc_html__( 'Enter your card details', 'woocommerce-mercadopago' ); ?></p>
 
 				<div id="mercadopago-form">
 					<!-- Input Card number -->
@@ -123,7 +123,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<div class="mp-col-md-12">
 						<div class="frame-tarjetas">
 							<!-- Title installments -->
-							<p class="mp-subtitle-custom-checkout"><?php echo __( 'In how many installments do you want to pay', 'woocommerce-mercadopago' ); ?></p>
+							<p class="mp-subtitle-custom-checkout"><?php echo esc_html__( 'In how many installments do you want to pay', 'woocommerce-mercadopago' ); ?></p>
 
 							<!-- Select issuer -->
 							<div class="mp-row-checkout mp-pt-10">
@@ -136,22 +136,22 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 								<!-- Select installments -->
 								<div id="installments-div" class="mp-col-md-12">
-									<?php if ( $currency_ratio != 1 ) : ?>
+									<?php if ( 1 !== $currency_ratio ) : ?>
 										<label for="installments" class="mp-label-form">
 											<div class="mp-tooltip">
 												<?php echo esc_html__( '', 'woocommerce-mercadopago' ); ?>
 												<span class="mp-tooltiptext">
 													<?php
 													echo esc_html__( 'Converted payment of', 'woocommerce-mercadopago' ) . ' ' .
-																$woocommerce_currency . ' ' . esc_html__( 'for', 'woocommerce-mercadopago' ) . ' ' .
-																$account_currency;
+													esc_html( $woocommerce_currency ) . ' ' . esc_html__( 'for', 'woocommerce-mercadopago' ) . ' ' .
+													esc_html( $account_currency );
 													?>
 												</span>
 											</div>
 											<em>*</em>
 										</label>
 									<?php else : ?>
-										<label for="mp-installments" class="mp-label-form"><?php echo __( 'Select the number of installment', 'woocommerce-mercadopago' ); ?></label>
+										<label for="mp-installments" class="mp-label-form"><?php echo esc_html__( 'Select the number of installment', 'woocommerce-mercadopago' ); ?></label>
 									<?php endif; ?>
 
 									<select class="mp-form-control mp-pointer mp-mt-5" id="mp-installments" data-checkout="installments" name="mercadopago_custom[installments]"></select>
@@ -170,7 +170,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<div id="mp-doc-div" class="mp-col-md-12 mp-doc">
 						<div class="frame-tarjetas">
 							<!-- Title document -->
-							<p class="mp-subtitle-custom-checkout"><?php echo __( 'Enter your document number', 'woocommerce-mercadopago' ); ?></p>
+							<p class="mp-subtitle-custom-checkout"><?php echo esc_html__( 'Enter your document number', 'woocommerce-mercadopago' ); ?></p>
 
 							<div id="mp-doc-type-div" class="mp-row-checkout mp-pt-10">
 								<!-- Select Doc Type -->
@@ -211,8 +211,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 		</div>
 
 		<div id="mercadopago-utilities">
-			<input type="hidden" id="mp-amount" value='<?php echo $amount; ?>' name="mercadopago_custom[amount]" />
-			<input type="hidden" id="currency_ratio" value='<?php echo $currency_ratio; ?>' name="mercadopago_custom[currency_ratio]" />
+			<input type="hidden" id="mp-amount" value='<?php echo esc_textarea( $amount ); ?>' name="mercadopago_custom[amount]" />
+			<input type="hidden" id="currency_ratio" value='<?php echo esc_textarea( $currency_ratio ); ?>' name="mercadopago_custom[currency_ratio]" />
 			<input type="hidden" id="campaign_id" name="mercadopago_custom[campaign_id]" />
 			<input type="hidden" id="campaign" name="mercadopago_custom[campaign]" />
 			<input type="hidden" id="mp-discount" name="mercadopago_custom[discount]" />
