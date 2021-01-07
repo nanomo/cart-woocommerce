@@ -44,7 +44,7 @@ class WC_WooMercadoPago_Init {
 	public static function wc_mercado_pago_unsupported_php_version_notice() {
 		$type    = 'error';
 		$message = esc_html__( 'Mercado Pago payments for WooCommerce requires PHP version 5.6 or later. Please update your PHP version.', 'woocommerce-mercadopago' );
-		echo WC_WooMercadoPago_Notices::getAlertFrame( $message, $type );
+		echo WC_WooMercadoPago_Notices::get_alert_frame( $message, $type );
 	}
 
 	/**
@@ -53,7 +53,7 @@ class WC_WooMercadoPago_Init {
 	public static function wc_mercado_pago_notify_curl_error() {
 		$type    = 'error';
 		$message = __( 'Mercado Pago Error: PHP Extension CURL is not installed.', 'woocommerce-mercadopago' );
-		echo WC_WooMercadoPago_Notices::getAlertFrame( $message, $type );
+		echo WC_WooMercadoPago_Notices::get_alert_frame( $message, $type );
 	}
 
 	/**
@@ -66,7 +66,7 @@ class WC_WooMercadoPago_Init {
 			__( 'The Mercado Pago module needs an active version of %s in order to work!', 'woocommerce-mercadopago' ),
 			' <a href="https://wordpress.org/extend/plugins/woocommerce/">WooCommerce</a>'
 		);
-		echo WC_WooMercadoPago_Notices::getAlertWocommerceMiss( $message, $type );
+		echo WC_WooMercadoPago_Notices::get_alert_woocommerce_miss( $message, $type );
 	}
 
 	public static function add_mp_order_meta_box_actions( $actions ) {
@@ -115,7 +115,7 @@ class WC_WooMercadoPago_Init {
 	 */
 	public static function woocommerce_mercadopago_init() {
 		self::woocommerce_mercadopago_load_plugin_textdomain();
-		require_once dirname( __FILE__ ) . '../../admin/notices/WC_WooMercadoPago_Notices.php';
+		require_once dirname( __FILE__ ) . '../../admin/notices/class-wc-woomercadopago-notices.php';
 		WC_WooMercadoPago_Notices::initMercadopagoNotice();
 
 		// Check for PHP version and throw notice.
@@ -130,17 +130,17 @@ class WC_WooMercadoPago_Init {
 		}
 
 		// Load Mercado Pago SDK
-		require_once dirname( __FILE__ ) . '/sdk/lib/MP.php';
+		require_once dirname( __FILE__ ) . '/sdk/lib/class-mp.php';
 
 		// Checks with WooCommerce is installed.
 		if ( class_exists( 'WC_Payment_Gateway' ) ) {
-			require_once dirname( __FILE__ ) . '/config/WC_WooMercadoPago_Constants.php';
-			require_once dirname( __FILE__ ) . '/WC_WooMercadoPago_Exception.php';
-			require_once dirname( __FILE__ ) . '/WC_WooMercadoPago_Configs.php';
-			require_once dirname( __FILE__ ) . '/log/WC_WooMercadoPago_Log.php';
-			require_once dirname( __FILE__ ) . '/WC_WooMercadoPago_Module.php';
-			require_once dirname( __FILE__ ) . '/WC_WooMercadoPago_Credentials.php';
-			require_once dirname( __FILE__ ) . '../../admin/notices/WC_WooMercadoPago_ReviewNotice.php';
+			require_once dirname( __FILE__ ) . '/config/class-wc-woomercadopago-constants.php';
+			require_once dirname( __FILE__ ) . '/class-wc-woomercadopago-exception.php';
+			require_once dirname( __FILE__ ) . '/class-wc-woomercadopago-configs.php';
+			require_once dirname( __FILE__ ) . '/log/class-wc-woomercadopago-log.php';
+			require_once dirname( __FILE__ ) . '/class-wc-wooMercadopago-module.php';
+			require_once dirname( __FILE__ ) . '/class-wc-woomercadopago-credentials.php';
+			require_once dirname( __FILE__ ) . '../../admin/notices/class-wc-woomercadopago-reviewnotice.php';
 
 			WC_WooMercadoPago_Module::init_mercado_pago_class();
 			WC_WooMercadoPago_ReviewNotice::initMercadopagoReviewNotice();

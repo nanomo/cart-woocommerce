@@ -150,38 +150,38 @@ class WC_WooMercadoPago_Module extends WC_WooMercadoPago_Configs {
 	 *  Load Hooks
 	 */
 	public function loadHooks() {
-		include_once dirname( __FILE__ ) . '/../payments/hooks/WC_WooMercadoPago_Hook_Abstract.php';
-		include_once dirname( __FILE__ ) . '/../payments/hooks/WC_WooMercadoPago_Hook_Basic.php';
-		include_once dirname( __FILE__ ) . '/../payments/hooks/WC_WooMercadoPago_Hook_Custom.php';
-		include_once dirname( __FILE__ ) . '/../payments/hooks/WC_WooMercadoPago_Hook_Ticket.php';
+		include_once dirname( __FILE__ ) . '/../payments/hooks/class-wc-woomercadopago-hook-abstract.php';
+		include_once dirname( __FILE__ ) . '/../payments/hooks/class-wc-woomercadopago-hook-basic.php';
+		include_once dirname( __FILE__ ) . '/../payments/hooks/class-wc-woomercadopago-hook-custom.php';
+		include_once dirname( __FILE__ ) . '/../payments/hooks/class-wc-woomercadopago-hook-ticket.php';
 	}
 
 	/**
 	 * Load Helpers
 	 */
 	public function loadHelpers() {
-		include_once dirname( __FILE__ ) . '/../helpers/WC_WooMercadoPago_Helpers_CurrencyConverter.php';
+		include_once dirname( __FILE__ ) . '/../helpers/class-wc-woomercadopago-helpers-currencyconverter.php';
 	}
 
 	/**
 	 * Load Preferences Classes
 	 */
 	public function loadPreferences() {
-		include_once dirname( __FILE__ ) . '/preference/WC_WooMercadoPago_PreferenceAbstract.php';
-		include_once dirname( __FILE__ ) . '/preference/WC_WooMercadoPago_PreferenceBasic.php';
-		include_once dirname( __FILE__ ) . '/preference/WC_WooMercadoPago_PreferenceCustom.php';
-		include_once dirname( __FILE__ ) . '/preference/WC_WooMercadoPago_PreferenceTicket.php';
-		include_once dirname( __FILE__ ) . '/preference/analytics/WC_WooMercadoPago_PreferenceAnalytics.php';
+		include_once dirname( __FILE__ ) . '/preference/class-wc-woomercadopago-preferenceabstract.php';
+		include_once dirname( __FILE__ ) . '/preference/class-wc-woomercadopago-preferencebasic.php';
+		include_once dirname( __FILE__ ) . '/preference/class-wc-woomercadopago-preferencecustom.php';
+		include_once dirname( __FILE__ ) . '/preference/class-wc-woomercadopago-preferenceticket.php';
+		include_once dirname( __FILE__ ) . '/preference/analytics/class-wc-woomercadopago-preferenceanalytics.php';
 	}
 
 	/**
 	 *  Load Payment Classes
 	 */
 	public function loadPayments() {
-		include_once dirname( __FILE__ ) . '/../payments/WC_WooMercadoPago_PaymentAbstract.php';
-		include_once dirname( __FILE__ ) . '/../payments/WC_WooMercadoPago_BasicGateway.php';
-		include_once dirname( __FILE__ ) . '/../payments/WC_WooMercadoPago_CustomGateway.php';
-		include_once dirname( __FILE__ ) . '/../payments/WC_WooMercadoPago_TicketGateway.php';
+		include_once dirname( __FILE__ ) . '/../payments/class-wc-woomercadopago-paymentabstract.php';
+		include_once dirname( __FILE__ ) . '/../payments/class-wc-woomercadopago-basicgateway.php';
+		include_once dirname( __FILE__ ) . '/../payments/class-wc-woomercadopago-customgateway.php';
+		include_once dirname( __FILE__ ) . '/../payments/class-wc-woomercadopago-ticketgateway.php';
 		add_filter( 'woocommerce_payment_gateways', array( $this, 'setPaymentGateway' ) );
 	}
 
@@ -189,16 +189,16 @@ class WC_WooMercadoPago_Module extends WC_WooMercadoPago_Configs {
 	 *
 	 */
 	public function loadNotifications() {
-		include_once dirname( __FILE__ ) . '/../notification/WC_WooMercadoPago_Notification_Abstract.php';
-		include_once dirname( __FILE__ ) . '/../notification/WC_WooMercadoPago_Notification_IPN.php';
-		include_once dirname( __FILE__ ) . '/../notification/WC_WooMercadoPago_Notification_Webhook.php';
+		include_once dirname( __FILE__ ) . '/../notification/class-wc-woomercadopago-notification-abstract.php';
+		include_once dirname( __FILE__ ) . '/../notification/class-wc-woomercadopago-notification-ipn.php';
+		include_once dirname( __FILE__ ) . '/../notification/class-wc-woomercadopago-notification-webhook.php';
 	}
 
 	/**
 	 *
 	 */
 	public function loadLog() {
-		include_once dirname( __FILE__ ) . '/log/WC_WooMercadoPago_Log.php';
+		include_once dirname( __FILE__ ) . '/log/class-wc-woomercadopago-log.php';
 	}
 
 	/**
@@ -219,7 +219,7 @@ class WC_WooMercadoPago_Module extends WC_WooMercadoPago_Configs {
 	 * Stock Manager
 	 */
 	public function loadStockManager() {
-		include_once dirname( __FILE__ ) . '/../stock/WC_WooMercadoPago_Stock_Manager.php';
+		include_once dirname( __FILE__ ) . '/../stock/class-wc-woomercadopago-stock-manager.php';
 	}
 
 	/**
@@ -236,7 +236,7 @@ class WC_WooMercadoPago_Module extends WC_WooMercadoPago_Configs {
 	public function enablePaymentNotice() {
 		$type    = 'notice-warning';
 		$message = __( 'Fill in your credentials to enable payment methods.', 'woocommerce-mercadopago' );
-		echo WC_WooMercadoPago_Notices::getAlertFrame( $message, $type );
+		echo WC_WooMercadoPago_Notices::get_alert_frame( $message, $type );
 	}
 
 	// Add settings link on plugin page.

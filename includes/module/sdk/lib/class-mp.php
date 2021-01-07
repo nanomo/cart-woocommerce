@@ -36,9 +36,9 @@ class MP {
 	 */
 	public function __construct() {
 		$includes_path = dirname( __FILE__ );
-		require_once $includes_path . '/RestClient/AbstractRestClient.php';
-		require_once $includes_path . '/RestClient/MeliRestClient.php';
-		require_once $includes_path . '/RestClient/MpRestClient.php';
+		require_once $includes_path . '/RestClient/class-abstract-rest-client.php';
+		require_once $includes_path . '/RestClient/class-meli-rest-client.php';
+		require_once $includes_path . '/RestClient/class-mp-rest-client.php';
 
 		$i = func_num_args();
 		if ( $i > 2 || $i < 1 ) {

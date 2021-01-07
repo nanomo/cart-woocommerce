@@ -299,7 +299,7 @@ class WC_WooMercadoPago_PaymentAbstract extends WC_Payment_Gateway {
 	public function noticeHomologValidate() {
 		$type    = 'notice-warning';
 		$message = sprintf( __( '%s, it only takes a few minutes', 'woocommerce-mercadopago' ), '<a class="mp-mouse_pointer" href="https://www.mercadopago.com/' . $this->checkout_country . '/account/credentials/appliance?application_id=' . $this->application_id . '" target="_blank"><b><u>' . __( 'Approve your account', 'woocommerce-mercadopago' ) . '</u></b></a>' );
-		echo WC_WooMercadoPago_Notices::getAlertFrame( $message, $type );
+		echo WC_WooMercadoPago_Notices::get_alert_frame( $message, $type );
 	}
 
 	/**
