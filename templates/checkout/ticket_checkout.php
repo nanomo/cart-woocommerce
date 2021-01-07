@@ -1,4 +1,15 @@
 <?php
+/**
+ * Part of Woo Mercado Pago Module
+ * Author - Mercado Pago
+ * Developer
+ * Copyright - Copyright(c) MercadoPago [https://www.mercadopago.com]
+ * License - https://www.gnu.org/licenses/gpl.html GPL version 2 or higher
+ *
+ * @package MercadoPago
+ * @category Includes
+ * @author Mercado Pago
+ */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -125,7 +136,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 							<div class="mp-col-md-4 mp-pr-15">
 								<label for="state" class="mp-label-form"><?php echo esc_html__( 'State', 'woocommerce-mercadopago' ); ?> <em>*</em></label>
 								<select name="mercadopago_ticket[state]" id="mp_state" data-checkout="mp_state" class="mp-form-control mp-pointer">
-									<option value="" 
+									<option value=""
 									<?php
 									if ( $febraban['state'] == '' ) {
 										echo 'selected="selected"'; }
@@ -133,163 +144,163 @@ if ( ! defined( 'ABSPATH' ) ) {
 									>
 										<?php echo esc_html__( 'Select state"', 'woocommerce-mercadopago' ); ?>
 									</option>
-									<option value="AC" 
+									<option value="AC"
 									<?php
 									if ( $febraban['state'] == 'AC' ) {
 										echo 'selected="selected"'; }
 									?>
 									>Acre</option>
-									<option value="AL" 
+									<option value="AL"
 									<?php
 									if ( $febraban['state'] == 'AL' ) {
 										echo 'selected="selected"'; }
 									?>
 									>Alagoas</option>
-									<option value="AP" 
+									<option value="AP"
 									<?php
 									if ( $febraban['state'] == 'AP' ) {
 										echo 'selected="selected"'; }
 									?>
 									>Amapá</option>
-									<option value="AM" 
+									<option value="AM"
 									<?php
 									if ( $febraban['state'] == 'AM' ) {
 										echo 'selected="selected"'; }
 									?>
 									>Amazonas</option>
-									<option value="BA" 
+									<option value="BA"
 									<?php
 									if ( $febraban['state'] == 'BA' ) {
 										echo 'selected="selected"'; }
 									?>
 									>Bahia</option>
-									<option value="CE" 
+									<option value="CE"
 									<?php
 									if ( $febraban['state'] == 'CE' ) {
 										echo 'selected="selected"'; }
 									?>
 									>Ceará</option>
-									<option value="DF" 
+									<option value="DF"
 									<?php
 									if ( $febraban['state'] == 'DF' ) {
 										echo 'selected="selected"'; }
 									?>
 									>Distrito Federal</option>
-									<option value="ES" 
+									<option value="ES"
 									<?php
 									if ( $febraban['state'] == 'ES' ) {
 										echo 'selected="selected"'; }
 									?>
 									>Espírito Santo</option>
-									<option value="GO" 
+									<option value="GO"
 									<?php
 									if ( $febraban['state'] == 'GO' ) {
 										echo 'selected="selected"'; }
 									?>
 									>Goiás</option>
-									<option value="MA" 
+									<option value="MA"
 									<?php
 									if ( $febraban['state'] == 'MA' ) {
 										echo 'selected="selected"'; }
 									?>
 									>Maranhão</option>
-									<option value="MT" 
+									<option value="MT"
 									<?php
 									if ( $febraban['state'] == 'MT' ) {
 										echo 'selected="selected"'; }
 									?>
 									>Mato Grosso</option>
-									<option value="MS" 
+									<option value="MS"
 									<?php
 									if ( $febraban['state'] == 'MS' ) {
 										echo 'selected="selected"'; }
 									?>
 									>Mato Grosso do Sul</option>
-									<option value="MG" 
+									<option value="MG"
 									<?php
 									if ( $febraban['state'] == 'MG' ) {
 										echo 'selected="selected"'; }
 									?>
 									>Minas Gerais</option>
-									<option value="PA" 
+									<option value="PA"
 									<?php
 									if ( $febraban['state'] == 'PA' ) {
 										echo 'selected="selected"'; }
 									?>
 									>Pará</option>
-									<option value="PB" 
+									<option value="PB"
 									<?php
 									if ( $febraban['state'] == 'PB' ) {
 										echo 'selected="selected"'; }
 									?>
 									>Paraíba</option>
-									<option value="PR" 
+									<option value="PR"
 									<?php
 									if ( $febraban['state'] == 'PR' ) {
 										echo 'selected="selected"'; }
 									?>
 									>Paraná</option>
-									<option value="PE" 
+									<option value="PE"
 									<?php
 									if ( $febraban['state'] == 'PE' ) {
 										echo 'selected="selected"'; }
 									?>
 									>Pernambuco</option>
-									<option value="PI" 
+									<option value="PI"
 									<?php
 									if ( $febraban['state'] == 'PI' ) {
 										echo 'selected="selected"'; }
 									?>
 									>Piauí</option>
-									<option value="RJ" 
+									<option value="RJ"
 									<?php
 									if ( $febraban['state'] == 'RJ' ) {
 										echo 'selected="selected"'; }
 									?>
 									>Rio de Janeiro</option>
-									<option value="RN" 
+									<option value="RN"
 									<?php
 									if ( $febraban['state'] == 'RN' ) {
 										echo 'selected="selected"'; }
 									?>
 									>Rio Grande do Norte</option>
-									<option value="RS" 
+									<option value="RS"
 									<?php
 									if ( $febraban['state'] == 'RS' ) {
 										echo 'selected="selected"'; }
 									?>
 									>Rio Grande do Sul</option>
-									<option value="RO" 
+									<option value="RO"
 									<?php
 									if ( $febraban['state'] == 'RO' ) {
 										echo 'selected="selected"'; }
 									?>
 									>Rondônia</option>
-									<option value="RA" 
+									<option value="RA"
 									<?php
 									if ( $febraban['state'] == 'RA' ) {
 										echo 'selected="selected"'; }
 									?>
 									>Roraima</option>
-									<option value="SC" 
+									<option value="SC"
 									<?php
 									if ( $febraban['state'] == 'SC' ) {
 										echo 'selected="selected"'; }
 									?>
 									>Santa Catarina</option>
-									<option value="SP" 
+									<option value="SP"
 									<?php
 									if ( $febraban['state'] == 'SP' ) {
 										echo 'selected="selected"'; }
 									?>
 									>São Paulo</option>
-									<option value="SE" 
+									<option value="SE"
 									<?php
 									if ( $febraban['state'] == 'SE' ) {
 										echo 'selected="selected"'; }
 									?>
 									>Sergipe</option>
-									<option value="TO" 
+									<option value="TO"
 									<?php
 									if ( $febraban['state'] == 'TO' ) {
 										echo 'selected="selected"'; }
@@ -326,7 +337,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 								<div id="frameTicket" class="mp-col-md-6 mp-pb-15 mp-min-hg">
 										<div id="paymentMethodIdTicket" class="mp-ticket-payments">
 											<label for="<?php echo $payment['id']; ?>" class="mp-label-form mp-pointer">
-												<input type="radio" class="mp-form-control-check" name="mercadopago_ticket[paymentMethodId]" id="<?php echo $payment['id']; ?>" value="<?php echo $payment['id']; ?>" 
+												<input type="radio" class="mp-form-control-check" name="mercadopago_ticket[paymentMethodId]" id="<?php echo $payment['id']; ?>" value="<?php echo $payment['id']; ?>"
 																																							<?php
 																																							if ( $atFirst ) :
 																																								?>
