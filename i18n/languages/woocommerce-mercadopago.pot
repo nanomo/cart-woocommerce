@@ -14,31 +14,31 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: includes/helpers/WC_WooMercadoPago_Helpers_CurrencyConverter.php:51
+#: includes/helpers/WC_WooMercadoPago_Helpers_CurrencyConverter.php:62
 msgid "Activate this option so that the value of the currency set in WooCommerce is compatible with the value of the currency you use in Mercado Pago."
 msgstr ""
 
-#: includes/helpers/WC_WooMercadoPago_Helpers_CurrencyConverter.php:313
+#: includes/helpers/WC_WooMercadoPago_Helpers_CurrencyConverter.php:324
 msgid "Convert Currency"
 msgstr ""
 
-#: includes/helpers/WC_WooMercadoPago_Helpers_CurrencyConverter.php:318, includes/payments/WC_WooMercadoPago_BasicGateway.php:489, includes/payments/WC_WooMercadoPago_PaymentAbstract.php:574, includes/payments/WC_WooMercadoPago_PaymentAbstract.php:652, includes/payments/WC_WooMercadoPago_PaymentAbstract.php:919, includes/payments/WC_WooMercadoPago_PaymentAbstract.php:1020, includes/payments/WC_WooMercadoPago_PaymentAbstract.php:1053, includes/payments/WC_WooMercadoPago_TicketGateway.php:273
+#: includes/helpers/WC_WooMercadoPago_Helpers_CurrencyConverter.php:329, includes/payments/WC_WooMercadoPago_BasicGateway.php:489, includes/payments/WC_WooMercadoPago_PaymentAbstract.php:574, includes/payments/WC_WooMercadoPago_PaymentAbstract.php:652, includes/payments/WC_WooMercadoPago_PaymentAbstract.php:919, includes/payments/WC_WooMercadoPago_PaymentAbstract.php:1020, includes/payments/WC_WooMercadoPago_PaymentAbstract.php:1053, includes/payments/WC_WooMercadoPago_TicketGateway.php:273
 msgid "No"
 msgstr ""
 
-#: includes/helpers/WC_WooMercadoPago_Helpers_CurrencyConverter.php:319, includes/payments/WC_WooMercadoPago_BasicGateway.php:488, includes/payments/WC_WooMercadoPago_PaymentAbstract.php:575, includes/payments/WC_WooMercadoPago_PaymentAbstract.php:653, includes/payments/WC_WooMercadoPago_PaymentAbstract.php:920, includes/payments/WC_WooMercadoPago_PaymentAbstract.php:1021, includes/payments/WC_WooMercadoPago_PaymentAbstract.php:1052, includes/payments/WC_WooMercadoPago_TicketGateway.php:274
+#: includes/helpers/WC_WooMercadoPago_Helpers_CurrencyConverter.php:330, includes/payments/WC_WooMercadoPago_BasicGateway.php:488, includes/payments/WC_WooMercadoPago_PaymentAbstract.php:575, includes/payments/WC_WooMercadoPago_PaymentAbstract.php:653, includes/payments/WC_WooMercadoPago_PaymentAbstract.php:920, includes/payments/WC_WooMercadoPago_PaymentAbstract.php:1021, includes/payments/WC_WooMercadoPago_PaymentAbstract.php:1052, includes/payments/WC_WooMercadoPago_TicketGateway.php:274
 msgid "Yes"
 msgstr ""
 
-#: includes/helpers/WC_WooMercadoPago_Helpers_CurrencyConverter.php:378
+#: includes/helpers/WC_WooMercadoPago_Helpers_CurrencyConverter.php:389
 msgid "Now we convert your currency from %1$s to %2$s."
 msgstr ""
 
-#: includes/helpers/WC_WooMercadoPago_Helpers_CurrencyConverter.php:392
+#: includes/helpers/WC_WooMercadoPago_Helpers_CurrencyConverter.php:403
 msgid "We no longer convert your currency from %1$s to %2$s."
 msgstr ""
 
-#: includes/helpers/WC_WooMercadoPago_Helpers_CurrencyConverter.php:408
+#: includes/helpers/WC_WooMercadoPago_Helpers_CurrencyConverter.php:419
 msgid "<b>Attention:</b> The currency settings you have in WooCommerce are not compatible with the currency you use in your Mercado Pago account. Please activate the currency conversion."
 msgstr ""
 
@@ -150,7 +150,7 @@ msgstr ""
 msgid "CONVERTED CURRENCY: Your store is converting currency of"
 msgstr ""
 
-#: includes/module/WC_WooMercadoPago_Module.php:526, templates/checkout/custom_checkout.php:135
+#: includes/module/WC_WooMercadoPago_Module.php:526, templates/checkout/custom_checkout.php:146
 msgid "for"
 msgstr ""
 
@@ -446,7 +446,7 @@ msgstr ""
 msgid "Check the information provided."
 msgstr ""
 
-#: includes/payments/WC_WooMercadoPago_CustomGateway.php:234, templates/checkout/custom_checkout.php:107, templates/checkout/custom_checkout.php:108
+#: includes/payments/WC_WooMercadoPago_CustomGateway.php:234, templates/checkout/custom_checkout.php:118, templates/checkout/custom_checkout.php:119
 msgid "Check the informed security code."
 msgstr ""
 
@@ -482,7 +482,7 @@ msgstr ""
 msgid "You have reached the limit of allowed attempts. Choose another card or other payment method."
 msgstr ""
 
-#: includes/payments/WC_WooMercadoPago_CustomGateway.php:254, includes/payments/WC_WooMercadoPago_CustomGateway.php:256, includes/module/preference/WC_WooMercadoPago_PreferenceAbstract.php:64
+#: includes/payments/WC_WooMercadoPago_CustomGateway.php:254, includes/payments/WC_WooMercadoPago_CustomGateway.php:256, includes/module/preference/WC_WooMercadoPago_PreferenceAbstract.php:67
 msgid "This payment method cannot process your payment."
 msgstr ""
 
@@ -946,123 +946,123 @@ msgstr ""
 msgid "here"
 msgstr ""
 
-#: templates/checkout/basic_checkout.php:13, templates/checkout/custom_checkout.php:29
+#: templates/checkout/basic_checkout.php:24, templates/checkout/custom_checkout.php:40
 msgid "Credit cards"
 msgstr ""
 
-#: templates/checkout/basic_checkout.php:14
+#: templates/checkout/basic_checkout.php:25
 msgid "Until"
 msgstr ""
 
-#: templates/checkout/basic_checkout.php:28, templates/checkout/custom_checkout.php:36
+#: templates/checkout/basic_checkout.php:39, templates/checkout/custom_checkout.php:47
 msgid "Debit card"
 msgstr ""
 
-#: templates/checkout/basic_checkout.php:42
+#: templates/checkout/basic_checkout.php:53
 msgid "Payments in cash"
 msgstr ""
 
-#: templates/checkout/basic_checkout.php:57
+#: templates/checkout/basic_checkout.php:68
 msgid "We take you to our site to complete the payment"
 msgstr ""
 
-#: templates/checkout/custom_checkout.php:14
+#: templates/checkout/custom_checkout.php:25
 msgid "With what cards can I pay"
 msgstr ""
 
-#: templates/checkout/custom_checkout.php:19
+#: templates/checkout/custom_checkout.php:30
 msgid "See current promotions"
 msgstr ""
 
-#: templates/checkout/custom_checkout.php:49, templates/checkout/ticket_checkout.php:15
+#: templates/checkout/custom_checkout.php:60, templates/checkout/ticket_checkout.php:15
 msgid "Enter your discount coupon"
 msgstr ""
 
-#: templates/checkout/custom_checkout.php:53, templates/checkout/ticket_checkout.php:19
+#: templates/checkout/custom_checkout.php:64, templates/checkout/ticket_checkout.php:19
 msgid "Enter your coupon"
 msgstr ""
 
-#: templates/checkout/custom_checkout.php:57, templates/checkout/ticket_checkout.php:23, includes/payments/hooks/WC_WooMercadoPago_Hook_Custom.php:76, includes/payments/hooks/WC_WooMercadoPago_Hook_Ticket.php:78
+#: templates/checkout/custom_checkout.php:68, templates/checkout/ticket_checkout.php:23, includes/payments/hooks/WC_WooMercadoPago_Hook_Custom.php:76, includes/payments/hooks/WC_WooMercadoPago_Hook_Ticket.php:78
 msgid "Apply"
 msgstr ""
 
-#: templates/checkout/custom_checkout.php:60, templates/checkout/ticket_checkout.php:26
+#: templates/checkout/custom_checkout.php:71, templates/checkout/ticket_checkout.php:26
 msgid "The code you entered is incorrect"
 msgstr ""
 
-#: templates/checkout/custom_checkout.php:69
+#: templates/checkout/custom_checkout.php:80
 msgid "Enter your card details"
 msgstr ""
 
-#: templates/checkout/custom_checkout.php:75, templates/checkout/custom_checkout.php:78
+#: templates/checkout/custom_checkout.php:86, templates/checkout/custom_checkout.php:89
 msgid "Card number"
 msgstr ""
 
-#: templates/checkout/custom_checkout.php:79, templates/checkout/custom_checkout.php:88, templates/checkout/custom_checkout.php:89
+#: templates/checkout/custom_checkout.php:90, templates/checkout/custom_checkout.php:99, templates/checkout/custom_checkout.php:100
 msgid "Invalid Card Number"
 msgstr ""
 
-#: templates/checkout/custom_checkout.php:85
+#: templates/checkout/custom_checkout.php:96
 msgid "Name and surname of the cardholder"
 msgstr ""
 
-#: templates/checkout/custom_checkout.php:96
+#: templates/checkout/custom_checkout.php:107
 msgid "Expiration date"
 msgstr ""
 
-#: templates/checkout/custom_checkout.php:100
+#: templates/checkout/custom_checkout.php:111
 msgid "Invalid Expiration Date"
 msgstr ""
 
-#: templates/checkout/custom_checkout.php:104
+#: templates/checkout/custom_checkout.php:115
 msgid "Security code"
 msgstr ""
 
-#: templates/checkout/custom_checkout.php:106
+#: templates/checkout/custom_checkout.php:117
 msgid "Last 3 numbers on the back"
 msgstr ""
 
-#: templates/checkout/custom_checkout.php:115
+#: templates/checkout/custom_checkout.php:126
 msgid "In how many installments do you want to pay"
 msgstr ""
 
-#: templates/checkout/custom_checkout.php:121
+#: templates/checkout/custom_checkout.php:132
 msgid "Issuer"
 msgstr ""
 
-#: templates/checkout/custom_checkout.php:143
+#: templates/checkout/custom_checkout.php:154
 msgid "Select the number of installment"
 msgstr ""
 
-#: templates/checkout/custom_checkout.php:131
+#: templates/checkout/custom_checkout.php:142
 msgid ""
 msgstr ""
 
-#: templates/checkout/custom_checkout.php:134
+#: templates/checkout/custom_checkout.php:145
 msgid "Converted payment of"
 msgstr ""
 
-#: templates/checkout/custom_checkout.php:162, templates/checkout/ticket_checkout.php:39
+#: templates/checkout/custom_checkout.php:173, templates/checkout/ticket_checkout.php:39
 msgid "Enter your document number"
 msgstr ""
 
-#: templates/checkout/custom_checkout.php:168, templates/checkout/ticket_checkout.php:41
+#: templates/checkout/custom_checkout.php:179, templates/checkout/ticket_checkout.php:41
 msgid "Type"
 msgstr ""
 
-#: templates/checkout/custom_checkout.php:175, templates/checkout/ticket_checkout.php:47
+#: templates/checkout/custom_checkout.php:186, templates/checkout/ticket_checkout.php:47
 msgid "Document number"
 msgstr ""
 
-#: templates/checkout/custom_checkout.php:177
+#: templates/checkout/custom_checkout.php:188
 msgid "Only numbers"
 msgstr ""
 
-#: templates/checkout/custom_checkout.php:178, templates/checkout/custom_checkout.php:179, templates/checkout/ticket_checkout.php:50, templates/checkout/ticket_checkout.php:100
+#: templates/checkout/custom_checkout.php:189, templates/checkout/custom_checkout.php:190, templates/checkout/ticket_checkout.php:50, templates/checkout/ticket_checkout.php:100
 msgid "Invalid Document Number"
 msgstr ""
 
-#: templates/checkout/custom_checkout.php:189
+#: templates/checkout/custom_checkout.php:200
 msgid "Obligatory field"
 msgstr ""
 
@@ -1162,39 +1162,39 @@ msgstr ""
 msgid "Select the issuer with whom you want to process the payment"
 msgstr ""
 
-#: includes/admin/notices/WC_WooMercadoPago_Notices.php:83, includes/admin/notices/WC_WooMercadoPago_Notices.php:137, includes/admin/notices/WC_WooMercadoPago_ReviewNotice.php:114
+#: includes/admin/notices/WC_WooMercadoPago_Notices.php:86, includes/admin/notices/WC_WooMercadoPago_Notices.php:140, includes/admin/notices/WC_WooMercadoPago_ReviewNotice.php:117
 msgid "Discard"
 msgstr ""
 
-#: includes/admin/notices/WC_WooMercadoPago_Notices.php:113
+#: includes/admin/notices/WC_WooMercadoPago_Notices.php:116
 msgid "See WooCommerce"
 msgstr ""
 
-#: includes/admin/notices/WC_WooMercadoPago_Notices.php:111
+#: includes/admin/notices/WC_WooMercadoPago_Notices.php:114
 msgid "Install WooCommerce"
 msgstr ""
 
-#: includes/admin/notices/WC_WooMercadoPago_Notices.php:108
+#: includes/admin/notices/WC_WooMercadoPago_Notices.php:111
 msgid "Activate WooCommerce"
 msgstr ""
 
-#: includes/admin/notices/WC_WooMercadoPago_ReviewNotice.php:97
+#: includes/admin/notices/WC_WooMercadoPago_ReviewNotice.php:100
 msgid "do you have a minute to share your experience with our plugin?"
 msgstr ""
 
-#: includes/admin/notices/WC_WooMercadoPago_ReviewNotice.php:100
+#: includes/admin/notices/WC_WooMercadoPago_ReviewNotice.php:103
 msgid "Your opinion is very important so that we can offer you the best possible payment solution and continue to improve."
 msgstr ""
 
-#: includes/admin/notices/WC_WooMercadoPago_ReviewNotice.php:109
+#: includes/admin/notices/WC_WooMercadoPago_ReviewNotice.php:112
 msgid "Rate the plugin"
 msgstr ""
 
-#: includes/module/preference/WC_WooMercadoPago_PreferenceAbstract.php:222
+#: includes/module/preference/WC_WooMercadoPago_PreferenceAbstract.php:225
 msgid "Shipping service used by the store."
 msgstr ""
 
-#: includes/module/preference/WC_WooMercadoPago_PreferenceAbstract.php:370, includes/module/preference/WC_WooMercadoPago_PreferenceAbstract.php:371
+#: includes/module/preference/WC_WooMercadoPago_PreferenceAbstract.php:373, includes/module/preference/WC_WooMercadoPago_PreferenceAbstract.php:374
 msgid "Discount provided by store"
 msgstr ""
 
