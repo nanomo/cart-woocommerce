@@ -24,17 +24,19 @@ class WC_WooMercadoPago_Stock_Manager {
 	 * WC_WooMercadoPago_Stock_Manager constructor.
 	 */
 	public function __construct() {
-		// MP status pending logic
+		// MP status pending logic!
 		add_action( 'woocommerce_order_status_pending_to_cancelled', array( 'WC_WooMercadoPago_Stock_Manager', 'restore_stock_item' ), 10, 1 );
 		add_action( 'woocommerce_order_status_pending_to_failed', array( 'WC_WooMercadoPago_Stock_Manager', 'restore_stock_item' ), 10, 1 );
 
-		// Mp status approved logic
+		// Mp status approved logic!
 		add_action( 'woocommerce_order_status_processing_to_refunded', array( 'WC_WooMercadoPago_Stock_Manager', 'restore_stock_item' ), 10, 1 );
 		add_action( 'woocommerce_order_status_on-hold_to_refunded', array( 'WC_WooMercadoPago_Stock_Manager', 'restore_stock_item' ), 10, 1 );
 	}
 
 	/**
-	 * @param $order_id
+	 * Restore Stock Item
+	 *
+	 * @param int $order_id Order ID.
 	 */
 	public static function restore_stock_item( $order_id ) {
 		$order = wc_get_order( $order_id );
@@ -48,7 +50,7 @@ class WC_WooMercadoPago_Stock_Manager {
 		}
 
 		$mp_ticket_settings = get_option( 'woocommerce_woo-mercado-pago-ticket_settings' );
-		if ( empty( $mp_ticket_settings ) || in_array( 'stock_reduce_mode', $mp_ticket_settings ) || $mp_ticket_settings['stock_reduce_mode'] == 'no' ) {
+		if ( empty( $mp_ticket_settings ) || in_array( 'stock_reduce_mode', $mp_ticket_settings, true ) || 'no' === $mp_ticket_settings['stock_reduce_mode'] ) {
 			return;
 		}
 

@@ -388,7 +388,7 @@ class WC_WooMercadoPago_Helpers_CurrencyConverter {
 		$type    = 'notice-error';
 		$message = sprintf( __( 'Now we convert your currency from %1$s to %2$s.', 'woocommerce-mercadopago' ), $localCurrency, $currency );
 
-		return WC_WooMercadoPago_Notices::getAlertFrame( $message, $type );
+		return WC_WooMercadoPago_Notices::get_alert_frame( $message, $type );
 	}
 
 	/**
@@ -402,7 +402,7 @@ class WC_WooMercadoPago_Helpers_CurrencyConverter {
 		$type    = 'notice-error';
 		$message = sprintf( __( 'We no longer convert your currency from %1$s to %2$s.', 'woocommerce-mercadopago' ), $localCurrency, $currency );
 
-		return WC_WooMercadoPago_Notices::getAlertFrame( $message, $type );
+		return WC_WooMercadoPago_Notices::get_alert_frame( $message, $type );
 	}
 
 	/**
@@ -418,7 +418,7 @@ class WC_WooMercadoPago_Helpers_CurrencyConverter {
 			$type    = 'notice-error';
 			$message = __( '<b>Attention:</b> The currency settings you have in WooCommerce are not compatible with the currency you use in your Mercado Pago account. Please activate the currency conversion.', 'woocommerce-mercadopago' );
 
-			return WC_WooMercadoPago_Notices::getAlertFrame( $message, $type );
+			return WC_WooMercadoPago_Notices::get_alert_frame( $message, $type );
 		}
 
 		return '';
