@@ -127,7 +127,7 @@ class WC_WooMercadoPago_Configs {
 			return false;
 		}
 
-		echo WC_WooMercadoPago_ReviewNotice::getPluginReviewBanner();
+		echo WC_WooMercadoPago_ReviewNotice::get_plugin_review_banner();
 	}
 
 	/**

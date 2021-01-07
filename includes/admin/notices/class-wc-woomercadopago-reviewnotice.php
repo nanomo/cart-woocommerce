@@ -20,20 +20,29 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class WC_WooMercadoPago_ReviewNotice {
 
+	/**
+	 * Static instance
+	 *
+	 * @var WC_WooMercadoPago_ReviewNotice
+	 */
 	public static $instance = null;
 
+	/**
+	 * WC_WooMercadoPago_ReviewNotice constructor.
+	 */
 	private function __construct() {
-		add_action( 'admin_enqueue_scripts', array( $this, 'loadAdminNoticeCss' ) );
-		add_action( 'admin_enqueue_scripts', array( $this, 'loadAdminNoticeJs' ) );
-		add_action( 'wp_ajax_mercadopago_review_dismiss', array( $this, 'reviewDismiss' ) );
+		add_action( 'admin_enqueue_scripts', array( $this, 'load_admin_notice_css' ) );
+		add_action( 'admin_enqueue_scripts', array( $this, 'load_admin_notice_js' ) );
+		add_action( 'wp_ajax_mercadopago_review_dismiss', array( $this, 'review_dismiss' ) );
 	}
 
 	/**
-	 * @return WC_WooMercadoPago_ReviewNotice|null
 	 * Singleton
+	 *
+	 * @return WC_WooMercadoPago_ReviewNotice|null
 	 */
-	public static function initMercadopagoReviewNotice() {
-		if ( self::$instance === null ) {
+	public static function init_mercadopago_review_notice() {
+		if ( null === self::$instance ) {
 			self::$instance = new self();
 		}
 		return self::$instance;
@@ -42,34 +51,20 @@ class WC_WooMercadoPago_ReviewNotice {
 	/**
 	 * Get sufix to static files
 	 */
-	public function getSufix() {
+	public function get_suffix() {
 		return defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 	}
 
 	/**
 	 * Load admin notices CSS
 	 */
-	public function loadAdminNoticeCss() {
+	public function load_admin_notice_css() {
 		if ( is_admin() ) {
-			$suffix = $this->getSufix();
+			$suffix = $this->get_suffix();
 
 			wp_enqueue_style(
 				'woocommerce-mercadopago-admin-notice',
-				plugins_url( '../../assets/css/admin_notice_mercadopago' . $suffix . '.css', plugin_dir_path( __FILE__ ) )
-			);
-		}
-	}
-
-	/**
-	 * Load admin notices JS
-	 */
-	public function loadAdminNoticeJs() {
-		if ( is_admin() ) {
-			$suffix = $this->getSufix();
-
-			wp_enqueue_script(
-				'woocommerce-mercadopago-admin-notice-review',
-				plugins_url( '../../assets/js/review' . $suffix . '.js', plugin_dir_path( __FILE__ ) ),
+				plugins_url( '../../assets/css/admin_notice_mercadopago' . $suffix . '.css', plugin_dir_path( __FILE__ ) ),
 				array(),
 				WC_WooMercadoPago_Constants::VERSION
 			);
@@ -77,13 +72,32 @@ class WC_WooMercadoPago_ReviewNotice {
 	}
 
 	/**
+	 * Load admin notices JS
+	 */
+	public function load_admin_notice_js() {
+		if ( is_admin() ) {
+			$suffix = $this->get_suffix();
+
+			wp_enqueue_script(
+				'woocommerce-mercadopago-admin-notice-review',
+				plugins_url( '../../assets/js/review' . $suffix . '.js', plugin_dir_path( __FILE__ ) ),
+				array(),
+				WC_WooMercadoPago_Constants::VERSION,
+				false
+			);
+		}
+	}
+
+	/**
+	 * Get Plugin Review Banner
+	 *
 	 * @return string
 	 */
-	public static function getPluginReviewBanner() {
+	public static function get_plugin_review_banner() {
 		$inline = null;
 		if (
 			( class_exists( 'WC_WooMercadoPago_Module' ) && WC_WooMercadoPago_Module::isWcNewVersion() ) &&
-			( isset( $_GET['page'] ) && $_GET['page'] == 'wc-settings' )
+			( isset( $_GET['page'] ) && 'wc-settings' === wp_verify_nonce( sanitize_key( $_GET['page'] ) ) )
 		) {
 			$inline = 'inline';
 		}
@@ -129,10 +143,10 @@ class WC_WooMercadoPago_ReviewNotice {
 	/**
 	 * Dismiss the review admin notice
 	 */
-	public function reviewDismiss() {
-		$dismissedReview = (int) get_option( '_mp_dismiss_review', 0 );
+	public function review_dismiss() {
+		$dismissed_review = (int) get_option( '_mp_dismiss_review', 0 );
 
-		if ( $dismissedReview == 0 ) {
+		if ( 0 === $dismissed_review ) {
 			update_option( '_mp_dismiss_review', 1, true );
 		}
 
