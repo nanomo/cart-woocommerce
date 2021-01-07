@@ -982,7 +982,7 @@ msgstr ""
 msgid "Enter your coupon"
 msgstr ""
 
-#: templates/checkout/custom_checkout.php:68, templates/checkout/ticket-checkout.php:34, includes/payments/hooks/WC_WooMercadoPago_Hook_Custom.php:87, includes/payments/hooks/WC_WooMercadoPago_Hook_Ticket.php:89
+#: templates/checkout/custom_checkout.php:68, templates/checkout/ticket-checkout.php:34, includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:87, includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:89
 msgid "Apply"
 msgstr ""
 
@@ -1035,6 +1035,7 @@ msgid "Select the number of installment"
 msgstr ""
 
 #: templates/checkout/custom_checkout.php:142
+msgid ""
 msgstr ""
 
 #: templates/checkout/custom_checkout.php:145
