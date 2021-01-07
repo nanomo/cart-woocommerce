@@ -107,7 +107,7 @@ msgstr "Nenhum parâmetro de ID ou TOPIC na Request IPN"
 msgid "The Mercado Pago module needs an active version of %s in order to work!"
 msgstr "O módulo do Mercado Pago necessita de uma versão ativa de %s para funcionar!"
 
-#: templates/checkout/ticket_checkout.php:42
+#: templates/checkout/ticket-checkout.php:42
 msgid "CI"
 msgstr "CI"
 
@@ -746,12 +746,12 @@ msgid "Only numbers"
 msgstr "Apenas números"
 
 #: templates/checkout/custom_checkout.php:167
-#: templates/checkout/ticket_checkout.php:40
+#: templates/checkout/ticket-checkout.php:40
 msgid "Type"
 msgstr "Tipo"
 
 #: templates/checkout/custom_checkout.php:161
-#: templates/checkout/ticket_checkout.php:38
+#: templates/checkout/ticket-checkout.php:38
 msgid "Enter your document number"
 msgstr "Informe seu número de documento"
 
@@ -807,73 +807,73 @@ msgstr "Promoções vigentes"
 msgid "To choose"
 msgstr "Escolher"
 
-#: templates/checkout/ticket_checkout.php:180
+#: templates/checkout/ticket-checkout.php:180
 msgid "Select the issuer with whom you want to process the payment"
 msgstr "Por favor, selecione o meio de pagamento"
 
-#: templates/checkout/ticket_checkout.php:55
-#: templates/checkout/ticket_checkout.php:171
+#: templates/checkout/ticket-checkout.php:55
+#: templates/checkout/ticket-checkout.php:171
 msgid "Complete all fields, they are mandatory."
 msgstr "Preencha todos os campos, eles são obrigatórios."
 
-#: templates/checkout/ticket_checkout.php:164
+#: templates/checkout/ticket-checkout.php:164
 msgid "You must provide your zip code"
 msgstr "Você deve informar o CEP"
 
-#: templates/checkout/ticket_checkout.php:162
+#: templates/checkout/ticket-checkout.php:162
 msgid "Postal Code"
 msgstr "CEP"
 
-#: templates/checkout/ticket_checkout.php:158
+#: templates/checkout/ticket-checkout.php:158
 msgid "You must inform your status"
 msgstr "Você deve informar seu estado"
 
-#: templates/checkout/ticket_checkout.php:128
+#: templates/checkout/ticket-checkout.php:128
 msgid "Select state\""
 msgstr "Selecione"
 
-#: templates/checkout/ticket_checkout.php:125
+#: templates/checkout/ticket-checkout.php:125
 msgid "State"
 msgstr "Estado"
 
-#: templates/checkout/ticket_checkout.php:119
+#: templates/checkout/ticket-checkout.php:119
 msgid "City"
 msgstr "Cidade"
 
-#: templates/checkout/ticket_checkout.php:113
+#: templates/checkout/ticket-checkout.php:113
 msgid "You must provide your address number"
 msgstr "Você deve informar o número do seu endereço"
 
-#: templates/checkout/ticket_checkout.php:111
+#: templates/checkout/ticket-checkout.php:111
 msgid "Number"
 msgstr "Número"
 
-#: templates/checkout/ticket_checkout.php:107
+#: templates/checkout/ticket-checkout.php:107
 msgid "You must inform your address"
 msgstr "Você deve informar seu endereço"
 
-#: templates/checkout/ticket_checkout.php:105
+#: templates/checkout/ticket-checkout.php:105
 msgid "Address"
 msgstr "Endereço"
 
-#: templates/checkout/ticket_checkout.php:48
-#: templates/checkout/ticket_checkout.php:98
+#: templates/checkout/ticket-checkout.php:48
+#: templates/checkout/ticket-checkout.php:98
 msgid "You must provide your document number"
 msgstr "Você deve informar seu número de documento"
 
-#: templates/checkout/ticket_checkout.php:91
+#: templates/checkout/ticket-checkout.php:91
 msgid "You must inform your last name"
 msgstr "Você deve informar seu sobrenome"
 
-#: templates/checkout/ticket_checkout.php:89
+#: templates/checkout/ticket-checkout.php:89
 msgid "Surname"
 msgstr "Sobrenome"
 
-#: templates/checkout/ticket_checkout.php:83
+#: templates/checkout/ticket-checkout.php:83
 msgid "Social reason"
 msgstr "Razão social"
 
-#: templates/checkout/ticket_checkout.php:82
+#: templates/checkout/ticket-checkout.php:82
 msgid "Name"
 msgstr "Nome"
 
@@ -885,22 +885,22 @@ msgstr "Data de vencimento"
 msgid "With what cards can I pay"
 msgstr "Com quais cartões posso pagar?"
 
-#: templates/checkout/ticket_checkout.php:68
+#: templates/checkout/ticket-checkout.php:68
 msgid "Physical person"
 msgstr "Pessoa física"
 
 #: templates/checkout/custom_checkout.php:59
-#: templates/checkout/ticket_checkout.php:25
+#: templates/checkout/ticket-checkout.php:25
 msgid "The code you entered is incorrect"
 msgstr "O código que digitou não foi encontrado"
 
 #: templates/checkout/custom_checkout.php:52
-#: templates/checkout/ticket_checkout.php:18
+#: templates/checkout/ticket-checkout.php:18
 msgid "Enter your coupon"
 msgstr "Insira seu cupom"
 
 #: templates/checkout/custom_checkout.php:48
-#: templates/checkout/ticket_checkout.php:14
+#: templates/checkout/ticket-checkout.php:14
 msgid "Enter your discount coupon"
 msgstr "Insira seu cupom de desconto"
 
@@ -989,7 +989,7 @@ msgstr "Por Mercado Pago"
 msgid "Update your credentials with the Access Token and Public Key, you need them to continue receiving payments!"
 msgstr "Atualize suas credenciais com o Access Token e a Public Key. Você precisa deles para continuar recebendo pagamentos!"
 
-#: templates/checkout/ticket_checkout.php:95
+#: templates/checkout/ticket-checkout.php:95
 msgid "CPF"
 msgstr "CPF"
 
@@ -1054,19 +1054,19 @@ msgstr "As conversões de moeda devem ser feitas fora deste módulo."
 msgid "ERROR: It was not possible to convert the unsupported currency"
 msgstr "ERRO: não foi possível converter a moeda; Moeda não suportada"
 
-#: templates/checkout/ticket_checkout.php:85
+#: templates/checkout/ticket-checkout.php:85
 msgid "You must inform your name"
 msgstr "Você deve informar seu nome"
 
-#: templates/checkout/ticket_checkout.php:121
+#: templates/checkout/ticket-checkout.php:121
 msgid "You must inform your city"
 msgstr "Você deve informar sua cidade"
 
-#: templates/checkout/ticket_checkout.php:96
+#: templates/checkout/ticket-checkout.php:96
 msgid "CNPJ"
 msgstr "CNPJ"
 
-#: templates/checkout/ticket_checkout.php:75
+#: templates/checkout/ticket-checkout.php:75
 msgid "Legal person"
 msgstr "Pessoa jurídica"
 
@@ -1129,13 +1129,13 @@ msgstr "Banco emissor"
 
 #: templates/checkout/custom_checkout.php:177
 #: templates/checkout/custom_checkout.php:178
-#: templates/checkout/ticket_checkout.php:49
-#: templates/checkout/ticket_checkout.php:99
+#: templates/checkout/ticket-checkout.php:49
+#: templates/checkout/ticket-checkout.php:99
 msgid "Invalid Document Number"
 msgstr "Número de documento inválido"
 
 #: templates/checkout/custom_checkout.php:174
-#: templates/checkout/ticket_checkout.php:46
+#: templates/checkout/ticket-checkout.php:46
 msgid "Document number"
 msgstr "Número de documento"
 
@@ -1154,7 +1154,7 @@ msgid "Security code"
 msgstr "Código de segurança"
 
 #: templates/checkout/custom_checkout.php:56
-#: templates/checkout/ticket_checkout.php:22
+#: templates/checkout/ticket-checkout.php:22
 #: includes/payments/hooks/WC_WooMercadoPago_Hook_Ticket.php:78
 #: includes/payments/hooks/WC_WooMercadoPago_Hook_Custom.php:76
 msgid "Apply"
