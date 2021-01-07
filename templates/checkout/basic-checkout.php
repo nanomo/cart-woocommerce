@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 <div class="mp-panel-checkout">
   <div class="mp-row-checkout">
-	<?php if ( 0 !== (int) $credito) : ?>
+	<?php if ( 0 !== (int) $credito ) : ?>
 	<div id="framePayments" class="mp-col-md-12">
 		<div class="frame-tarjetas">
 			<p class="mp-subtitle-basic-checkout">
@@ -26,7 +26,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			</p>
 			<?php foreach ( $tarjetas as $tarjeta ) : ?>
 				<?php if ( $tarjeta['type'] == 'credit_card' ) : ?>
-				<img src="<?php echo esc_html( $tarjeta['image']); ?>" class="mp-img-fluid mp-img-tarjetas" alt=""/>
+				<img src="<?php echo esc_html( $tarjeta['image'] ); ?>" class="mp-img-fluid mp-img-tarjetas" alt=""/>
 				<?php endif; ?>
 			<?php endforeach; ?>
 		</div>
