@@ -164,7 +164,7 @@ class WC_WooMercadoPago_Configs {
 	/**
 	 *  Country Configs
 	 */
-	public static function getCountryConfigs() {
+	public static function get_country_configs() {
 		return array(
 			'MCO' => array(
 				'site_id'                => 'MCO',

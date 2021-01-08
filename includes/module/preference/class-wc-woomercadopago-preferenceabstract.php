@@ -126,7 +126,7 @@ abstract class WC_WooMercadoPago_PreferenceAbstract extends WC_Payment_Gateway {
 	 * @return int
 	 */
 	public function get_currency_conversion() {
-		return WC_WooMercadoPago_Helpers_CurrencyConverter::getInstance()->ratio( $this->payment );
+		return WC_WooMercadoPago_Helpers_CurrencyConverter::get_instance()->ratio( $this->payment );
 	}
 
 	/**

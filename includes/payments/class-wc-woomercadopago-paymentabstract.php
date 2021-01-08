@@ -1104,7 +1104,7 @@ class WC_WooMercadoPago_PaymentAbstract extends WC_Payment_Gateway {
 	}
 
 	public function field_currency_conversion( WC_WooMercadoPago_PaymentAbstract $method ) {
-		return WC_WooMercadoPago_Helpers_CurrencyConverter::getInstance()->getField( $method );
+		return WC_WooMercadoPago_Helpers_CurrencyConverter::get_instance()->get_field( $method );
 	}
 
 	/**

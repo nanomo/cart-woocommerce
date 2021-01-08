@@ -378,7 +378,7 @@ class WC_WooMercadoPago_TicketGateway extends WC_WooMercadoPago_PaymentAbstract 
 		$address          .= ( ! empty( $country ) ? ' - ' . $country : '' );
 
 		try {
-			$currency_ratio = WC_WooMercadoPago_Helpers_CurrencyConverter::getInstance()->ratio( $this );
+			$currency_ratio = WC_WooMercadoPago_Helpers_CurrencyConverter::get_instance()->ratio( $this );
 		} catch ( Exception $e ) {
 			$currency_ratio = WC_WooMercadoPago_Helpers_CurrencyConverter::DEFAULT_RATIO;
 		}

@@ -139,7 +139,7 @@ class WC_WooMercadoPago_Module extends WC_WooMercadoPago_Configs {
 	 * Load Config / Categories
 	 */
 	public function loadConfigs() {
-		self::$country_configs = self::getCountryConfigs();
+		self::$country_configs = self::get_country_configs();
 		$configs               = new parent();
 		self::$categories      = $configs->getCategories();
 		self::$site_data       = self::get_site_data();
@@ -415,7 +415,7 @@ class WC_WooMercadoPago_Module extends WC_WooMercadoPago_Configs {
 		$fromCurrency = get_woocommerce_currency();
 		$toCurrency   = $used_currency;
 
-		return WC_WooMercadoPago_Helpers_CurrencyConverter::getInstance()->loadRatio( $fromCurrency, $toCurrency );
+		return WC_WooMercadoPago_Helpers_CurrencyConverter::get_instance()->load_ratio( $fromCurrency, $toCurrency );
 	}
 
 	/**

@@ -14,31 +14,33 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: includes/helpers/class-wc-woomercadopago-helpers-currencyconverter.php:62
+#: includes/helpers/class-wc-woomercadopago-helpers-currencyconverter.php:94
 msgid "Activate this option so that the value of the currency set in WooCommerce is compatible with the value of the currency you use in Mercado Pago."
 msgstr ""
 
-#: includes/helpers/class-wc-woomercadopago-helpers-currencyconverter.php:324
+#: includes/helpers/class-wc-woomercadopago-helpers-currencyconverter.php:397
 msgid "Convert Currency"
 msgstr ""
 
-#: includes/helpers/class-wc-woomercadopago-helpers-currencyconverter.php:329, includes/payments/class-wc-woomercadopago-basicgateway.php:500, includes/payments/class-wc-woomercadopago-paymentabstract.php:585, includes/payments/class-wc-woomercadopago-paymentabstract.php:663, includes/payments/class-wc-woomercadopago-paymentabstract.php:930, includes/payments/class-wc-woomercadopago-paymentabstract.php:1031, includes/payments/class-wc-woomercadopago-paymentabstract.php:1064, includes/payments/class-wc-woomercadopago-ticketgateway.php:284
+#: includes/helpers/class-wc-woomercadopago-helpers-currencyconverter.php:402, includes/payments/class-wc-woomercadopago-basicgateway.php:500, includes/payments/class-wc-woomercadopago-paymentabstract.php:585, includes/payments/class-wc-woomercadopago-paymentabstract.php:663, includes/payments/class-wc-woomercadopago-paymentabstract.php:930, includes/payments/class-wc-woomercadopago-paymentabstract.php:1031, includes/payments/class-wc-woomercadopago-paymentabstract.php:1064, includes/payments/class-wc-woomercadopago-ticketgateway.php:284
 msgid "No"
 msgstr ""
 
-#: includes/helpers/class-wc-woomercadopago-helpers-currencyconverter.php:330, includes/payments/class-wc-woomercadopago-basicgateway.php:499, includes/payments/class-wc-woomercadopago-paymentabstract.php:586, includes/payments/class-wc-woomercadopago-paymentabstract.php:664, includes/payments/class-wc-woomercadopago-paymentabstract.php:931, includes/payments/class-wc-woomercadopago-paymentabstract.php:1032, includes/payments/class-wc-woomercadopago-paymentabstract.php:1063, includes/payments/class-wc-woomercadopago-ticketgateway.php:285
+#: includes/helpers/class-wc-woomercadopago-helpers-currencyconverter.php:403, includes/payments/class-wc-woomercadopago-basicgateway.php:499, includes/payments/class-wc-woomercadopago-paymentabstract.php:586, includes/payments/class-wc-woomercadopago-paymentabstract.php:664, includes/payments/class-wc-woomercadopago-paymentabstract.php:931, includes/payments/class-wc-woomercadopago-paymentabstract.php:1032, includes/payments/class-wc-woomercadopago-paymentabstract.php:1063, includes/payments/class-wc-woomercadopago-ticketgateway.php:285
 msgid "Yes"
 msgstr ""
 
-#: includes/helpers/class-wc-woomercadopago-helpers-currencyconverter.php:389
+#. translators: 1: local currency 2: currency
+#: includes/helpers/class-wc-woomercadopago-helpers-currencyconverter.php:472
 msgid "Now we convert your currency from %1$s to %2$s."
 msgstr ""
 
-#: includes/helpers/class-wc-woomercadopago-helpers-currencyconverter.php:403
+#. translators: 1: local currency 2: currency
+#: includes/helpers/class-wc-woomercadopago-helpers-currencyconverter.php:493
 msgid "We no longer convert your currency from %1$s to %2$s."
 msgstr ""
 
-#: includes/helpers/class-wc-woomercadopago-helpers-currencyconverter.php:419
+#: includes/helpers/class-wc-woomercadopago-helpers-currencyconverter.php:515
 msgid "<b>Attention:</b> The currency settings you have in WooCommerce are not compatible with the currency you use in your Mercado Pago account. Please activate the currency conversion."
 msgstr ""
 

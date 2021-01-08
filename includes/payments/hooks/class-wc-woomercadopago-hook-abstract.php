@@ -54,7 +54,7 @@ abstract class WC_WooMercadoPago_Hook_Abstract {
 		add_action(
 			'admin_notices',
 			function() {
-				WC_WooMercadoPago_Helpers_CurrencyConverter::getInstance()->notices( $this->payment );
+				WC_WooMercadoPago_Helpers_CurrencyConverter::get_instance()->notices( $this->payment );
 			}
 		);
 
@@ -188,7 +188,7 @@ abstract class WC_WooMercadoPago_Hook_Abstract {
 
 		$result = update_option( $this->payment->get_option_key(), apply_filters( 'woocommerce_settings_api_sanitized_fields_' . $this->payment->id, $this->payment->settings ) );
 
-		WC_WooMercadoPago_Helpers_CurrencyConverter::getInstance()->scheduleNotice(
+		WC_WooMercadoPago_Helpers_CurrencyConverter::get_instance()->schedule_notice(
 			$this->payment,
 			$oldData,
 			$this->payment->settings
