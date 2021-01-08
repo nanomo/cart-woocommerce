@@ -419,20 +419,22 @@ class WC_WooMercadoPago_PaymentAbstract extends WC_Payment_Gateway {
 		$this->mp                   = $this->get_mp_instance();
 		$this->homolog_validate     = $this->get_homolog_validate();
 		$this->application_id       = $this->get_application_id( $this->mp_access_token_prod );
-		$this->logged_user_email    = ( wp_get_current_user()->ID != 0 ) ? wp_get_current_user()->user_email : null;
+		$this->logged_user_email    = ( 0 !== wp_get_current_user()->ID ) ? wp_get_current_user()->user_email : null;
 		$this->discount_action_url  = get_site_url() . '/index.php/woocommerce-mercadopago/?wc-api=' . get_class( $this );
 	}
 
 	/**
+	 * Get Homolog Validate
+	 *
 	 * @return mixed
-	 * @throws WC_WooMercadoPago_Exception
+	 * @throws WC_WooMercadoPago_Exception Homolog validate exception.
 	 */
 	public function get_homolog_validate() {
 		$homolog_validate = (int) get_option( 'homolog_validate', 0 );
-		if ( ( $this->is_production_mode() && ! empty( $this->mp_access_token_prod ) ) && $homolog_validate == 0 ) {
+		if ( ( $this->is_production_mode() && ! empty( $this->mp_access_token_prod ) ) && 0 === $homolog_validate ) {
 			if ( $this->mp instanceof MP ) {
 				$homolog_validate = $this->mp->getCredentialsWrapper( $this->mp_access_token_prod );
-				$homolog_validate = isset( $homolog_validate['homologated'] ) && $homolog_validate['homologated'] == true ? 1 : 0;
+				$homolog_validate = isset( $homolog_validate['homologated'] ) && true === $homolog_validate['homologated'] ? 1 : 0;
 				update_option( 'homolog_validate', $homolog_validate, true );
 				return $homolog_validate;
 			}
@@ -442,6 +444,8 @@ class WC_WooMercadoPago_PaymentAbstract extends WC_Payment_Gateway {
 	}
 
 	/**
+	 * Get Access token
+	 *
 	 * @return mixed|string
 	 */
 	public function get_access_token() {
@@ -452,6 +456,8 @@ class WC_WooMercadoPago_PaymentAbstract extends WC_Payment_Gateway {
 	}
 
 	/**
+	 * Public key
+	 *
 	 * @return mixed|string
 	 */
 	public function get_public_key() {
@@ -462,6 +468,8 @@ class WC_WooMercadoPago_PaymentAbstract extends WC_Payment_Gateway {
 	}
 
 	/**
+	 * Get options Mercado Pago
+	 *
 	 * @param $key
 	 * @param string $default
 	 * @return mixed|string
@@ -506,6 +514,8 @@ class WC_WooMercadoPago_PaymentAbstract extends WC_Payment_Gateway {
 	}
 
 	/**
+	 * Validate section
+	 *
 	 * @return bool
 	 */
 	public function validate_section() {
@@ -526,6 +536,8 @@ class WC_WooMercadoPago_PaymentAbstract extends WC_Payment_Gateway {
 	}
 
 	/**
+	 * Is manage section?
+	 *
 	 * @return bool
 	 */
 	public function is_manage_section() {

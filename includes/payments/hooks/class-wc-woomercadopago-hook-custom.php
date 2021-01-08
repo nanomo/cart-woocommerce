@@ -106,6 +106,8 @@ class WC_WooMercadoPago_Hook_Custom extends WC_WooMercadoPago_Hook_Abstract {
 	 * @param string $order_id Order Id.
 	 */
 	public function update_mp_settings_script_custom( $order_id ) {
-		echo esc_js( parent::update_mp_settings_script( $order_id ) );
+		// @todo transform js return
+		// @codingStandardsIgnoreLine
+		echo parent::update_mp_settings_script( $order_id );
 	}
 }

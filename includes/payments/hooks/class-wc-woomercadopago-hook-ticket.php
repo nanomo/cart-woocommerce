@@ -121,6 +121,8 @@ class WC_WooMercadoPago_Hook_Ticket extends WC_WooMercadoPago_Hook_Abstract {
 			__( 'Print ticket', 'woocommerce-mercadopago' ) .
 			'</a> ';
 		$added_text = '<p>' . $html . '</p>';
-		echo esc_html( $added_text );
+		// @todo transform return in template
+		// @codingStandardsIgnoreLine
+		echo $added_text;
 	}
 }
