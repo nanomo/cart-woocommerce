@@ -30,7 +30,7 @@ class WC_WooMercadoPago_BasicGateway extends WC_WooMercadoPago_PaymentAbstract {
 	public function __construct() {
 		$this->id = self::ID;
 
-		if ( ! $this->validateSection() ) {
+		if ( ! $this->validate_section() ) {
 			return;
 		}
 
@@ -38,20 +38,20 @@ class WC_WooMercadoPago_BasicGateway extends WC_WooMercadoPago_PaymentAbstract {
 
 		$this->form_fields          = array();
 		$this->method_title         = __( 'Mercado Pago - Checkout Pro', 'woocommerce-mercadopago' );
-		$this->method               = $this->getOption( 'method', 'redirect' );
+		$this->method               = $this->get_option( 'method', 'redirect' );
 		$this->title                = __( 'Pay with the payment method you prefer', 'woocommerce-mercadopago' );
-		$this->method_description   = $this->getMethodDescription( $this->description );
-		$this->auto_return          = $this->getOption( 'auto_return', 'yes' );
-		$this->success_url          = $this->getOption( 'success_url', '' );
-		$this->failure_url          = $this->getOption( 'failure_url', '' );
-		$this->pending_url          = $this->getOption( 'pending_url', '' );
-		$this->installments         = $this->getOption( 'installments', '24' );
-		$this->gateway_discount     = $this->getOption( 'gateway_discount', 0 );
+		$this->method_description   = $this->get_method_description( $this->description );
+		$this->auto_return          = $this->get_option( 'auto_return', 'yes' );
+		$this->success_url          = $this->get_option( 'success_url', '' );
+		$this->failure_url          = $this->get_option( 'failure_url', '' );
+		$this->pending_url          = $this->get_option( 'pending_url', '' );
+		$this->installments         = $this->get_option( 'installments', '24' );
+		$this->gateway_discount     = $this->get_option( 'gateway_discount', 0 );
 		$this->clientid_old_version = $this->getClientId();
 		$this->field_forms_order    = $this->get_fields_sequence();
 		$this->ex_payments          = $this->getExPayments();
 		parent::__construct();
-		$this->form_fields         = $this->getFormFields( 'Basic' );
+		$this->form_fields         = $this->get_form_fields( 'Basic' );
 		$this->hook                = new WC_WooMercadoPago_Hook_Basic( $this );
 		$this->notification        = new WC_WooMercadoPago_Notification_IPN( $this );
 		$this->currency_convertion = true;
@@ -61,8 +61,8 @@ class WC_WooMercadoPago_BasicGateway extends WC_WooMercadoPago_PaymentAbstract {
 	 * @param $label
 	 * @return array
 	 */
-	public function getFormFields( $label ) {
-		if ( is_admin() && $this->isManageSection() ) {
+	public function get_form_fields( $label ) {
+		if ( is_admin() && $this->is_manage_section() ) {
 			$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 			wp_enqueue_script(
 				'woocommerce-mercadopago-basic-config-script',
@@ -76,7 +76,7 @@ class WC_WooMercadoPago_BasicGateway extends WC_WooMercadoPago_PaymentAbstract {
 			$this->field_forms_order = array_slice( $this->field_forms_order, 0, 7 );
 		}
 
-		if ( ! empty( $this->checkout_country ) && empty( $this->getAccessToken() ) && empty( $this->getPublicKey() ) ) {
+		if ( ! empty( $this->checkout_country ) && empty( $this->get_access_token() ) && empty( $this->get_public_key() ) ) {
 			$this->field_forms_order = array_slice( $this->field_forms_order, 0, 22 );
 		}
 
@@ -84,7 +84,7 @@ class WC_WooMercadoPago_BasicGateway extends WC_WooMercadoPago_PaymentAbstract {
 
 		$form_fields['checkout_header'] = $this->field_checkout_header();
 
-		if ( ! empty( $this->checkout_country ) && ! empty( $this->getAccessToken() ) && ! empty( $this->getPublicKey() ) ) {
+		if ( ! empty( $this->checkout_country ) && ! empty( $this->get_access_token() ) && ! empty( $this->get_public_key() ) ) {
 			$form_fields['checkout_options_title']           = $this->field_checkout_options_title();
 			$form_fields['checkout_payments_title']          = $this->field_checkout_payments_title();
 			$form_fields['checkout_payments_subtitle']       = $this->field_checkout_payments_subtitle();
@@ -102,12 +102,12 @@ class WC_WooMercadoPago_BasicGateway extends WC_WooMercadoPago_PaymentAbstract {
 			}
 		}
 
-		$form_fields_abs = parent::getFormFields( $label );
+		$form_fields_abs = parent::get_form_fields( $label );
 		if ( count( $form_fields_abs ) == 1 ) {
 			return $form_fields_abs;
 		}
 		$form_fields_merge = array_merge( $form_fields_abs, $form_fields );
-		$fields            = $this->sortFormFields( $form_fields_merge, $this->field_forms_order );
+		$fields            = $this->sort_form_fields( $form_fields_merge, $this->field_forms_order );
 
 		return $fields;
 	}
@@ -232,10 +232,10 @@ class WC_WooMercadoPago_BasicGateway extends WC_WooMercadoPago_PaymentAbstract {
 	 */
 	private function getExPayments() {
 		$ex_payments            = array();
-		$get_ex_payment_options = $this->getOption( '_all_payment_methods_v0', '' );
+		$get_ex_payment_options = $this->get_option( '_all_payment_methods_v0', '' );
 		if ( ! empty( $get_ex_payment_options ) ) {
 			foreach ( $get_ex_payment_options = explode( ',', $get_ex_payment_options ) as $get_ex_payment_option ) {
-				if ( $this->getOption( 'ex_payments_' . $get_ex_payment_option, 'yes' ) == 'no' ) {
+				if ( $this->get_option( 'ex_payments_' . $get_ex_payment_option, 'yes' ) == 'no' ) {
 					$ex_payments[] = $get_ex_payment_option;
 				}
 			}
@@ -519,9 +519,9 @@ class WC_WooMercadoPago_BasicGateway extends WC_WooMercadoPago_PaymentAbstract {
 		$debito       = 0;
 		$credito      = 0;
 		$efectivo     = 0;
-		$method       = $this->getOption( 'method', 'redirect' );
+		$method       = $this->get_option( 'method', 'redirect' );
 		$tarjetas     = get_option( '_checkout_payments_methods', '' );
-		$installments = $this->getOption( 'installments' );
+		$installments = $this->get_option( 'installments' );
 		$cho_tarjetas = array();
 
 		// change type account_money to ticket

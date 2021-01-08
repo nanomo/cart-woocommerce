@@ -70,7 +70,7 @@ abstract class WC_WooMercadoPago_Hook_Abstract {
 		$this->payment     = $payment;
 		$this->class       = get_class( $payment );
 		$this->mp_instance = $payment->mp;
-		$this->public_key  = $payment->getPublicKey();
+		$this->public_key  = $payment->get_public_key();
 		$this->test_user   = get_option( '_test_user_v1' );
 		$this->site_id     = get_option( '_site_id_v1' );
 
