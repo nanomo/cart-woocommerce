@@ -21,20 +21,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 class WC_WooMercadoPago_Hook_Ticket extends WC_WooMercadoPago_Hook_Abstract {
 
 	/**
-	 * WC_WooMercadoPago_Hook_Ticket constructor.
-	 *
-	 * @param $payment
-	 */
-	public function __construct( $payment ) {
-		parent::__construct( $payment );
-	}
-
-	/**
 	 * Load Hooks
 	 */
-	public function loadHooks() {
-		parent::loadHooks();
-		if ( ! empty( $this->payment->settings['enabled'] ) && $this->payment->settings['enabled'] == 'yes' ) {
+	public function load_hooks() {
+		parent::load_hooks();
+		if ( ! empty( $this->payment->settings['enabled'] ) && 'yes' === $this->payment->settings['enabled'] ) {
 			add_action( 'wp_enqueue_scripts', array( $this, 'add_checkout_scripts_ticket' ) );
 			add_action( 'woocommerce_after_checkout_form', array( $this, 'add_mp_settings_script_ticket' ) );
 			add_action( 'woocommerce_thankyou_' . $this->payment->id, array( $this, 'update_mp_settings_script_ticket' ) );
@@ -45,23 +36,18 @@ class WC_WooMercadoPago_Hook_Ticket extends WC_WooMercadoPago_Hook_Abstract {
 	 *  Add Discount
 	 */
 	public function add_discount() {
+		// @todo need fix Processing form data without nonce verification
+		// @codingStandardsIgnoreLine
 		if ( ! isset( $_POST['mercadopago_ticket'] ) ) {
 			return;
 		}
 		if ( is_admin() && ! defined( 'DOING_AJAX' ) || is_cart() ) {
 			return;
 		}
+		// @todo need fix Processing form data without nonce verification
+		// @codingStandardsIgnoreLine
 		$ticket_checkout = $_POST['mercadopago_ticket'];
 		parent::add_discount_abst( $ticket_checkout );
-	}
-
-	/**
-	 * @return bool
-	 * @throws WC_WooMercadoPago_Exception
-	 */
-	public function custom_process_admin_options() {
-		$updateOptions = parent::custom_process_admin_options();
-		return $updateOptions;
 	}
 
 	/**
@@ -113,7 +99,9 @@ class WC_WooMercadoPago_Hook_Ticket extends WC_WooMercadoPago_Hook_Abstract {
 	}
 
 	/**
-	 * @param $order_id
+	 * Update settings script ticket
+	 *
+	 * @param string $order_id Order Id.
 	 */
 	public function update_mp_settings_script_ticket( $order_id ) {
 		parent::update_mp_settings_script( $order_id );
@@ -133,6 +121,6 @@ class WC_WooMercadoPago_Hook_Ticket extends WC_WooMercadoPago_Hook_Abstract {
 			__( 'Print ticket', 'woocommerce-mercadopago' ) .
 			'</a> ';
 		$added_text = '<p>' . $html . '</p>';
-		echo $added_text;
+		echo esc_html( $added_text );
 	}
 }

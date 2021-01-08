@@ -21,20 +21,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 class WC_WooMercadoPago_Hook_Basic extends WC_WooMercadoPago_Hook_Abstract {
 
 	/**
-	 * WC_WooMercadoPago_Hook_Basic constructor.
+	 * Load hooks
 	 *
-	 * @param $payment
+	 * @param bool $is_instance Check is instance call.
 	 */
-	public function __construct( $payment ) {
-		parent::__construct( $payment );
-	}
-
-	/**
-	 * @param bool $is_instance
-	 */
-	public function loadHooks( $is_instance = false ) {
-		parent::loadHooks();
-		if ( ! empty( $this->payment->settings['enabled'] ) && $this->payment->settings['enabled'] == 'yes' ) {
+	public function load_hooks( $is_instance = false ) {
+		parent::load_hooks();
+		if ( ! empty( $this->payment->settings['enabled'] ) && 'yes' === $this->payment->settings['enabled'] ) {
 			add_action( 'wp_enqueue_scripts', array( $this, 'add_checkout_scripts_basic' ) );
 			add_action( 'woocommerce_after_checkout_form', array( $this, 'add_mp_settings_script_basic' ) );
 			add_action( 'woocommerce_thankyou', array( $this, 'update_mp_settings_script_basic' ) );
@@ -43,7 +36,7 @@ class WC_WooMercadoPago_Hook_Basic extends WC_WooMercadoPago_Hook_Abstract {
 		add_action(
 			'woocommerce_receipt_' . $this->payment->id,
 			function ( $order ) {
-				echo $this->render_order_form( $order );
+				echo esc_html( $this->render_order_form( $order ) );
 			}
 		);
 
@@ -63,18 +56,25 @@ class WC_WooMercadoPago_Hook_Basic extends WC_WooMercadoPago_Hook_Abstract {
 	}
 
 	/**
-	 * @param $order_id
+	 * Get Order Form
+	 *
+	 * @param string $order_id Order Id.
+	 *
 	 * @return string
 	 */
 	public function render_order_form( $order_id ) {
 		$order = wc_get_order( $order_id );
 		$url   = $this->payment->create_preference( $order );
 
-		if ( 'modal' == $this->payment->method && $url ) {
+		if ( 'modal' === $this->payment->method && $url ) {
 			$this->payment->log->write_log( __FUNCTION__, 'rendering Mercado Pago lightbox (modal window).' );
+			// @todo use wp_enqueue_css
+			// @codingStandardsIgnoreLine
 			$html  = '<style type="text/css">
             #MP-Checkout-dialog #MP-Checkout-IFrame { bottom: 0px !important; top:50%!important; margin-top: -280px !important; height: 590px !important; }
             </style>';
+			// @todo use wp_enqueue_script
+			// @codingStandardsIgnoreLine
 			$html .= '<script type="text/javascript" src="https://secure.mlstatic.com/mptools/render.js"></script>
 					<script type="text/javascript">
 						(function() { $MPC.openCheckout({ url: "' . esc_url( $url ) . '", mode: "modal" }); })();
@@ -96,15 +96,6 @@ class WC_WooMercadoPago_Hook_Basic extends WC_WooMercadoPago_Hook_Abstract {
 			';
 			return $html;
 		}
-	}
-
-	/**
-	 * @return bool
-	 * @throws WC_WooMercadoPago_Exception
-	 */
-	public function custom_process_admin_options() {
-		$updateOptions = parent::custom_process_admin_options();
-		return $updateOptions;
 	}
 
 	/**
@@ -131,7 +122,9 @@ class WC_WooMercadoPago_Hook_Basic extends WC_WooMercadoPago_Hook_Abstract {
 	}
 
 	/**
-	 * @param $order_id
+	 * Update settings script basic
+	 *
+	 * @param string $order_id Order Id.
 	 */
 	public function update_mp_settings_script_basic( $order_id ) {
 		parent::update_mp_settings_script( $order_id );
@@ -141,7 +134,7 @@ class WC_WooMercadoPago_Hook_Basic extends WC_WooMercadoPago_Hook_Abstract {
 	 *  Discount not apply
 	 */
 	public function add_discount() {
-		return;
+		// Do nothing.
 	}
 
 }

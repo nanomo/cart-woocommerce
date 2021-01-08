@@ -186,6 +186,7 @@ class WC_WooMercadoPago_Notification_Webhook extends WC_WooMercadoPago_Notificat
 			);
 			update_post_meta( $order->id, '_Mercado_Pago_Payment_IDs', $data['id'] );
 		}
+
 		return $status;
 	}
 }

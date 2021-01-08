@@ -68,7 +68,7 @@ msgstr ""
 msgid "Cancel order"
 msgstr ""
 
-#: includes/module/class-wc-wooMercadopago-module.php:238, includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:347
+#: includes/module/class-wc-wooMercadopago-module.php:238, includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:409
 msgid "Fill in your credentials to enable payment methods."
 msgstr ""
 
@@ -373,11 +373,11 @@ msgstr ""
 msgid "Do you want your customer to automatically return to the store after payment?"
 msgstr ""
 
-#: includes/payments/class-wc-woomercadopago-basicgateway.php:589, includes/payments/class-wc-woomercadopago-basicgateway.php:589, includes/payments/class-wc-woomercadopago-basicgateway.php:576, includes/payments/class-wc-woomercadopago-basicgateway.php:576, includes/payments/class-wc-woomercadopago-customgateway.php:355, includes/payments/class-wc-woomercadopago-customgateway.php:355, includes/payments/class-wc-woomercadopago-customgateway.php:343, includes/payments/class-wc-woomercadopago-customgateway.php:343, includes/payments/class-wc-woomercadopago-ticketgateway.php:450, includes/payments/class-wc-woomercadopago-ticketgateway.php:450, includes/payments/class-wc-woomercadopago-ticketgateway.php:437, includes/payments/class-wc-woomercadopago-ticketgateway.php:437, includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:111, includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:109
+#: includes/payments/class-wc-woomercadopago-basicgateway.php:589, includes/payments/class-wc-woomercadopago-basicgateway.php:589, includes/payments/class-wc-woomercadopago-basicgateway.php:576, includes/payments/class-wc-woomercadopago-basicgateway.php:576, includes/payments/class-wc-woomercadopago-customgateway.php:355, includes/payments/class-wc-woomercadopago-customgateway.php:355, includes/payments/class-wc-woomercadopago-customgateway.php:343, includes/payments/class-wc-woomercadopago-customgateway.php:343, includes/payments/class-wc-woomercadopago-ticketgateway.php:450, includes/payments/class-wc-woomercadopago-ticketgateway.php:450, includes/payments/class-wc-woomercadopago-ticketgateway.php:437, includes/payments/class-wc-woomercadopago-ticketgateway.php:437, includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:171, includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:169
 msgid "discount of"
 msgstr ""
 
-#: includes/payments/class-wc-woomercadopago-basicgateway.php:594, includes/payments/class-wc-woomercadopago-basicgateway.php:594, includes/payments/class-wc-woomercadopago-basicgateway.php:581, includes/payments/class-wc-woomercadopago-basicgateway.php:581, includes/payments/class-wc-woomercadopago-customgateway.php:360, includes/payments/class-wc-woomercadopago-customgateway.php:360, includes/payments/class-wc-woomercadopago-customgateway.php:348, includes/payments/class-wc-woomercadopago-customgateway.php:348, includes/payments/class-wc-woomercadopago-ticketgateway.php:455, includes/payments/class-wc-woomercadopago-ticketgateway.php:455, includes/payments/class-wc-woomercadopago-ticketgateway.php:442, includes/payments/class-wc-woomercadopago-ticketgateway.php:442, includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:113
+#: includes/payments/class-wc-woomercadopago-basicgateway.php:594, includes/payments/class-wc-woomercadopago-basicgateway.php:594, includes/payments/class-wc-woomercadopago-basicgateway.php:581, includes/payments/class-wc-woomercadopago-basicgateway.php:581, includes/payments/class-wc-woomercadopago-customgateway.php:360, includes/payments/class-wc-woomercadopago-customgateway.php:360, includes/payments/class-wc-woomercadopago-customgateway.php:348, includes/payments/class-wc-woomercadopago-customgateway.php:348, includes/payments/class-wc-woomercadopago-ticketgateway.php:455, includes/payments/class-wc-woomercadopago-ticketgateway.php:455, includes/payments/class-wc-woomercadopago-ticketgateway.php:442, includes/payments/class-wc-woomercadopago-ticketgateway.php:442, includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:173
 msgid "fee of"
 msgstr ""
 
@@ -985,7 +985,7 @@ msgstr ""
 msgid "Enter your coupon"
 msgstr ""
 
-#: templates/checkout/custom-checkout.php:68, templates/checkout/ticket-checkout.php:34, includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:87, includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:89
+#: templates/checkout/custom-checkout.php:68, templates/checkout/ticket-checkout.php:34, includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:76, includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:75
 msgid "Apply"
 msgstr ""
 
@@ -1197,27 +1197,28 @@ msgstr ""
 msgid "Discount provided by store"
 msgstr ""
 
-#: includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:76
+#. translators: %s coupon
+#: includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:127
 msgid "Discount for coupon %s"
 msgstr ""
 
-#: includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:109
+#: includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:169
 msgid " and fee of"
 msgstr ""
 
-#: includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:311
+#: includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:373
 msgid "<b>Public Key</b> production credential is invalid. Review the field to receive real payments."
 msgstr ""
 
-#: includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:320
+#: includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:382
 msgid "<b>Public Key</b> test credential is invalid. Review the field to perform tests in your store."
 msgstr ""
 
-#: includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:329
+#: includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:391
 msgid "<b>Access Token</b> production credential is invalid. Remember that it must be complete to receive real payments."
 msgstr ""
 
-#: includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:338
+#: includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:400
 msgid "<b>Access Token</b> test credential is invalid. Review the field to perform tests in your store."
 msgstr ""
 
@@ -1233,50 +1234,50 @@ msgstr ""
 msgid "Cancel &amp; Clear Cart"
 msgstr ""
 
-#: includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:88, includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:90
+#: includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:77, includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:76
 msgid "Remove"
 msgstr ""
 
-#: includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:89, includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:91
+#: includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:78, includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:77
 msgid "Please, inform your coupon code"
 msgstr ""
 
-#: includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:90, includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:92
+#: includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:79, includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:78
 msgid "To choose"
 msgstr ""
 
-#: includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:91, includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:93
+#: includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:80, includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:79
 msgid "Other bank"
 msgstr ""
 
-#: includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:92, includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:94
+#: includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:81, includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:80
 msgid "You will save"
 msgstr ""
 
-#: includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:93, includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:95
+#: includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:82, includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:81
 msgid "with discount of"
 msgstr ""
 
-#: includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:94, includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:96
+#: includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:83, includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:82
 msgid "Total of your purchase:"
 msgstr ""
 
-#: includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:95, includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:97
+#: includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:84, includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:83
 msgid "Total of your purchase with discount:"
 msgstr ""
 
-#: includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:96, includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:98
+#: includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:85, includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:84
 msgid "*After payment approval"
 msgstr ""
 
-#: includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:97, includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:99
+#: includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:86, includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:85
 msgid "Terms and conditions of use"
 msgstr ""
 
-#: includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:128
+#: includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:116
 msgid "Great, we processed your purchase order. Complete the payment with ticket so that we finish approving it."
 msgstr ""
 
-#: includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:133
+#: includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:121
 msgid "Print ticket"
 msgstr ""

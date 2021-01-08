@@ -323,7 +323,7 @@ class WC_WooMercadoPago_Credentials {
 	/**
 	 * @throws WC_WooMercadoPago_Exception
 	 */
-	public static function validateCredentialsTest( $mpInstance, $access_token = null, $public_key = null ) {
+	public static function validate_credentials_test( $mpInstance, $access_token = null, $public_key = null ) {
 		$isTeste = $mpInstance->getCredentialsWrapper( $access_token, $public_key );
 		if ( is_array( $isTeste ) && isset( $isTeste['is_test'] ) && $isTeste['is_test'] == true ) {
 			return true;
@@ -334,7 +334,7 @@ class WC_WooMercadoPago_Credentials {
 	/**
 	 * @throws WC_WooMercadoPago_Exception
 	 */
-	public static function validateCredentialsProd( $mpInstance, $access_token = null, $public_key = null ) {
+	public static function validate_credentials_prod( $mpInstance, $access_token = null, $public_key = null ) {
 		$isTeste = $mpInstance->getCredentialsWrapper( $access_token, $public_key );
 		if ( is_array( $isTeste ) && isset( $isTeste['is_test'] ) && $isTeste['is_test'] == false ) {
 			return true;
