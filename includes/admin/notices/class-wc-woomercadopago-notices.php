@@ -82,7 +82,10 @@ class WC_WooMercadoPago_Notices {
 		if (
 			( class_exists( 'WC_WooMercadoPago_Module' ) && WC_WooMercadoPago_Module::isWcNewVersion() )
 			&&
-			( isset( $_GET['page'] ) && 'wc-settings' === wp_verify_nonce( sanitize_key( $_GET['page'] ) ) )
+			( isset( $_GET['page'] ) &&
+				wp_verify_nonce( sanitize_key( $_GET['page'] ) ) &&
+				'wc-settings' === sanitize_key( $_GET['page'] )
+			)
 		) {
 			$inline = 'inline';
 		}
@@ -137,7 +140,10 @@ class WC_WooMercadoPago_Notices {
 		if (
 			( class_exists( 'WC_WooMercadoPago_Module' ) && WC_WooMercadoPago_Module::isWcNewVersion() )
 			&&
-			( isset( $_GET['page'] ) && 'wc-settings' === wp_verify_nonce( sanitize_key( $_GET['page'] ) ) )
+			( isset( $_GET['page'] ) &&
+				wp_verify_nonce( sanitize_key( $_GET['page'] ) ) &&
+				'wc-settings' === sanitize_key( $_GET['page'] )
+			)
 		) {
 			$inline = 'inline';
 		}
