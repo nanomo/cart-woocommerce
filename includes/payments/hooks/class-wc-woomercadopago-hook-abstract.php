@@ -226,13 +226,13 @@ abstract class WC_WooMercadoPago_Hook_Abstract {
 			return false;
 		}
 
-		if ( $key == '_mp_public_key_prod' && WC_WooMercadoPago_Credentials::validateCredentialsProd( $this->mpInstance, null, $value ) == false ) {
+		if ( $key == '_mp_public_key_prod' && WC_WooMercadoPago_Credentials::validate_credentials_prod( $this->mpInstance, null, $value ) == false ) {
 			update_option( $key, '', true );
 			add_action( 'admin_notices', array( $this, 'noticeInvalidPublicKeyProd' ) );
 			return true;
 		}
 
-		if ( $key == '_mp_public_key_test' && WC_WooMercadoPago_Credentials::validateCredentialsTest( $this->mpInstance, null, $value ) == false ) {
+		if ( $key == '_mp_public_key_test' && WC_WooMercadoPago_Credentials::validate_credentials_test( $this->mpInstance, null, $value ) == false ) {
 			update_option( $key, '', true );
 			add_action( 'admin_notices', array( $this, 'noticeInvalidPublicKeyTest' ) );
 			return true;
@@ -253,13 +253,13 @@ abstract class WC_WooMercadoPago_Hook_Abstract {
 			return false;
 		}
 
-		if ( $key == '_mp_access_token_prod' && WC_WooMercadoPago_Credentials::validateCredentialsProd( $this->mpInstance, $value, null ) == false ) {
+		if ( $key == '_mp_access_token_prod' && WC_WooMercadoPago_Credentials::validate_credentials_prod( $this->mpInstance, $value, null ) == false ) {
 			add_action( 'admin_notices', array( $this, 'noticeInvalidProdCredentials' ) );
 			update_option( $key, '', true );
 			return true;
 		}
 
-		if ( $key == '_mp_access_token_test' && WC_WooMercadoPago_Credentials::validateCredentialsTest( $this->mpInstance, $value, null ) == false ) {
+		if ( $key == '_mp_access_token_test' && WC_WooMercadoPago_Credentials::validate_credentials_test( $this->mpInstance, $value, null ) == false ) {
 			add_action( 'admin_notices', array( $this, 'noticeInvalidTestCredentials' ) );
 			update_option( $key, '', true );
 			return true;
@@ -284,15 +284,15 @@ abstract class WC_WooMercadoPago_Hook_Abstract {
 			if (
 				( $key == '_mp_access_token_prod' && $isProduction == 'yes' ) || ( $key == '_mp_access_token_test' && $isProduction == 'no' )
 			) {
-				WC_WooMercadoPago_Credentials::updatePaymentMethods( $this->mpInstance, $value );
-				WC_WooMercadoPago_Credentials::updateTicketMethod( $this->mpInstance, $value );
+				WC_WooMercadoPago_Credentials::update_payment_methods( $this->mpInstance, $value );
+				WC_WooMercadoPago_Credentials::update_ticket_method( $this->mpInstance, $value );
 			}
 			return true;
 		}
 
 		if ( $key == '_mp_access_token_prod' ) {
 			update_option( '_mp_public_key_prod', '', true );
-			WC_WooMercadoPago_Credentials::setNoCredentials();
+			WC_WooMercadoPago_Credentials::set_no_credentials();
 			add_action( 'admin_notices', array( $this, 'noticeInvalidProdCredentials' ) );
 		} else {
 			update_option( '_mp_public_key_test', '', true );

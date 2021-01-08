@@ -23,56 +23,103 @@ class WC_WooMercadoPago_Credentials {
 	const TYPE_ACCESS_CLIENT = 'client';
 	const TYPE_ACCESS_TOKEN  = 'token';
 
+	/**
+	 * Payment variable
+	 *
+	 * @var [mixed|null]
+	 */
 	public $payment;
-	public $publicKey;
-	public $accessToken;
-	public $clientId;
-	public $clientSecret;
+
+	/**
+	 * Public key variable
+	 *
+	 * @var [string]
+	 */
+	public $public_key;
+
+	/**
+	 * Access token variable
+	 *
+	 * @var [string]
+	 */
+	public $access_token;
+
+	/**
+	 * Client id variable
+	 *
+	 * @var [string]
+	 */
+	public $client_id;
+
+	/**
+	 * Client Secret variable
+	 *
+	 * @var [string]
+	 */
+	public $client_secret;
+
+	/**
+	 * Sandbox variable
+	 *
+	 * @var [bool]
+	 */
 	public $sandbox;
+
+	/**
+	 * Log variable
+	 *
+	 * @var WC_WooMercadoPago_Log
+	 */
 	public $log;
 
 	/**
 	 * WC_WooMercadoPago_Credentials constructor.
 	 *
-	 * @param $payment
+	 * @param mixed|null $payment payment.
 	 */
 	public function __construct( $payment = null ) {
 		$this->payment = $payment;
-		$publicKey     = get_option( '_mp_public_key_prod', '' );
-		$accessToken   = get_option( '_mp_access_token_prod', '' );
+		$public_key    = get_option( '_mp_public_key_prod', '' );
+		$access_token  = get_option( '_mp_access_token_prod', '' );
 
 		if ( ! is_null( $this->payment ) ) {
 			$this->sandbox = $payment->isTestUser();
-			if ( $this->payment->getOption( 'checkout_credential_prod', '' ) == 'no' || empty( $this->payment->getOption( 'checkout_credential_prod', '' ) ) ) {
-				$publicKey   = get_option( '_mp_public_key_test', '' );
-				$accessToken = get_option( '_mp_access_token_test', '' );
+			if ( 'no' === $this->payment->getOption( 'checkout_credential_prod', '' ) || empty( $this->payment->getOption( 'checkout_credential_prod', '' ) ) ) {
+				$public_key   = get_option( '_mp_public_key_test', '' );
+				$access_token = get_option( '_mp_access_token_test', '' );
 			}
 		}
 
-		if ( is_null( $this->payment ) && empty( $publicKey ) && empty( $accessToken ) ) {
-			$publicKey   = get_option( '_mp_public_key_test', '' );
-			$accessToken = get_option( '_mp_access_token_test', '' );
+		if ( is_null( $this->payment ) && empty( $public_key ) && empty( $access_token ) ) {
+			$public_key   = get_option( '_mp_public_key_test', '' );
+			$access_token = get_option( '_mp_access_token_test', '' );
 		}
 
-		$this->publicKey    = $publicKey;
-		$this->accessToken  = $accessToken;
-		$this->clientId     = get_option( '_mp_client_id' );
-		$this->clientSecret = get_option( '_mp_client_secret' );
+		$this->public_key    = $public_key;
+		$this->access_token  = $access_token;
+		$this->client_id     = get_option( '_mp_client_id' );
+		$this->client_secret = get_option( '_mp_client_secret' );
 	}
 
+	/**
+	 * Mercadopago payment update function
+	 *
+	 * @return void
+	 * @throws WC_WooMercadoPago_Exception Error.
+	 */
 	public static function mercadopago_payment_update() {
 		try {
-			$mp_v1 = WC_WooMercadoPago_Module::getMpInstanceSingleton();
-			if ( $mp_v1 instanceof MP == false ) {
-				self::setNoCredentials();
+			$mp_v1 = WC_WooMercadoPago_Module::get_mp_instanceSingleton();
+			if ( false === $mp_v1 instanceof MP ) {
+				self::set_no_credentials();
 				return;
 			}
 
 			$access_token = $mp_v1->get_access_token();
 			if ( ! empty( $access_token ) ) {
-				$payments_response = self::getPaymentResponse( $mp_v1, $access_token );
-				self::updatePaymentMethods( $mp_v1, $access_token, $payments_response );
-				self::updateTicketMethod( $mp_v1, $access_token, $payments_response );
+				$payments_response = self::get_payment_response( $mp_v1, $access_token );
+				self::update_payment_methods( $mp_v1, $access_token, $payments_response );
+				self::update_ticket_method( $mp_v1, $access_token, $payments_response );
 			}
 		} catch ( WC_WooMercadoPago_Exception $e ) {
 			$log = WC_WooMercadoPago_Log::init_mercado_pago_log( 'WC_WooMercadoPago_Credentials' );
@@ -81,12 +128,14 @@ class WC_WooMercadoPago_Credentials {
 	}
 
 	/**
-	 * @return bool|string
+	 * Validate Credentials Type function
+	 *
+	 * @return string
 	 */
-	public function validateCredentialsType() {
-		$basicIsEnabled = self::basicIsEnabled();
-		if ( ! $this->tokenIsValid() && ( $this->payment instanceof WC_WooMercadoPago_BasicGateway || $basicIsEnabled == 'yes' ) ) {
-			if ( ! $this->clientIsValid() ) {
+	public function validate_credentials_type() {
+		$basic_is_enabled = self::basic_is_enabled();
+		if ( ! $this->token_is_valid() && ( $this->payment instanceof WC_WooMercadoPago_BasicGateway || 'yes' === $basic_is_enabled ) ) {
+			if ( ! $this->client_is_valid() ) {
 				return self::TYPE_ACCESS_TOKEN;
 			}
 			return self::TYPE_ACCESS_CLIENT;
@@ -96,20 +145,26 @@ class WC_WooMercadoPago_Credentials {
 	}
 
 	/**
+	 *
+	 * Client Is Valid function
+	 *
 	 * @return bool
 	 */
-	public function clientIsValid() {
-		if ( empty( $this->clientId ) || empty( $this->clientSecret ) ) {
+	public function client_is_valid() {
+		if ( empty( $this->client_id ) || empty( $this->client_secret ) ) {
 			return false;
 		}
 		return true;
 	}
 
 	/**
+	 *
+	 * Token Is Valid function
+	 *
 	 * @return bool
 	 */
-	public function tokenIsValid() {
-		if ( empty( $this->publicKey ) || empty( $this->accessToken ) ) {
+	public function token_is_valid() {
+		if ( empty( $this->public_key ) || empty( $this->access_token ) ) {
 			return false;
 		}
 
@@ -117,9 +172,11 @@ class WC_WooMercadoPago_Credentials {
 	}
 
 	/**
-	 * Set no Credentials
+	 * Set No Credentials function
+	 *
+	 * @return void
 	 */
-	public static function setNoCredentials() {
+	public static function set_no_credentials() {
 		update_option( '_test_user_v1', '', true );
 		update_option( '_site_id_v1', '', true );
 		update_option( '_collector_id_v1', '', true );
@@ -129,12 +186,15 @@ class WC_WooMercadoPago_Credentials {
 	}
 
 	/**
-	 * @param $access_token
+	 *
+	 * Access Token Is Valid function
+	 *
+	 * @param string $access_token access token.
 	 * @return bool
-	 * @throws WC_WooMercadoPago_Exception
+	 * @throws WC_WooMercadoPago_Exception Error.
 	 */
 	public static function access_token_is_valid( $access_token ) {
-		$mp_v1 = WC_WooMercadoPago_Module::getMpInstanceSingleton();
+		$mp_v1 = WC_WooMercadoPago_Module::get_mp_instanceSingleton();
 		if ( empty( $mp_v1 ) ) {
 			return false;
 		}
@@ -147,7 +207,7 @@ class WC_WooMercadoPago_Credentials {
 
 		if ( isset( $get_request['response']['site_id'] ) ) {
 			update_option( '_site_id_v1', $get_request['response']['site_id'], true );
-			update_option( '_test_user_v1', in_array( 'test_user', $get_request['response']['tags'] ), true );
+			update_option( '_test_user_v1', in_array( 'test_user', $get_request['response']['tags'], true ), true );
 		}
 
 		if ( isset( $get_request['response']['id'] ) ) {
@@ -158,31 +218,34 @@ class WC_WooMercadoPago_Credentials {
 	}
 
 	/**
+	 *
+	 * Validate Credentials v1 function
+	 *
 	 * @return bool
 	 */
 	public static function validate_credentials_v1() {
-		$credentials    = new self();
-		$basicIsEnabled = 'no';
-		if ( ! $credentials->tokenIsValid() ) {
-			$basicIsEnabled = self::basicIsEnabled();
-			if ( $basicIsEnabled != 'yes' ) {
-				self::setNoCredentials();
+		$credentials      = new self();
+		$basic_is_enabled = 'no';
+		if ( ! $credentials->token_is_valid() ) {
+			$basic_is_enabled = self::basic_is_enabled();
+			if ( 'yes' !== $basic_is_enabled ) {
+				self::set_no_credentials();
 				return false;
 			}
 		}
 
 		try {
-			$mp_v1 = WC_WooMercadoPago_Module::getMpInstanceSingleton();
-			if ( $mp_v1 instanceof MP == false ) {
-				self::setNoCredentials();
+			$mp_v1 = WC_WooMercadoPago_Module::get_mp_instanceSingleton();
+			if ( false === $mp_v1 instanceof MP ) {
+				self::set_no_credentials();
 				return false;
 			}
 			$access_token = $mp_v1->get_access_token();
 			$get_request  = $mp_v1->get( '/users/me', array( 'Authorization' => 'Bearer ' . $access_token ) );
 
-			if ( isset( $get_request['response']['site_id'] ) && ( ! empty( $credentials->publicKey ) || $basicIsEnabled == 'yes' ) ) {
+			if ( isset( $get_request['response']['site_id'] ) && ( ! empty( $credentials->public_key ) || 'yes' === $basic_is_enabled ) ) {
 
-				update_option( '_test_user_v1', in_array( 'test_user', $get_request['response']['tags'] ), true );
+				update_option( '_test_user_v1', in_array( 'test_user', $get_request['response']['tags'], true ), true );
 				update_option( '_site_id_v1', $get_request['response']['site_id'], true );
 				update_option( '_collector_id_v1', $get_request['response']['id'], true );
 
@@ -204,18 +267,20 @@ class WC_WooMercadoPago_Credentials {
 			$log->write_log( 'validate_credentials_v1', 'Exception ERROR' . $e->getMessage() );
 		}
 
-		self::setNoCredentials();
+		self::set_no_credentials();
 		return false;
 	}
 
 	/**
-	 * @param $mpInstance
-	 * @param $accessToken
+	 *
+	 * Get Payment Response function
+	 *
+	 * @param MP     $mp_instance MP Instance.
+	 * @param string $access_token Access token.
 	 * @return null
 	 */
-	public static function getPaymentResponse( $mpInstance, $accessToken ) {
-		$seller   = get_option( '_collector_id_v1', '' );
-		$payments = $mpInstance->get_payment_methods( $accessToken );
+	public static function get_payment_response( $mp_instance, $access_token ) {
+		$payments = $mp_instance->get_payment_methods( $access_token );
 		if ( isset( $payments['response'] ) ) {
 			return $payments['response'];
 		}
@@ -224,21 +289,24 @@ class WC_WooMercadoPago_Credentials {
 	}
 
 	/**
-	 * @param $mpInstance
-	 * @param null       $accessToken
-	 * @param null       $paymentsResponse
+	 *
+	 * Update Payment Methods function
+	 *
+	 * @param MP          $mp_instance MP instance.
+	 * @param string|null $access_token Access token.
+	 * @param array|null  $payments_response Payments response.
 	 */
-	public static function updatePaymentMethods( $mpInstance, $accessToken = null, $paymentsResponse = null ) {
-		if ( empty( $accessToken ) || empty( $mpInstance ) ) {
+	public static function update_payment_methods( $mp_instance, $access_token = null, $payments_response = null ) {
+		if ( empty( $access_token ) || empty( $mp_instance ) ) {
 			return;
 		}
 
-		if ( empty( $paymentsResponse ) ) {
-			$paymentsResponse = self::getPaymentResponse( $mpInstance, $accessToken );
+		if ( empty( $payments_response ) ) {
+			$payments_response = self::get_payment_response( $mp_instance, $access_token );
 		}
 
-		if ( empty( $paymentsResponse ) || ( isset( $paymentsResponse['status'] ) && $paymentsResponse['status'] != 200 &&
-			$paymentsResponse['status'] != 201 ) ) {
+		if ( empty( $payments_response ) || ( isset( $payments_response['status'] ) && 200 !== $payments_response['status'] &&
+			201 !== $payments_response['status'] ) ) {
 			return;
 		}
 
@@ -246,8 +314,8 @@ class WC_WooMercadoPago_Credentials {
 		$cho      = array();
 		$excluded = array( 'consumer_credits', 'paypal' );
 
-		foreach ( $paymentsResponse as $payment ) {
-			if ( in_array( $payment['id'], $excluded ) ) {
+		foreach ( $payments_response as $payment ) {
+			if ( in_array( $payment['id'], $excluded, true ) ) {
 				continue;
 			}
 
@@ -267,34 +335,38 @@ class WC_WooMercadoPago_Credentials {
 	}
 
 	/**
-	 * @param $mpInstance
-	 * @param $accessToken
-	 * @param null        $paymentsResponse
+	 *
+	 * Update Ticket Method function
+	 *
+	 * @param MP         $mp_instance Mp instance.
+	 * @param string     $access_token Access token.
+	 * @param array|null $payments_response Payment response.
+	 * @return void
 	 */
-	public static function updateTicketMethod( $mpInstance, $accessToken, $paymentsResponse = null ) {
-		if ( empty( $accessToken ) || empty( $mpInstance ) ) {
+	public static function update_ticket_method( $mp_instance, $access_token, $payments_response = null ) {
+		if ( empty( $access_token ) || empty( $mp_instance ) ) {
 			return;
 		}
 
-		if ( empty( $paymentsResponse ) ) {
-			$paymentsResponse = self::getPaymentResponse( $mpInstance, $accessToken );
+		if ( empty( $payments_response ) ) {
+			$payments_response = self::get_payment_response( $mp_instance, $access_token );
 		}
 
-		if ( empty( $paymentsResponse ) || ( isset( $paymentsResponse['status'] ) && $paymentsResponse['status'] != 200 &&
-			$paymentsResponse['status'] != 201 ) ) {
+		if ( empty( $payments_response ) || ( isset( $payments_response['status'] ) && 200 !== $payments_response['status'] &&
+			201 !== $payments_response['status'] ) ) {
 			return;
 		}
 
 		$payment_methods_ticket = array();
 		$excluded               = array( 'paypal' );
 
-		foreach ( $paymentsResponse as $payment ) {
+		foreach ( $payments_response as $payment ) {
 			if (
-				! in_array( $payment['id'], $excluded ) &&
-				$payment['payment_type_id'] != 'account_money' &&
-				$payment['payment_type_id'] != 'credit_card' &&
-				$payment['payment_type_id'] != 'debit_card' &&
-				$payment['payment_type_id'] != 'prepaid_card'
+				! in_array( $payment['id'], $excluded, true ) &&
+				'account_money' !== $payment['payment_type_id'] &&
+				'credit_card' !== $payment['payment_type_id'] &&
+				'debit_card' !== $payment['payment_type_id'] &&
+				'prepaid_card' !== $payment['payment_type_id']
 			) {
 				$payment_methods_ticket[] = array(
 					'id'               => $payment['id'],
@@ -308,35 +380,50 @@ class WC_WooMercadoPago_Credentials {
 	}
 
 	/**
+	 *
+	 * Basic is enabled function
+	 *
 	 * @return string
 	 */
-	public static function basicIsEnabled() {
-		$basicIsEnabled = 'no';
-		$basicSettings  = get_option( 'woocommerce_woo-mercado-pago-basic_settings', '' );
-		if ( isset( $basicSettings['enabled'] ) ) {
-			$basicIsEnabled = $basicSettings['enabled'];
+	public static function basic_is_enabled() {
+		$basic_is_enabled = 'no';
+		$basic_settings   = get_option( 'woocommerce_woo-mercado-pago-basic_settings', '' );
+		if ( isset( $basic_settings['enabled'] ) ) {
+			$basic_is_enabled = $basic_settings['enabled'];
 		}
 
-		return $basicIsEnabled;
+		return $basic_is_enabled;
 	}
 
 	/**
-	 * @throws WC_WooMercadoPago_Exception
+	 *
+	 * Validate Credentials Test function
+	 *
+	 * @param MP          $mp_instance Mp instance.
+	 * @param string|null $access_token Access token.
+	 * @param string|null $public_key Payment response.
+	 * @return bool
 	 */
-	public static function validateCredentialsTest( $mpInstance, $access_token = null, $public_key = null ) {
-		$isTeste = $mpInstance->getCredentialsWrapper( $access_token, $public_key );
-		if ( is_array( $isTeste ) && isset( $isTeste['is_test'] ) && $isTeste['is_test'] == true ) {
+	public static function validate_credentials_test( $mp_instance, $access_token = null, $public_key = null ) {
+		$is_teste = $mp_instance->getCredentialsWrapper( $access_token, $public_key );
+		if ( is_array( $is_teste ) && isset( $is_teste['is_test'] ) && true === $is_teste['is_test'] ) {
 			return true;
 		}
 		return false;
 	}
 
 	/**
-	 * @throws WC_WooMercadoPago_Exception
+	 *
+	 * Validate Credentials Prod function
+	 *
+	 * @param MP          $mp_instance Mp instance.
+	 * @param string|null $access_token Access token.
+	 * @param string|null $public_key Payment response.
+	 * @return bool
 	 */
-	public static function validateCredentialsProd( $mpInstance, $access_token = null, $public_key = null ) {
-		$isTeste = $mpInstance->getCredentialsWrapper( $access_token, $public_key );
-		if ( is_array( $isTeste ) && isset( $isTeste['is_test'] ) && $isTeste['is_test'] == false ) {
+	public static function validate_credentials_prod( $mp_instance, $access_token = null, $public_key = null ) {
+		$is_teste = $mp_instance->getCredentialsWrapper( $access_token, $public_key );
+		if ( is_array( $is_teste ) && isset( $is_teste['is_test'] ) && false === $is_teste['is_test'] ) {
 			return true;
 		}
 		return false;

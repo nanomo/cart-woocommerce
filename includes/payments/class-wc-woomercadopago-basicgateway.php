@@ -200,11 +200,11 @@ class WC_WooMercadoPago_BasicGateway extends WC_WooMercadoPago_PaymentAbstract {
 		if ( isset( $this->settings['enabled'] ) && $this->settings['enabled'] == 'yes' ) {
 			if ( $this->mp instanceof MP ) {
 				$accessToken = $this->mp->get_access_token();
-				if ( WC_WooMercadoPago_Credentials::validateCredentialsTest( $this->mp, $accessToken ) == false && $this->sandbox == true ) {
+				if ( WC_WooMercadoPago_Credentials::validate_credentials_test( $this->mp, $accessToken ) == false && $this->sandbox == true ) {
 					return false;
 				}
 
-				if ( WC_WooMercadoPago_Credentials::validateCredentialsProd( $this->mp, $accessToken ) == false && $this->sandbox == false ) {
+				if ( WC_WooMercadoPago_Credentials::validate_credentials_prod( $this->mp, $accessToken ) == false && $this->sandbox == false ) {
 					return false;
 				}
 				return true;

@@ -54,7 +54,7 @@ class WC_WooMercadoPago_Module extends WC_WooMercadoPago_Configs {
 				// validate credentials
 				if ( isset( $_REQUEST['section'] ) ) {
 					$credentials = new WC_WooMercadoPago_Credentials();
-					if ( ! $credentials->tokenIsValid() ) {
+					if ( ! $credentials->token_is_valid() ) {
 						add_action( 'admin_notices', array( $this, 'enablePaymentNotice' ) );
 					}
 				}
@@ -72,12 +72,12 @@ class WC_WooMercadoPago_Module extends WC_WooMercadoPago_Configs {
 	 */
 	public static function getMpInstance( $payment = null ) {
 		$credentials             = new WC_WooMercadoPago_Credentials( $payment );
-		$validateCredentialsType = $credentials->validateCredentialsType();
-		if ( $validateCredentialsType == WC_WooMercadoPago_Credentials::TYPE_ACCESS_TOKEN ) {
+		$validate_credentials_type = $credentials->validate_credentials_type();
+		if ( $validate_credentials_type == WC_WooMercadoPago_Credentials::TYPE_ACCESS_TOKEN ) {
 			$mp = new MP( $credentials->accessToken );
 			$mp->setPaymentClass( $payment );
 		}
-		if ( $validateCredentialsType == WC_WooMercadoPago_Credentials::TYPE_ACCESS_CLIENT ) {
+		if ( $validate_credentials_type == WC_WooMercadoPago_Credentials::TYPE_ACCESS_CLIENT ) {
 			$mp = new MP( $credentials->clientId, $credentials->clientSecret );
 			$mp->setPaymentClass( $payment );
 			if ( ! empty( $payment ) ) {
@@ -104,7 +104,7 @@ class WC_WooMercadoPago_Module extends WC_WooMercadoPago_Configs {
 	 * @return MP|null
 	 * @throws WC_WooMercadoPago_Exception
 	 */
-	public static function getMpInstanceSingleton( $payment = null ) {
+	public static function get_mp_instanceSingleton( $payment = null ) {
 		$mp = null;
 		if ( ! empty( $payment ) ) {
 			$class = get_class( $payment );
@@ -351,7 +351,7 @@ class WC_WooMercadoPago_Module extends WC_WooMercadoPago_Configs {
 		}
 
 		if ( $varify_sponsor ) {
-			$mp_sponsor_id = self::getMpInstanceSingleton();
+			$mp_sponsor_id = self::get_mp_instanceSingleton();
 			$get_sponor_id = $mp_sponsor_id->get( '/users/' . $sponsor_id, array( 'Authorization' => 'Bearer ' . $access_token ), false );
 			if ( ! is_wp_error( $get_sponor_id ) && ( $get_sponor_id['status'] == 200 || $get_sponor_id['status'] == 201 ) ) {
 				if ( $get_sponor_id['response']['site_id'] == $site_id ) {
