@@ -38,11 +38,11 @@ class WC_WooMercadoPago_CustomGateway extends WC_WooMercadoPago_PaymentAbstract 
 		$this->form_fields        = array();
 		$this->method_title       = __( 'Mercado Pago - Custom Checkout', 'woocommerce-mercadopago' );
 		$this->title              = __( 'Pay with debit and credit cards', 'woocommerce-mercadopago' );
-		$this->method_description = $this->get_method_description( $this->description );
-		$this->coupon_mode        = $this->get_option( 'coupon_mode', 'no' );
+		$this->method_description = $this->get_method_mp_description( $this->description );
+		$this->coupon_mode        = $this->get_option_mp( 'coupon_mode', 'no' );
 		$this->field_forms_order  = $this->get_fields_sequence();
 		parent::__construct();
-		$this->form_fields         = $this->get_form_fields( 'Custom' );
+		$this->form_fields         = $this->get_form_mp_fields( 'Custom' );
 		$this->customer            = $this->getOrCreateCustomer();
 		$this->hook                = new WC_WooMercadoPago_Hook_Custom( $this );
 		$this->notification        = new WC_WooMercadoPago_Notification_Webhook( $this );
@@ -53,7 +53,7 @@ class WC_WooMercadoPago_CustomGateway extends WC_WooMercadoPago_PaymentAbstract 
 	 * @param $label
 	 * @return array
 	 */
-	public function get_form_fields( $label ) {
+	public function get_form_mp_fields( $label ) {
 		if ( is_admin() && $this->is_manage_section() ) {
 			$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 			wp_enqueue_script(
@@ -82,7 +82,7 @@ class WC_WooMercadoPago_CustomGateway extends WC_WooMercadoPago_PaymentAbstract 
 			$form_fields['checkout_custom_payments_advanced_title'] = $this->field_checkout_custom_payments_advanced_title();
 			$form_fields['coupon_mode']                             = $this->field_coupon_mode();
 		}
-		$form_fields_abs = parent::get_form_fields( $label );
+		$form_fields_abs = parent::get_form_mp_fields( $label );
 		if ( count( $form_fields_abs ) == 1 ) {
 			return $form_fields_abs;
 		}
@@ -284,7 +284,7 @@ class WC_WooMercadoPago_CustomGateway extends WC_WooMercadoPago_PaymentAbstract 
 		$discount   = $amount * ( $this->gateway_discount / 100 );
 		$comission  = $amount * ( $this->commission / 100 );
 		$amount     = $amount - $discount + $comission;
-		$banner_url = $this->get_option( '_mp_custom_banner' );
+		$banner_url = $this->get_option_mp( '_mp_custom_banner' );
 		if ( ! isset( $banner_url ) || empty( $banner_url ) ) {
 			$banner_url = $this->site_data['checkout_banner_custom'];
 		}
@@ -310,7 +310,7 @@ class WC_WooMercadoPago_CustomGateway extends WC_WooMercadoPago_PaymentAbstract 
 
 		$parameters = array(
 			'amount'               => $amount,
-			'site_id'              => $this->get_option( '_site_id_v1' ),
+			'site_id'              => $this->get_option_mp( '_site_id_v1' ),
 			'public_key'           => $this->get_public_key(),
 			'coupon_mode'          => isset( $this->logged_user_email ) ? $this->coupon_mode : 'no',
 			'discount_action_url'  => $this->discount_action_url,

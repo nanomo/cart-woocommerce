@@ -197,11 +197,11 @@ class WC_WooMercadoPago_Helpers_CurrencyConverter {
 	 * @return mixed
 	 */
 	private function get_access_token( WC_WooMercadoPago_PaymentAbstract $method ) {
-		$type = $method->get_option( 'checkout_credential_prod' ) === 'no'
+		$type = $method->get_option_mp( 'checkout_credential_prod' ) === 'no'
 			? '_mp_access_token_test'
 			: '_mp_access_token_prod';
 
-		return $method->get_option( $type );
+		return $method->get_option_mp( $type );
 	}
 
 	/**
@@ -212,7 +212,7 @@ class WC_WooMercadoPago_Helpers_CurrencyConverter {
 	 * @return mixed
 	 */
 	public function is_enabled( WC_WooMercadoPago_PaymentAbstract $method ) {
-		return $method->get_option( self::CONFIG_KEY, 'no' ) === 'yes' ? true : false;
+		return $method->get_option_mp( self::CONFIG_KEY, 'no' ) === 'yes' ? true : false;
 	}
 
 	/**
@@ -451,7 +451,7 @@ class WC_WooMercadoPago_Helpers_CurrencyConverter {
 			}
 		}
 
-		if ( ! $this->is_enabled( $method ) && ! $this->is_showing_alert && $method->isCurrencyConvertable() ) {
+		if ( ! $this->is_enabled( $method ) && ! $this->is_showing_alert && $method->is_currency_convertable() ) {
 			echo esc_html( $this->notice_warning( $method ) );
 		}
 	}

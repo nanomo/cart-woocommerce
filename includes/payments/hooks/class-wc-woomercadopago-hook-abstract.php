@@ -219,14 +219,14 @@ abstract class WC_WooMercadoPago_Hook_Abstract {
 		$value_credential_production = null;
 		$this->payment->init_settings();
 		$post_data = $this->payment->get_post_data();
-		foreach ( $this->payment->get_form_fields() as $key => $field ) {
+		foreach ( $this->payment->get_form_mp_fields() as $key => $field ) {
 			if ( 'title' !== $this->payment->get_field_type( $field ) ) {
 				$value            = $this->payment->get_field_value( $key, $field, $post_data );
 				$old_data[ $key ] = isset( $this->payment->settings[ $key ] ) ? $this->payment->settings[ $key ] : null;
 				if ( 'checkout_credential_prod' === $key ) {
 					$value_credential_production = $value;
 				}
-				$common_configs = $this->payment->getCommonConfigs();
+				$common_configs = $this->payment->get_common_configs();
 				if ( in_array( $key, $common_configs, true ) ) {
 
 					if ( $this->validate_credentials( $key, $value, $value_credential_production ) ) {
@@ -328,7 +328,7 @@ abstract class WC_WooMercadoPago_Hook_Abstract {
 		}
 
 		if ( empty( $is_production ) ) {
-			$is_production = $this->payment->isProductionMode();
+			$is_production = $this->payment->is_production_mode();
 		}
 
 		if ( WC_WooMercadoPago_Credentials::access_token_is_valid( $value ) ) {

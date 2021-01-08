@@ -38,17 +38,17 @@ class WC_WooMercadoPago_TicketGateway extends WC_WooMercadoPago_PaymentAbstract 
 		$this->form_fields        = array();
 		$this->method_title       = __( 'Mercado Pago - Custom Checkout', 'woocommerce-mercadopago' );
 		$this->title              = __( 'Pay with cash', 'woocommerce-mercadopago' );
-		$this->method_description = $this->get_method_description( $this->description );
-		$this->coupon_mode        = $this->get_option( 'coupon_mode', 'no' );
-		$this->stock_reduce_mode  = $this->get_option( 'stock_reduce_mode', 'no' );
-		$this->date_expiration    = $this->get_option( 'date_expiration', 3 );
-		$this->type_payments      = $this->get_option( 'type_payments', 'no' );
+		$this->method_description = $this->get_method_mp_description( $this->description );
+		$this->coupon_mode        = $this->get_option_mp( 'coupon_mode', 'no' );
+		$this->stock_reduce_mode  = $this->get_option_mp( 'stock_reduce_mode', 'no' );
+		$this->date_expiration    = $this->get_option_mp( 'date_expiration', 3 );
+		$this->type_payments      = $this->get_option_mp( 'type_payments', 'no' );
 		$this->payment_type       = 'ticket';
 		$this->checkout_type      = 'custom';
 		$this->activated_payment  = $this->get_activated_payment();
 		$this->field_forms_order  = $this->get_fields_sequence();
 		parent::__construct();
-		$this->form_fields         = $this->get_form_fields( 'Ticket' );
+		$this->form_fields         = $this->get_form_mp_fields( 'Ticket' );
 		$this->hook                = new WC_WooMercadoPago_Hook_Ticket( $this );
 		$this->notification        = new WC_WooMercadoPago_Notification_Webhook( $this );
 		$this->currency_convertion = true;
@@ -58,7 +58,7 @@ class WC_WooMercadoPago_TicketGateway extends WC_WooMercadoPago_PaymentAbstract 
 	 * @param $label
 	 * @return array
 	 */
-	public function get_form_fields( $label ) {
+	public function get_form_mp_fields( $label ) {
 		if ( is_admin() && $this->is_manage_section() ) {
 			$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 			wp_enqueue_script(
@@ -92,7 +92,7 @@ class WC_WooMercadoPago_TicketGateway extends WC_WooMercadoPago_PaymentAbstract 
 			}
 		}
 
-		$form_fields_abs = parent::get_form_fields( $label );
+		$form_fields_abs = parent::get_form_mp_fields( $label );
 		if ( count( $form_fields_abs ) == 1 ) {
 			return $form_fields_abs;
 		}
@@ -386,7 +386,7 @@ class WC_WooMercadoPago_TicketGateway extends WC_WooMercadoPago_PaymentAbstract 
 		$parameters = array(
 			'amount'               => $amount,
 			'payment_methods'      => $this->activated_payment,
-			'site_id'              => $this->get_option( '_site_id_v1' ),
+			'site_id'              => $this->get_option_mp( '_site_id_v1' ),
 			'coupon_mode'          => isset( $logged_user_email ) ? $this->coupon_mode : 'no',
 			'discount_action_url'  => $this->discount_action_url,
 			'payer_email'          => esc_js( $logged_user_email ),
@@ -457,7 +457,7 @@ class WC_WooMercadoPago_TicketGateway extends WC_WooMercadoPago_PaymentAbstract 
 		}
 
 		// Check for brazilian FEBRABAN rules.
-		if ( $this->get_option( '_site_id_v1' ) == 'MLB' ) {
+		if ( $this->get_option_mp( '_site_id_v1' ) == 'MLB' ) {
 			if ( ! isset( $ticket_checkout['firstname'] ) || empty( $ticket_checkout['firstname'] ) ||
 				! isset( $ticket_checkout['lastname'] ) || empty( $ticket_checkout['lastname'] ) ||
 				! isset( $ticket_checkout['docNumber'] ) || empty( $ticket_checkout['docNumber'] ) ||
@@ -480,7 +480,7 @@ class WC_WooMercadoPago_TicketGateway extends WC_WooMercadoPago_PaymentAbstract 
 			}
 		}
 
-		if ( $this->get_option( '_site_id_v1' ) == 'MLU' ) {
+		if ( $this->get_option_mp( '_site_id_v1' ) == 'MLU' ) {
 			if (
 				! isset( $ticket_checkout['docNumber'] ) || empty( $ticket_checkout['docNumber'] ) ||
 				! isset( $ticket_checkout['docType'] ) || empty( $ticket_checkout['docType'] )
