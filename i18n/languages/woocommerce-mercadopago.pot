@@ -192,39 +192,40 @@ msgstr ""
 msgid "Update the WooCommerce order to "
 msgstr ""
 
-#: includes/notification/class-wc-woomercadopago-notification-abstract.php:148
+#: includes/notification/class-wc-woomercadopago-notification-abstract.php:183
 msgid "Payment approved."
 msgstr ""
 
-#: includes/notification/class-wc-woomercadopago-notification-abstract.php:200, includes/notification/class-wc-woomercadopago-notification-abstract.php:203
+#: includes/notification/class-wc-woomercadopago-notification-abstract.php:233, includes/notification/class-wc-woomercadopago-notification-abstract.php:236
 msgid "Waiting for the ticket payment."
 msgstr ""
 
-#: includes/notification/class-wc-woomercadopago-notification-abstract.php:211
+#: includes/notification/class-wc-woomercadopago-notification-abstract.php:244
 msgid "The customer has not made the payment yet."
 msgstr ""
 
-#: includes/notification/class-wc-woomercadopago-notification-abstract.php:229
+#: includes/notification/class-wc-woomercadopago-notification-abstract.php:263
 msgid "Payment is pending review."
 msgstr ""
 
-#: includes/notification/class-wc-woomercadopago-notification-abstract.php:245
+#: includes/notification/class-wc-woomercadopago-notification-abstract.php:280
 msgid "Payment was declined. The customer can try again."
 msgstr ""
 
-#: includes/notification/class-wc-woomercadopago-notification-abstract.php:260
+#: includes/notification/class-wc-woomercadopago-notification-abstract.php:295
 msgid "Payment was returned to the customer."
 msgstr ""
 
-#: includes/notification/class-wc-woomercadopago-notification-abstract.php:272
+#: includes/notification/class-wc-woomercadopago-notification-abstract.php:309
 msgid "Payment was canceled."
 msgstr ""
 
-#: includes/notification/class-wc-woomercadopago-notification-abstract.php:287, includes/notification/class-wc-woomercadopago-notification-abstract.php:298
+#: includes/notification/class-wc-woomercadopago-notification-abstract.php:324, includes/notification/class-wc-woomercadopago-notification-abstract.php:336
 msgid "The payment is in mediation or the purchase was unknown by the customer."
 msgstr ""
 
-#: includes/notification/class-wc-woomercadopago-notification-abstract.php:387
+#. translators: 1: payment_id 2: status
+#: includes/notification/class-wc-woomercadopago-notification-abstract.php:438
 msgid "Mercado Pago: The payment %1$s was notified by Mercado Pago with status %2$s."
 msgstr ""
 

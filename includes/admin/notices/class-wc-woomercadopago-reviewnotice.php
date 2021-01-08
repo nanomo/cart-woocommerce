@@ -97,9 +97,9 @@ class WC_WooMercadoPago_ReviewNotice {
 		$inline = null;
 		if (
 			( class_exists( 'WC_WooMercadoPago_Module' ) && WC_WooMercadoPago_Module::isWcNewVersion() ) &&
-			( isset( $_GET['page'] ) &&
-				wp_verify_nonce( sanitize_key( $_GET['page'] ) ) &&
-				'wc-settings' === $_GET['page'] )
+			// @todo need fix Processing form data without nonce verification
+			// @codingStandardsIgnoreLine
+			( isset( $_GET['page'] ) && 'wc-settings' === sanitize_key( $_GET['page'] ) )
 		) {
 			$inline = 'inline';
 		}
