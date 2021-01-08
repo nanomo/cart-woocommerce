@@ -21,19 +21,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 class WC_WooMercadoPago_Notification_IPN extends WC_WooMercadoPago_Notification_Abstract {
 
 	/**
-	 * WC_WooMercadoPago_Notification_IPN constructor.
-	 *
-	 * @param $payment
-	 */
-	public function __construct( $payment ) {
-		parent::__construct( $payment );
-	}
-
-	/**
 	 *  IPN
 	 */
 	public function check_ipn_response() {
 		parent::check_ipn_response();
+		// @todo need fix Processing form data without nonce verification
+		// @codingStandardsIgnoreLine
 		$data = $_GET;
 
 		if ( isset( $data['data_id'] ) && isset( $data['type'] ) ) {
@@ -42,74 +35,78 @@ class WC_WooMercadoPago_Notification_IPN extends WC_WooMercadoPago_Notification_
 
 		if ( ! isset( $data['id'] ) || ! isset( $data['topic'] ) ) {
 			$this->log->write_log( __FUNCTION__, 'No ID or TOPIC param in Request IPN.' );
-			$this->set_response(422, null, __('No ID or TOPIC param in Request IPN', 'woocommerce-mercadopago' ) );
+			$this->set_response( 422, null, __( 'No ID or TOPIC param in Request IPN', 'woocommerce-mercadopago' ) );
 		}
 
-		if ( $data['topic'] == 'payment' || $data['topic'] != 'merchant_order' ) {
+		if ( 'payment' === $data['topic'] || 'merchant_order' !== $data['topic'] ) {
 			$this->log->write_log( __FUNCTION__, 'Type of topic IPN invalid, need to be merchant_order' );
-			$this->set_response(422, null, __('Type of topic IPN invalid, need to be merchant_order', 'woocommerce-mercadopago' ) );
+			$this->set_response( 422, null, __( 'Type of topic IPN invalid, need to be merchant_order', 'woocommerce-mercadopago' ) );
 		}
 
 		$access_token = $this->mp->get_access_token();
-		if ( $data['topic'] == 'merchant_order' ) {
+		if ( 'merchant_order' === $data['topic'] ) {
 			$ipn_info = $this->mp->get( '/merchant_orders/' . $data['id'], array( 'Authorization' => 'Bearer ' . $access_token ), false );
 
-			if ( is_wp_error( $ipn_info ) || ( $ipn_info['status'] != 200 && $ipn_info['status'] != 201 ) ) {
-				$this->log->write_log( __FUNCTION__, ' IPN merchant_order not found ' . json_encode( $ipn_info, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE ) );
-				$this->set_response(422, null, __('IPN merchant_order not found', 'woocommerce-mercadopago' ) );
+			if ( is_wp_error( $ipn_info ) || ( 200 !== $ipn_info['status'] && 201 !== $ipn_info['status'] ) ) {
+				$this->log->write_log( __FUNCTION__, ' IPN merchant_order not found ' . wp_json_encode( $ipn_info, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE ) );
+				$this->set_response( 422, null, __( 'IPN merchant_order not found', 'woocommerce-mercadopago' ) );
 			}
 
 			$payments = $ipn_info['response']['payments'];
-			if ( sizeof( $payments ) < 1 ) {
+			if ( count( $payments ) < 1 ) {
 				$this->log->write_log( __FUNCTION__, 'Not found Payments into Merchant_Order' );
-				$this->set_response(422, null, __('Not found Payments into Merchant_Order', 'woocommerce-mercadopago' ) );
+				$this->set_response( 422, null, __( 'Not found Payments into Merchant_Order', 'woocommerce-mercadopago' ) );
 			}
 
 			$ipn_info['response']['ipn_type'] = 'merchant_order';
 			do_action( 'valid_mercadopago_ipn_request', $ipn_info['response'] );
-			$this->set_response(200, 'OK', 'Notification IPN Successfull' );
+			$this->set_response( 200, 'OK', 'Notification IPN Successfull' );
 		}
 	}
 
 	/**
-	 * @param $data
+	 * Process success response
+	 *
+	 * @param array $data Payment data.
+	 *
 	 * @return bool|void|WC_Order|WC_Order_Refund
-	 * @throws WC_Data_Exception
 	 */
 	public function successful_request( $data ) {
 		try {
 			$order            = parent::successful_request( $data );
 			$processed_status = $this->process_status_mp_business( $data, $order );
 			$this->log->write_log( __FUNCTION__, 'Changing order status to: ' . parent::get_wc_status_for_mp_status( str_replace( '_', '', $processed_status ) ) );
-			$this->proccess_status($processed_status, $data, $order );
+			$this->proccess_status( $processed_status, $data, $order );
 		} catch ( Exception $e ) {
-			$this->set_response(422, null, $e->getMessage() );
+			$this->set_response( 422, null, $e->getMessage() );
 			$this->log->write_log( __FUNCTION__, $e->getMessage() );
 		}
 	}
 
 	/**
-	 * @param $data
-	 * @param $order
+	 * Process status
+	 *
+	 * @param array  $data Payment data.
+	 * @param object $order Order.
 	 * @return string
 	 */
 	public function process_status_mp_business( $data, $order ) {
 		$status   = 'pending';
 		$payments = $data['payments'];
-		if ( sizeof( $payments ) == 1 ) {
-			// If we have only one payment, just set status as its status
+		if ( 1 === count( $payments ) ) {
+			// If we have only one payment, just set status as its status.
 			$status = $payments[0]['status'];
-		} elseif ( sizeof( $payments ) > 1 ) {
-			// However, if we have multiple payments, the overall payment have some rules...
+		} elseif ( count( $payments ) > 1 ) {
+			// However, if we have multiple payments, the overall payment have some rules.
 			$total_paid   = 0.00;
 			$total_refund = 0.00;
 			$total        = $data['shipping_cost'] + $data['total_amount'];
 			// Grab some information...
 			foreach ( $data['payments'] as $payment ) {
-				if ( $payment['status'] === 'approved' ) {
+				if ( 'approved' === $payment['status'] ) {
 					// Get the total paid amount, considering only approved incomings.
 					$total_paid += (float) $payment['total_paid_amount'];
-				} elseif ( $payment['status'] === 'refunded' ) {
+				} elseif ( 'refunded' === $payment['status'] ) {
 					// Get the total refounded amount.
 					$total_refund += (float) $payment['amount_refunded'];
 				}
@@ -138,13 +135,13 @@ class WC_WooMercadoPago_Notification_IPN extends WC_WooMercadoPago_Notification_
 					$payment_ids[] = $payment['id'];
 					$order->update_meta_data(
 						'Mercado Pago - Payment ' . $payment['id'],
-						'[Date ' . date( 'Y-m-d H:i:s', strtotime( $payment['date_created'] ) ) .
+						'[Date ' . gmdate( 'Y-m-d H:i:s', strtotime( $payment['date_created'] ) ) .
 							']/[Amount ' . $payment['transaction_amount'] .
 							']/[Paid ' . $payment['total_paid_amount'] .
 							']/[Refund ' . $payment['amount_refunded'] . ']'
 					);
 				}
-				if ( sizeof( $payment_ids ) > 0 ) {
+				if ( count( $payment_ids ) > 0 ) {
 					$order->update_meta_data( '_Mercado_Pago_Payment_IDs', implode( ', ', $payment_ids ) );
 				}
 			}
@@ -165,13 +162,13 @@ class WC_WooMercadoPago_Notification_IPN extends WC_WooMercadoPago_Notification_
 					update_post_meta(
 						$order->id,
 						'Mercado Pago - Payment ' . $payment['id'],
-						'[Date ' . date( 'Y-m-d H:i:s', strtotime( $payment['date_created'] ) ) .
+						'[Date ' . gmdate( 'Y-m-d H:i:s', strtotime( $payment['date_created'] ) ) .
 							']/[Amount ' . $payment['transaction_amount'] .
 							']/[Paid ' . $payment['total_paid_amount'] .
 							']/[Refund ' . $payment['amount_refunded'] . ']'
 					);
 				}
-				if ( sizeof( $payment_ids ) > 0 ) {
+				if ( count( $payment_ids ) > 0 ) {
 					update_post_meta( $order->id, '_Mercado_Pago_Payment_IDs', implode( ', ', $payment_ids ) );
 				}
 			}

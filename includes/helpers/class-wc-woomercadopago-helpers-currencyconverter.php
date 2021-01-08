@@ -410,8 +410,8 @@ class WC_WooMercadoPago_Helpers_CurrencyConverter {
 	 * Schedule Notice
 	 *
 	 * @param WC_WooMercadoPago_PaymentAbstract $method methos.
-	 * @param string                            $old_data old data.
-	 * @param string                            $new_data new data.
+	 * @param array                             $old_data old data.
+	 * @param array                             $new_data new data.
 	 */
 	public function schedule_notice( WC_WooMercadoPago_PaymentAbstract $method, $old_data, $new_data ) {
 		if ( ! isset( $old_data[ self::CONFIG_KEY ] ) || ! isset( $new_data[ self::CONFIG_KEY ] ) ) {
