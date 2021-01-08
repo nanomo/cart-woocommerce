@@ -139,7 +139,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 									<?php if ( 1 !== $currency_ratio ) : ?>
 										<label for="installments" class="mp-label-form">
 											<div class="mp-tooltip">
-												<?php echo esc_html__( '', 'woocommerce-mercadopago' ); ?>
 												<span class="mp-tooltiptext">
 													<?php
 													echo esc_html__( 'Converted payment of', 'woocommerce-mercadopago' ) . ' ' .

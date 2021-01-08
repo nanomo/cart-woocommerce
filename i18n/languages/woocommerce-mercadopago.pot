@@ -150,7 +150,7 @@ msgstr ""
 msgid "CONVERTED CURRENCY: Your store is converting currency of"
 msgstr ""
 
-#: includes/module/class-wc-wooMercadopago-module.php:537, templates/checkout/custom-checkout.php:146
+#: includes/module/class-wc-wooMercadopago-module.php:537, templates/checkout/custom-checkout.php:145
 msgid "for"
 msgstr ""
 
@@ -1030,38 +1030,35 @@ msgstr ""
 msgid "Issuer"
 msgstr ""
 
-#: templates/checkout/custom-checkout.php:154
+#: templates/checkout/custom-checkout.php:153
 msgid "Select the number of installment"
 msgstr ""
 
-#: templates/checkout/custom-checkout.php:142
-msgstr ""
-
-#: templates/checkout/custom-checkout.php:145
+#: templates/checkout/custom-checkout.php:144
 msgid "Converted payment of"
 msgstr ""
 
-#: templates/checkout/custom-checkout.php:173, templates/checkout/ticket-checkout.php:50
+#: templates/checkout/custom-checkout.php:172, templates/checkout/ticket-checkout.php:50
 msgid "Enter your document number"
 msgstr ""
 
-#: templates/checkout/custom-checkout.php:179, templates/checkout/ticket-checkout.php:52
+#: templates/checkout/custom-checkout.php:178, templates/checkout/ticket-checkout.php:52
 msgid "Type"
 msgstr ""
 
-#: templates/checkout/custom-checkout.php:186, templates/checkout/ticket-checkout.php:58
+#: templates/checkout/custom-checkout.php:185, templates/checkout/ticket-checkout.php:58
 msgid "Document number"
 msgstr ""
 
-#: templates/checkout/custom-checkout.php:188
+#: templates/checkout/custom-checkout.php:187
 msgid "Only numbers"
 msgstr ""
 
-#: templates/checkout/custom-checkout.php:189, templates/checkout/custom-checkout.php:190, templates/checkout/ticket-checkout.php:61, templates/checkout/ticket-checkout.php:111
+#: templates/checkout/custom-checkout.php:188, templates/checkout/custom-checkout.php:189, templates/checkout/ticket-checkout.php:61, templates/checkout/ticket-checkout.php:111
 msgid "Invalid Document Number"
 msgstr ""
 
-#: templates/checkout/custom-checkout.php:200
+#: templates/checkout/custom-checkout.php:199
 msgid "Obligatory field"
 msgstr ""
 
