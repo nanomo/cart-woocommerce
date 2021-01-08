@@ -88,7 +88,7 @@ class WC_WooMercadoPago_PreferenceTicket extends WC_WooMercadoPago_PreferenceAbs
 	 */
 	public function get_date_of_expiration( WC_WooMercadoPago_TicketGateway $payment = null ) {
 		$date_expiration = ! is_null( $payment )
-			? $payment->getOption( 'date_expiration' )
+			? $payment->get_option_mp( 'date_expiration' )
 			: $this->get_option( 'date_expiration', '' );
 
 		if ( $date_expiration != '' ) {

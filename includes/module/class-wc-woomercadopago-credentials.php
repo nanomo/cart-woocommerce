@@ -83,8 +83,8 @@ class WC_WooMercadoPago_Credentials {
 		$access_token  = get_option( '_mp_access_token_prod', '' );
 
 		if ( ! is_null( $this->payment ) ) {
-			$this->sandbox = $payment->isTestUser();
-			if ( 'no' === $this->payment->getOption( 'checkout_credential_prod', '' ) || empty( $this->payment->getOption( 'checkout_credential_prod', '' ) ) ) {
+			$this->sandbox = $payment->is_test_user();
+			if ( 'no' === $this->payment->get_option_mp( 'checkout_credential_prod', '' ) || empty( $this->payment->get_option_mp( 'checkout_credential_prod', '' ) ) ) {
 				$public_key   = get_option( '_mp_public_key_test', '' );
 				$access_token = get_option( '_mp_access_token_test', '' );
 			}

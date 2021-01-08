@@ -112,7 +112,7 @@ abstract class WC_WooMercadoPago_PreferenceAbstract extends WC_Payment_Gateway {
 			'binary_mode'          => $this->get_binary_mode( $this->payment ),
 			'external_reference'   => $this->get_external_reference( $this->payment ),
 			'notification_url'     => $this->get_notification_url(),
-			'statement_descriptor' => $this->payment->getOption( 'mp_statement_descriptor', 'Mercado Pago' ),
+			'statement_descriptor' => $this->payment->get_option_mp( 'mp_statement_descriptor', 'Mercado Pago' ),
 		);
 
 		if ( ! $this->test_user_v1 && ! $this->sandbox ) {
@@ -321,7 +321,7 @@ abstract class WC_WooMercadoPago_PreferenceAbstract extends WC_Payment_Gateway {
 	 * @return bool
 	 */
 	public function get_binary_mode( $payment = null ) {
-		$binary_mode = ! is_null( $payment ) ? $payment->getOption( 'binary_mode', 'no' ) : 'no';
+		$binary_mode = ! is_null( $payment ) ? $payment->get_option_mp( 'binary_mode', 'no' ) : 'no';
 
 		if ( $binary_mode != 'no' ) {
 			return true;
@@ -401,7 +401,7 @@ abstract class WC_WooMercadoPago_PreferenceAbstract extends WC_Payment_Gateway {
 		$accessToken = get_option( '_mp_access_token_prod', '' );
 		$test_mode   = false;
 
-		if ( $this->payment->getOption( 'checkout_credential_prod', '' ) == 'no' ) {
+		if ( $this->payment->get_option_mp( 'checkout_credential_prod', '' ) == 'no' ) {
 			$test_mode   = true;
 			$accessToken = get_option( '_mp_access_token_test', '' );
 		}

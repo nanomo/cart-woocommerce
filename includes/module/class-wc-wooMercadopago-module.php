@@ -71,10 +71,10 @@ class WC_WooMercadoPago_Module extends WC_WooMercadoPago_Configs {
 	 * @throws WC_WooMercadoPago_Exception
 	 */
 	public static function getMpInstance( $payment = null ) {
-		$credentials             = new WC_WooMercadoPago_Credentials( $payment );
+		$credentials               = new WC_WooMercadoPago_Credentials( $payment );
 		$validate_credentials_type = $credentials->validate_credentials_type();
 		if ( $validate_credentials_type == WC_WooMercadoPago_Credentials::TYPE_ACCESS_TOKEN ) {
-			$mp = new MP( $credentials->accessToken );
+			$mp = new MP( $credentials->access_token );
 			$mp->setPaymentClass( $payment );
 		}
 		if ( $validate_credentials_type == WC_WooMercadoPago_Credentials::TYPE_ACCESS_CLIENT ) {
