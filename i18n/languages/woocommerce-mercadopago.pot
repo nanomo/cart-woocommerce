@@ -1162,6 +1162,14 @@ msgstr ""
 msgid "Select the issuer with whom you want to process the payment"
 msgstr ""
 
+#: templates/order-received/show-ticket.php:21
+msgid "Great, we processed your purchase order. Complete the payment with ticket so that we finish approving it."
+msgstr ""
+
+#: templates/order-received/show-ticket.php:25
+msgid "Print ticket"
+msgstr ""
+
 #: includes/admin/notices/class-wc-woomercadopago-notices.php:103, includes/admin/notices/class-wc-woomercadopago-notices.php:162, includes/admin/notices/class-wc-woomercadopago-reviewnotice.php:133
 msgid "Discard"
 msgstr ""
@@ -1273,12 +1281,4 @@ msgstr ""
 
 #: includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:86, includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:85
 msgid "Terms and conditions of use"
-msgstr ""
-
-#: includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:116
-msgid "Great, we processed your purchase order. Complete the payment with ticket so that we finish approving it."
-msgstr ""
-
-#: includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:121
-msgid "Print ticket"
 msgstr ""
