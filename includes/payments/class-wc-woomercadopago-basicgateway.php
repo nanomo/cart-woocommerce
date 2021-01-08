@@ -522,12 +522,7 @@ class WC_WooMercadoPago_BasicGateway extends WC_WooMercadoPago_PaymentAbstract {
 		$method       = $this->getOption( 'method', 'redirect' );
 		$tarjetas     = get_option( '_checkout_payments_methods', '' );
 		$installments = $this->getOption( 'installments' );
-		$str_cuotas   = __( 'installments', 'woocommerce-mercadopago' );
 		$cho_tarjetas = array();
-
-		if ( $installments == 1 ) {
-			$str_cuotas = __( 'installment', 'woocommerce-mercadopago' );
-		}
 
 		// change type account_money to ticket
 		foreach ( $tarjetas as $key => $value ) {
@@ -557,11 +552,9 @@ class WC_WooMercadoPago_BasicGateway extends WC_WooMercadoPago_PaymentAbstract {
 			'efectivo'           => $efectivo,
 			'tarjetas'           => $cho_tarjetas,
 			'method'             => $method,
-			'str_cuotas'         => $str_cuotas,
 			'installments'       => $installments,
 			'plugin_version'     => WC_WooMercadoPago_Constants::VERSION,
-			'cho_image'          => plugins_url( '../assets/images/redirect_checkout.png', plugin_dir_path( __FILE__ ) ),
-			'path_to_javascript' => plugins_url( '../assets/js/basic-cho' . $suffix . '.js', plugin_dir_path( __FILE__ ) ),
+			'cho_image'          => plugins_url( '../assets/images/redirect_checkout.png', plugin_dir_path( __FILE__ ) )
 		);
 
 		wc_get_template( 'checkout/basic-checkout.php', $parameters, 'woo/mercado/pago/module/', WC_WooMercadoPago_Module::get_templates_path() );

@@ -22,7 +22,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="frame-tarjetas">
 			<p class="mp-subtitle-basic-checkout">
 				<?php echo esc_html_e( 'Credit cards', 'woocommerce-mercadopago' ); ?>
-				<span class="mp-badge-checkout"><?php echo esc_html_e( 'Until', 'woocommerce-mercadopago' ); ?> <?php echo esc_html( $installments ); ?> <?php echo esc_html_e( $str_cuotas, 'woocommerce-mercadopago' ); ?></span>
+				<span class="mp-badge-checkout"><?php echo esc_html_e( 'Until', 'woocommerce-mercadopago' ); ?> <?php echo esc_html( $installments ); ?>
+				<?php if ( '1' === $installments ) : ?>
+					<?php echo esc_html_e( 'installment', 'woocommerce-mercadopago' ); ?>
+				<?php else : ?>
+					<?php echo esc_html_e( 'installments', 'woocommerce-mercadopago' ); ?>
+				<?php endif; ?></span>
 			</p>
 			<?php foreach ( $tarjetas as $tarjeta ) : ?>
 				<?php if ( 'credit_card' === $tarjeta['type'] ) : ?>
@@ -72,4 +77,3 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	</div>
 </div>
-<script type="text/javascript" src="<?php echo esc_html( $path_to_javascript ); ?>?ver=<?php echo esc_html( $plugin_version ); ?>"></script>
