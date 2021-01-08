@@ -229,31 +229,31 @@ msgstr ""
 msgid "Mercado Pago: The payment %1$s was notified by Mercado Pago with status %2$s."
 msgstr ""
 
-#: includes/notification/class-wc-woomercadopago-notification-ipn.php:45
+#: includes/notification/class-wc-woomercadopago-notification-ipn.php:38
 msgid "No ID or TOPIC param in Request IPN"
 msgstr ""
 
-#: includes/notification/class-wc-woomercadopago-notification-ipn.php:50
+#: includes/notification/class-wc-woomercadopago-notification-ipn.php:43
 msgid "Type of topic IPN invalid, need to be merchant_order"
 msgstr ""
 
-#: includes/notification/class-wc-woomercadopago-notification-ipn.php:59
+#: includes/notification/class-wc-woomercadopago-notification-ipn.php:52
 msgid "IPN merchant_order not found"
 msgstr ""
 
-#: includes/notification/class-wc-woomercadopago-notification-ipn.php:65
+#: includes/notification/class-wc-woomercadopago-notification-ipn.php:58
 msgid "Not found Payments into Merchant_Order"
 msgstr ""
 
-#: includes/notification/class-wc-woomercadopago-notification-ipn.php:156, includes/notification/class-wc-woomercadopago-notification-ipn.php:130, includes/notification/class-wc-woomercadopago-notification-webhook.php:172, includes/notification/class-wc-woomercadopago-notification-webhook.php:154
+#: includes/notification/class-wc-woomercadopago-notification-ipn.php:153, includes/notification/class-wc-woomercadopago-notification-ipn.php:127, includes/notification/class-wc-woomercadopago-notification-webhook.php:174, includes/notification/class-wc-woomercadopago-notification-webhook.php:156
 msgid "Buyer email"
 msgstr ""
 
-#: includes/notification/class-wc-woomercadopago-notification-ipn.php:159, includes/notification/class-wc-woomercadopago-notification-ipn.php:133, includes/notification/class-wc-woomercadopago-notification-webhook.php:175, includes/notification/class-wc-woomercadopago-notification-webhook.php:157
+#: includes/notification/class-wc-woomercadopago-notification-ipn.php:156, includes/notification/class-wc-woomercadopago-notification-ipn.php:130, includes/notification/class-wc-woomercadopago-notification-webhook.php:177, includes/notification/class-wc-woomercadopago-notification-webhook.php:159
 msgid "Payment method"
 msgstr ""
 
-#: includes/notification/class-wc-woomercadopago-notification-webhook.php:49
+#: includes/notification/class-wc-woomercadopago-notification-webhook.php:42
 msgid "Please enter your email address at the billing address to use this service"
 msgstr ""
 
