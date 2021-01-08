@@ -68,7 +68,7 @@ class WC_WooMercadoPago_Notification_Webhook extends WC_WooMercadoPago_Notificat
 					'Mercado Pago Request failure: ' .
 					json_encode( $data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE )
 				);
-				$this->setResponse( 422, null, 'Mercado Pago Request failure' );
+				$this->set_response(422, null, 'Mercado Pago Request failure' );
 			}
 		} else {
 			if ( $data['type'] == 'payment' ) {
@@ -77,14 +77,14 @@ class WC_WooMercadoPago_Notification_Webhook extends WC_WooMercadoPago_Notificat
 				if ( ! is_wp_error( $payment_info ) && ( $payment_info['status'] == 200 || $payment_info['status'] == 201 ) ) {
 					if ( $payment_info['response'] ) {
 						do_action( 'valid_mercadopago_ipn_request', $payment_info['response'] );
-						$this->setResponse( 200, 'OK', 'Webhook Notification Successfull' );
+						$this->set_response(200, 'OK', 'Webhook Notification Successfull' );
 					}
 				} else {
 					$this->log->write_log( __FUNCTION__, 'error when processing received data: ' . json_encode( $payment_info, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE ) );
 				}
 			}
 		}
-		$this->setResponse( 422, null, 'Mercado Pago Invalid Requisition' );
+		$this->set_response(422, null, 'Mercado Pago Invalid Requisition' );
 	}
 
 	/**
@@ -99,7 +99,7 @@ class WC_WooMercadoPago_Notification_Webhook extends WC_WooMercadoPago_Notificat
 				'Changing order status to: ' .
 				parent::get_wc_status_for_mp_status( str_replace( '_', '', $status ) )
 			);
-			$this->proccessStatus( $status, $data, $order );
+			$this->proccess_status($status, $data, $order );
 		} catch ( Exception $e ) {
 			$this->log->write_log( __FUNCTION__, $e->getMessage() );
 		}
