@@ -41,7 +41,7 @@ class WC_WooMercadoPago_TicketGateway extends WC_WooMercadoPago_PaymentAbstract 
 		$this->method_description = $this->get_method_mp_description( $this->description );
 		$this->coupon_mode        = $this->get_option_mp( 'coupon_mode', 'no' );
 		$this->stock_reduce_mode  = $this->get_option_mp( 'stock_reduce_mode', 'no' );
-		$this->date_expiration    = $this->get_option_mp( 'date_expiration', 3 );
+		$this->date_expiration    = (int) $this->get_option_mp( 'date_expiration', 3 );
 		$this->type_payments      = $this->get_option_mp( 'type_payments', 'no' );
 		$this->payment_type       = 'ticket';
 		$this->checkout_type      = 'custom';

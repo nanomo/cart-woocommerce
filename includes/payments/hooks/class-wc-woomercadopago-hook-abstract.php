@@ -219,7 +219,7 @@ abstract class WC_WooMercadoPago_Hook_Abstract {
 		$value_credential_production = null;
 		$this->payment->init_settings();
 		$post_data = $this->payment->get_post_data();
-		foreach ( $this->payment->get_form_mp_fields() as $key => $field ) {
+		foreach ( $this->payment->get_form_fields() as $key => $field ) {
 			if ( 'title' !== $this->payment->get_field_type( $field ) ) {
 				$value            = $this->payment->get_field_value( $key, $field, $post_data );
 				$old_data[ $key ] = isset( $this->payment->settings[ $key ] ) ? $this->payment->settings[ $key ] : null;

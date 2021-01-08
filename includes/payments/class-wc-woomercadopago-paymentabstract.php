@@ -49,247 +49,345 @@ class WC_WooMercadoPago_PaymentAbstract extends WC_Payment_Gateway {
 	);
 
 	/**
-	 * @var
+	 * Field forms order
+	 *
+	 * @var array
 	 */
 	public $field_forms_order;
 
 	/**
-	 * @var
+	 * Id
+	 *
+	 * @var string
 	 */
 	public $id;
 
 	/**
-	 * @var
+	 * Method Title
+	 *
+	 * @var string
 	 */
 	public $method_title;
 
 	/**
-	 * @var
+	 * Title
+	 *
+	 * @var string
 	 */
 	public $title;
 
 	/**
-	 * @var
+	 * Description
+	 *
+	 * @var string
 	 */
 	public $description;
 
 	/**
+	 * Payments
+	 *
 	 * @var array
 	 */
 	public $ex_payments = array();
 
 	/**
-	 * @var
+	 * Method
+	 *
+	 * @var string
 	 */
 	public $method;
 
 	/**
-	 * @var
+	 * Method description
+	 *
+	 * @var string
 	 */
 	public $method_description;
 
 	/**
-	 * @var
+	 * Auto return
+	 *
+	 * @var string
 	 */
 	public $auto_return;
 
 	/**
-	 * @var
+	 * Success url
+	 *
+	 * @var string
 	 */
 	public $success_url;
 
 	/**
-	 * @var
+	 * Failure url
+	 *
+	 * @var string
 	 */
 	public $failure_url;
 
 	/**
-	 * @var
+	 * Pending url
+	 *
+	 * @var string
 	 */
 	public $pending_url;
 
 	/**
-	 * @var
+	 * Installments
+	 *
+	 * @var string
 	 */
 	public $installments;
 
 	/**
-	 * @var
+	 * Form fields
+	 *
+	 * @var array
 	 */
 	public $form_fields;
 
 	/**
-	 * @var
+	 * Coupon Mode
+	 *
+	 * @var string
 	 */
 	public $coupon_mode;
 
 	/**
-	 * @var
+	 * Payment Type
+	 *
+	 * @var string
 	 */
 	public $payment_type;
 
 	/**
-	 * @var
+	 * Checkout type
+	 *
+	 * @var string
 	 */
 	public $checkout_type;
 
 	/**
-	 * @var
+	 * Stock reduce mode
+	 *
+	 * @var string
 	 */
 	public $stock_reduce_mode;
 
 	/**
-	 * @var
+	 * Expiration date
+	 *
+	 * @var int
 	 */
 	public $date_expiration;
 
 	/**
-	 * @var
+	 * Hook
+	 *
+	 * @var WC_WooMercadoPago_Hook_Abstract
 	 */
 	public $hook;
 
 	/**
+	 * Supports
+	 *
 	 * @var string[]
 	 */
 	public $supports;
 
 	/**
+	 * Icon
+	 *
 	 * @var mixed
 	 */
 	public $icon;
 
 	/**
+	 * Category Id
+	 *
 	 * @var mixed|string
 	 */
 	public $mp_category_id;
 
 	/**
+	 * Store Identificator
+	 *
 	 * @var mixed|string
 	 */
 	public $store_identificator;
 
 	/**
+	 * Integrator Id
+	 *
 	 * @var mixed|string
 	 */
 	public $integrator_id;
 
 	/**
+	 * Is debug mode
+	 *
 	 * @var mixed|string
 	 */
 	public $debug_mode;
 
 	/**
+	 * Custom domain
+	 *
 	 * @var mixed|string
 	 */
 	public $custom_domain;
 
 	/**
+	 * Is binary mode
+	 *
 	 * @var mixed|string
 	 */
 	public $binary_mode;
 
 	/**
+	 * Gateway discount
+	 *
 	 * @var mixed|string
 	 */
 	public $gateway_discount;
 
 	/**
-	 * @var an|null
+	 * Site data
+	 *
+	 * @var string|null
 	 */
 	public $site_data;
 
 	/**
+	 * Logs
+	 *
 	 * @var WC_WooMercadoPago_Log
 	 */
 	public $log;
 
 	/**
+	 * Is sandbox?
+	 *
 	 * @var bool
 	 */
 	public $sandbox;
 
 	/**
+	 * Mercado Pago
+	 *
 	 * @var MP|null
 	 */
 	public $mp;
 
 	/**
+	 * Public key test
+	 *
 	 * @var mixed|string
 	 */
 	public $mp_public_key_test;
 
 	/**
+	 * Access token test
+	 *
 	 * @var mixed|string
 	 */
 	public $mp_access_token_test;
 
 	/**
+	 * Public key prod
+	 *
 	 * @var mixed|string
 	 */
 	public $mp_public_key_prod;
 
 	/**
+	 * Access token prod
+	 *
 	 * @var mixed|string
 	 */
 	public $mp_access_token_prod;
 
 	/**
-	 * @var
+	 * Notification
+	 *
+	 * @var WC_WooMercadoPago_Notification_Abstract
 	 */
 	public $notification;
 
 	/**
-	 * @var
+	 * Checkout country
+	 *
+	 * @var string
 	 */
 	public $checkout_country;
 
 	/**
-	 * @var
+	 * Country
+	 *
+	 * @var string
 	 */
 	public $wc_country;
 
 	/**
+	 * Comission
+	 *
 	 * @var mixed|string
 	 */
 	public $commission;
 
 	/**
+	 * Application Id
+	 *
 	 * @var string
 	 */
 	public $application_id;
 
 	/**
-	 * @var
+	 * Type payments
+	 *
+	 * @var string
 	 */
 	public $type_payments;
 
 	/**
-	 * @var
+	 * Actived payments
+	 *
+	 * @var array
 	 */
 	public $activated_payment;
 
 	/**
+	 * Is validate homolog
+	 *
 	 * @var int|mixed
 	 */
 	public $homolog_validate;
 
 	/**
-	 * @var
+	 * Client Id old version
+	 *
+	 * @var string
 	 */
 	public $clientid_old_version;
 
 	/**
-	 * @var
+	 * Customer
+	 *
+	 * @var array|mixed|null
 	 */
 	public $customer;
 
 	/**
-	 * @var |null
+	 * Logged user
+	 *
+	 * @var string|null
 	 */
 	public $logged_user_email;
 
 	/**
-	 * @var
+	 * Currency convertion?
+	 *
+	 * @var boolean
 	 */
 	public $currency_convertion;
 
@@ -533,7 +631,7 @@ class WC_WooMercadoPago_PaymentAbstract extends WC_Payment_Gateway {
 			$form_fields['_mp_access_token_prod']                    = $this->field_checkout_credential_accesstoken_prod();
 			$form_fields['_mp_category_id']                          = $this->field_category_store();
 			if ( ! empty( $this->get_access_token() ) && ! empty( $this->get_public_key() ) ) {
-				if ( $this->homolog_validate == 0 ) {
+				if ( $this->homolog_validate === 0 ) {
 					if ( isset( $_GET['section'] ) && $_GET['section'] == $this->id && ! has_action( 'woocommerce_update_options_payment_gateways_' . $this->id ) ) {
 						add_action( 'admin_notices', array( $this, 'notice_homolog_validate' ) );
 					}

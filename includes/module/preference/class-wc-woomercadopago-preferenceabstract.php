@@ -53,7 +53,7 @@ abstract class WC_WooMercadoPago_PreferenceAbstract extends WC_Payment_Gateway {
 		$this->ex_payments        = $this->payment->ex_payments;
 		$this->installments       = $this->payment->installments;
 		$this->notification_class = get_class( $this->payment );
-		$this->sandbox            = $this->payment->isTestUser();
+		$this->sandbox            = $this->payment->is_test_user();
 		$this->test_user_v1       = get_option( '_test_user_v1', '' );
 		$this->site_id            = get_option( '_site_id_v1', '' );
 		$this->site_data          = WC_WooMercadoPago_Module::$country_configs;
