@@ -600,7 +600,6 @@ class WC_WooMercadoPago_Module extends WC_WooMercadoPago_Configs {
 	}
 
 	public static function generate_refund_cancel_subscription( $domain, $success_msg, $fail_msg, $options, $str1, $str2, $str3, $str4 ) {
-		error_log( 'generate_refund_cancel_subscription' );
 		$subscription_js       = '<script type="text/javascript">
 				( function() {
 					var MPSubscription = {}
