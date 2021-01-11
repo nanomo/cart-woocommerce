@@ -17,6 +17,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 /**
  * Class Rest_Client_Abstract
+ *
+ * @todo Refactor this class to use wp_remote_get()
  */
 class Rest_Client_Abstract {
 

@@ -51,11 +51,15 @@ class MP {
 	private $sandbox = false;
 
 	/**
-	 * @var
+	 * Access token by client
+	 *
+	 * @var string
 	 */
 	private $access_token_by_client;
 
 	/**
+	 * Payment class
+	 *
 	 * @var WC_WooMercadoPago_PaymentAbstract
 	 */
 	private $payment_class;
@@ -63,7 +67,7 @@ class MP {
 	/**
 	 * MP constructor.
 	 *
-	 * @throws WC_WooMercadoPago_Exception
+	 * @throws WC_WooMercadoPago_Exception MP Class exception.
 	 */
 	public function __construct() {
 		$includes_path = dirname( __FILE__ );
@@ -76,18 +80,20 @@ class MP {
 			throw new WC_WooMercadoPago_Exception( 'Invalid arguments. Use CLIENT_ID and CLIENT SECRET, or ACCESS_TOKEN' );
 		}
 
-		if ( $i == 1 ) {
+		if ( 1 === $i ) {
 			$this->ll_access_token = func_get_arg( 0 );
 		}
 
-		if ( $i == 2 ) {
+		if ( 2 === $i ) {
 			$this->client_id     = func_get_arg( 0 );
 			$this->client_secret = func_get_arg( 1 );
 		}
 	}
 
 	/**
-	 * @param $email
+	 * Set e-mail
+	 *
+	 * @param string $email E-mail.
 	 */
 	public function set_email( $email ) {
 		MP_Rest_Client::set_email( $email );
@@ -95,7 +101,9 @@ class MP {
 	}
 
 	/**
-	 * @param $country_code
+	 * Set Locale
+	 *
+	 * @param string $country_code Country code.
 	 */
 	public function set_locale( $country_code ) {
 		MP_Rest_Client::set_locale( $country_code );
@@ -103,19 +111,23 @@ class MP {
 	}
 
 	/**
-	 * @param null $enable
+	 * Sandbox is enable?
+	 *
+	 * @param bool|null $enable Is enable.
 	 * @return bool
 	 */
 	public function sandbox_mode( $enable = null ) {
 		if ( ! is_null( $enable ) ) {
-			$this->sandbox = $enable === true;
+			$this->sandbox = true === $enable;
 		}
 		return $this->sandbox;
 	}
 
 	/**
+	 * Get Access Token
+	 *
 	 * @return mixed|null
-	 * @throws WC_WooMercadoPago_Exception
+	 * @throws WC_WooMercadoPago_Exception Get Access Token Exception.
 	 */
 	public function get_access_token() {
 
@@ -143,7 +155,7 @@ class MP {
 			)
 		);
 
-		if ( $access_data['status'] != 200 ) {
+		if ( 200 !== $access_data['status'] ) {
 			return null;
 		}
 
@@ -154,9 +166,11 @@ class MP {
 	}
 
 	/**
-	 * @param $id
+	 * Search Payment V1
+	 *
+	 * @param string $id Payment Id.
 	 * @return array|null
-	 * @throws WC_WooMercadoPago_Exception
+	 * @throws WC_WooMercadoPago_Exception Search Payment V1 Exception.
 	 */
 	public function search_payment_v1( $id ) {
 
@@ -165,21 +179,23 @@ class MP {
 			'params' => array( 'access_token' => $this->get_access_token() ),
 		);
 
-		return MP_Rest_Client::get( $request, WC_WooMercadoPago_Constants::VERSION );
+		return MP_Rest_Client::get( $request );
 	}
 
 	// === CUSTOMER CARDS FUNCTIONS ===
 
 	/**
-	 * @param $payer_email
+	 * Get or Create Customer
+	 *
+	 * @param string $payer_email Payer e-mail.
 	 * @return array|mixed|null
-	 * @throws WC_WooMercadoPago_Exception
+	 * @throws WC_WooMercadoPago_Exception Get or create customer exception.
 	 */
 	public function get_or_create_customer( $payer_email ) {
 
 		$customer = $this->search_customer( $payer_email );
 
-		if ( $customer['status'] == 200 && $customer['response']['paging']['total'] > 0 ) {
+		if ( 200 === $customer['status'] && $customer['response']['paging']['total'] > 0 ) {
 			$customer = $customer['response']['results'][0];
 		} else {
 			$resp     = $this->create_customer( $payer_email );
@@ -190,9 +206,11 @@ class MP {
 	}
 
 	/**
-	 * @param $email
+	 * Create Customer
+	 *
+	 * @param string $email E-mail.
 	 * @return array|null
-	 * @throws WC_WooMercadoPago_Exception
+	 * @throws WC_WooMercadoPago_Exception Create customer exception.
 	 */
 	public function create_customer( $email ) {
 
@@ -210,9 +228,11 @@ class MP {
 	}
 
 	/**
-	 * @param $email
+	 * Search customer
+	 *
+	 * @param string $email E-mail.
 	 * @return array|null
-	 * @throws WC_WooMercadoPago_Exception
+	 * @throws WC_WooMercadoPago_Exception Search customer exception.
 	 */
 	public function search_customer( $email ) {
 
@@ -230,12 +250,14 @@ class MP {
 	}
 
 	/**
-	 * @param $customer_id
-	 * @param $token
-	 * @param null        $payment_method_id
-	 * @param null        $issuer_id
+	 * Create card in customer
+	 *
+	 * @param string      $customer_id Customer id.
+	 * @param string      $token Token.
+	 * @param string|null $payment_method_id Payment method id.
+	 * @param string|null $issuer_id Issuer id.
 	 * @return array|null
-	 * @throws WC_WooMercadoPago_Exception
+	 * @throws WC_WooMercadoPago_Exception Create card in customer exception.
 	 */
 	public function create_card_in_customer(
 		$customer_id,
@@ -260,10 +282,12 @@ class MP {
 	}
 
 	/**
-	 * @param $customer_id
-	 * @param $token
+	 * Get all customer cards.
+	 *
+	 * @param string $customer_id Customer Id.
+	 * @param string $token Token.
 	 * @return array|null
-	 * @throws WC_WooMercadoPago_Exception
+	 * @throws WC_WooMercadoPago_Exception Get all customer cards exception.
 	 */
 	public function get_all_customer_cards( $customer_id, $token ) {
 
@@ -278,12 +302,15 @@ class MP {
 	}
 
 	// === COUPOM AND DISCOUNTS FUNCTIONS ===
+
 	/**
-	 * @param $transaction_amount
-	 * @param $payer_email
-	 * @param $coupon_code
+	 * Check discount campaigns
+	 *
+	 * @param string $transaction_amount Amount.
+	 * @param string $payer_email Payer e-mail.
+	 * @param string $coupon_code Coupon code.
 	 * @return array|null
-	 * @throws WC_WooMercadoPago_Exception
+	 * @throws WC_WooMercadoPago_Exception Check Discount Campaigns Exception.
 	 */
 	public function check_discount_campaigns( $transaction_amount, $payer_email, $coupon_code ) {
 		$request = array(
@@ -303,9 +330,11 @@ class MP {
 	// === CHECKOUT AUXILIARY FUNCTIONS ===
 
 	/**
-	 * @param $id
+	 * Get Authorized Payment Id
+	 *
+	 * @param string $id Authorized Payment Id.
 	 * @return array|null
-	 * @throws WC_WooMercadoPago_Exception
+	 * @throws WC_WooMercadoPago_Exception Get Authorized Payment Exception.
 	 */
 	public function get_authorized_payment( $id ) {
 
@@ -320,9 +349,11 @@ class MP {
 	}
 
 	/**
-	 * @param $preference
+	 * Create Preference
+	 *
+	 * @param array $preference Preference data.
 	 * @return array|null
-	 * @throws WC_WooMercadoPago_Exception
+	 * @throws WC_WooMercadoPago_Exception Create Preference Exception.
 	 */
 	public function create_preference( $preference ) {
 
@@ -339,10 +370,12 @@ class MP {
 	}
 
 	/**
-	 * @param $id
-	 * @param $preference
+	 * Update Preference
+	 *
+	 * @param string $id Preference Id.
+	 * @param array  $preference Preference data.
 	 * @return array|null
-	 * @throws WC_WooMercadoPago_Exception
+	 * @throws WC_WooMercadoPago_Exception Update Preference Exception.
 	 */
 	public function update_preference( $id, $preference ) {
 
@@ -358,9 +391,11 @@ class MP {
 	}
 
 	/**
-	 * @param $id
+	 * Get Preference
+	 *
+	 * @param string $id Preference id.
 	 * @return array|null
-	 * @throws WC_WooMercadoPago_Exception
+	 * @throws WC_WooMercadoPago_Exception Get Preference.
 	 */
 	public function get_preference( $id ) {
 
@@ -375,9 +410,11 @@ class MP {
 	}
 
 	/**
-	 * @param $preference
+	 * Create Payment
+	 *
+	 * @param array $preference Preference.
 	 * @return array|null
-	 * @throws WC_WooMercadoPago_Exception
+	 * @throws WC_WooMercadoPago_Exception Create Payment.
 	 */
 	public function create_payment( $preference ) {
 
@@ -394,9 +431,11 @@ class MP {
 	}
 
 	/**
-	 * @param $preapproval_payment
+	 * Create Preapproval Payment
+	 *
+	 * @param array $preapproval_payment Preapproval Payment.
 	 * @return array|null
-	 * @throws WC_WooMercadoPago_Exception
+	 * @throws WC_WooMercadoPago_Exception Create Preapproval Payment.
 	 */
 	public function create_preapproval_payment( $preapproval_payment ) {
 

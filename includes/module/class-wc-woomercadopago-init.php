@@ -138,7 +138,7 @@ class WC_WooMercadoPago_Init {
 			require_once dirname( __FILE__ ) . '/class-wc-woomercadopago-exception.php';
 			require_once dirname( __FILE__ ) . '/class-wc-woomercadopago-configs.php';
 			require_once dirname( __FILE__ ) . '/log/class-wc-woomercadopago-log.php';
-			require_once dirname(__FILE__) . '/class-wc-woomercadopago-module.php';
+			require_once dirname( __FILE__ ) . '/class-wc-woomercadopago-module.php';
 			require_once dirname( __FILE__ ) . '/class-wc-woomercadopago-credentials.php';
 			require_once dirname( __FILE__ ) . '../../admin/notices/class-wc-woomercadopago-reviewnotice.php';
 
