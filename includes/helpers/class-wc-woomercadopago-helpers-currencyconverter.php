@@ -370,7 +370,7 @@ class WC_WooMercadoPago_Helpers_CurrencyConverter {
 					),
 				);
 
-				$result = Meli_Rest_Client::get($request );
+				$result = Meli_Rest_Client::get( $request );
 
 				if ( ! isset( $result['response'] ) ) {
 					return false;
