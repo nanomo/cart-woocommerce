@@ -68,127 +68,91 @@ msgstr ""
 msgid "Cancel order"
 msgstr ""
 
-#: includes/module/class-wc-woomercadopago-module.php:238, includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:409
+#: includes/module/class-wc-woomercadopago-module.php:328, includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:409
 msgid "Fill in your credentials to enable payment methods."
 msgstr ""
 
-#: includes/module/class-wc-woomercadopago-module.php:246
+#: includes/module/class-wc-woomercadopago-module.php:343
 msgid "Set up"
 msgstr ""
 
-#: includes/module/class-wc-woomercadopago-module.php:247
+#: includes/module/class-wc-woomercadopago-module.php:344
 msgid "Your opinion helps us get better"
 msgstr ""
 
-#: includes/module/class-wc-woomercadopago-module.php:248
+#: includes/module/class-wc-woomercadopago-module.php:345
 msgid "Guides and Documentation"
 msgstr ""
 
-#: includes/module/class-wc-woomercadopago-module.php:249
+#: includes/module/class-wc-woomercadopago-module.php:346
 msgid "Report Problem"
 msgstr ""
 
-#: includes/module/class-wc-woomercadopago-module.php:320
+#: includes/module/class-wc-woomercadopago-module.php:417
 msgid "By Mercado Pago"
 msgstr ""
 
-#: includes/module/class-wc-woomercadopago-module.php:344, includes/module/class-wc-woomercadopago-module.php:365
-msgid "The <strong> Sponsor ID  </strong> must be valid!"
-msgstr ""
-
-#: includes/module/class-wc-woomercadopago-module.php:361
-msgid "The <strong>Sponsor ID</strong> must be from the same country as the seller!"
-msgstr ""
-
-#: includes/module/class-wc-woomercadopago-module.php:391
+#: includes/module/class-wc-woomercadopago-module.php:450
 msgid "The payment method is not valid or not available."
 msgstr ""
 
-#: includes/module/class-wc-woomercadopago-module.php:394
+#: includes/module/class-wc-woomercadopago-module.php:453
 msgid "The transaction amount cannot be processed by Mercado Pago."
 msgstr ""
 
-#: includes/module/class-wc-woomercadopago-module.php:395
+#: includes/module/class-wc-woomercadopago-module.php:454
 msgid "Possible causes: Currency not supported; Amounts below the minimum or above the maximum allowed."
 msgstr ""
 
-#: includes/module/class-wc-woomercadopago-module.php:398
+#: includes/module/class-wc-woomercadopago-module.php:457
 msgid "The users are not valid."
 msgstr ""
 
-#: includes/module/class-wc-woomercadopago-module.php:399
+#: includes/module/class-wc-woomercadopago-module.php:458
 msgid "Possible causes: Buyer and seller have the same account in Mercado Pago; The transaction involving production and test users."
 msgstr ""
 
-#: includes/module/class-wc-woomercadopago-module.php:402
+#: includes/module/class-wc-woomercadopago-module.php:461
 msgid "Unauthorized use of production credentials."
 msgstr ""
 
-#: includes/module/class-wc-woomercadopago-module.php:403
+#: includes/module/class-wc-woomercadopago-module.php:462
 msgid "Possible causes: Use permission in use for the credential of the seller."
 msgstr ""
 
-#: includes/module/class-wc-woomercadopago-module.php:516
-msgid "ERROR: It was not possible to convert the unsupported currency"
-msgstr ""
-
-#: includes/module/class-wc-woomercadopago-module.php:518
-msgid "a"
-msgstr ""
-
-#: includes/module/class-wc-woomercadopago-module.php:519, includes/module/class-wc-woomercadopago-module.php:529
-msgid "Currency conversions should be done outside of this module."
-msgstr ""
-
-#: includes/module/class-wc-woomercadopago-module.php:525
-msgid "ATTENTION: The currency"
-msgstr ""
-
-#: includes/module/class-wc-woomercadopago-module.php:527
-msgid "defined in WooCommerce is different from that used by the credentials of your country.<br>The currency for transactions made with this payment method will be"
-msgstr ""
-
-#: includes/module/class-wc-woomercadopago-module.php:535
-msgid "CONVERTED CURRENCY: Your store is converting currency of"
-msgstr ""
-
-#: includes/module/class-wc-woomercadopago-module.php:537, templates/checkout/custom-checkout.php:145
-msgid "for"
-msgstr ""
-
-#: includes/module/class-wc-woomercadopago-module.php:543, includes/payments/class-wc-woomercadopago-paymentabstract.php:869
+#: includes/module/class-wc-woomercadopago-module.php:579, includes/payments/class-wc-woomercadopago-paymentabstract.php:869
 msgid "Colombia"
 msgstr ""
 
-#: includes/module/class-wc-woomercadopago-module.php:545, includes/payments/class-wc-woomercadopago-paymentabstract.php:866
+#: includes/module/class-wc-woomercadopago-module.php:581, includes/payments/class-wc-woomercadopago-paymentabstract.php:866
 msgid "Argentina"
 msgstr ""
 
-#: includes/module/class-wc-woomercadopago-module.php:547, includes/payments/class-wc-woomercadopago-paymentabstract.php:867
+#: includes/module/class-wc-woomercadopago-module.php:583, includes/payments/class-wc-woomercadopago-paymentabstract.php:867
 msgid "Brazil"
 msgstr ""
 
-#: includes/module/class-wc-woomercadopago-module.php:549, includes/payments/class-wc-woomercadopago-paymentabstract.php:868
+#: includes/module/class-wc-woomercadopago-module.php:585, includes/payments/class-wc-woomercadopago-paymentabstract.php:868
 msgid "Chile"
 msgstr ""
 
-#: includes/module/class-wc-woomercadopago-module.php:551, includes/payments/class-wc-woomercadopago-paymentabstract.php:870
+#: includes/module/class-wc-woomercadopago-module.php:587, includes/payments/class-wc-woomercadopago-paymentabstract.php:870
 msgid "Mexico"
 msgstr ""
 
-#: includes/module/class-wc-woomercadopago-module.php:553, includes/payments/class-wc-woomercadopago-paymentabstract.php:872
+#: includes/module/class-wc-woomercadopago-module.php:589, includes/payments/class-wc-woomercadopago-paymentabstract.php:872
 msgid "Uruguay"
 msgstr ""
 
-#: includes/module/class-wc-woomercadopago-module.php:555
+#: includes/module/class-wc-woomercadopago-module.php:591
 msgid "Venezuela"
 msgstr ""
 
-#: includes/module/class-wc-woomercadopago-module.php:557, includes/payments/class-wc-woomercadopago-paymentabstract.php:871
+#: includes/module/class-wc-woomercadopago-module.php:593, includes/payments/class-wc-woomercadopago-paymentabstract.php:871
 msgid "Peru"
 msgstr ""
 
-#: includes/module/class-wc-woomercadopago-module.php:594
+#: includes/module/class-wc-woomercadopago-module.php:625
 msgid "Update the WooCommerce order to "
 msgstr ""
 
@@ -1041,6 +1005,10 @@ msgstr ""
 
 #: templates/checkout/custom-checkout.php:144
 msgid "Converted payment of"
+msgstr ""
+
+#: templates/checkout/custom-checkout.php:145
+msgid "for"
 msgstr ""
 
 #: templates/checkout/custom-checkout.php:172, templates/checkout/ticket-checkout.php:50

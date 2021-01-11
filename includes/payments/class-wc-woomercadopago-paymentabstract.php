@@ -1641,7 +1641,7 @@ class WC_WooMercadoPago_PaymentAbstract extends WC_Payment_Gateway {
 	 * @throws WC_WooMercadoPago_Exception Get mercado pago instance error.
 	 */
 	public function get_mp_instance() {
-		$mp = WC_WooMercadoPago_Module::get_mp_instanceSingleton( $this );
+		$mp = WC_WooMercadoPago_Module::get_mp_instance_singleton( $this );
 		if ( ! empty( $mp ) ) {
 			$mp->sandbox_mode( $this->sandbox );
 		}

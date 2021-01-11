@@ -78,7 +78,7 @@ class WC_WooMercadoPago_Init {
 	 *
 	 */
 	public static function mp_show_admin_notices() {
-		if ( ! WC_WooMercadoPago_Module::isWcNewVersion() || ( isset( $_GET['page'] ) && $_GET['page'] == 'wc-settings' ) && is_plugin_active( 'woocommerce-admin/woocommerce-admin.php' ) ) {
+		if ( ! WC_WooMercadoPago_Module::is_wc_new_version() || ( isset( $_GET['page'] ) && $_GET['page'] == 'wc-settings' ) && is_plugin_active( 'woocommerce-admin/woocommerce-admin.php' ) ) {
 			return;
 		}
 

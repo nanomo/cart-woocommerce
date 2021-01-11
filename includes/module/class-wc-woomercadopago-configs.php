@@ -85,7 +85,7 @@ class WC_WooMercadoPago_Configs {
 	 * @throws WC_WooMercadoPago_Exception
 	 */
 	private function updatePayments() {
-		$mpInstance = WC_WooMercadoPago_Module::get_mp_instanceSingleton();
+		$mpInstance = WC_WooMercadoPago_Module::get_mp_instance_singleton();
 		if ( $mpInstance ) {
 			WC_WooMercadoPago_Credentials::update_payment_methods( $mpInstance, $mpInstance->get_access_token() );
 		}
@@ -95,7 +95,7 @@ class WC_WooMercadoPago_Configs {
 	 * @throws WC_WooMercadoPago_Exception
 	 */
 	private function update_ticket_methods() {
-		$mpInstance = WC_WooMercadoPago_Module::get_mp_instanceSingleton();
+		$mpInstance = WC_WooMercadoPago_Module::get_mp_instance_singleton();
 		if ( $mpInstance ) {
 			WC_WooMercadoPago_Credentials::update_ticket_method( $mpInstance, $mpInstance->get_access_token() );
 		}
@@ -134,7 +134,7 @@ class WC_WooMercadoPago_Configs {
 	 *  UpdateToken
 	 */
 	private function updateToken() {
-		$mpInstance = WC_WooMercadoPago_Module::get_mp_instanceSingleton();
+		$mpInstance = WC_WooMercadoPago_Module::get_mp_instance_singleton();
 
 		if ( $mpInstance ) {
 			if (

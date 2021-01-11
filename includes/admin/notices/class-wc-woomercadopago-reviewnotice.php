@@ -96,7 +96,7 @@ class WC_WooMercadoPago_ReviewNotice {
 	public static function get_plugin_review_banner() {
 		$inline = null;
 		if (
-			( class_exists( 'WC_WooMercadoPago_Module' ) && WC_WooMercadoPago_Module::isWcNewVersion() ) &&
+			( class_exists( 'WC_WooMercadoPago_Module' ) && WC_WooMercadoPago_Module::is_wc_new_version() ) &&
 			// @todo need fix Processing form data without nonce verification
 			// @codingStandardsIgnoreLine
 			( isset( $_GET['page'] ) && 'wc-settings' === sanitize_key( $_GET['page'] ) )

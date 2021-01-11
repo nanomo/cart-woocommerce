@@ -109,7 +109,7 @@ class WC_WooMercadoPago_Credentials {
 	 */
 	public static function mercadopago_payment_update() {
 		try {
-			$mp_v1 = WC_WooMercadoPago_Module::get_mp_instanceSingleton();
+			$mp_v1 = WC_WooMercadoPago_Module::get_mp_instance_singleton();
 			if ( false === $mp_v1 instanceof MP ) {
 				self::set_no_credentials();
 				return;
@@ -194,7 +194,7 @@ class WC_WooMercadoPago_Credentials {
 	 * @throws WC_WooMercadoPago_Exception Error.
 	 */
 	public static function access_token_is_valid( $access_token ) {
-		$mp_v1 = WC_WooMercadoPago_Module::get_mp_instanceSingleton();
+		$mp_v1 = WC_WooMercadoPago_Module::get_mp_instance_singleton();
 		if ( empty( $mp_v1 ) ) {
 			return false;
 		}
@@ -235,7 +235,7 @@ class WC_WooMercadoPago_Credentials {
 		}
 
 		try {
-			$mp_v1 = WC_WooMercadoPago_Module::get_mp_instanceSingleton();
+			$mp_v1 = WC_WooMercadoPago_Module::get_mp_instance_singleton();
 			if ( false === $mp_v1 instanceof MP ) {
 				self::set_no_credentials();
 				return false;
