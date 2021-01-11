@@ -67,9 +67,9 @@ class MP {
 	 */
 	public function __construct() {
 		$includes_path = dirname( __FILE__ );
-		require_once $includes_path . '/rest-client/class-abstractrestclient.php';
-		require_once $includes_path . '/rest-client/class-melirestclient.php';
-		require_once $includes_path . '/rest-client/class-mprestclient.php';
+		require_once $includes_path . '/rest-client/class-rest-client-abstract.php';
+		require_once $includes_path . '/rest-client/class-meli-rest-client.php';
+		require_once $includes_path . '/rest-client/class-mp-rest-client.php';
 
 		$i = func_num_args();
 		if ( $i > 2 || $i < 1 ) {
@@ -90,16 +90,16 @@ class MP {
 	 * @param $email
 	 */
 	public function set_email( $email ) {
-		MPRestClient::set_email( $email );
-		MeliRestClient::set_email( $email );
+		MP_Rest_Client::set_email($email );
+		Meli_Rest_Client::set_email($email );
 	}
 
 	/**
 	 * @param $country_code
 	 */
 	public function set_locale( $country_code ) {
-		MPRestClient::set_locale( $country_code );
-		MeliRestClient::set_locale( $country_code );
+		MP_Rest_Client::set_locale($country_code );
+		Meli_Rest_Client::set_locale($country_code );
 	}
 
 	/**
@@ -133,7 +133,7 @@ class MP {
 			'grant_type'    => 'client_credentials',
 		);
 
-		$access_data = MPRestClient::post(
+		$access_data = MP_Rest_Client::post(
 			array(
 				'uri'     => '/oauth/token',
 				'data'    => $app_client_values,
@@ -165,7 +165,7 @@ class MP {
 			'params' => array( 'access_token' => $this->get_access_token() ),
 		);
 
-		return MPRestClient::get( $request, WC_WooMercadoPago_Constants::VERSION );
+		return MP_Rest_Client::get($request, WC_WooMercadoPago_Constants::VERSION );
 	}
 
 	// === CUSTOMER CARDS FUNCTIONS ===
@@ -206,7 +206,7 @@ class MP {
 			),
 		);
 
-		return MPRestClient::post( $request );
+		return MP_Rest_Client::post($request );
 	}
 
 	/**
@@ -226,7 +226,7 @@ class MP {
 			),
 		);
 
-		return MPRestClient::get( $request );
+		return MP_Rest_Client::get($request );
 	}
 
 	/**
@@ -256,7 +256,7 @@ class MP {
 			),
 		);
 
-		return MPRestClient::post( $request );
+		return MP_Rest_Client::post($request );
 	}
 
 	/**
@@ -274,7 +274,7 @@ class MP {
 			'uri'     => '/v1/customers/' . $customer_id . '/cards',
 		);
 
-		return MPRestClient::get( $request );
+		return MP_Rest_Client::get($request );
 	}
 
 	// === COUPOM AND DISCOUNTS FUNCTIONS ===
@@ -297,7 +297,7 @@ class MP {
 				'coupon_code'        => $coupon_code,
 			),
 		);
-		return MPRestClient::get( $request );
+		return MP_Rest_Client::get($request );
 	}
 
 	// === CHECKOUT AUXILIARY FUNCTIONS ===
@@ -316,7 +316,7 @@ class MP {
 			'uri'     => '/authorized_payments/{$id}',
 		);
 
-		return MPRestClient::get( $request );
+		return MP_Rest_Client::get($request );
 	}
 
 	/**
@@ -335,7 +335,7 @@ class MP {
 			'data'    => $preference,
 		);
 
-		return MPRestClient::post( $request );
+		return MP_Rest_Client::post($request );
 	}
 
 	/**
@@ -354,7 +354,7 @@ class MP {
 			'data'    => $preference,
 		);
 
-		return MPRestClient::put( $request );
+		return MP_Rest_Client::put($request );
 	}
 
 	/**
@@ -371,7 +371,7 @@ class MP {
 			'uri'     => '/checkout/preferences/{$id}',
 		);
 
-		return MPRestClient::get( $request );
+		return MP_Rest_Client::get($request );
 	}
 
 	/**
@@ -390,7 +390,7 @@ class MP {
 			'data'    => $preference,
 		);
 
-		return MPRestClient::post( $request, WC_WooMercadoPago_Constants::VERSION );
+		return MP_Rest_Client::post($request );
 	}
 
 	/**
@@ -408,13 +408,15 @@ class MP {
 			'data'    => $preapproval_payment,
 		);
 
-		return MPRestClient::post( $request );
+		return MP_Rest_Client::post($request );
 	}
 
 	/**
-	 * @param $id
+	 * Get Preapproval Payment
+	 *
+	 * @param string $id Payment Id.
 	 * @return array|null
-	 * @throws WC_WooMercadoPago_Exception
+	 * @throws WC_WooMercadoPago_Exception Get Preapproval payment exception.
 	 */
 	public function get_preapproval_payment( $id ) {
 
@@ -425,14 +427,16 @@ class MP {
 			'uri'     => '/preapproval/' . $id,
 		);
 
-		return MPRestClient::get( $request );
+		return MP_Rest_Client::get($request );
 	}
 
 	/**
-	 * @param $id
-	 * @param $preapproval_payment
+	 * Update Preapproval payment
+	 *
+	 * @param string $id Payment Id.
+	 * @param array  $preapproval_payment Pre Approval Payment.
 	 * @return array|null
-	 * @throws WC_WooMercadoPago_Exception
+	 * @throws WC_WooMercadoPago_Exception Update preapproval payment exception.
 	 */
 	public function update_preapproval_payment( $id, $preapproval_payment ) {
 
@@ -444,13 +448,15 @@ class MP {
 			'data'    => $preapproval_payment,
 		);
 
-		return MPRestClient::put( $request );
+		return MP_Rest_Client::put($request );
 	}
 
 	/**
-	 * @param $id
+	 * Cancel preapproval payment
+	 *
+	 * @param string $id Preapproval Id.
 	 * @return array|null
-	 * @throws WC_WooMercadoPago_Exception
+	 * @throws WC_WooMercadoPago_Exception Cancel Preapproval payment.
 	 */
 	public function cancel_preapproval_payment( $id ) {
 
@@ -464,7 +470,7 @@ class MP {
 			),
 		);
 
-		return MPRestClient::put( $request );
+		return MP_Rest_Client::put($request );
 	}
 
 	// === REFUND AND CANCELING FLOW FUNCTIONS ===
@@ -485,7 +491,7 @@ class MP {
 			'uri'     => '/v1/payments/' . $id . '/refunds',
 		);
 
-		return MPRestClient::post( $request );
+		return MP_Rest_Client::post($request );
 	}
 
 	/**
@@ -514,7 +520,7 @@ class MP {
 			),
 		);
 
-		return MPRestClient::post( $request );
+		return MP_Rest_Client::post($request );
 	}
 
 	/**
@@ -534,7 +540,7 @@ class MP {
 			'data'    => '{"status":"cancelled"}',
 		);
 
-		return MPRestClient::put( $request );
+		return MP_Rest_Client::put($request );
 	}
 
 	/**
@@ -552,7 +558,7 @@ class MP {
 			'uri'     => '/v1/payment_methods',
 		);
 
-		$response = MPRestClient::get( $request );
+		$response = MP_Rest_Client::get($request );
 
 		if ( $response['status'] > 202 ) {
 			$log = WC_WooMercadoPago_Log::init_mercado_pago_log( 'get_payment_methods' );
@@ -586,7 +592,7 @@ class MP {
 			$request['params'] = array( 'public_key' => $public_key );
 		}
 
-		$response = MPRestClient::get( $request );
+		$response = MP_Rest_Client::get($request );
 
 		if ( $response['status'] > 202 ) {
 			$log = WC_WooMercadoPago_Log::init_mercado_pago_log( 'getCredentialsWrapper' );
@@ -625,7 +631,7 @@ class MP {
 			}
 		}
 
-		return MPRestClient::get( $request );
+		return MP_Rest_Client::get($request );
 	}
 
 	/**
@@ -652,7 +658,7 @@ class MP {
 			$request['params'] :
 			array();
 
-		return MPRestClient::post( $request );
+		return MP_Rest_Client::post($request );
 	}
 
 	/**
@@ -679,7 +685,7 @@ class MP {
 			$request['params'] :
 			array();
 
-		return MPRestClient::put( $request );
+		return MP_Rest_Client::put($request );
 	}
 
 	/**
@@ -704,7 +710,7 @@ class MP {
 			$request['params'] :
 			array();
 
-		return MPRestClient::delete( $request );
+		return MP_Rest_Client::delete($request );
 	}
 
 	/**

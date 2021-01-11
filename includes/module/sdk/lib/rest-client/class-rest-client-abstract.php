@@ -14,21 +14,41 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
-/**
- * Class AbstractRestClient
- */
-class AbstractRestClient {
 
-	public static $email_admin = '';
-	public static $site_locale = '';
-	public static $check_loop  = 0;
+/**
+ * Class Rest_Client_Abstract
+ */
+class Rest_Client_Abstract {
 
 	/**
-	 * @param $request
-	 * @return array|null
-	 * @throws WC_WooMercadoPago_Exception
+	 * E-mail admin
+	 *
+	 * @var string
 	 */
-	public static function execAbs( $request, $url ) {
+	public static $email_admin = '';
+
+	/**
+	 * Site locale
+	 *
+	 * @var string
+	 */
+	public static $site_locale = '';
+
+	/**
+	 * Check loop
+	 *
+	 * @var int
+	 */
+	public static $check_loop = 0;
+
+	/**
+	 * Exec ABS
+	 *
+	 * @param array  $request Request.
+	 * @param string $url URL.
+	 * @return array|null
+	 */
+	public static function exec_abs( $request, $url ) {
 		try {
 			$connect = self::build_request( $request, $url );
 			return self::execute( $request, $connect );
@@ -38,9 +58,12 @@ class AbstractRestClient {
 	}
 
 	/**
-	 * @param $request
-	 * @return false|resource
-	 * @throws WC_WooMercadoPago_Exception
+	 * Build request
+	 *
+	 * @param array  $request Request data.
+	 * @param string $url URL.
+	 * @return CurlHandle|false|resource
+	 * @throws WC_WooMercadoPago_Exception Build request exception.
 	 */
 	public static function build_request( $request, $url ) {
 		if ( ! extension_loaded( 'curl' ) ) {
@@ -56,7 +79,7 @@ class AbstractRestClient {
 		}
 
 		$headers = array( 'accept: application/json' );
-		if ( $request['method'] == 'POST' ) {
+		if ( 'POST' === $request['method'] ) {
 			$headers[] = 'x-product-id:' . ( WC_WooMercadoPago_Module::is_mobile() ? WC_WooMercadoPago_Constants::PRODUCT_ID_MOBILE : WC_WooMercadoPago_Constants::PRODUCT_ID_DESKTOP );
 			$headers[] = 'x-platform-id:' . WC_WooMercadoPago_Constants::PLATAFORM_ID;
 			$headers[] = 'x-integrator-id:' . get_option( '_mp_integrator_id', null );
@@ -68,10 +91,10 @@ class AbstractRestClient {
 
 		if ( isset( $request['headers'] ) && is_array( $request['headers'] ) ) {
 			foreach ( $request['headers'] as $h => $v ) {
-				if ( $h == 'content-type' ) {
+				if ( 'content-type' === $h ) {
 					$default_content_type = false;
-					$json_content         = $v == 'application/json';
-					$form_content         = $v == 'application/x-www-form-urlencoded';
+					$json_content         = 'application/json' === $v;
+					$form_content         = 'application/x-www-form-urlencoded' === $v;
 				}
 				array_push( $headers, $h . ': ' . $v );
 			}
@@ -80,6 +103,7 @@ class AbstractRestClient {
 			array_push( $headers, 'content-type: application/json' );
 		}
 
+		//@codingStandardsIgnoreStart
 		$connect = curl_init();
 		curl_setopt( $connect, CURLOPT_USERAGENT, 'platform:v1-whitelabel,type:woocommerce,so:' . WC_WooMercadoPago_Constants::VERSION );
 		curl_setopt( $connect, CURLOPT_RETURNTRANSFER, true );
@@ -87,6 +111,7 @@ class AbstractRestClient {
 		curl_setopt( $connect, CURLOPT_CAINFO, $GLOBALS['LIB_LOCATION'] . '/cacert.pem' );
 		curl_setopt( $connect, CURLOPT_CUSTOMREQUEST, $request['method'] );
 		curl_setopt( $connect, CURLOPT_HTTPHEADER, $headers );
+		//@codingStandardsIgnoreEnd
 
 		if ( isset( $request['params'] ) && is_array( $request['params'] ) ) {
 			if ( count( $request['params'] ) > 0 ) {
@@ -94,25 +119,26 @@ class AbstractRestClient {
 				$request['uri'] .= self::build_query( $request['params'] );
 			}
 		}
-
+		// @codingStandardsIgnoreLine
 		curl_setopt( $connect, CURLOPT_URL, $url . $request['uri'] );
 
 		if ( isset( $request['data'] ) ) {
 			if ( $json_content ) {
-				if ( gettype( $request['data'] ) == 'string' ) {
+				if ( 'string' === gettype( $request['data'] ) ) {
 					json_decode( $request['data'], true );
 				} else {
-					$request['data'] = json_encode( $request['data'] );
+					$request['data'] = wp_json_encode( $request['data'] );
 				}
 				if ( function_exists( 'json_last_error' ) ) {
 					$json_error = json_last_error();
-					if ( $json_error != JSON_ERROR_NONE ) {
+					if ( JSON_ERROR_NONE !== $json_error ) {
 						throw new WC_WooMercadoPago_Exception( "JSON Error [{$json_error}] - Data: " . $request['data'] );
 					}
 				}
 			} elseif ( $form_content ) {
 				$request['data'] = self::build_query( $request['data'] );
 			}
+			// @codingStandardsIgnoreLine
 			curl_setopt( $connect, CURLOPT_POSTFIELDS, $request['data'] );
 		}
 
@@ -120,31 +146,39 @@ class AbstractRestClient {
 	}
 
 	/**
-	 * @param $connect
+	 * Execute curl
+	 *
+	 * @param array      $request Request data.
+	 * @param CurlHandle $connect Curl Handle Connection.
 	 * @return array|null
-	 * @throws WC_WooMercadoPago_Exception
+	 * @throws WC_WooMercadoPago_Exception Execute call exception.
 	 */
 	public static function execute( $request, $connect ) {
-		$response   = null;
+		$response = null;
+		// @codingStandardsIgnoreLine
 		$api_result = curl_exec( $connect );
+		// @codingStandardsIgnoreLine
 		if ( curl_errno( $connect ) ) {
+			// @codingStandardsIgnoreLine
 			throw new WC_WooMercadoPago_Exception( curl_error( $connect ) );
 		}
-		$api_http_code = curl_getinfo( $connect, CURLINFO_HTTP_CODE );
+		$api_http_code = curl_getinfo( $connect, CURLINFO_HTTP_CODE ); //phpcs:ignore
 
-		if ( $api_http_code != null && $api_result != null ) {
+		if ( null !== $api_http_code && null !== $api_result ) {
 			$response = array(
 				'status'   => $api_http_code,
 				'response' => json_decode( $api_result, true ),
 			);
 		}
 
-		curl_close( $connect );
+		curl_close( $connect ); //phpcs:ignore
 		return $response;
 	}
 
 	/**
-	 * @param $params
+	 * Build query
+	 *
+	 * @param array $params Params.
 	 * @return string
 	 */
 	public static function build_query( $params ) {
@@ -152,21 +186,25 @@ class AbstractRestClient {
 			return http_build_query( $params, '', '&' );
 		} else {
 			foreach ( $params as $name => $value ) {
-				$elements[] = "{$name}=" . urlencode( $value );
+				$elements[] = "{$name}=" . rawurldecode( $value );
 			}
 			return implode( '&', $elements );
 		}
 	}
 
 	/**
-	 * @param $email
+	 * Set e-mail
+	 *
+	 * @param string $email E-mail.
 	 */
 	public static function set_email( $email ) {
 		self::$email_admin = $email;
 	}
 
 	/**
-	 * @param $country_code
+	 * Set Country code
+	 *
+	 * @param string $country_code Country code.
 	 */
 	public static function set_locale( $country_code ) {
 		self::$site_locale = $country_code;
