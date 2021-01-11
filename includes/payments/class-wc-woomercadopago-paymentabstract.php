@@ -750,50 +750,30 @@ class WC_WooMercadoPago_PaymentAbstract extends WC_Payment_Gateway {
 	 * @return array
 	 */
 	public function field_checkout_steps() {
-		$checkout_steps = array(
-			'title' => sprintf(
-				'<div class="mp-row">
-              <h4 class="mp-title-checkout-body mp-pb-20">' . __( '<b>Follow these steps to activate Mercado Pago in your store:</b>', 'woocommerce-mercadopago' ) . '</h4>
-              <div class="mp-col-md-2 mp-text-center mp-pb-10">
-                <p class="mp-number-checkout-body">1</p>
-                <p class="mp-text-steps mp-text-center mp-px-20">
-                  ' . __( '<b>Upload your credentials</b> depending on the country in which you are registered.', 'woocommerce-mercadopago' ) . '
-                </p>
-              </div>
-
-              <div class="mp-col-md-2 mp-text-center mp-pb-10">
-                <p class="mp-number-checkout-body">2</p>
-                <p class="mp-text-steps mp-text-center mp-px-20">
-                  ' . __( '<b>Approve your account</b> to be able to charge.', 'woocommerce-mercadopago' ) . '
-                </p>
-              </div>
-
-              <div class="mp-col-md-2 mp-text-center mp-pb-10">
-                <p class="mp-number-checkout-body">3</p>
-                <p class="mp-text-steps mp-text-center mp-px-20">
-                  ' . __( '<b>Add the basic information of your business</b> in the plugin configuration.', 'woocommerce-mercadopago' ) . '
-                </p>
-              </div>
-
-              <div class="mp-col-md-2 mp-text-center mp-pb-10">
-                <p class="mp-number-checkout-body">4</p>
-                <p class="mp-text-steps mp-text-center mp-px-20">
-                  ' . __( '<b>Configure the payment preferences</b> for your customers.', 'woocommerce-mercadopago' ) . '
-                </p>
-              </div>
-
-              <div class="mp-col-md-2 mp-text-center mp-pb-10">
-              <p class="mp-number-checkout-body">5</p>
-              <p class="mp-text-steps mp-text-center mp-px-20">
-                ' . __( '<b>Go to advanced settings</b> only when you want to change the presets.', 'woocommerce-mercadopago' ) . '
-              </p>
-            </div>
-            </div>'
+		$steps_content = wc_get_template_html(
+			'checkout/credential/steps.php',
+			array(
+				'title'              => __( 'Follow these steps to activate Mercado Pago in your store:', 'woocommerce-mercadopago' ),
+				'upload_credentials_highlight' => __( 'Upload your credentials', 'woocommerce-mercadopago' ),
+				'upload_credentials' => __( 'depending on the country in which you are registered.', 'woocommerce-mercadopago' ),
+				'approve_account_highlight'    => __( 'Approve your account', 'woocommerce-mercadopago' ),
+				'approve_account'    => __( 'to be able to charge.', 'woocommerce-mercadopago' ),
+				'basic_information_highlight'  => __( 'Add the basic information of your business', 'woocommerce-mercadopago' ),
+				'basic_information'  => __( 'in the plugin configuration.', 'woocommerce-mercadopago' ),
+				'payment_preference_highlight' => __( 'Configure the payment preferences', 'woocommerce-mercadopago' ),
+				'payment_preference' => __( 'for your customers.', 'woocommerce-mercadopago' ),
+				'advanced_settings_highlight'  => __( 'Go to advanced settings', 'woocommerce-mercadopago' ),
+				'advanced_settings'  => __( 'only when you want to change the presets.', 'woocommerce-mercadopago' ),
 			),
+			'woo/mercado/pago/steps/',
+			WC_WooMercadoPago_Module::get_templates_path()
+		);
+
+		return array(
+			'title' => $steps_content,
 			'type'  => 'title',
 			'class' => 'mp_title_checkout',
 		);
-		return $checkout_steps;
 	}
 
 	/**
@@ -1027,25 +1007,19 @@ class WC_WooMercadoPago_PaymentAbstract extends WC_Payment_Gateway {
 	 * @return array
 	 */
 	public function field_checkout_credential_link( $country ) {
-		return array(
-			'title' => sprintf(
-				'%s',
-				'<table class="form-table" id="mp_table_7">
-                    <tbody>
-                        <tr valign="top">
-                            <th scope="row" id="mp_field_text">
-                                <label>' . __( 'Load credentials', 'woocommerce-mercadopago' ) . '</label>
-                            </th>
-                            <td class="forminp">
-                                <fieldset>
-                                    <a class="mp_general_links" href="https://www.mercadopago.com/' . $country . '/account/credentials" target="_blank">' . __( 'Search my credentials', 'woocommerce-mercadopago' ) . '</a>
-                                    <p class="description mp-fw-400 mp-mb-0"></p>
-                                </fieldset>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>'
+		$link_content = wc_get_template_html(
+			'checkout/credential/link.php',
+			array(
+				'label'   => __( 'Load credentials', 'woocommerce-mercadopago' ),
+				'country' => $country,
+				'text'    => __( 'Search my credentials', 'woocommerce-mercadopago' ),
 			),
+			'woo/mercado/pago/link/',
+			WC_WooMercadoPago_Module::get_templates_path()
+		);
+
+		return array(
+			'title' => $link_content,
 			'type'  => 'title',
 		);
 	}
@@ -1162,6 +1136,8 @@ class WC_WooMercadoPago_PaymentAbstract extends WC_Payment_Gateway {
 	}
 
 	/**
+	 * Field Checkout Homolog Title
+	 *
 	 * @return array
 	 */
 	public function field_checkout_homolog_title() {
@@ -1173,6 +1149,8 @@ class WC_WooMercadoPago_PaymentAbstract extends WC_Payment_Gateway {
 	}
 
 	/**
+	 * Field Checkout Homolog Subtitle
+	 *
 	 * @return array
 	 */
 	public function field_checkout_homolog_subtitle() {
@@ -1184,12 +1162,16 @@ class WC_WooMercadoPago_PaymentAbstract extends WC_Payment_Gateway {
 	}
 
 	/**
+	 * Field Checkout Homolog Link
+	 *
+	 * @param string $country_link Country Link.
+	 * @param string $appliocation_id Application Id.
 	 * @return array
 	 */
 	public function field_checkout_homolog_link( $country_link, $appliocation_id ) {
 		return array(
 			'title' => sprintf(
-				__( '%s', 'woocommerce-mercadopago' ),
+				'%s',
 				'<a href="https://www.mercadopago.com/' . $country_link . '/account/credentials/appliance?application_id=' . $appliocation_id . '" target="_blank">' . __( 'Homologate account in Mercado Pago', 'woocommerce-mercadopago' ) . '</a>'
 			),
 			'type'  => 'title',
@@ -1198,6 +1180,8 @@ class WC_WooMercadoPago_PaymentAbstract extends WC_Payment_Gateway {
 	}
 
 	/**
+	 * Field MP Statement Descriptor
+	 *
 	 * @return array
 	 */
 	public function field_mp_statement_descriptor() {
@@ -1210,15 +1194,13 @@ class WC_WooMercadoPago_PaymentAbstract extends WC_Payment_Gateway {
 	}
 
 	/**
+	 * Field Category Store
+	 *
 	 * @return array
 	 */
 	public function field_category_store() {
-		$category_store   = WC_WooMercadoPago_Module::$categories;
-		$option_category  = array();
-		$total_categories = count( $category_store['store_categories_id'] );
-		for ( $i = 0; $i < $total_categories; $i++ ) {
-			$option_category[ $category_store['store_categories_id'][ $i ] ] = __( $category_store['store_categories_id'][ $i ], 'woocommerce-mercadopago' );
-		}
+		$category_store  = WC_WooMercadoPago_Module::$categories;
+		$option_category = $category_store['store_categories_id'];
 
 		return array(
 			'title'       => __( 'Store Category', 'woocommerce-mercadopago' ),
@@ -1230,6 +1212,8 @@ class WC_WooMercadoPago_PaymentAbstract extends WC_Payment_Gateway {
 	}
 
 	/**
+	 * Field MP Store Identificator
+	 *
 	 * @return array
 	 */
 	public function field_mp_store_identificator() {
@@ -1242,6 +1226,8 @@ class WC_WooMercadoPago_PaymentAbstract extends WC_Payment_Gateway {
 	}
 
 	/**
+	 * Field MP Integrator Id
+	 *
 	 * @return array
 	 */
 	public function field_mp_integrator_id() {
@@ -1251,6 +1237,7 @@ class WC_WooMercadoPago_PaymentAbstract extends WC_Payment_Gateway {
 			'title'       => __( 'Integrator ID', 'woocommerce-mercadopago' ),
 			'type'        => 'text',
 			'description' => sprintf(
+				/* translators: %s developers guide */
 				__( 'Do not forget to enter your integrator_id as a certified Mercado Pago Partner. If you don`t have it, you can %s', 'woocommerce-mercadopago' ),
 				'<a target="_blank" href="https://www.mercadopago.' . $links_mp['sufix_url'] . 'developers/' . $links_mp['translate'] . '/guides/plugins/woocommerce/preferences/#bookmark_informações_do_negócio">' . __( 'request it now.', 'woocommerce-mercadopago' ) .
 					'</a>'
@@ -1260,6 +1247,8 @@ class WC_WooMercadoPago_PaymentAbstract extends WC_Payment_Gateway {
 	}
 
 	/**
+	 * Field Checkout Advanced Settings
+	 *
 	 * @return array
 	 */
 	public function field_checkout_advanced_settings() {
@@ -1271,6 +1260,8 @@ class WC_WooMercadoPago_PaymentAbstract extends WC_Payment_Gateway {
 	}
 
 	/**
+	 * Field Debug Mode
+	 *
 	 * @return array
 	 */
 	public function field_debug_mode() {
@@ -1288,6 +1279,8 @@ class WC_WooMercadoPago_PaymentAbstract extends WC_Payment_Gateway {
 	}
 
 	/**
+	 * Field Checkout Payments Subtitle
+	 *
 	 * @return array
 	 */
 	public function field_checkout_payments_subtitle() {
@@ -1299,6 +1292,8 @@ class WC_WooMercadoPago_PaymentAbstract extends WC_Payment_Gateway {
 	}
 
 	/**
+	 * Field Installments
+	 *
 	 * @return array
 	 */
 	public function field_installments() {
@@ -1324,22 +1319,27 @@ class WC_WooMercadoPago_PaymentAbstract extends WC_Payment_Gateway {
 	}
 
 	/**
+	 * Get Country Link Guide
+	 *
+	 * @param string $checkout Checkout by country.
 	 * @return string
 	 */
 	public function get_country_link_guide( $checkout ) {
 		$country_link = array(
-			'mla' => 'https://www.mercadopago.com.ar/developers/es/', // Argentinian.
-			'mlb' => 'https://www.mercadopago.com.br/developers/pt/', // Brazil.
-			'mlc' => 'https://www.mercadopago.cl/developers/es/', // Chile.
-			'mco' => 'https://www.mercadopago.com.co/developers/es/', // Colombia.
-			'mlm' => 'https://www.mercadopago.com.mx/developers/es/', // Mexico.
-			'mpe' => 'https://www.mercadopago.com.pe/developers/es/', // Peru.
-			'mlu' => 'https://www.mercadopago.com.uy/developers/es/', // Uruguay.
+			'mla' => 'https://www.mercadopago.com.ar/developers/es/',   // Argentinian.
+			'mlb' => 'https://www.mercadopago.com.br/developers/pt/',   // Brazil.
+			'mlc' => 'https://www.mercadopago.cl/developers/es/',       // Chile.
+			'mco' => 'https://www.mercadopago.com.co/developers/es/',   // Colombia.
+			'mlm' => 'https://www.mercadopago.com.mx/developers/es/',   // Mexico.
+			'mpe' => 'https://www.mercadopago.com.pe/developers/es/',   // Peru.
+			'mlu' => 'https://www.mercadopago.com.uy/developers/es/',   // Uruguay.
 		);
 		return $country_link[ $checkout ];
 	}
 
 	/**
+	 * Field Custom URL IPN
+	 *
 	 * @return array
 	 */
 	public function field_custom_url_ipn() {
@@ -1347,6 +1347,7 @@ class WC_WooMercadoPago_PaymentAbstract extends WC_Payment_Gateway {
 			'title'       => __( 'URL for IPN', 'woocommerce-mercadopago' ),
 			'type'        => 'text',
 			'description' => sprintf(
+				/* translators: %s link */
 				__( 'Enter a URL to receive payment notifications. In %s you can check more information.', 'woocommerce-mercadopago' ),
 				'<a href="' . $this->get_country_link_guide( $this->checkout_country ) . 'guides/notifications/ipn/">' . __( 'our guides', 'woocommerce-mercadopago' ) .
 				'</a>'
@@ -1357,6 +1358,8 @@ class WC_WooMercadoPago_PaymentAbstract extends WC_Payment_Gateway {
 	}
 
 	/**
+	 * Field Checkout Payments Advanced Description
+	 *
 	 * @return array
 	 */
 	public function field_checkout_payments_advanced_description() {
@@ -1368,6 +1371,8 @@ class WC_WooMercadoPago_PaymentAbstract extends WC_Payment_Gateway {
 	}
 
 	/**
+	 * Field Coupon Mode
+	 *
 	 * @return array
 	 */
 	public function field_coupon_mode() {
@@ -1384,11 +1389,14 @@ class WC_WooMercadoPago_PaymentAbstract extends WC_Payment_Gateway {
 	}
 
 	/**
+	 * Field No Credentials
+	 *
 	 * @return array
 	 */
 	public function field_no_credentials() {
 		return array(
 			'title' => sprintf(
+				/* translators: %s link */
 				__( 'It appears that your credentials are not properly configured.<br/>Please, go to %s and configure it.', 'woocommerce-mercadopago' ),
 				'<a href="' . esc_url( admin_url( 'admin.php?page=mercado-pago-settings' ) ) . '">' . __( 'Market Payment Configuration', 'woocommerce-mercadopago' ) .
 					'</a>'
@@ -1398,6 +1406,8 @@ class WC_WooMercadoPago_PaymentAbstract extends WC_Payment_Gateway {
 	}
 
 	/**
+	 * Field Binary Mode
+	 *
 	 * @return array
 	 */
 	public function field_binary_mode() {
@@ -1415,6 +1425,8 @@ class WC_WooMercadoPago_PaymentAbstract extends WC_Payment_Gateway {
 	}
 
 	/**
+	 * Field Gateway Discount
+	 *
 	 * @return array
 	 */
 	public function field_gateway_discount() {
@@ -1432,6 +1444,8 @@ class WC_WooMercadoPago_PaymentAbstract extends WC_Payment_Gateway {
 	}
 
 	/**
+	 * Field Commission
+	 *
 	 * @return array
 	 */
 	public function field_commission() {
@@ -1448,11 +1462,19 @@ class WC_WooMercadoPago_PaymentAbstract extends WC_Payment_Gateway {
 		);
 	}
 
+	/**
+	 * Field Currency Conversion
+	 *
+	 * @param WC_WooMercadoPago_PaymentAbstract $method Payment abstract.
+	 * @return array
+	 */
 	public function field_currency_conversion( WC_WooMercadoPago_PaymentAbstract $method ) {
 		return WC_WooMercadoPago_Helpers_CurrencyConverter::get_instance()->get_field( $method );
 	}
 
 	/**
+	 * Field Checkout Support Title
+	 *
 	 * @return array
 	 */
 	public function field_checkout_support_title() {
@@ -1466,6 +1488,8 @@ class WC_WooMercadoPago_PaymentAbstract extends WC_Payment_Gateway {
 	}
 
 	/**
+	 * Field Checkout Support Description
+	 *
 	 * @return array
 	 */
 	public function field_checkout_support_description() {
@@ -1479,6 +1503,8 @@ class WC_WooMercadoPago_PaymentAbstract extends WC_Payment_Gateway {
 	}
 
 	/**
+	 * Field Checkout Support Description Link
+	 *
 	 * @return array
 	 */
 	public function field_checkout_support_description_link() {
@@ -1486,7 +1512,7 @@ class WC_WooMercadoPago_PaymentAbstract extends WC_Payment_Gateway {
 
 		return array(
 			'title' => sprintf(
-				__( '%s', 'woocommerce-mercadopago' ),
+				'%s',
 				'<a href="' . $this->get_country_link_guide( $this->checkout_country ) . 'guides/plugins/woocommerce/integration" target="_blank">' . $message_link . '</a>'
 			),
 			'type'  => 'title',
@@ -1495,10 +1521,13 @@ class WC_WooMercadoPago_PaymentAbstract extends WC_Payment_Gateway {
 	}
 
 	/**
+	 * Field Checkout Support Problem
+	 *
 	 * @return array
 	 */
 	public function field_checkout_support_problem() {
 		$message_support_problem = sprintf(
+			/* translators: %s link */
 			__( 'Still having problems? Contact our support team through their %s', 'woocommerce-mercadopago' ),
 			'<a href="' . $this->get_country_link_guide( $this->checkout_country ) . 'support/" target="_blank">' . __( 'contact form.', 'woocommerce-mercadopago' ) . '</a>'
 		);
