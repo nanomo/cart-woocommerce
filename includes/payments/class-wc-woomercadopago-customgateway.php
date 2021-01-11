@@ -25,7 +25,7 @@ class WC_WooMercadoPago_CustomGateway extends WC_WooMercadoPago_PaymentAbstract 
 	/**
 	 * WC_WooMercadoPago_CustomGateway constructor.
 	 *
-	 * @throws WC_WooMercadoPago_Exception
+	 * @throws WC_WooMercadoPago_Exception Exception load payment.
 	 */
 	public function __construct() {
 		$this->id = self::ID;
@@ -43,14 +43,16 @@ class WC_WooMercadoPago_CustomGateway extends WC_WooMercadoPago_PaymentAbstract 
 		$this->field_forms_order  = $this->get_fields_sequence();
 		parent::__construct();
 		$this->form_fields         = $this->get_form_mp_fields( 'Custom' );
-		$this->customer            = $this->getOrCreateCustomer();
+		$this->customer            = $this->get_or_create_customer();
 		$this->hook                = new WC_WooMercadoPago_Hook_Custom( $this );
 		$this->notification        = new WC_WooMercadoPago_Notification_Webhook( $this );
 		$this->currency_convertion = true;
 	}
 
 	/**
-	 * @param $label
+	 * Get Form Mercado Pago fields
+	 *
+	 * @param string $label Label.
 	 * @return array
 	 */
 	public function get_form_mp_fields( $label ) {
@@ -60,7 +62,8 @@ class WC_WooMercadoPago_CustomGateway extends WC_WooMercadoPago_PaymentAbstract 
 				'woocommerce-mercadopago-custom-config-script',
 				plugins_url( '../assets/js/custom_config_mercadopago' . $suffix . '.js', plugin_dir_path( __FILE__ ) ),
 				array(),
-				WC_WooMercadoPago_Constants::VERSION
+				WC_WooMercadoPago_Constants::VERSION,
+				false
 			);
 		}
 
@@ -83,7 +86,7 @@ class WC_WooMercadoPago_CustomGateway extends WC_WooMercadoPago_PaymentAbstract 
 			$form_fields['coupon_mode']                             = $this->field_coupon_mode();
 		}
 		$form_fields_abs = parent::get_form_mp_fields( $label );
-		if ( count( $form_fields_abs ) == 1 ) {
+		if ( 1 === count( $form_fields_abs ) ) {
 			return $form_fields_abs;
 		}
 		$form_fields_merge = array_merge( $form_fields_abs, $form_fields );
@@ -93,23 +96,23 @@ class WC_WooMercadoPago_CustomGateway extends WC_WooMercadoPago_PaymentAbstract 
 	}
 
 	/**
-	 * get_fields_sequence
+	 * Get fields sequence
 	 *
 	 * @return array
 	 */
 	public function get_fields_sequence() {
 		return array(
-			// Necessary to run
+			// Necessary to run.
 			'title',
 			'description',
-			// Checkout de pagos con tarjetas de débito y crédito<br> Aceptá pagos al instante y maximizá la conversión de tu negocio
+			// Checkout de pagos con tarjetas de débito y crédito<br> Aceptá pagos al instante y maximizá la conversión de tu negocio.
 			'checkout_custom_header',
 			'checkout_steps',
 			// ¿En qué país vas a activar tu tienda?
 			'checkout_country_title',
 			'checkout_country',
 			'checkout_btn_save',
-			// Carga tus credenciales
+			// Carga tus credenciales.
 			'checkout_credential_title',
 			'checkout_credential_mod_test_title',
 			'checkout_credential_mod_test_description',
@@ -125,33 +128,33 @@ class WC_WooMercadoPago_CustomGateway extends WC_WooMercadoPago_PaymentAbstract 
 			'checkout_credential_description_prod',
 			'_mp_public_key_prod',
 			'_mp_access_token_prod',
-			// No olvides de homologar tu cuenta
+			// No olvides de homologar tu cuenta.
 			'checkout_homolog_title',
 			'checkout_homolog_subtitle',
 			'checkout_homolog_link',
-			// Set up the payment experience in your store
+			// Set up the payment experience in your store.
 			'checkout_custom_options_title',
 			'mp_statement_descriptor',
 			'_mp_category_id',
 			'_mp_store_identificator',
 			'_mp_integrator_id',
-			// Advanced settings
+			// Advanced settings.
 			'checkout_advanced_settings',
 			'_mp_debug_mode',
 			'_mp_custom_domain',
-			// Configure the personalized payment experience in your store
+			// Configure the personalized payment experience in your store.
 			'checkout_custom_payments_title',
 			'checkout_payments_subtitle',
 			'enabled',
 			WC_WooMercadoPago_Helpers_CurrencyConverter::CONFIG_KEY,
-			// Advanced configuration of the personalized payment experience"
+			// Advanced configuration of the personalized payment experience.
 			'checkout_custom_payments_advanced_title',
 			'checkout_payments_advanced_description',
 			'coupon_mode',
 			'binary_mode',
 			'gateway_discount',
 			'commission',
-			// Support session
+			// Support session.
 			'checkout_support_title',
 			'checkout_support_description',
 			'checkout_support_description_link',
@@ -164,11 +167,14 @@ class WC_WooMercadoPago_CustomGateway extends WC_WooMercadoPago_PaymentAbstract 
 	}
 
 	/**
+	 * Field checkout custom header
+	 *
 	 * @return array
 	 */
 	public function field_checkout_custom_header() {
 		$checkout_custom_header = array(
 			'title' => sprintf(
+				/* translators: %s card */
 				__( 'Checkout of payments with debit and credit cards %s', 'woocommerce-mercadopago' ),
 				'<div class="mp-row">
                 <div class="mp-col-md-12 mp_subtitle_header">
@@ -188,6 +194,8 @@ class WC_WooMercadoPago_CustomGateway extends WC_WooMercadoPago_PaymentAbstract 
 	}
 
 	/**
+	 * Filed checkout custom options title
+	 *
 	 * @return array
 	 */
 	public function field_checkout_custom_options_title() {
@@ -200,6 +208,8 @@ class WC_WooMercadoPago_CustomGateway extends WC_WooMercadoPago_PaymentAbstract 
 	}
 
 	/**
+	 * Field checkout custom payments title
+	 *
 	 * @return array
 	 */
 	public function field_checkout_custom_payments_title() {
@@ -212,6 +222,8 @@ class WC_WooMercadoPago_CustomGateway extends WC_WooMercadoPago_PaymentAbstract 
 	}
 
 	/**
+	 * Field checkout custom payment advanced title
+	 *
 	 * @return array
 	 */
 	public function field_checkout_custom_payments_advanced_title() {
@@ -224,8 +236,10 @@ class WC_WooMercadoPago_CustomGateway extends WC_WooMercadoPago_PaymentAbstract 
 	}
 
 	/**
-	 * @param $status_detail
-	 * @return mixed
+	 * Get Order Status
+	 *
+	 * @param string $status_detail Status.
+	 * @return string|void
 	 */
 	public function get_order_status( $status_detail ) {
 		switch ( $status_detail ) {
@@ -272,12 +286,14 @@ class WC_WooMercadoPago_CustomGateway extends WC_WooMercadoPago_PaymentAbstract 
 	 * Payment Fields
 	 */
 	public function payment_fields() {
-		// add css
+		// add css.
 		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
 		wp_enqueue_style(
 			'woocommerce-mercadopago-basic-checkout-styles',
-			plugins_url( '../assets/css/basic_checkout_mercadopago' . $suffix . '.css', plugin_dir_path( __FILE__ ) )
+			plugins_url( '../assets/css/basic_checkout_mercadopago' . $suffix . '.css', plugin_dir_path( __FILE__ ) ),
+			array(),
+			WC_WooMercadoPago_Constants::VERSION
 		);
 
 		$amount     = $this->get_order_total();
@@ -289,15 +305,15 @@ class WC_WooMercadoPago_CustomGateway extends WC_WooMercadoPago_PaymentAbstract 
 			$banner_url = $this->site_data['checkout_banner_custom'];
 		}
 
-		// credit or debit card
+		// credit or debit card.
 		$debit_card  = array();
 		$credit_card = array();
 		$tarjetas    = get_option( '_checkout_payments_methods', '' );
 
 		foreach ( $tarjetas as $tarjeta ) {
-			if ( $tarjeta['type'] == 'credit_card' ) {
+			if ( 'credit_card' === $tarjeta['type'] ) {
 				$credit_card[] = $tarjeta['image'];
-			} elseif ( $tarjeta['type'] == 'debit_card' || $tarjeta['type'] == 'prepaid_card' ) {
+			} elseif ( 'debit_card' === $tarjeta['type'] || 'prepaid_card' === $tarjeta['type'] ) {
 				$debit_card[] = $tarjeta['image'];
 			}
 		}
@@ -327,12 +343,26 @@ class WC_WooMercadoPago_CustomGateway extends WC_WooMercadoPago_PaymentAbstract 
 	}
 
 	/**
-	 * @param int $order_id
+	 * Process payment
+	 *
+	 * @param int $order_id Order Id.
 	 * @return array|void
 	 */
 	public function process_payment( $order_id ) {
+		// @todo need fix Processing form data without nonce verification
+		// @codingStandardsIgnoreLine
+		if ( ! isset( $_POST['mercadopago_custom'] ) ) {
+			$this->log->write_log( __FUNCTION__, 'A problem was occurred when processing your payment. Please, try again.' );
+			wc_add_notice( '<p>' . __( 'A problem was occurred when processing your payment. Please, try again.', 'woocommerce-mercadopago' ) . '</p>', 'error' );
+			return array(
+				'result'   => 'fail',
+				'redirect' => '',
+			);
+		}
+		// @todo need fix Processing form data without nonce verification
+		// @codingStandardsIgnoreLine
 		$custom_checkout = $_POST['mercadopago_custom'];
-		$this->log->write_log( __FUNCTION__, 'POST Custom: ' . json_encode( $custom_checkout, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE ) );
+		$this->log->write_log( __FUNCTION__, 'POST Custom: ' . wp_json_encode( $custom_checkout, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE ) );
 		$order  = wc_get_order( $order_id );
 		$amount = $this->get_order_total();
 		if ( method_exists( $order, 'update_meta_data' ) ) {
@@ -369,7 +399,7 @@ class WC_WooMercadoPago_CustomGateway extends WC_WooMercadoPago_PaymentAbstract 
 			isset( $custom_checkout['token'] ) && ! empty( $custom_checkout['token'] ) &&
 			isset( $custom_checkout['paymentMethodId'] ) && ! empty( $custom_checkout['paymentMethodId'] ) &&
 			isset( $custom_checkout['installments'] ) && ! empty( $custom_checkout['installments'] ) &&
-			$custom_checkout['installments'] != -1
+			-1 !== $custom_checkout['installments']
 		) {
 			$response = $this->create_preference( $order, $custom_checkout );
 
@@ -389,14 +419,12 @@ class WC_WooMercadoPago_CustomGateway extends WC_WooMercadoPago_PaymentAbstract 
 							'result'   => 'success',
 							'redirect' => $order->get_checkout_order_received_url(),
 						);
-						break;
 					case 'pending':
 						// Order approved/pending, we just redirect to the thankyou page.
 						return array(
 							'result'   => 'success',
 							'redirect' => $order->get_checkout_order_received_url(),
 						);
-						break;
 					case 'in_process':
 						// For pending, we don't know if the purchase will be made, so we must inform this status.
 						WC()->cart->empty_cart();
@@ -411,7 +439,6 @@ class WC_WooMercadoPago_CustomGateway extends WC_WooMercadoPago_PaymentAbstract 
 							'result'   => 'success',
 							'redirect' => $order->get_checkout_payment_url( true ),
 						);
-						break;
 					case 'rejected':
 						// If rejected is received, the order will not proceed until another payment try, so we must inform this status.
 						wc_add_notice(
@@ -430,7 +457,6 @@ class WC_WooMercadoPago_CustomGateway extends WC_WooMercadoPago_PaymentAbstract 
 							'result'   => 'success',
 							'redirect' => $order->get_checkout_payment_url( true ),
 						);
-						break;
 					case 'cancelled':
 					case 'in_mediation':
 					case 'charged_back':
@@ -465,16 +491,18 @@ class WC_WooMercadoPago_CustomGateway extends WC_WooMercadoPago_PaymentAbstract 
 	}
 
 	/**
-	 * @param $order
-	 * @param $custom_checkout
+	 * Create Preference
+	 *
+	 * @param object $order Order.
+	 * @param mixed  $custom_checkout Checkout info.
 	 * @return string|array
 	 */
 	protected function create_preference( $order, $custom_checkout ) {
-		$preferencesCustom = new WC_WooMercadoPago_PreferenceCustom( $this, $order, $custom_checkout );
-		$preferences       = $preferencesCustom->get_preference();
+		$preferences_custom = new WC_WooMercadoPago_PreferenceCustom( $this, $order, $custom_checkout );
+		$preferences        = $preferences_custom->get_preference();
 		try {
-			$checkout_info = $this->mp->post( '/v1/payments', json_encode( $preferences ) );
-			$this->log->write_log( __FUNCTION__, 'Preference created: ' . json_encode( $checkout_info, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE ) );
+			$checkout_info = $this->mp->post( '/v1/payments', wp_json_encode( $preferences ) );
+			$this->log->write_log( __FUNCTION__, 'Preference created: ' . wp_json_encode( $checkout_info, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE ) );
 			if ( $checkout_info['status'] < 200 || $checkout_info['status'] >= 300 ) {
 				$this->log->write_log( __FUNCTION__, 'mercado pago gave error, payment creation failed with error: ' . $checkout_info['response']['message'] );
 				return $checkout_info['response']['message'];
@@ -482,26 +510,28 @@ class WC_WooMercadoPago_CustomGateway extends WC_WooMercadoPago_PaymentAbstract 
 				$this->log->write_log( __FUNCTION__, 'WordPress gave error, payment creation failed with error: ' . $checkout_info['response']['message'] );
 				return $checkout_info['response']['message'];
 			} else {
-				$this->log->write_log( __FUNCTION__, 'payment link generated with success from mercado pago, with structure as follow: ' . json_encode( $checkout_info, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE ) );
+				$this->log->write_log( __FUNCTION__, 'payment link generated with success from mercado pago, with structure as follow: ' . wp_json_encode( $checkout_info, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE ) );
 				return $checkout_info['response'];
 			}
 		} catch ( WC_WooMercadoPago_Exception $ex ) {
-			$this->log->write_log( __FUNCTION__, 'payment creation failed with exception: ' . json_encode( $ex, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE ) );
+			$this->log->write_log( __FUNCTION__, 'payment creation failed with exception: ' . wp_json_encode( $ex, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE ) );
 			return $ex->getMessage();
 		}
 	}
 
 	/**
-	 * @param $checkout_info
+	 * Check and save customer card
+	 *
+	 * @param array $checkout_info Checkout info.
 	 */
 	public function check_and_save_customer_card( $checkout_info ) {
-		$this->log->write_log( __FUNCTION__, 'checking info to create card: ' . json_encode( $checkout_info, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE ) );
-		$custId            = null;
+		$this->log->write_log( __FUNCTION__, 'checking info to create card: ' . wp_json_encode( $checkout_info, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE ) );
+		$cust_id           = null;
 		$token             = null;
 		$issuer_id         = null;
 		$payment_method_id = null;
 		if ( isset( $checkout_info['payer']['id'] ) && ! empty( $checkout_info['payer']['id'] ) ) {
-			$custId = $checkout_info['payer']['id'];
+			$cust_id = $checkout_info['payer']['id'];
 		} else {
 			return;
 		}
@@ -517,13 +547,15 @@ class WC_WooMercadoPago_CustomGateway extends WC_WooMercadoPago_PaymentAbstract 
 			$payment_method_id = $checkout_info['payment_method_id'];
 		}
 		try {
-			$this->mp->create_card_in_customer( $custId, $token, $payment_method_id, $issuer_id );
+			$this->mp->create_card_in_customer( $cust_id, $token, $payment_method_id, $issuer_id );
 		} catch ( WC_WooMercadoPago_Exception $ex ) {
-			$this->log->write_log( __FUNCTION__, 'card creation failed: ' . json_encode( $ex, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE ) );
+			$this->log->write_log( __FUNCTION__, 'card creation failed: ' . wp_json_encode( $ex, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE ) );
 		}
 	}
 
 	/**
+	 * Is available?
+	 *
 	 * @return bool
 	 */
 	public function is_available() {
@@ -532,9 +564,9 @@ class WC_WooMercadoPago_CustomGateway extends WC_WooMercadoPago_PaymentAbstract 
 		}
 
 		$_mp_access_token    = get_option( '_mp_access_token_prod' );
-		$is_prod_credentials = WC_WooMercadoPago_Credentials::validate_credentials_test( $this->mp, $_mp_access_token, null ) == false;
+		$is_prod_credentials = false === WC_WooMercadoPago_Credentials::validate_credentials_test( $this->mp, $_mp_access_token, null );
 
-		if ( ( empty( $_SERVER['HTTPS'] ) || $_SERVER['HTTPS'] == 'off' ) && $is_prod_credentials ) {
+		if ( ( empty( $_SERVER['HTTPS'] ) || 'off' === $_SERVER['HTTPS'] ) && $is_prod_credentials ) {
 			$this->log->write_log( __FUNCTION__, 'NO HTTPS, Custom unavailable.' );
 			return false;
 		}
@@ -543,10 +575,12 @@ class WC_WooMercadoPago_CustomGateway extends WC_WooMercadoPago_PaymentAbstract 
 	}
 
 	/**
+	 * Get or create customer
+	 *
 	 * @return array|mixed|null
-	 * @throws WC_WooMercadoPago_Exception
+	 * @throws WC_WooMercadoPago_Exception Get or create user exception.
 	 */
-	public function getOrCreateCustomer() {
+	public function get_or_create_customer() {
 		if ( empty( $this->mp ) ) {
 			return null;
 		}
@@ -554,9 +588,11 @@ class WC_WooMercadoPago_CustomGateway extends WC_WooMercadoPago_PaymentAbstract 
 	}
 
 	/**
+	 * Get Id
+	 *
 	 * @return string
 	 */
-	public static function getId() {
+	public static function get_id() {
 		return self::ID;
 	}
 }
