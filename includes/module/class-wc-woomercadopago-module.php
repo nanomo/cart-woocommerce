@@ -129,8 +129,8 @@ class WC_WooMercadoPago_Module extends WC_WooMercadoPago_Configs {
 			$mp = new MP( $credentials->access_token );
 			$mp->set_payment_class( $payment );
 		}
-		if ( $validate_credentials_type == WC_WooMercadoPago_Credentials::TYPE_ACCESS_CLIENT ) {
-			$mp = new MP( $credentials->clientId, $credentials->clientSecret );
+		if ( WC_WooMercadoPago_Credentials::TYPE_ACCESS_CLIENT === $validate_credentials_type ) {
+			$mp = new MP( $credentials->client_id, $credentials->client_secret );
 			$mp->set_payment_class( $payment );
 			if ( ! empty( $payment ) ) {
 				$payment->sandbox = false;
