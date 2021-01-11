@@ -433,7 +433,7 @@ class WC_WooMercadoPago_PaymentAbstract extends WC_Payment_Gateway {
 		$homolog_validate = (int) get_option( 'homolog_validate', 0 );
 		if ( ( $this->is_production_mode() && ! empty( $this->mp_access_token_prod ) ) && 0 === $homolog_validate ) {
 			if ( $this->mp instanceof MP ) {
-				$homolog_validate = $this->mp->getCredentialsWrapper( $this->mp_access_token_prod );
+				$homolog_validate = $this->mp->get_credentials_wrapper($this->mp_access_token_prod );
 				$homolog_validate = isset( $homolog_validate['homologated'] ) && true === $homolog_validate['homologated'] ? 1 : 0;
 				update_option( 'homolog_validate', $homolog_validate, true );
 				return $homolog_validate;
@@ -867,7 +867,7 @@ class WC_WooMercadoPago_PaymentAbstract extends WC_Payment_Gateway {
 		if ( empty( $mp_access_token_prod ) ) {
 			return '';
 		} else {
-			$application_id = $this->mp->getCredentialsWrapper( $this->mp_access_token_prod );
+			$application_id = $this->mp->get_credentials_wrapper($this->mp_access_token_prod );
 			if ( is_array( $application_id ) && isset( $application_id['client_id'] ) ) {
 				return $application_id['client_id'];
 			}

@@ -127,11 +127,11 @@ class WC_WooMercadoPago_Module extends WC_WooMercadoPago_Configs {
 		$validate_credentials_type = $credentials->validate_credentials_type();
 		if ( WC_WooMercadoPago_Credentials::TYPE_ACCESS_TOKEN === $validate_credentials_type ) {
 			$mp = new MP( $credentials->access_token );
-			$mp->setPaymentClass( $payment );
+			$mp->set_payment_class($payment );
 		}
-		if ( WC_WooMercadoPago_Credentials::TYPE_ACCESS_CLIENT === $validate_credentials_type ) {
-			$mp = new MP( $credentials->client_id, $credentials->client_secret );
-			$mp->setPaymentClass( $payment );
+		if ( $validate_credentials_type == WC_WooMercadoPago_Credentials::TYPE_ACCESS_CLIENT ) {
+			$mp = new MP( $credentials->clientId, $credentials->clientSecret );
+			$mp->set_payment_class($payment );
 			if ( ! empty( $payment ) ) {
 				$payment->sandbox = false;
 			}
