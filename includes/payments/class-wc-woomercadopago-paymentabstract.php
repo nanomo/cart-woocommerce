@@ -753,17 +753,17 @@ class WC_WooMercadoPago_PaymentAbstract extends WC_Payment_Gateway {
 		$steps_content = wc_get_template_html(
 			'checkout/credential/steps.php',
 			array(
-				'title'              => __( 'Follow these steps to activate Mercado Pago in your store:', 'woocommerce-mercadopago' ),
+				'title'                        => __( 'Follow these steps to activate Mercado Pago in your store:', 'woocommerce-mercadopago' ),
 				'upload_credentials_highlight' => __( 'Upload your credentials', 'woocommerce-mercadopago' ),
-				'upload_credentials' => __( 'depending on the country in which you are registered.', 'woocommerce-mercadopago' ),
+				'upload_credentials'           => __( 'depending on the country in which you are registered.', 'woocommerce-mercadopago' ),
 				'approve_account_highlight'    => __( 'Approve your account', 'woocommerce-mercadopago' ),
-				'approve_account'    => __( 'to be able to charge.', 'woocommerce-mercadopago' ),
+				'approve_account'              => __( 'to be able to charge.', 'woocommerce-mercadopago' ),
 				'basic_information_highlight'  => __( 'Add the basic information of your business', 'woocommerce-mercadopago' ),
-				'basic_information'  => __( 'in the plugin configuration.', 'woocommerce-mercadopago' ),
+				'basic_information'            => __( 'in the plugin configuration.', 'woocommerce-mercadopago' ),
 				'payment_preference_highlight' => __( 'Configure the payment preferences', 'woocommerce-mercadopago' ),
-				'payment_preference' => __( 'for your customers.', 'woocommerce-mercadopago' ),
+				'payment_preference'           => __( 'for your customers.', 'woocommerce-mercadopago' ),
 				'advanced_settings_highlight'  => __( 'Go to advanced settings', 'woocommerce-mercadopago' ),
-				'advanced_settings'  => __( 'only when you want to change the presets.', 'woocommerce-mercadopago' ),
+				'advanced_settings'            => __( 'only when you want to change the presets.', 'woocommerce-mercadopago' ),
 			),
 			'woo/mercado/pago/steps/',
 			WC_WooMercadoPago_Module::get_templates_path()
