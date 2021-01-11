@@ -423,9 +423,9 @@ abstract class WC_WooMercadoPago_PreferenceAbstract extends WC_Payment_Gateway {
 			'collector'        => $seller,
 			'test_mode'        => $test_mode,
 			'details'          => '',
-			'basic_settings'   => json_encode( $analytics->getBasicSettings(), true ),
-			'custom_settings'  => json_encode( $analytics->getCustomSettings(), true ),
-			'ticket_settings'  => json_encode( $analytics->getTicketSettings(), true ),
+			'basic_settings'   => json_encode( $analytics->get_basic_settings(), true ),
+			'custom_settings'  => json_encode( $analytics->get_custom_settings(), true ),
+			'ticket_settings'  => json_encode( $analytics->get_ticket_settings(), true ),
 		);
 
 		return $internal_metadata;
