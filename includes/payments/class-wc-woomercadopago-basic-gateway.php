@@ -643,7 +643,7 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 	 * @return bool
 	 */
 	public function create_preference( $order ) {
-		$preferences_basic = new WC_WooMercadoPago_PreferenceBasic( $this, $order );
+		$preferences_basic = new WC_WooMercadoPago_Preference_Basic( $this, $order );
 		$preferences       = $preferences_basic->get_preference();
 		try {
 			$checkout_info = $this->mp->create_preference( wp_json_encode( $preferences ) );

@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 class WC_WooMercadoPago_Preference_Basic extends WC_WooMercadoPago_Preference_Abstract {
 
 	/**
-	 * WC_WooMercadoPago_PreferenceBasic constructor.
+	 * WC_WooMercadoPago_Preference_Basic constructor.
 	 *
 	 * @param WC_WooMercadoPago_Payment_Abstract $payment Payment.
 	 * @param object                             $order Order.
