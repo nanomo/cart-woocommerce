@@ -23,9 +23,9 @@ class WC_WooMercadoPago_Preference_Custom extends WC_WooMercadoPago_Preference_A
 	/**
 	 * WC_WooMercadoPago_PreferenceCustom constructor.
 	 *
-	 * @param $payment
-	 * @param $order
-	 * @param $custom_checkout
+	 * @param WC_WooMercadoPago_PaymentAbstract $payment Payment.
+	 * @param object                            $order Order.
+	 * @param array|null                        $custom_checkout Custom checkout.
 	 */
 	public function __construct( $payment, $order, $custom_checkout ) {
 		parent::__construct( $payment, $order, $custom_checkout );
@@ -53,7 +53,7 @@ class WC_WooMercadoPago_Preference_Custom extends WC_WooMercadoPago_Preference_A
 		if (
 			isset( $this->checkout['discount'] ) && ! empty( $this->checkout['discount'] ) &&
 			isset( $this->checkout['coupon_code'] ) && ! empty( $this->checkout['coupon_code'] ) &&
-			$this->checkout['discount'] > 0 && WC()->session->chosen_payment_method == 'woo-mercado-pago-custom'
+			$this->checkout['discount'] > 0 && 'woo-mercado-pago-custom' === WC()->session->chosen_payment_method
 		) {
 			$this->preference['additional_info']['items'][] = $this->add_discounts();
 			$this->preference                               = array_merge( $this->preference, $this->add_discounts_campaign() );
@@ -66,6 +66,8 @@ class WC_WooMercadoPago_Preference_Custom extends WC_WooMercadoPago_Preference_A
 	}
 
 	/**
+	 * Ship cost item
+	 *
 	 * @return array
 	 */
 	public function ship_cost_item() {
@@ -77,6 +79,8 @@ class WC_WooMercadoPago_Preference_Custom extends WC_WooMercadoPago_Preference_A
 	}
 
 	/**
+	 * Get items build array
+	 *
 	 * @return array
 	 */
 	public function get_items_build_array() {
@@ -91,14 +95,14 @@ class WC_WooMercadoPago_Preference_Custom extends WC_WooMercadoPago_Preference_A
 	}
 
 	/**
+	 * Get internal metadata custom
+	 *
 	 * @return array
 	 */
 	public function get_internal_metadata_custom() {
-		$internal_metadata = array(
+		return array(
 			'checkout'      => 'custom',
 			'checkout_type' => 'credit_card',
 		);
-
-		return $internal_metadata;
 	}
 }
