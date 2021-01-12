@@ -52,19 +52,19 @@ msgstr ""
 msgid "The store should have HTTPS in order to activate both Checkout Personalizado and Ticket Checkout."
 msgstr ""
 
-#: includes/module/class-wc-woomercadopago-init.php:46
+#: includes/module/class-wc-woomercadopago-init.php:49
 msgid "Mercado Pago payments for WooCommerce requires PHP version 5.6 or later. Please update your PHP version."
 msgstr ""
 
-#: includes/module/class-wc-woomercadopago-init.php:55
+#: includes/module/class-wc-woomercadopago-init.php:58
 msgid "Mercado Pago Error: PHP Extension CURL is not installed."
 msgstr ""
 
-#: includes/module/class-wc-woomercadopago-init.php:66
+#: includes/module/class-wc-woomercadopago-init.php:69
 msgid "The Mercado Pago module needs an active version of %s in order to work!"
 msgstr ""
 
-#: includes/module/class-wc-woomercadopago-init.php:73
+#: includes/module/class-wc-woomercadopago-init.php:76
 msgid "Cancel order"
 msgstr ""
 
@@ -1162,19 +1162,15 @@ msgstr ""
 msgid "Print ticket"
 msgstr ""
 
-#: includes/admin/notices/class-wc-woomercadopago-notices.php:103, includes/admin/notices/class-wc-woomercadopago-notices.php:162, includes/admin/notices/class-wc-woomercadopago-reviewnotice.php:133
-msgid "Discard"
-msgstr ""
-
-#: includes/admin/notices/class-wc-woomercadopago-notices.php:135
+#: includes/admin/notices/class-wc-woomercadopago-notices.php:116
 msgid "See WooCommerce"
 msgstr ""
 
-#: includes/admin/notices/class-wc-woomercadopago-notices.php:133
+#: includes/admin/notices/class-wc-woomercadopago-notices.php:114
 msgid "Install WooCommerce"
 msgstr ""
 
-#: includes/admin/notices/class-wc-woomercadopago-notices.php:130
+#: includes/admin/notices/class-wc-woomercadopago-notices.php:111
 msgid "Activate WooCommerce"
 msgstr ""
 
@@ -1188,6 +1184,10 @@ msgstr ""
 
 #: includes/admin/notices/class-wc-woomercadopago-reviewnotice.php:128
 msgid "Rate the plugin"
+msgstr ""
+
+#: includes/admin/notices/class-wc-woomercadopago-reviewnotice.php:133, includes/admin/views/html-admin-alert-frame.php:24, includes/admin/views/html-admin-alert-woocommerce-miss.php:25
+msgid "Discard"
 msgstr ""
 
 #: includes/module/preference/class-wc-woomercadopago-preferenceabstract.php:225

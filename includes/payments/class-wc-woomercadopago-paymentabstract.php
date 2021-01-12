@@ -615,7 +615,7 @@ class WC_WooMercadoPago_PaymentAbstract extends WC_Payment_Gateway {
 		$type = 'notice-warning';
 		/* translators: %s url */
 		$message = sprintf( __( '%s, it only takes a few minutes', 'woocommerce-mercadopago' ), '<a class="mp-mouse_pointer" href="https://www.mercadopago.com/' . $this->checkout_country . '/account/credentials/appliance?application_id=' . $this->application_id . '" target="_blank"><b><u>' . __( 'Approve your account', 'woocommerce-mercadopago' ) . '</u></b></a>' );
-		echo esc_html( WC_WooMercadoPago_Notices::get_alert_frame( $message, $type ) );
+		WC_WooMercadoPago_Notices::get_alert_frame( $message, $type );
 	}
 
 	/**

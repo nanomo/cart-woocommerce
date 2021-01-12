@@ -326,7 +326,7 @@ class WC_WooMercadoPago_Module extends WC_WooMercadoPago_Configs {
 	public function enable_payment_notice() {
 		$type    = 'notice-warning';
 		$message = __( 'Fill in your credentials to enable payment methods.', 'woocommerce-mercadopago' );
-		echo esc_html( WC_WooMercadoPago_Notices::get_alert_frame( $message, $type ) );
+		WC_WooMercadoPago_Notices::get_alert_frame( $message, $type );
 	}
 
 	/**

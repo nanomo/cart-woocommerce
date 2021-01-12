@@ -445,14 +445,14 @@ class WC_WooMercadoPago_Helpers_CurrencyConverter {
 		if ( isset( $show['notice'] ) ) {
 			unset( $_SESSION[ self::CONFIG_KEY ]['notice'] );
 			if ( 'enabled' === $show['notice']['type'] ) {
-				echo esc_html( $this->notice_enabled( $method ) );
+				$this->notice_enabled( $method );
 			} elseif ( 'disabled' === $show['notice']['type'] ) {
-				echo esc_html( $this->notice_disabled( $method ) );
+				$this->notice_disabled( $method );
 			}
 		}
 
 		if ( ! $this->is_enabled( $method ) && ! $this->is_showing_alert && $method->is_currency_convertable() ) {
-			echo esc_html( $this->notice_warning( $method ) );
+			$this->notice_warning( $method );
 		}
 	}
 
@@ -474,7 +474,7 @@ class WC_WooMercadoPago_Helpers_CurrencyConverter {
 			$currency
 		);
 
-		return WC_WooMercadoPago_Notices::get_alert_frame( $message, $type );
+		WC_WooMercadoPago_Notices::get_alert_frame( $message, $type );
 	}
 
 	/**
@@ -495,7 +495,7 @@ class WC_WooMercadoPago_Helpers_CurrencyConverter {
 			$currency
 		);
 
-		return WC_WooMercadoPago_Notices::get_alert_frame( $message, $type );
+		WC_WooMercadoPago_Notices::get_alert_frame( $message, $type );
 	}
 
 	/**
@@ -514,10 +514,8 @@ class WC_WooMercadoPago_Helpers_CurrencyConverter {
 			$type    = 'notice-error';
 			$message = __( '<b>Attention:</b> The currency settings you have in WooCommerce are not compatible with the currency you use in your Mercado Pago account. Please activate the currency conversion.', 'woocommerce-mercadopago' );
 
-			return WC_WooMercadoPago_Notices::get_alert_frame( $message, $type );
+			WC_WooMercadoPago_Notices::get_alert_frame( $message, $type );
 		}
-
-		return '';
 	}
 
 	/**

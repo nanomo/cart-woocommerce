@@ -27,6 +27,7 @@ class WC_WooMercadoPago_Notices {
 	 */
 	public static $instance = null;
 
+
 	/**
 	 * Constructor
 	 */
@@ -75,10 +76,9 @@ class WC_WooMercadoPago_Notices {
 	 *
 	 * @param string $message message.
 	 * @param string $type type.
-	 * @return string
 	 */
 	public static function get_alert_frame( $message, $type ) {
-		$inline = null;
+		$inline = '';
 		if (
 			( class_exists( 'WC_WooMercadoPago_Module' ) && WC_WooMercadoPago_Module::is_wc_new_version() )
 			&&
@@ -89,25 +89,7 @@ class WC_WooMercadoPago_Notices {
 		) {
 			$inline = 'inline';
 		}
-
-		$notice = '<div id="message" class="notice ' . $type . ' is-dismissible ' . $inline . '">
-                    <div class="mp-alert-frame">
-                        <div class="mp-left-alert">
-                            <img src="' . plugins_url( '../../assets/images/minilogo.png', plugin_dir_path( __FILE__ ) ) . '">
-                        </div>
-                        <div class="mp-right-alert">
-                            <p>' . $message . '</p>
-                        </div>
-                    </div>
-                    <button type="button" class="notice-dismiss">
-                        <span class="screen-reader-text">' . __( 'Discard', 'woocommerce-mercadopago' ) . '</span>
-                    </button>
-                </div>';
-		if ( class_exists( 'WC_WooMercadoPago_Module' ) ) {
-			WC_WooMercadoPago_Module::$notices[] = $notice;
-		}
-
-		return $notice;
+		include dirname( __FILE__ ) . '../../views/html-admin-alert-frame.php';
 	}
 
 	/**
@@ -115,7 +97,6 @@ class WC_WooMercadoPago_Notices {
 	 *
 	 * @param string $message message.
 	 * @param string $type type.
-	 * @return string
 	 */
 	public static function get_alert_woocommerce_miss( $message, $type ) {
 
@@ -136,7 +117,7 @@ class WC_WooMercadoPago_Notices {
 			}
 		}
 
-		$inline = null;
+		$inline = '';
 		if (
 			( class_exists( 'WC_WooMercadoPago_Module' ) && WC_WooMercadoPago_Module::is_wc_new_version() )
 			&&
@@ -148,24 +129,6 @@ class WC_WooMercadoPago_Notices {
 			$inline = 'inline';
 		}
 
-		$notice = '<div id="message" class="notice ' . $type . ' is-dismissible ' . $inline . '">
-                    <div class="mp-alert-frame">
-                        <div class="mp-left-alert">
-                            <img src="' . plugins_url( '../../assets/images/minilogo.png', plugin_dir_path( __FILE__ ) ) . '">
-                        </div>
-                        <div class="mp-right-alert">
-                            <p>' . $message . '</p>
-							<p>' . $button_url . '</p>
-                        </div>
-                    </div>
-                    <button type="button" class="notice-dismiss">
-                        <span class="screen-reader-text">' . __( 'Discard', 'woocommerce-mercadopago' ) . '</span>
-                    </button>
-                </div>';
-
-		if ( class_exists( 'WC_WooMercadoPago_Module' ) ) {
-			WC_WooMercadoPago_Module::$notices[] = $notice;
-		}
-		return $notice;
+		include dirname( __FILE__ ) . '../../views/html-admin-alert_woocommerce-miss.php';
 	}
 }

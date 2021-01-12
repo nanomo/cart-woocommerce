@@ -371,7 +371,7 @@ abstract class WC_WooMercadoPago_Hook_Abstract {
 	public function notice_invalid_public_key_prod() {
 		$type    = 'error';
 		$message = __( '<b>Public Key</b> production credential is invalid. Review the field to receive real payments.', 'woocommerce-mercadopago' );
-		echo esc_html( WC_WooMercadoPago_Notices::get_alert_frame( $message, $type ) );
+		WC_WooMercadoPago_Notices::get_alert_frame( $message, $type );
 	}
 
 	/**
@@ -380,7 +380,7 @@ abstract class WC_WooMercadoPago_Hook_Abstract {
 	public function notice_invalid_public_key_test() {
 		$type    = 'error';
 		$message = __( '<b>Public Key</b> test credential is invalid. Review the field to perform tests in your store.', 'woocommerce-mercadopago' );
-		echo esc_html( WC_WooMercadoPago_Notices::get_alert_frame( $message, $type ) );
+		WC_WooMercadoPago_Notices::get_alert_frame( $message, $type );
 	}
 
 	/**
@@ -389,7 +389,7 @@ abstract class WC_WooMercadoPago_Hook_Abstract {
 	public function notice_invalid_prod_credentials() {
 		$type    = 'error';
 		$message = __( '<b>Access Token</b> production credential is invalid. Remember that it must be complete to receive real payments.', 'woocommerce-mercadopago' );
-		echo esc_html( WC_WooMercadoPago_Notices::get_alert_frame( $message, $type ) );
+		WC_WooMercadoPago_Notices::get_alert_frame( $message, $type );
 	}
 
 	/**
@@ -398,7 +398,7 @@ abstract class WC_WooMercadoPago_Hook_Abstract {
 	public function notice_invalid_test_credentials() {
 		$type    = 'error';
 		$message = __( '<b>Access Token</b> test credential is invalid. Review the field to perform tests in your store.', 'woocommerce-mercadopago' );
-		echo esc_html( WC_WooMercadoPago_Notices::get_alert_frame( $message, $type ) );
+		WC_WooMercadoPago_Notices::get_alert_frame( $message, $type );
 	}
 
 	/**
@@ -407,7 +407,7 @@ abstract class WC_WooMercadoPago_Hook_Abstract {
 	public function enable_payment_notice() {
 		$type    = 'notice-warning';
 		$message = __( 'Fill in your credentials to enable payment methods.', 'woocommerce-mercadopago' );
-		echo esc_html( WC_WooMercadoPago_Notices::get_alert_frame( $message, $type ) );
+		WC_WooMercadoPago_Notices::get_alert_frame( $message, $type );
 	}
 
 

@@ -15,6 +15,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+/**
+ * WC WooMercadoPago Init class
+ */
 class WC_WooMercadoPago_Init {
 
 	/**
@@ -30,9 +33,9 @@ class WC_WooMercadoPago_Init {
 
 		$original_language_file = dirname( __FILE__ ) . '/../../i18n/languages/woocommerce-mercadopago-' . $locale . '.mo';
 
-		// Unload the translation for the text domain of the plugin
+		// Unload the translation for the text domain of the plugin.
 		unload_textdomain( $text_domain );
-		// Load first the override file
+		// Load first the override file.
 		load_textdomain( $text_domain, $original_language_file );
 	}
 
@@ -44,7 +47,7 @@ class WC_WooMercadoPago_Init {
 	public static function wc_mercado_pago_unsupported_php_version_notice() {
 		$type    = 'error';
 		$message = esc_html__( 'Mercado Pago payments for WooCommerce requires PHP version 5.6 or later. Please update your PHP version.', 'woocommerce-mercadopago' );
-		echo WC_WooMercadoPago_Notices::get_alert_frame( $message, $type );
+		WC_WooMercadoPago_Notices::get_alert_frame( $message, $type );
 	}
 
 	/**
@@ -53,7 +56,7 @@ class WC_WooMercadoPago_Init {
 	public static function wc_mercado_pago_notify_curl_error() {
 		$type    = 'error';
 		$message = __( 'Mercado Pago Error: PHP Extension CURL is not installed.', 'woocommerce-mercadopago' );
-		echo WC_WooMercadoPago_Notices::get_alert_frame( $message, $type );
+		WC_WooMercadoPago_Notices::get_alert_frame( $message, $type );
 	}
 
 	/**
@@ -115,6 +118,7 @@ class WC_WooMercadoPago_Init {
 	 */
 	public static function woocommerce_mercadopago_init() {
 		self::woocommerce_mercadopago_load_plugin_textdomain();
+		require_once dirname( __FILE__ ) . '/config/class-wc-woomercadopago-constants.php';
 		require_once dirname( __FILE__ ) . '../../admin/notices/class-wc-woomercadopago-notices.php';
 		WC_WooMercadoPago_Notices::init_mercadopago_notice();
 
@@ -134,7 +138,6 @@ class WC_WooMercadoPago_Init {
 
 		// Checks with WooCommerce is installed.
 		if ( class_exists( 'WC_Payment_Gateway' ) ) {
-			require_once dirname( __FILE__ ) . '/config/class-wc-woomercadopago-constants.php';
 			require_once dirname( __FILE__ ) . '/class-wc-woomercadopago-exception.php';
 			require_once dirname( __FILE__ ) . '/class-wc-woomercadopago-configs.php';
 			require_once dirname( __FILE__ ) . '/log/class-wc-woomercadopago-log.php';
