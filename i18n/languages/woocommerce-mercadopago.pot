@@ -1162,7 +1162,7 @@ msgstr ""
 msgid "Print ticket"
 msgstr ""
 
-#: includes/admin/notices/class-wc-woomercadopago-notices.php:103, includes/admin/notices/class-wc-woomercadopago-notices.php:162, includes/admin/notices/class-wc-woomercadopago-reviewnotice.php:133
+#: includes/admin/notices/class-wc-woomercadopago-notices.php:103, includes/admin/notices/class-wc-woomercadopago-notices.php:162, includes/admin/notices/class-wc-woomercadopago-review-notice.php:133
 msgid "Discard"
 msgstr ""
 
@@ -1178,15 +1178,15 @@ msgstr ""
 msgid "Activate WooCommerce"
 msgstr ""
 
-#: includes/admin/notices/class-wc-woomercadopago-reviewnotice.php:116
+#: includes/admin/notices/class-wc-woomercadopago-review-notice.php:116
 msgid "do you have a minute to share your experience with our plugin?"
 msgstr ""
 
-#: includes/admin/notices/class-wc-woomercadopago-reviewnotice.php:119
+#: includes/admin/notices/class-wc-woomercadopago-review-notice.php:119
 msgid "Your opinion is very important so that we can offer you the best possible payment solution and continue to improve."
 msgstr ""
 
-#: includes/admin/notices/class-wc-woomercadopago-reviewnotice.php:128
+#: includes/admin/notices/class-wc-woomercadopago-review-notice.php:128
 msgid "Rate the plugin"
 msgstr ""
 

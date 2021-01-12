@@ -143,7 +143,7 @@ class WC_WooMercadoPago_Configs {
 		}
 		// @todo need fix HTML escaping to template
 		// @codingStandardsIgnoreLine
-		echo WC_WooMercadoPago_ReviewNotice::get_plugin_review_banner();
+		echo WC_WooMercadoPago_Review_Notice::get_plugin_review_banner();
 	}
 
 	/**

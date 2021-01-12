@@ -16,14 +16,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Class WC_WooMercadoPago_ReviewNotice
+ * Class WC_WooMercadoPago_Review_Notice
  */
-class WC_WooMercadoPago_ReviewNotice {
+class WC_WooMercadoPago_Review_Notice {
 
 	/**
 	 * Static instance
 	 *
-	 * @var WC_WooMercadoPago_ReviewNotice
+	 * @var WC_WooMercadoPago_Review_Notice
 	 */
 	public static $instance = null;
 
@@ -39,7 +39,7 @@ class WC_WooMercadoPago_ReviewNotice {
 	/**
 	 * Singleton
 	 *
-	 * @return WC_WooMercadoPago_ReviewNotice|null
+	 * @return WC_WooMercadoPago_Review_Notice|null
 	 */
 	public static function init_mercadopago_review_notice() {
 		if ( null === self::$instance ) {
