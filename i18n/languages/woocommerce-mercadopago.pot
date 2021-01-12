@@ -1187,7 +1187,7 @@ msgstr ""
 msgid "Rate the plugin"
 msgstr ""
 
-#: includes/admin/notices/class-wc-woomercadopago-review-notice.php:133, includes/admin/views/html-admin-alert-frame.php:24, includes/admin/views/html-admin-alert-woocommerce-miss.php:26
+#: includes/admin/notices/class-wc-woomercadopago-review-notice.php:133, includes/admin/views/html-admin-alert-frame.php:24, includes/admin/views/html-admin-alert-woocommerce-miss.php:30
 msgid "Discard"
 msgstr ""
 
