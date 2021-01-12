@@ -30,7 +30,7 @@ abstract class WC_WooMercadoPago_Preference_Abstract extends WC_Payment_Gateway 
 	/**
 	 * Payment
 	 *
-	 * @var WC_WooMercadoPago_PaymentAbstract
+	 * @var WC_WooMercadoPago_Payment_Abstract
 	 */
 	protected $payment;
 
@@ -163,9 +163,9 @@ abstract class WC_WooMercadoPago_Preference_Abstract extends WC_Payment_Gateway 
 	/**
 	 * WC_WooMercadoPago_PreferenceAbstract constructor.
 	 *
-	 * @param WC_WooMercadoPago_PaymentAbstract $payment Payment.
-	 * @param object                            $order Order.
-	 * @param null                              $request_checkout Request checkout.
+	 * @param WC_WooMercadoPago_Payment_Abstract $payment Payment.
+	 * @param object                             $order Order.
+	 * @param null                               $request_checkout Request checkout.
 	 * @throws Exception Preference Init abstract exception.
 	 */
 	public function __construct( $payment, $order, $request_checkout = null ) {
@@ -459,7 +459,7 @@ abstract class WC_WooMercadoPago_Preference_Abstract extends WC_Payment_Gateway 
 	/**
 	 * Get binary_mode
 	 *
-	 * @param WC_WooMercadoPago_PaymentAbstract $payment Payment.
+	 * @param WC_WooMercadoPago_Payment_Abstract $payment Payment.
 	 * @return bool
 	 */
 	public function get_binary_mode( $payment = null ) {
@@ -484,7 +484,7 @@ abstract class WC_WooMercadoPago_Preference_Abstract extends WC_Payment_Gateway 
 	/**
 	 * Get external reference
 	 *
-	 * @param null|WC_WooMercadoPago_PaymentAbstract $payment Payment.
+	 * @param null|WC_WooMercadoPago_Payment_Abstract $payment Payment.
 	 * @return string
 	 */
 	public function get_external_reference( $payment = null ) {

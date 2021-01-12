@@ -248,10 +248,10 @@ class WC_WooMercadoPago_Module extends WC_WooMercadoPago_Configs {
 	 *  @return void
 	 */
 	public function load_payments() {
-		include_once dirname( __FILE__ ) . '/../payments/class-wc-woomercadopago-paymentabstract.php';
-		include_once dirname( __FILE__ ) . '/../payments/class-wc-woomercadopago-basicgateway.php';
-		include_once dirname( __FILE__ ) . '/../payments/class-wc-woomercadopago-customgateway.php';
-		include_once dirname( __FILE__ ) . '/../payments/class-wc-woomercadopago-ticketgateway.php';
+		include_once dirname( __FILE__ ) . '/../payments/class-wc-woomercadopago-payment-abstract.php';
+		include_once dirname( __FILE__ ) . '/../payments/class-wc-woomercadopago-basic-gateway.php';
+		include_once dirname( __FILE__ ) . '/../payments/class-wc-woomercadopago-custom-gateway.php';
+		include_once dirname( __FILE__ ) . '/../payments/class-wc-woomercadopago-ticket-gateway.php';
 		add_filter( 'woocommerce_payment_gateways', array( $this, 'set_payment_gateway' ) );
 	}
 

@@ -60,7 +60,7 @@ class MP {
 	/**
 	 * Payment class
 	 *
-	 * @var WC_WooMercadoPago_PaymentAbstract
+	 * @var WC_WooMercadoPago_Payment_Abstract
 	 */
 	private $payment_class;
 
@@ -755,7 +755,7 @@ class MP {
 	/**
 	 * Set payment class
 	 *
-	 * @param null|WC_WooMercadoPago_PaymentAbstract $payment Payment class.
+	 * @param null|WC_WooMercadoPago_Payment_Abstract $payment Payment class.
 	 */
 	public function set_payment_class( $payment = null ) {
 		if ( ! empty( $payment ) ) {
@@ -766,7 +766,7 @@ class MP {
 	/**
 	 * Get payment class
 	 *
-	 * @return WC_WooMercadoPago_PaymentAbstract
+	 * @return WC_WooMercadoPago_Payment_Abstract
 	 */
 	public function get_payment_class() {
 		return $this->payment_class;

@@ -16,10 +16,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- *
- * WC_WooMercadoPago_BasicGateway
+ * Class WC_WooMercadoPago_Basic_Gateway
  */
-class WC_WooMercadoPago_BasicGateway extends WC_WooMercadoPago_PaymentAbstract {
+class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 
 	const ID = 'woo-mercado-pago-basic';
 	/**

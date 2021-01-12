@@ -23,9 +23,9 @@ class WC_WooMercadoPago_Preference_Custom extends WC_WooMercadoPago_Preference_A
 	/**
 	 * WC_WooMercadoPago_PreferenceCustom constructor.
 	 *
-	 * @param WC_WooMercadoPago_PaymentAbstract $payment Payment.
-	 * @param object                            $order Order.
-	 * @param array|null                        $custom_checkout Custom checkout.
+	 * @param WC_WooMercadoPago_Payment_Abstract $payment Payment.
+	 * @param object                             $order Order.
+	 * @param array|null                         $custom_checkout Custom checkout.
 	 */
 	public function __construct( $payment, $order, $custom_checkout ) {
 		parent::__construct( $payment, $order, $custom_checkout );

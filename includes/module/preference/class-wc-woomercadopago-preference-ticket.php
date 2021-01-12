@@ -24,9 +24,9 @@ class WC_WooMercadoPago_Preference_Ticket extends WC_WooMercadoPago_Preference_A
 	/**
 	 * WC_WooMercadoPago_PreferenceTicket constructor.
 	 *
-	 * @param WC_WooMercadoPago_PaymentAbstract $payment Payment.
-	 * @param object                            $order Order.
-	 * @param mixed                             $ticket_checkout Ticket checkout.
+	 * @param WC_WooMercadoPago_Payment_Abstract $payment Payment.
+	 * @param object                             $order Order.
+	 * @param mixed                              $ticket_checkout Ticket checkout.
 	 */
 	public function __construct( $payment, $order, $ticket_checkout ) {
 		parent::__construct( $payment, $order, $ticket_checkout );
@@ -87,10 +87,10 @@ class WC_WooMercadoPago_Preference_Ticket extends WC_WooMercadoPago_Preference_A
 	/**
 	 * Get date of expiration
 	 *
-	 * @param WC_WooMercadoPago_TicketGateway $payment Payment.
+	 * @param WC_WooMercadoPago_Ticket_Gateway $payment Payment.
 	 * @return string date
 	 */
-	public function get_date_of_expiration( WC_WooMercadoPago_TicketGateway $payment = null ) {
+	public function get_date_of_expiration( WC_WooMercadoPago_Ticket_Gateway $payment = null ) {
 		$date_expiration = ! is_null( $payment )
 			? $payment->get_option_mp( 'date_expiration' )
 			: $this->get_option( 'date_expiration', '' );

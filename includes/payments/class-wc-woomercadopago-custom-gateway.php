@@ -16,9 +16,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * WC_WooMercadoPago_CustomGateway
+ * Class WC_WooMercadoPago_Custom_Gateway
  */
-class WC_WooMercadoPago_CustomGateway extends WC_WooMercadoPago_PaymentAbstract {
+class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 
 	const ID = 'woo-mercado-pago-custom';
 

@@ -23,8 +23,8 @@ class WC_WooMercadoPago_Preference_Basic extends WC_WooMercadoPago_Preference_Ab
 	/**
 	 * WC_WooMercadoPago_PreferenceBasic constructor.
 	 *
-	 * @param WC_WooMercadoPago_PaymentAbstract $payment Payment.
-	 * @param object                            $order Order.
+	 * @param WC_WooMercadoPago_Payment_Abstract $payment Payment.
+	 * @param object                             $order Order.
 	 */
 	public function __construct( $payment, $order ) {
 		parent::__construct( $payment, $order );
