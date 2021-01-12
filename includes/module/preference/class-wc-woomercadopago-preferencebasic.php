@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-class WC_WooMercadoPago_PreferenceBasic extends WC_WooMercadoPago_PreferenceAbstract {
+class WC_WooMercadoPago_PreferenceBasic extends WC_WooMercadoPago_Preference_Abstract {
 
 	/**
 	 * WC_WooMercadoPago_PreferenceBasic constructor.

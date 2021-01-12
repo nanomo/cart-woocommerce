@@ -235,7 +235,7 @@ class WC_WooMercadoPago_Module extends WC_WooMercadoPago_Configs {
 	 * @return void
 	 */
 	public function load_preferences() {
-		include_once dirname( __FILE__ ) . '/preference/class-wc-woomercadopago-preferenceabstract.php';
+		include_once dirname(__FILE__) . '/preference/class-wc-woomercadopago-preference-abstract.php';
 		include_once dirname( __FILE__ ) . '/preference/class-wc-woomercadopago-preferencebasic.php';
 		include_once dirname( __FILE__ ) . '/preference/class-wc-woomercadopago-preferencecustom.php';
 		include_once dirname( __FILE__ ) . '/preference/class-wc-woomercadopago-preferenceticket.php';

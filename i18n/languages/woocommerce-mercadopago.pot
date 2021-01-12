@@ -443,7 +443,7 @@ msgstr ""
 msgid "You have reached the limit of allowed attempts. Choose another card or other payment method."
 msgstr ""
 
-#: includes/payments/class-wc-woomercadopago-customgateway.php:279, includes/payments/class-wc-woomercadopago-customgateway.php:281, includes/module/preference/class-wc-woomercadopago-preferenceabstract.php:67
+#: includes/payments/class-wc-woomercadopago-customgateway.php:279, includes/payments/class-wc-woomercadopago-customgateway.php:281, includes/module/preference/class-wc-woomercadopago-preference-abstract.php:191
 msgid "This payment method cannot process your payment."
 msgstr ""
 
@@ -1190,11 +1190,11 @@ msgstr ""
 msgid "Rate the plugin"
 msgstr ""
 
-#: includes/module/preference/class-wc-woomercadopago-preferenceabstract.php:225
+#: includes/module/preference/class-wc-woomercadopago-preference-abstract.php:364
 msgid "Shipping service used by the store."
 msgstr ""
 
-#: includes/module/preference/class-wc-woomercadopago-preferenceabstract.php:373, includes/module/preference/class-wc-woomercadopago-preferenceabstract.php:374
+#: includes/module/preference/class-wc-woomercadopago-preference-abstract.php:526, includes/module/preference/class-wc-woomercadopago-preference-abstract.php:527
 msgid "Discount provided by store"
 msgstr ""
 
