@@ -93,9 +93,9 @@ abstract class WC_WooMercadoPago_Notification_Abstract {
 		// @todo need to be analyzed better
 		// @codingStandardsIgnoreLine
 		@ob_clean();
-		if ( wp_verify_nonce( $_GET ) ) {
-			$this->log->write_log( __FUNCTION__, 'received _get content: ' . wp_json_encode( $_GET, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE ) );
-		}
+		// @todo check nonce
+		// @codingStandardsIgnoreLine
+		$this->log->write_log( __FUNCTION__, 'received _get content: ' . wp_json_encode( $_GET, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE ) );
 	}
 
 	/**

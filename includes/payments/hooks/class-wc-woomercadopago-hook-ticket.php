@@ -68,7 +68,7 @@ class WC_WooMercadoPago_Hook_Ticket extends WC_WooMercadoPago_Hook_Abstract {
 				'woocommerce-mercadopago-ticket-checkout',
 				'wc_mercadopago_ticket_params',
 				array(
-					'site_id'             => $this->payment->getOption( '_site_id_v1' ),
+					'site_id'             => $this->payment->get_option_mp( '_site_id_v1' ),
 					'coupon_mode'         => isset( $this->payment->logged_user_email ) ? $this->payment->coupon_mode : 'no',
 					'discount_action_url' => $this->payment->discount_action_url,
 					'payer_email'         => esc_js( $this->payment->logged_user_email ),
@@ -112,15 +112,11 @@ class WC_WooMercadoPago_Hook_Ticket extends WC_WooMercadoPago_Hook_Abstract {
 			return;
 		}
 
-		$html       = '<p>' .
-			__( 'Great, we processed your purchase order. Complete the payment with ticket so that we finish approving it.', 'woocommerce-mercadopago' ) .
-			'</p>' .
-			'<p><iframe src="' . $transaction_details . '" style="width:100%; height:1000px;"></iframe></p>' .
-			'<a id="submit-payment" target="_blank" href="' . $transaction_details . '" class="button alt"' .
-			' style="font-size:1.25rem; width:75%; height:48px; line-height:24px; text-align:center;">' .
-			__( 'Print ticket', 'woocommerce-mercadopago' ) .
-			'</a> ';
-		$added_text = '<p>' . $html . '</p>';
-		echo esc_html( $added_text );
+		wc_get_template(
+			'order-received/show-ticket.php',
+			array( 'transaction_details' => $transaction_details ),
+			'woo/mercado/pago/module/',
+			WC_WooMercadoPago_Module::get_templates_path()
+		);
 	}
 }

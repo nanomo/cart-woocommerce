@@ -68,8 +68,8 @@ class WC_WooMercadoPago_Hook_Custom extends WC_WooMercadoPago_Hook_Abstract {
 				'woocommerce-mercadopago-checkout',
 				'wc_mercadopago_params',
 				array(
-					'site_id'             => $this->payment->getOption( '_site_id_v1' ),
-					'public_key'          => $this->payment->getPublicKey(),
+					'site_id'             => $this->payment->get_option_mp( '_site_id_v1' ),
+					'public_key'          => $this->payment->get_public_key(),
 					'coupon_mode'         => isset( $this->payment->logged_user_email ) ? $this->payment->coupon_mode : 'no',
 					'discount_action_url' => $this->payment->discount_action_url,
 					'payer_email'         => esc_js( $this->payment->logged_user_email ),
@@ -91,5 +91,23 @@ class WC_WooMercadoPago_Hook_Custom extends WC_WooMercadoPago_Hook_Abstract {
 				)
 			);
 		}
+	}
+
+	/**
+	 * Add custom script
+	 */
+	public function add_mp_settings_script_custom() {
+		parent::add_mp_settings_script();
+	}
+
+	/**
+	 * Add script custom
+	 *
+	 * @param string $order_id Order Id.
+	 */
+	public function update_mp_settings_script_custom( $order_id ) {
+		// @todo transform js return
+		// @codingStandardsIgnoreLine
+		echo parent::update_mp_settings_script( $order_id );
 	}
 }

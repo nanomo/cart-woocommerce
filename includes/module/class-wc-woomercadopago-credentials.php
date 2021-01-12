@@ -83,8 +83,8 @@ class WC_WooMercadoPago_Credentials {
 		$access_token  = get_option( '_mp_access_token_prod', '' );
 
 		if ( ! is_null( $this->payment ) ) {
-			$this->sandbox = $payment->isTestUser();
-			if ( 'no' === $this->payment->getOption( 'checkout_credential_prod', '' ) || empty( $this->payment->getOption( 'checkout_credential_prod', '' ) ) ) {
+			$this->sandbox = $payment->is_test_user();
+			if ( 'no' === $this->payment->get_option_mp( 'checkout_credential_prod', '' ) || empty( $this->payment->get_option_mp( 'checkout_credential_prod', '' ) ) ) {
 				$public_key   = get_option( '_mp_public_key_test', '' );
 				$access_token = get_option( '_mp_access_token_test', '' );
 			}
@@ -109,7 +109,7 @@ class WC_WooMercadoPago_Credentials {
 	 */
 	public static function mercadopago_payment_update() {
 		try {
-			$mp_v1 = WC_WooMercadoPago_Module::get_mp_instanceSingleton();
+			$mp_v1 = WC_WooMercadoPago_Module::get_mp_instance_singleton();
 			if ( false === $mp_v1 instanceof MP ) {
 				self::set_no_credentials();
 				return;
@@ -194,7 +194,7 @@ class WC_WooMercadoPago_Credentials {
 	 * @throws WC_WooMercadoPago_Exception Error.
 	 */
 	public static function access_token_is_valid( $access_token ) {
-		$mp_v1 = WC_WooMercadoPago_Module::get_mp_instanceSingleton();
+		$mp_v1 = WC_WooMercadoPago_Module::get_mp_instance_singleton();
 		if ( empty( $mp_v1 ) ) {
 			return false;
 		}
@@ -235,7 +235,7 @@ class WC_WooMercadoPago_Credentials {
 		}
 
 		try {
-			$mp_v1 = WC_WooMercadoPago_Module::get_mp_instanceSingleton();
+			$mp_v1 = WC_WooMercadoPago_Module::get_mp_instance_singleton();
 			if ( false === $mp_v1 instanceof MP ) {
 				self::set_no_credentials();
 				return false;
@@ -405,7 +405,7 @@ class WC_WooMercadoPago_Credentials {
 	 * @return bool
 	 */
 	public static function validate_credentials_test( $mp_instance, $access_token = null, $public_key = null ) {
-		$is_test = $mp_instance->getCredentialsWrapper( $access_token, $public_key );
+		$is_test = $mp_instance->get_credentials_wrapper( $access_token, $public_key );
 		if ( is_array( $is_test ) && isset( $is_test['is_test'] ) && true === $is_test['is_test'] ) {
 			return true;
 		}
@@ -422,7 +422,7 @@ class WC_WooMercadoPago_Credentials {
 	 * @return bool
 	 */
 	public static function validate_credentials_prod( $mp_instance, $access_token = null, $public_key = null ) {
-		$is_test = $mp_instance->getCredentialsWrapper( $access_token, $public_key );
+		$is_test = $mp_instance->get_credentials_wrapper( $access_token, $public_key );
 		if ( is_array( $is_test ) && isset( $is_test['is_test'] ) && false === $is_test['is_test'] ) {
 			return true;
 		}

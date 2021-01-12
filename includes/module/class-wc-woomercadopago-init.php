@@ -78,7 +78,7 @@ class WC_WooMercadoPago_Init {
 	 *
 	 */
 	public static function mp_show_admin_notices() {
-		if ( ! WC_WooMercadoPago_Module::isWcNewVersion() || ( isset( $_GET['page'] ) && $_GET['page'] == 'wc-settings' ) && is_plugin_active( 'woocommerce-admin/woocommerce-admin.php' ) ) {
+		if ( ! WC_WooMercadoPago_Module::is_wc_new_version() || ( isset( $_GET['page'] ) && $_GET['page'] == 'wc-settings' ) && is_plugin_active( 'woocommerce-admin/woocommerce-admin.php' ) ) {
 			return;
 		}
 
@@ -138,7 +138,7 @@ class WC_WooMercadoPago_Init {
 			require_once dirname( __FILE__ ) . '/class-wc-woomercadopago-exception.php';
 			require_once dirname( __FILE__ ) . '/class-wc-woomercadopago-configs.php';
 			require_once dirname( __FILE__ ) . '/log/class-wc-woomercadopago-log.php';
-			require_once dirname( __FILE__ ) . '/class-wc-wooMercadopago-module.php';
+			require_once dirname( __FILE__ ) . '/class-wc-woomercadopago-module.php';
 			require_once dirname( __FILE__ ) . '/class-wc-woomercadopago-credentials.php';
 			require_once dirname( __FILE__ ) . '../../admin/notices/class-wc-woomercadopago-reviewnotice.php';
 

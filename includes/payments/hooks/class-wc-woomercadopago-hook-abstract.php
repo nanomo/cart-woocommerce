@@ -70,7 +70,7 @@ abstract class WC_WooMercadoPago_Hook_Abstract {
 		$this->payment     = $payment;
 		$this->class       = get_class( $payment );
 		$this->mp_instance = $payment->mp;
-		$this->public_key  = $payment->getPublicKey();
+		$this->public_key  = $payment->get_public_key();
 		$this->test_user   = get_option( '_test_user_v1' );
 		$this->site_id     = get_option( '_site_id_v1' );
 
@@ -226,7 +226,7 @@ abstract class WC_WooMercadoPago_Hook_Abstract {
 				if ( 'checkout_credential_prod' === $key ) {
 					$value_credential_production = $value;
 				}
-				$common_configs = $this->payment->getCommonConfigs();
+				$common_configs = $this->payment->get_common_configs();
 				if ( in_array( $key, $common_configs, true ) ) {
 
 					if ( $this->validate_credentials( $key, $value, $value_credential_production ) ) {
@@ -328,14 +328,14 @@ abstract class WC_WooMercadoPago_Hook_Abstract {
 		}
 
 		if ( empty( $is_production ) ) {
-			$is_production = $this->payment->isProductionMode();
+			$is_production = $this->payment->is_production_mode();
 		}
 
 		if ( WC_WooMercadoPago_Credentials::access_token_is_valid( $value ) ) {
 			update_option( $key, $value, true );
 
 			if ( '_mp_access_token_prod' === $key ) {
-				$homolog_validate = $this->mp_instance->getCredentialsWrapper( $value );
+				$homolog_validate = $this->mp_instance->get_credentials_wrapper( $value );
 				$homolog_validate = isset( $homolog_validate['homologated'] ) && true === $homolog_validate['homologated'] ? 1 : 0;
 				update_option( 'homolog_validate', $homolog_validate, true );
 				if ( 'yes' === $is_production && 0 === $homolog_validate ) {

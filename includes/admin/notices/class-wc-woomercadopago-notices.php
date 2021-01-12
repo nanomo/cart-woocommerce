@@ -80,7 +80,7 @@ class WC_WooMercadoPago_Notices {
 	public static function get_alert_frame( $message, $type ) {
 		$inline = null;
 		if (
-			( class_exists( 'WC_WooMercadoPago_Module' ) && WC_WooMercadoPago_Module::isWcNewVersion() )
+			( class_exists( 'WC_WooMercadoPago_Module' ) && WC_WooMercadoPago_Module::is_wc_new_version() )
 			&&
 			// @todo need fix Processing form data without nonce verification
 			// @codingStandardsIgnoreLine
@@ -138,7 +138,7 @@ class WC_WooMercadoPago_Notices {
 
 		$inline = null;
 		if (
-			( class_exists( 'WC_WooMercadoPago_Module' ) && WC_WooMercadoPago_Module::isWcNewVersion() )
+			( class_exists( 'WC_WooMercadoPago_Module' ) && WC_WooMercadoPago_Module::is_wc_new_version() )
 			&&
 			// @todo need fix Processing form data without nonce verification
 			// @codingStandardsIgnoreLine
