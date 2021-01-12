@@ -44,11 +44,11 @@ msgstr ""
 msgid "<b>Attention:</b> The currency settings you have in WooCommerce are not compatible with the currency you use in your Mercado Pago account. Please activate the currency conversion."
 msgstr ""
 
-#: includes/module/class-wc-woomercadopago-configs.php:109
+#: includes/module/class-wc-woomercadopago-configs.php:115
 msgid "Update your credentials with the Access Token and Public Key, you need them to continue receiving payments!"
 msgstr ""
 
-#: includes/module/class-wc-woomercadopago-configs.php:118
+#: includes/module/class-wc-woomercadopago-configs.php:126
 msgid "The store should have HTTPS in order to activate both Checkout Personalizado and Ticket Checkout."
 msgstr ""
 

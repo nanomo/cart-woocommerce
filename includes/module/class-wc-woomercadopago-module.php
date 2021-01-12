@@ -202,9 +202,9 @@ class WC_WooMercadoPago_Module extends WC_WooMercadoPago_Configs {
 	public function load_configs() {
 		self::$country_configs = self::get_country_configs();
 		$configs               = new parent();
-		self::$categories      = $configs->getCategories();
+		self::$categories      = $configs->get_categories();
 		self::$site_data       = self::get_site_data();
-		self::$payments_name   = self::setPaymentGateway();
+		self::$payments_name   = self::set_payment_gateway();
 	}
 
 	/**
@@ -252,7 +252,7 @@ class WC_WooMercadoPago_Module extends WC_WooMercadoPago_Configs {
 		include_once dirname( __FILE__ ) . '/../payments/class-wc-woomercadopago-basicgateway.php';
 		include_once dirname( __FILE__ ) . '/../payments/class-wc-woomercadopago-customgateway.php';
 		include_once dirname( __FILE__ ) . '/../payments/class-wc-woomercadopago-ticketgateway.php';
-		add_filter( 'woocommerce_payment_gateways', array( $this, 'setPaymentGateway' ) );
+		add_filter( 'woocommerce_payment_gateways', array( $this, 'set_payment_gateway' ) );
 	}
 
 	/**
