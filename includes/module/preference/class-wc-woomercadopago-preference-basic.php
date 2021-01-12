@@ -23,8 +23,8 @@ class WC_WooMercadoPago_Preference_Basic extends WC_WooMercadoPago_Preference_Ab
 	/**
 	 * WC_WooMercadoPago_PreferenceBasic constructor.
 	 *
-	 * @param $payment
-	 * @param $order
+	 * @param WC_WooMercadoPago_PaymentAbstract $payment Payment.
+	 * @param object                            $order Order.
 	 */
 	public function __construct( $payment, $order ) {
 		parent::__construct( $payment, $order );
@@ -43,20 +43,20 @@ class WC_WooMercadoPago_Preference_Basic extends WC_WooMercadoPago_Preference_Ab
 	}
 
 	/**
+	 * Get payer basic
+	 *
 	 * @return array
 	 */
 	public function get_payer_basic() {
-		$payer_additional_info = array(
+		return array(
 			'name'    => ( method_exists( $this->order, 'get_id' ) ? html_entity_decode( $this->order->get_billing_first_name() ) : html_entity_decode( $this->order->billing_first_name ) ),
 			'surname' => ( method_exists( $this->order, 'get_id' ) ? html_entity_decode( $this->order->get_billing_last_name() ) : html_entity_decode( $this->order->billing_last_name ) ),
 			'email'   => $this->order->get_billing_email(),
 			'phone'   => array(
-				// 'area_code' =>
 				'number' => ( method_exists( $this->order, 'get_id' ) ? $this->order->get_billing_phone() : $this->order->billing_phone ),
 			),
 			'address' => array(
 				'zip_code'    => ( method_exists( $this->order, 'get_id' ) ? $this->order->get_billing_postcode() : $this->order->billing_postcode ),
-				// 'street_number' =>
 				'street_name' => html_entity_decode(
 					method_exists( $this->order, 'get_id' ) ?
 						$this->order->get_billing_address_1() . ' / ' .
@@ -69,17 +69,18 @@ class WC_WooMercadoPago_Preference_Basic extends WC_WooMercadoPago_Preference_Ab
 				),
 			),
 		);
-		return $payer_additional_info;
 	}
 
 	/**
+	 * Get back URLs
+	 *
 	 * @return array
 	 */
 	public function get_back_urls() {
 		$success_url = $this->payment->get_option_mp( 'success_url', '' );
 		$failure_url = $this->payment->get_option_mp( 'failure_url', '' );
 		$pending_url = $this->payment->get_option_mp( 'pending_url', '' );
-		$back_urls   = array(
+		return array(
 			'success' => empty( $success_url ) ?
 				WC_WooMercadoPago_Module::fix_url_ampersand(
 					esc_url( $this->get_return_url( $this->order ) )
@@ -93,17 +94,18 @@ class WC_WooMercadoPago_Preference_Basic extends WC_WooMercadoPago_Preference_Ab
 					esc_url( $this->get_return_url( $this->order ) )
 				) : $pending_url,
 		);
-		return $back_urls;
 	}
 
 	/**
-	 * @param $ex_payments
-	 * @param $installments
+	 * Get payment methods
+	 *
+	 * @param array $ex_payments Ex. payments.
+	 * @param mixed $installments Installments.
 	 * @return array
 	 */
 	public function get_payment_methods( $ex_payments, $installments ) {
 		$excluded_payment_methods = array();
-		if ( is_array( $ex_payments ) && count( $ex_payments ) != 0 ) {
+		if ( is_array( $ex_payments ) && count( $ex_payments ) !== 0 ) {
 			foreach ( $ex_payments as $excluded ) {
 				array_push(
 					$excluded_payment_methods,
@@ -113,33 +115,34 @@ class WC_WooMercadoPago_Preference_Basic extends WC_WooMercadoPago_Preference_Ab
 				);
 			}
 		}
-		$payment_methods = array(
+
+		return array(
 			'installments'             => (int) $installments,
 			'excluded_payment_methods' => $excluded_payment_methods,
 		);
-		return $payment_methods;
 	}
 
 	/**
+	 * Auto return
+	 *
 	 * @return string|void
 	 */
 	public function auto_return() {
 		$auto_return = get_option( 'auto_return', 'yes' );
-		if ( 'yes' == $auto_return ) {
+		if ( 'yes' === $auto_return ) {
 			return 'approved';
 		}
-		return;
 	}
 
 	/**
+	 * Get internal metadata basic
+	 *
 	 * @return array
 	 */
 	public function get_internal_metadata_basic() {
-		$internal_metadata = array(
+		return array(
 			'checkout'      => 'smart',
 			'checkout_type' => $this->payment->get_option_mp( 'method', 'redirect' ),
 		);
-
-		return $internal_metadata;
 	}
 }
