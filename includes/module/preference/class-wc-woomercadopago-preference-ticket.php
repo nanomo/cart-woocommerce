@@ -14,7 +14,11 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
-class WC_WooMercadoPago_PreferenceTicket extends WC_WooMercadoPago_Preference_Abstract {
+
+/**
+ * Class WC_WooMercadoPago_Preference_Ticket
+ */
+class WC_WooMercadoPago_Preference_Ticket extends WC_WooMercadoPago_Preference_Abstract {
 
 
 	/**
