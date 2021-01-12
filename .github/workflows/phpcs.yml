@@ -1,0 +1,19 @@
+name: PHPCS
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+        -
+
+      - name: Install dependencies
+        uses: php-actions/composer@v5
+
+      - name: Validate PHPCS
+        uses: php-actions/composer@v5
+        with:
+          command: phpcs
