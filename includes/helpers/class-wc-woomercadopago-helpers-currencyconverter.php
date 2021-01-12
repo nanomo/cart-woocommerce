@@ -265,7 +265,7 @@ class WC_WooMercadoPago_Helpers_CurrencyConverter {
 		}
 
 		try {
-			$result = MeliRestClient::get(
+			$result = Meli_Rest_Client::get(
 				array(
 					'uri'     => sprintf( '/currency_conversions/search?from=%s&to=%s', $from_currency, $to_currency ),
 					'headers' => array(
@@ -370,7 +370,7 @@ class WC_WooMercadoPago_Helpers_CurrencyConverter {
 					),
 				);
 
-				$result = MeliRestClient::get( $request );
+				$result = Meli_Rest_Client::get( $request );
 
 				if ( ! isset( $result['response'] ) ) {
 					return false;
