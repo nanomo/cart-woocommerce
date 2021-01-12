@@ -66,28 +66,41 @@ class WC_WooMercadoPago_Init {
 	public static function notify_woocommerce_miss() {
 		$type    = 'error';
 		$message = sprintf(
+			/* translators: %s link to WooCommerce */
 			__( 'The Mercado Pago module needs an active version of %s in order to work!', 'woocommerce-mercadopago' ),
 			' <a href="https://wordpress.org/extend/plugins/woocommerce/">WooCommerce</a>'
 		);
-		echo WC_WooMercadoPago_Notices::get_alert_woocommerce_miss( $message, $type );
+		WC_WooMercadoPago_Notices::get_alert_woocommerce_miss( $message, $type );
 	}
 
+	/**
+	 * Add mp order meta box actions function
+	 *
+	 * @param array $actions actions.
+	 * @return array
+	 */
 	public static function add_mp_order_meta_box_actions( $actions ) {
 		$actions['cancel_order'] = __( 'Cancel order', 'woocommerce-mercadopago' );
 		return $actions;
 	}
 
 	/**
+	 * Mp show admin notices function
 	 *
+	 * @return void
 	 */
 	public static function mp_show_admin_notices() {
-		if ( ! WC_WooMercadoPago_Module::is_wc_new_version() || ( isset( $_GET['page'] ) && $_GET['page'] == 'wc-settings' ) && is_plugin_active( 'woocommerce-admin/woocommerce-admin.php' ) ) {
+		// @todo needs processing form data without nonce verification.
+		// @codingStandardsIgnoreLine
+		if ( ! WC_WooMercadoPago_Module::is_wc_new_version() || ( isset( $_GET['page'] ) && 'wc-settings' === $_GET['page'] ) && is_plugin_active( 'woocommerce-admin/woocommerce-admin.php' ) ) {
 			return;
 		}
 
-		$noticesArray = WC_WooMercadoPago_Module::$notices;
-		$notices      = array_unique( $noticesArray, SORT_STRING );
+		$notices_array = WC_WooMercadoPago_Module::$notices;
+		$notices       = array_unique( $notices_array, SORT_STRING );
 		foreach ( $notices as $notice ) {
+			// @todo All output should be run through an escaping function
+		    // @codingStandardsIgnoreLine
 			echo $notice;
 		}
 	}
@@ -96,8 +109,8 @@ class WC_WooMercadoPago_Init {
 	 * Activation plugin hook
 	 */
 	public static function mercadopago_plugin_activation() {
-		$dismissedReview = (int) get_option( '_mp_dismiss_review' );
-		if ( ! isset( $dismissedReview ) || $dismissedReview == 1 ) {
+		$dismissed_review = (int) get_option( '_mp_dismiss_review' );
+		if ( ! isset( $dismissed_review ) || 1 === $dismissed_review ) {
 			update_option( '_mp_dismiss_review', 0, true );
 		}
 	}
@@ -106,8 +119,8 @@ class WC_WooMercadoPago_Init {
 	 * Update plugin version in db
 	 */
 	public static function update_plugin_version() {
-		$oldVersion = get_option( '_mp_version', '0' );
-		if ( version_compare( WC_WooMercadoPago_Constants::VERSION, $oldVersion, '>' ) ) {
+		$old_version = get_option( '_mp_version', '0' );
+		if ( version_compare( WC_WooMercadoPago_Constants::VERSION, $old_version, '>' ) ) {
 			do_action( 'mercadopago_plugin_updated' );
 			update_option( '_mp_version', WC_WooMercadoPago_Constants::VERSION, true );
 		}
@@ -128,12 +141,12 @@ class WC_WooMercadoPago_Init {
 			return;
 		}
 
-		if ( ! in_array( 'curl', get_loaded_extensions() ) ) {
+		if ( ! in_array( 'curl', get_loaded_extensions(), true ) ) {
 			add_action( 'admin_notices', array( __CLASS__, 'wc_mercado_pago_notify_curl_error' ) );
 			return;
 		}
 
-		// Load Mercado Pago SDK
+		// Load Mercado Pago SDK.
 		require_once dirname( __FILE__ ) . '/sdk/lib/class-mp.php';
 
 		// Checks with WooCommerce is installed.

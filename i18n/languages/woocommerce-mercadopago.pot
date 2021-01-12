@@ -31,16 +31,16 @@ msgid "Yes"
 msgstr ""
 
 #. translators: 1: local currency 2: currency
-#: includes/helpers/class-wc-woomercadopago-helpers-currencyconverter.php:472
+#: includes/helpers/class-wc-woomercadopago-helpers-currencyconverter.php:471
 msgid "Now we convert your currency from %1$s to %2$s."
 msgstr ""
 
 #. translators: 1: local currency 2: currency
-#: includes/helpers/class-wc-woomercadopago-helpers-currencyconverter.php:493
+#: includes/helpers/class-wc-woomercadopago-helpers-currencyconverter.php:491
 msgid "We no longer convert your currency from %1$s to %2$s."
 msgstr ""
 
-#: includes/helpers/class-wc-woomercadopago-helpers-currencyconverter.php:515
+#: includes/helpers/class-wc-woomercadopago-helpers-currencyconverter.php:512
 msgid "<b>Attention:</b> The currency settings you have in WooCommerce are not compatible with the currency you use in your Mercado Pago account. Please activate the currency conversion."
 msgstr ""
 
@@ -60,11 +60,12 @@ msgstr ""
 msgid "Mercado Pago Error: PHP Extension CURL is not installed."
 msgstr ""
 
-#: includes/module/class-wc-woomercadopago-init.php:69
+#. translators: %s link to WooCommerce
+#: includes/module/class-wc-woomercadopago-init.php:70
 msgid "The Mercado Pago module needs an active version of %s in order to work!"
 msgstr ""
 
-#: includes/module/class-wc-woomercadopago-init.php:76
+#: includes/module/class-wc-woomercadopago-init.php:83
 msgid "Cancel order"
 msgstr ""
 

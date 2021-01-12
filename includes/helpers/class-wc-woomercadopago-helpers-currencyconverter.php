@@ -461,7 +461,6 @@ class WC_WooMercadoPago_Helpers_CurrencyConverter {
 	 * Notice Enabled
 	 *
 	 * @param WC_WooMercadoPago_Payment_Abstract $method method.
-	 * @return string
 	 */
 	public function notice_enabled( WC_WooMercadoPago_Payment_Abstract $method ) {
 		$local_currency = get_woocommerce_currency();
@@ -482,7 +481,6 @@ class WC_WooMercadoPago_Helpers_CurrencyConverter {
 	 * Notice Disabled
 	 *
 	 * @param WC_WooMercadoPago_Payment_Abstract $method method.
-	 * @return string
 	 */
 	public function notice_disabled( WC_WooMercadoPago_Payment_Abstract $method ) {
 		$local_currency = get_woocommerce_currency();
@@ -503,7 +501,6 @@ class WC_WooMercadoPago_Helpers_CurrencyConverter {
 	 * Notice Warning
 	 *
 	 * @param WC_WooMercadoPago_Payment_Abstract $method method.
-	 * @return string
 	 */
 	public function notice_warning( WC_WooMercadoPago_Payment_Abstract $method ) {
 		global $current_section;
