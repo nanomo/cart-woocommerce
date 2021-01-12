@@ -89,7 +89,7 @@ class WC_WooMercadoPago_Notices {
 		) {
 			$inline = 'inline';
 		}
-		include dirname( __FILE__ ) . '../../views/html-admin-alert-frame.php';
+		include dirname( __FILE__ ) . '/../views/html-admin-alert-frame.php';
 	}
 
 	/**
@@ -99,7 +99,6 @@ class WC_WooMercadoPago_Notices {
 	 * @param string $type type.
 	 */
 	public static function get_alert_woocommerce_miss( $message, $type ) {
-
 		$is_installed = false;
 
 		if ( function_exists( 'get_plugins' ) ) {
@@ -129,6 +128,6 @@ class WC_WooMercadoPago_Notices {
 			$inline = 'inline';
 		}
 
-		include dirname( __FILE__ ) . '../../views/html-admin-alert_woocommerce-miss.php';
+		include dirname( __FILE__ ) . '/../views/html-admin-alert-woocommerce-miss.php';
 	}
 }

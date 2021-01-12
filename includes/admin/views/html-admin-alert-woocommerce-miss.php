@@ -17,11 +17,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 							<img src="<?php echo esc_url( plugins_url( '../../assets/images/minilogo.png', plugin_dir_path( __FILE__ ) ) ); ?>">
 						</div>
 						<div class="mp-right-alert">
-							<p><?php esc_html( $message ); ?></p>
-							<p><?php esc_html( $button_url ); ?></p>
+							<?php // @todo make this a template ?>
+							<p><?php echo $message; // phpcs:ignore ?></p>
+							<p><?php echo $button_url; // phpcs:ignore ?></p>
 						</div>
 					</div>
 					<button type="button" class="notice-dismiss">
-						<span class="screen-reader-text"><?php esc_html_e( 'Discard', 'woocommerce-mercadopago' ); ?></span>
+						<span class="screen-reader-text"><?php echo esc_html_e( 'Discard', 'woocommerce-mercadopago' ); ?></span>
 					</button>
 				</div>
