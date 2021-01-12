@@ -23,58 +23,60 @@ class WC_WooMercadoPago_Configs {
 	/**
 	 * WC_WooMercadoPago_Configs constructor.
 	 *
-	 * @throws WC_WooMercadoPago_Exception
+	 * @throws WC_WooMercadoPago_Exception Load configs exception.
 	 */
 	public function __construct() {
-		$this->updateTokenNewVersion();
-		$this->showNotices();
+		$this->update_token_new_version();
+		$this->show_notices();
 	}
 
 	/**
 	 *  Show Notices in ADMIN
 	 */
-	private function showNotices() {
+	private function show_notices() {
 		add_action( 'admin_notices', array( $this, 'plugin_review' ) );
 
 		if ( empty( get_option( '_mp_public_key_prod' ) ) && empty( get_option( '_mp_access_token_prod' ) ) ) {
 			if ( ! empty( get_option( '_mp_client_id' ) ) && ! empty( get_option( '_mp_client_secret' ) ) ) {
-				add_action( 'admin_notices', array( $this, 'noticeUpdateAccessToken' ) );
+				add_action( 'admin_notices', array( $this, 'notice_update_access_token' ) );
 			}
 		}
 
-		if ( ( empty( $_SERVER['HTTPS'] ) || $_SERVER['HTTPS'] == 'off' ) ) {
-			add_action( 'admin_notices', array( $this, 'noticeHttps' ) );
+		if ( ( empty( $_SERVER['HTTPS'] ) || 'off' === $_SERVER['HTTPS'] ) ) {
+			add_action( 'admin_notices', array( $this, 'notice_https' ) );
 		}
 	}
 
 	/**
-	 * @throws WC_WooMercadoPago_Exception
+	 * Update token new version
+	 *
+	 * @throws WC_WooMercadoPago_Exception Update token new version exception.
 	 */
-	private function updateTokenNewVersion() {
+	private function update_token_new_version() {
 		if ( empty( get_option( '_mp_public_key_prod', '' ) ) || empty( get_option( '_mp_access_token_prod', '' ) ) ) {
 			if ( ! empty( get_option( '_mp_public_key' ) ) && ! empty( get_option( '_mp_access_token' ) ) ) {
-				$this->updateToken();
+				$this->update_token();
 			}
 		}
 		if ( empty( get_option( '_site_id_v1' ) ) || empty( get_option( '_collector_id_v1' ) ) ) {
 			WC_WooMercadoPago_Credentials::validate_credentials_v1();
 		}
 
-		$ticketMethods = get_option( '_all_payment_methods_ticket', '' );
-		if ( empty( $ticketMethods ) || ! is_array( $ticketMethods ) ) {
+		$ticket_methods = get_option( '_all_payment_methods_ticket', '' );
+		if ( empty( $ticket_methods ) || ! is_array( $ticket_methods ) ) {
 			$this->update_ticket_methods();
 		}
 
-		$allPayments = get_option( '_checkout_payments_methods', '' );
-		if ( empty( $allPayments ) ) {
-			$this->updatePayments();
+		$all_payments = get_option( '_checkout_payments_methods', '' );
+		if ( empty( $all_payments ) ) {
+			$this->update_payments();
 			return;
 		}
 
-		if ( ! empty( $allPayments ) ) {
-			foreach ( $allPayments as $payment ) {
+		if ( ! empty( $all_payments ) ) {
+			foreach ( $all_payments as $payment ) {
 				if ( ! isset( $payment['name'] ) ) {
-					$this->updatePayments();
+					$this->update_payments();
 					break;
 				}
 			}
@@ -82,64 +84,78 @@ class WC_WooMercadoPago_Configs {
 	}
 
 	/**
-	 * @throws WC_WooMercadoPago_Exception
+	 * Update payments
+	 *
+	 * @throws WC_WooMercadoPago_Exception Update payment exception.
 	 */
-	private function updatePayments() {
-		$mpInstance = WC_WooMercadoPago_Module::get_mp_instance_singleton();
-		if ( $mpInstance ) {
-			WC_WooMercadoPago_Credentials::update_payment_methods( $mpInstance, $mpInstance->get_access_token() );
+	private function update_payments() {
+		$mp_instance = WC_WooMercadoPago_Module::get_mp_instance_singleton();
+		if ( $mp_instance ) {
+			WC_WooMercadoPago_Credentials::update_payment_methods( $mp_instance, $mp_instance->get_access_token() );
 		}
 	}
 
 	/**
-	 * @throws WC_WooMercadoPago_Exception
+	 * Update ticket methods
+	 *
+	 * @throws WC_WooMercadoPago_Exception Update ticket exception.
 	 */
 	private function update_ticket_methods() {
-		$mpInstance = WC_WooMercadoPago_Module::get_mp_instance_singleton();
-		if ( $mpInstance ) {
-			WC_WooMercadoPago_Credentials::update_ticket_method( $mpInstance, $mpInstance->get_access_token() );
+		$mp_instance = WC_WooMercadoPago_Module::get_mp_instance_singleton();
+		if ( $mp_instance ) {
+			WC_WooMercadoPago_Credentials::update_ticket_method( $mp_instance, $mp_instance->get_access_token() );
 		}
 	}
 
 	/**
-	 *  Notice AccessToken
+	 *  Notice Access Token
 	 */
-	public function noticeUpdateAccessToken() {
+	public function notice_update_access_token() {
 		$type    = 'error';
 		$message = __( 'Update your credentials with the Access Token and Public Key, you need them to continue receiving payments!', 'woocommerce-mercadopago' );
+		// @todo need fix HTML escaping to template
+		// @codingStandardsIgnoreLine
 		WC_WooMercadoPago_Notices::get_alert_frame( $message, $type );
 	}
 
 	/**
 	 * Notice HTTPS
 	 */
-	public function noticeHttps() {
+	public function notice_https() {
 		$type    = 'notice-warning';
 		$message = __( 'The store should have HTTPS in order to activate both Checkout Personalizado and Ticket Checkout.', 'woocommerce-mercadopago' );
+		// @todo need fix HTML escaping to template
+		// @codingStandardsIgnoreLine
 		WC_WooMercadoPago_Notices::get_alert_frame( $message, $type );
 	}
 
+	/**
+	 * Plugin review
+	 *
+	 * @return false
+	 */
 	public function plugin_review() {
-		$pagesToShow     = array( 'dashboard', 'plugins', 'woocommerce_page_wc-settings' );
-		$dismissedReview = (int) get_option( '_mp_dismiss_review', 0 );
+		$pages_to_show    = array( 'dashboard', 'plugins', 'woocommerce_page_wc-settings' );
+		$dismissed_review = (int) get_option( '_mp_dismiss_review', 0 );
 
-		if ( ! in_array( get_current_screen()->id, $pagesToShow, true ) || $dismissedReview != 0 ) {
+		if ( ! in_array( get_current_screen()->id, $pages_to_show, true ) || 0 !== $dismissed_review ) {
 			return false;
 		}
-
-		echo WC_WooMercadoPago_ReviewNotice::get_plugin_review_banner();
+		// @todo need fix HTML escaping to template
+		// @codingStandardsIgnoreLine
+		echo WC_WooMercadoPago_Review_Notice::get_plugin_review_banner();
 	}
 
 	/**
 	 *  UpdateToken
 	 */
-	private function updateToken() {
-		$mpInstance = WC_WooMercadoPago_Module::get_mp_instance_singleton();
+	private function update_token() {
+		$mp_instance = WC_WooMercadoPago_Module::get_mp_instance_singleton();
 
-		if ( $mpInstance ) {
+		if ( $mp_instance ) {
 			if (
-				WC_WooMercadoPago_Credentials::validate_credentials_test( $mpInstance, null, get_option( '_mp_public_key' ) ) == true
-				&& WC_WooMercadoPago_Credentials::validate_credentials_test( $mpInstance, get_option( '_mp_access_token' ) ) == true
+				true === WC_WooMercadoPago_Credentials::validate_credentials_test( $mp_instance, null, get_option( '_mp_public_key' ) )
+				&& true === WC_WooMercadoPago_Credentials::validate_credentials_test( $mp_instance, get_option( '_mp_access_token' ) )
 			) {
 				update_option( '_mp_public_key_test', get_option( '_mp_public_key' ), true );
 				update_option( '_mp_access_token_test', get_option( '_mp_access_token' ), true );
@@ -147,8 +163,8 @@ class WC_WooMercadoPago_Configs {
 			}
 
 			if (
-				WC_WooMercadoPago_Credentials::validate_credentials_prod( $mpInstance, null, get_option( '_mp_public_key' ) ) == true
-				&& WC_WooMercadoPago_Credentials::validate_credentials_prod( $mpInstance, get_option( '_mp_access_token' ) ) == true
+				true === WC_WooMercadoPago_Credentials::validate_credentials_prod( $mp_instance, null, get_option( '_mp_public_key' ) )
+				&& true === WC_WooMercadoPago_Credentials::validate_credentials_prod( $mp_instance, get_option( '_mp_access_token' ) )
 			) {
 				update_option( '_mp_public_key_prod', get_option( '_mp_public_key' ), true );
 				update_option( '_mp_access_token_prod', get_option( '_mp_access_token' ), true );
@@ -234,9 +250,11 @@ class WC_WooMercadoPago_Configs {
 	}
 
 	/**
+	 * Get categories
+	 *
 	 * @return array
 	 */
-	public function getCategories() {
+	public function get_categories() {
 		return array(
 			'store_categories_id'          =>
 			array(
@@ -294,22 +312,32 @@ class WC_WooMercadoPago_Configs {
 	}
 
 	/**
-	 * @param $methods
+	 * Set payment
+	 *
+	 * @param array|null $methods Methods.
 	 * @return array
 	 */
-	public function setPaymentGateway( $methods = null ) {
+	public function set_payment_gateway( $methods = null ) {
 		global $wp;
 		if ( ! empty( $wp ) && isset( $wp->query_vars['wc-api'] ) ) {
 			$api_request = wc_clean( $wp->query_vars['wc-api'] );
-			if ( ! empty( $api_request ) && in_array( $api_request, array( 'WC_WooMercadoPago_BasicGateway', 'WC_WooMercadoPago_CustomGateway', 'WC_WooMercadoPago_TicketGateway' ) ) ) {
+			if ( ! empty( $api_request ) && in_array(
+				$api_request,
+				array(
+					'WC_WooMercadoPago_Basic_Gateway',
+					'WC_WooMercadoPago_Custom_Gateway',
+					'WC_WooMercadoPago_Ticket_Gateway',
+				),
+				true
+			) ) {
 				$methods[] = $api_request;
 			}
 			return $methods;
 		}
 
-		$methods[] = 'WC_WooMercadoPago_BasicGateway';
-		$methods[] = 'WC_WooMercadoPago_CustomGateway';
-		$methods[] = 'WC_WooMercadoPago_TicketGateway';
+		$methods[] = 'WC_WooMercadoPago_Basic_Gateway';
+		$methods[] = 'WC_WooMercadoPago_Custom_Gateway';
+		$methods[] = 'WC_WooMercadoPago_Ticket_Gateway';
 		return $methods;
 	}
 }

@@ -14,15 +14,19 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
-class WC_WooMercadoPago_PreferenceTicket extends WC_WooMercadoPago_PreferenceAbstract {
+
+/**
+ * Class WC_WooMercadoPago_Preference_Ticket
+ */
+class WC_WooMercadoPago_Preference_Ticket extends WC_WooMercadoPago_Preference_Abstract {
 
 
 	/**
 	 * WC_WooMercadoPago_PreferenceTicket constructor.
 	 *
-	 * @param $payment
-	 * @param $order
-	 * @param $ticket_checkout
+	 * @param WC_WooMercadoPago_Payment_Abstract $payment Payment.
+	 * @param object                             $order Order.
+	 * @param mixed                              $ticket_checkout Ticket checkout.
 	 */
 	public function __construct( $payment, $order, $ticket_checkout ) {
 		parent::__construct( $payment, $order, $ticket_checkout );
@@ -33,10 +37,10 @@ class WC_WooMercadoPago_PreferenceTicket extends WC_WooMercadoPago_PreferenceAbs
 		$this->preference['payment_method_id']  = $this->checkout['paymentMethodId'];
 		$this->preference['payer']['email']     = $this->get_email();
 
-		if ( $this->site_data[ $this->site_id ]['currency'] == 'BRL' ) {
+		if ( 'BRL' === $this->site_data[ $this->site_id ]['currency'] ) {
 			$this->preference['payer']['first_name']               = $this->checkout['firstname'];
-			$this->preference['payer']['last_name']                = strlen( $this->checkout['docNumber'] ) == 14 ? $this->checkout['lastname'] : $this->checkout['firstname'];
-			$this->preference['payer']['identification']['type']   = strlen( $this->checkout['docNumber'] ) == 14 ? 'CPF' : 'CNPJ';
+			$this->preference['payer']['last_name']                = 14 === strlen( $this->checkout['docNumber'] ) ? $this->checkout['lastname'] : $this->checkout['firstname'];
+			$this->preference['payer']['identification']['type']   = 14 === strlen( $this->checkout['docNumber'] ) ? 'CPF' : 'CNPJ';
 			$this->preference['payer']['identification']['number'] = $this->checkout['docNumber'];
 			$this->preference['payer']['address']['street_name']   = $this->checkout['address'];
 			$this->preference['payer']['address']['street_number'] = $this->checkout['number'];
@@ -46,12 +50,12 @@ class WC_WooMercadoPago_PreferenceTicket extends WC_WooMercadoPago_PreferenceAbs
 			$this->preference['payer']['address']['zip_code']      = $this->checkout['zipcode'];
 		}
 
-		if ( $this->site_data[ $this->site_id ]['currency'] == 'UYU' ) {
+		if ( 'UYU' === $this->site_data[ $this->site_id ]['currency'] ) {
 			$this->preference['payer']['identification']['type']   = $ticket_checkout['docType'];
 			$this->preference['payer']['identification']['number'] = $ticket_checkout['docNumber'];
 		}
 
-		if ( $ticket_checkout['paymentMethodId'] == 'webpay' ) {
+		if ( 'webpay' === $ticket_checkout['paymentMethodId'] ) {
 			$this->preference['callback_url']                                 = get_site_url();
 			$this->preference['transaction_details']['financial_institution'] = '1234';
 			$this->preference['additional_info']['ip_address']                = '127.0.0.1';
@@ -69,7 +73,7 @@ class WC_WooMercadoPago_PreferenceTicket extends WC_WooMercadoPago_PreferenceAbs
 		if (
 			isset( $this->checkout['discount'] ) && ! empty( $this->checkout['discount'] ) &&
 			isset( $this->checkout['coupon_code'] ) && ! empty( $this->checkout['coupon_code'] ) &&
-			$this->checkout['discount'] > 0 && WC()->session->chosen_payment_method == 'woo-mercado-pago-ticket'
+			$this->checkout['discount'] > 0 && 'woo-mercado-pago-ticket' === WC()->session->chosen_payment_method
 		) {
 			$this->preference['additional_info']['items'][] = $this->add_discounts();
 			$this->preference                               = array_merge( $this->preference, $this->add_discounts_campaign() );
@@ -81,22 +85,24 @@ class WC_WooMercadoPago_PreferenceTicket extends WC_WooMercadoPago_PreferenceAbs
 	}
 
 	/**
-	 * get_date_of_expiration
+	 * Get date of expiration
 	 *
-	 * @param WC_WooMercadoPago_TicketGateway $payment
+	 * @param WC_WooMercadoPago_Ticket_Gateway $payment Payment.
 	 * @return string date
 	 */
-	public function get_date_of_expiration( WC_WooMercadoPago_TicketGateway $payment = null ) {
+	public function get_date_of_expiration( WC_WooMercadoPago_Ticket_Gateway $payment = null ) {
 		$date_expiration = ! is_null( $payment )
 			? $payment->get_option_mp( 'date_expiration' )
 			: $this->get_option( 'date_expiration', '' );
 
-		if ( $date_expiration != '' ) {
-			return date( 'Y-m-d\TH:i:s.000O', strtotime( '+' . $date_expiration . ' days' ) );
+		if ( '' !== $date_expiration ) {
+			return gmdate( 'Y-m-d\TH:i:s.000O', strtotime( '+' . $date_expiration . ' days' ) );
 		}
 	}
 
 	/**
+	 * Get items build array
+	 *
 	 * @return array
 	 */
 	public function get_items_build_array() {
@@ -111,14 +117,14 @@ class WC_WooMercadoPago_PreferenceTicket extends WC_WooMercadoPago_PreferenceAbs
 	}
 
 	/**
+	 * Get internal metadata ticket
+	 *
 	 * @return array
 	 */
 	public function get_internal_metadata_ticket() {
-		$internal_metadata = array(
+		return array(
 			'checkout'      => 'custom',
 			'checkout_type' => 'ticket',
 		);
-
-		return $internal_metadata;
 	}
 }

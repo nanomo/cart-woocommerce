@@ -16,9 +16,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * WC_WooMercadoPago_CustomGateway
+ * Class WC_WooMercadoPago_Custom_Gateway
  */
-class WC_WooMercadoPago_CustomGateway extends WC_WooMercadoPago_PaymentAbstract {
+class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 
 	const ID = 'woo-mercado-pago-custom';
 
@@ -498,7 +498,7 @@ class WC_WooMercadoPago_CustomGateway extends WC_WooMercadoPago_PaymentAbstract 
 	 * @return string|array
 	 */
 	protected function create_preference( $order, $custom_checkout ) {
-		$preferences_custom = new WC_WooMercadoPago_PreferenceCustom( $this, $order, $custom_checkout );
+		$preferences_custom = new WC_WooMercadoPago_Preference_Custom( $this, $order, $custom_checkout );
 		$preferences        = $preferences_custom->get_preference();
 		try {
 			$checkout_info = $this->mp->post( '/v1/payments', wp_json_encode( $preferences ) );

@@ -143,10 +143,10 @@ class WC_WooMercadoPago_Init {
 			require_once dirname( __FILE__ ) . '/log/class-wc-woomercadopago-log.php';
 			require_once dirname( __FILE__ ) . '/class-wc-woomercadopago-module.php';
 			require_once dirname( __FILE__ ) . '/class-wc-woomercadopago-credentials.php';
-			require_once dirname( __FILE__ ) . '../../admin/notices/class-wc-woomercadopago-reviewnotice.php';
+			require_once dirname( __FILE__ ) . '../../admin/notices/class-wc-woomercadopago-review-notice.php';
 
 			WC_WooMercadoPago_Module::init_mercado_pago_class();
-			WC_WooMercadoPago_ReviewNotice::init_mercadopago_review_notice();
+			WC_WooMercadoPago_Review_Notice::init_mercadopago_review_notice();
 			self::update_plugin_version();
 
 			add_action( 'woocommerce_order_actions', array( __CLASS__, 'add_mp_order_meta_box_actions' ) );

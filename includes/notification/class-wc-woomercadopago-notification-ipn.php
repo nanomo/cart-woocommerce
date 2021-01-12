@@ -122,7 +122,7 @@ class WC_WooMercadoPago_Notification_IPN extends WC_WooMercadoPago_Notification_
 		// WooCommerce 3.0 or later.
 		if ( method_exists( $order, 'update_meta_data' ) ) {
 			// Updates the type of gateway.
-			$order->update_meta_data( '_used_gateway', 'WC_WooMercadoPago_BasicGateway' );
+			$order->update_meta_data( '_used_gateway', 'WC_WooMercadoPago_Basic_Gateway' );
 			if ( ! empty( $data['payer']['email'] ) ) {
 				$order->update_meta_data( __( 'Buyer email', 'woocommerce-mercadopago' ), $data['payer']['email'] );
 			}
@@ -148,7 +148,7 @@ class WC_WooMercadoPago_Notification_IPN extends WC_WooMercadoPago_Notification_
 			$order->save();
 		} else {
 			// Updates the type of gateway.
-			update_post_meta( $order->id, '_used_gateway', 'WC_WooMercadoPago_BasicGateway' );
+			update_post_meta( $order->id, '_used_gateway', 'WC_WooMercadoPago_Basic_Gateway' );
 			if ( ! empty( $data['payer']['email'] ) ) {
 				update_post_meta( $order->id, __( 'Buyer email', 'woocommerce-mercadopago' ), $data['payer']['email'] );
 			}

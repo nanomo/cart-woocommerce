@@ -16,9 +16,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * WC_WooMercadoPago_Payments
+ * Class WC_WooMercadoPago_Payment_Abstract
  */
-class WC_WooMercadoPago_PaymentAbstract extends WC_Payment_Gateway {
+class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 
 	const COMMON_CONFIGS = array(
 		'_mp_public_key_test',
@@ -43,9 +43,9 @@ class WC_WooMercadoPago_PaymentAbstract extends WC_Payment_Gateway {
 	);
 
 	const ALLOWED_CLASSES = array(
-		'wc_woomercadopago_basicgateway',
-		'wc_woomercadopago_customgateway',
-		'wc_woomercadopago_ticketgateway',
+		'WC_WooMercadoPago_Basic_Gateway',
+		'WC_WooMercadoPago_Custom_Gateway',
+		'WC_WooMercadoPago_Ticket_Gateway',
 	);
 
 	/**
@@ -1465,10 +1465,10 @@ class WC_WooMercadoPago_PaymentAbstract extends WC_Payment_Gateway {
 	/**
 	 * Field Currency Conversion
 	 *
-	 * @param WC_WooMercadoPago_PaymentAbstract $method Payment abstract.
+	 * @param WC_WooMercadoPago_Payment_Abstract $method Payment abstract.
 	 * @return array
 	 */
-	public function field_currency_conversion( WC_WooMercadoPago_PaymentAbstract $method ) {
+	public function field_currency_conversion( WC_WooMercadoPago_Payment_Abstract $method ) {
 		return WC_WooMercadoPago_Helpers_CurrencyConverter::get_instance()->get_field( $method );
 	}
 

@@ -44,14 +44,14 @@ abstract class WC_WooMercadoPago_Notification_Abstract {
 	/**
 	 * Self!
 	 *
-	 * @var WC_WooMercadoPago_PaymentAbstract
+	 * @var WC_WooMercadoPago_Payment_Abstract
 	 */
 	public $payment;
 
 	/**
 	 * WC_WooMercadoPago_Notification_Abstract constructor.
 	 *
-	 * @param WC_WooMercadoPago_PaymentAbstract $payment payment class.
+	 * @param WC_WooMercadoPago_Payment_Abstract $payment payment class.
 	 */
 	public function __construct( $payment ) {
 		$this->payment = $payment;
@@ -191,14 +191,14 @@ abstract class WC_WooMercadoPago_Notification_Abstract {
 
 		if ( method_exists( $order, 'get_status' ) && $order->get_status() !== 'completed' ) {
 			switch ( $used_gateway ) {
-				case 'WC_WooMercadoPago_BasicGateway':
-				case 'WC_WooMercadoPago_CustomGateway':
+				case 'WC_WooMercadoPago_Basic_Gateway':
+				case 'WC_WooMercadoPago_Custom_Gateway':
 					$order->payment_complete();
 					if ( 'completed' !== $payment_completed_status ) {
 						$order->update_status( self::get_wc_status_for_mp_status( 'approved' ) );
 					}
 					break;
-				case 'WC_WooMercadoPago_TicketGateway':
+				case 'WC_WooMercadoPago_Ticket_Gateway':
 					if ( 'no' === get_option( 'stock_reduce_mode', 'no' ) ) {
 						$order->payment_complete();
 						if ( 'completed' !== $payment_completed_status ) {
@@ -221,7 +221,7 @@ abstract class WC_WooMercadoPago_Notification_Abstract {
 		if ( $this->can_update_order_status( $order ) ) {
 			$order->update_status( self::get_wc_status_for_mp_status( 'pending' ) );
 			switch ( $used_gateway ) {
-				case 'WC_WooMercadoPago_TicketGateway':
+				case 'WC_WooMercadoPago_Ticket_Gateway':
 					$notes    = $order->get_customer_order_notes();
 					$has_note = false;
 					if ( count( $notes ) > 1 ) {
@@ -350,7 +350,7 @@ abstract class WC_WooMercadoPago_Notification_Abstract {
 		$used_gateway  = ( method_exists( $order_payment, 'get_meta' ) ) ? $order_payment->get_meta( '_used_gateway' ) : get_post_meta( $order_payment->id, '_used_gateway', true );
 		$payments      = ( method_exists( $order_payment, 'get_meta' ) ) ? $order_payment->get_meta( '_Mercado_Pago_Payment_IDs' ) : get_post_meta( $order_payment->id, '_Mercado_Pago_Payment_IDs', true );
 
-		if ( 'WC_WooMercadoPago_CustomGateway' === $used_gateway ) {
+		if ( 'WC_WooMercadoPago_Custom_Gateway' === $used_gateway ) {
 			return;
 		}
 		$this->log->write_log( __FUNCTION__, 'cancelling payments for ' . $payments );

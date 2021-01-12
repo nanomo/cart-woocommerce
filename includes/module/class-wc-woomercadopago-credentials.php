@@ -134,7 +134,7 @@ class WC_WooMercadoPago_Credentials {
 	 */
 	public function validate_credentials_type() {
 		$basic_is_enabled = self::basic_is_enabled();
-		if ( ! $this->token_is_valid() && ( $this->payment instanceof WC_WooMercadoPago_BasicGateway || 'yes' === $basic_is_enabled ) ) {
+		if ( ! $this->token_is_valid() && ( $this->payment instanceof WC_WooMercadoPago_Basic_Gateway || 'yes' === $basic_is_enabled ) ) {
 			if ( ! $this->client_is_valid() ) {
 				return self::TYPE_ACCESS_TOKEN;
 			}

@@ -22,14 +22,14 @@ abstract class WC_WooMercadoPago_Hook_Abstract {
 	/**
 	 * Payment class
 	 *
-	 * @var WC_WooMercadoPago_PaymentAbstract
+	 * @var WC_WooMercadoPago_Payment_Abstract
 	 */
 	public $payment;
 
 	/**
 	 * Payment class
 	 *
-	 * @var WC_WooMercadoPago_PaymentAbstract
+	 * @var WC_WooMercadoPago_Payment_Abstract
 	 */
 	public $class;
 
@@ -64,7 +64,7 @@ abstract class WC_WooMercadoPago_Hook_Abstract {
 	/**
 	 * WC_WooMercadoPago_Hook_Abstract constructor.
 	 *
-	 * @param WC_WooMercadoPago_PaymentAbstract $payment Payment method.
+	 * @param WC_WooMercadoPago_Payment_Abstract $payment Payment method.
 	 */
 	public function __construct( $payment ) {
 		$this->payment     = $payment;
