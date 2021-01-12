@@ -1687,7 +1687,7 @@ class WC_WooMercadoPago_PaymentAbstract extends WC_Payment_Gateway {
 				continue;
 			}
 
-			$key     = 'woocommerce_' . $gateway::getId() . '_settings';
+			$key     = 'woocommerce_' . $gateway::get_id() . '_settings';
 			$options = get_option( $key );
 			if ( ! empty( $options ) ) {
 				if ( isset( $options['checkout_credential_prod'] ) && 'yes' === $options['checkout_credential_prod'] && ! empty( $this->mp_access_token_prod ) ) {
@@ -1699,7 +1699,7 @@ class WC_WooMercadoPago_PaymentAbstract extends WC_Payment_Gateway {
 				}
 
 				$options['enabled'] = 'no';
-				update_option( $key, apply_filters( 'woocommerce_settings_api_sanitized_fields_' . $gateway::getId(), $options ) );
+				update_option( $key, apply_filters( 'woocommerce_settings_api_sanitized_fields_' . $gateway::get_id(), $options ) );
 			}
 		}
 	}
@@ -1737,14 +1737,14 @@ class WC_WooMercadoPago_PaymentAbstract extends WC_Payment_Gateway {
 				continue;
 			}
 
-			$key     = 'woocommerce_' . $gateway::getId() . '_settings';
+			$key     = 'woocommerce_' . $gateway::get_id() . '_settings';
 			$options = get_option( $key );
 			if ( ! empty( $options ) ) {
 				if ( ! isset( $options['checkout_credential_production'] ) || empty( $options['checkout_credential_production'] ) ) {
 					continue;
 				}
 				$options['checkout_credential_prod'] = $options['checkout_credential_production'];
-				update_option( $key, apply_filters( 'woocommerce_settings_api_sanitized_fields_' . $gateway::getId(), $options ) );
+				update_option( $key, apply_filters( 'woocommerce_settings_api_sanitized_fields_' . $gateway::get_id(), $options ) );
 			}
 		}
 	}
