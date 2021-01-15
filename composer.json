@@ -18,5 +18,8 @@
             "Composer\\Config::disableProcessTimeout",
             "phpcbf --standard=phpcs.xml includes templates woocommerce-mercadopago.php "
         ]
-    }
+    },
+  "require": {
+    "ext-curl": "*"
+  }
 }

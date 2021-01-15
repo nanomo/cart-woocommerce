@@ -212,7 +212,7 @@ class WC_WooMercadoPago_Helpers_CurrencyConverter {
 	 * @return mixed
 	 */
 	public function is_enabled( WC_WooMercadoPago_Payment_Abstract $method ) {
-		return $method->get_option_mp( self::CONFIG_KEY, 'no' ) === 'yes' ? true : false;
+		return 'yes' === $method->get_option_mp( self::CONFIG_KEY, 'no' );
 	}
 
 	/**
