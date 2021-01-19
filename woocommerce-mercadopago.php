@@ -9,7 +9,7 @@
  * Text Domain: woocommerce-mercadopago
  * Domain Path: /i18n/languages/
  * WC requires at least: 3.0.0
- * WC tested up to: 4.8.0
+ * WC tested up to: 4.9.1
  *
  * @package MercadoPago
  * @category Core
