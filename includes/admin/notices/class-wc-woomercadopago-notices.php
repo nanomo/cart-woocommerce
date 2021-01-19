@@ -89,7 +89,26 @@ class WC_WooMercadoPago_Notices {
 		) {
 			$inline = 'inline';
 		}
-		include dirname( __FILE__ ) . '/../views/html-admin-alert-frame.php';
+
+		$notice = '<div id="message" class="notice ' . $type . ' is-dismissible ' . $inline . '">
+                    <div class="mp-alert-frame">
+                        <div class="mp-left-alert">
+                            <img src="' . plugins_url( '../../assets/images/minilogo.png', plugin_dir_path( __FILE__ ) ) . '">
+                        </div>
+                        <div class="mp-right-alert">
+                            <p>' . $message . '</p>
+                        </div>
+                    </div>
+                    <button type="button" class="notice-dismiss">
+                        <span class="screen-reader-text">' . __( 'Discard', 'woocommerce-mercadopago' ) . '</span>
+                    </button>
+                </div>';
+
+		if ( class_exists( 'WC_WooMercadoPago_Module' ) ) {
+			WC_WooMercadoPago_Module::$notices[] = $notice;
+		}
+
+		return $notice;
 	}
 
 	/**
