@@ -5,9 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.6.2] - 2021-02-03
+### Added
+ - Compatibility with WooCommerce v4.9.2
+
+### Changed
+ - Fixed wc-api request check when is ?wc_api or wc-api
+
 ## [4.6.2] - 2021-01-06
 ### Changed
-  - Changed loading of Mercado Pago SDK at custom checkout.
+ - Changed loading of Mercado Pago SDK at custom checkout.
+
 ## [4.6.1] - 2021-01-04
 ### Added
  - Add support to LearnPress
