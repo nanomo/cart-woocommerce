@@ -1161,19 +1161,15 @@ msgstr ""
 msgid "Select the issuer with whom you want to process the payment"
 msgstr ""
 
-#: includes/admin/notices/WC_WooMercadoPago_Notices.php:88, includes/admin/notices/WC_WooMercadoPago_Notices.php:143, includes/admin/notices/WC_WooMercadoPago_ReviewNotice.php:120
-msgid "Discard"
-msgstr ""
-
-#: includes/admin/notices/WC_WooMercadoPago_Notices.php:119
+#: includes/admin/notices/WC_WooMercadoPago_Notices.php:116
 msgid "See WooCommerce"
 msgstr ""
 
-#: includes/admin/notices/WC_WooMercadoPago_Notices.php:117
+#: includes/admin/notices/WC_WooMercadoPago_Notices.php:114
 msgid "Install WooCommerce"
 msgstr ""
 
-#: includes/admin/notices/WC_WooMercadoPago_Notices.php:114
+#: includes/admin/notices/WC_WooMercadoPago_Notices.php:111
 msgid "Activate WooCommerce"
 msgstr ""
 
