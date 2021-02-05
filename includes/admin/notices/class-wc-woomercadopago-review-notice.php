@@ -128,10 +128,6 @@ class WC_WooMercadoPago_Review_Notice {
 								. __( 'Rate the plugin', 'woocommerce-mercadopago' ) .
 							'</a>
                         </div>
-
-                        <button type="button" class="notice-dismiss">
-                            <span class="screen-reader-text">' . __( 'Discard', 'woocommerce-mercadopago' ) . '</span>
-                        </button>
                     </div>
                 </div>';
 

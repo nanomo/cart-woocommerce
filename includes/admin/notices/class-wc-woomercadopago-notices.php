@@ -99,9 +99,6 @@ class WC_WooMercadoPago_Notices {
                             <p>' . $message . '</p>
                         </div>
                     </div>
-                    <button type="button" class="notice-dismiss">
-                        <span class="screen-reader-text">' . __( 'Discard', 'woocommerce-mercadopago' ) . '</span>
-                    </button>
                 </div>';
 
 		if ( class_exists( 'WC_WooMercadoPago_Module' ) ) {

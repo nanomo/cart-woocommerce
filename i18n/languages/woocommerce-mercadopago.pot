@@ -1163,19 +1163,15 @@ msgstr ""
 msgid "Print ticket"
 msgstr ""
 
-#: includes/admin/notices/class-wc-woomercadopago-notices.php:103, includes/admin/notices/class-wc-woomercadopago-review-notice.php:133, includes/admin/views/html-admin-alert-frame.php:34, includes/admin/views/html-admin-alert-woocommerce-miss.php:30
-msgid "Discard"
-msgstr ""
-
-#: includes/admin/notices/class-wc-woomercadopago-notices.php:134
+#: includes/admin/notices/class-wc-woomercadopago-notices.php:131
 msgid "See WooCommerce"
 msgstr ""
 
-#: includes/admin/notices/class-wc-woomercadopago-notices.php:132
+#: includes/admin/notices/class-wc-woomercadopago-notices.php:129
 msgid "Install WooCommerce"
 msgstr ""
 
-#: includes/admin/notices/class-wc-woomercadopago-notices.php:129
+#: includes/admin/notices/class-wc-woomercadopago-notices.php:126
 msgid "Activate WooCommerce"
 msgstr ""
 
@@ -1189,6 +1185,10 @@ msgstr ""
 
 #: includes/admin/notices/class-wc-woomercadopago-review-notice.php:128
 msgid "Rate the plugin"
+msgstr ""
+
+#: includes/admin/views/html-admin-alert-frame.php:34, includes/admin/views/html-admin-alert-woocommerce-miss.php:30
+msgid "Discard"
 msgstr ""
 
 #: includes/module/preference/class-wc-woomercadopago-preference-abstract.php:364
