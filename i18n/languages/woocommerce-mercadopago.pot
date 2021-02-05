@@ -1161,7 +1161,7 @@ msgstr ""
 msgid "Select the issuer with whom you want to process the payment"
 msgstr ""
 
-#: includes/admin/notices/WC_WooMercadoPago_Notices.php:88, includes/admin/notices/WC_WooMercadoPago_Notices.php:143, includes/admin/notices/WC_WooMercadoPago_ReviewNotice.php:120
+#: includes/admin/notices/WC_WooMercadoPago_Notices.php:88, includes/admin/notices/WC_WooMercadoPago_Notices.php:143
 msgid "Discard"
 msgstr ""
 

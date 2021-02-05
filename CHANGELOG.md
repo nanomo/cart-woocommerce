@@ -8,9 +8,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [4.6.3] - 2021-02-03
 ### Added
  - Compatibility with WooCommerce v4.9.2
-
+ - Compatibility with WordPress v5.6.1
+ - Added index to all directories for more security
 ### Changed
  - Fixed wc-api request check when is ?wc_api or wc-api
+ - Fixed close of rating notification
 
 ## [4.6.2] - 2021-01-06
 ### Changed
