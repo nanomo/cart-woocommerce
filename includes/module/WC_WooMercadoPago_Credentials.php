@@ -285,7 +285,7 @@ class WC_WooMercadoPago_Credentials
         }
 
         $payment_methods_ticket = array();
-        $excluded = array('paypal');
+        $excluded = array('paypal', 'pse', 'pix');
 
         foreach ($paymentsResponse as $payment) {
             if (
