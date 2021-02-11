@@ -269,7 +269,7 @@ class WC_WooMercadoPago_Configs
         global $wp;
         if (!empty($wp) && isset($wp->query_vars['wc-api'])) {
             $api_request = wc_clean($wp->query_vars['wc-api']);
-            if (!empty($api_request) && in_array($api_request, ['WC_WooMercadoPago_BasicGateway', 'WC_WooMercadoPago_CustomGateway', 'WC_WooMercadoPago_TicketGateway'])) {
+            if (!empty($api_request) && in_array(strtolower($api_request), ['wc_woomercadopago_basicgateway', 'wc_woomercadopago_customgateway', 'wc_woomercadopago_ticketgateway'])) {
                 $methods[] = $api_request;
             }
             return $methods;
