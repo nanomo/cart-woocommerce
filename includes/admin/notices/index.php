@@ -1,5 +1,4 @@
 <?php
-<<<<<<< HEAD
 /**
  * Part of Woo Mercado Pago Module
  * Author - Mercado Pago
@@ -13,6 +12,3 @@
  */
 
 exit;
-=======
-// Silence is golden
->>>>>>> origin
