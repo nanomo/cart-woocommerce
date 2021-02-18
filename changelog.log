@@ -1,5 +1,9 @@
 CHANGELOG:
 == Changelog ==
+= v5.0.0 (22/02/2021) =
+* Features
+ - Added Wordpress Code Standard
+
 = v4.6.4 (11/02/2021) =
 
 * Bug fixes

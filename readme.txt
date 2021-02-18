@@ -116,6 +116,10 @@ Set up both the plugin and the checkouts you want to activate on your payment av
 Check out our <a href="https://www.mercadopago.com.br/developers/pt/plugins_sdks/plugins/official/woo-commerce/">official documentation</a> for more information on the specific fields to configure.
 
 == Changelog ==
+= v5.0.0 (22/02/2021) =
+* Features
+ - Added Wordpress Code Standard
+
 = v4.6.4 (11/02/2021) =
 * Bug fixes
  - Removed payments methods in option custom checkout OFF
