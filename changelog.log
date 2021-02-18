@@ -1,5 +1,13 @@
 CHANGELOG:
 == Changelog ==
+= v5.0.0 (22/02/2021) =
+* Features
+ - Added Wordpress Code Standard
+
+= v4.6.4 (11/02/2021) =
+
+* Bug fixes
+ - Removed payments methods in option custom checkout OFF
 
 = v4.6.3 (06/01/2021) =
 
