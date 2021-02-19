@@ -47,7 +47,9 @@ class WC_WooMercadoPago_Init {
 	public static function wc_mercado_pago_unsupported_php_version_notice() {
 		$type    = 'error';
 		$message = esc_html__( 'Mercado Pago payments for WooCommerce requires PHP version 5.6 or later. Please update your PHP version.', 'woocommerce-mercadopago' );
-		WC_WooMercadoPago_Notices::get_alert_frame( $message, $type );
+		// @todo using escaping function
+		// @codingStandardsIgnoreLine
+		echo WC_WooMercadoPago_Notices::get_alert_frame( $message, $type );
 	}
 
 	/**
@@ -56,7 +58,9 @@ class WC_WooMercadoPago_Init {
 	public static function wc_mercado_pago_notify_curl_error() {
 		$type    = 'error';
 		$message = __( 'Mercado Pago Error: PHP Extension CURL is not installed.', 'woocommerce-mercadopago' );
-		WC_WooMercadoPago_Notices::get_alert_frame( $message, $type );
+		// @todo using escaping function
+		// @codingStandardsIgnoreLine
+		echo WC_WooMercadoPago_Notices::get_alert_frame( $message, $type );
 	}
 
 	/**
