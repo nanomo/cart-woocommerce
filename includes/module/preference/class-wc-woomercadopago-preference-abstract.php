@@ -587,8 +587,8 @@ abstract class WC_WooMercadoPago_Preference_Abstract extends WC_Payment_Gateway 
 	 */
 	private function calculate_price( $amount ) {
 		if ( 'COP' === $this->site_data[ $this->site_id ]['currency'] || 'CLP' === $this->site_data[ $this->site_id ]['currency'] ) {
-			return floor( $amount * $this->currency_ratio );
+			return number_format( $amount * $this->currency_ratio, 2, '.', '' );
 		}
-		return floor( $amount * $this->currency_ratio * 100 ) / 100;
+		return number_format( $amount * $this->currency_ratio * 100, 2, '.', '' ) / 100;
 	}
 }
