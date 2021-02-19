@@ -1200,7 +1200,7 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 	 */
 	public function field_category_store() {
 		$category_store  = WC_WooMercadoPago_Module::$categories;
-		$option_category = $category_store['store_categories_id'];
+		$option_category = array_combine( $category_store['store_categories_id'], $category_store['store_categories_description'] );
 
 		return array(
 			'title'       => __( 'Store Category', 'woocommerce-mercadopago' ),
