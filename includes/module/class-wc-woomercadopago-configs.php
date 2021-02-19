@@ -323,7 +323,7 @@ class WC_WooMercadoPago_Configs {
 			$api_request = wc_clean( $wp->query_vars['wc-api'] );
 			if ( ! empty( $api_request ) && in_array(
 				strtolower( $api_request ),
-				array( 'wc_woomercadopago_basicgateway', 'wc_woomercadopago_customgateway', 'wc_woomercadopago_ticketgateway' ),
+				array( 'wc_woomercadopago_basic_gateway', 'wc_woomercadopago_custom_gateway', 'wc_woomercadopago_ticket_gateway' ),
 				true
 			) ) {
 				$methods[] = $api_request;
