@@ -634,8 +634,9 @@ class MP {
 		$response = MP_Rest_Client::get( $request );
 
 		if ( $response['status'] > 202 ) {
-			$log = WC_WooMercadoPago_Log::init_mercado_pago_log( 'getCredentialsWrapper' );
-			$log->write_log( 'API GET Credentials Wrapper error:', $response['response']['message'] );
+			$log           = WC_WooMercadoPago_Log::init_mercado_pago_log( 'getCredentialsWrapper' );
+			$error_message = $response['response'] ? $response['response']['message'] : '';
+			$log->write_log( 'API GET Credentials Wrapper error:', $error_message );
 			return false;
 		}
 

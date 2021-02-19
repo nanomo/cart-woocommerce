@@ -70,7 +70,6 @@ class WC_WooMercadoPago_Configs {
 		$all_payments = get_option( '_checkout_payments_methods', '' );
 		if ( empty( $all_payments ) ) {
 			$this->update_payments();
-			return;
 		}
 
 		if ( ! empty( $all_payments ) ) {
