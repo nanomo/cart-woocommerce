@@ -464,7 +464,7 @@ msgstr ""
 msgid "Your payment was declined. You can try again."
 msgstr ""
 
-#: includes/payments/class-wc-woomercadopago-custom-gateway.php:452, includes/payments/hooks/class-wc-woomercadopago-hook-basic.php:94
+#: includes/payments/class-wc-woomercadopago-custom-gateway.php:452, includes/payments/hooks/class-wc-woomercadopago-hook-basic.php:96
 msgid "Click to try again"
 msgstr ""
 
@@ -1224,15 +1224,15 @@ msgstr ""
 msgid "<b>Access Token</b> test credential is invalid. Review the field to perform tests in your store."
 msgstr ""
 
-#: includes/payments/hooks/class-wc-woomercadopago-hook-basic.php:91
+#: includes/payments/hooks/class-wc-woomercadopago-hook-basic.php:93
 msgid "There was an error processing your payment. Please try again or contact us for Assistance."
 msgstr ""
 
-#: includes/payments/hooks/class-wc-woomercadopago-hook-basic.php:83
+#: includes/payments/hooks/class-wc-woomercadopago-hook-basic.php:85
 msgid "Pay with Mercado Pago"
 msgstr ""
 
-#: includes/payments/hooks/class-wc-woomercadopago-hook-basic.php:85
+#: includes/payments/hooks/class-wc-woomercadopago-hook-basic.php:87
 msgid "Cancel &amp; Clear Cart"
 msgstr ""
 
