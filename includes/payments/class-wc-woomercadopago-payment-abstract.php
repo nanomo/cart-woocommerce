@@ -1199,8 +1199,9 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 	 * @return array
 	 */
 	public function field_category_store() {
-		$category_store  = WC_WooMercadoPago_Module::$categories;
-		$option_category = array_combine( $category_store['store_categories_id'], $category_store['store_categories_description'] );
+		$category_store       = WC_WooMercadoPago_Module::$categories;
+		$category_description = array_map( array( $this, 'translate_categories' ), $category_store['store_categories_description'] );
+		$option_category      = array_combine( $category_store['store_categories_id'], $category_description );
 
 		return array(
 			'title'       => __( 'Store Category', 'woocommerce-mercadopago' ),
@@ -1209,6 +1210,16 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 			'default'     => $this->get_option_mp( '_mp_category_id', __( 'Categories', 'woocommerce-mercadopago' ) ),
 			'options'     => $option_category,
 		);
+	}
+
+	/**
+	 * Translate categories
+	 *
+	 * @param string $category Category name.
+	 * @return mixed
+	 */
+	public function translate_categories( $category ) {
+		return __( $category );
 	}
 
 	/**
