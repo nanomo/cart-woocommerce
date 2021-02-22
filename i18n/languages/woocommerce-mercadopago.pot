@@ -69,7 +69,7 @@ msgstr ""
 msgid "Cancel order"
 msgstr ""
 
-#: includes/module/class-wc-woomercadopago-module.php:328, includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:409
+#: includes/module/class-wc-woomercadopago-module.php:328, includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:437
 msgid "Fill in your credentials to enable payment methods."
 msgstr ""
 
@@ -1208,20 +1208,36 @@ msgstr ""
 msgid " and fee of"
 msgstr ""
 
-#: includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:373
+#: includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:401
 msgid "<b>Public Key</b> production credential is invalid. Review the field to receive real payments."
 msgstr ""
 
-#: includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:382
+#: includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:410
 msgid "<b>Public Key</b> test credential is invalid. Review the field to perform tests in your store."
 msgstr ""
 
-#: includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:391
+#: includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:419
 msgid "<b>Access Token</b> production credential is invalid. Remember that it must be complete to receive real payments."
 msgstr ""
 
-#: includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:400
+#: includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:428
 msgid "<b>Access Token</b> test credential is invalid. Review the field to perform tests in your store."
+msgstr ""
+
+#: includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:446
+msgid "<b>Public Key</b> test credential is blank. Review the field to perform tests in your store."
+msgstr ""
+
+#: includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:455
+msgid "<b>Public Key</b> production credential is blank. Review the field to receive real payments."
+msgstr ""
+
+#: includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:464
+msgid "<b>Access Token</b> test credential is blank. Review the field to perform tests in your store."
+msgstr ""
+
+#: includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:473
+msgid "<b>Access Token</b> production credential is blank. Remember that it must be complete to receive real payments."
 msgstr ""
 
 #: includes/payments/hooks/class-wc-woomercadopago-hook-basic.php:93
