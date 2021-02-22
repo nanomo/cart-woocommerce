@@ -1219,6 +1219,8 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 	 * @return mixed
 	 */
 	public function translate_categories( $category ) {
+		// @todo need fix The $text arg must be a single string literal, not $category
+		// @codingStandardsIgnoreLine
 		return __( $category );
 	}
 
