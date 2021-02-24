@@ -1,5 +1,14 @@
 CHANGELOG:
 == Changelog ==
+= v5.0.0 (24/02/2021) =
+* Features
+ - Compatibility with WooCommerce v5.0.0
+ - Compatibility with WordPress v5.6.2
+ - Added Wordpress Code Standard at plugin
+
+* Bug fixes
+ - Fixed round amount
+
 = v4.6.4 (11/02/2021) =
 
 * Bug fixes
