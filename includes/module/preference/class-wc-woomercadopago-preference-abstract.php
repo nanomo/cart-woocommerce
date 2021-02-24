@@ -524,7 +524,7 @@ abstract class WC_WooMercadoPago_Preference_Abstract extends WC_Payment_Gateway 
 			'quantity'    => 1,
 			'category_id' => get_option( '_mp_category_name', 'others' ),
 			'unit_price'  => ( 'COP' === $this->site_data[ $this->site_id ]['currency'] || 'CLP' === $this->site_data[ $this->site_id ]['currency'] ) ?
-				-floor( $this->checkout['discount'] * $this->currency_ratio ) : -floor( $this->checkout['discount'] * $this->currency_ratio * 100 ) / 100,
+				-round( $this->checkout['discount'] * $this->currency_ratio ) : -round( $this->checkout['discount'] * $this->currency_ratio * 100 ) / 100,
 		);
 	}
 
@@ -537,7 +537,7 @@ abstract class WC_WooMercadoPago_Preference_Abstract extends WC_Payment_Gateway 
 		return array(
 			'campaign_id'   => (int) $this->checkout['campaign_id'],
 			'coupon_amount' => ( 'COP' === $this->site_data[ $this->site_id ]['currency'] || 'CLP' === $this->site_data[ $this->site_id ]['currency'] ) ?
-				floor( $this->checkout['discount'] * $this->currency_ratio ) : floor( $this->checkout['discount'] * $this->currency_ratio * 100 ) / 100,
+				round( $this->checkout['discount'] * $this->currency_ratio ) : round( $this->checkout['discount'] * $this->currency_ratio * 100 ) / 100,
 			'coupon_code'   => strtoupper( $this->checkout['coupon_code'] ),
 		);
 	}
@@ -587,8 +587,8 @@ abstract class WC_WooMercadoPago_Preference_Abstract extends WC_Payment_Gateway 
 	 */
 	private function calculate_price( $amount ) {
 		if ( 'COP' === $this->site_data[ $this->site_id ]['currency'] || 'CLP' === $this->site_data[ $this->site_id ]['currency'] ) {
-			return floor( $amount * $this->currency_ratio );
+			return number_format( $amount * $this->currency_ratio, 0, '.', '' );
 		}
-		return floor( $amount * $this->currency_ratio * 100 ) / 100;
+		return number_format( $amount * $this->currency_ratio * 100, 2, '.', '' ) / 100;
 	}
 }

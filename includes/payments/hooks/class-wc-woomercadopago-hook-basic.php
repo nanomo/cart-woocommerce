@@ -36,7 +36,9 @@ class WC_WooMercadoPago_Hook_Basic extends WC_WooMercadoPago_Hook_Abstract {
 		add_action(
 			'woocommerce_receipt_' . $this->payment->id,
 			function ( $order ) {
-				echo esc_html( $this->render_order_form( $order ) );
+				// @todo using escaping function
+				// @codingStandardsIgnoreLine
+				echo $this->render_order_form( $order );
 			}
 		);
 

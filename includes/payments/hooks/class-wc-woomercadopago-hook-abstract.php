@@ -285,16 +285,30 @@ abstract class WC_WooMercadoPago_Hook_Abstract {
 			return false;
 		}
 
-		if ( '_mp_public_key_prod' === $key && false === WC_WooMercadoPago_Credentials::validate_credentials_prod( $this->mp_instance, null, $value ) ) {
-			update_option( $key, '', true );
-			add_action( 'admin_notices', array( $this, 'notice_invalid_public_key_prod' ) );
-			return true;
+		if ( '_mp_public_key_prod' === $key ) {
+			if ( null === $value || '' === $value ) {
+				add_action( 'admin_notices', array( $this, 'notice_blank_public_key_prod' ) );
+				return true;
+			}
+
+			if ( false === WC_WooMercadoPago_Credentials::validate_credentials_prod( $this->mp_instance, null, $value ) ) {
+				update_option( $key, '', true );
+				add_action( 'admin_notices', array( $this, 'notice_invalid_public_key_prod' ) );
+				return true;
+			}
 		}
 
-		if ( '_mp_public_key_test' === $key && false === WC_WooMercadoPago_Credentials::validate_credentials_test( $this->mp_instance, null, $value ) ) {
-			update_option( $key, '', true );
-			add_action( 'admin_notices', array( $this, 'notice_invalid_public_key_test' ) );
-			return true;
+		if ( '_mp_public_key_test' === $key ) {
+			if ( null === $value || '' === $value ) {
+				add_action( 'admin_notices', array( $this, 'notice_blank_public_key_test' ) );
+				return true;
+			}
+
+			if ( false === WC_WooMercadoPago_Credentials::validate_credentials_test( $this->mp_instance, null, $value ) ) {
+				update_option( $key, '', true );
+				add_action( 'admin_notices', array( $this, 'notice_invalid_public_key_test' ) );
+				return true;
+			}
 		}
 
 		return false;
@@ -315,16 +329,30 @@ abstract class WC_WooMercadoPago_Hook_Abstract {
 			return false;
 		}
 
-		if ( '_mp_access_token_prod' === $key && false === WC_WooMercadoPago_Credentials::validate_credentials_prod( $this->mp_instance, $value, null ) ) {
-			add_action( 'admin_notices', array( $this, 'notice_invalid_prod_credentials' ) );
-			update_option( $key, '', true );
-			return true;
+		if ( '_mp_access_token_prod' === $key ) {
+			if ( null === $value || '' === $value ) {
+				add_action( 'admin_notices', array( $this, 'notice_blank_prod_credentials' ) );
+				return true;
+			}
+
+			if ( false === WC_WooMercadoPago_Credentials::validate_credentials_prod( $this->mp_instance, $value, null ) ) {
+				add_action( 'admin_notices', array( $this, 'notice_invalid_prod_credentials' ) );
+				update_option( $key, '', true );
+				return true;
+			}
 		}
 
-		if ( '_mp_access_token_test' === $key && false === WC_WooMercadoPago_Credentials::validate_credentials_test( $this->mp_instance, $value, null ) ) {
-			add_action( 'admin_notices', array( $this, 'notice_invalid_test_credentials' ) );
-			update_option( $key, '', true );
-			return true;
+		if ( '_mp_access_token_test' === $key ) {
+			if ( null === $value || '' === $value ) {
+				add_action( 'admin_notices', array( $this, 'notice_blank_test_credentials' ) );
+				return true;
+			}
+
+			if ( false === WC_WooMercadoPago_Credentials::validate_credentials_test( $this->mp_instance, $value, null ) ) {
+				add_action( 'admin_notices', array( $this, 'notice_invalid_test_credentials' ) );
+				update_option( $key, '', true );
+				return true;
+			}
 		}
 
 		if ( empty( $is_production ) ) {
@@ -410,5 +438,39 @@ abstract class WC_WooMercadoPago_Hook_Abstract {
 		WC_WooMercadoPago_Notices::get_alert_frame( $message, $type );
 	}
 
+	/**
+	 *  ADMIN NOTICE
+	 */
+	public function notice_blank_public_key_test() {
+		$type    = 'error';
+		$message = __( '<b>Public Key</b> test credential is blank. Review the field to perform tests in your store.', 'woocommerce-mercadopago' );
+		WC_WooMercadoPago_Notices::get_alert_frame( $message, $type );
+	}
 
+	/**
+	 *  ADMIN NOTICE
+	 */
+	public function notice_blank_public_key_prod() {
+		$type    = 'error';
+		$message = __( '<b>Public Key</b> production credential is blank. Review the field to receive real payments.', 'woocommerce-mercadopago' );
+		WC_WooMercadoPago_Notices::get_alert_frame( $message, $type );
+	}
+
+	/**
+	 *  ADMIN NOTICE
+	 */
+	public function notice_blank_test_credentials() {
+		$type    = 'error';
+		$message = __( '<b>Access Token</b> test credential is blank. Review the field to perform tests in your store.', 'woocommerce-mercadopago' );
+		WC_WooMercadoPago_Notices::get_alert_frame( $message, $type );
+	}
+
+	/**
+	 *  ADMIN NOTICE
+	 */
+	public function notice_blank_prod_credentials() {
+		$type    = 'error';
+		$message = __( '<b>Access Token</b> production credential is blank. Remember that it must be complete to receive real payments.', 'woocommerce-mercadopago' );
+		WC_WooMercadoPago_Notices::get_alert_frame( $message, $type );
+	}
 }
