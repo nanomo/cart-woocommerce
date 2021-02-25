@@ -78,14 +78,14 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 			$this->field_forms_order = array_slice( $this->field_forms_order, 0, 22 );
 		}
 
-		$form_fields                           = array();
+		$form_fields                        = array();
 		$form_fields['checkout_pix_header'] = $this->field_checkout_pix_header();
 		if ( ! empty( $this->checkout_country ) && ! empty( $this->get_access_token() ) && ! empty( $this->get_public_key() ) ) {
 			$form_fields['checkout_pix_options_title']           = $this->field_checkout_pix_options_title();
 			$form_fields['checkout_pix_payments_title']          = $this->field_checkout_pix_payments_title();
 			$form_fields['checkout_pix_payments_description']    = $this->field_checkout_pix_options_description();
 			$form_fields['checkout_pix_payments_advanced_title'] = $this->field_checkout_pix_payments_advanced_title();
-			$form_fields['date_expiration']                         = $this->field_date_expiration();
+			$form_fields['date_expiration']                      = $this->field_date_expiration();
 			foreach ( $this->field_pix_payments() as $key => $value ) {
 				$form_fields[ $key ] = $value;
 			}
@@ -479,7 +479,6 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 			}
 		}
 
-
 		if ( isset( $pix_checkout['amount'] ) && ! empty( $pix_checkout['amount'] ) &&
 			isset( $pix_checkout['paymentMethodId'] ) && ! empty( $pix_checkout['paymentMethodId'] ) ) {
 			$response = $this->create_preference( $order, $pix_checkout );
@@ -557,7 +556,7 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 	 */
 	public function create_preference( $order, $pix_checkout ) {
 		$preferences_pix = new WC_WooMercadoPago_Preference_pix( $this, $order, $pix_checkout );
-		$preferences        = $preferences_pix->get_preference();
+		$preferences     = $preferences_pix->get_preference();
 		try {
 			$checkout_info = $this->mp->post( '/v1/payments', wp_json_encode( $preferences ) );
 			$this->log->write_log( __FUNCTION__, 'Created Preference: ' . wp_json_encode( $checkout_info, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE ) );
