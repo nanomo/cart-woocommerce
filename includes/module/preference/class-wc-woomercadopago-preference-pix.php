@@ -30,14 +30,14 @@ class WC_WooMercadoPago_Preference_Pix extends WC_WooMercadoPago_Preference_Abst
 	 */
 	public function __construct( $payment, $order, $pix_checkout ) {
 		parent::__construct( $payment, $order, $pix_checkout );
-		$date_expiration = $payment->get_option_mp( 'date_expiration', '' );
+		$date_expiration                        = $payment->get_option_mp( 'date_expiration', '' );
 		$this->preference                       = $this->make_commum_preference( $date_expiration );
 		$this->preference['date_of_expiration'] = $this->get_date_of_expiration( $payment );
 		$this->preference['transaction_amount'] = $this->get_transaction_amount();
 		$this->preference['description']        = implode( ', ', $this->list_of_items );
 		$this->preference['payment_method_id']  = 'pix';
 		// payer information
-		$this->preference['payer']['email']     			= $this->get_email();
+		$this->preference['payer']['email']                    = $this->get_email();
 		$this->preference['payer']['first_name']               = $this->checkout['firstname'];
 		$this->preference['payer']['last_name']                = 14 === strlen( $this->checkout['docNumber'] ) ? $this->checkout['lastname'] : $this->checkout['firstname'];
 		$this->preference['payer']['identification']['type']   = 'CPF';
@@ -49,14 +49,13 @@ class WC_WooMercadoPago_Preference_Pix extends WC_WooMercadoPago_Preference_Abst
 		$this->preference['payer']['address']['neighborhood']  = $this->checkout['city'];
 		$this->preference['payer']['address']['city']          = $this->checkout['city'];
 		$this->preference['payer']['address']['federal_unit']  = $this->checkout['state'];
-		$this->preference['external_reference']           = $this->get_external_reference();
-		$this->preference['additional_info']['items']     = $this->items;
-		$this->preference['additional_info']['payer']     = $this->get_payer_custom();
-		$this->preference['additional_info']['shipments'] = $this->shipments_receiver_address();
-		$this->preference['additional_info']['payer']     = $this->get_payer_custom();
-		$this->preference['additional_info']['items'][] = $this->add_discounts();
-		$this->preference                               = array_merge( $this->preference, $this->add_discounts_campaign() );
-
+		$this->preference['external_reference']                = $this->get_external_reference();
+		$this->preference['additional_info']['items']          = $this->items;
+		$this->preference['additional_info']['payer']          = $this->get_payer_custom();
+		$this->preference['additional_info']['shipments']      = $this->shipments_receiver_address();
+		$this->preference['additional_info']['payer']          = $this->get_payer_custom();
+		$this->preference['additional_info']['items'][]        = $this->add_discounts();
+		$this->preference                                      = array_merge( $this->preference, $this->add_discounts_campaign() );
 
 		$internal_metadata            = parent::get_internal_metadata();
 		$merge_array                  = array_merge( $internal_metadata, $this->get_internal_metadata_pix() );
