@@ -30,5 +30,6 @@ class WC_WooMercadoPago_Constants {
 		'WC_WooMercadoPago_Basic_Gateway',
 		'WC_WooMercadoPago_Custom_Gateway',
 		'WC_WooMercadoPago_Ticket_Gateway',
+		'WC_WooMercadoPago_Pix_Gateway',
 	);
 }
