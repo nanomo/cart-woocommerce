@@ -592,4 +592,16 @@ abstract class WC_WooMercadoPago_Preference_Abstract extends WC_Payment_Gateway 
 		}
 		return number_format( $amount * $this->currency_ratio * 100, 2, '.', '' ) / 100;
 	}
+
+	/**
+	 * Get date of expiration
+	 *
+	 * @param WC_WooMercadoPago_Payment_Abstract $payment Payment.
+	 * @return string date
+	 */
+	public function get_date_of_expiration(  $date_expiration  ) {
+		if ( '' !== $date_expiration ) {
+			return gmdate( 'Y-m-d\TH:i:s.000O', strtotime( '+' . $date_expiration . ' days' ) );
+		}
+	}
 }

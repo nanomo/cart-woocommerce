@@ -449,7 +449,7 @@ class WC_WooMercadoPago_Ticket_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 	public function process_payment( $order_id ) {
 		// @todo need fix Processing form data without nonce verification
 		// @codingStandardsIgnoreLine
-		$ticket_checkout = apply_filters( 'wc_mercadopagoticket_ticket_checkout', $_POST['mercadopago_ticket'] );
+		$ticket_checkout = $_POST['mercadopago_ticket'];
 		$this->log->write_log( __FUNCTION__, 'Ticket POST: ' . wp_json_encode( $ticket_checkout, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE ) );
 
 		$order  = wc_get_order( $order_id );

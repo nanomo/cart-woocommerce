@@ -86,7 +86,7 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 			$form_fields['checkout_pix_payments_description']    = $this->field_checkout_pix_options_description();
 			$form_fields['checkout_pix_payments_advanced_title'] = $this->field_checkout_pix_payments_advanced_title();
 			$form_fields['date_expiration']                      = $this->field_date_expiration();
-			foreach ( $this->field_pix_payments() as $key => $value ) {
+			foreach ( $this->field_ticket_payments() as $key => $value ) {
 				$form_fields[ $key ] = $value;
 			}
 		}
