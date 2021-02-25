@@ -596,7 +596,7 @@ abstract class WC_WooMercadoPago_Preference_Abstract extends WC_Payment_Gateway 
 	/**
 	 * Get date of expiration
 	 *
-	 * @param WC_WooMercadoPago_Payment_Abstract $payment Payment.
+	 * @param string $date_expiration Date expiration.
 	 * @return string date
 	 */
 	public function get_date_of_expiration( $date_expiration ) {

@@ -30,19 +30,17 @@ class WC_WooMercadoPago_Preference_Pix extends WC_WooMercadoPago_Preference_Abst
 	 */
 	public function __construct( $payment, $order, $pix_checkout ) {
 		parent::__construct( $payment, $order, $pix_checkout );
-		$date_expiration                        = $payment->get_option_mp( 'date_expiration', '' );
-		$this->preference                       = $this->make_commum_preference( $date_expiration );
-		$this->preference['date_of_expiration'] = $this->get_date_of_expiration( $payment );
-		$this->preference['transaction_amount'] = $this->get_transaction_amount();
-		$this->preference['description']        = implode( ', ', $this->list_of_items );
-		$this->preference['payment_method_id']  = 'pix';
-		// payer information
+		$date_expiration                                       = $payment->get_option_mp( 'date_expiration', '' );
+		$this->preference                                      = $this->make_commum_preference( $date_expiration );
+		$this->preference['date_of_expiration']                = $this->get_date_of_expiration( $payment );
+		$this->preference['transaction_amount']                = $this->get_transaction_amount();
+		$this->preference['description']                       = implode( ', ', $this->list_of_items );
+		$this->preference['payment_method_id']                 = 'pix';
 		$this->preference['payer']['email']                    = $this->get_email();
 		$this->preference['payer']['first_name']               = $this->checkout['firstname'];
 		$this->preference['payer']['last_name']                = 14 === strlen( $this->checkout['docNumber'] ) ? $this->checkout['lastname'] : $this->checkout['firstname'];
 		$this->preference['payer']['identification']['type']   = 'CPF';
 		$this->preference['payer']['identification']['number'] = $this->checkout['docNumber'];
-		// payer address information
 		$this->preference['payer']['address']['zip_code']      = $this->checkout['zipcode'];
 		$this->preference['payer']['address']['street_name']   = $this->checkout['address'];
 		$this->preference['payer']['address']['street_number'] = $this->checkout['number'];
