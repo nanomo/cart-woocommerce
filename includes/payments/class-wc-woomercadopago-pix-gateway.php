@@ -37,7 +37,7 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 		$this->description        = __( 'Accept cash payments within the custom checkout and expand your customers purchase options.', 'woocommerce-mercadopago' );
 		$this->form_fields        = array();
 		$this->method_title       = __( 'Mercado Pago - Custom Checkout', 'woocommerce-mercadopago' );
-		$this->title              = __( 'Pay with PIX', 'woocommerce-mercadopago' );
+		$this->title              = $this->getTitle() . $this->getBadge();
 		$this->method_description = $this->get_method_mp_description( $this->description );
 		$this->date_expiration    = (int) $this->get_option_mp( 'date_expiration', 3 );
 		$this->type_payments      = $this->get_option_mp( 'type_payments', 'no' );
@@ -52,6 +52,14 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 		$this->currency_convertion = true;
 	}
 
+	public function getTitle()
+	{
+		return __( 'Pay with PIX ', 'woocommerce-mercadopago' );
+	}
+	public function getBadge()
+	{
+		return '<small class="mp-pix-checkout-title-badge">'.__( 'New', 'woocommerce-mercadopago' ).'</small>';
+	}
 	/**
 	 * Get form mp fields
 	 *
