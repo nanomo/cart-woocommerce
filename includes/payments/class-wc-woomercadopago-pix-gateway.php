@@ -87,6 +87,7 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 		}
 
 		$form_fields                        = array();
+		$form_fields['checkout_steps_pix']  = $this->field_checkout_steps_pix();
 		$form_fields['checkout_pix_header'] = $this->field_checkout_pix_header();
 		if ( ! empty( $this->checkout_country ) && ! empty( $this->get_access_token() ) && ! empty( $this->get_public_key() ) ) {
 			$form_fields['checkout_pix_options_title']           = $this->field_checkout_pix_options_title();
@@ -120,7 +121,7 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 			'title',
 			'description',
 			// Checkout de pagos con dinero en efectivo<br> Aceptá pagos al instante y maximizá la conversión de tu negocio.
-			'checkout_pix_header',
+			'checkout_ticket_header',
 			'checkout_steps',
 			// ¿En qué país vas a activar tu tienda?
 			'checkout_country_title',
@@ -146,6 +147,8 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 			'checkout_homolog_title',
 			'checkout_homolog_subtitle',
 			'checkout_homolog_link',
+			// Steps configuration pix.
+			'checkout_steps_pix',
 			// Set up the payment experience in your store.
 			'checkout_pix_options_title',
 			'mp_statement_descriptor',
@@ -178,6 +181,39 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 			'checkout_ready_title',
 			'checkout_ready_description',
 			'checkout_ready_description_link',
+		);
+	}
+
+	/**
+	 * Field checkout steps
+	 *
+	 * @return array
+	 */
+	public function field_checkout_steps_pix() {
+		$steps_content = wc_get_template_html(
+			'checkout/credential/steps-pix.php',
+			array(
+				'title'                       => __( 'To activate Pix, you must have a key registered in Mercado Pago.', 'woocommerce-mercadopago' ),
+				'step_one_text'               => __( 'Download the Mercado Pago app on your cell phone.', 'woocommerce-mercadopago' ),
+				'step_two_text_one'           => __( 'Go to the ', 'woocommerce-mercadopago' ),
+				'step_two_text_two'           => __( 'area and choose the ', 'woocommerce-mercadopago' ),
+				'step_two_text_highlight_one' => __( 'Your Profile ', 'woocommerce-mercadopago' ),
+				'step_two_text_highlight_two' => __( 'Your Pix Keys section.', 'woocommerce-mercadopago' ),
+				'step_three_text'             => __( 'Choose which data to register as Pix keys. After registering, you can set up Pix in your checkout.', 'woocommerce-mercadopago' ),
+				'observation_one'             => __( 'Remember that, for the time being, the Central Bank of Brazil is open Monday through Friday, from 9am to 6pm.If you requested your registration outside these hours, we will confirm it within the next business day.', 'woocommerce-mercadopago' ),
+				'button_about_pix'            => __( 'Learn more about Pix.', 'woocommerce-mercadopago' ),
+				'observation_two'             => __( 'If you have already registered a Pix key at Mercado Pago and cannot activate Pix in the checkout, ', 'woocommerce-mercadopago' ),
+				'link_title_one'              => __( 'click here.', 'woocommerce-mercadopago' ),
+				'link_url_one'                => 'https://beta.mercadopago.com.br/developers/es/guides/online-payments/checkout-api/other-payment-ways',
+			),
+			'woo/mercado/pago/steps/',
+			WC_WooMercadoPago_Module::get_templates_path()
+		);
+
+		return array(
+			'title' => $steps_content,
+			'type'  => 'title',
+			'class' => 'mp_title_checkout',
 		);
 	}
 
