@@ -330,10 +330,18 @@ class WC_WooMercadoPago_Configs {
 			return $methods;
 		}
 
+		$wc_country = get_option( 'woocommerce_default_country', '' );
+		$site_id    = get_option( '_site_id_v1', '' );
+		$country_wc = '';
+		$country_wc = strlen( $wc_country ) > 2 ? substr( $wc_country, 0, 2 ) : $wc_country;
+
 		$methods[] = 'WC_WooMercadoPago_Basic_Gateway';
 		$methods[] = 'WC_WooMercadoPago_Custom_Gateway';
 		$methods[] = 'WC_WooMercadoPago_Ticket_Gateway';
-		$methods[] = 'WC_WooMercadoPago_Pix_Gateway';
+		if ( ( 'BR' === $country_wc && '' === $site_id ) || ( 'MLB' === $site_id ) ) {
+			$methods[] = 'WC_WooMercadoPago_Pix_Gateway';
+		}
+
 		return $methods;
 	}
 }
