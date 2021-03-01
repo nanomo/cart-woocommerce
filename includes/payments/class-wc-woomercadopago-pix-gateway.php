@@ -397,55 +397,8 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 			WC_WooMercadoPago_Constants::VERSION
 		);
 
-		$amount    = $this->get_order_total();
-		$discount  = $amount * ( $this->gateway_discount / 100 );
-		$comission = $amount * ( $this->commission / 100 );
-		$amount    = $amount - $discount + $comission;
-
-		$logged_user_email = ( 0 !== wp_get_current_user()->ID ) ? wp_get_current_user()->user_email : null;
-		$address           = get_user_meta( wp_get_current_user()->ID, 'billing_address_1', true );
-		$address_2         = get_user_meta( wp_get_current_user()->ID, 'billing_address_2', true );
-		$address          .= ( ! empty( $address_2 ) ? ' - ' . $address_2 : '' );
-		$country           = get_user_meta( wp_get_current_user()->ID, 'billing_country', true );
-		$address          .= ( ! empty( $country ) ? ' - ' . $country : '' );
-
-		try {
-			$currency_ratio = WC_WooMercadoPago_Helpers_CurrencyConverter::get_instance()->ratio( $this );
-		} catch ( Exception $e ) {
-			$currency_ratio = WC_WooMercadoPago_Helpers_CurrencyConverter::DEFAULT_RATIO;
-		}
-
 		$parameters = array(
-			'amount'               => $amount,
-			'payment_methods'      => $this->activated_payment,
-			'site_id'              => $this->get_option_mp( '_site_id_v1' ),
-			'discount_action_url'  => $this->discount_action_url,
-			'payer_email'          => esc_js( $logged_user_email ),
-			'currency_ratio'       => $currency_ratio,
-			'woocommerce_currency' => get_woocommerce_currency(),
-			'account_currency'     => $this->site_data['currency'],
-			'febraban'             => ( 0 !== wp_get_current_user()->ID ) ?
-				array(
-					'firstname' => esc_js( wp_get_current_user()->user_firstname ),
-					'lastname'  => esc_js( wp_get_current_user()->user_lastname ),
-					'docNumber' => '',
-					'address'   => esc_js( $address ),
-					'number'    => '',
-					'city'      => esc_js( get_user_meta( wp_get_current_user()->ID, 'billing_city', true ) ),
-					'state'     => esc_js( get_user_meta( wp_get_current_user()->ID, 'billing_state', true ) ),
-					'zipcode'   => esc_js( get_user_meta( wp_get_current_user()->ID, 'billing_postcode', true ) ),
-				) :
-				array(
-					'firstname' => '',
-					'lastname'  => '',
-					'docNumber' => '',
-					'address'   => '',
-					'number'    => '',
-					'city'      => '',
-					'state'     => '',
-					'zipcode'   => '',
-				),
-			'images_path'          => plugins_url( '../assets/images/', plugin_dir_path( __FILE__ ) ),
+			'image_pix'          => plugins_url( '../assets/images/pix.png', plugin_dir_path( __FILE__ ) ),
 		);
 
 		wc_get_template( 'checkout/pix-checkout.php', $parameters, 'woo/mercado/pago/module/', WC_WooMercadoPago_Module::get_templates_path() );
