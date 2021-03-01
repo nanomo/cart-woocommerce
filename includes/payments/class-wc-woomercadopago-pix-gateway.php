@@ -52,13 +52,21 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 		$this->currency_convertion = true;
 	}
 
-	public function getTitle()
-	{
+	/**
+	 * GetTitle function
+	 *
+	 * @return @string
+	 */
+	public function getTitle() {
 		return __( 'Pay with PIX ', 'woocommerce-mercadopago' );
 	}
-	public function getBadge()
-	{
-		return '<small class="mp-pix-checkout-title-badge">'.__( 'New', 'woocommerce-mercadopago' ).'</small>';
+	/**
+	 * GetBadge function
+	 *
+	 * @return @string
+	 */
+	public function getBadge() {
+		return '<small class="mp-pix-checkout-title-badge">' . __( 'New', 'woocommerce-mercadopago' ) . '</small>';
 	}
 	/**
 	 * Get form mp fields
@@ -406,7 +414,7 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 		);
 
 		$parameters = array(
-			'image_pix'          => plugins_url( '../assets/images/pix.png', plugin_dir_path( __FILE__ ) ),
+			'image_pix' => plugins_url( '../assets/images/pix.png', plugin_dir_path( __FILE__ ) ),
 		);
 
 		wc_get_template( 'checkout/pix-checkout.php', $parameters, 'woo/mercado/pago/module/', WC_WooMercadoPago_Module::get_templates_path() );
