@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 
 <div class="mp-row">
-	<h4 class="mp-title-checkout-body mp-pb-20"><?php echo esc_html( $title ); ?></h4>
+	<h3 class="mp_title_bd"><?php echo esc_html( $title ); ?></h3>
 	<div class="mp-col-md-2 mp-text-center mp-pb-10">
 		<p class="mp-number-checkout-body">1</p>
 		<p class="mp-text-steps mp-text-center mp-px-20">
@@ -51,6 +51,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<div class="mp-col-md-12 mp_tienda_link">
 		<p class="">
 			<a href=<?php echo esc_html( $link_url_one ); ?> target="_blank"><?php echo esc_html( $button_about_pix ); ?></a>
+		</p>
+	</div>
+
+	<div class="mp-col-md-12 mp-pb-10">
+		<p class="mp-text-observation">
+			<?php echo esc_html( $observation_two ); ?>
+			<a href=<?php echo esc_html( $link_url_two ); ?> target="_blank"><?php echo esc_html( $link_title_one ); ?></a>
 		</p>
 	</div>
 

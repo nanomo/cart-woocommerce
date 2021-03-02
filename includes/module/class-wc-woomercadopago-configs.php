@@ -67,6 +67,9 @@ class WC_WooMercadoPago_Configs {
 			$this->update_ticket_methods();
 		}
 
+		$pix_method = get_option( '_mp_payment_methods_pix', '' );
+			$this->update_pix_methods();
+
 		$all_payments = get_option( '_checkout_payments_methods', '' );
 		if ( empty( $all_payments ) ) {
 			$this->update_payments();
@@ -103,6 +106,18 @@ class WC_WooMercadoPago_Configs {
 		$mp_instance = WC_WooMercadoPago_Module::get_mp_instance_singleton();
 		if ( $mp_instance ) {
 			WC_WooMercadoPago_Credentials::update_ticket_method( $mp_instance, $mp_instance->get_access_token() );
+		}
+	}
+
+	/**
+	 * Update pix methods
+	 *
+	 * @throws WC_WooMercadoPago_Exception Update ticket exception.
+	 */
+	private function update_pix_methods() {
+		$mp_instance = WC_WooMercadoPago_Module::get_mp_instance_singleton();
+		if ( $mp_instance ) {
+			WC_WooMercadoPago_Credentials::update_pix_method( $mp_instance, $mp_instance->get_access_token() );
 		}
 	}
 
