@@ -67,6 +67,9 @@ class WC_WooMercadoPago_Configs {
 			$this->update_ticket_methods();
 		}
 
+		$pix_method = get_option( '_mp_payment_methods_pix', '' );
+			$this->update_pix_methods();
+
 		$all_payments = get_option( '_checkout_payments_methods', '' );
 		if ( empty( $all_payments ) ) {
 			$this->update_payments();
@@ -103,6 +106,18 @@ class WC_WooMercadoPago_Configs {
 		$mp_instance = WC_WooMercadoPago_Module::get_mp_instance_singleton();
 		if ( $mp_instance ) {
 			WC_WooMercadoPago_Credentials::update_ticket_method( $mp_instance, $mp_instance->get_access_token() );
+		}
+	}
+
+	/**
+	 * Update pix methods
+	 *
+	 * @throws WC_WooMercadoPago_Exception Update ticket exception.
+	 */
+	private function update_pix_methods() {
+		$mp_instance = WC_WooMercadoPago_Module::get_mp_instance_singleton();
+		if ( $mp_instance ) {
+			WC_WooMercadoPago_Credentials::update_pix_method( $mp_instance, $mp_instance->get_access_token() );
 		}
 	}
 
@@ -322,7 +337,7 @@ class WC_WooMercadoPago_Configs {
 			$api_request = wc_clean( $wp->query_vars['wc-api'] );
 			if ( ! empty( $api_request ) && in_array(
 				strtolower( $api_request ),
-				array( 'wc_woomercadopago_basic_gateway', 'wc_woomercadopago_custom_gateway', 'wc_woomercadopago_ticket_gateway' ),
+				array( 'wc_woomercadopago_basic_gateway', 'wc_woomercadopago_custom_gateway', 'wc_woomercadopago_ticket_gateway', 'wc_woomercadopago_pix_gateway' ),
 				true
 			) ) {
 				$methods[] = $api_request;
@@ -330,9 +345,18 @@ class WC_WooMercadoPago_Configs {
 			return $methods;
 		}
 
+		$wc_country = get_option( 'woocommerce_default_country', '' );
+		$site_id    = get_option( '_site_id_v1', '' );
+		$country_wc = '';
+		$country_wc = strlen( $wc_country ) > 2 ? substr( $wc_country, 0, 2 ) : $wc_country;
+
 		$methods[] = 'WC_WooMercadoPago_Basic_Gateway';
 		$methods[] = 'WC_WooMercadoPago_Custom_Gateway';
 		$methods[] = 'WC_WooMercadoPago_Ticket_Gateway';
+		if ( ( 'BR' === $country_wc && '' === $site_id ) || ( 'MLB' === $site_id ) ) {
+			$methods[] = 'WC_WooMercadoPago_Pix_Gateway';
+		}
+
 		return $methods;
 	}
 }

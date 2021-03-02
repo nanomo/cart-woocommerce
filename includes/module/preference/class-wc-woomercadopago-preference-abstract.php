@@ -576,6 +576,7 @@ abstract class WC_WooMercadoPago_Preference_Abstract extends WC_Payment_Gateway 
 			'basic_settings'   => wp_json_encode( $analytics->get_basic_settings(), true ),
 			'custom_settings'  => wp_json_encode( $analytics->get_custom_settings(), true ),
 			'ticket_settings'  => wp_json_encode( $analytics->get_ticket_settings(), true ),
+			'pix_settings'     => wp_json_encode( $analytics->get_pix_settings(), true ),
 		);
 	}
 
@@ -590,5 +591,17 @@ abstract class WC_WooMercadoPago_Preference_Abstract extends WC_Payment_Gateway 
 			return number_format( $amount * $this->currency_ratio, 0, '.', '' );
 		}
 		return number_format( $amount * $this->currency_ratio * 100, 2, '.', '' ) / 100;
+	}
+
+	/**
+	 * Get date of expiration
+	 *
+	 * @param string $date_expiration Date expiration.
+	 * @return string date
+	 */
+	public function get_date_of_expiration( $date_expiration ) {
+		if ( '' !== $date_expiration ) {
+			return gmdate( 'Y-m-d\TH:i:s.000O', strtotime( '+' . $date_expiration . ' days' ) );
+		}
 	}
 }
