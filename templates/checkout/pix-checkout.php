@@ -21,9 +21,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<div class="mp-redirect-frame-pix">
 			<img src="<?php echo esc_html( $image_pix ); ?>" class="mp-img-fluid mp-img-redirect" alt=""/>
 			<p>
-				<?php echo esc_html_e( 'Accept payments via Pix Transfer and receive the funds instantly.', 'woocommerce-mercadopago' ); ?>
+				<?php echo esc_html_e( 'Pay securely and instantly!', 'woocommerce-mercadopago' ); ?>
 				<br>
-				<?php echo esc_html_e( 'Your customers can pay at any time, without date or time restrictions.', 'woocommerce-mercadopago' ); ?>
+				<?php echo esc_html_e( 'When you finish the order, you will see the code to complete the payment.', 'woocommerce-mercadopago' ); ?>
 			</p>
 
 		</div>

@@ -1121,11 +1121,11 @@ msgid "Obligatory field"
 msgstr ""
 
 #: templates/checkout/pix-checkout.php:24
-msgid "Accept payments via Pix Transfer and receive the funds instantly."
+msgid "Pay securely and instantly!"
 msgstr ""
 
 #: templates/checkout/pix-checkout.php:26
-msgid "Your customers can pay at any time, without date or time restrictions."
+msgid "When you finish the order, you will see the code to complete the payment."
 msgstr ""
 
 #: templates/checkout/ticket-checkout.php:54
