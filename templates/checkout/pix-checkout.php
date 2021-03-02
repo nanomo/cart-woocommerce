@@ -18,9 +18,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <div class="mp-panel-checkout">
 	<div class="mp-row-checkout">
-	<div class="mp-redirect-frame">
+	<div class="mp-redirect-frame-pix">
 			<img src="<?php echo esc_html( $image_pix ); ?>" class="mp-img-fluid mp-img-redirect" alt=""/>
-			<p><?php echo esc_html_e( 'Pague de forma segura e instantânea! Ao finalizar o pedido, você verá o código para fazer o pagamento.', 'woocommerce-mercadopago' ); ?></p>
+			<p>
+				<?php echo esc_html_e( 'Pay securely and instantly!', 'woocommerce-mercadopago' ); ?>
+				<br>
+				<?php echo esc_html_e( 'When you finish the order, you will see the code to complete the payment.', 'woocommerce-mercadopago' ); ?>
+			</p>
+
 		</div>
 	</div>
 </div>

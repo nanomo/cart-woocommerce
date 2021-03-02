@@ -211,7 +211,7 @@
 
 .mp-img-tarjetas {
     padding: 8px !important;
-    max-height: 35px !important; 
+    max-height: 35px !important;
     width: auto !important;
     /* adaptation for all themes */
     float: none !important;
@@ -223,7 +223,7 @@
 
 .mp-img-redirect{
     padding: 8px !important;
-    max-height: 6.250em !important; 
+    max-height: 6.250em !important;
     width: auto !important;
     /* adaptation for all themes */
     float: none !important;
@@ -235,7 +235,7 @@
 
 .mp-img-ticket {
     padding: 0px 8px !important;
-    max-height: 35px !important; 
+    max-height: 35px !important;
     width: auto !important;
     /* adaptation for all themes */
     float: left !important;
@@ -569,7 +569,7 @@
     display: none;
 }
 
-.mp-discount {    
+.mp-discount {
     border-style: solid;
     border-width: thin;
     border-color: #009EE3;
@@ -582,4 +582,46 @@
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     clear: both;
     float: left;
+}
+/* ----- PIX Checkout ----- */
+
+.mp-redirect-frame-pix {
+    width: 100%;
+    text-align: center;
+    background-color: #f5f5f5;
+    padding: 25px 20px 20px;
+    display: inline-block;
+}
+
+.mp-redirect-frame-pix img {
+    max-width: 170px !important;
+}
+
+.mp-redirect-frame-pix p {
+	margin: 24px 0 0 !important;
+	font-family: sans-serif !important;
+	font-size: 16px !important;
+	font-weight: normal !important;
+	font-stretch: normal !important;
+	font-style: normal !important;
+	line-height: normal !important;
+	letter-spacing: normal !important;
+	text-align: center !important;
+	color: #787878 !important;
+}
+.mp-pix-checkout-title-badge {
+	margin: 2px 0 0 8px;
+    padding: 5px 10px;
+    background-color: rgba(65, 137, 230, 0.1);
+    font-family: sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: #3483fa;
+    border-radius: 16px;
+    text-transform: uppercase
 }
