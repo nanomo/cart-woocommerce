@@ -103,6 +103,7 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 				$form_fields['checkout_pix_payments_description']    = $this->field_checkout_pix_options_description();
 				$form_fields['checkout_pix_payments_advanced_title'] = $this->field_checkout_pix_payments_advanced_title();
 				$form_fields['date_expiration']                      = $this->field_date_expiration();
+        		$form_fields['checkout_about_pix']                   = $this->field_checkout_about_pix();
 		}
 
 		$form_fields_abs = parent::get_form_mp_fields( $label );
@@ -174,8 +175,10 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 			'checkout_payments_subtitle',
 			'checkout_pix_payments_description',
 			'enabled',
+      		'date_expiration',
 			WC_WooMercadoPago_Helpers_CurrencyConverter::CONFIG_KEY,
-			'date_expiration',
+      		// About PIX.
+      		'checkout_about_pix',
 			// Advanced configuration of the personalized payment experience.
 			'checkout_pix_payments_advanced_title',
 			'checkout_payments_advanced_description',
@@ -215,8 +218,10 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 			'checkout_payments_subtitle',
 			'checkout_pix_payments_description',
 			'enabled',
+      		'date_expiration',
 			WC_WooMercadoPago_Helpers_CurrencyConverter::CONFIG_KEY,
-			'date_expiration',
+      		// About PIX.
+      		'checkout_about_pix',
 			// Advanced configuration of the personalized payment experience.
 			'checkout_pix_payments_advanced_title',
 			'checkout_payments_advanced_description',
@@ -251,8 +256,8 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 				'button_about_pix'            => __( 'Learn more about Pix.', 'woocommerce-mercadopago' ),
 				'observation_three'           => __( 'If you have already registered a Pix key at Mercado Pago and cannot activate Pix in the checkout, ', 'woocommerce-mercadopago' ),
 				'link_title_one'              => __( 'click here.', 'woocommerce-mercadopago' ),
-				'link_url_one'                => 'https://beta.mercadopago.com.br/developers/es/guides/online-payments/checkout-api/other-payment-ways',
-				'link_url_two'                => 'https://beta.mercadopago.com.br/developers/es/guides/online-payments/checkout-api/other-payment-ways',
+				'link_url_one'                => 'https://www.mercadopago.com.br/pix/',
+				'link_url_two'                => 'https://www.mercadopago.com.br/developers/pt/support',
 			),
 			'woo/mercado/pago/steps/',
 			WC_WooMercadoPago_Module::get_templates_path()
@@ -311,7 +316,7 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 	 */
 	public function field_checkout_pix_options_description() {
 		return array(
-			'title' => __( 'Enable Mercado Pago for cash payments in your store and <br> select the options available to your customers.', 'woocommerce-mercadopago' ),
+			'title' => __( 'Enable and set up Pix as a payment method for your customers in the Mercado Pago checkout.', 'woocommerce-mercadopago' ),
 			'type'  => 'title',
 			'class' => 'mp_small_text',
 		);
@@ -324,7 +329,7 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 	 */
 	public function field_checkout_pix_payments_title() {
 		return array(
-			'title' => __( 'Set payment preferences with cash', 'woocommerce-mercadopago' ),
+			'title' => __( 'Set up the payment via Pix experience', 'woocommerce-mercadopago' ),
 			'type'  => 'title',
 			'class' => 'mp_title_bd',
 		);
@@ -337,7 +342,7 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 	 */
 	public function field_checkout_pix_payments_advanced_title() {
 		return array(
-			'title' => __( 'Advanced configuration of the cash payment experience', 'woocommerce-mercadopago' ),
+			'title' => __( 'Advanced configuration of the PIX experience', 'woocommerce-mercadopago' ),
 			'type'  => 'title',
 			'class' => 'mp_subtitle_bd',
 		);
@@ -350,10 +355,36 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 	 */
 	public function field_date_expiration() {
 		return array(
-			'title'       => __( 'Payment Due', 'woocommerce-mercadopago' ),
+			'title'       => __( 'Pix Expiration', 'woocommerce-mercadopago' ),
 			'type'        => 'number',
-			'description' => __( 'In how many days will cash payments expire.', 'woocommerce-mercadopago' ),
+			'description' => __( 'Specify in how long your customers will be able to pay after the code is sent.', 'woocommerce-mercadopago' ),
 			'default'     => '',
+		);
+	}
+
+  	/**
+	 * Field checkout about pix
+	 *
+	 * @param string $country country.
+	 *
+	 * @return array
+	 */
+	public function field_checkout_about_pix() {
+		$link_content = wc_get_template_html(
+			'checkout/credential/about-pix.php',
+			array(
+        'title'       => __( 'Want to learn how Pix works?', 'woocommerce-mercadopago' ),
+        'subtitle'    => __( 'We have created a page to explain how this new payment method works and its advantages.', 'woocommerce-mercadopago' ),
+        'url_link'    => 'https://www.mercadopago.com.br/pix/',
+        'button_text' => __( 'Learn more about Pix', 'woocommerce-mercadopago' ),
+			),
+			'woo/mercado/pago/about-pix/',
+			WC_WooMercadoPago_Module::get_templates_path()
+		);
+
+		return array(
+			'title' => $link_content,
+			'type'  => 'title',
 		);
 	}
 
