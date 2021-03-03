@@ -120,7 +120,12 @@ class WC_WooMercadoPago_Credentials {
 				$payments_response = self::get_payment_response( $mp_v1, $access_token );
 				self::update_payment_methods( $mp_v1, $access_token, $payments_response );
 				self::update_ticket_method( $mp_v1, $access_token, $payments_response );
-				self::update_pix_method( $mp_v1, $access_token, $payments_response );
+
+				$wc_country =  WC_WooMercadoPago_Module::get_woocommerce_default_country();
+				$site_id    = get_option( '_site_id_v1', '' );
+				if ( ( 'BR' === $wc_country && '' === $site_id ) || ( 'MLB' === $site_id ) ) {
+					self::update_pix_method( $mp_v1, $access_token, $payments_response );
+				}
 			}
 		} catch ( WC_WooMercadoPago_Exception $e ) {
 			$log = WC_WooMercadoPago_Log::init_mercado_pago_log( 'WC_WooMercadoPago_Credentials' );
@@ -183,6 +188,7 @@ class WC_WooMercadoPago_Credentials {
 		update_option( '_collector_id_v1', '', true );
 		update_option( '_all_payment_methods_v0', array(), true );
 		update_option( '_all_payment_methods_ticket', '[]', true );
+		update_option( '_mp_payment_methods_pix', '', true );
 		update_option( '_can_do_currency_conversion_v1', false, true );
 	}
 

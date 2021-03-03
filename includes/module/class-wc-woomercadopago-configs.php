@@ -67,8 +67,11 @@ class WC_WooMercadoPago_Configs {
 			$this->update_ticket_methods();
 		}
 
-		$pix_method = get_option( '_mp_payment_methods_pix', '' );
+		$wc_country =  WC_WooMercadoPago_Module::get_woocommerce_default_country();
+		$site_id    = get_option( '_site_id_v1', '' );
+		if ( ( 'BR' === $wc_country && '' === $site_id ) || ( 'MLB' === $site_id ) ) {
 			$this->update_pix_methods();
+		}
 
 		$all_payments = get_option( '_checkout_payments_methods', '' );
 		if ( empty( $all_payments ) ) {
@@ -345,15 +348,13 @@ class WC_WooMercadoPago_Configs {
 			return $methods;
 		}
 
-		$wc_country = get_option( 'woocommerce_default_country', '' );
+		$wc_country =  WC_WooMercadoPago_Module::get_woocommerce_default_country();
 		$site_id    = get_option( '_site_id_v1', '' );
-		$country_wc = '';
-		$country_wc = strlen( $wc_country ) > 2 ? substr( $wc_country, 0, 2 ) : $wc_country;
 
 		$methods[] = 'WC_WooMercadoPago_Basic_Gateway';
 		$methods[] = 'WC_WooMercadoPago_Custom_Gateway';
 		$methods[] = 'WC_WooMercadoPago_Ticket_Gateway';
-		if ( ( 'BR' === $country_wc && '' === $site_id ) || ( 'MLB' === $site_id ) ) {
+		if ( ( 'BR' === $wc_country && '' === $site_id ) || ( 'MLB' === $site_id ) ) {
 			$methods[] = 'WC_WooMercadoPago_Pix_Gateway';
 		}
 
