@@ -67,7 +67,7 @@ class WC_WooMercadoPago_Configs {
 			$this->update_ticket_methods();
 		}
 
-		$wc_country =  WC_WooMercadoPago_Module::get_woocommerce_default_country();
+		$wc_country = WC_WooMercadoPago_Module::get_woocommerce_default_country();
 		$site_id    = get_option( '_site_id_v1', '' );
 		if ( ( 'BR' === $wc_country && '' === $site_id ) || ( 'MLB' === $site_id ) ) {
 			$this->update_pix_methods();
@@ -348,7 +348,7 @@ class WC_WooMercadoPago_Configs {
 			return $methods;
 		}
 
-		$wc_country =  WC_WooMercadoPago_Module::get_woocommerce_default_country();
+		$wc_country = WC_WooMercadoPago_Module::get_woocommerce_default_country();
 		$site_id    = get_option( '_site_id_v1', '' );
 
 		$methods[] = 'WC_WooMercadoPago_Basic_Gateway';

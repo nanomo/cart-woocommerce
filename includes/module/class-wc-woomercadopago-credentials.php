@@ -121,7 +121,7 @@ class WC_WooMercadoPago_Credentials {
 				self::update_payment_methods( $mp_v1, $access_token, $payments_response );
 				self::update_ticket_method( $mp_v1, $access_token, $payments_response );
 
-				$wc_country =  WC_WooMercadoPago_Module::get_woocommerce_default_country();
+				$wc_country = WC_WooMercadoPago_Module::get_woocommerce_default_country();
 				$site_id    = get_option( '_site_id_v1', '' );
 				if ( ( 'BR' === $wc_country && '' === $site_id ) || ( 'MLB' === $site_id ) ) {
 					self::update_pix_method( $mp_v1, $access_token, $payments_response );
