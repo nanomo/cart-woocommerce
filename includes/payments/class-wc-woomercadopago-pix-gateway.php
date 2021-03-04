@@ -582,7 +582,15 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 
 		$payment_methods = $this->activated_payment;
 		if ( empty( $payment_methods ) || ! is_array( $payment_methods ) || ! in_array( 'pix', $payment_methods['pix'], true ) ) {
-			$this->log->write_log( __FUNCTION__, 'pix unavailable, no active payment methods. ' );
+			$this->log->write_log( __FUNCTION__, 'PIX key not found in payment_methods API, no active PIX payment method. ' );
+			return false;
+		}
+
+		$_mp_access_token    = get_option( '_mp_access_token_prod' );
+		$is_prod_credentials = false === WC_WooMercadoPago_Credentials::validate_credentials_test( $this->mp, $_mp_access_token, null );
+
+		if ( ( empty( $_SERVER['HTTPS'] ) || 'off' === $_SERVER['HTTPS'] ) && $is_prod_credentials ) {
+			$this->log->write_log( __FUNCTION__, 'NO HTTPS, PIX unavailable.' );
 			return false;
 		}
 
