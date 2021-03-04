@@ -99,6 +99,12 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 		if ( ! empty( $this->checkout_country ) && ! empty( $this->get_access_token() ) && ! empty( $this->get_public_key() ) ) {
 			if ( empty( $this->activated_payment ) || ! is_array( $this->activated_payment ) || ! in_array( 'pix', $this->activated_payment['pix'], true ) ) {
 				$form_fields['checkout_steps_pix'] = $this->field_checkout_steps_pix();
+
+				// @todo need fix Processing form data without nonce verification
+			  	// @codingStandardsIgnoreLine
+			  	if ( isset( $_GET['section'] ) && $_GET['section'] == $this->id ) {
+					add_action( 'admin_notices', array( $this, 'enable_pix_payment_notice' ) );
+				}
 			}
 				$form_fields['checkout_pix_options_title']           = $this->field_checkout_pix_options_title();
 				$form_fields['checkout_pix_payments_title']          = $this->field_checkout_pix_payments_title();
@@ -595,6 +601,26 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 		}
 
 		return true;
+	}
+
+	/**
+	 * Enable pix payment notice
+	 *
+	 * @return void
+	 */
+	public function enable_pix_payment_notice() {
+		$type    = 'notice-warning';
+		$message = wc_get_template_html(
+			'checkout/credential/alert/alert-pix-not-registered.php',
+			array(
+				'message'   => __( 'Please note that to receive payments via Pix at our checkout, you must have a Pix key registered in your Mercado Pago account.', 'woocommerce-mercadopago' ),
+				'text_link' => __( 'Register your Pix key at Mercado Pago.', 'woocommerce-mercadopago' ),
+				'url_link'  => 'https://www.mercadopago.com.br/stop/pix?url=https%3A%2F%2Fwww.mercadopago.com.br%2Fadmin-pix-keys%2Fmy-keys&authentication_mode=required',
+			),
+			'woo/mercado/pago/alert-pix-not-registered.php/',
+			WC_WooMercadoPago_Module::get_templates_path()
+		);
+		WC_WooMercadoPago_Notices::get_alert_frame( $message, $type );
 	}
 
 	/**
