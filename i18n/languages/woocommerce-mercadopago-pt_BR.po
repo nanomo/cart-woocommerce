@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: Mercado Pago payments for WooCommerce 5.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/woocommerce-mercadopago\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2021-03-04 19:35-0300\n"
+"PO-Revision-Date: 2021-03-05 14:39-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: pt_BR\n"
@@ -992,7 +992,7 @@ msgstr "Todos os meios de pagamento"
 
 #: includes/payments/class-wc-woomercadopago-pix-gateway.php:255
 msgid "To activate Pix, you must have a key registered in Mercado Pago."
-msgstr "To activate Pix, you must have a key registered in Mercado Pago."
+msgstr "Para ativar o PIX, você precisa ter uma chave cadastrada no Mercado Pago."
 
 #: includes/payments/class-wc-woomercadopago-pix-gateway.php:256
 msgid "Download the Mercado Pago app on your cell phone."
