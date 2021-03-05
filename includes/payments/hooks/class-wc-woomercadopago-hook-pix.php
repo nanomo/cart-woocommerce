@@ -55,14 +55,6 @@ class WC_WooMercadoPago_Hook_Pix extends WC_WooMercadoPago_Hook_Abstract {
 	 */
 	public function add_checkout_scripts_pix() {
 		if ( is_checkout() && $this->payment->is_available() && ! get_query_var( 'order-received' ) ) {
-			$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
-			wp_enqueue_script(
-				'woocommerce-mercadopago-pix-checkout',
-				plugins_url( '../../assets/js/pix' . $suffix . '.js', plugin_dir_path( __FILE__ ) ),
-				array( 'jquery' ),
-				WC_WooMercadoPago_Constants::VERSION,
-				true
-			);
 
 			wp_localize_script(
 				'woocommerce-mercadopago-pix-checkout',
