@@ -1284,11 +1284,59 @@ msgstr ""
 msgid "Select the issuer with whom you want to process the payment"
 msgstr ""
 
-#: templates/order-received/show-pix.php:21, templates/order-received/show-ticket.php:21
+#: templates/order-received/show-pix.php:19
+msgid "Agora é só pagar com o PIX para finalizar sua compra"
+msgstr ""
+
+#: templates/order-received/show-pix.php:29
+msgid "Como pagar com PIX:"
+msgstr ""
+
+#: templates/order-received/show-pix.php:34
+msgid "Acesse o app ou site do seu banco"
+msgstr ""
+
+#: templates/order-received/show-pix.php:40
+msgid "Busque a opção de pagar com PIX"
+msgstr ""
+
+#: templates/order-received/show-pix.php:46
+msgid "Leia o QR code ou cole o código PIX"
+msgstr ""
+
+#: templates/order-received/show-pix.php:52
+msgid "Pronto! Você verá a confirmação do pagamento"
+msgstr ""
+
+#: templates/order-received/show-pix.php:61
+msgid "Valor a pagar:"
+msgstr ""
+
+#: templates/order-received/show-pix.php:64
+msgid "R$ 460,00"
+msgstr ""
+
+#: templates/order-received/show-pix.php:68
+msgid "Escaneie o QR code:"
+msgstr ""
+
+#: templates/order-received/show-pix.php:72
+msgid "Código válido por 30 minutos."
+msgstr ""
+
+#: templates/order-received/show-pix.php:76
+msgid "Se preferir, você pode pagar copiando e colando o seguinte código"
+msgstr ""
+
+#: templates/order-received/show-pix.php:80
+msgid "Copiar código"
+msgstr ""
+
+#: templates/order-received/show-ticket.php:21
 msgid "Great, we processed your purchase order. Complete the payment with ticket so that we finish approving it."
 msgstr ""
 
-#: templates/order-received/show-pix.php:25, templates/order-received/show-ticket.php:25
+#: templates/order-received/show-ticket.php:25
 msgid "Print ticket"
 msgstr ""
 
