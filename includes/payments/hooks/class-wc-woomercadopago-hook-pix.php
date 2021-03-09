@@ -109,7 +109,7 @@ class WC_WooMercadoPago_Hook_Pix extends WC_WooMercadoPago_Hook_Abstract {
 		);
 
 		wc_get_template(
-			'order-received/show-ticket.php',
+			'order-received/show-pix.php',
 			$parameters,
 			'woo/mercado/pago/module/',
 			WC_WooMercadoPago_Module::get_templates_path()
