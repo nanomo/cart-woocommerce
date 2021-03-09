@@ -103,11 +103,25 @@ class WC_WooMercadoPago_Hook_Pix extends WC_WooMercadoPago_Hook_Abstract {
 			return;
 		}
 
+		$parameters = array(
+			'img_pix' => plugins_url( '../../assets/images/img-pix.png', plugin_dir_path( __FILE__ ) ),
+			'qr_code' => 'data:image/jpeg;base64,qr_code_base64',
+		);
+
 		wc_get_template(
 			'order-received/show-pix.php',
-			array( 'transaction_details' => $transaction_details ),
+			$parameters,
 			'woo/mercado/pago/module/',
 			WC_WooMercadoPago_Module::get_templates_path()
+		);
+
+		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
+
+		wp_enqueue_style(
+			'woocommerce-mercadopago-pix-checkout',
+			plugins_url( '../../assets/css/basic_checkout_mercadopago' . $suffix . '.css', plugin_dir_path( __FILE__ ) ),
+			array(),
+			WC_WooMercadoPago_Constants::VERSION
 		);
 	}
 }
