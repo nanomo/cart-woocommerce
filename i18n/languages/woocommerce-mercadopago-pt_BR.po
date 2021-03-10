@@ -1067,8 +1067,8 @@ msgid "Pix Expiration"
 msgstr "Vencimento do PIX"
 
 #: includes/payments/class-wc-woomercadopago-pix-gateway.php:368
-msgid "Specify in how long your customers will be able to pay after the code is sent."
-msgstr "Em quanto tempo seus clientes poderão pagar a partir do envio do código."
+msgid "Set the limit of days in which your customers can pay."
+msgstr "Defina em até quantos dias seus clientes poderão pagar."
 
 #: includes/payments/class-wc-woomercadopago-pix-gateway.php:382
 msgid "Want to learn how Pix works?"
