@@ -61,7 +61,7 @@ abstract class WC_WooMercadoPago_Notification_Abstract {
 		$this->payment = $payment;
 
 		add_action( 'woocommerce_api_' . strtolower( get_class( $payment ) ), array( $this, 'check_ipn_response' ) );
-		/** @todo remove when 5 is the most used */
+		// @todo remove when 5 is the most used.
 		add_action( 'woocommerce_api_' . strtolower( preg_replace( '/_gateway/i', 'Gateway', get_class( $payment ) ) ), array( $this, 'check_ipn_response' ) );
 		add_action( 'valid_mercadopago_ipn_request', array( $this, 'successful_request' ) );
 		add_action( 'woocommerce_order_status_cancelled', array( $this, 'process_cancel_order_meta_box_actions' ), 10, 1 );
