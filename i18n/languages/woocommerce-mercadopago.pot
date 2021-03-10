@@ -214,11 +214,15 @@ msgstr ""
 msgid "Not found Payments into Merchant_Order"
 msgstr ""
 
-#: includes/notification/class-wc-woomercadopago-notification-ipn.php:153, includes/notification/class-wc-woomercadopago-notification-ipn.php:127, includes/notification/class-wc-woomercadopago-notification-webhook.php:174, includes/notification/class-wc-woomercadopago-notification-webhook.php:156
+#: includes/notification/class-wc-woomercadopago-notification-ipn.php:156, includes/notification/class-wc-woomercadopago-notification-ipn.php:127, includes/notification/class-wc-woomercadopago-notification-webhook.php:177, includes/notification/class-wc-woomercadopago-notification-webhook.php:156
 msgid "Buyer email"
 msgstr ""
 
-#: includes/notification/class-wc-woomercadopago-notification-ipn.php:156, includes/notification/class-wc-woomercadopago-notification-ipn.php:130, includes/notification/class-wc-woomercadopago-notification-webhook.php:177, includes/notification/class-wc-woomercadopago-notification-webhook.php:159
+#: includes/notification/class-wc-woomercadopago-notification-ipn.php:159, includes/notification/class-wc-woomercadopago-notification-ipn.php:130, includes/notification/class-wc-woomercadopago-notification-webhook.php:180, includes/notification/class-wc-woomercadopago-notification-webhook.php:159
+msgid "Payment type"
+msgstr ""
+
+#: includes/notification/class-wc-woomercadopago-notification-ipn.php:162, includes/notification/class-wc-woomercadopago-notification-ipn.php:133, includes/notification/class-wc-woomercadopago-notification-webhook.php:183, includes/notification/class-wc-woomercadopago-notification-webhook.php:162
 msgid "Payment method"
 msgstr ""
 

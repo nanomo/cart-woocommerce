@@ -483,7 +483,7 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 							'Mercado Pago: ' .
 							__( 'The customer has not paid yet.', 'woocommerce-mercadopago' )
 						);
-						if ( 'pix' !== $response['payment_type_id'] ) {
+						if ( 'pix' !== $response['payment_method_id'] ) {
 							$order->add_order_note(
 								'Mercado Pago: ' .
 								__( 'To print the PIX QR code again click: ', 'woocommerce-mercadopago' ) .

@@ -76,8 +76,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<?php echo esc_html( $text_description_qr ); ?>
 				</p>
 				<div class="mp-row-checkout-pix-container">
-					<input value="<?php echo esc_url( $qr_code ); ?>" class="mp-qr-input"></input>
-					<button for="cvv" class="mp-details-pix-button" onclick="true"><?php echo esc_html( $text_button ); ?></button>
+					<input id="mp-qr-code" value="<?php echo esc_html( $qr_code ); ?>" class="mp-qr-input"></input>
+					<button onclick="copy_qr_code()" class="mp-details-pix-button" onclick="true"><?php echo esc_html( $text_button ); ?></button>
+					<script>
+						function copy_qr_code() {
+							var copyText = document.getElementById("mp-qr-code");
+							copyText.select();
+							copyText.setSelectionRange(0, 99999)
+							document.execCommand("copy");
+						}
+					</script>
 				</div>
 			</div>
 		</div>
