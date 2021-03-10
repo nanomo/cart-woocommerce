@@ -322,9 +322,19 @@ class WC_WooMercadoPago_Configs {
 			$api_request = wc_clean( $wp->query_vars['wc-api'] );
 			if ( ! empty( $api_request ) && in_array(
 				strtolower( $api_request ),
-				array( 'wc_woomercadopago_basic_gateway', 'wc_woomercadopago_custom_gateway', 'wc_woomercadopago_ticket_gateway' ),
+				array(
+					'wc_woomercadopago_basic_gateway',
+					'wc_woomercadopago_custom_gateway',
+					'wc_woomercadopago_ticket_gateway',
+					'wc_woomercadopago_basicgateway',
+					'wc_woomercadopago_customgateway',
+					'wc_woomercadopago_ticketgateway',
+				),
 				true
 			) ) {
+				if ( ! preg_match( '/(_gateway)/i', $api_request ) ) {
+					$api_request = preg_replace( '/gateway/i', '_Gateway', $api_request );
+				}
 				$methods[] = $api_request;
 			}
 			return $methods;
