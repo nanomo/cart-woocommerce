@@ -231,6 +231,10 @@ msgstr "No se han encontrado pagos en Merchant_Order"
 msgid "Buyer email"
 msgstr "Email del comprador"
 
+#: includes/notification/class-wc-woomercadopago-notification-ipn.php:159, includes/notification/class-wc-woomercadopago-notification-ipn.php:130, includes/notification/class-wc-woomercadopago-notification-webhook.php:180, includes/notification/class-wc-woomercadopago-notification-webhook.php:159
+msgid "Payment type"
+msgstr "Tipo de método de pago"
+
 #: includes/notification/class-wc-woomercadopago-notification-ipn.php:156, includes/notification/class-wc-woomercadopago-notification-ipn.php:130,
 #: includes/notification/class-wc-woomercadopago-notification-webhook.php:177,
 #: includes/notification/class-wc-woomercadopago-notification-webhook.php:159
@@ -613,6 +617,10 @@ msgstr "Guardar cambios"
 msgid "Activate checkout"
 msgstr "Activar checkout"
 
+#: includes/payments/class-wc-woomercadopago-payment-abstract.php:907
+msgid "Activate Pix in the checkout"
+msgstr ""
+
 #: includes/payments/class-wc-woomercadopago-payment-abstract.php:909
 msgid "Activate the Mercado Pago experience at the checkout of your store."
 msgstr "Activa la experiencia de Mercado Pago en el checkout de tu tienda."
@@ -913,7 +921,11 @@ msgstr "Quiero testear mis ventas"
 msgid "Visit my store"
 msgstr "Visitar mi tienda"
 
-#: includes/payments/class-wc-woomercadopago-payment-abstract.php:1609 includes/payments/class-wc-woomercadopago-pix-gateway.php:37
+#: includes/payments/class-wc-woomercadopago-payment-abstract.php:1609
+msgid "%s"
+msgstr "%s"
+
+#: includes/payments/class-wc-woomercadopago-pix-gateway.php:37
 msgid "Accept payments via Pix Transfer and receive the funds instantly. Your customers can pay at any time, without date or time restrictions."
 msgstr "Accept payments via Pix Transfer and receive the funds instantly. Your customers can pay at any time, without date or time restrictions."
 
@@ -1097,6 +1109,22 @@ msgstr "Un problema se produjo al procesar su pago. ¿Esta seguro que ha rellena
 #: includes/payments/class-wc-woomercadopago-ticket-gateway.php:546
 msgid "The customer has not paid yet."
 msgstr "El cliente no ha pagado todavía."
+
+#: includes/payments/class-wc-woomercadopago-pix-gateway.php:489, includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:111
+msgid "Now you just need to pay with PIX to finalize your purchase"
+msgstr ""
+
+#: includes/payments/class-wc-woomercadopago-pix-gateway.php:490, includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:118
+msgid "Scan the QR code:"
+msgstr ""
+
+#: includes/payments/class-wc-woomercadopago-pix-gateway.php:492, includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:119
+msgid "Code valid for "
+msgstr ""
+
+#: includes/payments/class-wc-woomercadopago-pix-gateway.php:493, includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:121
+msgid " days"
+msgstr ""
 
 #: includes/payments/class-wc-woomercadopago-ticket-gateway.php:551
 msgid "To print the ticket again click"
@@ -1469,6 +1497,38 @@ msgstr "*Tras la aprobación del pago"
 #: includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:86, includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:85
 msgid "Terms and conditions of use"
 msgstr "Términos y condiciones de uso"
+
+#: includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:112
+msgid "How to pay with PIX:"
+msgstr ""
+
+#: includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:113
+msgid "Go to your bank's app or website"
+msgstr ""
+
+#: includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:114
+msgid "Search for the option to pay with PIX"
+msgstr ""
+
+#: includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:115
+msgid "Scan the QR code or PIX code"
+msgstr ""
+
+#: includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:116
+msgid "Done! You will see the payment confirmation"
+msgstr ""
+
+#: includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:117
+msgid "Value: R$ "
+msgstr ""
+
+#: includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:122
+msgid "If you prefer, you can pay by copying and pasting the following code"
+msgstr ""
+
+#: includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:124
+msgid "Copy code"
+msgstr ""
 
 #~ msgid "Configure the payment options and accept payments with cards, ticket and money of Mercado Pago account."
 #~ msgstr "Configura las opciones de pago a tu medida y acepta pagos con tarjetas, dinero en efectivo y dinero en cuenta de Mercado Pago."

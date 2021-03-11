@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: Mercado Pago payments for WooCommerce 5.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/woocommerce-mercadopago\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2021-03-05 14:39-0300\n"
+"PO-Revision-Date: 2021-03-11 18:11-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: pt_BR\n"
@@ -242,6 +242,13 @@ msgstr "Não foram encontrados pagamentos na Merchant_Order"
 #: includes/notification/class-wc-woomercadopago-notification-webhook.php:156
 msgid "Buyer email"
 msgstr "E-mail do comprador"
+
+#: includes/notification/class-wc-woomercadopago-notification-ipn.php:159,
+#: includes/notification/class-wc-woomercadopago-notification-ipn.php:130,
+#: includes/notification/class-wc-woomercadopago-notification-webhook.php:180,
+#: includes/notification/class-wc-woomercadopago-notification-webhook.php:159
+msgid "Payment type"
+msgstr "Tipo de meio de pagamento"
 
 #: includes/notification/class-wc-woomercadopago-notification-ipn.php:156,
 #: includes/notification/class-wc-woomercadopago-notification-ipn.php:130,
@@ -614,6 +621,10 @@ msgstr "Salvar alterações"
 #: includes/payments/class-wc-woomercadopago-payment-abstract.php:906
 msgid "Activate checkout"
 msgstr "Ativar o Checkout"
+
+#: includes/payments/class-wc-woomercadopago-payment-abstract.php:907
+msgid "Activate Pix in the checkout"
+msgstr "Ativar o PIX no checkout"
 
 #: includes/payments/class-wc-woomercadopago-payment-abstract.php:909
 msgid "Activate the Mercado Pago experience at the checkout of your store."
@@ -1099,6 +1110,26 @@ msgstr "Um problema ocorreu ao processar seu pagamento. Você tem certeza que pr
 msgid "The customer has not paid yet."
 msgstr "Cliente ainda não pagou."
 
+#: includes/payments/class-wc-woomercadopago-pix-gateway.php:489,
+#: includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:111
+msgid "Now you just need to pay with PIX to finalize your purchase"
+msgstr "Agora é só pagar com o PIX para finalizar sua compra"
+
+#: includes/payments/class-wc-woomercadopago-pix-gateway.php:490,
+#: includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:118
+msgid "Scan the QR code:"
+msgstr "Escaneie o QR code:"
+
+#: includes/payments/class-wc-woomercadopago-pix-gateway.php:492,
+#: includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:119
+msgid "Code valid for "
+msgstr "Código válido por "
+
+#: includes/payments/class-wc-woomercadopago-pix-gateway.php:493,
+#: includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:121
+msgid " days"
+msgstr " dia(s)"
+
 #: includes/payments/class-wc-woomercadopago-ticket-gateway.php:551
 msgid "To print the ticket again click"
 msgstr "Para reimprimir o boleto clique"
@@ -1509,6 +1540,38 @@ msgstr "*Após a aprovação do pagamento"
 #: includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:85
 msgid "Terms and conditions of use"
 msgstr "Termos e condições de uso"
+
+#: includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:112
+msgid "How to pay with PIX:"
+msgstr "Como pagar com PIX:"
+
+#: includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:113
+msgid "Go to your bank's app or website"
+msgstr "Acesse o app ou site do seu banco"
+
+#: includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:114
+msgid "Search for the option to pay with PIX"
+msgstr "Busque a opção de pagar com PIX"
+
+#: includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:115
+msgid "Scan the QR code or PIX code"
+msgstr "Leia o QR code ou código PIX"
+
+#: includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:116
+msgid "Done! You will see the payment confirmation"
+msgstr "Pronto! Você verá a confirmação do pagamento"
+
+#: includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:117
+msgid "Value: R$ "
+msgstr "Valor a pagar: R$ "
+
+#: includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:122
+msgid "If you prefer, you can pay by copying and pasting the following code"
+msgstr "Se preferir, você pode pagar copiando e colando o seguinte código"
+
+#: includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:124
+msgid "Copy code"
+msgstr "Copiar código"
 
 #~ msgid "Configure the payment options and accept payments with cards, ticket and money of Mercado Pago account."
 #~ msgstr "Configure as opções de pagamento e aceite pagamentos com cartões, boleto e dinheiro na conta do Mercado Pago."
