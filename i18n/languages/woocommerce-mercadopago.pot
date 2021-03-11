@@ -967,11 +967,11 @@ msgstr ""
 msgid "Learn more about Pix"
 msgstr ""
 
-#: includes/payments/class-wc-woomercadopago-pix-gateway.php:521, includes/payments/class-wc-woomercadopago-ticket-gateway.php:585
+#: includes/payments/class-wc-woomercadopago-pix-gateway.php:523, includes/payments/class-wc-woomercadopago-ticket-gateway.php:585
 msgid "A problem occurred when processing your payment. Please try again."
 msgstr ""
 
-#: includes/payments/class-wc-woomercadopago-pix-gateway.php:507, includes/payments/class-wc-woomercadopago-ticket-gateway.php:571
+#: includes/payments/class-wc-woomercadopago-pix-gateway.php:509, includes/payments/class-wc-woomercadopago-ticket-gateway.php:571
 msgid "A problem occurred when processing your payment. Are you sure you have correctly filled in all the information on the checkout form?"
 msgstr ""
 
@@ -979,15 +979,27 @@ msgstr ""
 msgid "The customer has not paid yet."
 msgstr ""
 
-#: includes/payments/class-wc-woomercadopago-pix-gateway.php:489
-msgid "To print the PIX QR code again click: "
+#: includes/payments/class-wc-woomercadopago-pix-gateway.php:489, includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:111
+msgid "Now you just need to pay with PIX to finalize your purchase"
 msgstr ""
 
-#: includes/payments/class-wc-woomercadopago-pix-gateway.php:598
+#: includes/payments/class-wc-woomercadopago-pix-gateway.php:490, includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:118
+msgid "Scan the QR code:"
+msgstr ""
+
+#: includes/payments/class-wc-woomercadopago-pix-gateway.php:492, includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:119
+msgid "Code valid for "
+msgstr ""
+
+#: includes/payments/class-wc-woomercadopago-pix-gateway.php:493, includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:121
+msgid " days"
+msgstr ""
+
+#: includes/payments/class-wc-woomercadopago-pix-gateway.php:600
 msgid "Please note that to receive payments via Pix at our checkout, you must have a Pix key registered in your Mercado Pago account."
 msgstr ""
 
-#: includes/payments/class-wc-woomercadopago-pix-gateway.php:599
+#: includes/payments/class-wc-woomercadopago-pix-gateway.php:601
 msgid "Register your Pix key at Mercado Pago."
 msgstr ""
 
@@ -1425,10 +1437,6 @@ msgstr ""
 msgid "Terms and conditions of use"
 msgstr ""
 
-#: includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:111
-msgid "Now you just need to pay with PIX to finalize your purchase"
-msgstr ""
-
 #: includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:112
 msgid "How to pay with PIX:"
 msgstr ""
@@ -1451,18 +1459,6 @@ msgstr ""
 
 #: includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:117
 msgid "Value: R$ "
-msgstr ""
-
-#: includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:118
-msgid "Scan the QR code:"
-msgstr ""
-
-#: includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:119
-msgid "Code valid for "
-msgstr ""
-
-#: includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:121
-msgid " days"
 msgstr ""
 
 #: includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:122
