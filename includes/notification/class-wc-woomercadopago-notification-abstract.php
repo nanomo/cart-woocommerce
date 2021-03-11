@@ -208,6 +208,14 @@ abstract class WC_WooMercadoPago_Notification_Abstract {
 						}
 					}
 					break;
+				case 'WC_WooMercadoPago_Pix_Gateway':
+					if ( 'no' === get_option( 'stock_reduce_mode', 'no' ) ) {
+						$order->payment_complete();
+						if ( 'completed' !== $payment_completed_status ) {
+							$order->update_status( self::get_wc_status_for_mp_status( 'approved' ) );
+						}
+					}
+					break;
 			}
 		}
 	}

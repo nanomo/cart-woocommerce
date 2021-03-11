@@ -161,40 +161,40 @@ msgstr ""
 msgid "Payment approved."
 msgstr ""
 
-#: includes/notification/class-wc-woomercadopago-notification-abstract.php:235, includes/notification/class-wc-woomercadopago-notification-abstract.php:238
+#: includes/notification/class-wc-woomercadopago-notification-abstract.php:243, includes/notification/class-wc-woomercadopago-notification-abstract.php:246
 msgid "Waiting for the PIX payment."
 msgstr ""
 
-#: includes/notification/class-wc-woomercadopago-notification-abstract.php:253, includes/notification/class-wc-woomercadopago-notification-abstract.php:256
+#: includes/notification/class-wc-woomercadopago-notification-abstract.php:261, includes/notification/class-wc-woomercadopago-notification-abstract.php:264
 msgid "Waiting for the ticket payment."
 msgstr ""
 
-#: includes/notification/class-wc-woomercadopago-notification-abstract.php:264
+#: includes/notification/class-wc-woomercadopago-notification-abstract.php:272
 msgid "The customer has not made the payment yet."
 msgstr ""
 
-#: includes/notification/class-wc-woomercadopago-notification-abstract.php:283
+#: includes/notification/class-wc-woomercadopago-notification-abstract.php:291
 msgid "Payment is pending review."
 msgstr ""
 
-#: includes/notification/class-wc-woomercadopago-notification-abstract.php:300
+#: includes/notification/class-wc-woomercadopago-notification-abstract.php:308
 msgid "Payment was declined. The customer can try again."
 msgstr ""
 
-#: includes/notification/class-wc-woomercadopago-notification-abstract.php:315
+#: includes/notification/class-wc-woomercadopago-notification-abstract.php:323
 msgid "Payment was returned to the customer."
 msgstr ""
 
-#: includes/notification/class-wc-woomercadopago-notification-abstract.php:329
+#: includes/notification/class-wc-woomercadopago-notification-abstract.php:337
 msgid "Payment was canceled."
 msgstr ""
 
-#: includes/notification/class-wc-woomercadopago-notification-abstract.php:344, includes/notification/class-wc-woomercadopago-notification-abstract.php:356
+#: includes/notification/class-wc-woomercadopago-notification-abstract.php:352, includes/notification/class-wc-woomercadopago-notification-abstract.php:364
 msgid "The payment is in mediation or the purchase was unknown by the customer."
 msgstr ""
 
 #. translators: 1: payment_id 2: status
-#: includes/notification/class-wc-woomercadopago-notification-abstract.php:458
+#: includes/notification/class-wc-woomercadopago-notification-abstract.php:466
 msgid "Mercado Pago: The payment %1$s was notified by Mercado Pago with status %2$s."
 msgstr ""
 
@@ -967,11 +967,11 @@ msgstr ""
 msgid "Learn more about Pix"
 msgstr ""
 
-#: includes/payments/class-wc-woomercadopago-pix-gateway.php:523, includes/payments/class-wc-woomercadopago-ticket-gateway.php:585
+#: includes/payments/class-wc-woomercadopago-pix-gateway.php:522, includes/payments/class-wc-woomercadopago-ticket-gateway.php:585
 msgid "A problem occurred when processing your payment. Please try again."
 msgstr ""
 
-#: includes/payments/class-wc-woomercadopago-pix-gateway.php:509, includes/payments/class-wc-woomercadopago-ticket-gateway.php:571
+#: includes/payments/class-wc-woomercadopago-pix-gateway.php:508, includes/payments/class-wc-woomercadopago-ticket-gateway.php:571
 msgid "A problem occurred when processing your payment. Are you sure you have correctly filled in all the information on the checkout form?"
 msgstr ""
 
@@ -979,27 +979,27 @@ msgstr ""
 msgid "The customer has not paid yet."
 msgstr ""
 
-#: includes/payments/class-wc-woomercadopago-pix-gateway.php:489, includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:111
+#: includes/payments/class-wc-woomercadopago-pix-gateway.php:488, includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:111
 msgid "Now you just need to pay with PIX to finalize your purchase"
 msgstr ""
 
-#: includes/payments/class-wc-woomercadopago-pix-gateway.php:490, includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:118
+#: includes/payments/class-wc-woomercadopago-pix-gateway.php:489, includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:118
 msgid "Scan the QR code:"
 msgstr ""
 
-#: includes/payments/class-wc-woomercadopago-pix-gateway.php:492, includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:119
+#: includes/payments/class-wc-woomercadopago-pix-gateway.php:491, includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:119
 msgid "Code valid for "
 msgstr ""
 
-#: includes/payments/class-wc-woomercadopago-pix-gateway.php:493, includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:121
+#: includes/payments/class-wc-woomercadopago-pix-gateway.php:492, includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:121
 msgid " days"
 msgstr ""
 
-#: includes/payments/class-wc-woomercadopago-pix-gateway.php:600
+#: includes/payments/class-wc-woomercadopago-pix-gateway.php:599
 msgid "Please note that to receive payments via Pix at our checkout, you must have a Pix key registered in your Mercado Pago account."
 msgstr ""
 
-#: includes/payments/class-wc-woomercadopago-pix-gateway.php:601
+#: includes/payments/class-wc-woomercadopago-pix-gateway.php:600
 msgid "Register your Pix key at Mercado Pago."
 msgstr ""
 
