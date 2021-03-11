@@ -265,7 +265,7 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 				'observation_three'           => __( 'If you have already registered a Pix key at Mercado Pago and cannot activate Pix in the checkout, ', 'woocommerce-mercadopago' ),
 				'link_title_one'              => __( 'click here.', 'woocommerce-mercadopago' ),
 				'link_url_one'                => 'https://www.mercadopago.com.br/pix/',
-				'link_url_two'                => 'https://www.mercadopago.com.br/developers/pt/support',
+				'link_url_two'                => 'https://www.mercadopago.com.br/developers/pt/support/contact',
 			),
 			'woo/mercado/pago/steps/',
 			WC_WooMercadoPago_Module::get_templates_path()
