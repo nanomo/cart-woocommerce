@@ -470,11 +470,12 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 						WC()->cart->empty_cart();
 						// WooCommerce 3.0 or later.
 						if ( method_exists( $order, 'update_meta_data' ) ) {
+							$order->update_meta_data( 'mp_transaction_amount', $response['transaction_amount'] );
 							$order->update_meta_data( 'mp_pix_qr_base64', $response['point_of_interaction']['transaction_data']['qr_code_base64'] );
 							$order->update_meta_data( 'mp_pix_qr_code', $response['point_of_interaction']['transaction_data']['qr_code'] );
-
 							$order->save();
 						} else {
+							update_post_meta( $order->get_id(), 'mp_transaction_amount', $response['transaction_amount'] );
 							update_post_meta( $order->get_id(), 'mp_pix_qr_base64', $response['point_of_interaction']['transaction_data']['qr_code_base64'] );
 							update_post_meta( $order->get_id(), 'mp_pix_qr_code', $response['point_of_interaction']['transaction_data']['qr_code'] );
 						}

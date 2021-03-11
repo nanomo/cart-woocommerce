@@ -96,17 +96,17 @@ class WC_WooMercadoPago_Hook_Pix extends WC_WooMercadoPago_Hook_Abstract {
 	 */
 	public function update_mp_settings_script_pix( $order_id ) {
 		parent::update_mp_settings_script( $order_id );
-		$order     = wc_get_order( $order_id );
-		$qr_base64 = ( method_exists( $order, 'get_meta' ) ) ? $order->get_meta( 'mp_pix_qr_base64' ) : get_post_meta( $order->get_id(), 'mp_pix_qr_base64', true );
-		$qr_code   = ( method_exists( $order, 'get_meta' ) ) ? $order->get_meta( 'mp_pix_qr_code' ) : get_post_meta( $order->get_id(), 'mp_pix_qr_code', true );
-
+		$order              = wc_get_order( $order_id );
+		$qr_base64          = ( method_exists( $order, 'get_meta' ) ) ? $order->get_meta( 'mp_pix_qr_base64' ) : get_post_meta( $order->get_id(), 'mp_pix_qr_base64', true );
+		$qr_code            = ( method_exists( $order, 'get_meta' ) ) ? $order->get_meta( 'mp_pix_qr_code' ) : get_post_meta( $order->get_id(), 'mp_pix_qr_code', true );
+		$transaction_amount = ( method_exists( $order, 'get_meta' ) ) ? $order->get_meta( 'mp_transaction_amount' ) : get_post_meta( $order->get_id(), 'mp_transaction_amount', true );
 		if ( empty( $qr_base64 ) && empty( $qr_code ) ) {
 			return;
 		}
 
 		$parameters = array(
 			'img_pix'             => plugins_url( '../../assets/images/img-pix.png', plugin_dir_path( __FILE__ ) ),
-			'amount'              => $order->get_total(),
+			'amount'              => $transaction_amount,
 			'qr_base64'           => $qr_base64,
 			'title_purchase_pix'  => __( 'Now you just need to pay with PIX to finalize your purchase', 'woocommerce-mercadopago' ),
 			'title_how_to_pay'    => __( 'How to pay with PIX:', 'woocommerce-mercadopago' ),
