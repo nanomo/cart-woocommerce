@@ -29,6 +29,7 @@ class WC_WooMercadoPago_Hook_Pix extends WC_WooMercadoPago_Hook_Abstract {
 			add_action( 'wp_enqueue_scripts', array( $this, 'add_checkout_scripts_pix' ) );
 			add_action( 'woocommerce_after_checkout_form', array( $this, 'add_mp_settings_script_pix' ) );
 			add_action( 'woocommerce_thankyou_' . $this->payment->id, array( $this, 'update_mp_settings_script_pix' ) );
+			add_filter( 'woocommerce_gateway_title', array( $this, 'add_badge_new' ), 10, 2 );
 		}
 	}
 
@@ -139,5 +140,31 @@ class WC_WooMercadoPago_Hook_Pix extends WC_WooMercadoPago_Hook_Abstract {
 			array(),
 			WC_WooMercadoPago_Constants::VERSION
 		);
+	}
+
+	/**
+	 * Add Badge New
+	 *
+	 * @param string $title Title.
+	 * @param string $id Id.
+	 *
+	 * @return string
+	 */
+	public function add_badge_new( $title, $id ) {
+		if ( ! preg_match( '/woo-mercado-pago/', $id ) ) {
+			return $title;
+		}
+
+		if ( $id !== $this->payment->id ) {
+			return $title;
+		}
+
+		if ( ! is_checkout() && ! ( defined( 'DOING_AJAX' ) && DOING_AJAX ) ) {
+			return $title;
+		}
+
+			$title .= '<small class="mp-pix-checkout-title-badge">' . __( 'New', 'woocommerce-mercadopago' ) . '</small>';
+
+		return $title;
 	}
 }
