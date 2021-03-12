@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: Mercado Pago payments for WooCommerce 5.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/woocommerce-mercadopago\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2021-03-11 18:11-0300\n"
+"PO-Revision-Date: 2021-03-12 15:46-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: pt_BR\n"
@@ -184,6 +184,11 @@ msgstr "Atualizar a ordem do WooCommerce para "
 #: includes/notification/class-wc-woomercadopago-notification-abstract.php:183
 msgid "Payment approved."
 msgstr "Pagamento aprovado."
+
+#: includes/notification/class-wc-woomercadopago-notification-abstract.php:243,
+#: includes/notification/class-wc-woomercadopago-notification-abstract.php:246
+msgid "Waiting for the PIX payment."
+msgstr "Esperando o pagamento via PIX."
 
 #: includes/notification/class-wc-woomercadopago-notification-abstract.php:233,
 #: includes/notification/class-wc-woomercadopago-notification-abstract.php:236
@@ -1128,7 +1133,12 @@ msgstr "Código válido por "
 #: includes/payments/class-wc-woomercadopago-pix-gateway.php:493,
 #: includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:121
 msgid " days"
-msgstr " dia(s)"
+msgstr " dias"
+
+#: includes/payments/class-wc-woomercadopago-pix-gateway.php:493,
+#: includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:121
+msgid " day"
+msgstr " dia"
 
 #: includes/payments/class-wc-woomercadopago-ticket-gateway.php:551
 msgid "To print the ticket again click"
@@ -1283,6 +1293,14 @@ msgstr "Número de documento inválido"
 #: templates/checkout/custom-checkout.php:199
 msgid "Obligatory field"
 msgstr "Campo obrigatório"
+
+#: templates/checkout/pix-checkout.php:24
+msgid "Pay securely and instantly!"
+msgstr "Pague de forma segura e instantânea!"
+
+#: templates/checkout/pix-checkout.php:26
+msgid "When you finish the order, you will see the code to complete the payment."
+msgstr "Ao finalizar o pedido, você verá o código para fazer o pagamento."
 
 #: templates/checkout/ticket-checkout.php:54
 msgid "CI"

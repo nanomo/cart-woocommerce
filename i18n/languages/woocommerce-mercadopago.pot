@@ -995,6 +995,10 @@ msgstr ""
 msgid " days"
 msgstr ""
 
+#: includes/payments/class-wc-woomercadopago-pix-gateway.php:477
+msgid " day"
+msgstr ""
+
 #: includes/payments/class-wc-woomercadopago-pix-gateway.php:584
 msgid "Please note that to receive payments via Pix at our checkout, you must have a Pix key registered in your Mercado Pago account."
 msgstr ""
