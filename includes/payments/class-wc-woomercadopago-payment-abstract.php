@@ -902,8 +902,13 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 	 * @return array
 	 */
 	public function field_enabled( $label ) {
+		$title_enable = __( 'Activate checkout', 'woocommerce-mercadopago' );
+		if ( 'Pix' === $label ) {
+			$title_enable = __( 'Activate Pix in the checkout', 'woocommerce-mercadopago' );
+		}
+
 		return array(
-			'title'       => __( 'Activate checkout', 'woocommerce-mercadopago' ),
+			'title'       => $title_enable,
 			'type'        => 'select',
 			'default'     => 'no',
 			'description' => __( 'Activate the Mercado Pago experience at the checkout of your store.', 'woocommerce-mercadopago' ),

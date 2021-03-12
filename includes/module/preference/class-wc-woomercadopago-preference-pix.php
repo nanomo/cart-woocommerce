@@ -30,30 +30,26 @@ class WC_WooMercadoPago_Preference_Pix extends WC_WooMercadoPago_Preference_Abst
 	 */
 	public function __construct( $payment, $order, $pix_checkout ) {
 		parent::__construct( $payment, $order, $pix_checkout );
-		$date_expiration                                       = $payment->get_option_mp( 'date_expiration', '' );
-		$this->preference                                      = $this->make_commum_preference( $date_expiration );
-		$this->preference['date_of_expiration']                = $this->get_date_of_expiration( $payment );
+		$pix_date_expiration                                   = $this->payment->get_option_mp( 'checkout_pix_date_expiration', '' );
+		$this->preference                                      = $this->make_commum_preference();
+		$this->preference['date_of_expiration']                = $this->get_date_of_expiration( $pix_date_expiration );
 		$this->preference['transaction_amount']                = $this->get_transaction_amount();
 		$this->preference['description']                       = implode( ', ', $this->list_of_items );
 		$this->preference['payment_method_id']                 = 'pix';
 		$this->preference['payer']['email']                    = $this->get_email();
-		$this->preference['payer']['first_name']               = $this->checkout['firstname'];
-		$this->preference['payer']['last_name']                = 14 === strlen( $this->checkout['docNumber'] ) ? $this->checkout['lastname'] : $this->checkout['firstname'];
-		$this->preference['payer']['identification']['type']   = 'CPF';
-		$this->preference['payer']['identification']['number'] = $this->checkout['docNumber'];
-		$this->preference['payer']['address']['zip_code']      = $this->checkout['zipcode'];
-		$this->preference['payer']['address']['street_name']   = $this->checkout['address'];
-		$this->preference['payer']['address']['street_number'] = $this->checkout['number'];
-		$this->preference['payer']['address']['neighborhood']  = $this->checkout['city'];
-		$this->preference['payer']['address']['city']          = $this->checkout['city'];
-		$this->preference['payer']['address']['federal_unit']  = $this->checkout['state'];
+		$this->preference['payer']['first_name']               = ( method_exists( $this->order, 'get_id' ) ? html_entity_decode( $this->order->get_billing_first_name() ) : html_entity_decode( $this->order->billing_first_name ) );
+		$this->preference['payer']['last_name']                = ( method_exists( $this->order, 'get_id' ) ? html_entity_decode( $this->order->get_billing_last_name() ) : html_entity_decode( $this->order->billing_last_name ) );
+		$this->preference['payer']['address']['zip_code']      = html_entity_decode( method_exists( $this->order, 'get_id' ) ? $this->order->get_billing_postcode() : $this->order->billing_postcode );
+		$this->preference['payer']['address']['street_name']   = html_entity_decode( method_exists( $this->order, 'get_id' ) ? $this->order->get_billing_address_1() : $this->order->billing_address_1 );
+		$this->preference['payer']['address']['street_number'] = '';
+		$this->preference['payer']['address']['neighborhood']  = '';
+		$this->preference['payer']['address']['city']          = html_entity_decode( method_exists( $this->order, 'get_id' ) ? $this->order->get_billing_city() : $this->order->billing_city );
+		$this->preference['payer']['address']['federal_unit']  = html_entity_decode( method_exists( $this->order, 'get_id' ) ? $this->order->get_billing_state() : $this->order->billing_state );
 		$this->preference['external_reference']                = $this->get_external_reference();
 		$this->preference['additional_info']['items']          = $this->items;
 		$this->preference['additional_info']['payer']          = $this->get_payer_custom();
 		$this->preference['additional_info']['shipments']      = $this->shipments_receiver_address();
 		$this->preference['additional_info']['payer']          = $this->get_payer_custom();
-		$this->preference['additional_info']['items'][]        = $this->add_discounts();
-		$this->preference                                      = array_merge( $this->preference, $this->add_discounts_campaign() );
 
 		$internal_metadata            = parent::get_internal_metadata();
 		$merge_array                  = array_merge( $internal_metadata, $this->get_internal_metadata_pix() );

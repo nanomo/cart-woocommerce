@@ -573,10 +573,10 @@ abstract class WC_WooMercadoPago_Preference_Abstract extends WC_Payment_Gateway 
 			'collector'        => $seller,
 			'test_mode'        => $test_mode,
 			'details'          => '',
-			'basic_settings'   => wp_json_encode( $analytics->get_basic_settings(), true ),
-			'custom_settings'  => wp_json_encode( $analytics->get_custom_settings(), true ),
-			'ticket_settings'  => wp_json_encode( $analytics->get_ticket_settings(), true ),
-			'pix_settings'     => wp_json_encode( $analytics->get_pix_settings(), true ),
+			'basic_settings'   => $analytics->get_basic_settings(),
+			'custom_settings'  => $analytics->get_custom_settings(),
+			'ticket_settings'  => $analytics->get_ticket_settings(),
+			'pix_settings'     => $analytics->get_pix_settings(),
 		);
 	}
 

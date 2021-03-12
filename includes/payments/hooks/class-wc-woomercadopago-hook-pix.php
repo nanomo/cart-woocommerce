@@ -29,6 +29,7 @@ class WC_WooMercadoPago_Hook_Pix extends WC_WooMercadoPago_Hook_Abstract {
 			add_action( 'wp_enqueue_scripts', array( $this, 'add_checkout_scripts_pix' ) );
 			add_action( 'woocommerce_after_checkout_form', array( $this, 'add_mp_settings_script_pix' ) );
 			add_action( 'woocommerce_thankyou_' . $this->payment->id, array( $this, 'update_mp_settings_script_pix' ) );
+			add_filter( 'woocommerce_gateway_title', array( $this, 'add_badge_new' ), 10, 2 );
 		}
 	}
 
@@ -96,16 +97,32 @@ class WC_WooMercadoPago_Hook_Pix extends WC_WooMercadoPago_Hook_Abstract {
 	 */
 	public function update_mp_settings_script_pix( $order_id ) {
 		parent::update_mp_settings_script( $order_id );
-		$order               = wc_get_order( $order_id );
-		$transaction_details = ( method_exists( $order, 'get_meta' ) ) ? $order->get_meta( '_transaction_details_pix' ) : get_post_meta( $order->get_id(), '_transaction_details_pix', true );
-
-		if ( empty( $transaction_details ) ) {
+		$order              = wc_get_order( $order_id );
+		$qr_base64          = ( method_exists( $order, 'get_meta' ) ) ? $order->get_meta( 'mp_pix_qr_base64' ) : get_post_meta( $order->get_id(), 'mp_pix_qr_base64', true );
+		$qr_code            = ( method_exists( $order, 'get_meta' ) ) ? $order->get_meta( 'mp_pix_qr_code' ) : get_post_meta( $order->get_id(), 'mp_pix_qr_code', true );
+		$transaction_amount = ( method_exists( $order, 'get_meta' ) ) ? $order->get_meta( 'mp_transaction_amount' ) : get_post_meta( $order->get_id(), 'mp_transaction_amount', true );
+		if ( empty( $qr_base64 ) && empty( $qr_code ) ) {
 			return;
 		}
 
 		$parameters = array(
-			'img_pix' => plugins_url( '../../assets/images/img-pix.png', plugin_dir_path( __FILE__ ) ),
-			'qr_code' => 'data:image/jpeg;base64,qr_code_base64',
+			'img_pix'             => plugins_url( '../../assets/images/img-pix.png', plugin_dir_path( __FILE__ ) ),
+			'amount'              => $transaction_amount,
+			'qr_base64'           => $qr_base64,
+			'title_purchase_pix'  => __( 'Now you just need to pay with PIX to finalize your purchase', 'woocommerce-mercadopago' ),
+			'title_how_to_pay'    => __( 'How to pay with PIX:', 'woocommerce-mercadopago' ),
+			'step_one'            => __( 'Go to your bank\'s app or website', 'woocommerce-mercadopago' ),
+			'step_two'            => __( 'Search for the option to pay with PIX', 'woocommerce-mercadopago' ),
+			'step_three'          => __( 'Scan the QR code or PIX code', 'woocommerce-mercadopago' ),
+			'step_four'           => __( 'Done! You will see the payment confirmation', 'woocommerce-mercadopago' ),
+			'text_amount'         => __( 'Value: R$ ', 'woocommerce-mercadopago' ),
+			'text_scan_qr'        => __( 'Scan the QR code:', 'woocommerce-mercadopago' ),
+			'text_time_qr_one'    => __( 'Code valid for ', 'woocommerce-mercadopago' ),
+			'qr_date_expiration'  => $this->payment->get_option_mp( 'checkout_pix_date_expiration', '1' ),
+			'text_time_qr_two'    => __( ' days', 'woocommerce-mercadopago' ),
+			'text_description_qr' => __( 'If you prefer, you can pay by copying and pasting the following code', 'woocommerce-mercadopago' ),
+			'qr_code'             => $qr_code,
+			'text_button'         => __( 'Copy code', 'woocommerce-mercadopago' ),
 		);
 
 		wc_get_template(
@@ -123,5 +140,31 @@ class WC_WooMercadoPago_Hook_Pix extends WC_WooMercadoPago_Hook_Abstract {
 			array(),
 			WC_WooMercadoPago_Constants::VERSION
 		);
+	}
+
+	/**
+	 * Add Badge New
+	 *
+	 * @param string $title Title.
+	 * @param string $id Id.
+	 *
+	 * @return string
+	 */
+	public function add_badge_new( $title, $id ) {
+		if ( ! preg_match( '/woo-mercado-pago/', $id ) ) {
+			return $title;
+		}
+
+		if ( $id !== $this->payment->id ) {
+			return $title;
+		}
+
+		if ( ! is_checkout() && ! ( defined( 'DOING_AJAX' ) && DOING_AJAX ) ) {
+			return $title;
+		}
+
+			$title .= '<small class="mp-pix-checkout-title-badge">' . __( 'New', 'woocommerce-mercadopago' ) . '</small>';
+
+		return $title;
 	}
 }

@@ -37,9 +37,9 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 		$this->description        = __( 'Accept payments via Pix Transfer and receive the funds instantly. Your customers can pay at any time, without date or time restrictions.', 'woocommerce-mercadopago' );
 		$this->form_fields        = array();
 		$this->method_title       = __( 'Mercado Pago - Custom Checkout', 'woocommerce-mercadopago' );
-		$this->title              = $this->getTitle() . $this->getBadge();
+		$this->title              = __( 'Pay with PIX ', 'woocommerce-mercadopago' );
 		$this->method_description = $this->get_method_mp_description( $this->description );
-		$this->date_expiration    = (int) $this->get_option_mp( 'date_expiration', 3 );
+		$this->date_expiration    = (int) $this->get_option_mp( 'checkout_pix_date_expiration', '1' );
 		$this->type_payments      = $this->get_option_mp( 'type_payments', 'no' );
 		$this->payment_type       = 'pix';
 		$this->checkout_type      = 'custom';
@@ -52,22 +52,6 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 		$this->currency_convertion = true;
 	}
 
-	/**
-	 * GetTitle function
-	 *
-	 * @return @string
-	 */
-	public function getTitle() {
-		return __( 'Pay with PIX ', 'woocommerce-mercadopago' );
-	}
-	/**
-	 * GetBadge function
-	 *
-	 * @return @string
-	 */
-	public function getBadge() {
-		return '<small class="mp-pix-checkout-title-badge">' . __( 'New', 'woocommerce-mercadopago' ) . '</small>';
-	}
 	/**
 	 * Get form mp fields
 	 *
@@ -110,7 +94,7 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 				$form_fields['checkout_pix_payments_title']          = $this->field_checkout_pix_payments_title();
 				$form_fields['checkout_pix_payments_description']    = $this->field_checkout_pix_options_description();
 				$form_fields['checkout_pix_payments_advanced_title'] = $this->field_checkout_pix_payments_advanced_title();
-				$form_fields['date_expiration']                      = $this->field_date_expiration();
+				$form_fields['checkout_pix_date_expiration']         = $this->field_pix_date_expiration();
 				$form_fields['checkout_about_pix']                   = $this->field_checkout_about_pix();
 		}
 
@@ -183,7 +167,7 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 			'checkout_payments_subtitle',
 			'checkout_pix_payments_description',
 			'enabled',
-			'date_expiration',
+			'checkout_pix_date_expiration',
 			WC_WooMercadoPago_Helpers_CurrencyConverter::CONFIG_KEY,
 			// About PIX.
 			'checkout_about_pix',
@@ -226,7 +210,7 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 			'checkout_payments_subtitle',
 			'checkout_pix_payments_description',
 			'enabled',
-			'date_expiration',
+			'checkout_pix_date_expiration',
 			WC_WooMercadoPago_Helpers_CurrencyConverter::CONFIG_KEY,
 			// About PIX.
 			'checkout_about_pix',
@@ -265,7 +249,7 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 				'observation_three'           => __( 'If you have already registered a Pix key at Mercado Pago and cannot activate Pix in the checkout, ', 'woocommerce-mercadopago' ),
 				'link_title_one'              => __( 'click here.', 'woocommerce-mercadopago' ),
 				'link_url_one'                => 'https://www.mercadopago.com.br/pix/',
-				'link_url_two'                => 'https://www.mercadopago.com.br/developers/pt/support',
+				'link_url_two'                => 'https://www.mercadopago.com.br/developers/pt/support/contact',
 			),
 			'woo/mercado/pago/steps/',
 			WC_WooMercadoPago_Module::get_templates_path()
@@ -361,12 +345,18 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 	 *
 	 * @return array
 	 */
-	public function field_date_expiration() {
+	public function field_pix_date_expiration() {
+		$pix_days = array();
+		for ( $i = 1; $i <= 7; ++$i ) {
+			$pix_days[ $i ] = $i;
+		}
+
 		return array(
 			'title'       => __( 'Pix Expiration', 'woocommerce-mercadopago' ),
-			'type'        => 'number',
-			'description' => __( 'Specify in how long your customers will be able to pay after the code is sent.', 'woocommerce-mercadopago' ),
-			'default'     => '',
+			'type'        => 'select',
+			'description' => __( 'Set the limit of days in which your customers can pay.', 'woocommerce-mercadopago' ),
+			'default'     => $this->get_option_mp( 'checkout_pix_date_expiration', '1' ),
+			'options'     => $pix_days,
 		);
 	}
 
@@ -424,10 +414,10 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 	public function process_payment( $order_id ) {
 		// @todo need fix Processing form data without nonce verification
 		// @codingStandardsIgnoreLine
-		$pix_checkout = $_POST['mercadopago_pix'];
-		$this->log->write_log( __FUNCTION__, 'Pix POST: ' . wp_json_encode( $pix_checkout, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE ) );
+		$pix_checkout = $_POST;
+		$this->log->write_log( __FUNCTION__, 'Payment via Pix POST: ' );
+		$order = wc_get_order( $order_id );
 
-		$order  = wc_get_order( $order_id );
 		$amount = $this->get_order_total();
 		if ( method_exists( $order, 'update_meta_data' ) ) {
 			$order->update_meta_data( '_used_gateway', get_class( $this ) );
@@ -455,32 +445,7 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 			}
 		}
 
-		// Check for brazilian FEBRABAN rules.
-		if ( 'MLB' === $this->get_option_mp( '_site_id_v1' ) ) {
-			if ( ! isset( $pix_checkout['firstname'] ) || empty( $pix_checkout['firstname'] ) ||
-				! isset( $pix_checkout['lastname'] ) || empty( $pix_checkout['lastname'] ) ||
-				! isset( $pix_checkout['docNumber'] ) || empty( $pix_checkout['docNumber'] ) ||
-				( 14 !== strlen( $pix_checkout['docNumber'] ) && 18 !== strlen( $pix_checkout['docNumber'] ) ) ||
-				! isset( $pix_checkout['address'] ) || empty( $pix_checkout['address'] ) ||
-				! isset( $pix_checkout['number'] ) || empty( $pix_checkout['number'] ) ||
-				! isset( $pix_checkout['city'] ) || empty( $pix_checkout['city'] ) ||
-				! isset( $pix_checkout['state'] ) || empty( $pix_checkout['state'] ) ||
-				! isset( $pix_checkout['zipcode'] ) || empty( $pix_checkout['zipcode'] ) ) {
-				wc_add_notice(
-					'<p>' .
-					__( 'There was a problem processing your payment. Are you sure you have correctly filled out all the information on the payment form?', 'woocommerce-mercadopago' ) .
-					'</p>',
-					'error'
-				);
-				return array(
-					'result'   => 'fail',
-					'redirect' => '',
-				);
-			}
-		}
-
-		if ( isset( $pix_checkout['amount'] ) && ! empty( $pix_checkout['amount'] ) &&
-			isset( $pix_checkout['paymentMethodId'] ) && ! empty( $pix_checkout['paymentMethodId'] ) ) {
+		if ( filter_var( $order->get_billing_email(), FILTER_VALIDATE_EMAIL ) ) {
 			$response = $this->create_preference( $order, $pix_checkout );
 
 			if ( is_array( $response ) && array_key_exists( 'status', $response ) ) {
@@ -489,24 +454,27 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 						WC()->cart->empty_cart();
 						// WooCommerce 3.0 or later.
 						if ( method_exists( $order, 'update_meta_data' ) ) {
-							$order->update_meta_data( '_transaction_details_pix', $response['transaction_details']['external_resource_url'] );
+							$order->update_meta_data( 'mp_transaction_amount', $response['transaction_amount'] );
+							$order->update_meta_data( 'mp_pix_qr_base64', $response['point_of_interaction']['transaction_data']['qr_code_base64'] );
+							$order->update_meta_data( 'mp_pix_qr_code', $response['point_of_interaction']['transaction_data']['qr_code'] );
 							$order->save();
 						} else {
-							update_post_meta( $order->get_id(), '_transaction_details_pix', $response['transaction_details']['external_resource_url'] );
+							update_post_meta( $order->get_id(), 'mp_transaction_amount', $response['transaction_amount'] );
+							update_post_meta( $order->get_id(), 'mp_pix_qr_base64', $response['point_of_interaction']['transaction_data']['qr_code_base64'] );
+							update_post_meta( $order->get_id(), 'mp_pix_qr_code', $response['point_of_interaction']['transaction_data']['qr_code'] );
 						}
 						// Shows some info in checkout page.
 						$order->add_order_note(
 							'Mercado Pago: ' .
 							__( 'The customer has not paid yet.', 'woocommerce-mercadopago' )
 						);
-						if ( 'bank_transfer' !== $response['payment_type_id'] ) {
+						if ( 'pix' === $response['payment_method_id'] ) {
 							$order->add_order_note(
-								'Mercado Pago: ' .
-								__( 'To print the pix again click', 'woocommerce-mercadopago' ) .
-								' <a target="_blank" href="' .
-								$response['transaction_details']['external_resource_url'] . '">' .
-								__( 'here', 'woocommerce-mercadopago' ) .
-								'</a>',
+								'<div style="text-align: center;"><p>Mercado Pago: ' . __( 'Now you just need to pay with PIX to finalize your purchase', 'woocommerce-mercadopago' ) . '</p>' .
+								'<p>' . __( 'Scan the QR code:', 'woocommerce-mercadopago' ) . '</p>' .
+								'<img style="width: 168px; height: 168px;" src="data:image/jpeg;base64,' . $response['point_of_interaction']['transaction_data']['qr_code_base64'] . '"/>' .
+								'<p><smal>' . __( 'Code valid for ', 'woocommerce-mercadopago' ) . $this->get_option_mp( 'checkout_pix_date_expiration', '1' ) .
+								( 1 < $this->get_option_mp( 'checkout_pix_date_expiration', '1' ) ? __( ' days', 'woocommerce-mercadopago' ) : __( ' day', 'woocommerce-mercadopago' ) ) . '</smal></p></div>',
 								1,
 								false
 							);
