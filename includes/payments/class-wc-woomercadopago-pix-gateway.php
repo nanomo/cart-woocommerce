@@ -474,7 +474,9 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 								'<p>' . __( 'Scan the QR code:', 'woocommerce-mercadopago' ) . '</p>' .
 								'<img style="width: 168px; height: 168px;" src="data:image/jpeg;base64,' . $response['point_of_interaction']['transaction_data']['qr_code_base64'] . '"/>' .
 								'<p><smal>' . __( 'Code valid for ', 'woocommerce-mercadopago' ) . $this->get_option_mp( 'checkout_pix_date_expiration', '1' ) .
-								( 1 < $this->get_option_mp( 'checkout_pix_date_expiration', '1' ) ? __( ' days', 'woocommerce-mercadopago' ) : __( ' day', 'woocommerce-mercadopago' ) ) . '</smal></p></div>',
+								( 1 < $this->get_option_mp( 'checkout_pix_date_expiration', '1' ) ? __( ' days', 'woocommerce-mercadopago' ) : __( ' day', 'woocommerce-mercadopago' ) ) . '</smal></p>' .
+								'<p><smal>' . __( 'If you prefer, you can pay by copying and pasting the following code', 'woocommerce-mercadopago' ) . '</p></smal>' .
+								'<p style="font-size: 10px;"><smal>' . $response['point_of_interaction']['transaction_data']['qr_code'] . '</p></smal></div>',
 								1,
 								false
 							);

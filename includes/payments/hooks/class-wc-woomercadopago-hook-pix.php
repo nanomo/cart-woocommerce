@@ -119,7 +119,7 @@ class WC_WooMercadoPago_Hook_Pix extends WC_WooMercadoPago_Hook_Abstract {
 			'text_scan_qr'        => __( 'Scan the QR code:', 'woocommerce-mercadopago' ),
 			'text_time_qr_one'    => __( 'Code valid for ', 'woocommerce-mercadopago' ),
 			'qr_date_expiration'  => $this->payment->get_option_mp( 'checkout_pix_date_expiration', '1' ),
-			'text_time_qr_two'    => __( ' days', 'woocommerce-mercadopago' ),
+			'text_time_qr_two'    => ( 1 < $this->payment->get_option_mp( 'checkout_pix_date_expiration', '1' ) ? __( ' days', 'woocommerce-mercadopago' ) : __( ' day', 'woocommerce-mercadopago' ) ),
 			'text_description_qr' => __( 'If you prefer, you can pay by copying and pasting the following code', 'woocommerce-mercadopago' ),
 			'qr_code'             => $qr_code,
 			'text_button'         => __( 'Copy code', 'woocommerce-mercadopago' ),
