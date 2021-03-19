@@ -967,11 +967,11 @@ msgstr ""
 msgid "Learn more about Pix"
 msgstr ""
 
-#: includes/payments/class-wc-woomercadopago-pix-gateway.php:507, includes/payments/class-wc-woomercadopago-ticket-gateway.php:585
+#: includes/payments/class-wc-woomercadopago-pix-gateway.php:509, includes/payments/class-wc-woomercadopago-ticket-gateway.php:585
 msgid "A problem occurred when processing your payment. Please try again."
 msgstr ""
 
-#: includes/payments/class-wc-woomercadopago-pix-gateway.php:493, includes/payments/class-wc-woomercadopago-ticket-gateway.php:571
+#: includes/payments/class-wc-woomercadopago-pix-gateway.php:495, includes/payments/class-wc-woomercadopago-ticket-gateway.php:571
 msgid "A problem occurred when processing your payment. Are you sure you have correctly filled in all the information on the checkout form?"
 msgstr ""
 
@@ -995,15 +995,19 @@ msgstr ""
 msgid " days"
 msgstr ""
 
-#: includes/payments/class-wc-woomercadopago-pix-gateway.php:477
+#: includes/payments/class-wc-woomercadopago-pix-gateway.php:477, includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:122
 msgid " day"
 msgstr ""
 
-#: includes/payments/class-wc-woomercadopago-pix-gateway.php:584
+#: includes/payments/class-wc-woomercadopago-pix-gateway.php:478, includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:123
+msgid "If you prefer, you can pay by copying and pasting the following code"
+msgstr ""
+
+#: includes/payments/class-wc-woomercadopago-pix-gateway.php:586
 msgid "Please note that to receive payments via Pix at our checkout, you must have a Pix key registered in your Mercado Pago account."
 msgstr ""
 
-#: includes/payments/class-wc-woomercadopago-pix-gateway.php:585
+#: includes/payments/class-wc-woomercadopago-pix-gateway.php:587
 msgid "Register your Pix key at Mercado Pago."
 msgstr ""
 
@@ -1463,10 +1467,6 @@ msgstr ""
 
 #: includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:118
 msgid "Value: R$ "
-msgstr ""
-
-#: includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:123
-msgid "If you prefer, you can pay by copying and pasting the following code"
 msgstr ""
 
 #: includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:125
