@@ -59,6 +59,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<p class="mp-details-pix-amount">
 				<span class="mp-details-pix-qr">
 					<?php echo esc_html( $text_amount ); ?>
+					<b><?php echo esc_html( $currency ); ?></b>
 				</span>
 				<span class="mp-details-pix-qr-value">
 					<?php echo esc_html( $amount ); ?>
