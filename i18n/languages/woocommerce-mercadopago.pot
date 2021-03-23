@@ -1466,7 +1466,7 @@ msgid "Done! You will see the payment confirmation"
 msgstr ""
 
 #: includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:127
-msgid "Value:"
+msgid "Value: "
 msgstr ""
 
 #: includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:135
