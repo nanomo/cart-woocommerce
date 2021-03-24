@@ -114,6 +114,8 @@ class WC_WooMercadoPago_Hook_Pix extends WC_WooMercadoPago_Hook_Abstract {
 			false
 		);
 
+		$currency_symbol = WC_WooMercadoPago_Configs::get_country_configs();
+
 		$parameters = array(
 			'img_pix'             => plugins_url( '../../assets/images/img-pix.png', plugin_dir_path( __FILE__ ) ),
 			'amount'              => number_format( $transaction_amount, 2, ',', '.' ),
@@ -125,7 +127,7 @@ class WC_WooMercadoPago_Hook_Pix extends WC_WooMercadoPago_Hook_Abstract {
 			'step_three'          => __( 'Scan the QR code or PIX code', 'woocommerce-mercadopago' ),
 			'step_four'           => __( 'Done! You will see the payment confirmation', 'woocommerce-mercadopago' ),
 			'text_amount'         => __( 'Value: ', 'woocommerce-mercadopago' ),
-			'currency'            => 'R$',
+			'currency'            => $currency_symbol[$this->payment->get_option_mp( '_site_id_v1' )]['currency_symbol'],
 			'text_scan_qr'        => __( 'Scan the QR code:', 'woocommerce-mercadopago' ),
 			'text_time_qr_one'    => __( 'Code valid for ', 'woocommerce-mercadopago' ),
 			'qr_date_expiration'  => $this->payment->get_option_mp( 'checkout_pix_date_expiration', '1' ),

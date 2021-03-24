@@ -979,27 +979,27 @@ msgstr ""
 msgid "The customer has not paid yet."
 msgstr ""
 
-#: includes/payments/class-wc-woomercadopago-pix-gateway.php:473, includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:121
+#: includes/payments/class-wc-woomercadopago-pix-gateway.php:473, includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:123
 msgid "Now you just need to pay with PIX to finalize your purchase"
 msgstr ""
 
-#: includes/payments/class-wc-woomercadopago-pix-gateway.php:474, includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:129
+#: includes/payments/class-wc-woomercadopago-pix-gateway.php:474, includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:131
 msgid "Scan the QR code:"
 msgstr ""
 
-#: includes/payments/class-wc-woomercadopago-pix-gateway.php:476, includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:130
+#: includes/payments/class-wc-woomercadopago-pix-gateway.php:476, includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:132
 msgid "Code valid for "
 msgstr ""
 
-#: includes/payments/class-wc-woomercadopago-pix-gateway.php:477, includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:132
+#: includes/payments/class-wc-woomercadopago-pix-gateway.php:477, includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:134
 msgid " days"
 msgstr ""
 
-#: includes/payments/class-wc-woomercadopago-pix-gateway.php:477, includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:132
+#: includes/payments/class-wc-woomercadopago-pix-gateway.php:477, includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:134
 msgid " day"
 msgstr ""
 
-#: includes/payments/class-wc-woomercadopago-pix-gateway.php:478, includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:133
+#: includes/payments/class-wc-woomercadopago-pix-gateway.php:478, includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:135
 msgid "If you prefer, you can pay by copying and pasting the following code"
 msgstr ""
 
@@ -1445,34 +1445,34 @@ msgstr ""
 msgid "Terms and conditions of use"
 msgstr ""
 
-#: includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:122
+#: includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:124
 msgid "How to pay with PIX:"
 msgstr ""
 
-#: includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:123
+#: includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:125
 msgid "Go to your bank's app or website"
 msgstr ""
 
-#: includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:124
+#: includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:126
 msgid "Search for the option to pay with PIX"
 msgstr ""
 
-#: includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:125
+#: includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:127
 msgid "Scan the QR code or PIX code"
 msgstr ""
 
-#: includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:126
+#: includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:128
 msgid "Done! You will see the payment confirmation"
 msgstr ""
 
-#: includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:127
+#: includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:129
 msgid "Value: "
 msgstr ""
 
-#: includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:135
+#: includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:137
 msgid "Copy code"
 msgstr ""
 
-#: includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:176
+#: includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:178
 msgid "New"
 msgstr ""
