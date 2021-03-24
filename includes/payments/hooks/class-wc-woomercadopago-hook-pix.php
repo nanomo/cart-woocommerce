@@ -116,7 +116,7 @@ class WC_WooMercadoPago_Hook_Pix extends WC_WooMercadoPago_Hook_Abstract {
 
 		$parameters = array(
 			'img_pix'             => plugins_url( '../../assets/images/img-pix.png', plugin_dir_path( __FILE__ ) ),
-			'amount'              => number_format( $transaction_amount, 2, ',', '' ),
+			'amount'              => number_format( $transaction_amount, 2, ',', '.' ),
 			'qr_base64'           => $qr_base64,
 			'title_purchase_pix'  => __( 'Now you just need to pay with PIX to finalize your purchase', 'woocommerce-mercadopago' ),
 			'title_how_to_pay'    => __( 'How to pay with PIX:', 'woocommerce-mercadopago' ),
