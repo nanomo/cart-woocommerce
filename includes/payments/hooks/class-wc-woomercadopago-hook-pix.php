@@ -127,7 +127,7 @@ class WC_WooMercadoPago_Hook_Pix extends WC_WooMercadoPago_Hook_Abstract {
 			'step_three'          => __( 'Scan the QR code or PIX code', 'woocommerce-mercadopago' ),
 			'step_four'           => __( 'Done! You will see the payment confirmation', 'woocommerce-mercadopago' ),
 			'text_amount'         => __( 'Value: ', 'woocommerce-mercadopago' ),
-			'currency'            => $currency_symbol[$this->payment->get_option_mp( '_site_id_v1' )]['currency_symbol'],
+			'currency'            => $currency_symbol[ $this->payment->get_option_mp( '_site_id_v1' ) ]['currency_symbol'],
 			'text_scan_qr'        => __( 'Scan the QR code:', 'woocommerce-mercadopago' ),
 			'text_time_qr_one'    => __( 'Code valid for ', 'woocommerce-mercadopago' ),
 			'qr_date_expiration'  => $this->payment->get_option_mp( 'checkout_pix_date_expiration', '1' ),
