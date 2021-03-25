@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: Mercado Pago payments for WooCommerce 5.1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/woocommerce-mercadopago\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2021-03-23 19:21-0300\n"
+"PO-Revision-Date: 2021-03-25 15:33-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: pt_BR\n"
@@ -1031,8 +1031,8 @@ msgid "Your Pix Keys section."
 msgstr "Suas chaves PIX."
 
 #: includes/payments/class-wc-woomercadopago-pix-gateway.php:261
-msgid "Choose which data to register as Pix keys. After registering, you can set up Pix in your checkout."
-msgstr "Escolha quais dados cadastrar como chaves Pix. Após fazer esse cadastro, você poderá configurar o PIX no seu checkout."
+msgid "Choose which data to register as PIX keys. After registering, you can set up PIX in your checkout."
+msgstr "Escolha quais dados cadastrar como chaves PIX. Após fazer esse cadastro, você poderá configurar o PIX no seu checkout."
 
 #: includes/payments/class-wc-woomercadopago-pix-gateway.php:262
 msgid "Remember that, for the time being, the Central Bank of Brazil is open Monday through Friday, from 9am to 6pm."
@@ -1041,10 +1041,6 @@ msgstr "Lembre-se de que, por enquanto, o Banco Central do Brasil funciona de se
 #: includes/payments/class-wc-woomercadopago-pix-gateway.php:263
 msgid "If you requested your registration outside these hours, we will confirm it within the next business day."
 msgstr "Se você solicitou seu cadastro fora desse horário, vamos confirmar no próximo dia útil."
-
-#: includes/payments/class-wc-woomercadopago-pix-gateway.php:264
-msgid "Learn more about Pix."
-msgstr "Saiba mais sobre a Pix."
 
 #: includes/payments/class-wc-woomercadopago-pix-gateway.php:265
 msgid "If you have already registered a Pix key at Mercado Pago and cannot activate Pix in the checkout, "
@@ -1068,7 +1064,7 @@ msgstr "Ofereça esta nova opção de pagamento para seus clientes."
 
 #: includes/payments/class-wc-woomercadopago-pix-gateway.php:327
 msgid "Enable and set up Pix as a payment method for your customers in the Mercado Pago checkout."
-msgstr "Para ativar o PIX, você precisa ter uma chave cadastrada no Mercado Pago."
+msgstr "Habilite e configure o PIX como forma de pagamento para seus clientes no checkout do Mercado Pago."
 
 #: includes/payments/class-wc-woomercadopago-pix-gateway.php:340
 msgid "Set up the payment via Pix experience"
@@ -1095,7 +1091,7 @@ msgid "We have created a page to explain how this new payment method works and i
 msgstr "Criamos uma página para te explicar o funcionamento e as vantagens dessa nova forma de pagamento."
 
 #: includes/payments/class-wc-woomercadopago-pix-gateway.php:385
-msgid "Learn more about Pix"
+msgid "Learn more about PIX"
 msgstr "Saber mais sobre o PIX"
 
 #: includes/payments/class-wc-woomercadopago-ticket-gateway.php:496,
@@ -1591,14 +1587,15 @@ msgstr "Se preferir, você pode pagar copiando e colando o seguinte código"
 msgid "Copy code"
 msgstr "Copiar código"
 
-#~ msgid "Configure the payment options and accept payments with cards, ticket and money of Mercado Pago account."
-#~ msgstr "Configure as opções de pagamento e aceite pagamentos com cartões, boleto e dinheiro na conta do Mercado Pago."
+#. Description of the plugin
+msgid "Configure the payment options and accept payments with cards, ticket and money of Mercado Pago account."
+msgstr "Configure as opções de pagamento e aceite pagamentos com cartões, boleto e dinheiro na conta do Mercado Pago."
 
-#~ msgid "https://developers.mercadopago.com/"
-#~ msgstr "https://developers.mercadopago.com/"
+msgid "https://developers.mercadopago.com/"
+msgstr "https://developers.mercadopago.com/"
 
-#~ msgid "https://github.com/mercadopago/cart-woocommerce"
-#~ msgstr "https://github.com/mercadopago/cart-woocommerce"
+msgid "https://github.com/mercadopago/cart-woocommerce"
+msgstr "https://github.com/mercadopago/cart-woocommerce"
 
-#~ msgid "Mercado Pago payments for WooCommerce"
-#~ msgstr "Mercado Pago payments for WooCommerce"
+msgid "Mercado Pago payments for WooCommerce"
+msgstr "Mercado Pago payments for WooCommerce"

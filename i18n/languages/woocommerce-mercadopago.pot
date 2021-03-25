@@ -899,7 +899,7 @@ msgid "Your Pix Keys section."
 msgstr ""
 
 #: includes/payments/class-wc-woomercadopago-pix-gateway.php:245
-msgid "Choose which data to register as Pix keys. After registering, you can set up Pix in your checkout."
+msgid "Choose which data to register as PIX keys. After registering, you can set up PIX in your checkout."
 msgstr ""
 
 #: includes/payments/class-wc-woomercadopago-pix-gateway.php:246
@@ -908,10 +908,6 @@ msgstr ""
 
 #: includes/payments/class-wc-woomercadopago-pix-gateway.php:247
 msgid "If you requested your registration outside these hours, we will confirm it within the next business day."
-msgstr ""
-
-#: includes/payments/class-wc-woomercadopago-pix-gateway.php:248
-msgid "Learn more about Pix."
 msgstr ""
 
 #: includes/payments/class-wc-woomercadopago-pix-gateway.php:249
@@ -964,7 +960,7 @@ msgid "We have created a page to explain how this new payment method works and i
 msgstr ""
 
 #: includes/payments/class-wc-woomercadopago-pix-gateway.php:375
-msgid "Learn more about Pix"
+msgid "Learn more about PIX"
 msgstr ""
 
 #: includes/payments/class-wc-woomercadopago-pix-gateway.php:509, includes/payments/class-wc-woomercadopago-ticket-gateway.php:585
