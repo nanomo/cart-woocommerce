@@ -120,8 +120,8 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 	 * @return void
 	 */
 	public function update_pix_method() {
-		$wc_country = WC_WooMercadoPago_Module::get_woocommerce_default_country();
-		$site_id    = get_option( '_site_id_v1', '' );
+		$wc_country       = WC_WooMercadoPago_Module::get_woocommerce_default_country();
+		$site_id          = get_option( '_site_id_v1', '' );
 		$_mp_access_token = $this->get_access_token();
 		if ( ( 'BR' === $wc_country && '' === $site_id ) || ( 'MLB' === $site_id ) ) {
 			WC_WooMercadoPago_Credentials::update_pix_method( $this->mp, $_mp_access_token );
