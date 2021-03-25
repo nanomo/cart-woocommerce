@@ -29,8 +29,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<p class="mp-number-checkout-body">2</p>
 			<p class="mp-text-steps mp-px-20">
 				<?php echo esc_html( $step_two_text_one ); ?>
-				<b><?php echo esc_html( $step_two_text_two ); ?></b>
-				<?php echo esc_html( $step_two_text_highlight_one ); ?>
+				<b><?php echo esc_html( $step_two_text_highlight_one ); ?></b>
+				<?php echo esc_html( $step_two_text_two ); ?>
 				<b><?php echo esc_html( $step_two_text_highlight_two ); ?></b>
 			</p>
 		</li>
