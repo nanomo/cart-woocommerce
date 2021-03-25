@@ -46,6 +46,7 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 		$this->activated_payment  = get_option( '_mp_payment_methods_pix', '' );
 		$this->field_forms_order  = $this->get_fields_sequence();
 		parent::__construct();
+		$this->update_pix_method();
 		$this->form_fields         = $this->get_form_mp_fields( 'Pix' );
 		$this->hook                = new WC_WooMercadoPago_Hook_Pix( $this );
 		$this->notification        = new WC_WooMercadoPago_Notification_Webhook( $this );
@@ -111,6 +112,20 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 		}
 
 		return $fields;
+	}
+
+	/**
+	 * Update Pix Method
+	 *
+	 * @return void
+	 */
+	public function update_pix_method() {
+		$wc_country = WC_WooMercadoPago_Module::get_woocommerce_default_country();
+		$site_id    = get_option( '_site_id_v1', '' );
+		$_mp_access_token = $this->get_access_token();
+		if ( ( 'BR' === $wc_country && '' === $site_id ) || ( 'MLB' === $site_id ) ) {
+			WC_WooMercadoPago_Credentials::update_pix_method( $this->mp, $_mp_access_token );
+		}
 	}
 
 	/**

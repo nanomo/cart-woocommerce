@@ -67,12 +67,6 @@ class WC_WooMercadoPago_Configs {
 			$this->update_ticket_methods();
 		}
 
-		$wc_country = WC_WooMercadoPago_Module::get_woocommerce_default_country();
-		$site_id    = get_option( '_site_id_v1', '' );
-		if ( ( 'BR' === $wc_country && '' === $site_id ) || ( 'MLB' === $site_id ) ) {
-			$this->update_pix_methods();
-		}
-
 		$all_payments = get_option( '_checkout_payments_methods', '' );
 		if ( empty( $all_payments ) ) {
 			$this->update_payments();

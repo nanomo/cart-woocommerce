@@ -1,9 +1,9 @@
 (function () {
   if ( document.querySelector('.mp-row-checkout-pix') !== null ) {
-    
+
     var detailsPixSize = document.querySelector('.mp-details-pix');
 
-    if( detailsPixSize.offsetWidth <= 750 ) {
+    if( detailsPixSize.offsetWidth <= 700 ) {
       document.querySelector('.mp-col-md-4').style.width = '100%';
       document.querySelector('.mp-col-md-4').style.flex = 'none';
 
@@ -29,6 +29,6 @@
       document.querySelector('.mp-details-pix-title').style.margin = '40px auto 0';
       document.querySelector('.mp-details-pix-title').style.textAlign = 'center';
       document.querySelector('.mp-details-pix-title').style.padding = '0px';
-    }   
-	} 
+    }
+	}
 })();
