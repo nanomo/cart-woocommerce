@@ -119,6 +119,10 @@ Check out our <a href="https://www.mercadopago.com.br/developers/pt/plugins_sdks
 = v5.1.0 (29/03/2021) =
 * Features
  - Added new Pix Gateway for Brazil
+ - Added Payment type at order panel
+
+* Bug fixes
+ - Fixed post in configuration page, removed html
 
 = v5.0.1 (10/03/2021) =
 * Features
