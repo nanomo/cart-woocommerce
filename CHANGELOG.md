@@ -9,7 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
  - Added new Pix Gateway for Brazil
-
+ - Added Payment type at order panel
+### Changed
+ - Fixed post in configuration page, removed html
+ 
 ## [5.0.1] - 2021-03-10
 ### Added
  - Compatibility with old notification urls
