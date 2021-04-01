@@ -46,6 +46,7 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 		$this->activated_payment  = get_option( '_mp_payment_methods_pix', '' );
 		$this->field_forms_order  = $this->get_fields_sequence();
 		parent::__construct();
+		$this->update_pix_method();
 		$this->form_fields         = $this->get_form_mp_fields( 'Pix' );
 		$this->hook                = new WC_WooMercadoPago_Hook_Pix( $this );
 		$this->notification        = new WC_WooMercadoPago_Notification_Webhook( $this );
@@ -111,6 +112,20 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 		}
 
 		return $fields;
+	}
+
+	/**
+	 * Update Pix Method
+	 *
+	 * @return void
+	 */
+	public function update_pix_method() {
+		$wc_country       = WC_WooMercadoPago_Module::get_woocommerce_default_country();
+		$site_id          = get_option( '_site_id_v1', '' );
+		$_mp_access_token = $this->get_access_token();
+		if ( ( 'BR' === $wc_country && '' === $site_id ) || ( 'MLB' === $site_id ) ) {
+			WC_WooMercadoPago_Credentials::update_pix_method( $this->mp, $_mp_access_token );
+		}
 	}
 
 	/**
@@ -242,10 +257,10 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 				'step_two_text_two'           => __( 'area and choose the ', 'woocommerce-mercadopago' ),
 				'step_two_text_highlight_one' => __( 'Your Profile ', 'woocommerce-mercadopago' ),
 				'step_two_text_highlight_two' => __( 'Your Pix Keys section.', 'woocommerce-mercadopago' ),
-				'step_three_text'             => __( 'Choose which data to register as Pix keys. After registering, you can set up Pix in your checkout.', 'woocommerce-mercadopago' ),
+				'step_three_text'             => __( 'Choose which data to register as PIX keys. After registering, you can set up PIX in your checkout.', 'woocommerce-mercadopago' ),
 				'observation_one'             => __( 'Remember that, for the time being, the Central Bank of Brazil is open Monday through Friday, from 9am to 6pm.', 'woocommerce-mercadopago' ),
 				'observation_two'             => __( 'If you requested your registration outside these hours, we will confirm it within the next business day.', 'woocommerce-mercadopago' ),
-				'button_about_pix'            => __( 'Learn more about Pix.', 'woocommerce-mercadopago' ),
+				'button_about_pix'            => __( 'Learn more about PIX', 'woocommerce-mercadopago' ),
 				'observation_three'           => __( 'If you have already registered a Pix key at Mercado Pago and cannot activate Pix in the checkout, ', 'woocommerce-mercadopago' ),
 				'link_title_one'              => __( 'click here.', 'woocommerce-mercadopago' ),
 				'link_url_one'                => 'https://www.mercadopago.com.br/pix/',
@@ -372,7 +387,7 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 				'title'       => __( 'Want to learn how Pix works?', 'woocommerce-mercadopago' ),
 				'subtitle'    => __( 'We have created a page to explain how this new payment method works and its advantages.', 'woocommerce-mercadopago' ),
 				'url_link'    => 'https://www.mercadopago.com.br/pix/',
-				'button_text' => __( 'Learn more about Pix', 'woocommerce-mercadopago' ),
+				'button_text' => __( 'Learn more about PIX', 'woocommerce-mercadopago' ),
 			),
 			'woo/mercado/pago/about-pix/',
 			WC_WooMercadoPago_Module::get_templates_path()

@@ -67,12 +67,6 @@ class WC_WooMercadoPago_Configs {
 			$this->update_ticket_methods();
 		}
 
-		$wc_country = WC_WooMercadoPago_Module::get_woocommerce_default_country();
-		$site_id    = get_option( '_site_id_v1', '' );
-		if ( ( 'BR' === $wc_country && '' === $site_id ) || ( 'MLB' === $site_id ) ) {
-			$this->update_pix_methods();
-		}
-
 		$all_payments = get_option( '_checkout_payments_methods', '' );
 		if ( empty( $all_payments ) ) {
 			$this->update_payments();
@@ -206,6 +200,7 @@ class WC_WooMercadoPago_Configs {
 				'checkout_banner_custom' => plugins_url( '../../assets/images/MCO/credit_card.png', __FILE__ ),
 				'currency'               => 'COP',
 				'zip_code'               => '110111',
+				'currency_symbol'        => '$',
 			),
 			'MLA' => array(
 				'site_id'                => 'MLA',
@@ -214,6 +209,7 @@ class WC_WooMercadoPago_Configs {
 				'checkout_banner_custom' => plugins_url( '../../assets/images/MLA/credit_card.png', __FILE__ ),
 				'currency'               => 'ARS',
 				'zip_code'               => '3039',
+				'currency_symbol'        => '$',
 			),
 			'MLB' => array(
 				'site_id'                => 'MLB',
@@ -222,6 +218,7 @@ class WC_WooMercadoPago_Configs {
 				'checkout_banner_custom' => plugins_url( '../../assets/images/MLB/credit_card.png', __FILE__ ),
 				'currency'               => 'BRL',
 				'zip_code'               => '01310924',
+				'currency_symbol'        => 'R$',
 			),
 			'MLC' => array(
 				'site_id'                => 'MLC',
@@ -230,6 +227,7 @@ class WC_WooMercadoPago_Configs {
 				'checkout_banner_custom' => plugins_url( '../../assets/images/MLC/credit_card.png', __FILE__ ),
 				'currency'               => 'CLP',
 				'zip_code'               => '7591538',
+				'currency_symbol'        => '$',
 			),
 			'MLM' => array(
 				'site_id'                => 'MLM',
@@ -238,6 +236,7 @@ class WC_WooMercadoPago_Configs {
 				'checkout_banner_custom' => plugins_url( '../../assets/images/MLM/credit_card.png', __FILE__ ),
 				'currency'               => 'MXN',
 				'zip_code'               => '11250',
+				'currency_symbol'        => '$',
 			),
 			'MLU' => array(
 				'site_id'                => 'MLU',
@@ -246,6 +245,7 @@ class WC_WooMercadoPago_Configs {
 				'checkout_banner_custom' => plugins_url( '../../assets/images/MLU/credit_card.png', __FILE__ ),
 				'currency'               => 'UYU',
 				'zip_code'               => '11800',
+				'currency_symbol'        => '$',
 			),
 			'MLV' => array(
 				'site_id'                => 'MLV',
@@ -254,6 +254,7 @@ class WC_WooMercadoPago_Configs {
 				'checkout_banner_custom' => plugins_url( '../../assets/images/MLV/credit_card.png', __FILE__ ),
 				'currency'               => 'VEF',
 				'zip_code'               => '1160',
+				'currency_symbol'        => '$',
 			),
 			'MPE' => array(
 				'site_id'                => 'MPE',
@@ -262,6 +263,7 @@ class WC_WooMercadoPago_Configs {
 				'checkout_banner_custom' => plugins_url( '../../assets/images/MPE/credit_card.png', __FILE__ ),
 				'currency'               => 'PEN',
 				'zip_code'               => '15074',
+				'currency_symbol'        => '$',
 			),
 		);
 	}

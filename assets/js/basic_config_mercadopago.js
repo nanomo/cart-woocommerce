@@ -11,8 +11,8 @@ window.addEventListener('load', function() {
 	if (document.querySelector('.mp-header-logo') !== null){
 		document.querySelector('.mp-header-logo').style.display = 'none';
 	} else {
-		var pElement = document.querySelectorAll('p');
-		pElement[22] !== undefined ? pElement[22].style.display = 'none' : null;
+    var pElement = document.querySelectorAll('#mainform > p');
+    pElement[0] !== undefined ? pElement[0].style.display = 'none' : null;
 	}
   document.querySelector('#_wpnonce').parentElement.style.display = 'none';
 

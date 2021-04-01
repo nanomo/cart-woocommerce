@@ -105,9 +105,20 @@ class WC_WooMercadoPago_Hook_Pix extends WC_WooMercadoPago_Hook_Abstract {
 			return;
 		}
 
+		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
+		wp_enqueue_script(
+			'woocommerce-mercadopago-pix-order-recived',
+			plugins_url( '../../assets/js/pix_mercadopago_order_received' . $suffix . '.js', plugin_dir_path( __FILE__ ) ),
+			array(),
+			WC_WooMercadoPago_Constants::VERSION,
+			false
+		);
+
+		$currency_symbol = WC_WooMercadoPago_Configs::get_country_configs();
+
 		$parameters = array(
 			'img_pix'             => plugins_url( '../../assets/images/img-pix.png', plugin_dir_path( __FILE__ ) ),
-			'amount'              => $transaction_amount,
+			'amount'              => number_format( $transaction_amount, 2, ',', '.' ),
 			'qr_base64'           => $qr_base64,
 			'title_purchase_pix'  => __( 'Now you just need to pay with PIX to finalize your purchase', 'woocommerce-mercadopago' ),
 			'title_how_to_pay'    => __( 'How to pay with PIX:', 'woocommerce-mercadopago' ),
@@ -115,7 +126,8 @@ class WC_WooMercadoPago_Hook_Pix extends WC_WooMercadoPago_Hook_Abstract {
 			'step_two'            => __( 'Search for the option to pay with PIX', 'woocommerce-mercadopago' ),
 			'step_three'          => __( 'Scan the QR code or PIX code', 'woocommerce-mercadopago' ),
 			'step_four'           => __( 'Done! You will see the payment confirmation', 'woocommerce-mercadopago' ),
-			'text_amount'         => __( 'Value: R$ ', 'woocommerce-mercadopago' ),
+			'text_amount'         => __( 'Value: ', 'woocommerce-mercadopago' ),
+			'currency'            => $currency_symbol[ $this->payment->get_option_mp( '_site_id_v1' ) ]['currency_symbol'],
 			'text_scan_qr'        => __( 'Scan the QR code:', 'woocommerce-mercadopago' ),
 			'text_time_qr_one'    => __( 'Code valid for ', 'woocommerce-mercadopago' ),
 			'qr_date_expiration'  => $this->payment->get_option_mp( 'checkout_pix_date_expiration', '1' ),

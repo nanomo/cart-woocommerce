@@ -3,12 +3,12 @@
 window.addEventListener('load', function() {
   //remove link breadcrumb, header and save button
   document.querySelector('.wc-admin-breadcrumb').style.display = 'none';
-	if (document.querySelector('.mp-header-logo') !== null){
-		document.querySelector('.mp-header-logo').style.display = 'none';
-	} else {
-		var pElement = document.querySelectorAll('p');
-		pElement[22] !== undefined ? pElement[22].style.display = 'none' : null;
-	}
+  if (document.querySelector('.mp-header-logo') !== null){
+    document.querySelector('.mp-header-logo').style.display = 'none';
+  } else {
+    var pElement = document.querySelectorAll('#mainform > p');
+    pElement[0] !== undefined ? pElement[0].style.display = 'none' : null;
+  }
   document.querySelector('p.submit').style.display = 'none';
 
   var h2s = document.querySelectorAll('h2');
@@ -48,7 +48,7 @@ window.addEventListener('load', function() {
     document.getElementById('woocommerce_woo-mercado-pago-pix_checkout_credential_description_prod').nextElementSibling.append(cloneSaveButton.cloneNode(true));
   }
 
-  if (document.getElementById('woocommerce_woo-mercado-pago-pix_checkout_homolog_title') !== null || document.getElementById('woocommerce_woo-mercado-pago-pix_checkout_pix_options_title') !== null) {
+  if ((document.getElementById('woocommerce_woo-mercado-pago-pix_checkout_homolog_title') !== null || document.getElementById('woocommerce_woo-mercado-pago-pix_checkout_pix_options_title') !== null) && document.getElementById('woocommerce_woo-mercado-pago-pix_checkout_steps_pix') === null ) {
     document.getElementById('woocommerce_woo-mercado-pago-pix_checkout_pix_options_title').nextElementSibling.append(cloneSaveButton.cloneNode(true));
     document.getElementById('woocommerce_woo-mercado-pago-pix_checkout_advanced_settings').nextElementSibling.append(cloneSaveButton.cloneNode(true));
     document.getElementById('woocommerce_woo-mercado-pago-pix_checkout_pix_payments_description').nextElementSibling.append(cloneSaveButton.cloneNode(true));
