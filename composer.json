@@ -5,7 +5,7 @@
     "scripts": {
         "phpcs": [
             "Composer\\Config::disableProcessTimeout",
-            "phpcs --standard=WooCommerce-Core includes templates woocommerce-mercadopago.php "
+            "phpcs --standard=phpcs.xml includes templates woocommerce-mercadopago.php "
         ],
         "phpcbf": [
             "Composer\\Config::disableProcessTimeout",

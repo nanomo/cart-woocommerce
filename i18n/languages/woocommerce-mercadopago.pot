@@ -476,6 +476,10 @@ msgstr ""
 msgid "Click to try again"
 msgstr ""
 
+#: includes/payments/class-wc-woomercadopago-payment-abstract.php:580
+msgid "Configure your credentials to enable Mercado Pago payment methods."
+msgstr ""
+
 #. translators: %s url
 #: includes/payments/class-wc-woomercadopago-payment-abstract.php:600
 msgid "%s, it only takes a few minutes"
@@ -772,6 +776,10 @@ msgstr ""
 msgid "our guides"
 msgstr ""
 
+#: includes/payments/class-wc-woomercadopago-payment-abstract.php:1357
+msgid "IPN (Instant Payment Notification) is a notification of events that take place on your platform and that is sent from one server to another through an HTTP POST call. See more information in our guides."
+msgstr ""
+
 #: includes/payments/class-wc-woomercadopago-payment-abstract.php:1368
 msgid "Edit these advanced fields only when you want to modify the preset values."
 msgstr ""
@@ -799,6 +807,10 @@ msgstr ""
 
 #: includes/payments/class-wc-woomercadopago-payment-abstract.php:1419
 msgid "Accept and reject payments automatically. Do you want us to activate it?"
+msgstr ""
+
+#: includes/payments/class-wc-woomercadopago-payment-abstract.php:1420
+msgid "If you activate binary mode you will not be able to leave pending payments. This can affect fraud prevention. Leave it idle to be backed by our own tool."
 msgstr ""
 
 #: includes/payments/class-wc-woomercadopago-payment-abstract.php:1435
