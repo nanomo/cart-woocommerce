@@ -12,8 +12,6 @@
  * WC tested up to: 5.1.0
  *
  * @package MercadoPago
- * @category Core
- * @author Mercado Pago
  */
 
 // Exit if accessed directly.
