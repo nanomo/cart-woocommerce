@@ -568,8 +568,8 @@ abstract class WC_WooMercadoPago_Preference_Abstract extends WC_Payment_Gateway 
 		}
 
 		$analytics = new WC_WooMercadoPago_PreferenceAnalytics();
-		$seller = get_option( '_collector_id_v1', '' );
-		$w      = WC_WooMercadoPago_Module::woocommerce_instance();
+		$seller    = get_option( '_collector_id_v1', '' );
+		$w         = WC_WooMercadoPago_Module::woocommerce_instance();
 
 		return array(
 			'platform'         => WC_WooMercadoPago_Constants::PLATAFORM_ID,
@@ -579,7 +579,7 @@ abstract class WC_WooMercadoPago_Preference_Abstract extends WC_Payment_Gateway 
 			'sponsor_id'       => $this->get_sponsor_id(),
 			'collector'        => $seller,
 			'test_mode'        => $test_mode,
-			'store_url'	       => $this->get_store_url(),
+			'store_url'        => $this->get_store_url(),
 			'order_id'         => $this->order->get_id(),
 			'details'          => '',
 			'basic_settings'   => $analytics->get_basic_settings(),
