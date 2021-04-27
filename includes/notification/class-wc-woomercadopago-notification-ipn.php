@@ -42,6 +42,7 @@ class WC_WooMercadoPago_Notification_IPN extends WC_WooMercadoPago_Notification_
 		}
 
 		$access_token = $this->mp->get_access_token();
+
 		if ( 'merchant_order' === $data['topic'] ) {
 			$ipn_info = $this->mp->get( '/merchant_orders/' . $data['id'], array( 'Authorization' => 'Bearer ' . $access_token ), false );
 

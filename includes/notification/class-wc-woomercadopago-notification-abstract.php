@@ -112,9 +112,11 @@ abstract class WC_WooMercadoPago_Notification_Abstract {
 			$this->log->write_log( __FUNCTION__, 'External Reference not found' );
 			$this->set_response( 422, null, 'External Reference not found' );
 		}
+
 		$invoice_prefix = get_option( '_mp_store_identificator', 'WC-' );
 		$id             = (int) str_replace( $invoice_prefix, '', $order_key );
 		$order          = wc_get_order( $id );
+
 		if ( ! $order ) {
 			$this->log->write_log( __FUNCTION__, 'Order is invalid' );
 			$this->set_response( 422, null, 'Order is invalid' );

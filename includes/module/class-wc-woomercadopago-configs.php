@@ -365,6 +365,7 @@ class WC_WooMercadoPago_Configs {
 		$methods[] = 'WC_WooMercadoPago_Basic_Gateway';
 		$methods[] = 'WC_WooMercadoPago_Custom_Gateway';
 		$methods[] = 'WC_WooMercadoPago_Ticket_Gateway';
+
 		if ( ( 'BR' === $wc_country && '' === $site_id ) || ( 'MLB' === $site_id ) ) {
 			$methods[] = 'WC_WooMercadoPago_Pix_Gateway';
 		}
