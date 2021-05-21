@@ -24,11 +24,11 @@ if ( ! defined( 'WC_MERCADOPAGO_BASENAME' ) ) {
 }
 
 if ( ! function_exists( 'is_plugin_active' ) ) {
-	include_once ABSPATH . 'wp-admin/includes/plugin.php';
+	include_once ABSPATH . 'wp-admin/core/plugin.php';
 }
 
 if ( ! class_exists( 'WC_WooMercadoPago_Init' ) ) {
-	include_once dirname( __FILE__ ) . '/includes/module/class-wc-woomercadopago-init.php';
+	include_once dirname( __FILE__ ) . '/core/module/class-wc-woomercadopago-init.php';
 
 	register_activation_hook( __FILE__, array( 'WC_WooMercadoPago_Init', 'mercadopago_plugin_activation' ) );
 	add_action( 'plugins_loaded', array( 'WC_WooMercadoPago_Init', 'woocommerce_mercadopago_init' ) );
