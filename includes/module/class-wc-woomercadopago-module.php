@@ -671,4 +671,19 @@ class WC_WooMercadoPago_Module extends WC_WooMercadoPago_Configs {
 		}
 		return $mobile;
 	}
+
+	/**
+	 *
+	 * Get notification type by the payment class
+	 *
+	 * @return string
+	 */
+	public static function get_notification_type( $notification_type ) {
+		$types['WC_WooMercadoPago_Basic_Gateway'] = 'ipn';
+		$types['WC_WooMercadoPago_Custom_Gateway'] = 'webhook';
+		$types['WC_WooMercadoPago_Pix_Gateway'] = 'webhook';
+		$types['WC_WooMercadoPago_Ticket_Gateway'] = 'webhook';
+		return $types[$notification_type];
+	}
+
 }
