@@ -5,14 +5,14 @@ msgstr ""
 "Project-Id-Version: Mercado Pago payments for WooCommerce 5.1.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/woocommerce-mercadopago\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2021-04-22 14:55-0300\n"
+"PO-Revision-Date: 2021-05-19 16:58-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.4.2\n"
+"X-Generator: Poedit 2.4.3\n"
 "X-Domain: woocommerce-mercadopago\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
@@ -1099,6 +1099,10 @@ msgstr "Saber mais sobre o PIX"
 msgid "There was a problem processing your payment. Are you sure you have correctly filled out all the information on the payment form?"
 msgstr "Ocorreu um problema ao processar seu pagamento. Tem certeza de que preencheu corretamente todas as informações no formulário de pagamento?"
 
+#: includes/payments/class-wc-woomercadopago-pix-gateway.php:492
+msgid "Scan the QR code below or copy and paste the code into your bank's application."
+msgstr "Escaneie o código QR abaixo ou copie e cole o código no aplicativo do seu banco."
+
 #: includes/payments/class-wc-woomercadopago-ticket-gateway.php:585
 msgid "A problem occurred when processing your payment. Please try again."
 msgstr "Um problema ocorreu ao processar seu pagamento. Por favor, tente novamente."
@@ -1599,3 +1603,7 @@ msgstr "https://github.com/mercadopago/cart-woocommerce"
 
 msgid "Mercado Pago payments for WooCommerce"
 msgstr "Mercado Pago payments for WooCommerce"
+
+#: includes/payments/class-wc-woomercadopago-pix-gateway.php:491
+msgid "Now you just need to pay with PIX to finalize your purchase."
+msgstr "Agora é só pagar com o PIX para finalizar sua compra."
