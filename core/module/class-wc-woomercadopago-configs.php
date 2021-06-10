@@ -343,7 +343,6 @@ class WC_WooMercadoPago_Configs {
 				array(
 					'wc_woomercadopago_basic_gateway',
 					'wc_woomercadopago_custom_gateway',
-					'wc_woomercadopago_new_custom_gateway',
 					'wc_woomercadopago_ticket_gateway',
 					'wc_woomercadopago_pix_gateway',
 					'wc_woomercadopago_basicgateway',
@@ -365,7 +364,6 @@ class WC_WooMercadoPago_Configs {
 
 		$methods[] = 'WC_WooMercadoPago_Basic_Gateway';
 		$methods[] = 'WC_WooMercadoPago_Custom_Gateway';
-		$methods[] = 'WC_WooMercadoPago_New_Custom_Gateway';
 		$methods[] = 'WC_WooMercadoPago_Ticket_Gateway';
 
 		if ( ( 'BR' === $wc_country && '' === $site_id ) || ( 'MLB' === $site_id ) ) {

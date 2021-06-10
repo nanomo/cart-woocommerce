@@ -91,9 +91,6 @@ abstract class WC_WooMercadoPago_Notification_Abstract {
 		$status   = $defaults[ $mp_status ];
 		return str_replace( '_', '-', $status );
 	}
-	public function get_order_by_id( $id) {
-		return wc_get_order($id);
-	}
 
 	/**
 	 * Log IPN response
@@ -107,17 +104,6 @@ abstract class WC_WooMercadoPago_Notification_Abstract {
 		$this->log->write_log( __FUNCTION__, 'received _get content: ' . wp_json_encode( $_GET, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE ) );
 	}
 
-	/**
-	 * Log get order response
-	 */
-	public function get_order() {
-		// @todo need to be analyzed better
-		// @codingStandardsIgnoreLine
-		@ob_clean();
-		// @todo check nonce
-		// @codingStandardsIgnoreLine
-		$this->log->write_log( __FUNCTION__, 'received _get content: ' . wp_json_encode( $_GET, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE ) );
-	}
 
 	/**
 	 * Process successful request
@@ -394,9 +380,6 @@ abstract class WC_WooMercadoPago_Notification_Abstract {
 		$payments      = ( method_exists( $order_payment, 'get_meta' ) ) ? $order_payment->get_meta( '_Mercado_Pago_Payment_IDs' ) : get_post_meta( $order_payment->id, '_Mercado_Pago_Payment_IDs', true );
 
 		if ( 'WC_WooMercadoPago_Custom_Gateway' === $used_gateway ) {
-			return;
-		}
-		if ( 'WC_WooMercadoPago_New_Custom_Gateway' === $used_gateway ) {
 			return;
 		}
 		$this->log->write_log( __FUNCTION__, 'cancelling payments for ' . $payments );

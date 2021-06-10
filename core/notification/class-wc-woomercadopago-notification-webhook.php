@@ -12,9 +12,6 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
-
-use Helpers\Cryptography as Cryptography;
-use Helpers\Request as Request;
 /**
  * Class WC_WooMercadoPago_Notification_Webhook
  */
@@ -99,7 +96,6 @@ class WC_WooMercadoPago_Notification_Webhook extends WC_WooMercadoPago_Notificat
 				parent::get_wc_status_for_mp_status( str_replace( '_', '', $status ) )
 			);
 			$this->proccess_status( $status, $data, $order );
-			return $status;
 		} catch ( Exception $e ) {
 			$this->log->write_log( __FUNCTION__, $e->getMessage() );
 		}
