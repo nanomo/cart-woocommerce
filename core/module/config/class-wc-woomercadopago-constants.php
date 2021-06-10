@@ -27,6 +27,7 @@ class WC_WooMercadoPago_Constants {
 	const PAYMENT_GATEWAYS   = array(
 		'WC_WooMercadoPago_Basic_Gateway',
 		'WC_WooMercadoPago_Custom_Gateway',
+		'WC_WooMercadoPago_New_Custom_Gateway',
 		'WC_WooMercadoPago_Ticket_Gateway',
 		'WC_WooMercadoPago_Pix_Gateway',
 	);

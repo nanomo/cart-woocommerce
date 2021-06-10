@@ -43,6 +43,7 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 	const ALLOWED_CLASSES = array(
 		'WC_WooMercadoPago_Basic_Gateway',
 		'WC_WooMercadoPago_Custom_Gateway',
+		'WC_WooMercadoPago_New_Custom_Gateway',
 		'WC_WooMercadoPago_Ticket_Gateway',
 	);
 
