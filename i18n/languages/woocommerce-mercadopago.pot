@@ -157,44 +157,44 @@ msgstr ""
 msgid "Update the WooCommerce order to "
 msgstr ""
 
-#: core/notification/class-wc-woomercadopago-notification-abstract.php:186, core/notification/new/class-wc-woomercadopago-notification.php:347
+#: core/notification/class-wc-woomercadopago-notification-abstract.php:181, core/notification/new/class-wc-woomercadopago-notification.php:347
 msgid "Payment approved."
 msgstr ""
 
-#: core/notification/class-wc-woomercadopago-notification-abstract.php:244, core/notification/class-wc-woomercadopago-notification-abstract.php:247, core/notification/new/class-wc-woomercadopago-notification.php:397, core/notification/new/class-wc-woomercadopago-notification.php:400
+#: core/notification/class-wc-woomercadopago-notification-abstract.php:239, core/notification/class-wc-woomercadopago-notification-abstract.php:242, core/notification/new/class-wc-woomercadopago-notification.php:397, core/notification/new/class-wc-woomercadopago-notification.php:400
 msgid "Waiting for the PIX payment."
 msgstr ""
 
-#: core/notification/class-wc-woomercadopago-notification-abstract.php:262, core/notification/class-wc-woomercadopago-notification-abstract.php:265, core/notification/new/class-wc-woomercadopago-notification.php:415, core/notification/new/class-wc-woomercadopago-notification.php:418
+#: core/notification/class-wc-woomercadopago-notification-abstract.php:257, core/notification/class-wc-woomercadopago-notification-abstract.php:260, core/notification/new/class-wc-woomercadopago-notification.php:415, core/notification/new/class-wc-woomercadopago-notification.php:418
 msgid "Waiting for the ticket payment."
 msgstr ""
 
-#: core/notification/class-wc-woomercadopago-notification-abstract.php:273, core/notification/new/class-wc-woomercadopago-notification.php:426
+#: core/notification/class-wc-woomercadopago-notification-abstract.php:268, core/notification/new/class-wc-woomercadopago-notification.php:426
 msgid "The customer has not made the payment yet."
 msgstr ""
 
-#: core/notification/class-wc-woomercadopago-notification-abstract.php:292, core/notification/new/class-wc-woomercadopago-notification.php:445
+#: core/notification/class-wc-woomercadopago-notification-abstract.php:287, core/notification/new/class-wc-woomercadopago-notification.php:445
 msgid "Payment is pending review."
 msgstr ""
 
-#: core/notification/class-wc-woomercadopago-notification-abstract.php:309, core/notification/new/class-wc-woomercadopago-notification.php:462
+#: core/notification/class-wc-woomercadopago-notification-abstract.php:304, core/notification/new/class-wc-woomercadopago-notification.php:462
 msgid "Payment was declined. The customer can try again."
 msgstr ""
 
-#: core/notification/class-wc-woomercadopago-notification-abstract.php:324, core/notification/new/class-wc-woomercadopago-notification.php:477
+#: core/notification/class-wc-woomercadopago-notification-abstract.php:319, core/notification/new/class-wc-woomercadopago-notification.php:477
 msgid "Payment was returned to the customer."
 msgstr ""
 
-#: core/notification/class-wc-woomercadopago-notification-abstract.php:338, core/notification/new/class-wc-woomercadopago-notification.php:491
+#: core/notification/class-wc-woomercadopago-notification-abstract.php:333, core/notification/new/class-wc-woomercadopago-notification.php:491
 msgid "Payment was canceled."
 msgstr ""
 
-#: core/notification/class-wc-woomercadopago-notification-abstract.php:353, core/notification/class-wc-woomercadopago-notification-abstract.php:365, core/notification/new/class-wc-woomercadopago-notification.php:506, core/notification/new/class-wc-woomercadopago-notification.php:518
+#: core/notification/class-wc-woomercadopago-notification-abstract.php:348, core/notification/class-wc-woomercadopago-notification-abstract.php:360, core/notification/new/class-wc-woomercadopago-notification.php:506, core/notification/new/class-wc-woomercadopago-notification.php:518
 msgid "The payment is in mediation or the purchase was unknown by the customer."
 msgstr ""
 
 #. translators: 1: payment_id 2: status
-#: core/notification/class-wc-woomercadopago-notification-abstract.php:467
+#: core/notification/class-wc-woomercadopago-notification-abstract.php:462
 msgid "Mercado Pago: The payment %1$s was notified by Mercado Pago with status %2$s."
 msgstr ""
 

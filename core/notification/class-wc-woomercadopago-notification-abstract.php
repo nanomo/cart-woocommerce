@@ -25,9 +25,6 @@ abstract class WC_WooMercadoPago_Notification_Abstract {
 	 */
 	public $mp;
 
-
-	public $order;
-
 	/**
 	 * Is sandbox?
 	 *
@@ -61,10 +58,8 @@ abstract class WC_WooMercadoPago_Notification_Abstract {
 		$this->log     = $payment->log;
 		$this->sandbox = $payment->sandbox;
 		$this->payment = $payment;
-		$this->order   = get_order_by_id;
 
 		add_action( 'woocommerce_api_' . strtolower( get_class( $payment ) ), array( $this, 'check_ipn_response' ) );
-		add_action( 'woocommerce_api_mp_notification', array( $this, 'check_ipn_response') );
 		add_action( 'woocommerce_api_payment' . strtolower( get_class( $payment ) ), array( $this, 'check_ipn_response' ) );
 		// @todo remove when 5 is the most used.
 		add_action( 'woocommerce_api_' . strtolower( preg_replace( '/_gateway/i', 'Gateway', get_class( $payment ) ) ), array( $this, 'check_ipn_response' ) );
