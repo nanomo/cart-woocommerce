@@ -339,7 +339,7 @@ msgid "Success URL"
 msgstr "URL de sucesso"
 
 #: core/payments/class-wc-woomercadopago-basic-gateway.php:381
-msgid "Choose the URL that we will show to your customers when we refuse their purchase. Make sure it core a message appropriate to the situation and give them useful information so they can solve it."
+msgid "Choose the URL that we will show to your customers when we refuse their purchase. Make sure it includes a  message appropriate to the situation and give them useful information so they can solve it."
 msgstr "Selecione a URL que mostraremos aos seus clientes quando recusarmos a compra. Certifique-se de incluir uma mensagem adequada à situação e dê informações úteis para que eles possam solucionar a questão."
 
 #: core/payments/class-wc-woomercadopago-basic-gateway.php:384
