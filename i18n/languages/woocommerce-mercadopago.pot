@@ -69,132 +69,132 @@ msgstr ""
 msgid "Cancel order"
 msgstr ""
 
-#: core/module/class-wc-woomercadopago-module.php:329, core/payments/hooks/class-wc-woomercadopago-hook-abstract.php:440
+#: core/module/class-wc-woomercadopago-module.php:333, core/payments/hooks/class-wc-woomercadopago-hook-abstract.php:440
 msgid "Fill in your credentials to enable payment methods."
 msgstr ""
 
-#: core/module/class-wc-woomercadopago-module.php:344
+#: core/module/class-wc-woomercadopago-module.php:348
 msgid "Set up"
 msgstr ""
 
-#: core/module/class-wc-woomercadopago-module.php:345
+#: core/module/class-wc-woomercadopago-module.php:349
 msgid "Your opinion helps us get better"
 msgstr ""
 
-#: core/module/class-wc-woomercadopago-module.php:346
+#: core/module/class-wc-woomercadopago-module.php:350
 msgid "Guides and Documentation"
 msgstr ""
 
-#: core/module/class-wc-woomercadopago-module.php:347
+#: core/module/class-wc-woomercadopago-module.php:351
 msgid "Report Problem"
 msgstr ""
 
-#: core/module/class-wc-woomercadopago-module.php:429
+#: core/module/class-wc-woomercadopago-module.php:433
 msgid "By Mercado Pago"
 msgstr ""
 
-#: core/module/class-wc-woomercadopago-module.php:462
+#: core/module/class-wc-woomercadopago-module.php:466
 msgid "The payment method is not valid or not available."
 msgstr ""
 
-#: core/module/class-wc-woomercadopago-module.php:465
+#: core/module/class-wc-woomercadopago-module.php:469
 msgid "The transaction amount cannot be processed by Mercado Pago."
 msgstr ""
 
-#: core/module/class-wc-woomercadopago-module.php:466
+#: core/module/class-wc-woomercadopago-module.php:470
 msgid "Possible causes: Currency not supported; Amounts below the minimum or above the maximum allowed."
 msgstr ""
 
-#: core/module/class-wc-woomercadopago-module.php:469
+#: core/module/class-wc-woomercadopago-module.php:473
 msgid "The users are not valid."
 msgstr ""
 
-#: core/module/class-wc-woomercadopago-module.php:470
+#: core/module/class-wc-woomercadopago-module.php:474
 msgid "Possible causes: Buyer and seller have the same account in Mercado Pago; The transaction involving production and test users."
 msgstr ""
 
-#: core/module/class-wc-woomercadopago-module.php:473
+#: core/module/class-wc-woomercadopago-module.php:477
 msgid "Unauthorized use of production credentials."
 msgstr ""
 
-#: core/module/class-wc-woomercadopago-module.php:474
+#: core/module/class-wc-woomercadopago-module.php:478
 msgid "Possible causes: Use permission in use for the credential of the seller."
 msgstr ""
 
-#: core/module/class-wc-woomercadopago-module.php:591, core/payments/class-wc-woomercadopago-payment-abstract.php:833
+#: core/module/class-wc-woomercadopago-module.php:595, core/payments/class-wc-woomercadopago-payment-abstract.php:833
 msgid "Colombia"
 msgstr ""
 
-#: core/module/class-wc-woomercadopago-module.php:593, core/payments/class-wc-woomercadopago-payment-abstract.php:830
+#: core/module/class-wc-woomercadopago-module.php:597, core/payments/class-wc-woomercadopago-payment-abstract.php:830
 msgid "Argentina"
 msgstr ""
 
-#: core/module/class-wc-woomercadopago-module.php:595, core/payments/class-wc-woomercadopago-payment-abstract.php:831
+#: core/module/class-wc-woomercadopago-module.php:599, core/payments/class-wc-woomercadopago-payment-abstract.php:831
 msgid "Brazil"
 msgstr ""
 
-#: core/module/class-wc-woomercadopago-module.php:597, core/payments/class-wc-woomercadopago-payment-abstract.php:832
+#: core/module/class-wc-woomercadopago-module.php:601, core/payments/class-wc-woomercadopago-payment-abstract.php:832
 msgid "Chile"
 msgstr ""
 
-#: core/module/class-wc-woomercadopago-module.php:599, core/payments/class-wc-woomercadopago-payment-abstract.php:834
+#: core/module/class-wc-woomercadopago-module.php:603, core/payments/class-wc-woomercadopago-payment-abstract.php:834
 msgid "Mexico"
 msgstr ""
 
-#: core/module/class-wc-woomercadopago-module.php:601, core/payments/class-wc-woomercadopago-payment-abstract.php:836
+#: core/module/class-wc-woomercadopago-module.php:605, core/payments/class-wc-woomercadopago-payment-abstract.php:836
 msgid "Uruguay"
 msgstr ""
 
-#: core/module/class-wc-woomercadopago-module.php:603
+#: core/module/class-wc-woomercadopago-module.php:607
 msgid "Venezuela"
 msgstr ""
 
-#: core/module/class-wc-woomercadopago-module.php:605, core/payments/class-wc-woomercadopago-payment-abstract.php:835
+#: core/module/class-wc-woomercadopago-module.php:609, core/payments/class-wc-woomercadopago-payment-abstract.php:835
 msgid "Peru"
 msgstr ""
 
-#: core/module/class-wc-woomercadopago-module.php:637
+#: core/module/class-wc-woomercadopago-module.php:641
 msgid "Update the WooCommerce order to "
 msgstr ""
 
-#: core/notification/class-wc-woomercadopago-notification-abstract.php:188, core/notification/new/class-wc-woomercadopago-notication.php:153
+#: core/notification/class-wc-woomercadopago-notification-abstract.php:200, core/notification/new/class-wc-woomercadopago-notification.php:347
 msgid "Payment approved."
 msgstr ""
 
-#: core/notification/class-wc-woomercadopago-notification-abstract.php:246, core/notification/class-wc-woomercadopago-notification-abstract.php:249, core/notification/new/class-wc-woomercadopago-notication.php:203, core/notification/new/class-wc-woomercadopago-notication.php:206
+#: core/notification/class-wc-woomercadopago-notification-abstract.php:258, core/notification/class-wc-woomercadopago-notification-abstract.php:261, core/notification/new/class-wc-woomercadopago-notification.php:397, core/notification/new/class-wc-woomercadopago-notification.php:400
 msgid "Waiting for the PIX payment."
 msgstr ""
 
-#: core/notification/class-wc-woomercadopago-notification-abstract.php:264, core/notification/class-wc-woomercadopago-notification-abstract.php:267, core/notification/new/class-wc-woomercadopago-notication.php:221, core/notification/new/class-wc-woomercadopago-notication.php:224
+#: core/notification/class-wc-woomercadopago-notification-abstract.php:276, core/notification/class-wc-woomercadopago-notification-abstract.php:279, core/notification/new/class-wc-woomercadopago-notification.php:415, core/notification/new/class-wc-woomercadopago-notification.php:418
 msgid "Waiting for the ticket payment."
 msgstr ""
 
-#: core/notification/class-wc-woomercadopago-notification-abstract.php:275, core/notification/new/class-wc-woomercadopago-notication.php:232
+#: core/notification/class-wc-woomercadopago-notification-abstract.php:287, core/notification/new/class-wc-woomercadopago-notification.php:426
 msgid "The customer has not made the payment yet."
 msgstr ""
 
-#: core/notification/class-wc-woomercadopago-notification-abstract.php:294, core/notification/new/class-wc-woomercadopago-notication.php:251
+#: core/notification/class-wc-woomercadopago-notification-abstract.php:306, core/notification/new/class-wc-woomercadopago-notification.php:445
 msgid "Payment is pending review."
 msgstr ""
 
-#: core/notification/class-wc-woomercadopago-notification-abstract.php:311, core/notification/new/class-wc-woomercadopago-notication.php:268
+#: core/notification/class-wc-woomercadopago-notification-abstract.php:323, core/notification/new/class-wc-woomercadopago-notification.php:462
 msgid "Payment was declined. The customer can try again."
 msgstr ""
 
-#: core/notification/class-wc-woomercadopago-notification-abstract.php:326, core/notification/new/class-wc-woomercadopago-notication.php:283
+#: core/notification/class-wc-woomercadopago-notification-abstract.php:338, core/notification/new/class-wc-woomercadopago-notification.php:477
 msgid "Payment was returned to the customer."
 msgstr ""
 
-#: core/notification/class-wc-woomercadopago-notification-abstract.php:340, core/notification/new/class-wc-woomercadopago-notication.php:297
+#: core/notification/class-wc-woomercadopago-notification-abstract.php:352, core/notification/new/class-wc-woomercadopago-notification.php:491
 msgid "Payment was canceled."
 msgstr ""
 
-#: core/notification/class-wc-woomercadopago-notification-abstract.php:355, core/notification/class-wc-woomercadopago-notification-abstract.php:367, core/notification/new/class-wc-woomercadopago-notication.php:312, core/notification/new/class-wc-woomercadopago-notication.php:324
+#: core/notification/class-wc-woomercadopago-notification-abstract.php:367, core/notification/class-wc-woomercadopago-notification-abstract.php:379, core/notification/new/class-wc-woomercadopago-notification.php:506, core/notification/new/class-wc-woomercadopago-notification.php:518
 msgid "The payment is in mediation or the purchase was unknown by the customer."
 msgstr ""
 
 #. translators: 1: payment_id 2: status
-#: core/notification/class-wc-woomercadopago-notification-abstract.php:472
+#: core/notification/class-wc-woomercadopago-notification-abstract.php:484
 msgid "Mercado Pago: The payment %1$s was notified by Mercado Pago with status %2$s."
 msgstr ""
 
@@ -218,11 +218,11 @@ msgstr ""
 msgid "Buyer email"
 msgstr ""
 
-#: core/notification/class-wc-woomercadopago-notification-ipn.php:158, core/notification/class-wc-woomercadopago-notification-ipn.php:129, core/notification/class-wc-woomercadopago-notification-webhook.php:183, core/notification/class-wc-woomercadopago-notification-webhook.php:162, core/notification/new/class-wc-woomercadopago-notication.php:85, core/notification/new/class-wc-woomercadopago-notication.php:61
+#: core/notification/class-wc-woomercadopago-notification-ipn.php:158, core/notification/class-wc-woomercadopago-notification-ipn.php:129, core/notification/class-wc-woomercadopago-notification-webhook.php:183, core/notification/class-wc-woomercadopago-notification-webhook.php:162, core/notification/new/class-wc-woomercadopago-notification.php:277, core/notification/new/class-wc-woomercadopago-notification.php:253
 msgid "Payment type"
 msgstr ""
 
-#: core/notification/class-wc-woomercadopago-notification-ipn.php:161, core/notification/class-wc-woomercadopago-notification-ipn.php:132, core/notification/class-wc-woomercadopago-notification-webhook.php:186, core/notification/class-wc-woomercadopago-notification-webhook.php:165, core/notification/new/class-wc-woomercadopago-notication.php:88, core/notification/new/class-wc-woomercadopago-notication.php:64
+#: core/notification/class-wc-woomercadopago-notification-ipn.php:161, core/notification/class-wc-woomercadopago-notification-ipn.php:132, core/notification/class-wc-woomercadopago-notification-webhook.php:186, core/notification/class-wc-woomercadopago-notification-webhook.php:165, core/notification/new/class-wc-woomercadopago-notification.php:280, core/notification/new/class-wc-woomercadopago-notification.php:256
 msgid "Payment method"
 msgstr ""
 

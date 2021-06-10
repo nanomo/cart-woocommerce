@@ -1,51 +1,239 @@
 <?php
-
 /**
  * Part of Woo Mercado Pago Module
  * Author - Mercado Pago
  * Developer
  * Copyright - Copyright(c) MercadoPago [https://www.mercadopago.com]
- * License - https://www.gnu.org/licenses/gpl.html GPL version   2 or higher
+ * License - https://www.gnu.org/licenses/gpl.html GPL version 2 or higher
  *
- * @package MercadoPagogi
+ * @package MercadoPago
  */
 
-class WC_WooMercadoPago_Notification extends WC_WooMercadoPago_Notification_Abstract {
-	public function check_ipn_response() {
-		parent::check_ipn_response();
-		$data2 = $_POST;
-		$auth  = Request::getAuthorizationHeader();
-		if (isset($data2) && !empty($data2)) {
-			$key       = Cryptography::encrypt(json_decode($data2, true), $this->mp->get_access_token());
-			$resultKey = Cryptography::verify($key, $auth);
-			$date      = new DateTime();
-			if (true === $resultKey) {
-				$resultT        = parent::successful_request($data2);
-				$result         = array(
-					'old_status' => $data2['status'],
-					'newstatus' => $resultT,
-					'timestamp' => $date->getTimestamp(),
-				);
-				$keyResponse    = Cryptography::encrypt(json_decode($result, true), $this->mp->get_access_token());
-				$result['hmac'] = $keyResponse;
-				$result->hmac   = $keyResponse;
-				$this->set_response(200, null, wp_json_encode($result));
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
+use Helpers\Credentials;
+use Helpers\Cryptography;
+
+/**
+ * Class WC_WooMercadoPago_Notification
+ */
+class WC_WooMercadoPago_Notification {
+
+	/**
+	 * Undocumented variable
+	 */
+	public static $instance = null;
+
+	public function __construct() {
+		add_action( 'woocommerce_api_wc_mp_notification', array($this, 'check_mp_response'));
+	}
+
+	/**
+	 *
+	 * Init Mercado Pago Class
+	 *
+	 * @return WC_WooMercadoPago_Notification|null
+	 * Singleton
+	 */
+
+	public static function init_notification_class() {
+		if ( null === self::$instance ) {
+			self::$instance = new self();
+		}
+		return self::$instance;
+	}
+
+	/**
+	 * Set response
+	 *
+	 * @param int    $code         HTTP Code.
+	 * @param string $code_message Message.
+	 * @param string $body         Body.
+	 */
+
+	public function set_response( $code, $code_message, $body ) {
+		$obj = array(
+			'error' => $body
+		);
+		status_header( $code, $code_message );
+		// @todo need to implements better
+		// @codingStandardsIgnoreLine
+		die(  wp_json_encode($obj) );
+	}
+
+	/**
+	 * Endpoint
+	 */
+
+	public function check_mp_response() {
+		if (isset($_SERVER['REQUEST_METHOD'])) {
+			// @todo need fix Processing form data without nonce verification
+			// @codingStandardsIgnoreLine
+			$method = $_SERVER['REQUEST_METHOD'];
+
+			if ( 'GET' === $method ) {
+				// @todo need fix Processing form data without nonce verification
+				// @codingStandardsIgnoreLine
+				$this->get_order($_GET);
+			} elseif ('POST' === $method) {
+				// @todo need fix Processing form data without nonce verification
+				// @codingStandardsIgnoreLine
+				$this->post_order($_POST);
 			} else {
-				$obj = array(
-					'error' => 'Sorry, an error was found please check the data and try again'
-				);
-				$this->set_response(401, null, wp_json_encode($obj));
+				$this->set_response( 405, null, 'Method not allowed');
 			}
 		}
 	}
+
+	/**
+	 * Get Orders
+	 */
+
+	public function get_order( $data ) {
+		// @todo need fix Processing form data without nonce verification
+		// @codingStandardsIgnoreLine
+
+		try {
+			if (
+				isset( $data['payment_id'] ) &&
+				isset( $data['external_reference'] ) &&
+				isset( $data['timestamp'] )
+			) {
+
+				$parameters                       = array();
+				$parameters['payment_id'] 		  = $data['payment_id'];
+				$parameters['external_reference'] = $data['external_reference'];
+				$parameters['timestamp'] 		  = $data['timestamp'];
+
+				$credentials = new Credentials();
+
+				$secret	= $credentials->get_access_token();
+
+				if ( is_null($secret) || empty($secret) ) {
+					$this->set_response( 500, null, 'Credentials not found' );
+				}
+
+				$key = Cryptography::encrypt( wp_json_encode($parameters), $secret );
+
+				$token = Request::getBearerToken();
+
+				if ( !$token ) {
+					$this->set_response( 401, null, 'Unauthorized' );
+				} elseif ( $key === $token ) {
+
+					$order = wc_get_order( $data['external_reference'] );
+					if ( $order ) {
+						$order_id = $order->get_id();
+
+						$response 						= array();
+						$response['order_id'] 			= $order_id;
+						$response['external_reference'] = $order_id;
+						$response['status'] 			= $order->get_status();
+						$response['created_at'] 		= $order->get_date_created();
+						$response['total'] 				= $order->get_total();
+						$response['timestamp'] 			= time();
+
+						/*
+						*** Creating hmac for response
+						*/
+						$hmac = Cryptography::encrypt( wp_json_encode($response), $secret );
+
+						$response['hmac'] = $hmac;
+
+						$this->set_response( 200, 'Success', $response );
+					} else {
+						$this->set_response( 404, null, 'Order not found' );
+					}
+
+
+				} else {
+					$this->set_response( 401, null, 'Unathorized' );
+				}
+
+
+			} else {
+				$this->set_response(400, null, 'Missing fields');
+			}
+		} catch (Exception $e) {
+			$this->set_response(500, null, $e->getMessage());
+		}
+	}
+
+	/**
+	 * Post Orders
+	 */
+
+	public function post_order( $data ) {
+		// @todo need fix Processing form data without nonce verification
+		// @codingStandardsIgnoreLine
+
+		try {
+			if (isset($data2) && !empty($data2)) {
+				$credentials = Credentials::get_access_token();
+				$auth        = Request::getBearerToken();
+				$key         = Cryptography::encrypt(json_decode($data, true), $credentials);
+				$resultKey   = Cryptography::verify($key, $auth);
+
+				if (true === $resultKey) {
+					$date           = new DateTime();
+					$resultT        =$this->successful_request($data2);
+					$result         = array(
+					'old_status' => $data['status'],
+					'newstatus' => $resultT,
+					'timestamp' => $date->getTimestamp(),
+					);
+					$keyResponse    = Cryptography::encrypt(json_decode($result, true), $this->mp->get_access_token());
+					$result['hmac'] = $keyResponse;
+					$result->hmac   = $keyResponse;
+					$this->set_response(200, null, ( $result ));
+				} else {
+					$obj = array(
+					'error' => 'Unathorized'
+					);
+					$this->set_response(401, null, 'Unathorized');
+				}
+			} else {
+				$this->set_response(400, null, 'Missing fields');
+			}
+		} catch (Exception $e) {
+			$this->set_response(500, null, $e->getMessage());
+		}
+	}
+
+	/**
+	 * Array Status
+	 */
+
+	public static function get_wc_status_for_mp_status( $mp_status ) {
+		$defaults = array(
+			'pending'     => 'pending',
+			'approved'    => 'processing',
+			'inprocess'   => 'on_hold',
+			'inmediation' => 'on_hold',
+			'rejected'    => 'failed',
+			'cancelled'   => 'cancelled',
+			'refunded'    => 'refunded',
+			'chargedback' => 'refunded',
+		);
+		$status   = $defaults[ $mp_status ];
+		return str_replace( '_', '-', $status );
+	}
+
+
+	/**
+	 * Success Request
+	 */
+
 	public function successful_request( $data ) {
 		try {
-			$order  = parent::successful_request( $data );
+			$order  =  wc_get_order( $data['external_reference'] );
 			$status = $this->process_status_mp_business( $data, $order );
 			$this->log->write_log(
 				__FUNCTION__,
 				'Changing order status to: ' .
-				parent::get_wc_status_for_mp_status( str_replace( '_', '', $status ) )
+				$this->get_wc_status_for_mp_status( str_replace( '_', '', $status ) )
 			);
 			$this->proccess_status( $status, $data, $order );
 			return $status;
@@ -53,6 +241,10 @@ class WC_WooMercadoPago_Notification extends WC_WooMercadoPago_Notification_Abst
 			$this->log->write_log( __FUNCTION__, $e->getMessage() );
 		}
 	}
+
+	/**
+	 * Process Status  Business
+	 */
 
 	public function process_status_mp_business( $data, $order ) {
 		$status = $data['status'] ? $data['status'] : 'pending';
@@ -101,13 +293,15 @@ class WC_WooMercadoPago_Notification extends WC_WooMercadoPago_Notification_Abst
 					']/[Paid ' . $data['total_paid'] .
 					']/[Refund ' . $data['total_refunded'] . ']'
 				);
-					update_post_meta($order->id, '_Mercado_Pago_Payment_IDs', $payment_id);
+				update_post_meta($order->id, '_Mercado_Pago_Payment_IDs', $payment_id);
 			}
 		}
 		return $status;
 	}
 
-
+	/**
+	 * Process Status
+	 */
 
 	public function proccess_status( $processed_status, $data, $order ) {
 		$used_gateway = get_class( $this->payment );
