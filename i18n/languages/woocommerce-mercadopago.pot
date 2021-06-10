@@ -300,7 +300,7 @@ msgid "Success URL"
 msgstr ""
 
 #: core/payments/class-wc-woomercadopago-basic-gateway.php:378
-msgid "Choose the URL that we will show to your customers when we refuse their purchase. Make sure it includes a message appropriate to the situation and give them useful information so they can solve it."
+msgid "Choose the URL that we will show to your customers when we refuse their purchase. Make sure it core a message appropriate to the situation and give them useful information so they can solve it."
 msgstr ""
 
 #: core/payments/class-wc-woomercadopago-basic-gateway.php:381

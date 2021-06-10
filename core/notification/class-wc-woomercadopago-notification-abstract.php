@@ -91,7 +91,7 @@ abstract class WC_WooMercadoPago_Notification_Abstract {
 		$status   = $defaults[ $mp_status ];
 		return str_replace( '_', '-', $status );
 	}
-	public function get_order_by_id($id){
+	public function get_order_by_id( $id) {
 		return wc_get_order($id);
 	}
 

@@ -30,7 +30,7 @@ class WC_WooMercadoPago_Notification_Webhook extends WC_WooMercadoPago_Notificat
 		// @codingStandardsIgnoreLine
 
 
-		$data  = $_GET;
+		$data = $_GET;
 
 		if ( isset( $data['coupon_id'] ) && ! empty( $data['coupon_id'] ) ) {
 			if ( isset( $data['payer'] ) && ! empty( $data['payer'] ) ) {

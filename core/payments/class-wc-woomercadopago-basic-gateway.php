@@ -375,7 +375,7 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 			$fail_back_url_message = '<img width="14" height="14" src="' . plugins_url( 'assets/images/warning.png', plugin_dir_path( __FILE__ ) ) . '"> ' .
 				__( 'This seems to be an invalid URL.', 'woocommerce-mercadopago' ) . ' ';
 		} else {
-			$fail_back_url_message = __( 'Choose the URL that we will show to your customers when we refuse their purchase. Make sure it includes a message appropriate to the situation and give them useful information so they can solve it.', 'woocommerce-mercadopago' );
+			$fail_back_url_message = __( 'Choose the URL that we will show to your customers when we refuse their purchase. Make sure it core a message appropriate to the situation and give them useful information so they can solve it.', 'woocommerce-mercadopago' );
 		}
 		return array(
 			'title'       => __( 'Payment URL rejected', 'woocommerce-mercadopago' ),
