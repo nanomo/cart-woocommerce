@@ -21,7 +21,9 @@ class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 	const ID = 'woo-mercado-pago-custom';
 
 	/**
-	 * @var
+	 * Is enable Wallet Button?
+	 *
+	 * @var string
 	 */
 	protected $wallet_button;
 
