@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Class Cryptography
  */
 class Cryptography {
-	
+
 	public static function obj_to_string( $parameters ) {
 		$data = '';
 
@@ -41,8 +41,8 @@ class Cryptography {
 		if (!empty($secret) && !empty($data)) {
 			try {
 				$string = self::obj_to_string($data);
-				$hmac = hash_hmac('sha256', $string, $secret);
-				$key  = base64_encode($hmac);// phpcs:ignore
+				$hmac   = hash_hmac('sha256', $string, $secret);
+				$key    = base64_encode($hmac);// phpcs:ignore
 				return $key;
 			} catch (Exception $e) {
 				$message =  "Error while encrypting. <br> $e";
