@@ -452,7 +452,7 @@ abstract class WC_WooMercadoPago_Preference_Abstract extends WC_Payment_Gateway 
 			} else {
 				return WC_WooMercadoPago_Module::fix_url_ampersand(
 					esc_url(
-						$store_url . '/wc-api/' . $this->notification_class . '/'
+						$store_url . '/wc-api/mp_notification/'
 					)
 				);
 			}

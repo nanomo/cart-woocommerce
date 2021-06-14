@@ -12,7 +12,6 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
-
 /**
  * Class WC_WooMercadoPago_Notification_Webhook
  */
@@ -21,12 +20,14 @@ class WC_WooMercadoPago_Notification_Webhook extends WC_WooMercadoPago_Notificat
 	/**
 	 * Notification Custom
 	 */
+
 	public function check_ipn_response() {
 		parent::check_ipn_response();
 		// @todo need fix Processing form data without nonce verification
 		// @codingStandardsIgnoreLine
+
+
 		$data = $_GET;
-		header( 'HTTP/1.1 200 OK' );
 
 		if ( isset( $data['coupon_id'] ) && ! empty( $data['coupon_id'] ) ) {
 			if ( isset( $data['payer'] ) && ! empty( $data['payer'] ) ) {
