@@ -68,10 +68,10 @@ class MP {
 	 * @throws WC_WooMercadoPago_Exception MP Class exception.
 	 */
 	public function __construct() {
-		$core_path = dirname( __FILE__ );
-		require_once $core_path . '/rest-client/class-rest-client-abstract.php';
-		require_once $core_path . '/rest-client/class-meli-rest-client.php';
-		require_once $core_path . '/rest-client/class-mp-rest-client.php';
+		$includes_path = dirname( __FILE__ );
+		require_once $includes_path . '/rest-client/class-rest-client-abstract.php';
+		require_once $includes_path . '/rest-client/class-meli-rest-client.php';
+		require_once $includes_path . '/rest-client/class-mp-rest-client.php';
 
 		$i = func_num_args();
 		if ( $i > 2 || $i < 1 ) {
