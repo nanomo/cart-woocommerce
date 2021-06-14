@@ -31,7 +31,7 @@ class Cryptography {
 		}
 
 		$data = substr( $data, 0, -1 );
-		
+
 		return $data;
 	}
 
@@ -46,7 +46,7 @@ class Cryptography {
 		if (!empty($secret) && !empty($data)) {
 			try {
 				$string = self::obj_to_string($data);
-				$hmac   = hash_hmac('sha256', $string, $secret);
+				$hmac   = hash_hmac('sha256', $string, $secret, true);
 				$key    = base64_encode($hmac);// phpcs:ignore
 				return $key;
 			} catch (Exception $e) {
