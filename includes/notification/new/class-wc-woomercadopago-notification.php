@@ -97,8 +97,6 @@ class WC_WooMercadoPago_Notification {
 	 */
 
 	public function get_order( $data ) {
-		// @todo need fix Processing form data without nonce verification
-		// @codingStandardsIgnoreLine
 
 		try {
 			if (
@@ -120,7 +118,7 @@ class WC_WooMercadoPago_Notification {
 					$this->set_response( 500, null, 'Credentials not found' );
 				}
 
-				$key = Cryptography::encrypt( wp_json_encode($parameters), $secret );
+				$key = Cryptography::encrypt( $parameters, $secret );
 
 				$token = Request::getBearerToken();
 
@@ -143,7 +141,7 @@ class WC_WooMercadoPago_Notification {
 						/*
 						*** Creating hmac for response
 						*/
-						$hmac = Cryptography::encrypt( wp_json_encode($response), $secret );
+						$hmac = Cryptography::encrypt( $response, $secret );
 
 						$response['hmac'] = $hmac;
 
@@ -171,27 +169,25 @@ class WC_WooMercadoPago_Notification {
 	 */
 
 	public function post_order( $data ) {
-		// @todo need fix Processing form data without nonce verification
-		// @codingStandardsIgnoreLine
 
 		try {
-			if (isset($data2) && !empty($data2)) {
-				$credentials = Credentials::get_access_token();
+			if (isset($data) && !empty($data)) {
+				$credentials = new Credentials();
+				$access_token = $credentials->get_access_token();
 				$auth        = Request::getBearerToken();
-				$key         = Cryptography::encrypt(json_decode($data, true), $credentials);
+				$key         = Cryptography::encrypt( $data, $access_token);
 				$resultKey   = Cryptography::verify($key, $auth);
 
 				if (true === $resultKey) {
 					$date           = new DateTime();
-					$resultT        =$this->successful_request($data2);
+					$resultT        = $this->successful_request($data);
 					$result         = array(
 					'old_status' => $data['status'],
 					'newstatus' => $resultT,
 					'timestamp' => $date->getTimestamp(),
 					);
-					$keyResponse    = Cryptography::encrypt(json_decode($result, true), $this->mp->get_access_token());
+					$keyResponse    = Cryptography::encrypt($result, $access_token);
 					$result['hmac'] = $keyResponse;
-					$result->hmac   = $keyResponse;
 					$this->set_response(200, null, ( $result ));
 				} else {
 					$obj = array(
