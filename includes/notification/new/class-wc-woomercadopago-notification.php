@@ -54,13 +54,18 @@ class WC_WooMercadoPago_Notification {
 	 */
 
 	public function set_response( $code, $code_message, $body ) {
+		header('Content-Type: application/json');
 		$obj = array(
 			'error' => $body
 		);
 		status_header( $code, $code_message );
 		// @todo need to implements better
 		// @codingStandardsIgnoreLine
-		die(  wp_json_encode($obj) );
+		if ($code > 299){
+			die(  wp_json_encode($obj) );
+		} else {
+			die(wp_json_encode($body));
+		}
 	}
 
 	/**
@@ -131,7 +136,7 @@ class WC_WooMercadoPago_Notification {
 						$response['order_id'] 			= $order_id;
 						$response['external_reference'] = $order_id;
 						$response['status'] 			= $order->get_status();
-						$response['created_at'] 		= $order->get_date_created();
+						$response['created_at'] 		= $order->get_date_created()->getTimestamp();
 						$response['total'] 				= $order->get_total();
 						$response['timestamp'] 			= time();
 

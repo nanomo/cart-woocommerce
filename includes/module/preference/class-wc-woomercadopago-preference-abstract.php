@@ -448,11 +448,11 @@ abstract class WC_WooMercadoPago_Preference_Abstract extends WC_Payment_Gateway 
 			$store_url = $this->payment->custom_domain;
 			// Check if we have a custom URL.
 			if ( empty( $store_url ) || filter_var( $store_url, FILTER_VALIDATE_URL ) === false ) {
-				return WC()->api_request_url( $this->notification_class );
+				return WC()->api_request_url( 'wc_mp_notification');
 			} else {
 				return WC_WooMercadoPago_Module::fix_url_ampersand(
 					esc_url(
-						$store_url . '/wc-api/mp_notification/'
+						$store_url . '/wc-api/wc_mp_notification/'
 					)
 				);
 			}
@@ -491,12 +491,11 @@ abstract class WC_WooMercadoPago_Preference_Abstract extends WC_Payment_Gateway 
 	 * @return string
 	 */
 	public function get_external_reference( $payment = null ) {
-		$store_identificator = get_option( '_mp_store_identificator', 'WC-' );
 
 		if ( method_exists( $this->order, 'get_id' ) ) {
-			return $store_identificator . $this->order->get_id();
+			return $this->order->get_id();
 		} else {
-			return $store_identificator . $this->order->id;
+			return $this->order->id;
 		}
 	}
 
