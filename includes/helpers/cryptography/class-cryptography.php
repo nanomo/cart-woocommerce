@@ -26,7 +26,7 @@ class Cryptography {
 		foreach ($parameters as $key=>$value) {
 			$data .= $key . '=' . $value . '&';
 		}
-
+		$data = substr( $data, 0, -1 );
 		return $data;
 	}
 
