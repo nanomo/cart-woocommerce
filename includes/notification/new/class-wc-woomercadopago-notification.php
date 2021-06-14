@@ -152,7 +152,7 @@ class WC_WooMercadoPago_Notification {
 
 
 				} else {
-					$this->set_response( 401, null, 'Unathorized' );
+					$this->set_response( 401, null, 'Unauthorized' );
 				}
 
 
@@ -171,29 +171,42 @@ class WC_WooMercadoPago_Notification {
 	public function post_order( $data ) {
 
 		try {
-			if (isset($data) && !empty($data)) {
+			if (
+				isset( $data['status'] ) &&
+				isset( $data['timestamp'] ) &&
+				isset( $data['payment_id'] ) &&
+				isset( $data['external_reference'] ) &&
+				isset( $data['checkout'] ) &&
+				isset( $data['checkout_type'] ) &&
+				isset( $data['order_id'] ) &&
+				isset( $data['payment_type_id'] ) &&
+				isset( $data['payment_method_id'] ) &&
+				isset( $data['payment_created_at'] ) &&
+				isset( $data['total'] ) &&
+				isset( $data['total_paid'] ) &&
+				isset( $data['total_refunded'] )
+			) {
 				$credentials  = new Credentials();
 				$access_token = $credentials->get_access_token();
 				$auth         = Request::getBearerToken();
-				$key          = Cryptography::encrypt( $data, $access_token);
-				$resultKey    = Cryptography::verify($key, $auth);
+				$key          = Cryptography::encrypt( $data, $access_token );
 
-				if (true === $resultKey) {
-					$date           = new DateTime();
-					$resultT        = $this->successful_request($data);
-					$result         = array(
-					'old_status' => $data['status'],
-					'newstatus' => $resultT,
-					'timestamp' => $date->getTimestamp(),
-					);
-					$keyResponse    = Cryptography::encrypt($result, $access_token);
-					$result['hmac'] = $keyResponse;
-					$this->set_response(200, null, ( $result ));
+				if ($key === $auth) {
+					
+					$order  =  wc_get_order( $data['external_reference'] );
+					
+					$parameters         	  = array();
+					$parameters['old_status'] = $order->get_status();
+					$parameters['new_status'] = $this->successful_request( $data, $order );
+					$parameters['timestamp']  = time();
+					
+					$hmac = Cryptography::encrypt($parameters, $access_token);
+
+					$parameters['hmac'] = $hmac;
+
+					$this->set_response(200, null, $parameters );
 				} else {
-					$obj = array(
-					'error' => 'Unathorized'
-					);
-					$this->set_response(401, null, 'Unathorized');
+					$this->set_response(401, null, 'Unauthorized');
 				}
 			} else {
 				$this->set_response(400, null, 'Missing fields');
@@ -227,9 +240,8 @@ class WC_WooMercadoPago_Notification {
 	 * Success Request
 	 */
 
-	public function successful_request( $data ) {
+	public function successful_request( $data, $order ) {
 		try {
-			$order  =  wc_get_order( $data['external_reference'] );
 			$status = $this->process_status_mp_business( $data, $order );
 			$this->log->write_log(
 				__FUNCTION__,
