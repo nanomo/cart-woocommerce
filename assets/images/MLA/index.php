@@ -7,7 +7,7 @@
  * License - https://www.gnu.org/licenses/gpl.html GPL version 2 or higher
  *
  * @package MercadoPago
- * @category core
+ * @category Includes
  * @author Mercado Pago
  */
 
