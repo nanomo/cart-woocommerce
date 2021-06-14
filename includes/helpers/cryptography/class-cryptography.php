@@ -21,12 +21,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 class Cryptography {
 
 	public static function obj_to_string( $parameters ) {
+
+		ksort($parameters);
+
 		$data = '';
 
 		foreach ($parameters as $key=>$value) {
 			$data .= $key . '=' . $value . '&';
 		}
+
 		$data = substr( $data, 0, -1 );
+		
 		return $data;
 	}
 
