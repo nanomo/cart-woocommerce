@@ -193,7 +193,7 @@ class WC_WooMercadoPago_Notification {
 
 				if ($key === $auth) {
 					
-					$order  =  wc_get_order( $data['external_reference'] );
+					$order = wc_get_order( $data['external_reference'] );
 					
 					$parameters         	  = array();
 					$parameters['old_status'] = $order->get_status();
