@@ -26,7 +26,16 @@ class WC_WooMercadoPago_Notification {
 	 */
 	public static $instance = null;
 
+	/**
+	 * Mergado Pago Log
+	 *
+	 * @var Log
+	 */
+	public $log;
+
+
 	public function __construct() {
+		$this->log = new Log( 'CoreNotifier' );
 		add_action( 'woocommerce_api_wc_mp_notification', array($this, 'check_mp_response'));
 	}
 
@@ -54,13 +63,18 @@ class WC_WooMercadoPago_Notification {
 	 */
 
 	public function set_response( $code, $code_message, $body ) {
+		header('Content-Type: application/json');
 		$obj = array(
 			'error' => $body
 		);
 		status_header( $code, $code_message );
 		// @todo need to implements better
 		// @codingStandardsIgnoreLine
-		die(  wp_json_encode($obj) );
+		if ($code > 299){
+			die(  wp_json_encode($obj) );
+		} else {
+			die(wp_json_encode($body));
+		}
 	}
 
 	/**
@@ -72,15 +86,26 @@ class WC_WooMercadoPago_Notification {
 			// @todo need fix Processing form data without nonce verification
 			// @codingStandardsIgnoreLine
 			$method = $_SERVER['REQUEST_METHOD'];
-
 			if ( 'GET' === $method ) {
 				// @todo need fix Processing form data without nonce verification
 				// @codingStandardsIgnoreLine
-				$this->get_order($_GET);
+				$this->get_order($_GET);				
+				$this->log->write_log(
+					__FUNCTION__,
+					// @todo need fix Processing form data without nonce verification
+					// @codingStandardsIgnoreLine
+					'Request GET from Core Notifier: ' . wp_json_encode($_GET)
+				);
 			} elseif ('POST' === $method) {
 				// @todo need fix Processing form data without nonce verification
 				// @codingStandardsIgnoreLine
 				$this->post_order($_POST);
+				$this->log->write_log(
+					__FUNCTION__,
+					// @todo need fix Processing form data without nonce verification
+					// @codingStandardsIgnoreLine
+					'Request POST from Core Notifier: ' . wp_json_encode($_POST)
+				);
 			} else {
 				$this->set_response( 405, null, 'Method not allowed');
 			}
@@ -92,8 +117,6 @@ class WC_WooMercadoPago_Notification {
 	 */
 
 	public function get_order( $data ) {
-		// @todo need fix Processing form data without nonce verification
-		// @codingStandardsIgnoreLine
 
 		try {
 			if (
@@ -115,7 +138,7 @@ class WC_WooMercadoPago_Notification {
 					$this->set_response( 500, null, 'Credentials not found' );
 				}
 
-				$key = Cryptography::encrypt( wp_json_encode($parameters), $secret );
+				$key = Cryptography::encrypt( $parameters, $secret );
 
 				$token = Request::getBearerToken();
 
@@ -131,14 +154,14 @@ class WC_WooMercadoPago_Notification {
 						$response['order_id'] 			= $order_id;
 						$response['external_reference'] = $order_id;
 						$response['status'] 			= $order->get_status();
-						$response['created_at'] 		= $order->get_date_created();
+						$response['created_at'] 		= $order->get_date_created()->getTimestamp();
 						$response['total'] 				= $order->get_total();
 						$response['timestamp'] 			= time();
 
 						/*
 						*** Creating hmac for response
 						*/
-						$hmac = Cryptography::encrypt( wp_json_encode($response), $secret );
+						$hmac = Cryptography::encrypt( $response, $secret );
 
 						$response['hmac'] = $hmac;
 
@@ -149,7 +172,7 @@ class WC_WooMercadoPago_Notification {
 
 
 				} else {
-					$this->set_response( 401, null, 'Unathorized' );
+					$this->set_response( 401, null, 'Unauthorized' );
 				}
 
 
@@ -166,33 +189,44 @@ class WC_WooMercadoPago_Notification {
 	 */
 
 	public function post_order( $data ) {
-		// @todo need fix Processing form data without nonce verification
-		// @codingStandardsIgnoreLine
 
 		try {
-			if (isset($data2) && !empty($data2)) {
-				$credentials = Credentials::get_access_token();
-				$auth        = Request::getBearerToken();
-				$key         = Cryptography::encrypt(json_decode($data, true), $credentials);
-				$resultKey   = Cryptography::verify($key, $auth);
+			if (
+				isset( $data['status'] ) &&
+				isset( $data['timestamp'] ) &&
+				isset( $data['payment_id'] ) &&
+				isset( $data['external_reference'] ) &&
+				isset( $data['checkout'] ) &&
+				isset( $data['checkout_type'] ) &&
+				isset( $data['order_id'] ) &&
+				isset( $data['payment_type_id'] ) &&
+				isset( $data['payment_method_id'] ) &&
+				isset( $data['payment_created_at'] ) &&
+				isset( $data['total'] ) &&
+				isset( $data['total_paid'] ) &&
+				isset( $data['total_refunded'] )
+			) {
+				$credentials  = new Credentials();
+				$access_token = $credentials->get_access_token();
+				$auth         = Request::getBearerToken();
+				$key          = Cryptography::encrypt( $data, $access_token );
 
-				if (true === $resultKey) {
-					$date           = new DateTime();
-					$resultT        =$this->successful_request($data2);
-					$result         = array(
-					'old_status' => $data['status'],
-					'newstatus' => $resultT,
-					'timestamp' => $date->getTimestamp(),
-					);
-					$keyResponse    = Cryptography::encrypt(json_decode($result, true), $this->mp->get_access_token());
-					$result['hmac'] = $keyResponse;
-					$result->hmac   = $keyResponse;
-					$this->set_response(200, null, ( $result ));
+				if ($key === $auth) {
+					
+					$order = wc_get_order( $data['external_reference'] );
+					
+					$parameters         	  = array();
+					$parameters['old_status'] = $order->get_status();
+					$parameters['new_status'] = $this->successful_request( $data, $order );
+					$parameters['timestamp']  = time();
+					
+					$hmac = Cryptography::encrypt($parameters, $access_token);
+
+					$parameters['hmac'] = $hmac;
+
+					$this->set_response(200, null, $parameters );
 				} else {
-					$obj = array(
-					'error' => 'Unathorized'
-					);
-					$this->set_response(401, null, 'Unathorized');
+					$this->set_response(401, null, 'Unauthorized');
 				}
 			} else {
 				$this->set_response(400, null, 'Missing fields');
@@ -226,9 +260,8 @@ class WC_WooMercadoPago_Notification {
 	 * Success Request
 	 */
 
-	public function successful_request( $data ) {
+	public function successful_request( $data, $order ) {
 		try {
-			$order  =  wc_get_order( $data['external_reference'] );
 			$status = $this->process_status_mp_business( $data, $order );
 			$this->log->write_log(
 				__FUNCTION__,

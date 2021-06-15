@@ -19,6 +19,22 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Class Cryptography
  */
 class Cryptography {
+
+	public static function obj_to_string( $parameters ) {
+
+		ksort($parameters);
+
+		$data = '';
+
+		foreach ($parameters as $key=>$value) {
+			$data .= $key . '=' . $value . '&';
+		}
+
+		$data = substr( $data, 0, -1 );
+
+		return $data;
+	}
+
 	public static function verify( $key, $hmac ) {
 		if (hash_equals($key, $hmac)) {
 			return true;
@@ -29,8 +45,9 @@ class Cryptography {
 	public static function encrypt( $data, $secret ) {
 		if (!empty($secret) && !empty($data)) {
 			try {
-				$hmac = hash_hmac('sha256', $data, $secret);
-				$key  = base64_encode($hmac);// phpcs:ignore
+				$string = self::obj_to_string($data);
+				$hmac   = hash_hmac('sha256', $string, $secret, true);
+				$key    = base64_encode($hmac);// phpcs:ignore
 				return $key;
 			} catch (Exception $e) {
 				$message =  "Error while encrypting. <br> $e";
@@ -40,4 +57,6 @@ class Cryptography {
 			throw new Exception('Empty parameters');
 		}
 	}
+
+	
 }

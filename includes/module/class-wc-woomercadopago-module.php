@@ -229,6 +229,7 @@ class WC_WooMercadoPago_Module extends WC_WooMercadoPago_Configs {
 		require_once dirname( __FILE__ ) . '/../helpers/cryptography/class-cryptography.php';
 		require_once dirname( __FILE__ ) . '/../helpers/resquest/class-resquest.php';
 		require_once dirname( __FILE__ ) . '/../helpers/credentials/class-credentials.php';
+		require_once dirname( __FILE__ ) . '/../helpers/log/class-log.php';
 	}
 
 	/**
