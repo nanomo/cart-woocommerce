@@ -26,7 +26,16 @@ class WC_WooMercadoPago_Notification {
 	 */
 	public static $instance = null;
 
+	/**
+	 * Mergado Pago Log
+	 *
+	 * @var Log
+	 */
+	public $log;
+
+
 	public function __construct() {
+		$this->log = new Log( 'CoreNotifier' );
 		add_action( 'woocommerce_api_wc_mp_notification', array($this, 'check_mp_response'));
 	}
 
@@ -77,15 +86,26 @@ class WC_WooMercadoPago_Notification {
 			// @todo need fix Processing form data without nonce verification
 			// @codingStandardsIgnoreLine
 			$method = $_SERVER['REQUEST_METHOD'];
-
 			if ( 'GET' === $method ) {
 				// @todo need fix Processing form data without nonce verification
 				// @codingStandardsIgnoreLine
-				$this->get_order($_GET);
+				$this->get_order($_GET);				
+				$this->log->write_log(
+					__FUNCTION__,
+					// @todo need fix Processing form data without nonce verification
+					// @codingStandardsIgnoreLine
+					'Request GET from Core Notifier: ' . wp_json_encode($_GET)
+				);
 			} elseif ('POST' === $method) {
 				// @todo need fix Processing form data without nonce verification
 				// @codingStandardsIgnoreLine
 				$this->post_order($_POST);
+				$this->log->write_log(
+					__FUNCTION__,
+					// @todo need fix Processing form data without nonce verification
+					// @codingStandardsIgnoreLine
+					'Request POST from Core Notifier: ' . wp_json_encode($_POST)
+				);
 			} else {
 				$this->set_response( 405, null, 'Method not allowed');
 			}
