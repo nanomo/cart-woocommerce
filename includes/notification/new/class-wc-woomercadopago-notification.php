@@ -87,25 +87,25 @@ class WC_WooMercadoPago_Notification {
 			// @codingStandardsIgnoreLine
 			$method = $_SERVER['REQUEST_METHOD'];
 			if ( 'GET' === $method ) {
-				// @todo need fix Processing form data without nonce verification
-				// @codingStandardsIgnoreLine
-				$this->get_order($_GET);				
 				$this->log->write_log(
 					__FUNCTION__,
 					// @todo need fix Processing form data without nonce verification
 					// @codingStandardsIgnoreLine
 					'Request GET from Core Notifier: ' . wp_json_encode($_GET)
 				);
-			} elseif ('POST' === $method) {
 				// @todo need fix Processing form data without nonce verification
 				// @codingStandardsIgnoreLine
-				$this->post_order($_POST);
+				$this->get_order($_GET);				
+			} elseif ('POST' === $method) {
 				$this->log->write_log(
 					__FUNCTION__,
 					// @todo need fix Processing form data without nonce verification
 					// @codingStandardsIgnoreLine
 					'Request POST from Core Notifier: ' . wp_json_encode($_POST)
 				);
+				// @todo need fix Processing form data without nonce verification
+				// @codingStandardsIgnoreLine
+				$this->post_order($_POST);				
 			} else {
 				$this->set_response( 405, null, 'Method not allowed');
 			}
