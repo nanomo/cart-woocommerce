@@ -26,7 +26,7 @@ class WC_WooMercadoPago_Notification_Webhook extends WC_WooMercadoPago_Notificat
 		// @todo need fix Processing form data without nonce verification
 		// @codingStandardsIgnoreLine
 
-
+		// @codingStandardsIgnoreLine
 		$data = $_GET;
 
 		if ( isset( $data['coupon_id'] ) && ! empty( $data['coupon_id'] ) ) {

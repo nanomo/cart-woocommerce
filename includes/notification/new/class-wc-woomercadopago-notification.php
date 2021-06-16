@@ -22,7 +22,7 @@ use Helpers\Cryptography;
 class WC_WooMercadoPago_Notification {
 
 	/**
-	 * Undocumented variable
+	 * Static Instance
 	 */
 	public static $instance = null;
 
@@ -33,20 +33,20 @@ class WC_WooMercadoPago_Notification {
 	 */
 	public $log;
 
-
+	/**
+	 * WC_WooMercadoPago_Notification_Abstrac constructor.
+	 */
 	public function __construct() {
 		$this->log = new Log( 'CoreNotifier' );
 		add_action( 'woocommerce_api_wc_mp_notification', array($this, 'check_mp_response'));
 	}
 
 	/**
-	 *
 	 * Init Mercado Pago Class
 	 *
 	 * @return WC_WooMercadoPago_Notification|null
 	 * Singleton
 	 */
-
 	public static function init_notification_class() {
 		if ( null === self::$instance ) {
 			self::$instance = new self();
@@ -61,93 +61,81 @@ class WC_WooMercadoPago_Notification {
 	 * @param string $code_message Message.
 	 * @param string $body         Body.
 	 */
-
 	public function set_response( $code, $code_message, $body ) {
 		header('Content-Type: application/json');
+		status_header( $code, $code_message );
+
 		$obj = array(
 			'error' => $body
 		);
-		status_header( $code, $code_message );
-		// @todo need to implements better
+
 		// @codingStandardsIgnoreLine
 		if ($code > 299){
-			die(  wp_json_encode($obj) );
+			die( wp_json_encode($obj) );
 		} else {
-			die(wp_json_encode($body));
+			die( wp_json_encode($body) );
 		}
 	}
 
 	/**
-	 * Endpoint
+	 * Check response
 	 */
-
 	public function check_mp_response() {
 		if (isset($_SERVER['REQUEST_METHOD'])) {
-			// @todo need fix Processing form data without nonce verification
 			// @codingStandardsIgnoreLine
 			$method = $_SERVER['REQUEST_METHOD'];
-			if ( 'GET' === $method ) {
-				$this->log->write_log(
-					__FUNCTION__,
-					// @todo need fix Processing form data without nonce verification
+
+			switch ($method) {
+				case 'GET':
+					$this->log->write_log(
+						__FUNCTION__,
+						// @codingStandardsIgnoreLine
+						'Request GET from Core Notifier: ' . wp_json_encode($_GET)
+					);
 					// @codingStandardsIgnoreLine
-					'Request GET from Core Notifier: ' . wp_json_encode($_GET)
-				);
-				// @todo need fix Processing form data without nonce verification
-				// @codingStandardsIgnoreLine
-				$this->get_order($_GET);
-			} elseif ('POST' === $method) {
-				$post = file_get_contents('php://input');
-				$this->log->write_log(
-					__FUNCTION__,
-					// @todo need fix Processing form data without nonce verification
-					// @codingStandardsIgnoreLine
-					'Request POST from Core Notifier: ' . $post
-				);
-				// @todo need fix Processing form data without nonce verification
-				// @codingStandardsIgnoreLine
-				$post = (array) json_decode($post);
-				$this->post_order($post);
-			} else {
-				$this->set_response( 405, null, 'Method not allowed');
+					$this->get_order($_GET);
+					break;
+
+				case 'POST':
+					$post = Request::getJsonBody();
+					$this->log->write_log(
+						__FUNCTION__,
+						// @codingStandardsIgnoreLine
+						'Request POST from Core Notifier: ' . implode(', ', $post)
+					);
+					$this->post_order($post);
+					break;
+
+				default:
+					$this->set_response( 405, null, 'Method not allowed' );
+					break;
 			}
 		}
 	}
 
 	/**
-	 * Get Orders
+	 * Get endpoint to retrieve order information
 	 */
-
 	public function get_order( $data ) {
-
 		try {
 			if (
 				isset( $data['payment_id'] ) &&
 				isset( $data['external_reference'] ) &&
 				isset( $data['timestamp'] )
 			) {
-
-				$parameters                       = array();
-				$parameters['payment_id'] 		  = $data['payment_id'];
-				$parameters['external_reference'] = $data['external_reference'];
-				$parameters['timestamp'] 		  = $data['timestamp'];
-
 				$credentials = new Credentials();
-
-				$secret	= $credentials->get_access_token();
+				$secret	     = $credentials->get_access_token();
 
 				if ( is_null($secret) || empty($secret) ) {
 					$this->set_response( 500, null, 'Credentials not found' );
 				}
 
-				$key = Cryptography::encrypt( $parameters, $secret );
-
+				$auth  = Cryptography::encrypt( $data, $secret );
 				$token = Request::getBearerToken();
 
 				if ( !$token ) {
 					$this->set_response( 401, null, 'Unauthorized' );
-				} elseif ( $key === $token ) {
-
+				} elseif ( $auth === $token ) {
 					$order = wc_get_order( $data['external_reference'] );
 					if ( $order ) {
 						$order_id = $order->get_id();
@@ -160,24 +148,16 @@ class WC_WooMercadoPago_Notification {
 						$response['total'] 				= $order->get_total();
 						$response['timestamp'] 			= time();
 
-						/*
-						*** Creating hmac for response
-						*/
-						$hmac = Cryptography::encrypt( $response, $secret );
-
+						$hmac             = Cryptography::encrypt( $response, $secret );
 						$response['hmac'] = $hmac;
 
 						$this->set_response( 200, 'Success', $response );
 					} else {
 						$this->set_response( 404, null, 'Order not found' );
 					}
-
-
 				} else {
 					$this->set_response( 401, null, 'Unauthorized' );
 				}
-
-
 			} else {
 				$this->set_response(400, null, 'Missing fields');
 			}
@@ -187,11 +167,9 @@ class WC_WooMercadoPago_Notification {
 	}
 
 	/**
-	 * Post Orders
+	 * Post endpoint to update order status
 	 */
-
 	public function post_order( $data ) {
-
 		try {
 			if (
 				isset( $data['status'] ) &&
@@ -208,25 +186,28 @@ class WC_WooMercadoPago_Notification {
 				isset( $data['total_paid'] ) &&
 				isset( $data['total_refunded'] )
 			) {
-				$credentials  = new Credentials();
-				$access_token = $credentials->get_access_token();
-				$auth         = Request::getBearerToken();
-				$key          = Cryptography::encrypt( $data, $access_token );
+				$credentials = new Credentials();
+				$secret      = $credentials->get_access_token();
 
-				if ($key === $auth) {
+				if ( is_null($secret) || empty($secret) ) {
+					$this->set_response( 500, null, 'Credentials not found' );
+				}
 
+				$auth  = Request::getBearerToken();
+				$token = Cryptography::encrypt( $data, $secret );
+
+				if ($token === $auth) {
 					$order = wc_get_order( $data['external_reference'] );
 
-					$parameters         	  = array();
-					$parameters['old_status'] = $order->get_status();
-					$parameters['new_status'] = $this->successful_request( $data, $order );
-					$parameters['timestamp']  = time();
+					$response         	    = array();
+					$response['old_status'] = $order->get_status();
+					$response['new_status'] = $this->successful_request( $data, $order );
+					$response['timestamp']  = time();
 
-					$hmac = Cryptography::encrypt($parameters, $access_token);
+					$hmac             = Cryptography::encrypt($response, $secret);
+					$response['hmac'] = $hmac;
 
-					$parameters['hmac'] = $hmac;
-
-					$this->set_response(200, null, $parameters );
+					$this->set_response(200, null, $response );
 				} else {
 					$this->set_response(401, null, 'Unauthorized');
 				}
@@ -239,9 +220,11 @@ class WC_WooMercadoPago_Notification {
 	}
 
 	/**
-	 * Array Status
+	 * Mercado Pago status
+	 *
+	 * @param string $mp_status Status.
+	 * @return string|string[]
 	 */
-
 	public static function get_wc_status_for_mp_status( $mp_status ) {
 		$defaults = array(
 			'pending'     => 'pending',
@@ -257,11 +240,14 @@ class WC_WooMercadoPago_Notification {
 		return str_replace( '_', '-', $status );
 	}
 
-
 	/**
-	 * Success Request
+	 * Process successful request
+	 *
+	 * @param array $data data
+	 * @param mixed $order WC_Order
+	 *
+	 * @return string WC_Order_Status
 	 */
-
 	public function successful_request( $data, $order ) {
 		try {
 			$status = $this->process_status_mp_business( $data, $order );
@@ -278,9 +264,12 @@ class WC_WooMercadoPago_Notification {
 	}
 
 	/**
-	 * Process Status  Business
+	 * Process status
+	 *
+	 * @param array  $data Payment data.
+	 * @param object $order Order.
+	 * @return string
 	 */
-
 	public function process_status_mp_business( $data, $order ) {
 		$status = $data['status'] ? $data['status'] : 'pending';
 		if ( method_exists( $order, 'update_meta_data' ) ) {
@@ -331,22 +320,25 @@ class WC_WooMercadoPago_Notification {
 				update_post_meta($order->id, '_Mercado_Pago_Payment_IDs', $payment_id);
 			}
 		}
+
 		return $status;
 	}
 
 	/**
-	 * Process Status
+	 * Process order status
+	 *
+	 * @param array $data data
+	 * @param mixed $order WC_Order
+	 *
+	 * @return string WC_Order_Status
 	 */
-
 	public function proccess_status( $processed_status, $data, $order ) {
-		$used_gateway = get_class( $this->payment );
-
 		switch ( $processed_status ) {
 			case 'approved':
-				$this->mp_rule_approved( $data, $order, $used_gateway );
+				$this->mp_rule_approved( $data, $order );
 				break;
 			case 'pending':
-				$this->mp_rule_pending( $data, $order, $used_gateway );
+				$this->mp_rule_pending( $data, $order );
 				break;
 			case 'in_process':
 				$this->mp_rule_in_process( $data, $order );
@@ -376,9 +368,8 @@ class WC_WooMercadoPago_Notification {
 	 *
 	 * @param array  $data Payment data.
 	 * @param object $order Order.
-	 * @param string $used_gateway Class of gateway.
 	 */
-	public function mp_rule_approved( $data, $order, $used_gateway ) {
+	public function mp_rule_approved( $data, $order ) {
 		$order->add_order_note( 'Mercado Pago: ' . __( 'Payment approved.', 'woocommerce-mercadopago' ) );
 
 		$payment_completed_status = apply_filters(
@@ -412,11 +403,10 @@ class WC_WooMercadoPago_Notification {
 	/**
 	 * Rule of pending
 	 *
-	 * @param array  $data         Payment data.
-	 * @param object $order        Order.
-	 * @param string $used_gateway Gateway Class.
+	 * @param array  $data  Payment data.
+	 * @param object $order Order.
 	 */
-	public function mp_rule_pending( $data, $order, $used_gateway ) {
+	public function mp_rule_pending( $data, $order ) {
 		if ( $this->can_update_order_status( $order ) ) {
 			$order->update_status( self::get_wc_status_for_mp_status( 'pending' ) );
 			switch ($data['checkout_type'] ) {
