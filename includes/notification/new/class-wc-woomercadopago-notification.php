@@ -95,17 +95,19 @@ class WC_WooMercadoPago_Notification {
 				);
 				// @todo need fix Processing form data without nonce verification
 				// @codingStandardsIgnoreLine
-				$this->get_order($_GET);				
+				$this->get_order($_GET);
 			} elseif ('POST' === $method) {
+				$post = file_get_contents('php://input');
 				$this->log->write_log(
 					__FUNCTION__,
 					// @todo need fix Processing form data without nonce verification
 					// @codingStandardsIgnoreLine
-					'Request POST from Core Notifier: ' . wp_json_encode($_POST)
+					'Request POST from Core Notifier: ' . $post
 				);
 				// @todo need fix Processing form data without nonce verification
 				// @codingStandardsIgnoreLine
-				$this->post_order($_POST);				
+				$post = (array) json_decode($post);
+				$this->post_order($post);
 			} else {
 				$this->set_response( 405, null, 'Method not allowed');
 			}
@@ -212,14 +214,14 @@ class WC_WooMercadoPago_Notification {
 				$key          = Cryptography::encrypt( $data, $access_token );
 
 				if ($key === $auth) {
-					
+
 					$order = wc_get_order( $data['external_reference'] );
-					
+
 					$parameters         	  = array();
 					$parameters['old_status'] = $order->get_status();
 					$parameters['new_status'] = $this->successful_request( $data, $order );
 					$parameters['timestamp']  = time();
-					
+
 					$hmac = Cryptography::encrypt($parameters, $access_token);
 
 					$parameters['hmac'] = $hmac;
@@ -269,7 +271,7 @@ class WC_WooMercadoPago_Notification {
 				$this->get_wc_status_for_mp_status( str_replace( '_', '', $status ) )
 			);
 			$this->proccess_status( $status, $data, $order );
-			return $status;
+			return $order->get_status();
 		} catch ( Exception $e ) {
 			$this->log->write_log( __FUNCTION__, $e->getMessage() );
 		}
