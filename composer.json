@@ -11,6 +11,10 @@
         "phpcbf": [
             "Composer\\Config::disableProcessTimeout",
             "phpcbf --standard=phpcs.xml includes templates woocommerce-mercadopago.php "
+        ],
+        "phpunit": [
+            "Composer\\Config::disableProcessTimeout",
+            "phpunit"
         ]
     },
   "require": {
