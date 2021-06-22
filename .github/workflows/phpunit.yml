@@ -45,7 +45,7 @@ jobs:
         run: composer install --prefer-dist --no-suggest --no-progress
 
       - name: Install Database
-        run: bash bin/install-wp-tests.sh wordpress_test root p@ssw0rd1 127.0.0.1 latest
+        run: bash bin/install-wp-tests.sh wordpress_test root p@ssw0rd1 127.0.0.1 latest true
 
       - name: Running Unit Test
         run: /vendor/bin/phpunit
