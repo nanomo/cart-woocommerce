@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Class SampleTest
  *
@@ -9,6 +10,10 @@
  * Sample test case.
  */
 class WC_WooMercadoPago_ConfigsTest extends WP_UnitTestCase {
+
+	function setUp() {
+		require_once dirname( dirname( __FILE__ ) ) . '/../../includes/module/class-wc-woomercadopago-configs.php';
+	}
 
 	/**
 	 * get_country_configs.
