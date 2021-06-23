@@ -15,6 +15,13 @@ class WC_WooMercadoPago_ConfigsTest extends WP_UnitTestCase {
 	 */
 	function test_get_country_configs() {
 		$country_configs = WC_WooMercadoPago_Configs::get_country_configs();
+
+		$urlSrc = str_replace(
+			'/tests',
+			'',
+			plugins_url( '../../assets/images/minilogo.png', plugin_dir_path( __FILE__ ) )
+		);
+
 		$country_configs_mock = array(
 			'MCO' => array(
 				'site_id'                => 'MCO',
