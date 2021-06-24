@@ -1,22 +1,26 @@
 <?php
 
 /**
- * Class SampleTest
+ * Class WC_WooMercadoPago_ConfigsTest
  *
- * @package Sample_Plugin
+ * @package woocommerce_mercadopago
  */
 
 /**
- * Sample test case.
+ * WC_WooMercadoPago_ConfigsTest
  */
 class WC_WooMercadoPago_ConfigsTest extends WP_UnitTestCase {
 
 	function setUp() {
 		require_once dirname( dirname( __FILE__ ) ) . '/../../includes/module/class-wc-woomercadopago-configs.php';
+		require_once dirname( dirname( __FILE__ ) ) . '/../../includes/module/class-wc-woomercadopago-credentials.php';
+		require_once dirname( dirname( __FILE__ ) ) . '/../../includes/module/class-wc-woomercadopago-module.php';
+
+		update_option( 'woocommerce_default_country', 'BR:SP', true  );
 	}
 
 	/**
-	 * get_country_configs.
+	 * Get Country Configs.
 	 */
 	function test_get_country_configs() {
 		$country_configs = WC_WooMercadoPago_Configs::get_country_configs();
@@ -121,5 +125,87 @@ class WC_WooMercadoPago_ConfigsTest extends WP_UnitTestCase {
 		);
 
 		$this->assertEqualSets( $country_configs_mock , $country_configs );
+	}
+
+	/**
+	 * Get categories
+	 *
+	 * @return array
+	 */
+	public function test_get_categories() {
+		$woomercadoPago_configs = new WC_WooMercadoPago_Configs;
+		$categories = $woomercadoPago_configs->get_categories();
+		$categories_mock = array(
+			'store_categories_id'          =>
+			array(
+				'art',
+				'baby',
+				'coupons',
+				'donations',
+				'computing',
+				'cameras',
+				'video games',
+				'television',
+				'car electronics',
+				'electronics',
+				'automotive',
+				'entertainment',
+				'fashion',
+				'games',
+				'home',
+				'musical',
+				'phones',
+				'services',
+				'learnings',
+				'tickets',
+				'travels',
+				'virtual goods',
+				'others',
+			),
+			'store_categories_description' =>
+			array(
+				'Collectibles & Art',
+				'Toys for Baby, Stroller, Stroller Accessories, Car Safety Seats',
+				'Coupons',
+				'Donations',
+				'Computers & Tablets',
+				'Cameras & Photography',
+				'Video Games & Consoles',
+				'LCD, LED, Smart TV, Plasmas, TVs',
+				'Car Audio, Car Alarm Systems & Security, Car DVRs, Car Video Players, Car PC',
+				'Audio & Surveillance, Video & GPS, Others',
+				'Parts & Accessories',
+				'Music, Movies & Series, Books, Magazines & Comics, Board Games & Toys',
+				"Men's, Women's, Kids & baby, Handbags & Accessories, Health & Beauty, Shoes, Jewelry & Watches",
+				'Online Games & Credits',
+				'Home appliances. Home & Garden',
+				'Instruments & Gear',
+				'Cell Phones & Accessories',
+				'General services',
+				'Trainings, Conferences, Workshops',
+				'Tickets for Concerts, Sports, Arts, Theater, Family, Excursions tickets, Events & more',
+				'Plane tickets, Hotel vouchers, Travel vouchers',
+				'E-books, Music Files, Software, Digital Images,  PDF Files and any item which can be electronically stored in a file, Mobile Recharge, DTH Recharge and any Online Recharge',
+				'Other categories',
+			),
+		);
+
+		$this->assertEqualSets( $categories_mock , $categories );
+	}
+
+	/**
+	 * Set payment for Brazil
+	 */
+	public function test_set_payment_gateway() {
+		$woomercadoPago_configs = new WC_WooMercadoPago_Configs;
+		$payment_gateway = $woomercadoPago_configs->set_payment_gateway( [] );
+		$methods_returned = array (
+			'WC_WooMercadoPago_Basic_Gateway',
+			'WC_WooMercadoPago_Custom_Gateway',
+			'WC_WooMercadoPago_Ticket_Gateway',
+			'WC_WooMercadoPago_Pix_Gateway',
+		);
+
+		$this->assertEqualSets( $methods_returned , $payment_gateway );
 	}
 }
