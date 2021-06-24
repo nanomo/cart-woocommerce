@@ -100,8 +100,7 @@ class WC_WooMercadoPago_Notification {
 					$post = Request::getJsonBody();
 					$this->log->write_log(
 						__FUNCTION__,
-						// @codingStandardsIgnoreLine
-						'Request POST from Core Notifier: ' . implode(', ', $post)
+						'Request POST from Core Notifier: ' . wp_json_encode($post)
 					);
 					$this->post_order($post);
 					break;
