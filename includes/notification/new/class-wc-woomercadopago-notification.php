@@ -282,6 +282,7 @@ class WC_WooMercadoPago_Notification {
 	 */
 
 	public function process_status_mp_business( $data, $order ) {
+		$orderData = $order->get_data();
 		$status = $data['status'] ? $data['status'] : 'pending';
 		if ( method_exists( $order, 'update_meta_data' ) ) {
 			if ( ! empty( $data['payment_type_id'] ) ) {
@@ -290,10 +291,9 @@ class WC_WooMercadoPago_Notification {
 			if ( ! empty( $data['payment_method_id'] ) ) {
 				$order->update_meta_data( __( 'Payment method', 'woocommerce-mercadopago' ), $data['payment_method_id'] );
 			}
-			if ( ! empty( $order['email'] ) ) {
-				$order->update_meta_data( __( 'Buyer email', 'woocommerce-mercadopago' ), $data['email'] );
+			if ( ! empty( $orderData['billing']['email'] ) ) {
+				$order->update_meta_data( __( 'Buyer email', 'woocommerce-mercadopago' ), $orderData['billing']['email'] );
 			}
-
 				$payment_id = $data['payment_id'];
 				$order->update_meta_data(
 					'Mercado Pago - Payment ' . $data['payment_id'],
@@ -315,7 +315,9 @@ class WC_WooMercadoPago_Notification {
 			if ( ! empty( $data['payment_method_id'] ) ) {
 				update_post_meta( $order->id, __( 'Payment method', 'woocommerce-mercadopago' ), $data['payment_method_id'] );
 			}
-
+			if ( ! empty( $orderData['billing']['email'] ) ) {
+				$order->update_meta_data( __( 'Buyer email', 'woocommerce-mercadopago' ), $orderData['billing']['email'] );
+			}
 				$payment_id = $data['payment_id'];
 				update_post_meta(
 					$order->id,
