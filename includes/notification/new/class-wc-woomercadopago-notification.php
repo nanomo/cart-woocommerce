@@ -290,12 +290,10 @@ class WC_WooMercadoPago_Notification {
 			if ( ! empty( $data['payment_method_id'] ) ) {
 				$order->update_meta_data( __( 'Payment method', 'woocommerce-mercadopago' ), $data['payment_method_id'] );
 			}
-			if (!empty($data['timestamp']) &&
-				!empty($data['id']) &&
-				!empty($data['total_refunded']) &&
-				!empty($data['total_paid']) &&
-				!empty($data['total']) &&
-				!empty($data['payment_id'])) {
+			if ( ! empty( $order['email'] ) ) {
+				$order->update_meta_data( __( 'Buyer email', 'woocommerce-mercadopago' ), $data['email'] );
+			}
+
 				$payment_id = $data['payment_id'];
 				$order->update_meta_data(
 					'Mercado Pago - Payment ' . $data['payment_id'],
@@ -305,20 +303,19 @@ class WC_WooMercadoPago_Notification {
 					']/[Refund ' . $data['total_refunded'] . ']'
 				);
 				$order->update_meta_data( '_Mercado_Pago_Payment_IDs', $payment_id);
-			}
+
 			$order->save();
 		} else {
+			if ( ! empty( $order['email'] ) ) {
+				$order->update_meta_data( __( 'Buyer email', 'woocommerce-mercadopago' ), $data['email'] );
+			}
 			if ( ! empty( $data['payment_type_id'] ) ) {
 				update_post_meta( $order->id, __( 'Payment type', 'woocommerce-mercadopago' ), $data['payment_type_id'] );
 			}
 			if ( ! empty( $data['payment_method_id'] ) ) {
 				update_post_meta( $order->id, __( 'Payment method', 'woocommerce-mercadopago' ), $data['payment_method_id'] );
 			}
-			if ( !empty($data['payment_id'])  &&
-				!empty($data['timestamp'])  &&
-				!empty($data['total_paid'])  &&
-				!empty($data['total_refunded'])
-			) {
+
 				$payment_id = $data['payment_id'];
 				update_post_meta(
 					$order->id,
@@ -329,7 +326,7 @@ class WC_WooMercadoPago_Notification {
 					']/[Refund ' . $data['total_refunded'] . ']'
 				);
 				update_post_meta($order->id, '_Mercado_Pago_Payment_IDs', $payment_id);
-			}
+
 		}
 		return $status;
 	}

@@ -48,6 +48,7 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 		$this->form_fields         = $this->get_form_mp_fields( 'Pix' );
 		$this->hook                = new WC_WooMercadoPago_Hook_Pix( $this );
 		$this->currency_convertion = true;
+		$this->notification        = new WC_WooMercadoPago_Notification_Webhook( $this );
 	}
 
 	/**
