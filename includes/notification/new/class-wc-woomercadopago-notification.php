@@ -297,11 +297,12 @@ class WC_WooMercadoPago_Notification {
 				$payment_id = $data['payment_id'];
 				$order->update_meta_data(
 					'Mercado Pago - Payment ' . $data['payment_id'],
-					'[Date ' . gmdate( 'Y-m-d H:i:s', strtotime( $data['timestamp'] ) ) .
+					'[Date ' . gmdate( 'Y-m-d H:i:s', strtotime( $data['payment_created_at'] ) ) .
 					']/[Amount ' . $data['total'] .
 					']/[Paid ' . $data['total_paid'] .
 					']/[Refund ' . $data['total_refunded'] . ']'
 				);
+
 				$order->update_meta_data( '_Mercado_Pago_Payment_IDs', $payment_id);
 
 			$order->save();
@@ -322,7 +323,7 @@ class WC_WooMercadoPago_Notification {
 				update_post_meta(
 					$order->id,
 					'Mercado Pago - Payment ' . $data['payment_id'],
-					'[Date ' . gmdate( 'Y-m-d H:i:s', strtotime( $data['timestamp'] ) ) .
+					'[Date ' . gmdate( 'Y-m-d H:i:s', strtotime( $data['payment_created_at'] ) ) .
 					']/[Amount ' . $data['total'] .
 					']/[Paid ' . $data['total_paid'] .
 					']/[Refund ' . $data['total_refunded'] . ']'
@@ -554,5 +555,38 @@ class WC_WooMercadoPago_Notification {
 				'woocommerce-mercadopago'
 			)
 		);
+	}
+
+	/**
+	 * Validate Order Note by Type
+	 *
+	 * @param array  $data Payment Data.
+	 * @param object $order Order.
+	 * @param string $status Status.
+	 */
+	protected function validate_order_note_type( $data, $order, $status ) {
+		$payment_id = $data['id'];
+
+		if ( isset( $data['ipn_type'] ) && 'merchant_order' === $data['ipn_type'] ) {
+			$payments = array();
+			foreach ( $data['payments'] as $payment ) {
+				$payments[] = $payment['id'];
+			}
+
+			$payment_id = implode( ',', $payments );
+		}
+
+		$order->add_order_note(
+			sprintf(
+			/* translators: 1: payment_id 2: status */
+				__( 'Mercado Pago: The payment %1$s was notified by Mercado Pago with status %2$s.', 'woocommerce-mercadopago' ),
+				$payment_id,
+				$status
+			)
+		);
+	}
+
+	protected function can_update_order_status( $order ) {
+		return method_exists( $order, 'get_status' ) && $order->get_status() !== 'completed' && $order->get_status() !== 'processing';
 	}
 }
