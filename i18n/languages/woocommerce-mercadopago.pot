@@ -195,7 +195,7 @@ msgstr ""
 
 #. translators: 1: payment_id 2: status
 #. translators: 1: payment_id 2: status
-#: includes/notification/class-wc-woomercadopago-notification-abstract.php:461, includes/notification/new/class-wc-woomercadopago-notification.php:590
+#: includes/notification/class-wc-woomercadopago-notification-abstract.php:461, includes/notification/new/class-wc-woomercadopago-notification.php:579
 msgid "Mercado Pago: The payment %1$s was notified by Mercado Pago with status %2$s."
 msgstr ""
 

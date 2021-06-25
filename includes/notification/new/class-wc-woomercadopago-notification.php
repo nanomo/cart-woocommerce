@@ -573,22 +573,11 @@ class WC_WooMercadoPago_Notification {
 	 * @param string $status Status.
 	 */
 	protected function validate_order_note_type( $data, $order, $status ) {
-		$payment_id = $data['id'];
-
-		if ( isset( $data['ipn_type'] ) && 'merchant_order' === $data['ipn_type'] ) {
-			$payments = array();
-			foreach ( $data['payments'] as $payment ) {
-				$payments[] = $payment['id'];
-			}
-
-			$payment_id = implode( ',', $payments );
-		}
-
 		$order->add_order_note(
 			sprintf(
 			/* translators: 1: payment_id 2: status */
 				__( 'Mercado Pago: The payment %1$s was notified by Mercado Pago with status %2$s.', 'woocommerce-mercadopago' ),
-				$payment_id,
+				$data,
 				$status
 			)
 		);
