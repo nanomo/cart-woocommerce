@@ -19,9 +19,9 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Class Request
  */
 class Request {
-	/** 
+	/**
 	 * Get header Authorization
-	 * */
+	 */
 	public static function getAuthorizationHeader() {
 		$headers = null;
 		if (isset($_SERVER['Authorization'])) {
@@ -44,16 +44,32 @@ class Request {
 	}
 
 	/**
-	* Get access token from header
-	* */
+	 * Get access token from header
+	 */
 	public static function getBearerToken() {
 		$headers = self::getAuthorizationHeader();
+
 		// HEADER: Get the access token from the header
 		if (!empty($headers)) {
 			if (preg_match('/Bearer\s(\S+)/', $headers, $matches)) {
 				return $matches[1];
 			}
 		}
+
+		return null;
+	}
+
+	/**
+	 * Get json body
+	 */
+	public static function getJsonBody() {
+		$post = file_get_contents('php://input');
+		$post = (array) json_decode($post);
+
+		if ( isset($post) && !empty($post) ) {
+			return $post;
+		}
+
 		return null;
 	}
 }

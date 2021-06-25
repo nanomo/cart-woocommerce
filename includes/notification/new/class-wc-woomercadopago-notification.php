@@ -100,8 +100,7 @@ class WC_WooMercadoPago_Notification {
 					$post = Request::getJsonBody();
 					$this->log->write_log(
 						__FUNCTION__,
-						// @codingStandardsIgnoreLine
-						'Request POST from Core Notifier: ' . implode(', ', $post)
+						'Request POST from Core Notifier: ' . wp_json_encode($post)
 					);
 					$this->post_order($post);
 					break;
@@ -198,7 +197,7 @@ class WC_WooMercadoPago_Notification {
 
 				if ($token === $auth) {
 					$order = wc_get_order( $data['external_reference'] );
-
+          
 					$response         	    = array();
 					$response['old_status'] = $order->get_status();
 					$response['new_status'] = $this->successful_request( $data, $order );
@@ -267,6 +266,7 @@ class WC_WooMercadoPago_Notification {
 	 *
 	 * @return string WC_Order_Status
 	 */
+  
 	public function successful_request( $data, $order ) {
 		try {
 			$status = $this->process_status_mp_business( $data, $order );
