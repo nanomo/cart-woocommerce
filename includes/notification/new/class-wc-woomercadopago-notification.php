@@ -197,7 +197,7 @@ class WC_WooMercadoPago_Notification {
 
 				if ($token === $auth) {
 					$order = wc_get_order( $data['external_reference'] );
-          
+		  
 					$response         	    = array();
 					$response['old_status'] = $order->get_status();
 					$response['new_status'] = $this->successful_request( $data, $order );
@@ -291,7 +291,7 @@ class WC_WooMercadoPago_Notification {
 	 */
 	public function process_status_mp_business( $data, $order ) {
 		$orderData = $order->get_data();
-		$status = $data['status'] ? $data['status'] : 'pending';
+		$status    = $data['status'] ? $data['status'] : 'pending';
 		if ( method_exists( $order, 'update_meta_data' ) ) {
 			if ( ! empty( $data['payment_type_id'] ) ) {
 				$order->update_meta_data( __( 'Payment type', 'woocommerce-mercadopago' ), $data['payment_type_id'] );
