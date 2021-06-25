@@ -483,7 +483,7 @@ class WC_WooMercadoPago_Notification {
 	public function mp_rule_in_process( $data, $order ) {
 		if ($this->can_update_order_status( $order ) ) {
 			$order->update_status(
-				$this->get_wc_status_for_mp_status( 'inprocess' ),
+				$this->get_wc_status_for_mp_status( 'in_process' ),
 				'Mercado Pago: ' . __( 'Payment is pending review.', 'woocommerce-mercadopago' )
 			);
 		} else {
@@ -543,7 +543,7 @@ class WC_WooMercadoPago_Notification {
 	 * @param object $order Order.
 	 */
 	public function mp_rule_in_mediation( $order ) {
-		$order->update_status( $this->get_wc_status_for_mp_status( 'inmediation' ) );
+		$order->update_status( $this->get_wc_status_for_mp_status( 'in_mediation' ) );
 		$order->add_order_note(
 			'Mercado Pago: ' . __( 'The payment is in mediation or the purchase was unknown by the customer.', 'woocommerce-mercadopago' )
 		);
@@ -555,7 +555,7 @@ class WC_WooMercadoPago_Notification {
 	 * @param object $order Order.
 	 */
 	public function mp_rule_charged_back( $order ) {
-		$order->update_status($this->get_wc_status_for_mp_status( 'chargedback' ) );
+		$order->update_status($this->get_wc_status_for_mp_status( 'charged_back' ) );
 		$order->add_order_note(
 			'Mercado Pago: ' . __(
 				'The payment is in mediation or the purchase was unknown by the customer.',
