@@ -142,7 +142,7 @@ class WC_WooMercadoPago_Notification {
 						$response 						= array();
 						$response['order_id'] 			= $order_id;
 						$response['external_reference'] = $order_id;
-						$response['status'] 			= $order->get_status();
+						$response['status'] 			= $this->get_wc_status_for_mp_status_mp($order->get_status());
 						$response['created_at'] 		= $order->get_date_created()->getTimestamp();
 						$response['total'] 				= $order->get_total();
 						$response['timestamp'] 			= time();
@@ -228,12 +228,31 @@ class WC_WooMercadoPago_Notification {
 		$defaults = array(
 			'pending'     => 'pending',
 			'approved'    => 'processing',
-			'inprocess'   => 'on_hold',
-			'inmediation' => 'on_hold',
+			'in_process'   => 'on_hold',
+			'in_mediation' => 'on_hold',
 			'rejected'    => 'failed',
 			'cancelled'   => 'cancelled',
 			'refunded'    => 'refunded',
-			'chargedback' => 'refunded',
+			'charged_back' => 'refunded',
+		);
+		$status   = $defaults[ $mp_status ];
+		return str_replace( '_', '-', $status );
+	}
+
+	/**
+	 * Mercado Pago status
+	 *
+	 * @param string $mp_status Status.
+	 * @return string|string[]
+	 */
+	public static function get_wc_status_for_mp_status_mp( $mp_status ) {
+		$defaults = array(
+			'pending'     => 'pending',
+			'processing'  => 'approved',
+			'on_hold'   => 'in_process',
+			'failed'    => 'rejected',
+			'cancelled'   => 'cancelled',
+			'refunded'    => 'refunded',
 		);
 		$status   = $defaults[ $mp_status ];
 		return str_replace( '_', '-', $status );
@@ -247,6 +266,7 @@ class WC_WooMercadoPago_Notification {
 	 *
 	 * @return string WC_Order_Status
 	 */
+
 	public function successful_request( $data, $order ) {
 		try {
 			$status = $this->process_status_mp_business( $data, $order );
@@ -271,7 +291,7 @@ class WC_WooMercadoPago_Notification {
 	 */
 	public function process_status_mp_business( $data, $order ) {
 		$orderData = $order->get_data();
-		$status = $data['status'] ? $data['status'] : 'pending';
+		$status    = $data['status'] ? $data['status'] : 'pending';
 		if ( method_exists( $order, 'update_meta_data' ) ) {
 			if ( ! empty( $data['payment_type_id'] ) ) {
 				$order->update_meta_data( __( 'Payment type', 'woocommerce-mercadopago' ), $data['payment_type_id'] );
@@ -279,43 +299,42 @@ class WC_WooMercadoPago_Notification {
 			if ( ! empty( $data['payment_method_id'] ) ) {
 				$order->update_meta_data( __( 'Payment method', 'woocommerce-mercadopago' ), $data['payment_method_id'] );
 			}
+
 			if ( ! empty( $orderData['billing']['email'] ) ) {
 				$order->update_meta_data( __( 'Buyer email', 'woocommerce-mercadopago' ), $orderData['billing']['email'] );
 			}
-				$payment_id = $data['payment_id'];
-				$order->update_meta_data(
-					'Mercado Pago - Payment ' . $data['payment_id'],
-					'[Date ' . gmdate( 'Y-m-d H:i:s', strtotime( $data['timestamp'] ) ) .
-					']/[Amount ' . $data['total'] .
-					']/[Paid ' . $data['total_paid'] .
-					']/[Refund ' . $data['total_refunded'] . ']'
-				);
-				$order->update_meta_data( '_Mercado_Pago_Payment_IDs', $payment_id);
+			$payment_id = $data['payment_id'];
+			$order->update_meta_data(
+				'Mercado Pago - Payment ' . $data['payment_id'],
+				'[Date ' . gmdate( 'Y-m-d H:i:s', strtotime( $data['payment_created_at'] ) ) .
+				']/[Amount ' . $data['total'] .
+				']/[Paid ' . $data['total_paid'] .
+				']/[Refund ' . $data['total_refunded'] . ']'
+			);
+			$order->update_meta_data( '_Mercado_Pago_Payment_IDs', $payment_id);
 
 			$order->save();
 		} else {
-			if ( ! empty( $order['email'] ) ) {
-				$order->update_meta_data( __( 'Buyer email', 'woocommerce-mercadopago' ), $data['email'] );
-			}
 			if ( ! empty( $data['payment_type_id'] ) ) {
 				update_post_meta( $order->id, __( 'Payment type', 'woocommerce-mercadopago' ), $data['payment_type_id'] );
 			}
 			if ( ! empty( $data['payment_method_id'] ) ) {
 				update_post_meta( $order->id, __( 'Payment method', 'woocommerce-mercadopago' ), $data['payment_method_id'] );
 			}
+
 			if ( ! empty( $orderData['billing']['email'] ) ) {
 				$order->update_meta_data( __( 'Buyer email', 'woocommerce-mercadopago' ), $orderData['billing']['email'] );
 			}
-				$payment_id = $data['payment_id'];
-				update_post_meta(
-					$order->id,
-					'Mercado Pago - Payment ' . $data['payment_id'],
-					'[Date ' . gmdate( 'Y-m-d H:i:s', strtotime( $data['timestamp'] ) ) .
-					']/[Amount ' . $data['total'] .
-					']/[Paid ' . $data['total_paid'] .
-					']/[Refund ' . $data['total_refunded'] . ']'
-				);
-				update_post_meta($order->id, '_Mercado_Pago_Payment_IDs', $payment_id);
+			$payment_id = $data['payment_id'];
+			update_post_meta(
+				$order->id,
+				'Mercado Pago - Payment ' . $data['payment_id'],
+				'[Date ' . gmdate( 'Y-m-d H:i:s', strtotime( $data['payment_created_at'] ) ) .
+				']/[Amount ' . $data['total'] .
+				']/[Paid ' . $data['total_paid'] .
+				']/[Refund ' . $data['total_refunded'] . ']'
+			);
+			update_post_meta($order->id, '_Mercado_Pago_Payment_IDs', $payment_id);
 
 		}
 
@@ -406,7 +425,7 @@ class WC_WooMercadoPago_Notification {
 	 */
 	public function mp_rule_pending( $data, $order ) {
 		if ( $this->can_update_order_status( $order ) ) {
-			$order->update_status( self::get_wc_status_for_mp_status( 'pending' ) );
+			$order->update_status( $this->get_wc_status_for_mp_status( 'pending' ) );
 			switch ($data['checkout_type'] ) {
 				case 'pix':
 					$notes    = $order->get_customer_order_notes();
@@ -462,9 +481,9 @@ class WC_WooMercadoPago_Notification {
 	 * @param object $order Order.
 	 */
 	public function mp_rule_in_process( $data, $order ) {
-		if ( $this->can_update_order_status( $order ) ) {
+		if ($this->can_update_order_status( $order ) ) {
 			$order->update_status(
-				self::get_wc_status_for_mp_status( 'inprocess' ),
+				$this->get_wc_status_for_mp_status( 'in_process' ),
 				'Mercado Pago: ' . __( 'Payment is pending review.', 'woocommerce-mercadopago' )
 			);
 		} else {
@@ -481,7 +500,7 @@ class WC_WooMercadoPago_Notification {
 	public function mp_rule_rejected( $data, $order ) {
 		if ( $this->can_update_order_status( $order ) ) {
 			$order->update_status(
-				self::get_wc_status_for_mp_status( 'rejected' ),
+				$this->get_wc_status_for_mp_status( 'rejected' ),
 				'Mercado Pago: ' . __( 'Payment was declined. The customer can try again.', 'woocommerce-mercadopago' )
 			);
 		} else {
@@ -496,7 +515,7 @@ class WC_WooMercadoPago_Notification {
 	 */
 	public function mp_rule_refunded( $order ) {
 		$order->update_status(
-			self::get_wc_status_for_mp_status( 'refunded' ),
+			$this->get_wc_status_for_mp_status( 'refunded' ),
 			'Mercado Pago: ' . __( 'Payment was returned to the customer.', 'woocommerce-mercadopago' )
 		);
 	}
@@ -510,7 +529,7 @@ class WC_WooMercadoPago_Notification {
 	public function mp_rule_cancelled( $data, $order ) {
 		if ( $this->can_update_order_status( $order ) ) {
 			$order->update_status(
-				self::get_wc_status_for_mp_status( 'cancelled' ),
+				$this->get_wc_status_for_mp_status( 'cancelled' ),
 				'Mercado Pago: ' . __( 'Payment was canceled.', 'woocommerce-mercadopago' )
 			);
 		} else {
@@ -524,7 +543,7 @@ class WC_WooMercadoPago_Notification {
 	 * @param object $order Order.
 	 */
 	public function mp_rule_in_mediation( $order ) {
-		$order->update_status( self::get_wc_status_for_mp_status( 'inmediation' ) );
+		$order->update_status( $this->get_wc_status_for_mp_status( 'in_mediation' ) );
 		$order->add_order_note(
 			'Mercado Pago: ' . __( 'The payment is in mediation or the purchase was unknown by the customer.', 'woocommerce-mercadopago' )
 		);
@@ -536,12 +555,35 @@ class WC_WooMercadoPago_Notification {
 	 * @param object $order Order.
 	 */
 	public function mp_rule_charged_back( $order ) {
-		$order->update_status( self::get_wc_status_for_mp_status( 'chargedback' ) );
+		$order->update_status($this->get_wc_status_for_mp_status( 'charged_back' ) );
 		$order->add_order_note(
 			'Mercado Pago: ' . __(
 				'The payment is in mediation or the purchase was unknown by the customer.',
 				'woocommerce-mercadopago'
 			)
 		);
+	}
+
+
+	/**
+	 * Validate Order Note by Type
+	 *
+	 * @param array  $data Payment Data.
+	 * @param object $order Order.
+	 * @param string $status Status.
+	 */
+	protected function validate_order_note_type( $data, $order, $status ) {
+		$order->add_order_note(
+			sprintf(
+			/* translators: 1: payment_id 2: status */
+				__( 'Mercado Pago: The payment %1$s was notified by Mercado Pago with status %2$s.', 'woocommerce-mercadopago' ),
+				$data,
+				$status
+			)
+		);
+	}
+
+	protected function can_update_order_status( $order ) {
+		return method_exists( $order, 'get_status' ) && $order->get_status() !== 'completed' && $order->get_status() !== 'processing';
 	}
 }
