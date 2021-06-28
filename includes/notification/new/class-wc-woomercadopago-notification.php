@@ -136,6 +136,11 @@ class WC_WooMercadoPago_Notification {
 					$this->set_response( 401, null, 'Unauthorized' );
 				} elseif ( $auth === $token ) {
 					$order = wc_get_order( $data['external_reference'] );
+					
+					if ( $this->should_update_meta_data( $order) ) {
+						$this->update_mp_meta_data( $order, $data['payment_id'] );
+					}
+					
 					if ( $order ) {
 						$order_id = $order->get_id();
 
@@ -163,6 +168,30 @@ class WC_WooMercadoPago_Notification {
 		} catch (Exception $e) {
 			$this->set_response(500, null, $e->getMessage());
 		}
+	}
+
+	public function should_update_meta_data( $order ) {
+		//Woocommerce 3.0 later
+		if ( method_exists( $order, 'get_meta' ) ) {
+			$payment_id = $order->get_meta( 'Mercado Pago - Payment ');
+		} else {
+			$payment_id = get_post_meta( $order->get_id(), 'Mercado Pago - Payment ', true );
+		}
+		
+		if ( empty($payment_id) ) {
+			return true;
+		}
+		
+		return false;
+		
+	}
+
+	public function update_mp_meta_data( $order, $payment_id) {		
+		if ( method_exists( $order, 'update_meta_data' ) ) {
+			$order->update_meta_data( 'Mercado Pago - Payment ', $payment_id );
+		} else {
+			update_post_meta( $order->get_id(), 'Mercado Pago - Payment ', $payment_id );
+		}		
 	}
 
 	/**
@@ -247,12 +276,12 @@ class WC_WooMercadoPago_Notification {
 	 */
 	public static function get_wc_status_for_mp_status_mp( $mp_status ) {
 		$defaults = array(
-			'pending'     => 'pending',
-			'processing'  => 'approved',
-			'on_hold'   => 'in_process',
-			'failed'    => 'rejected',
-			'cancelled'   => 'cancelled',
-			'refunded'    => 'refunded',
+			'pending'     	=> 'pending',
+			'processing'  	=> 'approved',
+			'on_hold'   	=> 'in_process',
+			'failed'    	=> 'rejected',
+			'cancelled'   	=> 'cancelled',
+			'refunded'    	=> 'refunded',
 		);
 		$status   = $defaults[ $mp_status ];
 		return str_replace( '_', '-', $status );
