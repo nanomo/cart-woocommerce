@@ -135,13 +135,14 @@ class WC_WooMercadoPago_Notification {
 				if ( !$token ) {
 					$this->set_response( 401, null, 'Unauthorized' );
 				} elseif ( $auth === $token ) {
-					$order = wc_get_order( $data['external_reference'] );
-					
-					if ( $this->should_update_meta_data( $order) ) {
-						$this->update_mp_meta_data( $order, $data['payment_id'] );
-					}
+					$order = wc_get_order( $data['external_reference'] );				
 					
 					if ( $order ) {
+
+						if ( $this->should_update_meta_data( $order, $data['payment_id'] ) ) {
+							$this->update_mp_meta_data( $order, $data['payment_id'] );
+						}
+
 						$order_id = $order->get_id();
 
 						$response 						= array();
@@ -154,6 +155,10 @@ class WC_WooMercadoPago_Notification {
 
 						$hmac             = Cryptography::encrypt( $response, $secret );
 						$response['hmac'] = $hmac;
+
+						$this->log->write_log(
+							__FUNCTION__,
+							'Response: ' . wp_json_encode($response));
 
 						$this->set_response( 200, 'Success', $response );
 					} else {
@@ -170,28 +175,48 @@ class WC_WooMercadoPago_Notification {
 		}
 	}
 
-	public function should_update_meta_data( $order ) {
+	public function should_update_meta_data( $order, $payment_id ) {
 		//Woocommerce 3.0 later
 		if ( method_exists( $order, 'get_meta' ) ) {
-			$payment_id = $order->get_meta( 'Mercado Pago - Payment ');
+			$payment_id = $order->get_meta( 'Mercado Pago - Payment ' . $payment_id );
 		} else {
-			$payment_id = get_post_meta( $order->get_id(), 'Mercado Pago - Payment ', true );
+			$payment_id = get_post_meta( $order->get_id(), 'Mercado Pago - Payment ' . $payment_id , true );
 		}
+
+		$this->log->write_log(
+			__FUNCTION__,
+			'[$payment_id]: ' . $payment_id);
 		
 		if ( empty($payment_id) ) {
+			$this->log->write_log(
+				__FUNCTION__,
+				'Meta Data must be updated');
 			return true;
 		}
 		
+		$this->log->write_log(
+			__FUNCTION__,
+			'Meta Data should not be updated');
 		return false;
 		
 	}
 
 	public function update_mp_meta_data( $order, $payment_id) {		
 		if ( method_exists( $order, 'update_meta_data' ) ) {
-			$order->update_meta_data( 'Mercado Pago - Payment ', $payment_id );
+			$order->update_meta_data( 'Mercado Pago - Payment ' . $payment_id , $payment_id );
+			$this->log->write_log(
+				__FUNCTION__,
+				'meta data update with "update_meta_data"');
 		} else {
-			update_post_meta( $order->get_id(), 'Mercado Pago - Payment ', $payment_id );
-		}		
+			update_post_meta( $order->get_id(), 'Mercado Pago - Payment ' . $payment_id , $payment_id );
+			$this->log->write_log(
+				__FUNCTION__,
+				'meta data update with "update_post_meta"');
+		}
+		$this->log->write_log(
+			__FUNCTION__,
+			'Mercado Pago - Payment meta data updated. Value: ' . $payment_id );
+		$order->save();
 	}
 
 	/**
