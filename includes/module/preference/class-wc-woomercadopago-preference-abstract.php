@@ -432,18 +432,27 @@ abstract class WC_WooMercadoPago_Preference_Abstract extends WC_Payment_Gateway 
 	/**
 	 * Get notification url
 	 *
-	 * @return mixed
+	 * @return string
 	 */
 	public function get_notification_url() {
+		return 'https://danielferreira.dev/plugins-notifier';
+	}
+
+	/**
+	 * Get store url
+	 *
+	 * @return mixed
+	 */
+	public function get_store_url() {
 		if ( ! strrpos( get_site_url(), 'localhost' ) ) {
-			$notification_url = $this->payment->custom_domain;
+			$store_url = $this->payment->custom_domain;
 			// Check if we have a custom URL.
-			if ( empty( $notification_url ) || filter_var( $notification_url, FILTER_VALIDATE_URL ) === false ) {
-				return WC()->api_request_url( $this->notification_class );
+			if ( empty( $store_url ) || filter_var( $store_url, FILTER_VALIDATE_URL ) === false ) {
+				return WC()->api_request_url( 'wc_mp_notification');
 			} else {
 				return WC_WooMercadoPago_Module::fix_url_ampersand(
 					esc_url(
-						$notification_url . '/wc-api/' . $this->notification_class . '/'
+						$store_url . '/wc-api/wc_mp_notification/'
 					)
 				);
 			}
@@ -482,12 +491,11 @@ abstract class WC_WooMercadoPago_Preference_Abstract extends WC_Payment_Gateway 
 	 * @return string
 	 */
 	public function get_external_reference( $payment = null ) {
-		$store_identificator = get_option( '_mp_store_identificator', 'WC-' );
 
 		if ( method_exists( $this->order, 'get_id' ) ) {
-			return $store_identificator . $this->order->get_id();
+			return $this->order->get_id();
 		} else {
-			return $store_identificator . $this->order->id;
+			return $this->order->id;
 		}
 	}
 
@@ -559,9 +567,9 @@ abstract class WC_WooMercadoPago_Preference_Abstract extends WC_Payment_Gateway 
 		}
 
 		$analytics = new WC_WooMercadoPago_PreferenceAnalytics();
+		$seller    = get_option( '_collector_id_v1', '' );
+		$w         = WC_WooMercadoPago_Module::woocommerce_instance();
 
-		$seller = get_option( '_collector_id_v1', '' );
-		$w      = WC_WooMercadoPago_Module::woocommerce_instance();
 		return array(
 			'platform'         => WC_WooMercadoPago_Constants::PLATAFORM_ID,
 			'platform_version' => $w->version,
@@ -570,6 +578,8 @@ abstract class WC_WooMercadoPago_Preference_Abstract extends WC_Payment_Gateway 
 			'sponsor_id'       => $this->get_sponsor_id(),
 			'collector'        => $seller,
 			'test_mode'        => $test_mode,
+			'store_url'        => $this->get_store_url(),
+			'order_id'         => $this->order->get_id(),
 			'details'          => '',
 			'basic_settings'   => $analytics->get_basic_settings(),
 			'custom_settings'  => $analytics->get_custom_settings(),

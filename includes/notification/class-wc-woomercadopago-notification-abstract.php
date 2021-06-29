@@ -47,24 +47,24 @@ abstract class WC_WooMercadoPago_Notification_Abstract {
 	public $payment;
 
 	/**
-	 * WC_WooMercadoPago_Notification_Abstract constructor.
+	 * WC_WooMercadoPago_Notification_Abstrac constructor.
 	 *
 	 * @param WC_WooMercadoPago_Payment_Abstract $payment payment class.
 	 */
 	public function __construct( $payment ) {
+
 		$this->payment = $payment;
 		$this->mp      = $payment->mp;
 		$this->log     = $payment->log;
 		$this->sandbox = $payment->sandbox;
 		$this->payment = $payment;
 
-		add_action( 'woocommerce_api_' . strtolower( get_class( $payment ) ), array( $this, 'check_ipn_response' ) );
+		add_action( 'woocommerce_api_' . strtolower( get_class( $payment ) ), array( $this, 'check_ipn_response' ) ); 
 		// @todo remove when 5 is the most used.
 		add_action( 'woocommerce_api_' . strtolower( preg_replace( '/_gateway/i', 'Gateway', get_class( $payment ) ) ), array( $this, 'check_ipn_response' ) );
 		add_action( 'valid_mercadopago_ipn_request', array( $this, 'successful_request' ) );
 		add_action( 'woocommerce_order_status_cancelled', array( $this, 'process_cancel_order_meta_box_actions' ), 10, 1 );
 	}
-
 	/**
 	 * Mercado Pago status
 	 *
@@ -98,6 +98,7 @@ abstract class WC_WooMercadoPago_Notification_Abstract {
 		$this->log->write_log( __FUNCTION__, 'received _get content: ' . wp_json_encode( $_GET, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE ) );
 	}
 
+
 	/**
 	 * Process successful request
 	 *
@@ -107,7 +108,6 @@ abstract class WC_WooMercadoPago_Notification_Abstract {
 	public function successful_request( $data ) {
 		$this->log->write_log( __FUNCTION__, 'starting to process  update...' );
 		$order_key = $data['external_reference'];
-
 		if ( empty( $order_key ) ) {
 			$this->log->write_log( __FUNCTION__, 'External Reference not found' );
 			$this->set_response( 422, null, 'External Reference not found' );
@@ -119,14 +119,11 @@ abstract class WC_WooMercadoPago_Notification_Abstract {
 			$this->log->write_log( __FUNCTION__, 'Order is invalid' );
 			$this->set_response( 422, null, 'Order is invalid' );
 		}
-
 		if ( $order->get_id() !== $id ) {
 			$this->log->write_log( __FUNCTION__, 'Order error' );
 			$this->set_response( 422, null, 'Order error' );
 		}
-
 		$this->log->write_log( __FUNCTION__, 'updating metadata and status with data: ' . wp_json_encode( $data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE ) );
-
 		return $order;
 	}
 
@@ -471,7 +468,7 @@ abstract class WC_WooMercadoPago_Notification_Abstract {
 	/**
 	 * Set response
 	 *
-	 * @param int    $code         HTTP Code.
+	 * @param int    $code     set_response    HTTP Code.
 	 * @param string $code_message Message.
 	 * @param string $body         Body.
 	 */

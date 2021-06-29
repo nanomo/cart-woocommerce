@@ -13,6 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+
 /**
  * Class WC_WooMercadoPago_Helpers_CurrencyConverter
  */
