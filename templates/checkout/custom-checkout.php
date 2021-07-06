@@ -17,6 +17,27 @@ if ( ! defined( 'ABSPATH' ) ) {
 <div class="mp-panel-custom-checkout">
 	<div class="mp-row-checkout">
 
+		<?php if ( 'yes' === $wallet_button ) : ?>
+			<div class="mp-wallet-button">
+				<div class="mp-wallet-button-header">
+					<div class="mp-wallet-button-logo">
+						<img src="<?php echo plugins_url( '../assets/images/minilogo.png', plugin_dir_path( __FILE__ ) ) ?>">
+					</div>
+					<div class="mp-wallet-button-info">
+						<div class="mp-wallet-button-info-header">
+							<b><?php echo esc_html__( 'Use your Mercado Pago', 'woocommerce-mercadopago' ); ?></b>
+						</div>
+						<div class="mp-wallet-button-info-description">
+							<?php echo esc_html__( 'Buy with a stored card without filling in more data.', 'woocommerce-mercadopago' ); ?>
+						</div>
+					</div>
+				</div>
+				<div class="mp-wallet-button-pay">
+					<button><?php echo esc_html__( 'Pay with a saved card', 'woocommerce-mercadopago' ); ?></button>
+				</div>
+			</div>
+		<?php endif; ?>
+
 		<!-- Links cards can pay | current promotions only Argentina -->
 		<div class="mp-frame-links">
 			<a class="mp-checkout-link mp-pr-10" id="button-show-payments">
