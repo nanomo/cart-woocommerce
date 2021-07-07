@@ -846,12 +846,13 @@
 	box-sizing: border-box;
 	box-shadow: 0px 7px 12px rgba(0, 0, 0, 0.110659);
 	border-radius: 10px;
-	padding: 25px 70px 25px 26px;
+	padding: 25px 51px 25px 26px;
+	margin-bottom: 20px;
 }
 
 .mp-wallet-button-header {
 	margin-bottom: 30px;
-	display: flex;
+	display: inline-block;
 }
 
 .mp-wallet-button-logo {
@@ -860,7 +861,8 @@
 	background-color: rgba(71, 154, 209, 0.1);
 	border-radius: 48px;
 	position: relative;
-	margin: 10px;
+	margin: 10px 28px 10px 10px;
+	float: left;
 }
 
 .mp-wallet-button-logo img {
@@ -872,8 +874,8 @@
 }
 
 .mp-wallet-button-info {
-	width: 200px;
-	margin-left: 21px;
+	width: 197px;
+	float: left;
 }
 
 .mp-wallet-button-info-header {
@@ -943,7 +945,7 @@
 	}
 
 	.mp-wallet-button-info {
-		width: 190px;
+		width: 180px;
 		margin-left: 0;
 	}
 
