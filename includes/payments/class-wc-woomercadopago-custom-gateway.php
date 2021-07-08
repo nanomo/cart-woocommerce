@@ -397,11 +397,14 @@ class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 		$this->process_discount_and_commission( $order_id, $order );
 		$this->process_case_country_is_mexico($custom_checkout);
 
-		$response = false;
-
 		if ( 'wallet_button' === $custom_checkout ) {
-			$response = '';
+			$this->log->write_log( __FUNCTION__, 'preparing to render wallet button checkout.' );
+			$response = array(
+				'result'   => 'success',
+				'redirect' => $order->get_checkout_payment_url( true ),
+			);
 		} else {
+			$this->log->write_log( __FUNCTION__, 'preparing to get response of custom checkout.' );
 			$response = $this->process_custom_checkout_flow( $custom_checkout, $order );
 		}
 
