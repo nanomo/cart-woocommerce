@@ -44,11 +44,11 @@ msgstr ""
 msgid "<b>Attention:</b> The currency settings you have in WooCommerce are not compatible with the currency you use in your Mercado Pago account. Please activate the currency conversion."
 msgstr ""
 
-#: includes/module/class-wc-woomercadopago-configs.php:124
+#: includes/module/class-wc-woomercadopago-configs.php:125
 msgid "Update your credentials with the Access Token and Public Key, you need them to continue receiving payments!"
 msgstr ""
 
-#: includes/module/class-wc-woomercadopago-configs.php:135
+#: includes/module/class-wc-woomercadopago-configs.php:136
 msgid "The store should have HTTPS in order to activate both Checkout Personalizado and Ticket Checkout."
 msgstr ""
 
@@ -1352,7 +1352,7 @@ msgstr ""
 msgid "Activate WooCommerce"
 msgstr ""
 
-#: includes/admin/notices/class-wc-woomercadopago-review-notice.php:114
+#: includes/admin/notices/class-wc-woomercadopago-review-notice.php:114, includes/admin/notices/class-wc-woomercadopago-saved-cards.php:128
 msgid "do you have a minute to share your experience with our plugin?"
 msgstr ""
 
@@ -1360,7 +1360,7 @@ msgstr ""
 msgid "Your opinion is very important so that we can offer you the best possible payment solution and continue to improve."
 msgstr ""
 
-#: includes/admin/notices/class-wc-woomercadopago-review-notice.php:126
+#: includes/admin/notices/class-wc-woomercadopago-review-notice.php:126, includes/admin/notices/class-wc-woomercadopago-saved-cards.php:140
 msgid "Rate the plugin"
 msgstr ""
 

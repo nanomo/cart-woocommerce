@@ -135,6 +135,7 @@ class WC_WooMercadoPago_Init {
 		self::woocommerce_mercadopago_load_plugin_textdomain();
 		require_once dirname( __FILE__ ) . '/config/class-wc-woomercadopago-constants.php';
 		require_once dirname( __FILE__ ) . '../../admin/notices/class-wc-woomercadopago-notices.php';
+		require_once dirname( __FILE__ ) . '../../admin/notices/class-wc-woomercadopago-saved-cards.php';
 		WC_WooMercadoPago_Notices::init_mercadopago_notice();
 
 		// Check for PHP version and throw notice.
@@ -162,6 +163,7 @@ class WC_WooMercadoPago_Init {
 
 			WC_WooMercadoPago_Module::init_mercado_pago_class();
 			WC_WooMercadoPago_Review_Notice::init_mercadopago_review_notice();
+			WC_WooMercadoPago_Saved_Cards::init_singleton();
 			self::update_plugin_version();
 
 			add_action( 'woocommerce_order_actions', array( __CLASS__, 'add_mp_order_meta_box_actions' ) );
