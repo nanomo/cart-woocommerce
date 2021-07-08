@@ -176,7 +176,8 @@ class WC_WooMercadoPago_Configs {
 		if ( $this->must_not_show_saved_cards_notice() ) {
 			return false;
 		}
-
+		// @todo need fix HTML escaping to template
+		// @codingStandardsIgnoreLine
 		echo WC_WooMercadoPago_Saved_Cards::get_plugin_review_banner();
 	}
 

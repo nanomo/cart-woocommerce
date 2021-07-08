@@ -49,7 +49,7 @@ class WC_WooMercadoPago_Saved_Cards {
 	 * @return WC_WooMercadoPago_Saved_Cards|null
 	 */
 	public static function init_singleton() {
-		if ( self::$instance === null ) {
+		if ( null === self::$instance ) {
 			self::$instance = new self();
 		}
 
@@ -65,7 +65,7 @@ class WC_WooMercadoPago_Saved_Cards {
 
 	/**
 	 * Load admin notices CSS
-	 * 
+	 *
 	 * @return void
 	 */
 	public function load_saved_cards_notice_css() {
@@ -81,7 +81,7 @@ class WC_WooMercadoPago_Saved_Cards {
 
 	/**
 	 * Load admin notices JS
-	 * 
+	 *
 	 * @return void
 	 */
 	public function load_saved_cards_notice_js() {
@@ -103,9 +103,13 @@ class WC_WooMercadoPago_Saved_Cards {
 	*/
 	public static function should_be_inline_style() {
 		return class_exists( 'WC_WooMercadoPago_Module' )
-			&& WC_WooMercadoPago_Module::is_wc_new_version()
-			&& isset( $_GET['page'] )
-			&& 'wc-settings' === sanitize_key( $_GET['page'] );
+			   && WC_WooMercadoPago_Module::is_wc_new_version()
+			   // @todo need fix Processing form data without nonce verification
+		       // @codingStandardsIgnoreLine
+		       && isset( $_GET['page'] )
+			   // @todo need fix Processing form data without nonce verification
+		       // @codingStandardsIgnoreLine
+		       && 'wc-settings' === sanitize_key( $_GET['page'] );
 	}
 
 	/**
@@ -114,7 +118,7 @@ class WC_WooMercadoPago_Saved_Cards {
 	 * @return string
 	 */
 	public static function get_plugin_review_banner() {
-		$inline = self::should_be_inline_style() ? 'inline' : null;
+		$inline              = self::should_be_inline_style() ? 'inline' : null;
 		$checkout_custom_url = admin_url('admin.php?page=wc-settings&tab=checkout&section=woo-mercado-pago-custom');
 
 		$notice = '<div id="saved-cards-notice" class="notice is-dismissible mp-saved-cards-notice ' . $inline . '">
@@ -134,7 +138,7 @@ class WC_WooMercadoPago_Saved_Cards {
 					<div class="mp-right-saved-cards">
 						<a
 							class="mp-saved-cards-link"
-							href="' . $checkout_custom_url .'"
+							href="' . $checkout_custom_url . '"
 						>'
 							. __( 'Saved card button', 'woocommerce-mercadopago' ) .
 						'</a>
@@ -153,7 +157,7 @@ class WC_WooMercadoPago_Saved_Cards {
 	 */
 	public function saved_cards_notice_dismiss() {
 		$must_show_notice = (int) get_option( '_mp_dismiss_saved_cards_notice', 0 );
-		$hide = 1;
+		$hide             = 1;
 
 		if ( !$must_show_notice ) {
 			update_option( '_mp_dismiss_saved_cards_notice', $hide, true );

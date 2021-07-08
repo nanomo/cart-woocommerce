@@ -1364,15 +1364,15 @@ msgstr ""
 msgid "Rate the plugin"
 msgstr ""
 
-#: includes/admin/notices/class-wc-woomercadopago-saved-cards.php:127
+#: includes/admin/notices/class-wc-woomercadopago-saved-cards.php:131
 msgid "Saved card title"
 msgstr ""
 
-#: includes/admin/notices/class-wc-woomercadopago-saved-cards.php:130
+#: includes/admin/notices/class-wc-woomercadopago-saved-cards.php:134
 msgid "Saved card description"
 msgstr ""
 
-#: includes/admin/notices/class-wc-woomercadopago-saved-cards.php:139
+#: includes/admin/notices/class-wc-woomercadopago-saved-cards.php:143
 msgid "Saved card button"
 msgstr ""
 
