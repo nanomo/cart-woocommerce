@@ -71,8 +71,8 @@ class WC_WooMercadoPago_Saved_Cards {
 	public function load_admin_notice_css() {
 		if ( is_admin() ) {
 			wp_enqueue_style(
-				'woocommerce-mercadopago-admin-notice',
-				plugins_url( '../../assets/css/admin_notice_mercadopago' . $this->file_suffix . '.css', plugin_dir_path( __FILE__ ) ),
+				'woocommerce-mercadopago-admin-saved-cards',
+				plugins_url( '../../assets/css/saved_cards_notice_mercadopago' . $this->file_suffix . '.css', plugin_dir_path( __FILE__ ) ),
 				array(),
 				WC_WooMercadoPago_Constants::VERSION
 			);
@@ -87,8 +87,8 @@ class WC_WooMercadoPago_Saved_Cards {
 	public function load_admin_notice_js() {
 		if ( is_admin() ) {
 			wp_enqueue_script(
-				'woocommerce-mercadopago-admin-notice-review',
-				plugins_url( '../../assets/js/review' . $this->file_suffix . '.js', plugin_dir_path( __FILE__ ) ),
+				'woocommerce-mercadopago-admin-saved-cards',
+				plugins_url( '../../assets/js/saved_cards_notice_mercadopago' . $this->file_suffix . '.js', plugin_dir_path( __FILE__ ) ),
 				array(),
 				WC_WooMercadoPago_Constants::VERSION,
 				false
@@ -115,32 +115,30 @@ class WC_WooMercadoPago_Saved_Cards {
 	 */
 	public static function get_plugin_review_banner() {
 		$inline = self::should_be_inline_style() ? 'inline' : null;
+		$checkout_custom_url = admin_url('admin.php?page=wc-settings&tab=checkout&section=woo-mercado-pago-custom');
 
-		$notice = '<div id="message" class="notice is-dismissible mp-rating-notice ' . $inline . '">
-                    <div class="mp-rating-frame">
-                        <div class="mp-left-rating">
-                            <div>
-                                <img src="' . plugins_url( '../../assets/images/minilogo.png', plugin_dir_path( __FILE__ ) ) . '">
-                            </div>
-                            <div class="mp-left-rating-text">
-                                <p class="mp-rating-title">' .
-									wp_get_current_user()->user_login . ', ' .
-									__( 'do you have a minute to share your experience with our plugin?', 'woocommerce-mercadopago' ) .
-								'</p>
-                                <p class="mp-rating-subtitle">
-									Teste Wallet Notice
-								</p>
-                            </div>
-                        </div>
-                        <div class="mp-right-rating">
-                            <a
-                                class="mp-rating-link"
-                                href="https://wordpress.org/support/plugin/woocommerce-mercadopago/reviews/?filter=5#new-post" target="blank"
-                            >'
-								. __( 'Rate the plugin', 'woocommerce-mercadopago' ) .
-							'</a>
-                        </div>
-                    </div>
+		$notice = '<div id="saved-cards-notice" class="notice is-dismissible mp-saved-cards-notice ' . $inline . '">
+					<div class="mp-left-saved-cards">
+						<div>
+							<img src="' . plugins_url( '../../assets/images/generics/icone-cartao-mp.png', plugin_dir_path( __FILE__ ) ) . '">
+						</div>
+						<div class="mp-left-saved-cards-text">
+							<p class="mp-saved-cards-title">' .
+								__( 'Saved card title', 'woocommerce-mercadopago' ) .
+							'</p>
+							<p class="mp-saved-cards-subtitle">' .
+								__( 'Saved card description', 'woocommerce-mercadopago' ) .
+							'</p>
+						</div>
+					</div>
+					<div class="mp-right-saved-cards">
+						<a
+							class="mp-saved-cards-link"
+							href="' . $checkout_custom_url .'"
+						>'
+							. __( 'Saved card button', 'woocommerce-mercadopago' ) .
+						'</a>
+					</div>
                 </div>';
 
 		if ( class_exists( 'WC_WooMercadoPago_Module' ) ) {
@@ -154,10 +152,11 @@ class WC_WooMercadoPago_Saved_Cards {
 	 * Dismiss the review admin notice
 	 */
 	public function review_dismiss() {
-		$dismissed_review = (int) get_option( '_mp_dismiss_review', 0 );
+		$must_show_notice = (int) get_option( '_mp_dismiss_review', 0 );
+		$hide = 1;
 
-		if ( 0 === $dismissed_review ) {
-			update_option( '_mp_dismiss_review', 1, true );
+		if ( !$must_show_notice ) {
+			update_option( '_mp_dismiss_review', $hide, true );
 		}
 
 		wp_send_json_success();

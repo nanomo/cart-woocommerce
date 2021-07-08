@@ -1352,7 +1352,7 @@ msgstr ""
 msgid "Activate WooCommerce"
 msgstr ""
 
-#: includes/admin/notices/class-wc-woomercadopago-review-notice.php:114, includes/admin/notices/class-wc-woomercadopago-saved-cards.php:128
+#: includes/admin/notices/class-wc-woomercadopago-review-notice.php:114
 msgid "do you have a minute to share your experience with our plugin?"
 msgstr ""
 
@@ -1360,8 +1360,20 @@ msgstr ""
 msgid "Your opinion is very important so that we can offer you the best possible payment solution and continue to improve."
 msgstr ""
 
-#: includes/admin/notices/class-wc-woomercadopago-review-notice.php:126, includes/admin/notices/class-wc-woomercadopago-saved-cards.php:140
+#: includes/admin/notices/class-wc-woomercadopago-review-notice.php:126
 msgid "Rate the plugin"
+msgstr ""
+
+#: includes/admin/notices/class-wc-woomercadopago-saved-cards.php:127
+msgid "Saved card title"
+msgstr ""
+
+#: includes/admin/notices/class-wc-woomercadopago-saved-cards.php:130
+msgid "Saved card description"
+msgstr ""
+
+#: includes/admin/notices/class-wc-woomercadopago-saved-cards.php:139
+msgid "Saved card button"
 msgstr ""
 
 #: includes/admin/views/html-admin-alert-frame.php:34, includes/admin/views/html-admin-alert-woocommerce-miss.php:30
