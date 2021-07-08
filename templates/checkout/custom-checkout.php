@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<div class="mp-wallet-button">
 				<div class="mp-wallet-button-header">
 					<div class="mp-wallet-button-logo">
-						<img src="<?php echo plugins_url( '../assets/images/minilogo.png', plugin_dir_path( __FILE__ ) ); ?>">
+						<img src="<?php echo esc_url( plugins_url( '../assets/images/minilogo.png', plugin_dir_path( __FILE__ ) ) ); ?>">
 					</div>
 					<div class="mp-wallet-button-info">
 						<div class="mp-wallet-button-info-header">
@@ -51,7 +51,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<?php endif; ?>
 		</div>
 
-		<!-- Frame with cards acepteds -->
+		<!-- Frame with cards accepted -->
 		<div class="mp-frame-payments" id="mp-frame-payments">
 			<div class="mp-col-md-12">
 				<div class="frame-tarjetas">
