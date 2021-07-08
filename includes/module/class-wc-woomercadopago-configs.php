@@ -146,6 +146,13 @@ class WC_WooMercadoPago_Configs {
 		return ! in_array( get_current_screen()->id, $pages_to_show, true ) || 0 !== $dismissed_review;
 	}
 
+	private function must_not_show_saved_cards_notice() {
+		$pages_to_show    = array( 'dashboard', 'plugins', 'woocommerce_page_wc-settings' );
+		$dismissed_review = (int) get_option( '_mp_dismiss_saved_cards_notice', 0 );
+
+		return ! in_array( get_current_screen()->id, $pages_to_show, true ) || 0 !== $dismissed_review;
+	}
+
 	/**
 	 * Plugin review
 	 *
@@ -166,7 +173,7 @@ class WC_WooMercadoPago_Configs {
 	 * @return false
 	*/
 	public function saved_cards_notice() {
-		if ( $this->must_not_show_notice() ) {
+		if ( $this->must_not_show_saved_cards_notice() ) {
 			return false;
 		}
 

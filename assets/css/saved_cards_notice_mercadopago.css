@@ -21,14 +21,10 @@
 
 .mp-saved-cards-notice {
     border: 1px solid #ccc !important;
-    background-color: #449DDD !important;
-}
-
-.mp-saved-cards-frame {
+    background-color: #449DDD;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-left: 8px;
 }
 
 .mp-left-saved-cards {
@@ -41,8 +37,7 @@
 .mp-left-saved-cards img {
     max-width: 67px;
     min-width: 67px;
-    padding-right: 16px;
-    padding-top: 0.4em;
+    padding: 10px 16px 10px 0;
 }
 
 .mp-right-saved-cards {
@@ -55,11 +50,14 @@
     font-weight: 600;
     font-size: 14px;
     margin-bottom: 0 !important;
+    color: #fff;
 }
 
 .mp-saved-cards-subtitle {
     font-size: 12px;
     margin-top: 0 !important;
+    color: #fff;
+    max-width: 65%;
 }
 
 .mp-saved-cards-link {
@@ -99,4 +97,8 @@
         width: 100%;
         padding: 2px 28px 0;
     }
+}
+
+#saved-cards-notice > button.notice-dismiss::before {
+    color: white;
 }

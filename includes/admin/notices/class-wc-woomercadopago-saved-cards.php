@@ -38,9 +38,9 @@ class WC_WooMercadoPago_Saved_Cards {
 	public function __construct() {
 		$this->file_suffix = $this->get_suffix();
 
-		add_action( 'admin_enqueue_scripts', array( $this, 'load_admin_notice_css' ) );
-		add_action( 'admin_enqueue_scripts', array( $this, 'load_admin_notice_js' ) );
-		add_action( 'wp_ajax_mercadopago_review_dismiss', array( $this, 'review_dismiss' ) );
+		add_action( 'admin_enqueue_scripts', array( $this, 'load_saved_cards_notice_css' ) );
+		add_action( 'admin_enqueue_scripts', array( $this, 'load_saved_cards_notice_js' ) );
+		add_action( 'wp_ajax_mercadopago_saved_cards_notice_dismiss', array( $this, 'saved_cards_notice_dismiss' ) );
 	}
 
 	/**
@@ -68,7 +68,7 @@ class WC_WooMercadoPago_Saved_Cards {
 	 * 
 	 * @return void
 	 */
-	public function load_admin_notice_css() {
+	public function load_saved_cards_notice_css() {
 		if ( is_admin() ) {
 			wp_enqueue_style(
 				'woocommerce-mercadopago-admin-saved-cards',
@@ -84,7 +84,7 @@ class WC_WooMercadoPago_Saved_Cards {
 	 * 
 	 * @return void
 	 */
-	public function load_admin_notice_js() {
+	public function load_saved_cards_notice_js() {
 		if ( is_admin() ) {
 			wp_enqueue_script(
 				'woocommerce-mercadopago-admin-saved-cards',
@@ -151,12 +151,12 @@ class WC_WooMercadoPago_Saved_Cards {
 	/**
 	 * Dismiss the review admin notice
 	 */
-	public function review_dismiss() {
-		$must_show_notice = (int) get_option( '_mp_dismiss_review', 0 );
+	public function saved_cards_notice_dismiss() {
+		$must_show_notice = (int) get_option( '_mp_dismiss_saved_cards_notice', 0 );
 		$hide = 1;
 
 		if ( !$must_show_notice ) {
-			update_option( '_mp_dismiss_review', $hide, true );
+			update_option( '_mp_dismiss_saved_cards_notice', $hide, true );
 		}
 
 		wp_send_json_success();

@@ -118,6 +118,16 @@ class WC_WooMercadoPago_Init {
 	}
 
 	/**
+	 * Handle saved cards notice
+	*/
+	public static function mercadopago_handle_saved_cards_notice() {
+		$must_not_show_review = (int) get_option( '_mp_dismiss_saved_cards_notice' );
+		if ( ! isset( $must_not_show_review ) || $must_not_show_review ) {
+			update_option( '_mp_dismiss_saved_cards_notice', 0, true );
+		}
+	}
+
+	/**
 	 * Update plugin version in db
 	 */
 	public static function update_plugin_version() {
