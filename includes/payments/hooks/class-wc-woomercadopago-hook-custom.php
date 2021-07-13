@@ -124,23 +124,27 @@ class WC_WooMercadoPago_Hook_Custom extends WC_WooMercadoPago_Hook_Abstract {
 	 * @param $order_id
 	 */
 	public function render_order_form( $order_id ) {
-		/**
-		 * WooCommerce Order
-		 *
-		 * @var WC_Order $order
-		 */
-		$order      = wc_get_order( $order_id );
-		$preference = $this->payment->create_preference_wallet_button( $order );
+		$isWallet = get_query_var('wallet_button', false);
 
-		wc_get_template(
-			'receipt/custom-checkout.php',
-			array(
-				'preference_id' => $preference['id'],
-				'cancel_url' => $order->get_cancel_order_url(),
-				'public_key' => $this->payment->get_public_key(),
-			),
-			'woo/mercado/pago/module/',
-			WC_WooMercadoPago_Module::get_templates_path()
-		);
+		if ($isWallet) {
+			/**
+			 * WooCommerce Order
+			 *
+			 * @var WC_Order $order
+			 */
+			$order      = wc_get_order( $order_id );
+			$preference = $this->payment->create_preference_wallet_button( $order );
+
+			wc_get_template(
+				'receipt/custom-checkout.php',
+				array(
+					'preference_id' => $preference['id'],
+					'cancel_url' => $order->get_cancel_order_url(),
+					'public_key' => $this->payment->get_public_key(),
+				),
+				'woo/mercado/pago/module/',
+				WC_WooMercadoPago_Module::get_templates_path()
+			);
+		}
 	}
 }

@@ -33,7 +33,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					</div>
 				</div>
 				<div class="mp-wallet-button-pay">
-					<button><?php echo esc_html__( 'Pay with a saved card', 'woocommerce-mercadopago' ); ?></button>
+					<button id="mp-wallet-button" onclick="submitWalletButton(event)"><?php echo esc_html__( 'Pay with a saved card', 'woocommerce-mercadopago' ); ?></button>
 				</div>
 			</div>
 		<?php endif; ?>
@@ -236,7 +236,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<input type="hidden" id="mp-discount" name="mercadopago_custom[discount]" />
 			<input type="hidden" id="paymentMethodId" name="mercadopago_custom[paymentMethodId]" />
 			<input type="hidden" id="token" name="mercadopago_custom[token]" />
-			<input type="hidden" id="token" name="mercadopago_custom[checkout_type]" value="wallet_button" />
+			<input type="hidden" id="checkout_type" name="mercadopago_custom[checkout_type]" value="custom" />
 		</div>
 
 	</div>
@@ -290,5 +290,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 		}catch(e){
 			return false;
 		}
+	}
+
+	function submitWalletButton(event) {
+		event.preventDefault();
+		jQuery('#checkout_type').val('wallet_button');
+		jQuery('form.checkout, form#order_review').submit();
 	}
 </script>

@@ -395,7 +395,6 @@ class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 		$order = wc_get_order( $order_id );
 
 		$this->process_discount_and_commission( $order_id, $order );
-		$this->process_case_country_is_mexico($custom_checkout);
 
 		if ( 'wallet_button' === $custom_checkout['checkout_type'] ) {
 			$this->log->write_log( __FUNCTION__, 'preparing to render wallet button checkout.' );
@@ -525,18 +524,6 @@ class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 				__( 'A problem was occurred when processing your payment. Are you sure you have correctly filled all information in the checkout form?', 'woocommerce-mercadopago' ) . ' MERCADO PAGO: ' .
 				WC_WooMercadoPago_Module::get_common_error_messages( $response )
 			);
-		}
-	}
-
-	/**
-	 * Checks if country is Mexico and set additional information
-	 *
-	 * @param $custom_checkout
-	 */
-	protected function process_case_country_is_mexico( &$custom_checkout ) {
-		// Mexico country case.
-		if ( ! isset( $custom_checkout['paymentMethodId'] ) || empty( $custom_checkout['paymentMethodId'] ) ) {
-			$custom_checkout['paymentMethodId'] = $custom_checkout['paymentMethodSelector'];
 		}
 	}
 

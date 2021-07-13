@@ -181,5 +181,10 @@ class WC_WooMercadoPago_Init {
 			add_action( 'admin_notices', array( __CLASS__, 'notify_woocommerce_miss' ) );
 		}
 		add_action( 'woocommerce_settings_checkout', array( __CLASS__, 'mp_show_admin_notices' ) );
+
+		add_filter('query_vars', function ( $vars ) {
+			$vars[] =  'wallet_button';
+			return $vars;
+		});
 	}
 }
