@@ -37,7 +37,6 @@ wp_enqueue_script(
 	});
 </script>
 
-<input type="radio" id="checkout-open-radio" onclick="checkout.open()">
 <a id="submit-payment" href="#" onclick="checkout.open()" class="button alt">
 	<?php echo esc_html_e( 'Pay with Mercado Pago', 'woocommerce-mercadopago' ); ?>
 </a>

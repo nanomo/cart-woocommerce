@@ -1340,11 +1340,11 @@ msgstr ""
 msgid "Print ticket"
 msgstr ""
 
-#: templates/receipt/custom-checkout.php:42, includes/payments/hooks/class-wc-woomercadopago-hook-basic.php:83
+#: templates/receipt/custom-checkout.php:41, includes/payments/hooks/class-wc-woomercadopago-hook-basic.php:83
 msgid "Pay with Mercado Pago"
 msgstr ""
 
-#: templates/receipt/custom-checkout.php:45, includes/payments/hooks/class-wc-woomercadopago-hook-basic.php:85
+#: templates/receipt/custom-checkout.php:44, includes/payments/hooks/class-wc-woomercadopago-hook-basic.php:85
 msgid "Cancel &amp; Clear Cart"
 msgstr ""
 

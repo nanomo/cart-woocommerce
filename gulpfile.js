@@ -24,6 +24,7 @@ const config = {
     './assets/css/admin_notice_mercadopago.css',
     './assets/css/basic_checkout_mercadopago.css',
     './assets/css/config_mercadopago.css',
+    './assets/css/saved_cards_notice_mercadopago.css',
   ]
 };
 
