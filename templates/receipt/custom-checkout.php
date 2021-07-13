@@ -25,11 +25,15 @@ wp_enqueue_script(
 ?>
 
 <script>
-	const checkout = mp.checkout({
-		preference: {
-			id: '<?php echo esc_html( $preference_id ); ?>'
-		},
-		autoOpen: true,
+	window.addEventListener("load", function(event) {
+		window.mp = new MercadoPago('<?php echo esc_html( $public_key ); ?>');
+
+		window.checkout = window.mp.checkout({
+			preference: {
+				id: '<?php echo esc_html( $preference_id ); ?>'
+			},
+			autoOpen: true,
+		});
 	});
 </script>
 
