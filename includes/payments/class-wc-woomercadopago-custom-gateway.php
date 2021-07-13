@@ -397,12 +397,9 @@ class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 		$this->process_discount_and_commission( $order_id, $order );
 		$this->process_case_country_is_mexico($custom_checkout);
 
-		if ( 'wallet_button' === $custom_checkout ) {
+		if ( 'wallet_button' === $custom_checkout['checkout_type'] ) {
 			$this->log->write_log( __FUNCTION__, 'preparing to render wallet button checkout.' );
-			$response = array(
-				'result'   => 'success',
-				'redirect' => $order->get_checkout_payment_url( true ),
-			);
+			$response = $this->process_custom_checkout_wallet_button_flow( $order );
 		} else {
 			$this->log->write_log( __FUNCTION__, 'preparing to get response of custom checkout.' );
 			$response = $this->process_custom_checkout_flow( $custom_checkout, $order );
@@ -420,10 +417,29 @@ class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 	}
 
 	/**
+	 * Process Custom Wallet Button Flow
+	 *
+	 * @param WC_Order $order
+	 *
+	 * @return array
+	 */
+	protected function process_custom_checkout_wallet_button_flow( $order ) {
+		return array(
+			'result'   => 'success',
+			'redirect' => add_query_arg(
+				array(
+					'wallet_button' => 'open'
+				),
+				$order->get_checkout_payment_url( true )
+			),
+		);
+	}
+
+	/**
 	 * Process Custom Payment Flow
 	 *
-	 * @param $custom_checkout
-	 * @param $order
+	 * @param array $custom_checkout
+	 * @param WC_Order $order
 	 *
 	 * @return array|string[]
 	 */
