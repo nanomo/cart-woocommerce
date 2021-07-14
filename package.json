@@ -2,22 +2,21 @@
   "name": "cart-woocommerce",
   "description": "Gateway de pagamento Mercado Pago para WooCommerce",
   "scripts": {
-    "build:js": "node -e 'require(\"./gulpfile.js\").minifyJSFiles()'",
-    "build:css": "node -e 'require(\"./gulpfile.js\").minifyCSSFiles()'",
-    "lint": "jshint",
-    "pot": "gulp wpPot"
+    "build:js": "node -e 'require(\"./main.js\").minifyFiles(\"js\")'",
+    "build:css": "node -e 'require(\"./main.js\").minifyFiles(\"css\")'",
+    "pot": "node -e 'require(\"./main.js\").generatePotFiles()'",
+    "lint": "jshint"
   },
   "version": "5.1.1",
   "repository": {
     "type": "git",
     "url": "https://github.com/mercadopago/cart-woocommerce"
   },
-  "main": "gulpfile.js",
+  "main": "main.js",
   "devDependencies": {
-    "gulp": "^4.0.2",
-    "gulp-wp-pot": "^2.4.2",
+    "husky": "^7.0.0",
     "jshint": "^2.11.0",
     "minify": "^7.0.2",
-    "husky": "^7.0.0"
+    "wp-pot": "^1.9.9"
   }
 }
