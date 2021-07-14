@@ -1,42 +1,45 @@
 const gulp = require('gulp');
 const git = require('gulp-git');
-const uglify = require('gulp-uglify');
-const rename = require('gulp-rename');
 const wpPot = require('gulp-wp-pot');
-const cleanCSS = require('gulp-clean-css');
+const fs = require('fs');
+const path = require('path');
+const minify = require('minify');
 
-const config = {
-  scripts: [
-    './assets/js/basic_config_mercadopago.js',
-    './assets/js/basic-cho.js',
-    './assets/js/credit-card.js',
-    './assets/js/custom_config_mercadopago.js',
-    './assets/js/ticket_config_mercadopago.js',
-    './assets/js/ticket.js',
-		'./assets/js/pix_config_mercadopago.js',
-    './assets/js/review.js',
-    './assets/js/pix_mercadopago_order_received.js',
-  ],
-  stylesheets: [
-    './assets/css/admin_notice_mercadopago.css',
-    './assets/css/basic_checkout_mercadopago.css',
-    './assets/css/config_mercadopago.css',
-  ]
-};
+function minifyJSFiles() {
+    const assetsJSPath = path.resolve('./assets/js');
+    const assetsFiles =fs.readdirSync(assetsJSPath);
+    const jsFiles = assetsFiles.filter(filePath => filePath.includes('.js') && !filePath.includes('.min'));
+    const options = {js: {ecma: 6}};
 
-gulp.task('scripts', function() {
-  return gulp.src(config.scripts)
-    .pipe(uglify())
-    .pipe(rename({ extname: '.min.js' }))
-    .pipe(gulp.dest('./assets/js/'));
-});
+    jsFiles.forEach(file => {
+        const filePath = path.resolve(`${assetsJSPath}/${file}`);
+    
+        minify(filePath, options)
+            .then(minifiedContent => {
+                const newFilePathName = filePath.split('.js')[0].concat('.min.js');
+                fs.writeFileSync(newFilePathName, minifiedContent);
+            })
+            .catch(console.error);
+    });
+}
 
-gulp.task('stylesheets', () => {
-  return gulp.src(config.stylesheets)
-    .pipe(cleanCSS({ compatibility: 'ie8' }))
-    .pipe(rename({ extname: '.min.css' }))
-    .pipe(gulp.dest('./assets/css/'));
-});
+function minifyCSSFiles() {
+    const assetsCSSPath = path.resolve('./assets/css');
+    const assetsFiles =fs.readdirSync(assetsCSSPath);
+    const cssFiles = assetsFiles.filter(filePath => filePath.includes('.css') && !filePath.includes('.min'));
+    const options = {css: {compatibility: '*'}};
+
+    cssFiles.forEach(file => {
+        const filePath = path.resolve(`${assetsCSSPath}/${file}`);
+    
+        minify(filePath, options)
+            .then(minifiedContent => {
+                const newFilePathName = filePath.split('.css')[0].concat('.min.css');
+                fs.writeFileSync(newFilePathName, minifiedContent);
+            })
+            .catch(console.error);
+    });
+}
 
 gulp.task('wpPot', function () {
   return gulp.src('**/*.php')
@@ -52,10 +55,9 @@ gulp.task('git-add', function() {
     .pipe(git.add());
 });
 
-gulp.task('pre-commit', gulp.series('scripts', 'stylesheets', 'wpPot', 'git-add'));
+gulp.task('pre-commit', gulp.series('wpPot', 'git-add'));
 
-// npx jshint assets/**/*.js
-// minificar js e css
-// executar jshint para poder verificar sintaxe
 // wppot
 // pre-commit executar todos essas tasks
+
+module.exports = {minifyJSFiles, minifyCSSFiles};
