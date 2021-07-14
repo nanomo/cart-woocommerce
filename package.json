@@ -15,10 +15,9 @@
   "main": "gulpfile.js",
   "devDependencies": {
     "gulp": "^4.0.2",
-    "gulp-git": "^2.10.0",
     "gulp-wp-pot": "^2.4.2",
-    "guppy-pre-commit": "^0.4.0",
     "jshint": "^2.11.0",
-    "minify": "^7.0.2"
+    "minify": "^7.0.2",
+    "husky": "^7.0.0"
   }
 }
