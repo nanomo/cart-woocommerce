@@ -1,5 +1,4 @@
 const gulp = require('gulp');
-const git = require('gulp-git');
 const wpPot = require('gulp-wp-pot');
 const fs = require('fs');
 const path = require('path');
@@ -49,15 +48,5 @@ gulp.task('wpPot', function () {
         } ))
         .pipe(gulp.dest('./i18n/languages/woocommerce-mercadopago.pot'));
 });
-
-gulp.task('git-add', function() {
-  return gulp.src('.')
-    .pipe(git.add());
-});
-
-gulp.task('pre-commit', gulp.series('wpPot', 'git-add'));
-
-// wppot
-// pre-commit executar todos essas tasks
 
 module.exports = {minifyJSFiles, minifyCSSFiles};
