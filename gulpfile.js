@@ -2,8 +2,6 @@ const gulp = require('gulp');
 const git = require('gulp-git');
 const uglify = require('gulp-uglify');
 const rename = require('gulp-rename');
-const jshint = require('gulp-jshint');
-const jshintStylish = require('jshint-stylish');
 const wpPot = require('gulp-wp-pot');
 const cleanCSS = require('gulp-clean-css');
 
@@ -25,13 +23,6 @@ const config = {
     './assets/css/config_mercadopago.css',
   ]
 };
-
-gulp.task('jshint', function() {
-  return gulp.src(config.scripts)
-    .pipe(jshint('.jshintrc'))
-    .pipe(jshint.reporter(jshintStylish))
-    .pipe(jshint.reporter('fail'));
-});
 
 gulp.task('scripts', function() {
   return gulp.src(config.scripts)
@@ -61,4 +52,10 @@ gulp.task('git-add', function() {
     .pipe(git.add());
 });
 
-gulp.task('pre-commit', gulp.series('jshint', 'scripts', 'stylesheets', 'wpPot', 'git-add'));
+gulp.task('pre-commit', gulp.series('scripts', 'stylesheets', 'wpPot', 'git-add'));
+
+// npx jshint assets/**/*.js
+// minificar js e css
+// executar jshint para poder verificar sintaxe
+// wppot
+// pre-commit executar todos essas tasks
