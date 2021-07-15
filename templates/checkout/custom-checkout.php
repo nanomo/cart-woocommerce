@@ -21,7 +21,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<div class="mp-wallet-button">
 				<div class="mp-wallet-button-header">
 					<div class="mp-wallet-button-logo">
-						<img src="<?php echo esc_url( plugins_url( '../assets/images/minilogo.png', plugin_dir_path( __FILE__ ) ) ); ?>">
+						<div class="mp-wallet-button-circle">
+							<img src="<?php echo esc_url( plugins_url( '../assets/images/minilogo.png', plugin_dir_path( __FILE__ ) ) ); ?>">
+						</div>
 					</div>
 					<div class="mp-wallet-button-info">
 						<div class="mp-wallet-button-info-header">

@@ -846,24 +846,30 @@
 	box-sizing: border-box;
 	box-shadow: 0px 7px 12px rgba(0, 0, 0, 0.110659);
 	border-radius: 10px;
-	padding: 25px 51px 25px 26px;
+	padding: 1em 3em 1em 1em;
 	margin-bottom: 20px;
 	max-width: 362px;
 }
 
 .mp-wallet-button-header {
 	margin-bottom: 30px;
-	display: inline-block;
+	display: flex;
+}
+
+.mp-wallet-button-circle {
+	width: 48px;
+	height: 48px;
+	border-radius: 50%;
+	position: absolute;
+	background-color: rgba(71, 154, 209, 0.1);
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
 }
 
 .mp-wallet-button-logo {
-	width: 48px;
-	height: 48px;
-	background-color: rgba(71, 154, 209, 0.1);
-	border-radius: 48px;
+	width: 35%;
 	position: relative;
-	margin: 10px 28px 10px 10px;
-	float: left;
 }
 
 .mp-wallet-button-logo img {
@@ -875,29 +881,29 @@
 }
 
 .mp-wallet-button-info {
-	width: 197px;
-	float: left;
+	width: 65%
 }
 
 .mp-wallet-button-info-header {
-	font-size: 16px;
+	font-size: 0.9em;
 }
 
 .mp-wallet-button-info-description {
-	font-size: 14px;
+	font-size: 0.8em;
 }
 
 .mp-wallet-button-pay {
-	width: 199px;
-	margin-left: 84px;
+	width: 100%x;
+	padding-left: 35%;
 }
 
 .mp-wallet-button-pay button {
-	padding: 5px 20px;
+	padding: 0.5em 0.7em;
 	background-color: #009EE3;
 	border-radius: 5px;
 	color: #fff;
 	width: 100%;
+	font-size: 0.9em;
 }
 
 @media (max-width: 767.98px) {
@@ -905,53 +911,51 @@
 		width: 100%;
 		flex: none;
 	}
+
 	.mp-col-md-8 {
 		width: 100%;
 		flex: none;
 	}
+
 	.mp-pix-right {
 		border-right: none;
 		border-top: solid 1px #e5e5e5;
 		margin-bottom: 32px;
 	}
+
 	.mp-qr-code {
 		width: 100%;
 		margin: 0 0 24px 0;
 	}
+
 	.mp-details-pix-button {
 		width: 100%;
 		height: auto;
 		display: inline-block;
 	}
+
 	.mp-row-checkout-pix-container {
 		display: block;
 	}
+
 	.mp-details-pix-img {
 		margin: 64px auto 0;
 		padding: 0;
 	}
+
 	.mp-details-pix-title {
 		margin: 40px auto 0;
 		text-align: center;
 		padding: 0;
 	}
-
+}
+@media (max-width: 1040px) {
 	.mp-wallet-button {
-		padding: 28px 20px;
-	}
-
-	.mp-wallet-button-logo {
-		margin-top: 20px;
-		margin-right: 10px;
-	}
-
-	.mp-wallet-button-info {
-		width: 180px;
-		margin-left: 0;
+		padding: 1em;
 	}
 
 	.mp-wallet-button-pay {
-		width: 100%;
-		margin-left: 0;
+		width: 100%x;
+		padding-left: 0;
 	}
 }
