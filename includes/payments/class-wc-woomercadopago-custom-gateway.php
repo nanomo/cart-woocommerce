@@ -622,6 +622,7 @@ class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 	 * @return false|mixed
 	 */
 	public function create_preference_wallet_button( $order ) {
+		$this->installments = 12;
 		$preference_wallet_button = new WC_WooMercadoPago_Preference_Custom_Wallet_Button( $this, $order );
 		$preference               = $preference_wallet_button->get_preference();
 		try {
