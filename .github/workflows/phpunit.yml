@@ -1,10 +1,22 @@
-name: PHPCS
+name: PHPUnit
 
 on: [push]
 
 jobs:
-  phpcs:
+  wordpress-tests:
     runs-on: ubuntu-latest
+    services:
+      mysql:
+        image: mysql:latest
+        env:
+          MYSQL_DATABASE: wordpress_test
+          MYSQL_HOST: 127.0.0.1
+          MYSQL_USER: wordpress
+          MYSQL_PASSWORD: p@ssw0rd1
+          MYSQL_ROOT_PASSWORD: p@ssw0rd1
+        ports:
+          - 3306:3306
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -32,5 +44,8 @@ jobs:
       - name: Install dependencies
         run: composer install --prefer-dist --no-suggest --no-progress
 
-      - name: Detect coding standard violations
-        run: vendor/bin/phpcs -q --report=checkstyle --standard=phpcs.xml includes templates woocommerce-mercadopago.php | cs2pr --graceful-warnings
+      - name: Install Database
+        run: bash bin/install-wp-tests.sh wordpress_test root p@ssw0rd1 127.0.0.1 latest true
+
+      - name: Running Unit Test
+        run: vendor/bin/phpunit
