@@ -1113,15 +1113,15 @@ msgid "Rate the plugin"
 msgstr ""
 
 #: ../../includes/admin/notices/class-wc-woomercadopago-saved-cards.php:131
-msgid "Saved card title"
+msgid "Mercado Pago customers can now pay with stored cards."
 msgstr ""
 
 #: ../../includes/admin/notices/class-wc-woomercadopago-saved-cards.php:134
-msgid "Saved card description"
+msgid "The function Saved card payments  is enabled. With this setting, customers using Mercado Pago can purchase without having to fill in payment details. You can control this option in the settings."
 msgstr ""
 
 #: ../../includes/admin/notices/class-wc-woomercadopago-saved-cards.php:143
-msgid "Saved card button"
+msgid "Go to settings"
 msgstr ""
 
 #: ../../includes/admin/views/html-admin-alert-frame.php:34, ../../includes/admin/views/html-admin-alert-woocommerce-miss.php:30
