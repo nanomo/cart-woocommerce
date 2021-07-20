@@ -782,7 +782,7 @@
         return true;
       }
 
-      if ($('#checkout_type').val() === 'wallet_button') {
+      if ($('#mp_checkout_type').val() === 'wallet_button') {
       	return true;
 	  }
 
@@ -790,7 +790,7 @@
         return true;
       }
 
-      $('#checkout_type').val('custom');
+      $('#mp_checkout_type').val('custom');
 
       if (validateInputsCreateToken()) {
         return createToken();

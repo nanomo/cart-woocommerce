@@ -238,7 +238,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<input type="hidden" id="mp-discount" name="mercadopago_custom[discount]" />
 			<input type="hidden" id="paymentMethodId" name="mercadopago_custom[paymentMethodId]" />
 			<input type="hidden" id="token" name="mercadopago_custom[token]" />
-			<input type="hidden" id="checkout_type" name="mercadopago_custom[checkout_type]" value="custom" />
+			<input type="hidden" id="mp_checkout_type" name="mercadopago_custom[checkout_type]" value="custom" />
 		</div>
 
 	</div>
