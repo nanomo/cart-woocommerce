@@ -2,6 +2,8 @@
   "name": "cart-woocommerce",
   "description": "Gateway de pagamento Mercado Pago para WooCommerce",
   "scripts": {
+    "php:lint": "composer phpcs",
+    "php:fix": "composer phpcbf",
     "build:js": "node -e 'require(\"./main.js\").minifyFiles(\"js\")'",
     "build:css": "node -e 'require(\"./main.js\").minifyFiles(\"css\")'",
     "pot": "node -e 'require(\"./main.js\").generatePotFiles()'",

@@ -1,6 +1,7 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
+npm run php:lint
 npm run lint
 npm run build:js
 npm run build:css
