@@ -296,7 +296,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	function submitWalletButton(event) {
 		event.preventDefault();
-		jQuery('#checkout_type').val('wallet_button');
+		jQuery('#mp_checkout_type').val('wallet_button');
 		jQuery('form.checkout, form#order_review').submit();
 	}
 </script>
