@@ -240,6 +240,7 @@ class WC_WooMercadoPago_Module extends WC_WooMercadoPago_Configs {
 		include_once dirname( __FILE__ ) . '/preference/class-wc-woomercadopago-preference-ticket.php';
 		include_once dirname( __FILE__ ) . '/preference/class-wc-woomercadopago-preference-pix.php';
 		include_once dirname( __FILE__ ) . '/preference/analytics/class-wc-woomercadopago-preferenceanalytics.php';
+		include_once dirname( __FILE__ ) . '/preference/class-wc-woomercadopago-preference-custom-wallet-button.php';
 	}
 
 	/**

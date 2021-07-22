@@ -2,7 +2,7 @@
 Contributors: mercadopago, mercadolivre, claudiosanches, marcelohama
 Tags: ecommerce, mercadopago, woocommerce
 Requires at least: 4.9.10
-Tested up to: 5.7
+Tested up to: 5.8
 Requires PHP: 5.6
 Stable tag: 5.1.1
 License: GPLv2 or later
@@ -24,6 +24,7 @@ To install it, **you don't need to have technical knowledge:** you can follow th
 * Test your store before going into production with our Sandbox environment.
 * **Receive the money** from your sales on the same day.
 * **IMPORTANT:** At the moment the Mercado Envíos service is deactivated.
+* **Mercado Pago customers can use already stored cards** For your customers who use Mercado Pago to buy without having to fill in card details at the store's checkout.
 
 ### Adapted to your business
 
