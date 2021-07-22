@@ -4,7 +4,7 @@ Tags: ecommerce, mercadopago, woocommerce
 Requires at least: 4.9.10
 Tested up to: 5.8
 Requires PHP: 5.6
-Stable tag: 5.1.1
+Stable tag: 5.2.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -129,6 +129,18 @@ Set up both the plugin and the checkouts you want to activate on your payment av
 Check out our <a href="https://www.mercadopago.com.br/developers/pt/plugins_sdks/plugins/official/woo-commerce/">official documentation</a> for more information on the specific fields to configure.
 
 == Changelog ==
+= v5.2.0 (22/07/2021) =
+* Features
+- New payment method Wallet Button (wallet purchase)
+- Added support to PHP 8
+- Added support to PHPUnit
+- Added support to source_news in notification
+
+* Bug fixes
+- Changed pix e-mail template
+- Removed gulp dependency
+- New pre-commit hooks
+
 = v5.1.1 (22/04/2021) =
 * Features
  - Added WooCommerce linter
