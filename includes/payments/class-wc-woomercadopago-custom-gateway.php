@@ -252,7 +252,7 @@ class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 		return array(
 			'title'       => __( 'Payment with card stored in Mercado Pago', 'woocommerce-mercadopago' ),
 			'type'        => 'select',
-			'default'     => 'no',
+			'default'     => 'yes',
 			'description' => __( 'Activate this function so that your customers already using Mercado Pago can buy without having to fill in their card details at the store checkout.', 'woocommerce-mercadopago' ),
 			'options'     => array(
 				'no'  => __( 'No', 'woocommerce-mercadopago' ),
