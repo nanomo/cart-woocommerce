@@ -1,4 +1,3 @@
-
 <?php
 /**
  * Part of Woo Mercado Pago Module
