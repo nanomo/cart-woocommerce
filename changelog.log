@@ -1,6 +1,6 @@
 CHANGELOG:
 == Changelog ==
-= v5.2.0 (22/07/2021) =
+= v5.2.0 (26/07/2021) =
 * Features
 - New payment method Wallet Button (wallet purchase)
 - Added support to PHP 8

@@ -129,7 +129,7 @@ Set up both the plugin and the checkouts you want to activate on your payment av
 Check out our <a href="https://www.mercadopago.com.br/developers/pt/plugins_sdks/plugins/official/woo-commerce/">official documentation</a> for more information on the specific fields to configure.
 
 == Changelog ==
-= v5.2.0 (22/07/2021) =
+= v5.2.0 (26/07/2021) =
 * Features
 - New payment method Wallet Button (wallet purchase)
 - Added support to PHP 8
