@@ -252,7 +252,7 @@ class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 		return array(
 			'title'       => __( 'Payment with card stored in Mercado Pago', 'woocommerce-mercadopago' ),
 			'type'        => 'select',
-			'default'     => 'no',
+			'default'     => 'yes',
 			'description' => __( 'Activate this function so that your customers already using Mercado Pago can buy without having to fill in their card details at the store checkout.', 'woocommerce-mercadopago' ),
 			'options'     => array(
 				'no'  => __( 'No', 'woocommerce-mercadopago' ),
@@ -404,7 +404,7 @@ class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 			$response = $this->process_custom_checkout_flow( $custom_checkout, $order );
 		}
 
-		if ($response) {
+		if ( $response ) {
 			return $response;
 		}
 
@@ -622,7 +622,7 @@ class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 	 * @return false|mixed
 	 */
 	public function create_preference_wallet_button( $order ) {
-		$this->installments = 12;
+		$this->installments       = 12;
 		$preference_wallet_button = new WC_WooMercadoPago_Preference_Custom_Wallet_Button( $this, $order );
 		$preference               = $preference_wallet_button->get_preference();
 		try {
