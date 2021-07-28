@@ -1,4 +1,3 @@
-
 <?php
 /**
  * Part of Woo Mercado Pago Module
@@ -103,13 +102,13 @@ class WC_WooMercadoPago_Saved_Cards {
 	*/
 	public static function should_be_inline_style() {
 		return class_exists( 'WC_WooMercadoPago_Module' )
-			   && WC_WooMercadoPago_Module::is_wc_new_version()
-			   // @todo need fix Processing form data without nonce verification
-		       // @codingStandardsIgnoreLine
-		       && isset( $_GET['page'] )
-			   // @todo need fix Processing form data without nonce verification
-		       // @codingStandardsIgnoreLine
-		       && 'wc-settings' === sanitize_key( $_GET['page'] );
+			&& WC_WooMercadoPago_Module::is_wc_new_version()
+			// @todo need fix Processing form data without nonce verification
+			// @codingStandardsIgnoreLine
+			&& isset( $_GET['page'] )
+			// @todo need fix Processing form data without nonce verification
+		       	// @codingStandardsIgnoreLine
+		       	&& 'wc-settings' === sanitize_key( $_GET['page'] );
 	}
 
 	/**
@@ -159,7 +158,7 @@ class WC_WooMercadoPago_Saved_Cards {
 		$must_show_notice = (int) get_option( '_mp_dismiss_saved_cards_notice', 0 );
 		$hide             = 1;
 
-		if ( !$must_show_notice ) {
+		if ( ! $must_show_notice ) {
 			update_option( '_mp_dismiss_saved_cards_notice', $hide, true );
 		}
 
