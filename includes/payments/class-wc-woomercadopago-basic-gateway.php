@@ -91,6 +91,7 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 			$form_fields['checkout_payments_description']    = $this->field_checkout_options_description();
 			$form_fields['binary_mode']                      = $this->field_binary_mode();
 			$form_fields['installments']                     = $this->field_installments();
+			$form_fields['cart_checkout_description']        = $this->field_cart_checkout_description();
 			$form_fields['checkout_payments_advanced_title'] = $this->field_checkout_payments_advanced_title();
 			$form_fields['method']                           = $this->field_method();
 			$form_fields['success_url']                      = $this->field_success_url();
@@ -164,6 +165,7 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 			'enabled',
 			WC_WooMercadoPago_Helpers_CurrencyConverter::CONFIG_KEY,
 			'installments',
+			'cart_checkout_description',
 			// Advanced settings.
 			'checkout_payments_advanced_title',
 			'checkout_payments_advanced_description',

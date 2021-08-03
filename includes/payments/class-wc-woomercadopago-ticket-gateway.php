@@ -88,6 +88,7 @@ class WC_WooMercadoPago_Ticket_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 			$form_fields['coupon_mode']                             = $this->field_coupon_mode();
 			$form_fields['stock_reduce_mode']                       = $this->field_stock_reduce_mode();
 			$form_fields['date_expiration']                         = $this->field_date_expiration();
+			$form_fields['cart_checkout_description']               = $this->field_cart_checkout_description();
 			foreach ( $this->field_ticket_payments() as $key => $value ) {
 				$form_fields[ $key ] = $value;
 			}
@@ -158,6 +159,7 @@ class WC_WooMercadoPago_Ticket_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 			WC_WooMercadoPago_Helpers_CurrencyConverter::CONFIG_KEY,
 			'field_ticket_payments',
 			'date_expiration',
+			'cart_checkout_description',
 			// Advanced configuration of the personalized payment experience.
 			'checkout_ticket_payments_advanced_title',
 			'checkout_payments_advanced_description',
