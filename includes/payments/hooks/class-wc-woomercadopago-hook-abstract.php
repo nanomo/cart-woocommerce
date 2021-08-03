@@ -160,9 +160,9 @@ abstract class WC_WooMercadoPago_Hook_Abstract {
 		}
 
 		// Overriding default CHO title.
-		if ($this->payment->get_option_mp('cart_checkout_description') !== '') {
-            $title = $this->payment->get_option_mp('cart_checkout_description');
-        }
+		if ( $this->payment->get_option_mp('cart_checkout_description') !== '' ) {
+			$title = $this->payment->get_option_mp('cart_checkout_description');
+		}
 
 		$total            = (float) WC()->cart->subtotal;
 		$price_discount   = $total * ( $this->payment->gateway_discount / 100 );

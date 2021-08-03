@@ -1435,8 +1435,8 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 			'title'       => __( 'Description for cart Checkout', 'woocommerce-mercadopago' ),
 			'type'        => 'text',
 			'default'     => '',
-            'description' => __( 'Change the display text in Checkout', 'woocommerce-mercadopago' ),
-            'desc_tip'    => __( 'If you change the display text, no translatation will be available', 'woocommerce-mercadopago' ),
+			'description' => __( 'Change the display text in Checkout', 'woocommerce-mercadopago' ),
+			'desc_tip'    => __( 'If you change the display text, no translatation will be available', 'woocommerce-mercadopago' ),
 		);
 	}
 
