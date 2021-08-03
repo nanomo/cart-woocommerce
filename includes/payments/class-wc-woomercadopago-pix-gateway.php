@@ -96,6 +96,7 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 				$form_fields['checkout_pix_payments_advanced_title'] = $this->field_checkout_pix_payments_advanced_title();
 				$form_fields['checkout_pix_date_expiration']         = $this->field_pix_date_expiration();
 				$form_fields['checkout_about_pix']                   = $this->field_checkout_about_pix();
+				$form_fields['cart_checkout_description']            = $this->field_cart_checkout_description();
 		}
 
 		$form_fields_abs = parent::get_form_mp_fields( $label );
@@ -183,6 +184,7 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 			'enabled',
 			'checkout_pix_date_expiration',
 			WC_WooMercadoPago_Helpers_CurrencyConverter::CONFIG_KEY,
+			'cart_checkout_description',
 			// About PIX.
 			'checkout_about_pix',
 			// Advanced configuration of the personalized payment experience.

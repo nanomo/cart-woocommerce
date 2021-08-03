@@ -88,6 +88,7 @@ class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 			$form_fields['checkout_custom_payments_title']          = $this->field_checkout_custom_payments_title();
 			$form_fields['checkout_payments_subtitle']              = $this->field_checkout_payments_subtitle();
 			$form_fields['binary_mode']                             = $this->field_binary_mode();
+			$form_fields['cart_checkout_description']               = $this->field_cart_checkout_description();
 			$form_fields['checkout_custom_payments_advanced_title'] = $this->field_checkout_custom_payments_advanced_title();
 			$form_fields['coupon_mode']                             = $this->field_coupon_mode();
 			$form_fields['wallet_button']                           = $this->field_checkout_custom_wallet_button();
@@ -155,6 +156,7 @@ class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 			'enabled',
 			WC_WooMercadoPago_Helpers_CurrencyConverter::CONFIG_KEY,
 			'wallet_button',
+			'cart_checkout_description',
 			// Advanced configuration of the personalized payment experience.
 			'checkout_custom_payments_advanced_title',
 			'checkout_payments_advanced_description',
