@@ -9,6 +9,11 @@
 
 The Mercado Pago payments for WooCommerce plugin allows you to expand the functionalities of your online store and offer a unique payment experience for your customers.
 
+## Note
+
+Attention: On 7/13/21, WooCommerce notified its customers that some of its versions are vulnerable. The necessary fixes were already made in the last update. Therefore, it is very important that your store has the latest version of WooCommerce updated to prevent exposure of sensitive information.
+More information on the [WooCommerce blog.](https://woocommerce.com/pt-br/posts/critical-vulnerability-detected-july-2021/)
+
 ## Documentation in English
 
 For a better experience, you will be redirected to our site by clicking on the links below:
