@@ -35,7 +35,7 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 		$this->description        = __( 'Accept payments via Pix Transfer and receive the funds instantly. Your customers can pay at any time, without date or time restrictions.', 'woocommerce-mercadopago' );
 		$this->form_fields        = array();
 		$this->method_title       = __( 'Mercado Pago - Custom Checkout', 'woocommerce-mercadopago' );
-		$this->title              = __( 'Pay with PIX ', 'woocommerce-mercadopago' );
+		$this->title              = $this->get_option_mp( 'title', __( 'Pay with PIX ', 'woocommerce-mercadopago' ) );
 		$this->method_description = $this->description;
 		$this->date_expiration    = (int) $this->get_option_mp( 'checkout_pix_date_expiration', '1' );
 		$this->type_payments      = $this->get_option_mp( 'type_payments', 'no' );
@@ -96,7 +96,6 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 				$form_fields['checkout_pix_payments_advanced_title'] = $this->field_checkout_pix_payments_advanced_title();
 				$form_fields['checkout_pix_date_expiration']         = $this->field_pix_date_expiration();
 				$form_fields['checkout_about_pix']                   = $this->field_checkout_about_pix();
-				$form_fields['cart_checkout_description']            = $this->field_cart_checkout_description();
 		}
 
 		$form_fields_abs = parent::get_form_mp_fields( $label );
@@ -136,7 +135,6 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 	public function get_fields_sequence() {
 		return array(
 			// Necessary to run.
-			'title',
 			'description',
 			// Checkout de pagos con dinero en efectivo<br> Aceptá pagos al instante y maximizá la conversión de tu negocio.
 			'checkout_pix_header',
@@ -182,9 +180,9 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 			'checkout_payments_subtitle',
 			'checkout_pix_payments_description',
 			'enabled',
+			'title',
 			'checkout_pix_date_expiration',
 			WC_WooMercadoPago_Helpers_CurrencyConverter::CONFIG_KEY,
-			'cart_checkout_description',
 			// About PIX.
 			'checkout_about_pix',
 			// Advanced configuration of the personalized payment experience.
