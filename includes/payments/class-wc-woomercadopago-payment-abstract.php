@@ -651,8 +651,8 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 				$form_fields['checkout_advanced_settings']             = $this->field_checkout_advanced_settings();
 				$form_fields['_mp_debug_mode']                         = $this->field_debug_mode();
 				$form_fields['enabled']                                = $this->field_enabled( $label );
-				$form_fields['title']                  				   = $this->field_title();
-				$form_fields['description']            				   = $this->field_description();
+				$form_fields['title']                                  = $this->field_title();
+				$form_fields['description']                            = $this->field_description();
 				$form_fields['_mp_custom_domain']                      = $this->field_custom_url_ipn();
 				$form_fields['gateway_discount']                       = $this->field_gateway_discount();
 				$form_fields['commission']                             = $this->field_commission();
