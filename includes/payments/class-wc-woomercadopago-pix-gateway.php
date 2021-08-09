@@ -35,7 +35,7 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 		$this->description        = __( 'Accept payments via Pix Transfer and receive the funds instantly. Your customers can pay at any time, without date or time restrictions.', 'woocommerce-mercadopago' );
 		$this->form_fields        = array();
 		$this->method_title       = __( 'Mercado Pago - Custom Checkout', 'woocommerce-mercadopago' );
-		$this->title              = __( 'Pay with PIX ', 'woocommerce-mercadopago' );
+		$this->title              = $this->get_option_mp( 'title', __( 'Pay with PIX ', 'woocommerce-mercadopago' ) );
 		$this->method_description = $this->description;
 		$this->date_expiration    = (int) $this->get_option_mp( 'checkout_pix_date_expiration', '1' );
 		$this->type_payments      = $this->get_option_mp( 'type_payments', 'no' );
@@ -135,7 +135,6 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 	public function get_fields_sequence() {
 		return array(
 			// Necessary to run.
-			'title',
 			'description',
 			// Checkout de pagos con dinero en efectivo<br> Aceptá pagos al instante y maximizá la conversión de tu negocio.
 			'checkout_pix_header',
@@ -181,6 +180,7 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 			'checkout_payments_subtitle',
 			'checkout_pix_payments_description',
 			'enabled',
+			'title',
 			'checkout_pix_date_expiration',
 			WC_WooMercadoPago_Helpers_CurrencyConverter::CONFIG_KEY,
 			// About PIX.
