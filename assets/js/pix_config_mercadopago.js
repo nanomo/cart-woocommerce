@@ -44,8 +44,8 @@ window.addEventListener('load', function() {
 
   //clone save button
   var cloneSaveButton = document.getElementById('woocommerce_woo-mercado-pago-pix_checkout_btn_save');
-  if (document.getElementById('woocommerce_woo-mercado-pago-pix_checkout_homolog_title') !== null || document.getElementById('woocommerce_woo-mercado-pago-pix_checkout_credential_description_prod') !== null) {
-    document.getElementById('woocommerce_woo-mercado-pago-pix_checkout_credential_description_prod').nextElementSibling.append(cloneSaveButton.cloneNode(true));
+  if (document.getElementById('woocommerce_woo-mercado-pago-pix_checkout_homolog_title') !== null || document.getElementById('woocommerce_woo-mercado-pago-pix_checkout_credential_description_test') !== null) {
+    document.getElementById('woocommerce_woo-mercado-pago-pix_checkout_credential_description_test').nextElementSibling.append(cloneSaveButton.cloneNode(true));
   }
 
   if ((document.getElementById('woocommerce_woo-mercado-pago-pix_checkout_homolog_title') !== null || document.getElementById('woocommerce_woo-mercado-pago-pix_checkout_pix_options_title') !== null) && document.getElementById('woocommerce_woo-mercado-pago-pix_checkout_steps_pix') === null ) {
