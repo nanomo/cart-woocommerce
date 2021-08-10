@@ -36,7 +36,7 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 		$this->form_fields          = array();
 		$this->method_title         = __( 'Mercado Pago - Checkout Pro', 'woocommerce-mercadopago' );
 		$this->method               = $this->get_option_mp( 'method', 'redirect' );
-		$this->title                = __( 'Pay with the payment method you prefer', 'woocommerce-mercadopago' );
+		$this->title                = $this->get_option_mp( 'title', __( 'Pay with the payment method you prefer', 'woocommerce-mercadopago' ) );
 		$this->method_description   = $this->description;
 		$this->auto_return          = $this->get_option_mp( 'auto_return', 'yes' );
 		$this->success_url          = $this->get_option_mp( 'success_url', '' );
@@ -118,7 +118,6 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 	public function get_fields_sequence() {
 		return array(
 			// Necessary to run.
-			'title',
 			'description',
 			// Checkout Básico. Acepta todos los medios de pago y lleva tus cobros a otro nivel.
 			'checkout_header',
@@ -162,6 +161,7 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 			'checkout_payments_subtitle',
 			'checkout_payments_description',
 			'enabled',
+			'title',
 			WC_WooMercadoPago_Helpers_CurrencyConverter::CONFIG_KEY,
 			'installments',
 			// Advanced settings.
