@@ -1140,7 +1140,7 @@ msgstr ""
 msgid "Shipping service used by the store."
 msgstr ""
 
-#: ../../includes/module/preference/class-wc-woomercadopago-preference-abstract.php:536, ../../includes/module/preference/class-wc-woomercadopago-preference-abstract.php:537
+#: ../../includes/module/preference/class-wc-woomercadopago-preference-abstract.php:540, ../../includes/module/preference/class-wc-woomercadopago-preference-abstract.php:541
 msgid "Discount provided by store"
 msgstr ""
 
