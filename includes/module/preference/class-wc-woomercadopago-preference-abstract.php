@@ -432,11 +432,16 @@ abstract class WC_WooMercadoPago_Preference_Abstract extends WC_Payment_Gateway 
 	/**
 	 * Get notification type
 	 *
-	 * @return mixed
+	 * @param $notification_url
+	 * @param $notification_class
+	 * @param $is_url_friendly
+	 *
+	 * @return string
 	 */
-	public function get_notification_type( $notification_url, $notification_class ) {
-		$type = WC_WooMercadoPago_Module::get_notification_type($notification_class);
-		return $notification_url . '?source_news=' . $type;
+	public function get_notification_type( $notification_url, $notification_class, $is_url_friendly ) {
+		$type               = WC_WooMercadoPago_Module::get_notification_type($notification_class);
+		$url_join_character = $is_url_friendly ? '?' : '&';
+		return sprintf('%s%ssource_new=%s', $notification_url, $url_join_character, $type);
 	}
 
 	/**
@@ -451,7 +456,8 @@ abstract class WC_WooMercadoPago_Preference_Abstract extends WC_Payment_Gateway 
 			if ( empty( $notification_url ) || filter_var( $notification_url, FILTER_VALIDATE_URL ) === false ) {
 				return $this->get_notification_type(
 					WC()->api_request_url( $this->notification_class ),
-					$this->notification_class
+					$this->notification_class,
+					false
 				);
 			} else {
 				return $this->get_notification_type(
@@ -460,7 +466,8 @@ abstract class WC_WooMercadoPago_Preference_Abstract extends WC_Payment_Gateway 
 										$notification_url . '/wc-api/' . $this->notification_class . '/'
 										)
 							),
-							$this->notification_class
+							$this->notification_class,
+							true
 						);
 			}
 		}
