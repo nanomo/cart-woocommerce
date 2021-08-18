@@ -128,8 +128,7 @@ class WC_WooMercadoPago_Hook_Pix extends WC_WooMercadoPago_Hook_Abstract {
 			'currency'            => $currency_symbol[ $this->payment->get_option_mp( '_site_id_v1' ) ]['currency_symbol'],
 			'text_scan_qr'        => __( 'Scan the QR code:', 'woocommerce-mercadopago' ),
 			'text_time_qr_one'    => __( 'Code valid for ', 'woocommerce-mercadopago' ),
-			'qr_date_expiration'  => $this->payment->get_option_mp( 'checkout_pix_date_expiration', '1' ),
-			'text_time_qr_two'    => ( 1 < $this->payment->get_option_mp( 'checkout_pix_date_expiration', '1' ) ? __( ' days', 'woocommerce-mercadopago' ) : __( ' day', 'woocommerce-mercadopago' ) ),
+			'qr_date_expiration'  => __($this->payment->get_option_mp( 'checkout_pix_date_expiration', '30 minutes' ), 'woocommerce-mercadopago' ),
 			'text_description_qr' => __( 'If you prefer, you can pay by copying and pasting the following code', 'woocommerce-mercadopago' ),
 			'qr_code'             => $qr_code,
 			'text_button'         => __( 'Copy code', 'woocommerce-mercadopago' ),
@@ -176,5 +175,5 @@ class WC_WooMercadoPago_Hook_Pix extends WC_WooMercadoPago_Hook_Abstract {
 			$title .= '<small class="mp-pix-checkout-title-badge">' . __( 'New', 'woocommerce-mercadopago' ) . '</small>';
 
 		return $title;
-	}
+    }
 }
