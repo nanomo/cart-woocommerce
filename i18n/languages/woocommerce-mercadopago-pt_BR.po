@@ -6,7 +6,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/woocommerce-"
 "mercadopago\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2021-08-10 16:22-0300\n"
+"PO-Revision-Date: 2021-08-18 12:49-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: pt_BR\n"
@@ -112,7 +112,7 @@ msgid "Cancel order"
 msgstr "Cancelar ordem"
 
 #: ../../includes/module/class-wc-woomercadopago-module.php:330,
-#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:445
+#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:440
 msgid "Fill in your credentials to enable payment methods."
 msgstr "Complete suas credenciais para habilitar os meios de pagamento."
 
@@ -348,7 +348,7 @@ msgstr ""
 "disponíveis."
 
 #: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:285,
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:312,
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:313,
 #: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:239
 msgid "Configure Mercado Pago for WooCommerce"
 msgstr "Insira as informações do seu negócio"
@@ -475,12 +475,12 @@ msgstr ""
 #: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:600,
 #: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:555,
 #: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:543,
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:453,
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:440,
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:464,
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:451,
 #: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:472,
 #: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:459,
-#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:174,
-#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:172
+#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:169,
+#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:167
 msgid "discount of"
 msgstr "desconto de"
 
@@ -488,11 +488,11 @@ msgstr "desconto de"
 #: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:605,
 #: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:560,
 #: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:548,
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:458,
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:445,
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:469,
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:456,
 #: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:477,
 #: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:464,
-#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:176
+#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:171
 msgid "fee of"
 msgstr "taxa de"
 
@@ -1195,32 +1195,32 @@ msgstr ""
 msgid "Pay with PIX "
 msgstr "Pague com PIX "
 
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:253
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:254
 msgid "To activate Pix, you must have a key registered in Mercado Pago."
 msgstr ""
 "Para ativar o PIX, você precisa ter uma chave cadastrada no Mercado Pago."
 
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:254
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:255
 msgid "Download the Mercado Pago app on your cell phone."
 msgstr "Baixe o app do Mercado Pago no seu celular."
 
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:255
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:256
 msgid "Go to the "
 msgstr "Acesse a área "
 
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:256
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:257
 msgid "area and choose the "
 msgstr "e escolha a seção "
 
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:257
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:258
 msgid "Your Profile "
 msgstr "Seu Perfil "
 
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:258
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:259
 msgid "Your Pix Keys section."
 msgstr "Suas chaves PIX."
 
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:259
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:260
 msgid ""
 "Choose which data to register as PIX keys. After registering, you can set up "
 "PIX in your checkout."
@@ -1228,7 +1228,7 @@ msgstr ""
 "Escolha quais dados cadastrar como chaves PIX. Após fazer esse cadastro, "
 "você poderá configurar o PIX no seu checkout."
 
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:260
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:261
 msgid ""
 "Remember that, for the time being, the Central Bank of Brazil is open Monday "
 "through Friday, from 9am to 6pm."
@@ -1236,7 +1236,7 @@ msgstr ""
 "Lembre-se de que, por enquanto, o Banco Central do Brasil funciona de "
 "segunda a sexta-feira, das 9h às 18h."
 
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:261
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:262
 msgid ""
 "If you requested your registration outside these hours, we will confirm it "
 "within the next business day."
@@ -1244,12 +1244,12 @@ msgstr ""
 "Se você solicitou seu cadastro fora desse horário, vamos confirmar no "
 "próximo dia útil."
 
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:262,
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:389
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:263,
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:400
 msgid "Learn more about PIX"
 msgstr "Saber mais sobre o PIX"
 
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:263
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:264
 msgid ""
 "If you have already registered a Pix key at Mercado Pago and cannot activate "
 "Pix in the checkout, "
@@ -1257,25 +1257,25 @@ msgstr ""
 "Caso já tenha cadastrado uma chave PIX no Mercado Pago e não consiga ativar "
 "o PIX no checkout, "
 
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:264
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:265
 msgid "click here."
 msgstr "clique aqui."
 
 #. translators: %s checkout
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:288
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:289
 msgid "Checkout of payments via PIX %s"
 msgstr "Checkout de pagamentos via PIX %s"
 
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:291
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:292
 msgid ""
 "Accept payments at any time of the day and expand your purchase options!"
 msgstr "Aceite pagamentos a qualquer hora do dia e amplie as opções de compra!"
 
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:295
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:296
 msgid "Offer this new payment option to your customers."
 msgstr "Ofereça esta nova opção de pagamento para seus clientes."
 
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:325
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:326
 msgid ""
 "Enable and set up Pix as a payment method for your customers in the Mercado "
 "Pago checkout."
@@ -1283,27 +1283,71 @@ msgstr ""
 "Habilite e configure o PIX como forma de pagamento para seus clientes no "
 "checkout do Mercado Pago."
 
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:338
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:339
 msgid "Set up the payment via Pix experience"
 msgstr "Configure a experiência de pagamentos via PIX"
 
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:351
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:352
 msgid "Advanced configuration of the PIX experience"
 msgstr "Configurações avançadas da experiência de pagamento via PIX"
 
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:365
+msgid "15 minutes"
+msgstr "15 minutos"
+
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:366
+msgid "30 minutes (recommended)"
+msgstr "30 minutos (recomendado)"
+
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:367
+msgid "60 minutes"
+msgstr "60 minutos"
+
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:368
+msgid "12 hours"
+msgstr "12 horas"
+
 #: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:369
+msgid "24 hours"
+msgstr "24 horas"
+
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:370
+msgid "2 days"
+msgstr "2 dias"
+
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:371
+msgid "3 days"
+msgstr "3 dias"
+
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:372
+msgid "4 days"
+msgstr "4 dias"
+
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:373
+msgid "5 days"
+msgstr "5 dias"
+
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:374
+msgid "6 days"
+msgstr "6 dias"
+
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:375
+msgid "7 days"
+msgstr "7 dias"
+
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:380
 msgid "Pix Expiration"
 msgstr "Vencimento do PIX"
 
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:371
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:382
 msgid "Set the limit of days in which your customers can pay."
 msgstr "Defina em até quantos dias seus clientes poderão pagar."
 
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:386
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:397
 msgid "Want to learn how Pix works?"
 msgstr "Quer saber como funciona o PIX?"
 
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:387
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:398
 msgid ""
 "We have created a page to explain how this new payment method works and its "
 "advantages."
@@ -1311,13 +1355,13 @@ msgstr ""
 "Criamos uma página para te explicar o funcionamento e as vantagens dessa "
 "nova forma de pagamento."
 
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:522,
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:533,
 #: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:583
 msgid "A problem occurred when processing your payment. Please try again."
 msgstr ""
 "Um problema ocorreu ao processar seu pagamento. Por favor, tente novamente."
 
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:508,
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:519,
 #: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:569
 msgid ""
 "A problem occurred when processing your payment. Are you sure you have "
@@ -1326,28 +1370,16 @@ msgstr ""
 "Um problema ocorreu ao processar seu pagamento. Você tem certeza que "
 "preencheu corretamente todos os campos do formulário do checkout?"
 
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:481,
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:474,
-#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:132
-msgid " days"
-msgstr " dias"
-
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:481,
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:474,
-#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:132
-msgid " day"
-msgstr " dia"
-
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:487,
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:498,
 #: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:544
 msgid "The customer has not paid yet."
 msgstr "Cliente ainda não pagou."
 
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:491
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:502
 msgid "Now you just need to pay with PIX to finalize your purchase."
 msgstr "Agora é só pagar com o PIX para finalizar sua compra."
 
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:492
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:503
 msgid ""
 "Scan the QR code below or copy and paste the code into your bank's "
 "application."
@@ -1355,7 +1387,7 @@ msgstr ""
 "Escaneie o código QR abaixo ou copie e cole o código no aplicativo do seu "
 "banco."
 
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:599
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:610
 msgid ""
 "Please note that to receive payments via Pix at our checkout, you must have "
 "a Pix key registered in your Mercado Pago account."
@@ -1363,11 +1395,11 @@ msgstr ""
 "Lembre-se de que para receber pagamentos via PIX em nosso checkout, você "
 "precisa ter uma chave PIX cadastrada na sua conta Mercado Pago."
 
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:600
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:611
 msgid "Register your Pix key at Mercado Pago."
 msgstr "Cadastre sua chave PIX no Mercado Pago."
 
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:641,
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:652,
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:130
 msgid "Code valid for "
 msgstr "Código válido por "
@@ -1513,8 +1545,8 @@ msgstr "Descartar"
 msgid "Shipping service used by the store."
 msgstr "Serviço de envio usado pela loja."
 
-#: ../../includes/module/preference/class-wc-woomercadopago-preference-abstract.php:536,
-#: ../../includes/module/preference/class-wc-woomercadopago-preference-abstract.php:537
+#: ../../includes/module/preference/class-wc-woomercadopago-preference-abstract.php:540,
+#: ../../includes/module/preference/class-wc-woomercadopago-preference-abstract.php:541
 msgid "Discount provided by store"
 msgstr "Desconto dado pela loja"
 
@@ -1523,11 +1555,11 @@ msgstr "Desconto dado pela loja"
 msgid "Discount for coupon %s"
 msgstr "Desconto para o cupom %s"
 
-#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:172
+#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:167
 msgid " and fee of"
 msgstr " e taxa de"
 
-#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:409
+#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:404
 msgid ""
 "<b>Public Key</b> production credential is invalid. Review the field to "
 "receive real payments."
@@ -1535,7 +1567,7 @@ msgstr ""
 "A credencial de produção <b>Public Key</b> é inválida. Revise o campo para "
 "poder receber pagamentos reais."
 
-#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:418
+#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:413
 msgid ""
 "<b>Public Key</b> test credential is invalid. Review the field to perform "
 "tests in your store."
@@ -1543,7 +1575,7 @@ msgstr ""
 "A credencial de teste <b>Public Key</b> é inválida. Revise o campo para "
 "poder realizar testes em sua loja."
 
-#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:427
+#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:422
 msgid ""
 "<b>Access Token</b> production credential is invalid. Remember that it must "
 "be complete to receive real payments."
@@ -1551,7 +1583,7 @@ msgstr ""
 "A credencial de produção <b>Access Token</b> é inválida. Revise o campo para "
 "poder receber pagamentos reais."
 
-#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:436
+#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:431
 msgid ""
 "<b>Access Token</b> test credential is invalid. Review the field to perform "
 "tests in your store."
@@ -1559,7 +1591,7 @@ msgstr ""
 "A credencial de teste <b>Access Token</b> é inválida. Revise o campo para "
 "poder realizar testes em sua loja."
 
-#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:454
+#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:449
 msgid ""
 "<b>Public Key</b> test credential is blank. Review the field to perform "
 "tests in your store."
@@ -1567,7 +1599,7 @@ msgstr ""
 "A credencial de teste <b>Public Key</b> está em branco. Revise o campo para "
 "poder realizar testes em sua loja."
 
-#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:463
+#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:458
 msgid ""
 "<b>Public Key</b> production credential is blank. Review the field to "
 "receive real payments."
@@ -1575,7 +1607,7 @@ msgstr ""
 "A credencial de produção <b>Public Key</b> está em branco. Revise o campo "
 "para poder receber pagamentos reais."
 
-#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:472
+#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:467
 msgid ""
 "<b>Access Token</b> test credential is blank. Review the field to perform "
 "tests in your store."
@@ -1583,7 +1615,7 @@ msgstr ""
 "A credencial de teste <b>Access Token</b> está em branco. Revise o campo "
 "para poder realizar testes em sua loja."
 
-#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:481
+#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:476
 msgid ""
 "<b>Access Token</b> production credential is blank. Remember that it must be "
 "complete to receive real payments."
@@ -1709,15 +1741,15 @@ msgstr "Valor a pagar: "
 msgid "Scan the QR code:"
 msgstr "Escaneie o QR code:"
 
-#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:133
+#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:132
 msgid "If you prefer, you can pay by copying and pasting the following code"
 msgstr "Se preferir, você pode pagar copiando e colando o seguinte código"
 
-#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:135
+#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:134
 msgid "Copy code"
 msgstr "Copiar código"
 
-#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:176
+#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:175
 msgid "New"
 msgstr "Novo"
 
@@ -1990,6 +2022,9 @@ msgstr ""
 #: ../../templates/order-received/show-ticket.php:23
 msgid "Print ticket"
 msgstr "Imprimir boleto"
+
+#~ msgid " day"
+#~ msgstr " dia"
 
 #~ msgid "Description for cart Checkout"
 #~ msgstr "Descrição para Checkout no carrinho"
