@@ -572,7 +572,7 @@ abstract class WC_WooMercadoPago_Preference_Abstract extends WC_Payment_Gateway 
 		$access_token = get_option( '_mp_access_token_prod', '' );
 		$test_mode    = false;
 
-		if ( 'no' === $this->payment->get_option_mp( 'checkout_credential_prod', '' ) ) {
+		if ( 'yes' === $this->payment->get_option_mp( 'checkbox_checkout_test_mode', '' ) ) {
 			$test_mode    = true;
 			$access_token = get_option( '_mp_access_token_test', '' );
 		}
