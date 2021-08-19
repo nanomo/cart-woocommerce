@@ -1579,11 +1579,12 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 	 */
 	public function field_mp_psj_description_link() {
 		$message_link = __( 'Configure Installments and Interest', 'woocommerce-mercadopago' );
+		$links_mp = WC_WooMercadoPago_Module::define_link_country();
 
 		return array(
 			'title' => sprintf(
 				'%s',
-				'<a href="' . $this->get_country_link_guide( $this->checkout_country ) . 'guides/plugins/woocommerce/integration" target="_blank">' . $message_link . '</a>'
+				'<a href="https://www.mercadopago.' . $links_mp['sufix_url'] . 'costs-section#from-section=menu" target="_blank">' . $message_link . '</a>'
 			),
 			'type'  => 'title',
 			'class' => 'mp_tienda_link',
