@@ -979,6 +979,9 @@ msgstr ""
 msgid "15 minutes"
 msgstr ""
 
+msgid "30 minutes"
+msgstr ""
+
 #: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:366
 msgid "30 minutes (recommended)"
 msgstr ""
