@@ -617,12 +617,12 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 		$form_fields['checkout_btn_save']      = $this->field_checkout_btn_save();
 
 		if ( ! empty( $this->checkout_country ) ) {
+			$this->load_custom_js_for_checkbox();
+
 			$form_fields['checkout_credential_title']                = $this->field_checkout_credential_title();
-			$form_fields['checkout_credential_mod_test_title']       = $this->field_checkout_credential_mod_test_title();
-			$form_fields['checkout_credential_mod_test_description'] = $this->field_checkout_credential_mod_test_description();
-			$form_fields['checkout_credential_mod_prod_title']       = $this->field_checkout_credential_mod_prod_title();
-			$form_fields['checkout_credential_mod_prod_description'] = $this->field_checkout_credential_mod_prod_description();
-			$form_fields['checkout_credential_prod']                 = $this->field_checkout_credential_production();
+			$form_fields['checkout_subtitle_checkout_mode']          = $this->field_subtitle_checkout_mode();
+			$form_fields['checkbox_checkout_test_mode']              = $this->field_checkbox_checkout_test_mode();
+			$form_fields['checkbox_checkout_production_mode']        = $this->field_checkbox_checkout_production_mode();
 			$form_fields['checkout_credential_link']                 = $this->field_checkout_credential_link( $this->checkout_country );
 			$form_fields['checkout_credential_title_test']           = $this->field_checkout_credential_title_test();
 			$form_fields['checkout_credential_description_test']     = $this->field_checkout_credential_description_test();
@@ -911,81 +911,118 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 	 */
 	public function field_checkout_credential_title() {
 		return array(
-			'title' => __( 'Enter your credentials and choose how to operate', 'woocommerce-mercadopago' ),
+			'title' => __( 'Set up store payments for Test or Production Mode', 'woocommerce-mercadopago' ),
 			'type'  => 'title',
 			'class' => 'mp_subtitle_bd',
 		);
 	}
 
 	/**
-	 * Field checkout credential title test
+	 * Get sufix to static files
 	 *
-	 * @return array
+	 * @return String
 	 */
-	public function field_checkout_credential_mod_test_title() {
-		return array(
-			'title' => __( 'Test Mode', 'woocommerce-mercadopago' ),
-			'type'  => 'title',
-			'class' => 'mp_subtitle_mt',
+	private function get_suffix() {
+		return defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
+	}
+
+	/**
+	 * Load Custom JS For Checkbox
+	 *
+	 * @return void
+	 */
+	private function load_custom_js_for_checkbox() {
+		wp_enqueue_script(
+			'custom_checkbox_checkout_mode',
+			plugins_url( '../assets/js/custom_checkbox_checkout_mode' . $this->get_suffix() . '.js', plugin_dir_path( __FILE__ ) ),
+			array(),
+			WC_WooMercadoPago_Constants::VERSION,
+			true
 		);
 	}
 
 	/**
-	 * Field checkout credential description test
+	 * Field subtitle checkout mode
 	 *
-	 * @return array
+	 * @return Array
 	 */
-	public function field_checkout_credential_mod_test_description() {
+	public function field_subtitle_checkout_mode() {
 		return array(
-			'title' => __( 'By default, we activate the Sandbox test environment for you to test before you start selling.', 'woocommerce-mercadopago' ),
-			'type'  => 'title',
-			'class' => 'mp_small_text mp-mt--12',
+			'title' => __( 'How would you like to handle your store checkouts?', 'woocommerce-mercadopago' ),
+			'type'  => 'title'
 		);
 	}
 
 	/**
-	 * Field checkout credential title prod
+	 * Field checkout mode production
 	 *
-	 * @return array
+	 * @return Array
 	 */
-	public function field_checkout_credential_mod_prod_title() {
+	public function field_checkbox_checkout_production_mode() {
+		$previously_configured_plugin = 'woo-mercado-pago-basic' === $this->id && $this->clientid_old_version;
+		$mode                         = $this->is_production_mode() || $previously_configured_plugin ? 'production' : 'test';
+		$isCheckedCSSClass            = 'production' === $mode ? 'checked' : '';
+
 		return array(
-			'title' => __( 'Production Mode', 'woocommerce-mercadopago' ),
-			'type'  => 'title',
-			'class' => 'mp_subtitle_mt',
+			'label' => "<b id='checkout-mode-checkbox-production' class='{$isCheckedCSSClass}'>"
+				. __( 'Activate Production Mode for Mercado Pago checkouts', 'woocommerce-mercadopago' )
+				. '</b>',
+			'description' => '<span>'
+				. __(
+					'Mercado Pago checkouts are active for real payments.',
+					'woocommerce-mercadopago'
+				)
+				. '</span>',
+			'type' => 'checkbox',
+			'css' => 'border-radius: 50%; outline: none;',
 		);
 	}
 
 	/**
-	 * Field checkout credential description prod
+	 * Get Country Domain By MELI Acronym
 	 *
-	 * @return array
+	 * @return String
 	 */
-	public function field_checkout_credential_mod_prod_description() {
-		return array(
-			'title' => __( 'When you see that everything is going well, deactivate Sandbox, turn on Production and make way for your online sales.', 'woocommerce-mercadopago' ),
-			'type'  => 'title',
-			'class' => 'mp_small_text mp-mt--12',
+	public function getCountryDomainByMeliAcronym( $meliAcronym ) {
+		$countries = array(
+			'mla' => 'ar',
+			'mlb' => 'br',
+			'mlc' => 'cl',
+			'mco' => 'co',
+			'mlm' => 'mx',
+			'mpe' => 'pe',
+			'mlu' => 'uy',
 		);
+
+		return $countries[$meliAcronym];
 	}
 
 	/**
-	 * Field checkout credential production
+	 * Field checkout mode test
 	 *
-	 * @return array
+	 * @return Array
 	 */
-	public function field_checkout_credential_production() {
-		$production_mode = $this->is_production_mode() ? 'yes' : 'no';
+	public function field_checkbox_checkout_test_mode() {
+		$previously_configured_plugin = 'woo-mercado-pago-basic' === $this->id && $this->clientid_old_version;
+		$mode                         = $this->is_production_mode() || $previously_configured_plugin ? 'production' : 'test';
+		$isCheckedCSSClass            = 'test' === $mode ? 'checked' : '';
+		$testGuideLines               = '<a style="text-decoration: none; outline: none;" target="_blank" href="https://mercadopago.com.'
+			. $this->getCountryDomainByMeliAcronym($this->checkout_country) . '" >'
+			. __('test mode guidelines.', 'woocommerce-mercadopago')
+			. '</a>';
 
 		return array(
-			'title'       => __( 'Production', 'woocommerce-mercadopago' ),
-			'type'        => 'select',
-			'description' => __( 'Choose “Yes” only when you’re ready to sell. Switch to “No” to activate Testing mode.', 'woocommerce-mercadopago' ),
-			'default'     => 'woo-mercado-pago-basic' === $this->id && $this->clientid_old_version ? 'yes' : $production_mode,
-			'options'     => array(
-				'no'  => __( 'No', 'woocommerce-mercadopago' ),
-				'yes' => __( 'Yes', 'woocommerce-mercadopago' ),
-			),
+			'label' => "<b id='checkout-mode-checkbox-test' class='{$isCheckedCSSClass}'>"
+				. __( 'Activar Modo Test para checkouts Mercado Pago', 'woocommerce-mercadopago' )
+				. '</b>',
+			'description' => '<span>'
+				. __(
+					'Mercado Pago checkouts are inactive for real payments in the Test Mode. Please check the',
+					'woocommerce-mercadopago'
+				) . ' ' . $testGuideLines
+				. '</span>',
+			'type' => 'checkbox',
+			'css' => 'border-radius: 50%; outline: none;',
 		);
 	}
 
@@ -1688,11 +1725,11 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 			$key     = 'woocommerce_' . $gateway::get_id() . '_settings';
 			$options = get_option( $key );
 			if ( ! empty( $options ) ) {
-				if ( isset( $options['checkout_credential_prod'] ) && 'yes' === $options['checkout_credential_prod'] && ! empty( $this->mp_access_token_prod ) ) {
+				if ( isset( $options['checkbox_checkout_test_mode'] ) && 'no' === $options['checkbox_checkout_test_mode'] && ! empty( $this->mp_access_token_prod ) ) {
 					continue;
 				}
 
-				if ( isset( $options['checkout_credential_prod'] ) && 'no' === $options['checkout_credential_prod'] && ! empty( $this->mp_access_token_test ) ) {
+				if ( isset( $options['checkbox_checkout_test_mode'] ) && 'yes' === $options['checkbox_checkout_test_mode'] && ! empty( $this->mp_access_token_test ) ) {
 					continue;
 				}
 
@@ -1718,14 +1755,14 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 	 */
 	public function is_production_mode() {
 		$this->update_credential_production();
-		return $this->get_option_mp( 'checkout_credential_prod', get_option( 'checkout_credential_prod', 'no' ) ) === 'yes';
+		return $this->get_option_mp( 'checkbox_checkout_test_mode', get_option( 'checkbox_checkout_test_mode', 'yes' ) ) === 'no';
 	}
 
 	/**
 	 * Update Credentials for production
 	 */
 	public function update_credential_production() {
-		if ( ! empty( $this->get_option_mp( 'checkout_credential_prod', null ) ) ) {
+		if ( ! empty( $this->get_option_mp( 'checkbox_checkout_test_mode', null ) ) ) {
 			return;
 		}
 
@@ -1736,7 +1773,7 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 				if ( ! isset( $options['checkout_credential_production'] ) || empty( $options['checkout_credential_production'] ) ) {
 					continue;
 				}
-				$options['checkout_credential_prod'] = $options['checkout_credential_production'];
+				$options['checkbox_checkout_test_mode'] = $options['checkout_credential_production'];
 				update_option( $key, apply_filters( 'woocommerce_settings_api_sanitized_fields_' . $gateway::get_id(), $options ) );
 			}
 		}
