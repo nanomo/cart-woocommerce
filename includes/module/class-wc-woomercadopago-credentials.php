@@ -465,4 +465,42 @@ class WC_WooMercadoPago_Credentials {
 		}
 		return false;
 	}
+
+	/**
+	 * Ajax endpoint to consult the credentials
+	 */
+	public static function ajax_validate_credentials() {
+		try {
+			$access_token = self::get_sanitize_text_from_post('access_token');
+			$public_key   = self::get_sanitize_text_from_post('public_key');
+
+			$mp                    = WC_WooMercadoPago_Module::get_mp_instance_singleton();
+			$validate_access_token = $mp->get_credentials_wrapper( $access_token );
+			$validate_public_key   = $mp->get_credentials_wrapper( null, $public_key );
+
+			$response = [
+				'access_token' => $validate_access_token,
+				'public_key'   => $validate_public_key,
+			];
+
+			wp_send_json_success( $response );
+		} catch ( Exception $e ) {
+			$response = [
+				'message' => $e->getMessage()
+			];
+
+			wp_send_json_error( $response );
+		}
+	}
+
+	/**
+	 * Get data from $_POST method with sanitize for text field
+	 *
+	 * @param $key
+	 *
+	 * @return string
+	 */
+	public static function get_sanitize_text_from_post( $key ) {
+		return sanitize_text_field( isset( $_POST[ $key ] ) ? $_POST[ $key ] : '' ); //phpcs:ignore
+	}
 }
