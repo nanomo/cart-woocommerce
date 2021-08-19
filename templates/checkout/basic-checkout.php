@@ -14,6 +14,23 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 ?>
 <div class="mp-panel-checkout">
+	<!-- TODO: Replicar para outros checkouts -->
+	<div class="mp-alert-checkout-test-mode">
+		<div class="mp-alert-icon-checkout-test-mode">
+			<!-- TODO: Hospedar imagem no Robin -->
+			<img
+				src="https://i.ibb.co/Qr5cgvf/image-1.png"
+				alt="alert"
+				class="mp-alert-circle-img"
+			>
+		</div>
+		<div class="mp-alert-texts-checkout-test-mode">
+			<!-- TODO: Colocar traduções -->
+			<h2 class="mp-alert-title-checkout-test-mode">Checkout Pro em Modo Teste</h2>
+			<!-- TODO: Colocar traduções e links -->
+			<p class="mp-alert-description-checkout-test-mode">Utilize meios do Mercado Pago sem cobranças reais. Consulte as regras do modo teste.</p>
+		</div>
+	</div>
 	<div class="mp-row-checkout">
 	<?php if ( 0 !== (int) $credito ) : ?>
 	<div id="framePayments" class="mp-col-md-12">
