@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: Mercado Pago payments for WooCommerce 5.3.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/woocommerce-mercadopago\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2021-08-19 09:30-0300\n"
+"PO-Revision-Date: 2021-08-19 10:14-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: es_AR\n"
@@ -740,7 +740,7 @@ msgid "Mercado Pago checkouts are inactive for real payments in the Test Mode. P
 msgstr "Checkouts Mercado Pago inactivos para cobros reales. Consulta las"
 
 #: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:977
-msgid "Test Mode guidelines."
+msgid "test mode guidelines."
 msgstr "reglas del Modo Test."
 
 #: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:927

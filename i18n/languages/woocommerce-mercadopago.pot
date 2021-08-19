@@ -603,7 +603,7 @@ msgid "Mercado Pago checkouts are active for real payments."
 msgstr ""
 
 #: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:977
-msgid "Test Mode guidelines."
+msgid "test mode guidelines."
 msgstr ""
 
 #: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:981
