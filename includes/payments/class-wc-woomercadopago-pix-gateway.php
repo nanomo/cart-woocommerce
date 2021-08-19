@@ -223,8 +223,8 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 			'checkout_pix_payments_title',
 			'checkout_payments_subtitle',
 			'checkout_pix_payments_description',
-            'enabled',
-            'title',
+			'enabled',
+			'title',
 			'checkout_pix_date_expiration',
 			WC_WooMercadoPago_Helpers_CurrencyConverter::CONFIG_KEY,
 			// About PIX.
@@ -374,7 +374,6 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 			'6 days'        => __( '6 days', 'woocommerce-mercadopago' ),
 			'7 days'        => __( '7 days', 'woocommerce-mercadopago' ),
 		);
-	
 
 		return array(
 			'title'       => __( 'Pix Expiration', 'woocommerce-mercadopago' ),
