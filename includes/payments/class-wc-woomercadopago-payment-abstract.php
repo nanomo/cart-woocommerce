@@ -1542,6 +1542,54 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 		);
 	}
 
+		/**
+	 * Field Installments and Interest Configuration Title
+	 *
+	 * @return array
+	 */
+	public function field_mp_psj_title() {
+		$message_support_title = __( 'Configure installments and interest', 'woocommerce-mercadopago' );
+
+		return array(
+			'title' => $message_support_title,
+			'type'  => 'title',
+			'class' => 'mp_subtitle_bd_mb mp-mg-0',
+		);
+	}
+
+	/**
+	 * Field Installments and Interest Configuration Description
+	 *
+	 * @return array
+	 */
+	public function field_mp_psj_description() {
+		$message_support_description = __( 'On Mercado Pago you can choose the interest ....', 'woocommerce-mercadopago' );
+
+		return array(
+			'title' => $message_support_description,
+			'type'  => 'title',
+			'class' => 'mp_small_text',
+		);
+	}
+
+	/**
+	 * Field Checkout Support Description Link
+	 *
+	 * @return array
+	 */
+	public function field_mp_psj_description_link() {
+		$message_link = __( 'Configure Installments and Interest', 'woocommerce-mercadopago' );
+
+		return array(
+			'title' => sprintf(
+				'%s',
+				'<a href="' . $this->get_country_link_guide( $this->checkout_country ) . 'guides/plugins/woocommerce/integration" target="_blank">' . $message_link . '</a>'
+			),
+			'type'  => 'title',
+			'class' => 'mp_tienda_link',
+		);
+	}
+
 	/**
 	 * Field checkout ready title
 	 *
