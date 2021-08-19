@@ -2,8 +2,9 @@
 # This file is distributed under the same license as the Mercado Pago payments for WooCommerce plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: Mercado Pago payments for WooCommerce 5.3.0\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/woocommerce-mercadopago\n"
+"Project-Id-Version: Mercado Pago payments for WooCommerce 5.3.1\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/woocommerce-"
+"mercadopago\n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: 2021-08-19 10:15-0300\n"
 "Last-Translator: \n"
