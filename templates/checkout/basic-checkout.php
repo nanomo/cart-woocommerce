@@ -25,7 +25,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 			</div>
 			<div class='mp-alert-texts-checkout-test-mode'>
 				<h2 class='mp-alert-title-checkout-test-mode'>Checkout Pro em Modo Teste</h2>
-				<p class='mp-alert-description-checkout-test-mode'>Utilize meios do Mercado Pago sem cobranças reais. Consulte as regras do modo teste.</p>
+				<p class='mp-alert-description-checkout-test-mode'>Utilize meios do Mercado Pago sem cobranças reais. Consulte as
+				&nbsp;<a style='color: #74AFFC; text-decoration: none; outline: none;' target='_blank' href='" . $test_mode_rules_link . "'>regras do modo teste</a>.</p>
 			</div>
 		</div>";
 
