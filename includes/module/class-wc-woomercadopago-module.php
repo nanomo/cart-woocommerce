@@ -91,7 +91,7 @@ class WC_WooMercadoPago_Module extends WC_WooMercadoPago_Configs {
 			$this->load_stock_manager();
 
 			add_action( 'admin_enqueue_scripts', array( $this, 'load_admin_css' ) );
-			add_action( 'admin_enqueue_scripts', array( $this, 'load_global_css' ) );
+			add_action( 'wp_enqueue_scripts', array( $this, 'load_global_css' ) );
 
 			add_filter( 'woocommerce_available_payment_gateways', array( $this, 'filter_payment_method_by_shipping' ) );
 			add_filter( 'plugin_action_links_' . WC_MERCADOPAGO_BASENAME, array( $this, 'woomercadopago_settings_link' ) );
@@ -317,7 +317,7 @@ class WC_WooMercadoPago_Module extends WC_WooMercadoPago_Configs {
 
 		wp_enqueue_style(
 			'woocommerce-mercadopago-global-css',
-			plugins_url( '../../assets/css/admin_notice_mercadopago' . $suffix . '.css', plugin_dir_path( __FILE__ ) ),
+			plugins_url( '../assets/css/global' . $suffix . '.css', plugin_dir_path( __FILE__ ) ),
 			array(),
 			WC_WooMercadoPago_Constants::VERSION
 		);
