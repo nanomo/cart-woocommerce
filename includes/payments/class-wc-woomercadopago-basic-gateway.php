@@ -569,6 +569,7 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 		}
 
 		$parameters = array(
+			'is_prod_mode'   => $this->get_option_mp( 'checkout_credential_prod', get_option( 'checkout_credential_prod', 'no' ) ),
 			'debito'         => $debito,
 			'credito'        => $credito,
 			'efectivo'       => $efectivo,

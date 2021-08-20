@@ -14,22 +14,24 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 ?>
 <div class="mp-panel-checkout">
-	<!-- TODO: Replicar para outros checkouts -->
-	<div class="mp-alert-checkout-test-mode">
-		<div class="mp-alert-icon-checkout-test-mode">
-			<img
-				src="<?php echo esc_url( plugins_url( '../assets/images/generics/circle-alert.png', plugin_dir_path( __FILE__ ) ) ); ?>"
-				alt="alert"
-				class="mp-alert-circle-img"
-			>
-		</div>
-		<div class="mp-alert-texts-checkout-test-mode">
-			<!-- TODO: Colocar traduções -->
-			<h2 class="mp-alert-title-checkout-test-mode">Checkout Pro em Modo Teste</h2>
-			<!-- TODO: Colocar traduções e links -->
-			<p class="mp-alert-description-checkout-test-mode">Utilize meios do Mercado Pago sem cobranças reais. Consulte as regras do modo teste.</p>
-		</div>
-	</div>
+	<?php
+		$alert = "<div class='mp-alert-checkout-test-mode'>
+			<div class='mp-alert-icon-checkout-test-mode'>
+				<img
+					src='" . esc_url( plugins_url( '../assets/images/generics/circle-alert.png', plugin_dir_path( __FILE__ ) ) ) . "'
+					alt='alert'
+					class='mp-alert-circle-img'
+				>
+			</div>
+			<div class='mp-alert-texts-checkout-test-mode'>
+				<h2 class='mp-alert-title-checkout-test-mode'>Checkout Pro em Modo Teste</h2>
+				<p class='mp-alert-description-checkout-test-mode'>Utilize meios do Mercado Pago sem cobranças reais. Consulte as regras do modo teste.</p>
+			</div>
+		</div>";
+
+		// @codingStandardsIgnoreLine
+		echo 'yes' === $is_prod_mode ? '' : $alert;
+	?>
 	<div class="mp-row-checkout">
 	<?php if ( 0 !== (int) $credito ) : ?>
 	<div id="framePayments" class="mp-col-md-12">
