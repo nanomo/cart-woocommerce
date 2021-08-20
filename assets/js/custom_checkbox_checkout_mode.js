@@ -33,10 +33,17 @@ function customizeCheckboxLabel(checkboxTableString) {
     const testCheckboxLabel = document.querySelector(`#${checkboxTableString} > tbody > tr > td.forminp > fieldset > label`);
     const productionCheckboxLabel = document.querySelector(`#${checkboxTableString} > tbody > tr:nth-child(2) > td.forminp > fieldset > label`);
 
-    testCheckboxLabel.style.setProperty("margin", "0", "important");
     testCheckboxLabel.style.color = 'black';
-    productionCheckboxLabel.style.setProperty("margin", "0", "important");
+    testCheckboxLabel.style.border = 'none';
+    testCheckboxLabel.style.width = '100%';
+    testCheckboxLabel.style.setProperty("margin", "0", "important");
+    testCheckboxLabel.style.setProperty("padding", "0", "important");
+
     productionCheckboxLabel.style.color = 'black';
+    productionCheckboxLabel.style.border = 'none';
+    productionCheckboxLabel.style.width = '100%';
+    productionCheckboxLabel.style.setProperty("margin", "0", "important");
+    productionCheckboxLabel.style.setProperty("padding", "0", "important");
 }
 
 function customizeCheckboxDescription(checkboxTableString) {
@@ -81,8 +88,8 @@ function addInputRadioLogic(testCheckbox, productionCheckbox) {
 
 window.addEventListener("load", () => {
     const checkboxTableString = getCheckboxTableString();
-    const testCheckbox = document.querySelector('#woocommerce_woo-mercado-pago-custom_checkbox_checkout_test_mode');
-    const productionCheckbox = document.querySelector('#woocommerce_woo-mercado-pago-custom_checkbox_checkout_production_mode');
+    const testCheckbox = document.querySelector('[id*="test_mode"]');
+    const productionCheckbox = document.querySelector('[id*="production_mode"]');
 
     hideColumnEmptyFromCheckbox(checkboxTableString);
     customizeCheckboxContainer(checkboxTableString);
