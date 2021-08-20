@@ -351,6 +351,9 @@ class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 		}
 
 		$parameters = array(
+			'is_prod_mode'         => $this->get_option_mp( 'checkout_credential_prod', get_option( 'checkout_credential_prod', 'no' ) ),
+			// TODO: Remover link provisório
+			'test_mode_rules_link' => 'https://mercadopago.com.' . $this->get_country_domain_by_meli_acronym($this->checkout_country),
 			'amount'               => $amount,
 			'site_id'              => $this->get_option_mp( '_site_id_v1' ),
 			'public_key'           => $this->get_public_key(),
@@ -367,6 +370,25 @@ class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 		);
 
 		wc_get_template( 'checkout/custom-checkout.php', $parameters, 'woo/mercado/pago/module/', WC_WooMercadoPago_Module::get_templates_path() );
+	}
+
+	/**
+	 * Get Country Domain By MELI Acronym
+	 *
+	 * @return String
+	 */
+	public function get_country_domain_by_meli_acronym( $meliAcronym ) {
+		$countries = array(
+			'mla' => 'ar',
+			'mlb' => 'br',
+			'mlc' => 'cl',
+			'mco' => 'co',
+			'mlm' => 'mx',
+			'mpe' => 'pe',
+			'mlu' => 'uy',
+		);
+
+		return $countries[$meliAcronym];
 	}
 
 	/**
