@@ -1285,31 +1285,31 @@ msgstr ""
 msgid "New"
 msgstr ""
 
-#: ../../templates/checkout/basic-checkout.php:22, ../../templates/checkout/custom-checkout.php:61
+#: ../../templates/checkout/basic-checkout.php:38, ../../templates/checkout/custom-checkout.php:61
 msgid "Credit cards"
 msgstr ""
 
-#: ../../templates/checkout/basic-checkout.php:23
+#: ../../templates/checkout/basic-checkout.php:39
 msgid "Until"
 msgstr ""
 
-#: ../../templates/checkout/basic-checkout.php:27
+#: ../../templates/checkout/basic-checkout.php:43
 msgid "installments"
 msgstr ""
 
-#: ../../templates/checkout/basic-checkout.php:25
+#: ../../templates/checkout/basic-checkout.php:41
 msgid "installment"
 msgstr ""
 
-#: ../../templates/checkout/basic-checkout.php:42, ../../templates/checkout/custom-checkout.php:68
+#: ../../templates/checkout/basic-checkout.php:58, ../../templates/checkout/custom-checkout.php:68
 msgid "Debit card"
 msgstr ""
 
-#: ../../templates/checkout/basic-checkout.php:56
+#: ../../templates/checkout/basic-checkout.php:72
 msgid "Payments in cash"
 msgstr ""
 
-#: ../../templates/checkout/basic-checkout.php:71
+#: ../../templates/checkout/basic-checkout.php:87
 msgid "We take you to our site to complete the payment"
 msgstr ""
 

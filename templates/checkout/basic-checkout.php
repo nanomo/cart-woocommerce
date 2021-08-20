@@ -17,9 +17,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<!-- TODO: Replicar para outros checkouts -->
 	<div class="mp-alert-checkout-test-mode">
 		<div class="mp-alert-icon-checkout-test-mode">
-			<!-- TODO: Hospedar imagem no Robin -->
 			<img
-				src="https://i.ibb.co/Qr5cgvf/image-1.png"
+				src="<?php echo esc_url( plugins_url( '../assets/images/generics/circle-alert.png', plugin_dir_path( __FILE__ ) ) ); ?>"
 				alt="alert"
 				class="mp-alert-circle-img"
 			>
