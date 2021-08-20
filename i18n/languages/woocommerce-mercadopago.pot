@@ -1285,32 +1285,44 @@ msgstr ""
 msgid "New"
 msgstr ""
 
-#: ../../templates/checkout/basic-checkout.php:44, ../../templates/checkout/custom-checkout.php:82
+#: ../../templates/checkout/basic-checkout.php:45, ../../templates/checkout/custom-checkout.php:82
 msgid "Credit cards"
 msgstr ""
 
-#: ../../templates/checkout/basic-checkout.php:45
+#: ../../templates/checkout/basic-checkout.php:46
 msgid "Until"
 msgstr ""
 
-#: ../../templates/checkout/basic-checkout.php:49
+#: ../../templates/checkout/basic-checkout.php:50
 msgid "installments"
 msgstr ""
 
-#: ../../templates/checkout/basic-checkout.php:47
+#: ../../templates/checkout/basic-checkout.php:48
 msgid "installment"
 msgstr ""
 
-#: ../../templates/checkout/basic-checkout.php:64, ../../templates/checkout/custom-checkout.php:89
+#: ../../templates/checkout/basic-checkout.php:65, ../../templates/checkout/custom-checkout.php:89
 msgid "Debit card"
 msgstr ""
 
-#: ../../templates/checkout/basic-checkout.php:78
+#: ../../templates/checkout/basic-checkout.php:79
 msgid "Payments in cash"
 msgstr ""
 
-#: ../../templates/checkout/basic-checkout.php:93
+#: ../../templates/checkout/basic-checkout.php:94
 msgid "We take you to our site to complete the payment"
+msgstr ""
+
+#: ../../templates/checkout/custom-checkout.php:19
+msgid "Credit Cards in Test Mode"
+msgstr ""
+
+#: ../../templates/checkout/custom-checkout.php:20
+msgid "Use the specific test cards that are in the"
+msgstr ""
+
+#: ../../templates/checkout/custom-checkout.php:21
+msgid "test mode rules"
 msgstr ""
 
 #: ../../templates/checkout/custom-checkout.php:51
@@ -1421,12 +1433,20 @@ msgstr ""
 msgid "Obligatory field"
 msgstr ""
 
-#: ../../templates/checkout/pix-checkout.php:42
+#: ../../templates/checkout/pix-checkout.php:43
 msgid "Pay securely and instantly!"
 msgstr ""
 
-#: ../../templates/checkout/pix-checkout.php:44
+#: ../../templates/checkout/pix-checkout.php:45
 msgid "When you finish the order, you will see the code to complete the payment."
+msgstr ""
+
+#: ../../templates/checkout/ticket-checkout.php:19
+msgid "Tickets in Test Mode"
+msgstr ""
+
+#: ../../templates/checkout/ticket-checkout.php:20
+msgid "It is possible to test the flow to generate a boleto, but it is not possible to finalize the payment."
 msgstr ""
 
 #: ../../templates/checkout/ticket-checkout.php:71

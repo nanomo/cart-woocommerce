@@ -16,8 +16,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <div class="mp-panel-custom-checkout">
 	<?php
-		$alertTitle       = 'Boletos em Modo Teste';
-		$alertDescription = 'É possível testar o fluxo para gerar um boleto, mas não é possível finalizar o pagamento.';
+		$alertTitle       = __( 'Tickets in Test Mode', 'woocommerce-mercadopago' );
+		$alertDescription = __( 'It is possible to test the flow to generate a boleto, but it is not possible to finalize the payment.', 'woocommerce-mercadopago' );
 		$alert            = "<div class='mp-alert-checkout-test-mode'>
 			<div class='mp-alert-icon-checkout-test-mode'>
 				<img

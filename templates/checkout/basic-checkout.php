@@ -15,6 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 <div class="mp-panel-checkout">
 	<?php
+		// Apenas para BR
 		$alertTitle       = 'Checkout Pro em Modo Teste';
 		$alertDescription = 'Utilize meios do Mercado Pago sem cobranças reais. Consulte as';
 		$linkName         = 'regras do modo teste';

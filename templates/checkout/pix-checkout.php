@@ -16,6 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <div class="mp-panel-checkout">
 	<?php
+		// Apenas para BR
 		$alertTitle       = 'PIX em Modo Teste';
 		$alertDescription = 'É possível testar o fluxo até gerar o código, mas não é possível finalizar o pagamento.';
 		$alert            = "<div class='mp-alert-checkout-test-mode'>

@@ -16,9 +16,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <div class="mp-panel-custom-checkout">
 	<?php
-		$alertTitle       = 'Cartões de crédito em Modo Teste';
-		$alertDescription = 'Utilize os cartões específicos para teste que estão nas';
-		$linkName         = 'regras do modo teste';
+		$alertTitle       = __( 'Credit Cards in Test Mode', 'woocommerce-mercadopago' );
+		$alertDescription = __( 'Use the specific test cards that are in the', 'woocommerce-mercadopago' );
+		$linkName         = __( 'test mode rules', 'woocommerce-mercadopago' );
 		$alert            = "<div class='mp-alert-checkout-test-mode'>
 			<div class='mp-alert-icon-checkout-test-mode'>
 				<img
