@@ -142,6 +142,10 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 			'checkout_credential_description_test',
 			'_mp_public_key_test',
 			'_mp_access_token_test',
+			// Everything ready for the takeoff of your sales?
+			'checkout_ready_title',
+			'checkout_ready_description',
+			'checkout_ready_description_link',
 			// No olvides de homologar tu cuenta.
 			'checkout_homolog_title',
 			'checkout_homolog_subtitle',
@@ -180,10 +184,6 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 			'checkout_support_description',
 			'checkout_support_description_link',
 			'checkout_support_problem',
-			// Everything ready for the takeoff of your sales?
-			'checkout_ready_title',
-			'checkout_ready_description',
-			'checkout_ready_description_link',
 		);
 	}
 
