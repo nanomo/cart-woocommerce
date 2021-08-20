@@ -402,6 +402,7 @@ class WC_WooMercadoPago_Ticket_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 		}
 
 		$parameters = array(
+			'is_prod_mode'         => $this->get_option_mp( 'checkout_credential_prod', get_option( 'checkout_credential_prod', 'no' ) ),
 			'amount'               => $amount,
 			'payment_methods'      => $this->activated_payment,
 			'site_id'              => $this->get_option_mp( '_site_id_v1' ),
