@@ -312,7 +312,7 @@ class WC_WooMercadoPago_Module extends WC_WooMercadoPago_Configs {
 	 *
 	 * @return void
 	 */
-	public static function load_global_css() {
+	public function load_global_css() {
 		$suffix = $this->get_suffix();
 
 		wp_enqueue_style(
