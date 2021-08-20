@@ -15,7 +15,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 <div class="mp-panel-checkout">
 	<?php
-		$alert = "<div class='mp-alert-checkout-test-mode'>
+		$alertTitle       = 'Checkout Pro em Modo Teste';
+		$alertDescription = 'Utilize meios do Mercado Pago sem cobranças reais. Consulte as';
+		$linkName         = 'regras do modo teste';
+		$alert            = "<div class='mp-alert-checkout-test-mode'>
 			<div class='mp-alert-icon-checkout-test-mode'>
 				<img
 					src='" . esc_url( plugins_url( '../assets/images/generics/circle-alert.png', plugin_dir_path( __FILE__ ) ) ) . "'
@@ -24,9 +27,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 				>
 			</div>
 			<div class='mp-alert-texts-checkout-test-mode'>
-				<h2 class='mp-alert-title-checkout-test-mode'>Checkout Pro em Modo Teste</h2>
-				<p class='mp-alert-description-checkout-test-mode'>Utilize meios do Mercado Pago sem cobranças reais. Consulte as
-				&nbsp;<a style='color: #74AFFC; text-decoration: none; outline: none;' target='_blank' href='" . $test_mode_rules_link . "'>regras do modo teste</a>.</p>
+				<h2 class='mp-alert-title-checkout-test-mode'>$alertTitle</h2>
+				<p class='mp-alert-description-checkout-test-mode'>$alertDescription
+				&nbsp;<a style='color: #74AFFC; text-decoration: none; outline: none;' target='_blank' href='" . $test_mode_rules_link . "'>$linkName</a>.</p>
 			</div>
 		</div>";
 
