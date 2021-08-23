@@ -195,7 +195,7 @@ class WC_WooMercadoPago_Helpers_CurrencyConverter {
 	 * @return mixed
 	 */
 	private function get_access_token( WC_WooMercadoPago_Payment_Abstract $method ) {
-		$type = $method->get_option_mp( 'checkout_credential_prod' ) === 'no'
+		$type = $method->get_option_mp( 'checkbox_checkout_test_mode' ) === 'yes'
 			? '_mp_access_token_test'
 			: '_mp_access_token_prod';
 
