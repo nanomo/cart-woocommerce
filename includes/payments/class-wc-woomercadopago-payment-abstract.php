@@ -983,7 +983,7 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 	 *
 	 * @return String
 	 */
-	public function getCountryDomainByMeliAcronym( $meliAcronym ) {
+	public function get_country_domain_by_meli_acronym( $meliAcronym ) {
 		$countries = array(
 			'mla' => 'ar',
 			'mlb' => 'br',
@@ -1007,7 +1007,7 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 		$mode                         = $this->is_production_mode() || $previously_configured_plugin ? 'production' : 'test';
 		$isCheckedCSSClass            = 'test' === $mode ? 'checked' : '';
 		$testGuideLines               = '<a style="text-decoration: none; outline: none;" target="_blank" href="https://mercadopago.com.'
-			. $this->getCountryDomainByMeliAcronym($this->checkout_country) . '" >'
+			. $this->get_country_domain_by_meli_acronym($this->checkout_country) . '" >'
 			. __('test mode guidelines.', 'woocommerce-mercadopago')
 			. '</a>';
 
