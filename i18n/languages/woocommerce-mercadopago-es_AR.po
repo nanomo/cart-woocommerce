@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: Mercado Pago payments for WooCommerce 5.3.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/woocommerce-mercadopago\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2021-08-23 12:15-0300\n"
+"PO-Revision-Date: 2021-08-23 11:54-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: es_AR\n"
@@ -1068,10 +1068,11 @@ msgstr "Configura meses sin intereses"
 
 #: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1566
 msgid ""
-"At Mercado Pago you can choose the fee you pay for each purchase and also offer interest-free installments to your "
-"customer."
+"At Mercado Pago you can choose the fee you pay for each purchase and also offer interest-free installments "
+"to your customer."
 msgstr ""
-"En Mercado Pago puedes elegir la tarifa que pagas en cada compra y también ofrecer meses sin intereses a tu cliente."
+"En Mercado Pago puedes elegir la tarifa que pagas en cada compra y también ofrecer meses sin intereses a "
+"tu cliente."
 
 #: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1581
 msgid "Set up installment and interest"
@@ -1421,11 +1422,13 @@ msgstr " y comisión de"
 
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:404
 msgid "<b>Public Key</b> production credential is invalid. Review the field to receive real payments."
-msgstr "La credencial para producción <b>Public Key</b> es inválida. Revísala para poder recibir pagos reales."
+msgstr ""
+"La credencial para producción <b>Public Key</b> es inválida. Revísala para poder recibir pagos reales."
 
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:413
 msgid "<b>Public Key</b> test credential is invalid. Review the field to perform tests in your store."
-msgstr "La credencial de prueba <b>Public Key</b> es inválida. Revísala para poder realizar pruebas en tu tienda."
+msgstr ""
+"La credencial de prueba <b>Public Key</b> es inválida. Revísala para poder realizar pruebas en tu tienda."
 
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:422
 msgid ""
@@ -1434,15 +1437,19 @@ msgstr "La credencial para producción <b>Access Token</b> es inválida. Revísa
 
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:431
 msgid "<b>Access Token</b> test credential is invalid. Review the field to perform tests in your store."
-msgstr "La credencial de prueba <b>Access Token</b> es inválida. Revísala para poder realizar pruebas en tu tienda."
+msgstr ""
+"La credencial de prueba <b>Access Token</b> es inválida. Revísala para poder realizar pruebas en tu tienda."
 
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:449
 msgid "<b>Public Key</b> test credential is blank. Review the field to perform tests in your store."
-msgstr "La credencial de prueba <b>Public Key</b> está en blanco. Revísala para poder realizar pruebas en tu tienda."
+msgstr ""
+"La credencial de prueba <b>Public Key</b> está en blanco. Revísala para poder realizar pruebas en tu "
+"tienda."
 
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:458
 msgid "<b>Public Key</b> production credential is blank. Review the field to receive real payments."
-msgstr "La credencial para producción <b>Public Key</b> está en blanco. Revísala para poder recibir pagos reales."
+msgstr ""
+"La credencial para producción <b>Public Key</b> está en blanco. Revísala para poder recibir pagos reales."
 
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:467
 msgid "<b>Access Token</b> test credential is blank. Review the field to perform tests in your store."
@@ -1844,7 +1851,7 @@ msgstr "Facturas en Modo Test"
 msgid "It is possible to test the flow to generate a boleto, but it is not possible to finalize the payment."
 msgstr "Es posible testear el flujo para generar una factura, pero no es posible finalizar el pago."
 
-#: ../../templates/checkout/custom-checkout.php:21
+#: ../../templates/checkout/custom-checkout.php:19
 msgid "Credit Cards in Test Mode"
 msgstr "Tarjetas de crédito en Modo Test"
 
