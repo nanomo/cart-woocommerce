@@ -1,5 +1,8 @@
 function getCheckboxTableString() {
     const testLabel = document.getElementById('checkout-mode-checkbox-test');
+
+    if (!testLabel || !testLabel.parentElement) return null;
+
     let testLabelParent = testLabel.parentElement;
 
     while (testLabelParent.nodeName !== 'TABLE') {
@@ -88,13 +91,16 @@ function addInputRadioLogic(testCheckbox, productionCheckbox) {
 
 window.addEventListener("load", () => {
     const checkboxTableString = getCheckboxTableString();
-    const testCheckbox = document.querySelector('[id*="test_mode"]');
-    const productionCheckbox = document.querySelector('[id*="production_mode"]');
 
-    hideColumnEmptyFromCheckbox(checkboxTableString);
-    customizeCheckboxContainer(checkboxTableString);
-    customizeCheckboxLabel(checkboxTableString);
-    customizeCheckboxDescription(checkboxTableString);
-    checkCorrectInput(testCheckbox, productionCheckbox);
-    addInputRadioLogic(testCheckbox, productionCheckbox)
+    if (checkboxTableString) {
+        const testCheckbox = document.querySelector('[id*="test_mode"]');
+        const productionCheckbox = document.querySelector('[id*="production_mode"]');
+    
+        hideColumnEmptyFromCheckbox(checkboxTableString);
+        customizeCheckboxContainer(checkboxTableString);
+        customizeCheckboxLabel(checkboxTableString);
+        customizeCheckboxDescription(checkboxTableString);
+        checkCorrectInput(testCheckbox, productionCheckbox);
+        addInputRadioLogic(testCheckbox, productionCheckbox)
+    }
 });
