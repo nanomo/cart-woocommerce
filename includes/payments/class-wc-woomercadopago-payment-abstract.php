@@ -1341,6 +1341,25 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 	}
 
 	/**
+	 * Get Country Link to Mercado Pago
+	 *
+	 * @param string $checkout Checkout by country.
+	 * @return string
+	 */
+	public function get_country_link_mp( $checkout ) {
+		$country_link = array(
+			'mla' => 'https://www.mercadopago.com.ar/',   // Argentinian.
+			'mlb' => 'https://www.mercadopago.com.br/',   // Brazil.
+			'mlc' => 'https://www.mercadopago.cl/',       // Chile.
+			'mco' => 'https://www.mercadopago.com.co/',   // Colombia.
+			'mlm' => 'https://www.mercadopago.com.mx/',   // Mexico.
+			'mpe' => 'https://www.mercadopago.com.pe/',   // Peru.
+			'mlu' => 'https://www.mercadopago.com.uy/',   // Uruguay.
+		);
+		return $country_link[ $checkout ];
+	}
+
+	/**
 	 * Field Custom URL IPN
 	 *
 	 * @return array
@@ -1539,6 +1558,51 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 			'title' => $message_support_problem,
 			'type'  => 'title',
 			'class' => 'mp-text-support',
+		);
+	}
+
+	/**
+	 * Field Installments and Interest Configuration Title
+	 *
+	 * @return array
+	 */
+	public function field_mp_psj_title() {
+		$message_support_title = __( 'Set up your installment and interest payments', 'woocommerce-mercadopago' );
+
+		return array(
+			'title' => $message_support_title,
+			'type'  => 'title',
+			'class' => 'mp_subtitle_bd_mb mp-mg-0',
+		);
+	}
+
+	/**
+	 * Field Installments and Interest Configuration Description
+	 *
+	 * @return array
+	 */
+	public function field_mp_psj_description() {
+		$message_support_description = __( 'At Mercado Pago you can choose the fee you pay for each purchase and also offer interest-free installments to your customer.', 'woocommerce-mercadopago' );
+
+		return array(
+			'title' => $message_support_description,
+			'type'  => 'title',
+			'class' => 'mp_small_text',
+		);
+	}
+
+	/**
+	 * Field Installments and Interest Configuration Description Link
+	 *
+	 * @return array
+	 */
+	public function field_mp_psj_description_link() {
+		$message_link = __( 'Set up installment and interest', 'woocommerce-mercadopago' );
+
+		return array(
+			'title' => '<a href="' . $this->get_country_link_mp( $this->checkout_country ) . 'costs-section#from-section=menu" target="_blank">' . $message_link . '</a>',
+			'type'  => 'title',
+			'class' => 'mp_tienda_link',
 		);
 	}
 
