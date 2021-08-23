@@ -276,27 +276,4 @@ window.completeOfflineCheckboxMP = function () {
   }
 };
 
-	jQuery.post(ajaxurl, {
-		'action': 'mercadopago_validate_credentials',
-		'public_key': jQuery('#woocommerce_woo-mercado-pago-basic__mp_public_key_prod').val(),
-		'access_token': jQuery('#woocommerce_woo-mercado-pago-basic__mp_access_token_prod').val()
-	}, function (response) {
-		if (response.success) {
-			jQuery('#woocommerce_woo-mercado-pago-basic__mp_public_key_prod').removeClass("mp_credential_input_loading").addClass("mp_credential_input_success");
-			jQuery('#woocommerce_woo-mercado-pago-basic__mp_access_token_prod').removeClass("mp_credential_input_loading").addClass("mp_credential_input_success");
-		}
-		console.log('Got this from the server: ' + JSON.stringify(response));
-	});
-
-	jQuery.post(ajaxurl, {
-		'action': 'mercadopago_validate_credentials',
-		'public_key': jQuery('#woocommerce_woo-mercado-pago-basic__mp_public_key_test').val(),
-		'access_token': jQuery('#woocommerce_woo-mercado-pagobasicm__mp_access_token_test').val()
-	}, function (response) {
-		if (response.success) {
-			jQuery('#woocommerce_woo-mercado-pago-basic__mp_public_key_test').removeClass("mp_credential_input_loading").addClass("mp_credential_input_success");
-			jQuery('#woocommerce_woo-mercado-pago-basic__mp_access_token_test').removeClass("mp_credential_input_loading").addClass("mp_credential_input_success");
-		}
-		console.log('Got this from the server: ' + JSON.stringify(response));
-	});
 });
