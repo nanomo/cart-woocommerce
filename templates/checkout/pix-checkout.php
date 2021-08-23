@@ -16,25 +16,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <div class="mp-panel-checkout">
 	<?php
-		// Apenas para BR
-		$alertTitle       = 'PIX em Modo Teste';
-		$alertDescription = 'É possível testar o fluxo até gerar o código, mas não é possível finalizar o pagamento.';
-		$alert            = "<div class='mp-alert-checkout-test-mode'>
-			<div class='mp-alert-icon-checkout-test-mode'>
-				<img
-					src='" . esc_url( plugins_url( '../assets/images/generics/circle-alert.png', plugin_dir_path( __FILE__ ) ) ) . "'
-					alt='alert'
-					class='mp-alert-circle-img'
-				>
-			</div>
-			<div class='mp-alert-texts-checkout-test-mode'>
-				<h2 class='mp-alert-title-checkout-test-mode'>$alertTitle</h2>
-				<p class='mp-alert-description-checkout-test-mode'>$alertDescription</p>
-			</div>
-		</div>";
-
 		// @codingStandardsIgnoreLine
-		echo 'yes' === $is_prod_mode ? '' : $alert;
+		echo $checkout_alert_test_mode;
 	?>
 	<div class="mp-row-checkout">
 	<div class="mp-redirect-frame-pix">
