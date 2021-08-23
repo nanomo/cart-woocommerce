@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: Mercado Pago payments for WooCommerce 5.3.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/woocommerce-mercadopago\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2021-08-23 12:15-0300\n"
+"PO-Revision-Date: 2021-08-23 17:46-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: pt_BR\n"
@@ -1813,23 +1813,23 @@ msgstr "Ótimo, processamos seu pedido. Complete o pagamento com ticket para que
 msgid "Print ticket"
 msgstr "Imprimir boleto"
 
-#: ../../templates/checkout/ticket-checkout.php:21
+#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:406
 msgid "Tickets in Test Mode"
 msgstr "Boletos em Modo Teste"
 
-#: ../../templates/checkout/ticket-checkout.php:24
+#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:407
 msgid "It is possible to test the flow to generate a boleto, but it is not possible to finalize the payment."
 msgstr "É possível testar o fluxo para gerar um boleto, mas não é possível finalizar o pagamento."
 
-#: ../../templates/checkout/custom-checkout.php:19
+#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:363
 msgid "Credit Cards in Test Mode"
 msgstr "Cartões de crédito em Modo Teste"
 
-#: ../../templates/checkout/custom-checkout.php:24
+#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:364
 msgid "Use the specific test cards that are in the"
 msgstr "Utilize os cartões específicos para teste que estão nas"
 
-#: ../../templates/checkout/custom-checkout.php:27
+#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:366
 msgid "test mode rules"
 msgstr "regras do modo teste"
 
