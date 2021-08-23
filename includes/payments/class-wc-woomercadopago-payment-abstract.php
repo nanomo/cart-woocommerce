@@ -983,7 +983,7 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 	 *
 	 * @return String
 	 */
-	public function get_country_domain_by_meli_acronym( $meliAcronym ) {
+	public function get_country_domain_by_meli_acronym( $meli_acronym ) {
 		$countries = array(
 			'mla' => 'ar',
 			'mlb' => 'br',
@@ -994,7 +994,7 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 			'mlu' => 'uy',
 		);
 
-		return $countries[$meliAcronym];
+		return $countries[$meli_acronym];
 	}
 
 	/**
