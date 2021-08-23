@@ -378,7 +378,7 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 		return array(
 			'title'       => __( 'Pix Expiration', 'woocommerce-mercadopago' ),
 			'type'        => 'select',
-			'description' => __( 'Set the limit of days in which your customers can pay.', 'woocommerce-mercadopago' ),
+			'description' => __( 'Set the time limit in which your customers can pay.', 'woocommerce-mercadopago' ),
 			'default'     => '30 minutes',
 			'options'     => $pix_expiration_values,
 		);
