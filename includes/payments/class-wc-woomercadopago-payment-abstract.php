@@ -1561,7 +1561,7 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 		);
 	}
 
-		/**
+	/**
 	 * Field Installments and Interest Configuration Title
 	 *
 	 * @return array
@@ -1592,7 +1592,7 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 	}
 
 	/**
-	 * Field Checkout Support Description Link
+	 * Field Installments and Interest Configuration Description Link
 	 *
 	 * @return array
 	 */
@@ -1600,10 +1600,7 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 		$message_link = __( 'Set up installment and interest', 'woocommerce-mercadopago' );
 
 		return array(
-			'title' => sprintf(
-				'%s',
-				'<a href="' . $this->get_country_link_mp( $this->checkout_country ) . 'costs-section#from-section=menu" target="_blank">' . $message_link . '</a>'
-			),
+			'title' => '<a href="' . $this->get_country_link_mp( $this->checkout_country ) . 'costs-section#from-section=menu" target="_blank">' . $message_link . '</a>',
 			'type'  => 'title',
 			'class' => 'mp_tienda_link',
 		);
