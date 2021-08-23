@@ -411,30 +411,16 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 		);
 
 		$parameters = array(
-			'is_prod_mode'         => $this->get_option_mp( 'checkout_credential_prod', get_option( 'checkout_credential_prod', 'no' ) ),
+			'checkout_alert_test_mode' => $this->is_production_mode()
+			? ''
+			: $this->checkout_alert_test_mode_template(
+				'PIX em Modo Teste',
+				'É possível testar o fluxo até gerar o código, mas não é possível finalizar o pagamento.'
+			),
 			'image_pix' => plugins_url( '../assets/images/pix.png', plugin_dir_path( __FILE__ ) ),
 		);
 
 		wc_get_template( 'checkout/pix-checkout.php', $parameters, 'woo/mercado/pago/module/', WC_WooMercadoPago_Module::get_templates_path() );
-	}
-
-	/**
-	 * Get Country Domain By MELI Acronym
-	 *
-	 * @return String
-	 */
-	public function get_country_domain_by_meli_acronym( $meliAcronym ) {
-		$countries = array(
-			'mla' => 'ar',
-			'mlb' => 'br',
-			'mlc' => 'cl',
-			'mco' => 'co',
-			'mlm' => 'mx',
-			'mpe' => 'pe',
-			'mlu' => 'uy',
-		);
-
-		return $countries[$meliAcronym];
 	}
 
 	/**

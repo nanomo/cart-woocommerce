@@ -13,27 +13,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 ?>
-
 <div class="mp-panel-custom-checkout">
 	<?php
-		$alertTitle       = __( 'Tickets in Test Mode', 'woocommerce-mercadopago' );
-		$alertDescription = __( 'It is possible to test the flow to generate a boleto, but it is not possible to finalize the payment.', 'woocommerce-mercadopago' );
-		$alert            = "<div class='mp-alert-checkout-test-mode'>
-			<div class='mp-alert-icon-checkout-test-mode'>
-				<img
-					src='" . esc_url( plugins_url( '../assets/images/generics/circle-alert.png', plugin_dir_path( __FILE__ ) ) ) . "'
-					alt='alert'
-					class='mp-alert-circle-img'
-				>
-			</div>
-			<div class='mp-alert-texts-checkout-test-mode'>
-				<h2 class='mp-alert-title-checkout-test-mode'>$alertTitle</h2>
-				<p class='mp-alert-description-checkout-test-mode'>$alertDescription</p>
-			</div>
-		</div>";
-
 		// @codingStandardsIgnoreLine
-		echo 'yes' === $is_prod_mode ? '' : $alert;
+		echo $checkout_alert_test_mode;
 	?>
 	<div class="mp-row-checkout">
 		<!-- Cupom mode, creat a campaign on mercado pago -->

@@ -400,7 +400,12 @@ class WC_WooMercadoPago_Ticket_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 		}
 
 		$parameters = array(
-			'is_prod_mode'         => $this->get_option_mp( 'checkout_credential_prod', get_option( 'checkout_credential_prod', 'no' ) ),
+			'checkout_alert_test_mode' => $this->is_production_mode()
+			? ''
+			: $this->checkout_alert_test_mode_template(
+				__( 'Tickets in Test Mode', 'woocommerce-mercadopago' ),
+				__( 'It is possible to test the flow to generate a boleto, but it is not possible to finalize the payment.', 'woocommerce-mercadopago' )
+			),
 			'amount'               => $amount,
 			'payment_methods'      => $this->activated_payment,
 			'site_id'              => $this->get_option_mp( '_site_id_v1' ),

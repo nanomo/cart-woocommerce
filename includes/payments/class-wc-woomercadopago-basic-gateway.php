@@ -572,10 +572,16 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 			}
 		}
 
-		$parameters = array(
-			'is_prod_mode'   => $this->get_option_mp( 'checkout_credential_prod', get_option( 'checkout_credential_prod', 'no' ) ),
-			// TODO: Remover link provisório
-			'test_mode_rules_link'   => 'https://mercadopago.com.' . $this->get_country_domain_by_meli_acronym($this->checkout_country),
+		// TODO: Remover link provisório
+		$test_mode_rules_link = 'https://mercadopago.com.' . $this->get_country_domain_by_meli_acronym($this->checkout_country);
+		$parameters           = array(
+			'checkout_alert_test_mode' => $this->is_production_mode()
+				? ''
+				: $this->checkout_alert_test_mode_template(
+					'Checkout Pro em Modo Teste',
+					'Utilize meios do Mercado Pago sem cobranças reais. Consulte as '
+					. "<a style='color: #74AFFC; text-decoration: none; outline: none;' target='_blank' href='" . $test_mode_rules_link . "'>regras do modo teste</a>.</p>"
+				),
 			'debito'         => $debito,
 			'credito'        => $credito,
 			'efectivo'       => $efectivo,
@@ -587,25 +593,6 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 		);
 
 		wc_get_template( 'checkout/basic-checkout.php', $parameters, 'woo/mercado/pago/module/', WC_WooMercadoPago_Module::get_templates_path() );
-	}
-
-	/**
-	 * Get Country Domain By MELI Acronym
-	 *
-	 * @return String
-	 */
-	public function get_country_domain_by_meli_acronym( $meliAcronym ) {
-		$countries = array(
-			'mla' => 'ar',
-			'mlb' => 'br',
-			'mlc' => 'cl',
-			'mco' => 'co',
-			'mlm' => 'mx',
-			'mpe' => 'pe',
-			'mlu' => 'uy',
-		);
-
-		return $countries[$meliAcronym];
 	}
 
 	/**
