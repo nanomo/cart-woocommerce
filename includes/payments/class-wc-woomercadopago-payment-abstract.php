@@ -619,20 +619,20 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 		if ( ! empty( $this->checkout_country ) ) {
 			$this->load_custom_js_for_checkbox();
 
-			$form_fields['checkout_credential_title']                = $this->field_checkout_credential_title();
-			$form_fields['checkout_subtitle_checkout_mode']          = $this->field_subtitle_checkout_mode();
-			$form_fields['checkbox_checkout_test_mode']              = $this->field_checkbox_checkout_test_mode();
-			$form_fields['checkbox_checkout_production_mode']        = $this->field_checkbox_checkout_production_mode();
-			$form_fields['checkout_credential_link']                 = $this->field_checkout_credential_link( $this->checkout_country );
-			$form_fields['checkout_credential_title_test']           = $this->field_checkout_credential_title_test();
-			$form_fields['checkout_credential_description_test']     = $this->field_checkout_credential_description_test();
-			$form_fields['_mp_public_key_test']                      = $this->field_checkout_credential_publickey_test();
-			$form_fields['_mp_access_token_test']                    = $this->field_checkout_credential_accesstoken_test();
-			$form_fields['checkout_credential_title_prod']           = $this->field_checkout_credential_title_prod();
-			$form_fields['checkout_credential_description_prod']     = $this->field_checkout_credential_description_prod();
-			$form_fields['_mp_public_key_prod']                      = $this->field_checkout_credential_publickey_prod();
-			$form_fields['_mp_access_token_prod']                    = $this->field_checkout_credential_accesstoken_prod();
-			$form_fields['_mp_category_id']                          = $this->field_category_store();
+			$form_fields['checkout_credential_title']            = $this->field_checkout_credential_title();
+			$form_fields['checkout_subtitle_checkout_mode']      = $this->field_subtitle_checkout_mode();
+			$form_fields['checkbox_checkout_test_mode']          = $this->field_checkbox_checkout_test_mode();
+			$form_fields['checkbox_checkout_production_mode']    = $this->field_checkbox_checkout_production_mode();
+			$form_fields['checkout_credential_link']             = $this->field_checkout_credential_link( $this->checkout_country );
+			$form_fields['checkout_credential_title_test']       = $this->field_checkout_credential_title_test();
+			$form_fields['checkout_credential_description_test'] = $this->field_checkout_credential_description_test();
+			$form_fields['_mp_public_key_test']                  = $this->field_checkout_credential_publickey_test();
+			$form_fields['_mp_access_token_test']                = $this->field_checkout_credential_accesstoken_test();
+			$form_fields['checkout_credential_title_prod']       = $this->field_checkout_credential_title_prod();
+			$form_fields['checkout_credential_description_prod'] = $this->field_checkout_credential_description_prod();
+			$form_fields['_mp_public_key_prod']                  = $this->field_checkout_credential_publickey_prod();
+			$form_fields['_mp_access_token_prod']                = $this->field_checkout_credential_accesstoken_prod();
+			$form_fields['_mp_category_id']                      = $this->field_category_store();
 			if ( ! empty( $this->get_access_token() ) && ! empty( $this->get_public_key() ) ) {
 				if ( 0 === $this->homolog_validate ) {
 					// @todo needs processing form data without nonce verification.

@@ -3,10 +3,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Mercado Pago payments for WooCommerce 5.3.1\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/woocommerce-"
-"mercadopago\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/woocommerce-mercadopago\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2021-08-20 10:09-0300\n"
+"PO-Revision-Date: 2021-08-23 12:15-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: pt_BR\n"
@@ -344,12 +343,8 @@ msgid "Payment experience"
 msgstr "Experiência de pagamento"
 
 #: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:345
-msgid ""
-"Define what payment experience your customers will have, whether inside or "
-"outside your store."
-msgstr ""
-"Defina qual experiência de pagamento seus clientes terão se dentro ou fora "
-"da sua loja."
+msgid "Define what payment experience your customers will have, whether inside or outside your store."
+msgstr "Defina qual experiência de pagamento seus clientes terão se dentro ou fora da sua loja."
 
 #: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:348
 msgid "Redirect"
@@ -360,11 +355,8 @@ msgid "Modal"
 msgstr "Modal"
 
 #: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:365
-msgid ""
-"Choose the URL that we will show your customers when they finish their "
-"purchase."
-msgstr ""
-"Selecione a URL que mostraremos aos seus clientes quando concluirem a compra."
+msgid "Choose the URL that we will show your customers when they finish their purchase."
+msgstr "Selecione a URL que mostraremos aos seus clientes quando concluirem a compra."
 
 #: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:363,
 #: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:383,
@@ -389,12 +381,8 @@ msgid "Payment URL rejected"
 msgstr "URL de pagamento recusado"
 
 #: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:406
-msgid ""
-"Choose the URL that we will show to your customers when they have a payment "
-"pending approval."
-msgstr ""
-"Selecione a URL que mostraremos aos seus clientes quando tiverem um "
-"pagamento pendente de aprovação."
+msgid "Choose the URL that we will show to your customers when they have a payment pending approval."
+msgstr "Selecione a URL que mostraremos aos seus clientes quando tiverem um pagamento pendente de aprovação."
 
 #: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:409
 msgid "Payment URL pending"
@@ -432,10 +420,8 @@ msgid "Return to the store"
 msgstr "Voltar à loja"
 
 #: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:523
-msgid ""
-"Do you want your customer to automatically return to the store after payment?"
-msgstr ""
-"Deseja que seu cliente retorne automaticamente à loja após o pagamento?"
+msgid "Do you want your customer to automatically return to the store after payment?"
+msgstr "Deseja que seu cliente retorne automaticamente à loja após o pagamento?"
 
 #: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:619,
 #: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:606,
@@ -526,12 +512,8 @@ msgid "That’s it, payment accepted!"
 msgstr "Pronto, aceitamos seu pagamento!"
 
 #: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:281
-msgid ""
-"We are processing your payment. In less than an hour we will send you the "
-"result by email."
-msgstr ""
-"Estamos processando seu pagamento. Em menos de uma hora você será notificado "
-"por email."
+msgid "We are processing your payment. In less than an hour we will send you the result by email."
+msgstr "Estamos processando seu pagamento. Em menos de uma hora você será notificado por email."
 
 #: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:283
 msgid ""
@@ -554,8 +536,7 @@ msgid "Check the information provided."
 msgstr "Verifique as informações preenchidas."
 
 #: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:291,
-#: ../../templates/checkout/custom-checkout.php:139,
-#: ../../templates/checkout/custom-checkout.php:140
+#: ../../templates/checkout/custom-checkout.php:139, ../../templates/checkout/custom-checkout.php:140
 msgid "Check the informed security code."
 msgstr "Verifique o código de segurança informado."
 
@@ -569,12 +550,8 @@ msgid "You must authorize payments for your orders."
 msgstr "You must authorize payments for your orders."
 
 #: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:297
-msgid ""
-"Contact your card issuer to activate it. The phone is on the back of your "
-"card."
-msgstr ""
-"Contacte o emissor de seu cartão para ativá-lo. O telefone está no verso do "
-"seu cartão."
+msgid "Contact your card issuer to activate it. The phone is on the back of your card."
+msgstr "Contacte o emissor de seu cartão para ativá-lo. O telefone está no verso do seu cartão."
 
 #: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:301
 msgid ""
@@ -585,12 +562,8 @@ msgstr ""
 "pagamento."
 
 #: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:303
-msgid ""
-"Your payment was declined. Please select another payment method. It is "
-"recommended in cash."
-msgstr ""
-"Seu pagamento foi rejeitado. Escolha outro método de pagamento. Recomenda-se "
-"dinheiro."
+msgid "Your payment was declined. Please select another payment method. It is recommended in cash."
+msgstr "Seu pagamento foi rejeitado. Escolha outro método de pagamento. Recomenda-se dinheiro."
 
 #: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:305
 msgid "Your payment does not have sufficient funds."
@@ -601,12 +574,8 @@ msgid "Payment cannot process the selected fee."
 msgstr "Seu pagamento não pode processar o parcelamento selecionado."
 
 #: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:309
-msgid ""
-"You have reached the limit of allowed attempts. Choose another card or other "
-"payment method."
-msgstr ""
-"Você atingiu o limite de tentativas permitidas. Escolha outro cartão ou "
-"outro método de pagamento."
+msgid "You have reached the limit of allowed attempts. Choose another card or other payment method."
+msgstr "Você atingiu o limite de tentativas permitidas. Escolha outro cartão ou outro método de pagamento."
 
 #: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:311,
 #: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:313,
@@ -760,27 +729,27 @@ msgstr "Ative a experiência do Mercado Pago no checkout da sua loja."
 msgid "Set up store payments for Test or Production Mode"
 msgstr "Configure pagamentos da loja para modo Teste ou Produção"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:927
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:951
 msgid "How would you like to handle your store checkouts?"
 msgstr "Como você quer operar os checkouts da sua loja?"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:924
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1016
 msgid "Activar Modo Test para checkouts Mercado Pago"
 msgstr "Ativar Modo Teste para checkouts Mercado Pago"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:926
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1019
 msgid "Mercado Pago checkouts are inactive for real payments in the Test Mode. Please check the"
 msgstr "Checkouts Mercado Pago inativos para cobranças reais. Consulte as"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:977
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1011
 msgid "test mode guidelines."
 msgstr "regras do modo teste."
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:927
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:968
 msgid "Activate Production Mode for Mercado Pago checkouts"
 msgstr "Ativar Modo Produção para checkouts Mercado Pago"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:929
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:971
 msgid "Mercado Pago checkouts are active for real payments."
 msgstr "Checkouts Mercado Pago ativos para cobranças reais."
 
@@ -1086,11 +1055,11 @@ msgstr "Configure seu parcelamento e juros"
 
 #: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1566
 msgid ""
-"At Mercado Pago you can choose the fee you pay for each purchase and also "
-"offer interest-free installments to your customer."
+"At Mercado Pago you can choose the fee you pay for each purchase and also offer interest-free installments to your "
+"customer."
 msgstr ""
-"No Mercado Pago você pode escolher a taxa que vai pagar em cada compra e "
-"também oferecer parcelas sem juros para seu cliente."
+"No Mercado Pago você pode escolher a taxa que vai pagar em cada compra e também oferecer parcelas sem juros para "
+"seu cliente."
 
 #: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1581
 msgid "Set up installment and interest"
@@ -1105,8 +1074,7 @@ msgid "Everything ready for the takeoff of your sales?"
 msgstr "Tudo pronto para o início das suas vendas?"
 
 #: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1623
-msgid ""
-"Visit your store and simulate a payment to check that everything is fine."
+msgid "Visit your store and simulate a payment to check that everything is fine."
 msgstr "Visite sua loja e simule um pagamento para verificar se está tudo bem."
 
 #: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1621
@@ -1433,20 +1401,12 @@ msgid " and fee of"
 msgstr " e taxa de"
 
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:404
-msgid ""
-"<b>Public Key</b> production credential is invalid. Review the field to "
-"receive real payments."
-msgstr ""
-"A credencial de produção <b>Public Key</b> é inválida. Revise o campo para "
-"poder receber pagamentos reais."
+msgid "<b>Public Key</b> production credential is invalid. Review the field to receive real payments."
+msgstr "A credencial de produção <b>Public Key</b> é inválida. Revise o campo para poder receber pagamentos reais."
 
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:413
-msgid ""
-"<b>Public Key</b> test credential is invalid. Review the field to perform "
-"tests in your store."
-msgstr ""
-"A credencial de teste <b>Public Key</b> é inválida. Revise o campo para "
-"poder realizar testes em sua loja."
+msgid "<b>Public Key</b> test credential is invalid. Review the field to perform tests in your store."
+msgstr "A credencial de teste <b>Public Key</b> é inválida. Revise o campo para poder realizar testes em sua loja."
 
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:422
 msgid ""
@@ -1454,31 +1414,21 @@ msgid ""
 msgstr "A credencial de produção <b>Access Token</b> é inválida. Revise o campo para poder receber pagamentos reais."
 
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:431
-msgid ""
-"<b>Access Token</b> test credential is invalid. Review the field to perform "
-"tests in your store."
-msgstr ""
-"A credencial de teste <b>Access Token</b> é inválida. Revise o campo para "
-"poder realizar testes em sua loja."
+msgid "<b>Access Token</b> test credential is invalid. Review the field to perform tests in your store."
+msgstr "A credencial de teste <b>Access Token</b> é inválida. Revise o campo para poder realizar testes em sua loja."
 
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:449
-msgid ""
-"<b>Public Key</b> test credential is blank. Review the field to perform "
-"tests in your store."
+msgid "<b>Public Key</b> test credential is blank. Review the field to perform tests in your store."
 msgstr ""
 "A credencial de teste <b>Public Key</b> está em branco. Revise o campo para poder realizar testes em sua loja."
 
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:458
-msgid ""
-"<b>Public Key</b> production credential is blank. Review the field to "
-"receive real payments."
+msgid "<b>Public Key</b> production credential is blank. Review the field to receive real payments."
 msgstr ""
 "A credencial de produção <b>Public Key</b> está em branco. Revise o campo para poder receber pagamentos reais."
 
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:467
-msgid ""
-"<b>Access Token</b> test credential is blank. Review the field to perform "
-"tests in your store."
+msgid "<b>Access Token</b> test credential is blank. Review the field to perform tests in your store."
 msgstr ""
 "A credencial de teste <b>Access Token</b> está em branco. Revise o campo para poder realizar testes em sua loja."
 
