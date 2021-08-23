@@ -221,7 +221,7 @@ abstract class WC_WooMercadoPago_Hook_Abstract {
 			if ( 'title' !== $this->payment->get_field_type( $field ) ) {
 				$value            = $this->payment->get_field_value( $key, $field, $post_data );
 				$old_data[ $key ] = isset( $this->payment->settings[ $key ] ) ? $this->payment->settings[ $key ] : null;
-				if ( 'checkout_credential_prod' === $key ) {
+				if ( 'checkbox_checkout_test_mode' === $key ) {
 					$value_credential_production = $value;
 				}
 				$common_configs = $this->payment->get_common_configs();
