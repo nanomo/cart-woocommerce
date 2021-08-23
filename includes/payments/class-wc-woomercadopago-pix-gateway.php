@@ -411,6 +411,12 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 		);
 
 		$parameters = array(
+			'checkout_alert_test_mode' => $this->is_production_mode()
+			? ''
+			: $this->checkout_alert_test_mode_template(
+				'PIX em Modo Teste',
+				'É possível testar o fluxo até gerar o código, mas não é possível finalizar o pagamento.'
+			),
 			'image_pix' => plugins_url( '../assets/images/pix.png', plugin_dir_path( __FILE__ ) ),
 		);
 
