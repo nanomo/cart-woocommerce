@@ -49,7 +49,6 @@ class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 		$this->field_forms_order  = $this->get_fields_sequence();
 		parent::__construct();
 		$this->form_fields         = $this->get_form_mp_fields( 'Custom' );
-		$this->customer            = $this->get_or_create_customer();
 		$this->hook                = new WC_WooMercadoPago_Hook_Custom( $this );
 		$this->notification        = new WC_WooMercadoPago_Notification_Webhook( $this );
 		$this->currency_convertion = true;
@@ -704,19 +703,6 @@ class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 		}
 
 		return true;
-	}
-
-	/**
-	 * Get or create customer
-	 *
-	 * @return array|mixed|null
-	 * @throws WC_WooMercadoPago_Exception Get or create user exception.
-	 */
-	public function get_or_create_customer() {
-		if ( empty( $this->mp ) ) {
-			return null;
-		}
-		return isset( $this->logged_user_email ) ? $this->mp->get_or_create_customer( $this->logged_user_email ) : null;
 	}
 
 	/**

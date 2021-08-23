@@ -461,6 +461,9 @@ class WC_WooMercadoPago_Credentials {
 	public static function validate_credentials_prod( $mp_instance, $access_token = null, $public_key = null ) {
 		$is_test = $mp_instance->get_credentials_wrapper( $access_token, $public_key );
 		if ( is_array( $is_test ) && isset( $is_test['is_test'] ) && false === $is_test['is_test'] ) {
+			if (!empty($is_test['client_id'])) {
+				update_option('mp_application_id', $is_test['client_id']);
+			}
 			return true;
 		}
 		return false;

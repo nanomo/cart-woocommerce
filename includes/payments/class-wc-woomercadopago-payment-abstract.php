@@ -852,8 +852,13 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 		if ( empty( $mp_access_token_prod ) ) {
 			return '';
 		} else {
+			$application_id = get_option('mp_application_id', '');
+			if ($application_id && '' !== $application_id) {
+				return $application_id;
+			}
 			$application_id = $this->mp->get_credentials_wrapper( $this->mp_access_token_prod );
 			if ( is_array( $application_id ) && isset( $application_id['client_id'] ) ) {
+				update_option('mp_application_id', $application_id['client_id']);
 				return $application_id['client_id'];
 			}
 			return '';
