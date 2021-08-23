@@ -979,25 +979,6 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 	}
 
 	/**
-	 * Get Country Domain By MELI Acronym
-	 *
-	 * @return String
-	 */
-	public function get_country_domain_by_meli_acronym( $meli_acronym ) {
-		$countries = array(
-			'mla' => 'ar',
-			'mlb' => 'br',
-			'mlc' => 'cl',
-			'mco' => 'co',
-			'mlm' => 'mx',
-			'mpe' => 'pe',
-			'mlu' => 'uy',
-		);
-
-		return $countries[$meli_acronym];
-	}
-
-	/**
 	 * Field checkout mode test
 	 *
 	 * @return Array

@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: Mercado Pago payments for WooCommerce 5.3.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/woocommerce-mercadopago\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2021-08-23 12:30-0300\n"
+"PO-Revision-Date: 2021-08-23 17:46-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: pt_BR\n"
@@ -73,8 +73,7 @@ msgstr ""
 #: ../../includes/module/class-wc-woomercadopago-configs.php:125
 msgid "Update your credentials with the Access Token and Public Key, you need them to continue receiving payments!"
 msgstr ""
-"Atualize suas credenciais com o Access Token e a Public Key. Você precisa deles para continuar recebendo "
-"pagamentos!"
+"Atualize suas credenciais com o Access Token e a Public Key. Você precisa deles para continuar recebendo pagamentos!"
 
 #: ../../includes/module/class-wc-woomercadopago-configs.php:136
 msgid "The store should have HTTPS in order to activate both Checkout Personalizado and Ticket Checkout."
@@ -83,8 +82,8 @@ msgstr "A loja deve ter HTTPS para ativar o Checkout Personalizado e o Ticket Ch
 #: ../../includes/module/class-wc-woomercadopago-init.php:47
 msgid "Mercado Pago payments for WooCommerce requires PHP version 5.6 or later. Please update your PHP version."
 msgstr ""
-"O plugin do Mercado Pago para o WooCommerce requer o PHP versão 5.6 ou posterior. Por favor, atualize sua versão "
-"do PHP."
+"O plugin do Mercado Pago para o WooCommerce requer o PHP versão 5.6 ou posterior. Por favor, atualize sua versão do "
+"PHP."
 
 #: ../../includes/module/class-wc-woomercadopago-init.php:58
 msgid "Mercado Pago Error: PHP Extension CURL is not installed."
@@ -374,8 +373,8 @@ msgid ""
 "Choose the URL that we will show to your customers when we refuse their purchase. Make sure it includes a message "
 "appropriate to the situation and give them useful information so they can solve it."
 msgstr ""
-"Selecione a URL que mostraremos aos seus clientes quando recusarmos a compra. Certifique-se de incluir uma "
-"mensagem adequada à situação e dê informações úteis para que eles possam solucionar a questão."
+"Selecione a URL que mostraremos aos seus clientes quando recusarmos a compra. Certifique-se de incluir uma mensagem "
+"adequada à situação e dê informações úteis para que eles possam solucionar a questão."
 
 #: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:388
 msgid "Payment URL rejected"
@@ -451,8 +450,8 @@ msgstr "taxa de"
 
 #: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:42
 msgid ""
-"Accept card payments on your website with the best possible financing and maximize the conversion of your "
-"business. With personalized checkout your customers pay without leaving your store!"
+"Accept card payments on your website with the best possible financing and maximize the conversion of your business. "
+"With personalized checkout your customers pay without leaving your store!"
 msgstr ""
 "Aceite pagamentos com cartão no seu site com o melhor financiamento possível e maximize a conversão dos seus "
 "negócios. Com o checkout personalizado seus clientes pagam sair da sua sua loja!"
@@ -478,8 +477,8 @@ msgstr "Aceite pagamentos no ato e leve suas cobranças a outro nível"
 
 #: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:199
 msgid ""
-"Turn your online store into a secure and easy-to-use payment gateway for your customers. With personalized "
-"checkout your customers pay without leaving your store!"
+"Turn your online store into a secure and easy-to-use payment gateway for your customers. With personalized checkout "
+"your customers pay without leaving your store!"
 msgstr ""
 "Elabore e adapte a experiência de pagamento final que quiser oferecer no seu site ou aplicativo e maximize a "
 "conversão do seu negócio com as nossas opções de personalização!"
@@ -967,8 +966,8 @@ msgid ""
 "IPN (Instant Payment Notification) is a notification of events that take place on your platform and that is sent "
 "from one server to another through an HTTP POST call. See more information in our guides."
 msgstr ""
-"IPN (Instant Payment Notification) é uma notificação de eventos que ocorrem em sua plataforma e que são enviados "
-"de um servidor para outro por meio de uma chamada HTTP POST. Veja mais informações em nossos guias."
+"IPN (Instant Payment Notification) é uma notificação de eventos que ocorrem em sua plataforma e que são enviados de "
+"um servidor para outro por meio de uma chamada HTTP POST. Veja mais informações em nossos guias."
 
 #: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1370
 msgid "Edit these advanced fields only when you want to modify the preset values."
@@ -1002,8 +1001,8 @@ msgstr "Aceita e recusa pagamentos de forma automática. Quer ativá-lo?"
 
 #: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1422
 msgid ""
-"If you activate binary mode you will not be able to leave pending payments. This can affect fraud prevention. "
-"Leave it idle to be backed by our own tool."
+"If you activate binary mode you will not be able to leave pending payments. This can affect fraud prevention. Leave "
+"it idle to be backed by our own tool."
 msgstr ""
 "Se você ativar o modo binário, não poderá deixar os pagamentos pendentes. Isso pode afetar a prevenção de fraudes. "
 "Deixe-o inativo para ser apoiado por nossa própria ferramenta."
@@ -1083,8 +1082,8 @@ msgid ""
 "Visit your store as if you were one of your customers and check that everything is fine. If you already went to "
 "Production,<br> bring your customers and increase your sales with the best online shopping experience."
 msgstr ""
-"Visite sua loja como se você fosse um de seus clientes e verifique se está tudo bem. Se você já foi à Produção,"
-"<br> traga seus clientes e aumente suas vendas com a melhor experiência de compra on-line."
+"Visite sua loja como se você fosse um de seus clientes e verifique se está tudo bem. Se você já foi à Produção,<br> "
+"traga seus clientes e aumente suas vendas com a melhor experiência de compra on-line."
 
 #: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1642
 msgid "I want to test my sales"
@@ -1103,8 +1102,8 @@ msgid ""
 "Accept payments via Pix Transfer and receive the funds instantly. Your customers can pay at any time, without date "
 "or time restrictions."
 msgstr ""
-"Aceite pagamentos via transferência PIX e receba o valor de forma instantânea. Seus clientes podem pagar a "
-"qualquer momento, sem limitação de dia ou hora."
+"Aceite pagamentos via transferência PIX e receba o valor de forma instantânea. Seus clientes podem pagar a qualquer "
+"momento, sem limitação de dia ou hora."
 
 #: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:38
 msgid "Pay with PIX "
@@ -1303,8 +1302,8 @@ msgid ""
 "Activates inventory reduction during the creation of an order, whether or not the final payment is credited. "
 "Disable this option to reduce it only when payments are approved."
 msgstr ""
-"Ative a redução de inventário durante a criação de um pedido, seja o pagamento aprovado ou não. Desative esta "
-"opção para reduzi-lo somente quando os pagamentos estiverem aprovados."
+"Ative a redução de inventário durante a criação de um pedido, seja o pagamento aprovado ou não. Desative esta opção "
+"para reduzi-lo somente quando os pagamentos estiverem aprovados."
 
 #: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:309
 msgid "Payment Due"
@@ -1814,23 +1813,23 @@ msgstr "Ótimo, processamos seu pedido. Complete o pagamento com ticket para que
 msgid "Print ticket"
 msgstr "Imprimir boleto"
 
-#: ../../templates/checkout/ticket-checkout.php:21
+#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:406
 msgid "Tickets in Test Mode"
 msgstr "Boletos em Modo Teste"
 
-#: ../../templates/checkout/ticket-checkout.php:24
+#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:407
 msgid "It is possible to test the flow to generate a boleto, but it is not possible to finalize the payment."
 msgstr "É possível testar o fluxo para gerar um boleto, mas não é possível finalizar o pagamento."
 
-#: ../../templates/checkout/custom-checkout.php:19
+#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:363
 msgid "Credit Cards in Test Mode"
 msgstr "Cartões de crédito em Modo Teste"
 
-#: ../../templates/checkout/custom-checkout.php:24
+#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:364
 msgid "Use the specific test cards that are in the"
 msgstr "Utilize os cartões específicos para teste que estão nas"
 
-#: ../../templates/checkout/custom-checkout.php:27
+#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:366
 msgid "test mode rules"
 msgstr "regras do modo teste"
 
