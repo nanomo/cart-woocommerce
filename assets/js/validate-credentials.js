@@ -17,7 +17,7 @@
 		 * @param access_token
 		 */
 		process: function (public_key, access_token) {
-			if (public_key !== '' && access_token !== '') {
+			if (public_key.val() !== '' && access_token.val() !== '') {
 				this.validate(public_key, access_token);
 			}
 		},
