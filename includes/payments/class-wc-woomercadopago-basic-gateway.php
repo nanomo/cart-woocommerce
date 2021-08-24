@@ -572,7 +572,16 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 			}
 		}
 
-		$parameters = array(
+		// TODO: Remover link provisório
+		$test_mode_rules_link = 'https://mercadopago.com.' . $this->get_country_domain_by_meli_acronym($this->checkout_country);
+		$parameters           = array(
+			'checkout_alert_test_mode' => $this->is_production_mode()
+				? ''
+				: $this->checkout_alert_test_mode_template(
+					'Checkout Pro em Modo Teste',
+					'Utilize meios do Mercado Pago sem cobranças reais. Consulte as '
+					. "<a style='color: #74AFFC; text-decoration: none; outline: none;' target='_blank' href='" . $test_mode_rules_link . "'>regras do modo teste</a>.</p>"
+				),
 			'debito'         => $debito,
 			'credito'        => $credito,
 			'efectivo'       => $efectivo,
