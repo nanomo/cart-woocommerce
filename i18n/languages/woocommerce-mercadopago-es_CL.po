@@ -67,8 +67,8 @@ msgid ""
 "<b>Attention:</b> The currency settings you have in WooCommerce are not compatible with the currency you use in "
 "your Mercado Pago account. Please activate the currency conversion."
 msgstr ""
-"<b>Atención:</b> La configuración de moneda que tienes en WooCommerce no es compatible con la moneda que usas en tu "
-"cuenta de Mercado Pago. Activa la conversión de moneda."
+"<b>Atención:</b> La configuración de moneda que tienes en WooCommerce no es compatible con la moneda que usas en "
+"tu cuenta de Mercado Pago. Activa la conversión de moneda."
 
 #: ../../includes/module/class-wc-woomercadopago-configs.php:125
 msgid "Update your credentials with the Access Token and Public Key, you need them to continue receiving payments!"
@@ -1441,11 +1441,13 @@ msgstr "La credencial para producción <b>Access Token</b> es inválida. Revísa
 
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:431
 msgid "<b>Access Token</b> test credential is invalid. Review the field to perform tests in your store."
-msgstr "La credencial de prueba <b>Access Token</b> es inválida. Revísala para poder realizar pruebas en tu tienda."
+msgstr ""
+"La credencial de prueba <b>Access Token</b> es inválida. Revísala para poder realizar pruebas en tu tienda."
 
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:449
 msgid "<b>Public Key</b> test credential is blank. Review the field to perform tests in your store."
-msgstr "La credencial de prueba <b>Public Key</b> está en blanco. Revísala para poder realizar pruebas en tu tienda."
+msgstr ""
+"La credencial de prueba <b>Public Key</b> está en blanco. Revísala para poder realizar pruebas en tu tienda."
 
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:458
 msgid "<b>Public Key</b> production credential is blank. Review the field to receive real payments."
