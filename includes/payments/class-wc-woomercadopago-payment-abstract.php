@@ -661,7 +661,7 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 				$form_fields['checkout_support_description']           = $this->field_checkout_support_description();
 				$form_fields['checkout_support_description_link']      = $this->field_checkout_support_description_link();
 				$form_fields['checkout_support_problem']               = $this->field_checkout_support_problem();
-				if ( ! $this->is_production_mode() && 'yes' === $this->settings['enabled'] ) {
+				if ( ! $this->is_production_mode() && isset( $this->settings['enabled'] ) && 'yes' === $this->settings['enabled'] ) {
 				$form_fields['checkout_ready_title']            = $this->field_checkout_ready_title();
 				$form_fields['checkout_ready_description']      = $this->field_checkout_ready_description();
 				$form_fields['checkout_ready_description_link'] = $this->field_checkout_ready_description_link();
