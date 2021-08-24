@@ -249,7 +249,7 @@ abstract class WC_WooMercadoPago_Hook_Abstract {
 	}
 
 	/**
-	 * Update others checkout mode
+	 * Build Woocommerce settings key
 	 *
 	 * @param String $gateway_id Constant ID
 	 *
@@ -260,7 +260,7 @@ abstract class WC_WooMercadoPago_Hook_Abstract {
 	}
 
 	/**
-	 * Build Woocommerce settings key
+	 * Update others checkout mode
 	 *
 	 * @param String $current_gateway_id Current constant ID
 	 *
