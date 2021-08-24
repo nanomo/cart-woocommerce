@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: Mercado Pago payments for WooCommerce 5.3.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/woocommerce-mercadopago\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2021-08-23 15:36-0300\n"
+"PO-Revision-Date: 2021-08-24 15:10-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: pt_BR\n"
@@ -733,11 +733,11 @@ msgstr "Configure pagamentos da loja para modo Teste ou Produção"
 msgid "How would you like to handle your store checkouts?"
 msgstr "Como você quer operar os checkouts da sua loja?"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1016
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:997
 msgid "Activar Modo Test para checkouts Mercado Pago"
 msgstr "Ativar Modo Teste para checkouts Mercado Pago"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1019
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1000
 msgid "Mercado Pago checkouts are inactive for real payments in the Test Mode. Please check the"
 msgstr "Checkouts Mercado Pago inativos para cobranças reais. Consulte as"
 
@@ -1134,28 +1134,18 @@ msgid "Your Pix Keys section."
 msgstr "Suas chaves PIX."
 
 #: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:260
-msgid ""
-"Choose which data to register as PIX keys. After registering, you can set up "
-"PIX in your checkout."
+msgid "Choose which data to register as PIX keys. After registering, you can set up PIX in your checkout."
 msgstr ""
 "Escolha quais dados cadastrar como chaves PIX. Após fazer esse cadastro, você poderá configurar o PIX no seu "
 "checkout."
 
 #: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:261
-msgid ""
-"Remember that, for the time being, the Central Bank of Brazil is open Monday "
-"through Friday, from 9am to 6pm."
-msgstr ""
-"Lembre-se de que, por enquanto, o Banco Central do Brasil funciona de "
-"segunda a sexta-feira, das 9h às 18h."
+msgid "Remember that, for the time being, the Central Bank of Brazil is open Monday through Friday, from 9am to 6pm."
+msgstr "Lembre-se de que, por enquanto, o Banco Central do Brasil funciona de segunda a sexta-feira, das 9h às 18h."
 
 #: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:262
-msgid ""
-"If you requested your registration outside these hours, we will confirm it "
-"within the next business day."
-msgstr ""
-"Se você solicitou seu cadastro fora desse horário, vamos confirmar no "
-"próximo dia útil."
+msgid "If you requested your registration outside these hours, we will confirm it within the next business day."
+msgstr "Se você solicitou seu cadastro fora desse horário, vamos confirmar no próximo dia útil."
 
 #: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:263,
 #: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:399
@@ -1163,12 +1153,8 @@ msgid "Learn more about PIX"
 msgstr "Saber mais sobre o PIX"
 
 #: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:264
-msgid ""
-"If you have already registered a Pix key at Mercado Pago and cannot activate "
-"Pix in the checkout, "
-msgstr ""
-"Caso já tenha cadastrado uma chave PIX no Mercado Pago e não consiga ativar "
-"o PIX no checkout, "
+msgid "If you have already registered a Pix key at Mercado Pago and cannot activate Pix in the checkout, "
+msgstr "Caso já tenha cadastrado uma chave PIX no Mercado Pago e não consiga ativar o PIX no checkout, "
 
 #: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:265
 msgid "click here."
@@ -1180,8 +1166,7 @@ msgid "Checkout of payments via PIX %s"
 msgstr "Checkout de pagamentos via PIX %s"
 
 #: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:292
-msgid ""
-"Accept payments at any time of the day and expand your purchase options!"
+msgid "Accept payments at any time of the day and expand your purchase options!"
 msgstr "Aceite pagamentos a qualquer hora do dia e amplie as opções de compra!"
 
 #: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:296
@@ -1189,12 +1174,8 @@ msgid "Offer this new payment option to your customers."
 msgstr "Ofereça esta nova opção de pagamento para seus clientes."
 
 #: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:326
-msgid ""
-"Enable and set up Pix as a payment method for your customers in the Mercado "
-"Pago checkout."
-msgstr ""
-"Habilite e configure o PIX como forma de pagamento para seus clientes no "
-"checkout do Mercado Pago."
+msgid "Enable and set up Pix as a payment method for your customers in the Mercado Pago checkout."
+msgstr "Habilite e configure o PIX como forma de pagamento para seus clientes no checkout do Mercado Pago."
 
 #: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:339
 msgid "Set up the payment via Pix experience"
@@ -1264,12 +1245,8 @@ msgid "Want to learn how Pix works?"
 msgstr "Quer saber como funciona o PIX?"
 
 #: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:397
-msgid ""
-"We have created a page to explain how this new payment method works and its "
-"advantages."
-msgstr ""
-"Criamos uma página para te explicar o funcionamento e as vantagens dessa "
-"nova forma de pagamento."
+msgid "We have created a page to explain how this new payment method works and its advantages."
+msgstr "Criamos uma página para te explicar o funcionamento e as vantagens dessa nova forma de pagamento."
 
 #: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:532,
 #: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:583
@@ -1295,12 +1272,8 @@ msgid "Now you just need to pay with PIX to finalize your purchase."
 msgstr "Agora é só pagar com o PIX para finalizar sua compra."
 
 #: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:502
-msgid ""
-"Scan the QR code below or copy and paste the code into your bank's "
-"application."
-msgstr ""
-"Escaneie o código QR abaixo ou copie e cole o código no aplicativo do seu "
-"banco."
+msgid "Scan the QR code below or copy and paste the code into your bank's application."
+msgstr "Escaneie o código QR abaixo ou copie e cole o código no aplicativo do seu banco."
 
 #: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:609
 msgid ""
@@ -1621,8 +1594,7 @@ msgstr "Se preferir, você pode pagar copiando e colando o seguinte código"
 msgid "Copy code"
 msgstr "Copiar código"
 
-#: ../../templates/checkout/basic-checkout.php:22,
-#: ../../templates/checkout/custom-checkout.php:61
+#: ../../templates/checkout/basic-checkout.php:22, ../../templates/checkout/custom-checkout.php:61
 msgid "Credit cards"
 msgstr "Cartões de crédito"
 
@@ -1871,6 +1843,26 @@ msgstr "Ótimo, processamos seu pedido. Complete o pagamento com ticket para que
 #: ../../templates/order-received/show-ticket.php:23
 msgid "Print ticket"
 msgstr "Imprimir boleto"
+
+#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:363
+msgid "Credit Cards in Test Mode"
+msgstr "Cartões em Modo Teste"
+
+#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:364
+msgid "Use the specific test cards that are in the"
+msgstr "Utilize os cartões específicos para teste que estão nas"
+
+#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:366
+msgid "test mode rules"
+msgstr "regras do modo teste"
+
+#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:406
+msgid "Tickets in Test Mode"
+msgstr "Meios offline em Modo Teste"
+
+#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:407
+msgid "It is possible to test the flow to generate a boleto, but it is not possible to finalize the payment."
+msgstr "É possível testar o fluxo para gerar uma fatura, mas não é possível finalizar o pagamento."
 
 #~ msgid "New"
 #~ msgstr "Novo"
