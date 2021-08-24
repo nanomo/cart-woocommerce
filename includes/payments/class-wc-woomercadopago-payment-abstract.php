@@ -1841,7 +1841,7 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 		$icon        = $is_prod ? 'circle-green-check' : 'circle-alert';
 		$max_width   = $is_prod ? '580px' : '537px';
 		$border_left = $is_prod ? '5px solid #05A54F' : '5px solid #f73';
-		$alert       = "<div class='mp-alert-checkout-test-mode' style='max-width: $max_width; border-left: $border_left; min-height: 70px;'>
+		$alert       = "<div class='mp-alert-checkout-test-mode' style='max-width: $max_width; border-left: $border_left; min-height: 70px; font-weight: 400;'>
 			<div class='mp-alert-icon-checkout-test-mode' style='width: 0 !important; padding: 0 10px;'>
 				<img
 					src='" . esc_url( plugins_url( "../assets/images/generics/$icon.png", plugin_dir_path( __FILE__ ) ) ) . "'
