@@ -69,91 +69,91 @@ msgstr ""
 msgid "Cancel order"
 msgstr ""
 
-#: ../../includes/module/class-wc-woomercadopago-module.php:355, ../../includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:470
+#: ../../includes/module/class-wc-woomercadopago-module.php:356, ../../includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:470
 msgid "Fill in your credentials to enable payment methods."
 msgstr ""
 
-#: ../../includes/module/class-wc-woomercadopago-module.php:370
+#: ../../includes/module/class-wc-woomercadopago-module.php:371
 msgid "Set up"
 msgstr ""
 
-#: ../../includes/module/class-wc-woomercadopago-module.php:371
+#: ../../includes/module/class-wc-woomercadopago-module.php:372
 msgid "Your opinion helps us get better"
 msgstr ""
 
-#: ../../includes/module/class-wc-woomercadopago-module.php:372
+#: ../../includes/module/class-wc-woomercadopago-module.php:373
 msgid "Guides and Documentation"
 msgstr ""
 
-#: ../../includes/module/class-wc-woomercadopago-module.php:373
+#: ../../includes/module/class-wc-woomercadopago-module.php:374
 msgid "Report Problem"
 msgstr ""
 
-#: ../../includes/module/class-wc-woomercadopago-module.php:455
+#: ../../includes/module/class-wc-woomercadopago-module.php:456
 msgid "By Mercado Pago"
 msgstr ""
 
-#: ../../includes/module/class-wc-woomercadopago-module.php:488
+#: ../../includes/module/class-wc-woomercadopago-module.php:489
 msgid "The payment method is not valid or not available."
 msgstr ""
 
-#: ../../includes/module/class-wc-woomercadopago-module.php:491
+#: ../../includes/module/class-wc-woomercadopago-module.php:492
 msgid "The transaction amount cannot be processed by Mercado Pago."
 msgstr ""
 
-#: ../../includes/module/class-wc-woomercadopago-module.php:492
+#: ../../includes/module/class-wc-woomercadopago-module.php:493
 msgid "Possible causes: Currency not supported; Amounts below the minimum or above the maximum allowed."
 msgstr ""
 
-#: ../../includes/module/class-wc-woomercadopago-module.php:495
+#: ../../includes/module/class-wc-woomercadopago-module.php:496
 msgid "The users are not valid."
 msgstr ""
 
-#: ../../includes/module/class-wc-woomercadopago-module.php:496
+#: ../../includes/module/class-wc-woomercadopago-module.php:497
 msgid "Possible causes: Buyer and seller have the same account in Mercado Pago; The transaction involving production and test users."
 msgstr ""
 
-#: ../../includes/module/class-wc-woomercadopago-module.php:499
+#: ../../includes/module/class-wc-woomercadopago-module.php:500
 msgid "Unauthorized use of production credentials."
 msgstr ""
 
-#: ../../includes/module/class-wc-woomercadopago-module.php:500
+#: ../../includes/module/class-wc-woomercadopago-module.php:501
 msgid "Possible causes: Use permission in use for the credential of the seller."
 msgstr ""
 
-#: ../../includes/module/class-wc-woomercadopago-module.php:617, ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:835
+#: ../../includes/module/class-wc-woomercadopago-module.php:618, ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:835
 msgid "Colombia"
 msgstr ""
 
-#: ../../includes/module/class-wc-woomercadopago-module.php:619, ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:832
+#: ../../includes/module/class-wc-woomercadopago-module.php:620, ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:832
 msgid "Argentina"
 msgstr ""
 
-#: ../../includes/module/class-wc-woomercadopago-module.php:621, ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:833
+#: ../../includes/module/class-wc-woomercadopago-module.php:622, ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:833
 msgid "Brazil"
 msgstr ""
 
-#: ../../includes/module/class-wc-woomercadopago-module.php:623, ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:834
+#: ../../includes/module/class-wc-woomercadopago-module.php:624, ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:834
 msgid "Chile"
 msgstr ""
 
-#: ../../includes/module/class-wc-woomercadopago-module.php:625, ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:836
+#: ../../includes/module/class-wc-woomercadopago-module.php:626, ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:836
 msgid "Mexico"
 msgstr ""
 
-#: ../../includes/module/class-wc-woomercadopago-module.php:627, ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:838
+#: ../../includes/module/class-wc-woomercadopago-module.php:628, ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:838
 msgid "Uruguay"
 msgstr ""
 
-#: ../../includes/module/class-wc-woomercadopago-module.php:629
+#: ../../includes/module/class-wc-woomercadopago-module.php:630
 msgid "Venezuela"
 msgstr ""
 
-#: ../../includes/module/class-wc-woomercadopago-module.php:631, ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:837
+#: ../../includes/module/class-wc-woomercadopago-module.php:632, ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:837
 msgid "Peru"
 msgstr ""
 
-#: ../../includes/module/class-wc-woomercadopago-module.php:663
+#: ../../includes/module/class-wc-woomercadopago-module.php:664
 msgid "Update the WooCommerce order to "
 msgstr ""
 
