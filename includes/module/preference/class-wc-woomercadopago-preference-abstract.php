@@ -619,7 +619,7 @@ abstract class WC_WooMercadoPago_Preference_Abstract extends WC_Payment_Gateway 
 	 */
 	public function get_date_of_expiration( $date_expiration ) {
 		if ( '' !== $date_expiration ) {
-			return gmdate( 'Y-m-d\TH:i:s.000O', strtotime( '+' . $date_expiration . ' days' ) );
+			return gmdate( 'Y-m-d\TH:i:s.000O', strtotime( '+' . $date_expiration ) );
 		}
 	}
 }
