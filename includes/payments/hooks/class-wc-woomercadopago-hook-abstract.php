@@ -237,7 +237,7 @@ abstract class WC_WooMercadoPago_Hook_Abstract {
 			}
 		}
 
-		$result = update_option( $this->payment->get_option_key(), apply_filters( 'woocommerce_settings_api_sanitized_fields_' . $this->payment->id, $this->payment->settings ) );
+		$this->update_others_checkout_mode($this->payment->id);
 
 		WC_WooMercadoPago_Helpers_CurrencyConverter::get_instance()->schedule_notice(
 			$this->payment,
@@ -245,7 +245,37 @@ abstract class WC_WooMercadoPago_Hook_Abstract {
 			$this->payment->settings
 		);
 
-		return $result;
+		return update_option( $this->payment->get_option_key(), apply_filters( 'woocommerce_settings_api_sanitized_fields_' . $this->payment->id, $this->payment->settings ) );
+	}
+
+	/**
+	 * Update others checkout mode
+	 *
+	 * @param String $gateway_id Constant ID
+	 *
+	 * @return String
+	 */
+	private function build_woocommerce_settings_key( $gateway_id ) {
+		return 'woocommerce_' . $gateway_id . '_settings';
+	}
+
+	/**
+	 * Build Woocommerce settings key
+	 *
+	 * @param String $current_gateway_id Current constant ID
+	 *
+	 * @return void
+	 */
+	private function update_others_checkout_mode( $current_gateway_id ) {
+		foreach ( WC_WooMercadoPago_Constants::GATEWAYS_IDS as $gateway_id ) {
+			if ( $gateway_id !== $current_gateway_id ) {
+				update_option(
+					$this->build_woocommerce_settings_key($gateway_id),
+					apply_filters( 'woocommerce_settings_api_sanitized_fields_' . $gateway_id,
+					$this->payment->settings )
+				);
+			}
+		}
 	}
 
 	/**
