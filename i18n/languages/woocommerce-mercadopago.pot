@@ -918,6 +918,22 @@ msgstr ""
 msgid "%s"
 msgstr ""
 
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1836
+msgid "All Mercado Pago payment methods are in Production Mode"
+msgstr ""
+
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1837
+msgid "Your store is ready to receive payments from customers."
+msgstr ""
+
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1839
+msgid "All Mercado Pago payment methods are in Test Mode"
+msgstr ""
+
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1840
+msgid "Your customers will not be able to make purchases while in Test Mode."
+msgstr ""
+
 #: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:35
 msgid "Accept payments via Pix Transfer and receive the funds instantly. Your customers can pay at any time, without date or time restrictions."
 msgstr ""

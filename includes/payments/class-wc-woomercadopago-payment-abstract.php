@@ -1832,8 +1832,12 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 	 */
 	private function field_admin_checkout_mode_alert() {
 		$is_prod     = $this->is_production_mode();
-		$title       = $is_prod ? 'Todos os meios de pagamentos Mercado Pago em Modo Produção' : 'Todos os meios de pagamentos Mercado Pago em Modo Teste';
-		$description = $is_prod ? 'Sua loja está pronta para receber pagamentos de clientes.' : 'Clientes não poderão fazer compras no Modo Teste.';
+		$title       = $is_prod
+			? __( 'All Mercado Pago payment methods are in Production Mode', 'woocommerce-mercadopago' )
+			: __( 'Your store is ready to receive payments from customers.', 'woocommerce-mercadopago' );
+		$description = $is_prod
+			? __( 'All Mercado Pago payment methods are in Test Mode', 'woocommerce-mercadopago' )
+			: __( 'Your customers will not be able to make purchases while in Test Mode.', 'woocommerce-mercadopago' );
 		$icon        = $is_prod ? 'circle-green-check' : 'circle-alert';
 		$max_width   = $is_prod ? '580px' : '537px';
 		$border_left = $is_prod ? '5px solid #05A54F' : '5px solid #f73';

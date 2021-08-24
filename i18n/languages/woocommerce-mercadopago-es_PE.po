@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: Mercado Pago payments for WooCommerce 5.3.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/woocommerce-mercadopago\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2021-08-24 15:10-0300\n"
+"PO-Revision-Date: 2021-08-24 16:20-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: es_AR\n"
@@ -67,8 +67,8 @@ msgid ""
 "<b>Attention:</b> The currency settings you have in WooCommerce are not compatible with the currency you use in "
 "your Mercado Pago account. Please activate the currency conversion."
 msgstr ""
-"<b>Atención:</b> La configuración de moneda que tienes en WooCommerce no es compatible con la moneda que usas en "
-"tu cuenta de Mercado Pago. Activa la conversión de moneda."
+"<b>Atención:</b> La configuración de moneda que tienes en WooCommerce no es compatible con la moneda que usas en tu "
+"cuenta de Mercado Pago. Activa la conversión de moneda."
 
 #: ../../includes/module/class-wc-woomercadopago-configs.php:125
 msgid "Update your credentials with the Access Token and Public Key, you need them to continue receiving payments!"
@@ -1441,13 +1441,11 @@ msgstr "La credencial para producción <b>Access Token</b> es inválida. Revísa
 
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:431
 msgid "<b>Access Token</b> test credential is invalid. Review the field to perform tests in your store."
-msgstr ""
-"La credencial de prueba <b>Access Token</b> es inválida. Revísala para poder realizar pruebas en tu tienda."
+msgstr "La credencial de prueba <b>Access Token</b> es inválida. Revísala para poder realizar pruebas en tu tienda."
 
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:449
 msgid "<b>Public Key</b> test credential is blank. Review the field to perform tests in your store."
-msgstr ""
-"La credencial de prueba <b>Public Key</b> está en blanco. Revísala para poder realizar pruebas en tu tienda."
+msgstr "La credencial de prueba <b>Public Key</b> está en blanco. Revísala para poder realizar pruebas en tu tienda."
 
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:458
 msgid "<b>Public Key</b> production credential is blank. Review the field to receive real payments."
@@ -1855,6 +1853,22 @@ msgstr "Facturas en Modo Test"
 #: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:407
 msgid "It is possible to test the flow to generate a boleto, but it is not possible to finalize the payment."
 msgstr "Es posible testear el flujo para generar una factura, pero no es posible finalizar el pago."
+
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1836
+msgid "All Mercado Pago payment methods are in Production Mode"
+msgstr "Todos los medios de pago Mercado Pago están en Modo Producción"
+
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1837
+msgid "Your store is ready to receive payments from customers."
+msgstr "Tu tienda está lista para recibir pagos de clientes."
+
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1839
+msgid "All Mercado Pago payment methods are in Test Mode"
+msgstr "Todos los medios de pago Mercado Pago están en Modo Test"
+
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1840
+msgid "Your customers will not be able to make purchases while in Test Mode."
+msgstr "Los clientes no podrán hacer compras en Modo Test."
 
 #~ msgid "New"
 #~ msgstr "Nuevo"
