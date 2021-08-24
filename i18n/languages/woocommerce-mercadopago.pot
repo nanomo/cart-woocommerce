@@ -923,11 +923,11 @@ msgid "All Mercado Pago payment methods are in Production Mode"
 msgstr ""
 
 #: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1837
-msgid "Your store is ready to receive payments from customers."
+msgid "All Mercado Pago payment methods are in Test Mode"
 msgstr ""
 
 #: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1839
-msgid "All Mercado Pago payment methods are in Test Mode"
+msgid "Your store is ready to receive payments from customers."
 msgstr ""
 
 #: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1840
