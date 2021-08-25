@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class WC_WooMercadoPago_Helpers_CurrencyConverter {
 
-	const CONFIG_KEY = 'currency_conversion';
+	const CONFIG_KEY    = 'currency_conversion';
 	const DEFAULT_RATIO = 1;
 
 	/**
