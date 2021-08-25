@@ -434,7 +434,7 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 
 		// change type atm to ticket.
 		foreach ( $all_payments as $key => $value ) {
-			if ( 'atm' === $value['type'] || 'bank_transfer' === $value['type'] ) {
+			if ( 'atm' === $value['type'] || 'bank_transfer' === $value['type'] || 'account_money' === $value['type'] ) {
 				$all_payments[ $key ]['type'] = 'ticket';
 			}
 		}
@@ -503,7 +503,7 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 			$ex_payments_sort[]                                    = 'ex_payments_' . $payment_method['id'];
 		}
 
-		array_splice( $this->field_forms_order, 37, 0, $ex_payments_sort );
+		array_splice( $this->field_forms_order, 38, 0, $ex_payments_sort );
 
 		return $ex_payments;
 	}
@@ -549,15 +549,6 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 		$tarjetas     = get_option( '_checkout_payments_methods', '' );
 		$installments = $this->get_option_mp( 'installments' );
 		$cho_tarjetas = array();
-
-		// change type account_money to ticket.
-		foreach ( $tarjetas as $key => $value ) {
-			if ( 'account_money' === $value['type'] ) {
-				$all_payments[ $key ]['type'] = 'ticket';
-			} else {
-				continue;
-			}
-		}
 
 		foreach ( $tarjetas as $tarjeta ) {
 			if ( 'yes' === $this->get_option_mp( $tarjeta['config'], '' ) ) {
