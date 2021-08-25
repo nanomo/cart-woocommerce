@@ -481,6 +481,10 @@ class WC_WooMercadoPago_Credentials {
 			$validate_access_token = $mp->get_credentials_wrapper( $access_token );
 			$validate_public_key   = $mp->get_credentials_wrapper( null, $public_key );
 
+			if ( ! $validate_public_key || ! $validate_access_token ) {
+				throw new Exception( __( 'Invalid credentials' ) );
+			}
+
 			$response = [
 				'access_token' => $validate_access_token,
 				'public_key'   => $validate_public_key,
