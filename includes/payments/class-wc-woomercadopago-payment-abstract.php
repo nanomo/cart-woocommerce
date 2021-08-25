@@ -623,6 +623,7 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 			$form_fields['checkout_subtitle_checkout_mode']      = $this->field_subtitle_checkout_mode();
 			$form_fields['checkbox_checkout_test_mode']          = $this->field_checkbox_checkout_test_mode();
 			$form_fields['checkbox_checkout_production_mode']    = $this->field_checkbox_checkout_production_mode();
+			$form_fields['checkout_mode_alert']                  = $this->field_admin_checkout_mode_alert();
 			$form_fields['checkout_credential_link']             = $this->field_checkout_credential_link( $this->checkout_country );
 			$form_fields['checkout_credential_title_test']       = $this->field_checkout_credential_title_test();
 			$form_fields['checkout_credential_description_test'] = $this->field_checkout_credential_description_test();
@@ -1830,6 +1831,42 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 				update_option( $key, apply_filters( 'woocommerce_settings_api_sanitized_fields_' . $gateway::get_id(), $options ) );
 			}
 		}
+	}
+
+	/**
+	 * Field admin checkout mode alert
+	 *
+	 * @return array
+	 */
+	private function field_admin_checkout_mode_alert() {
+		$is_prod     = $this->is_production_mode();
+		$title       = $is_prod
+			? __( 'All Mercado Pago payment methods are in Production Mode', 'woocommerce-mercadopago' )
+			: __( 'All Mercado Pago payment methods are in Test Mode', 'woocommerce-mercadopago' );
+		$description = $is_prod
+			? __( 'Your store is ready to receive payments from customers.', 'woocommerce-mercadopago' )
+			: __( 'Your customers will not be able to make purchases while in Test Mode.', 'woocommerce-mercadopago' );
+		$icon        = $is_prod ? 'circle-green-check' : 'circle-alert';
+		$max_width   = $is_prod ? '580px' : '537px';
+		$border_left = $is_prod ? '5px solid #05A54F' : '5px solid #f73';
+		$alert       = "<div class='mp-alert-checkout-test-mode' style='max-width: $max_width; border-left: $border_left; min-height: 70px; font-weight: 400;'>
+			<div class='mp-alert-icon-checkout-test-mode' style='width: 0 !important; padding: 0 10px;'>
+				<img
+					src='" . esc_url( plugins_url( "../assets/images/generics/$icon.png", plugin_dir_path( __FILE__ ) ) ) . "'
+					alt='alert'
+					class='mp-alert-circle-img'
+				>
+			</div>
+			<div class='mp-alert-texts-checkout-test-mode'>
+				<h2 class='mp-alert-title-checkout-test-mode'>$title</h2>
+				<p class='mp-alert-description-checkout-test-mode'>$description</p>
+			</div>
+		</div>";
+
+		return array(
+			'title' => $alert,
+			'type'  => 'title',
+		);
 	}
 
 	/**

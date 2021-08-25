@@ -91,6 +91,7 @@ class WC_WooMercadoPago_Module extends WC_WooMercadoPago_Configs {
 			$this->load_stock_manager();
 
 			add_action( 'admin_enqueue_scripts', array( $this, 'load_admin_css' ) );
+			add_action( 'admin_enqueue_scripts', array( $this, 'load_global_css' ) );
 			add_action( 'wp_enqueue_scripts', array( $this, 'load_global_css' ) );
 
 			add_filter( 'woocommerce_available_payment_gateways', array( $this, 'filter_payment_method_by_shipping' ) );
