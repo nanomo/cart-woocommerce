@@ -18,29 +18,29 @@ msgstr ""
 msgid "Activate this option so that the value of the currency set in WooCommerce is compatible with the value of the currency you use in Mercado Pago."
 msgstr ""
 
-#: ../../includes/helpers/class-wc-woomercadopago-helpers-currencyconverter.php:395
+#: ../../includes/helpers/class-wc-woomercadopago-helpers-currencyconverter.php:425
 msgid "Convert Currency"
 msgstr ""
 
-#: ../../includes/helpers/class-wc-woomercadopago-helpers-currencyconverter.php:400, ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:527, ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:264, ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:906, ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:991, ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1286, ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1396, ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1433, ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:303
+#: ../../includes/helpers/class-wc-woomercadopago-helpers-currencyconverter.php:430, ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:527, ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:264, ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:906, ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:991, ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1286, ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1396, ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1433, ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:303
 msgid "No"
 msgstr ""
 
-#: ../../includes/helpers/class-wc-woomercadopago-helpers-currencyconverter.php:401, ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:526, ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:265, ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:907, ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:992, ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1287, ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1397, ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1432, ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:304
+#: ../../includes/helpers/class-wc-woomercadopago-helpers-currencyconverter.php:431, ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:526, ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:265, ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:907, ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:992, ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1287, ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1397, ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1432, ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:304
 msgid "Yes"
 msgstr ""
 
 #. translators: 1: local currency 2: currency
-#: ../../includes/helpers/class-wc-woomercadopago-helpers-currencyconverter.php:469
+#: ../../includes/helpers/class-wc-woomercadopago-helpers-currencyconverter.php:499
 msgid "Now we convert your currency from %1$s to %2$s."
 msgstr ""
 
 #. translators: 1: local currency 2: currency
-#: ../../includes/helpers/class-wc-woomercadopago-helpers-currencyconverter.php:489
+#: ../../includes/helpers/class-wc-woomercadopago-helpers-currencyconverter.php:519
 msgid "We no longer convert your currency from %1$s to %2$s."
 msgstr ""
 
-#: ../../includes/helpers/class-wc-woomercadopago-helpers-currencyconverter.php:510
+#: ../../includes/helpers/class-wc-woomercadopago-helpers-currencyconverter.php:540
 msgid "<b>Attention:</b> The currency settings you have in WooCommerce are not compatible with the currency you use in your Mercado Pago account. Please activate the currency conversion."
 msgstr ""
 
