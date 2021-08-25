@@ -98,6 +98,9 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 			$form_fields['checkout_payments_description']    = $this->field_checkout_options_description();
 			$form_fields['binary_mode']                      = $this->field_binary_mode();
 			$form_fields['installments']                     = $this->field_installments();
+			$form_fields['mp_psj_title']                     = $this->field_mp_psj_title();
+			$form_fields['mp_psj_description']               = $this->field_mp_psj_description();
+			$form_fields['mp_psj_description_link']          = $this->field_mp_psj_description_link();
 			$form_fields['checkout_payments_advanced_title'] = $this->field_checkout_payments_advanced_title();
 			$form_fields['method']                           = $this->field_method();
 			$form_fields['success_url']                      = $this->field_success_url();
@@ -135,11 +138,9 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 			'checkout_btn_save',
 			// Carga tus credenciales.
 			'checkout_credential_title',
-			'checkout_credential_mod_test_title',
-			'checkout_credential_mod_test_description',
-			'checkout_credential_mod_prod_title',
-			'checkout_credential_mod_prod_description',
-			'checkout_credential_prod',
+			'checkout_subtitle_checkout_mode',
+			'checkbox_checkout_test_mode',
+			'checkbox_checkout_production_mode',
 			'checkout_credential_link',
 			'checkout_credential_title_prod',
 			'checkout_credential_description_prod',
@@ -171,6 +172,9 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 			'title',
 			WC_WooMercadoPago_Helpers_CurrencyConverter::CONFIG_KEY,
 			'installments',
+			'mp_psj_title',
+			'mp_psj_description',
+			'mp_psj_description_link',
 			// Advanced settings.
 			'checkout_payments_advanced_title',
 			'checkout_payments_advanced_description',
@@ -575,7 +579,16 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 			}
 		}
 
-		$parameters = array(
+		// TODO: Remover link provisório
+		$test_mode_rules_link = 'https://mercadopago.com.' . $this->get_country_domain_by_meli_acronym($this->checkout_country);
+		$parameters           = array(
+			'checkout_alert_test_mode' => $this->is_production_mode()
+				? ''
+				: $this->checkout_alert_test_mode_template(
+					'Checkout Pro em Modo Teste',
+					'Utilize meios do Mercado Pago sem cobranças reais. Consulte as '
+					. "<a style='color: #74AFFC; text-decoration: none; outline: none;' target='_blank' href='" . $test_mode_rules_link . "'>regras do modo teste</a>.</p>"
+				),
 			'debito'         => $debito,
 			'credito'        => $credito,
 			'efectivo'       => $efectivo,
