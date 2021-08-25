@@ -47,7 +47,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<p style="width: 320px;
 			margin: 0 0 16px;
 			font-size: 10px;  
-			max-width: 100%; 
+			max-width: 100%;
+			word-break: break-all;
 			height: 80px;
 			display: inline-block; 
 			margin-left: auto; 

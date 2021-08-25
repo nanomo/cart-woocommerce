@@ -222,6 +222,7 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 			'checkout_payments_subtitle',
 			'checkout_pix_payments_description',
 			'enabled',
+			'title',
 			'checkout_pix_date_expiration',
 			WC_WooMercadoPago_Helpers_CurrencyConverter::CONFIG_KEY,
 			// About PIX.
@@ -358,17 +359,26 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 	 * @return array
 	 */
 	public function field_pix_date_expiration() {
-		$pix_days = array();
-		for ( $i = 1; $i <= 7; ++$i ) {
-			$pix_days[ $i ] = $i;
-		}
+		$pix_expiration_values = array(
+			'15 minutes'       => __( '15 minutes', 'woocommerce-mercadopago' ),
+			'30 minutes'       => __( '30 minutes (recommended)', 'woocommerce-mercadopago' ),
+			'60 minutes'       => __( '60 minutes', 'woocommerce-mercadopago' ),
+			'12 hours'       => __( '12 hours', 'woocommerce-mercadopago' ),
+			'24 hours'       => __( '24 hours', 'woocommerce-mercadopago' ),
+			'2 days'        => __( '2 days', 'woocommerce-mercadopago' ),
+			'3 days'        => __( '3 days', 'woocommerce-mercadopago' ),
+			'4 days'        => __( '4 days', 'woocommerce-mercadopago' ),
+			'5 days'        => __( '5 days', 'woocommerce-mercadopago' ),
+			'6 days'        => __( '6 days', 'woocommerce-mercadopago' ),
+			'7 days'        => __( '7 days', 'woocommerce-mercadopago' ),
+		);
 
 		return array(
 			'title'       => __( 'Pix Expiration', 'woocommerce-mercadopago' ),
 			'type'        => 'select',
-			'description' => __( 'Set the limit of days in which your customers can pay.', 'woocommerce-mercadopago' ),
-			'default'     => $this->get_option_mp( 'checkout_pix_date_expiration', '1' ),
-			'options'     => $pix_days,
+			'description' => __( 'Set the time limit in which your customers can pay.', 'woocommerce-mercadopago' ),
+			'default'     => '30 minutes',
+			'options'     => $pix_expiration_values,
 		);
 	}
 
@@ -475,14 +485,14 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 							$order->update_meta_data( 'mp_transaction_amount', $response['transaction_amount'] );
 							$order->update_meta_data( 'mp_pix_qr_base64', $response['point_of_interaction']['transaction_data']['qr_code_base64'] );
 							$order->update_meta_data( 'mp_pix_qr_code', $response['point_of_interaction']['transaction_data']['qr_code'] );
-							$order->update_meta_data( 'checkout_pix_date_expiration', $this->get_option_mp( 'checkout_pix_date_expiration', '1' ) . ( 1 < $this->get_option_mp( 'checkout_pix_date_expiration', '1' ) ? __( ' days', 'woocommerce-mercadopago' ) : __( ' day', 'woocommerce-mercadopago' ) ) );
+							$order->update_meta_data( 'checkout_pix_date_expiration', __( $this->get_option_mp( 'checkout_pix_date_expiration', '30 minutes' ), 'woocommerce-mercadopago' ) );
 							$order->update_meta_data( 'pix_on', 1 );
 							$order->save();
 						} else {
 							update_post_meta( $order->get_id(), 'mp_transaction_amount', $response['transaction_amount'] );
 							update_post_meta( $order->get_id(), 'mp_pix_qr_base64', $response['point_of_interaction']['transaction_data']['qr_code_base64'] );
 							update_post_meta( $order->get_id(), 'mp_pix_qr_code', $response['point_of_interaction']['transaction_data']['qr_code'] );
-							update_post_meta( $order->get_id(), 'checkout_pix_date_expiration', $this->get_option_mp( 'checkout_pix_date_expiration', '1' ) . ( 1 < $this->get_option_mp( 'checkout_pix_date_expiration', '1' ) ? __( ' days', 'woocommerce-mercadopago' ) : __( ' day', 'woocommerce-mercadopago' ) ) );
+							update_post_meta( $order->get_id(), 'checkout_pix_date_expiration', __( $this->get_option_mp( 'checkout_pix_date_expiration', '30 minutes' ), 'woocommerce-mercadopago' ) );
 							update_post_meta( $order->get_id(), 'pix_on', 1 );
 						}
 						// Shows some info in checkout page.
