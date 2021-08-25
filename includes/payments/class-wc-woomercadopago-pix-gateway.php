@@ -148,6 +148,7 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 			'checkout_subtitle_checkout_mode',
 			'checkbox_checkout_test_mode',
 			'checkbox_checkout_production_mode',
+			'checkout_mode_alert',
 			'checkout_credential_link',
 			'checkout_credential_title_prod',
 			'checkout_credential_description_prod',
