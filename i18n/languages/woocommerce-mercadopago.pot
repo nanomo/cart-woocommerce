@@ -52,6 +52,10 @@ msgstr ""
 msgid "The store should have HTTPS in order to activate both Checkout Personalizado and Ticket Checkout."
 msgstr ""
 
+#: ../../includes/module/class-wc-woomercadopago-credentials.php:485
+msgid "Invalid credentials"
+msgstr ""
+
 #: ../../includes/module/class-wc-woomercadopago-init.php:47
 msgid "Mercado Pago payments for WooCommerce requires PHP version 5.6 or later. Please update your PHP version."
 msgstr ""

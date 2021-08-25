@@ -482,7 +482,7 @@ class WC_WooMercadoPago_Credentials {
 			$validate_public_key   = $mp->get_credentials_wrapper( null, $public_key );
 
 			if ( ! $validate_public_key || ! $validate_access_token ) {
-				throw new Exception( __( 'Invalid credentials' ) );
+				throw new Exception( __( 'Invalid credentials', 'woocommerce-mercadopago' ) );
 			}
 
 			$response = [
