@@ -44,12 +44,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	</div>
 
 	<div style="margin-left: auto; 
-            margin-right: auto;
-            width: 320px;
-            word-break: break-word;
-            font-size: 10px;">      
-        <p>
-            <?php esc_html_e( $qr_code, 'woocommerce-mercadopago' ); ?>
-        </p>
-    </div>
+			margin-right: auto;
+			width: 320px;
+			word-break: break-word;
+			font-size: 10px;">      
+		<p>
+			<?php esc_html_e( $qr_code, 'woocommerce-mercadopago' ); ?>
+		</p>
+	</div>
 </div>
