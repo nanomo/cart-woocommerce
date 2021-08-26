@@ -207,15 +207,15 @@ abstract class WC_WooMercadoPago_Hook_Abstract {
 
 	/**
 	 * Sort By Checkout Mode First
-	 * 
+	 *
 	 * @param array $form_fields Form fields
-	 * 
+	 *
 	 * @param array $sort_order Sort order
-	 * 
+	 *
 	 * @return array $sorted_array Sorted array
 	 */
 
-	 public function sort_by_checkout_mode_first( $form_fields ) {
+	public function sort_by_checkout_mode_first( $form_fields ) {
 		$sort_credentials_first = array(
 			'checkout_subtitle_checkout_mode',
 			'checkbox_checkout_test_mode',
@@ -227,7 +227,7 @@ abstract class WC_WooMercadoPago_Hook_Abstract {
 		);
 
 		return $this->payment->sort_form_fields( $form_fields, $sort_credentials_first );
-	 }
+	}
 
 	/**
 	 * Custom process admin options
@@ -240,7 +240,7 @@ abstract class WC_WooMercadoPago_Hook_Abstract {
 
 		$value_credential_production = null;
 		$this->payment->init_settings();
-		$post_data = $this->payment->get_post_data();
+		$post_data          = $this->payment->get_post_data();
 		$sorted_form_fields = $this->sort_by_checkout_mode_first( $this->payment->get_form_fields() );
 
 		foreach ( $sorted_form_fields as $key => $field ) {
@@ -248,7 +248,7 @@ abstract class WC_WooMercadoPago_Hook_Abstract {
 				$value            = $this->payment->get_field_value( $key, $field, $post_data );
 				$old_data[ $key ] = isset( $this->payment->settings[ $key ] ) ? $this->payment->settings[ $key ] : null;
 				if ( 'checkbox_checkout_test_mode' === $key ) {
-					$value_credential_production = $value === 'yes' ? 'no' : 'yes';
+					$value_credential_production = 'yes' === $value ? 'no' : 'yes';
 				}
 				$common_configs = $this->payment->get_common_configs();
 				if ( in_array( $key, $common_configs, true ) ) {
