@@ -26,9 +26,9 @@ class WC_WooMercadoPago_Ticket_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 	 * @throws WC_WooMercadoPago_Exception Load payment exception.
 	 */
 	public function __construct() {
-		$this->id = self::ID;
+		$this->id          = self::ID;
 		$this->description = __( 'Accept cash payments within the custom checkout and expand your customers purchase options.', 'woocommerce-mercadopago' );
-		$this->title = $this->get_option_mp( 'title', __( 'Pay with cash', 'woocommerce-mercadopago' ) );
+		$this->title       = $this->get_option_mp( 'title', __( 'Pay with cash', 'woocommerce-mercadopago' ) );
 
 		if ( ! $this->validate_section() ) {
 			return;
