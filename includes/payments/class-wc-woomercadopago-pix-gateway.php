@@ -50,6 +50,7 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 		$this->notification        = new WC_WooMercadoPago_Notification_Webhook( $this );
 		$this->currency_convertion = true;
 		add_action( 'woocommerce_email_before_order_table', array(__CLASS__,'get_pix_template'), 20, 4 );
+		add_action( 'woocommerce_order_details_after_order_table', array(__CLASS__,'get_pix_template_order_details') );
 	}
 
 	/**
@@ -640,35 +641,68 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 	/**
 	 * Get pix template
 	 *
+	 * @param object $order Order.
 	 * @return string
 	 */
-	public function get_pix_template( $order, $sent_to_admin, $plain_text, $email ) {
+	public static function get_pix_template( $order ) {
 
-		$pix_on = (int) array_pop( get_post_meta( $order->get_id(), 'pix_on' ));
+		$pix_on = get_post_meta( $order->get_id(), 'pix_on' );
+
+		$pix_on = (int) array_pop( $pix_on );
 
 		if ( 1 === $pix_on ) {
 
-		$qr_code         = array_pop( get_post_meta( $order->get_id(), 'mp_pix_qr_code' ) );
-		$qr_image        = array_pop( get_post_meta( $order->get_id(), 'mp_pix_qr_base64' ) );
-		$src             = 'data:image/jpeg;base64';
-		$expiration_date = array_pop( get_post_meta( $order->get_id(), 'checkout_pix_date_expiration') );
+			$mp_pix_qr_code               = get_post_meta( $order->get_id(), 'mp_pix_qr_code' );
+			$mp_pix_qr_base64             = get_post_meta( $order->get_id(), 'mp_pix_qr_base64' );
+			$checkout_pix_date_expiration = get_post_meta($order->get_id(), 'checkout_pix_date_expiration');
 
-		$pix_template = wc_get_template(
-			'pix/pix-image-template.php',
-			array(
-				'src'                  => $src,
-				'qr_image'             => $qr_image,
-				'qr_code'              => $qr_code,
-				'expiration_date'      => $expiration_date,
-				'text_expiration_date' => __( 'Code valid for ', 'woocommerce-mercadopago' ),
-			),
-			'',
-			WC_WooMercadoPago_Module::get_templates_path()
-		);
+			$qr_code         = array_pop( $mp_pix_qr_code );
+			$qr_image        = array_pop( $mp_pix_qr_base64 );
+			$src             = 'data:image/jpeg;base64';
+			$expiration_date = array_pop( $checkout_pix_date_expiration );
 
-		return $pix_template;
+			$pix_template = wc_get_template(
+				'pix/pix-image-template.php',
+				array(
+					'src'                  => $src,
+					'qr_image'             => $qr_image,
+					'qr_code'              => $qr_code,
+					'expiration_date'      => $expiration_date,
+					'text_expiration_date' => __( 'Code valid for ', 'woocommerce-mercadopago' ),
+				),
+				'',
+				WC_WooMercadoPago_Module::get_templates_path()
+			);
 
+			return $pix_template;
 		}
+
+	}
+
+	/**
+	 * Get pix template to send via email
+	 *
+	 * @param object $order Order.
+	 * @param bool $sent_to_admin.
+	 * @param bool $plain_text.
+	 * @param $email
+	 * @return string|array
+	 */
+	public static function get_pix_template_email( $order, $sent_to_admin, $plain_text, $email ) {
+
+		return self::get_pix_template( $order );
+
+	}
+
+	/**
+	 * Get pix template to show in order details
+	 *
+	 * @param object $order Order.
+	 * @return string|array
+	 */
+	public static function get_pix_template_order_details( $order ) {
+
+		return self::get_pix_template( $order );
 
 	}
 
