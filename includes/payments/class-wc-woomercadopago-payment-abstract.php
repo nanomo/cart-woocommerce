@@ -633,7 +633,6 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 			$form_fields['checkout_credential_description_prod'] = $this->field_checkout_credential_description_prod();
 			$form_fields['_mp_public_key_prod']                  = $this->field_checkout_credential_publickey_prod();
 			$form_fields['_mp_access_token_prod']                = $this->field_checkout_credential_accesstoken_prod();
-			$form_fields['_mp_category_id']                      = $this->field_category_store();
 			if ( ! empty( $this->get_access_token() ) && ! empty( $this->get_public_key() ) ) {
 				if ( 0 === $this->homolog_validate ) {
 					// @todo needs processing form data without nonce verification.
@@ -646,6 +645,7 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 					$form_fields['checkout_homolog_subtitle']   = $this->field_checkout_homolog_subtitle();
 					$form_fields['checkout_homolog_link']       = $this->field_checkout_homolog_link( $this->checkout_country, $this->application_id );
 				}
+				$form_fields['_mp_category_id']                        = $this->field_category_store();
 				$form_fields['mp_statement_descriptor']                = $this->field_mp_statement_descriptor();
 				$form_fields['_mp_store_identificator']                = $this->field_mp_store_identificator();
 				$form_fields['_mp_integrator_id']                      = $this->field_mp_integrator_id();
@@ -662,9 +662,11 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 				$form_fields['checkout_support_description']           = $this->field_checkout_support_description();
 				$form_fields['checkout_support_description_link']      = $this->field_checkout_support_description_link();
 				$form_fields['checkout_support_problem']               = $this->field_checkout_support_problem();
-				$form_fields['checkout_ready_title']                   = $this->field_checkout_ready_title();
-				$form_fields['checkout_ready_description']             = $this->field_checkout_ready_description();
-				$form_fields['checkout_ready_description_link']        = $this->field_checkout_ready_description_link();
+				if ( ! $this->is_production_mode() && isset( $this->settings['enabled'] ) && 'yes' === $this->settings['enabled'] ) {
+				$form_fields['checkout_ready_title']            = $this->field_checkout_ready_title();
+				$form_fields['checkout_ready_description']      = $this->field_checkout_ready_description();
+				$form_fields['checkout_ready_description_link'] = $this->field_checkout_ready_description_link();
+				}
 				$form_fields[ WC_WooMercadoPago_Helpers_CurrencyConverter::CONFIG_KEY ] = $this->field_currency_conversion( $this );
 			}
 		}

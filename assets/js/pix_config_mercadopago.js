@@ -1,82 +1,82 @@
 /*jshint multistr: true */
 
-window.addEventListener('load', function () {
-	//remove link breadcrumb, header and save button
-	document.querySelector('.wc-admin-breadcrumb').style.display = 'none';
-	if (document.querySelector('.mp-header-logo') !== null) {
-		document.querySelector('.mp-header-logo').style.display = 'none';
-	} else {
-		var pElement = document.querySelectorAll('#mainform > p');
-		pElement[0] !== undefined ? pElement[0].style.display = 'none' : null;
-	}
-	document.querySelector('p.submit').style.display = 'none';
+window.addEventListener('load', function() {
+  //remove link breadcrumb, header and save button
+  document.querySelector('.wc-admin-breadcrumb').style.display = 'none';
+  if (document.querySelector('.mp-header-logo') !== null){
+    document.querySelector('.mp-header-logo').style.display = 'none';
+  } else {
+    var pElement = document.querySelectorAll('#mainform > p');
+    pElement[0] !== undefined ? pElement[0].style.display = 'none' : null;
+  }
+  document.querySelector('p.submit').style.display = 'none';
 
-	var h2s = document.querySelectorAll('h2');
-	h2s[4] !== undefined ? h2s[4].style.display = 'none' : null;
+  var h2s = document.querySelectorAll('h2');
+  h2s[4] !== undefined ? h2s[4].style.display = 'none' : null;
 
-	var descriptionInput = document.querySelectorAll('p.description');
-	for (var i = 0; i < descriptionInput.length; i++) {
-		descriptionInput[i].style.width = '420px';
-	}
+  var descriptionInput = document.querySelectorAll('p.description');
+  for (var i = 0; i < descriptionInput.length; i++) {
+    descriptionInput[i].style.width = '420px';
+  }
 
-	//update form_fields label
-	var label = document.querySelectorAll('th.titledesc');
-	for (var j = 0; j < label.length; j++) {
-		label[j].id = 'mp_field_text';
-		if (label[j] && label[j].children[0] && label[j].children[0].children[0]) {
-			label[j].children[0].children[0].style.position = 'relative';
-			label[j].children[0].children[0].style.fontSize = '22px';
-		}
-	}
+  //update form_fields label
+  var label = document.querySelectorAll('th.titledesc');
+  for (var j = 0; j < label.length; j++) {
+    label[j].id = 'mp_field_text';
+    if (label[j] && label[j].children[0] && label[j].children[0].children[0]) {
+      label[j].children[0].children[0].style.position = 'relative';
+      label[j].children[0].children[0].style.fontSize = '22px';
+    }
+  }
 
-	//collpase ajustes avanzados
-	var table = document.querySelectorAll('.form-table');
-	for (var k = 0; k < table.length; k++) {
-		table[k].id = 'mp_table_' + k;
-	}
+  //collpase ajustes avanzados
+  var table = document.querySelectorAll('.form-table');
+  for (var k = 0; k < table.length; k++) {
+    table[k].id = 'mp_table_' + k;
+  }
 
-	// Add max length to title input
+  // Add max length to title input
 
-	let titleInput = this.document.querySelectorAll('.limit-title-max-length');
+  let titleInput = this.document.querySelectorAll('.limit-title-max-length');
 
-	titleInput.forEach(
-		(element) => {
-			element.setAttribute('maxlength', '85');
-		}
-	);
+  titleInput.forEach(
+    (element) => {
+      element.setAttribute('maxlength', '85');
+    }
+  );
 
-	// Remove title and description row if necessary.
+  // Remove title and description row if necessary.
+  
+  document.querySelectorAll('.hidden-field-mp-title').forEach(
+    (element) => {
+      element.closest('tr').style.display = 'none';
+    }
+  );
 
-	document.querySelectorAll('.hidden-field-mp-title').forEach(
-		(element) => {
-			element.closest('tr').style.display = 'none';
-		}
-	);
+  document.querySelectorAll('.hidden-field-mp-desc').forEach(
+    (element) => {
+      element.closest('tr').style.display = 'none';
+    }
+  );
 
-	document.querySelectorAll('.hidden-field-mp-desc').forEach(
-		(element) => {
-			element.closest('tr').style.display = 'none';
-		}
-	);
+  //clone save button
+  var cloneSaveButton = document.getElementById('woocommerce_woo-mercado-pago-pix_checkout_btn_save');
+  if (document.getElementById('woocommerce_woo-mercado-pago-pix_checkout_homolog_title') !== null || document.getElementById('woocommerce_woo-mercado-pago-pix_checkout_credential_description_test') !== null) {
+    document.getElementById('woocommerce_woo-mercado-pago-pix_checkout_mode_alert').append(document.getElementById('woocommerce_woo-mercado-pago-pix_checkout_btn_save'));
+  }
 
-	//clone save button
-	var cloneSaveButton = document.getElementById('woocommerce_woo-mercado-pago-pix_checkout_btn_save');
-	if (document.getElementById('woocommerce_woo-mercado-pago-pix_checkout_homolog_title') !== null || document.getElementById('woocommerce_woo-mercado-pago-pix_checkout_credential_description_test') !== null) {
-		document.getElementById('woocommerce_woo-mercado-pago-pix_checkout_credential_description_test').nextElementSibling.append(cloneSaveButton.cloneNode(true));
-	}
+  if ((document.getElementById('woocommerce_woo-mercado-pago-pix_checkout_homolog_title') !== null || document.getElementById('woocommerce_woo-mercado-pago-pix_checkout_pix_options_title') !== null) && document.getElementById('woocommerce_woo-mercado-pago-pix_checkout_steps_pix') === null ) {
+    document.getElementById('woocommerce_woo-mercado-pago-pix_checkout_pix_options_title').nextElementSibling.append(cloneSaveButton.cloneNode(true));
+    document.getElementById('woocommerce_woo-mercado-pago-pix_checkout_advanced_settings').nextElementSibling.append(cloneSaveButton.cloneNode(true));
+    document.getElementById('woocommerce_woo-mercado-pago-pix_checkout_pix_payments_description').nextElementSibling.append(cloneSaveButton.cloneNode(true));
+    document.getElementById('woocommerce_woo-mercado-pago-pix_checkout_payments_advanced_description').nextElementSibling.append(cloneSaveButton.cloneNode(true));
 
-	if ((document.getElementById('woocommerce_woo-mercado-pago-pix_checkout_homolog_title') !== null || document.getElementById('woocommerce_woo-mercado-pago-pix_checkout_pix_options_title') !== null) && document.getElementById('woocommerce_woo-mercado-pago-pix_checkout_steps_pix') === null) {
-		document.getElementById('woocommerce_woo-mercado-pago-pix_checkout_pix_options_title').nextElementSibling.append(cloneSaveButton.cloneNode(true));
-		document.getElementById('woocommerce_woo-mercado-pago-pix_checkout_advanced_settings').nextElementSibling.append(cloneSaveButton.cloneNode(true));
-		document.getElementById('woocommerce_woo-mercado-pago-pix_checkout_pix_payments_description').nextElementSibling.append(cloneSaveButton.cloneNode(true));
-		document.getElementById('woocommerce_woo-mercado-pago-pix_checkout_payments_advanced_description').nextElementSibling.append(cloneSaveButton.cloneNode(true));
+    var collapse_title = document.querySelector('#woocommerce_woo-mercado-pago-pix_checkout_advanced_settings');
+    var collapse_table = collapse_title.nextElementSibling;
+    collapse_table.style.display = 'none';
+    collapse_title.style.cursor = 'pointer';
 
-		var collapse_title = document.querySelector('#woocommerce_woo-mercado-pago-pix_checkout_advanced_settings');
-		var collapse_table = collapse_title.nextElementSibling;
-		collapse_table.style.display = 'none';
-		collapse_title.style.cursor = 'pointer';
-
-		collapse_title.innerHTML += '<span class="mp-btn-collapsible" id="header_plus" style="display:block">+</span>\
+    collapse_title.innerHTML += '<span class="mp-btn-collapsible" id="header_plus" style="display:block">+</span>\
       <span class="mp-btn-collapsible" id="header_less" style="display:none">-</span>';
 
 		var header_plus = document.querySelector('#header_plus');

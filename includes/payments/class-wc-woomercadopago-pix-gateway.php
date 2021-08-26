@@ -152,10 +152,6 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 			'checkout_btn_save',
 			// Carga tus credenciales.
 			'checkout_credential_title',
-			'checkout_subtitle_checkout_mode',
-			'checkbox_checkout_test_mode',
-			'checkbox_checkout_production_mode',
-			'checkout_mode_alert',
 			'checkout_credential_link',
 			'checkout_credential_title_prod',
 			'checkout_credential_description_prod',
@@ -165,6 +161,14 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 			'checkout_credential_description_test',
 			'_mp_public_key_test',
 			'_mp_access_token_test',
+			'checkout_subtitle_checkout_mode',
+			'checkbox_checkout_test_mode',
+			'checkbox_checkout_production_mode',
+			'checkout_mode_alert',
+			// Everything ready for the takeoff of your sales?
+			'checkout_ready_title',
+			'checkout_ready_description',
+			'checkout_ready_description_link',
 			// No olvides de homologar tu cuenta.
 			'checkout_homolog_title',
 			'checkout_homolog_subtitle',
@@ -201,10 +205,6 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 			'checkout_support_description',
 			'checkout_support_description_link',
 			'checkout_support_problem',
-			// Everything ready for the takeoff of your sales?
-			'checkout_ready_title',
-			'checkout_ready_description',
-			'checkout_ready_description_link',
 		);
 	}
 
