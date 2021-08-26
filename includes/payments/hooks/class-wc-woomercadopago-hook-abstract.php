@@ -294,11 +294,23 @@ abstract class WC_WooMercadoPago_Hook_Abstract {
 	 */
 	private function update_others_checkout_mode( $current_gateway_id ) {
 		foreach ( WC_WooMercadoPago_Constants::GATEWAYS_IDS as $gateway_id ) {
-			if ( $gateway_id !== $current_gateway_id ) {
+			$gateway_settings_key = $this->build_woocommerce_settings_key($gateway_id);
+			$options              = get_option( $gateway_settings_key );
+			$is_other_gateway     = $gateway_id !== $current_gateway_id;
+
+			if ( empty($options) || is_null($options['enabled']) ) {
+				continue;
+			}
+
+			$is_enabled_gateway = 'yes' === $options['enabled'];
+
+			if ( $is_other_gateway && $is_enabled_gateway ) {
+				$options['checkbox_checkout_test_mode']       = $this->payment->settings['checkbox_checkout_test_mode'];
+				$options['checkbox_checkout_production_mode'] = $this->payment->settings['checkbox_checkout_production_mode'];
+
 				update_option(
-					$this->build_woocommerce_settings_key($gateway_id),
-					apply_filters( 'woocommerce_settings_api_sanitized_fields_' . $gateway_id,
-					$this->payment->settings )
+					$gateway_settings_key,
+					apply_filters( 'woocommerce_settings_api_sanitized_fields_' . $gateway_id, $options )
 				);
 			}
 		}
