@@ -46,7 +46,7 @@ window.addEventListener('load', function() {
   );
 
   // Remove title and description row if necessary.
- 
+
   document.querySelectorAll('.hidden-field-mp-title').forEach(
     (element) => {
       element.closest('tr').style.display = 'none';
@@ -186,4 +186,5 @@ window.completeOfflineCheckbox = function () {
     }
   }
   };
+
 });
