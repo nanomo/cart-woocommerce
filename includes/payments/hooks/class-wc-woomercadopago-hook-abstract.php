@@ -298,7 +298,7 @@ abstract class WC_WooMercadoPago_Hook_Abstract {
 			$options              = get_option( $gateway_settings_key );
 			$is_other_gateway     = $gateway_id !== $current_gateway_id;
 
-			if ( empty($options) || is_null($options['enabled']) ) {
+			if ( empty($options) || ! array_key_exists('enabled', $options) ) {
 				continue;
 			}
 
