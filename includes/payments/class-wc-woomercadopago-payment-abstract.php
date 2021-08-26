@@ -1826,10 +1826,10 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 			$key     = 'woocommerce_' . $gateway::get_id() . '_settings';
 			$options = get_option( $key );
 			if ( ! empty( $options ) ) {
-				if ( ! isset( $options['checkout_credential_production'] ) || empty( $options['checkout_credential_production'] ) ) {
+				if ( ! isset( $options['checkout_credential_prod'] ) || empty( $options['checkout_credential_prod'] ) ) {
 					continue;
 				}
-				$options['checkbox_checkout_test_mode'] = $options['checkout_credential_production'];
+				$options['checkbox_checkout_test_mode'] = 'yes' === $options['checkout_credential_prod'] ? 'no' : 'yes';
 				update_option( $key, apply_filters( 'woocommerce_settings_api_sanitized_fields_' . $gateway::get_id(), $options ) );
 			}
 		}
