@@ -96,11 +96,11 @@ class Rest_Client_Abstract {
 					$json_content         = 'application/json' === $v;
 					$form_content         = 'application/x-www-form-urlencoded' === $v;
 				}
-				array_push( $headers, $h . ': ' . $v );
+				$headers[] = $h . ': ' . $v;
 			}
 		}
 		if ( $default_content_type ) {
-			array_push( $headers, 'content-type: application/json' );
+			$headers[] = 'content-type: application/json';
 		}
 
 		//@codingStandardsIgnoreStart
@@ -124,7 +124,7 @@ class Rest_Client_Abstract {
 
 		if ( isset( $request['data'] ) ) {
 			if ( $json_content ) {
-				if ( 'string' === gettype( $request['data'] ) ) {
+				if ( is_string( $request['data'] ) ) {
 					json_decode( $request['data'], true );
 				} else {
 					$request['data'] = wp_json_encode( $request['data'] );
@@ -162,7 +162,14 @@ class Rest_Client_Abstract {
 			// @codingStandardsIgnoreLine
 			throw new WC_WooMercadoPago_Exception( curl_error( $connect ) );
 		}
-		$api_http_code = curl_getinfo( $connect, CURLINFO_HTTP_CODE ); //phpcs:ignore
+
+		$info          = curl_getinfo( $connect ); //phpcs:ignore
+		$api_http_code = $info['http_code']; //phpcs:ignore
+
+		if ( defined('WP_DEBUG') && WP_DEBUG ) {
+			$log = WC_WooMercadoPago_Log::init_mercado_pago_log( 'mercadopago_requests' );
+			$log->write_log( 'Execute cURL:', 'Took ' . $info['total_time'] . ' seconds to transfer a request to ' . $info['url'] );
+		}
 
 		if ( null !== $api_http_code && null !== $api_result ) {
 			$response = array(

@@ -70,6 +70,13 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 				WC_WooMercadoPago_Constants::VERSION,
 				true
 			);
+			wp_enqueue_script(
+				'woocommerce-mercadopago-credentials',
+				plugins_url( '../assets/js/validate-credentials' . $suffix . '.js', plugin_dir_path( __FILE__ ) ),
+				array(),
+				WC_WooMercadoPago_Constants::VERSION,
+				true
+			);
 		}
 
 		if ( empty( $this->checkout_country ) ) {

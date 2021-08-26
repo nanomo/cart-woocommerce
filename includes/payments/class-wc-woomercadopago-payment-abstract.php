@@ -853,8 +853,13 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 		if ( empty( $mp_access_token_prod ) ) {
 			return '';
 		} else {
+			$application_id = get_option('mp_application_id', '');
+			if ( $application_id && '' !== $application_id ) {
+				return $application_id;
+			}
 			$application_id = $this->mp->get_credentials_wrapper( $this->mp_access_token_prod );
 			if ( is_array( $application_id ) && isset( $application_id['client_id'] ) ) {
+				update_option('mp_application_id', $application_id['client_id']);
 				return $application_id['client_id'];
 			}
 			return '';
@@ -1070,6 +1075,7 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 			'description' => '',
 			'default'     => $this->get_option_mp( '_mp_public_key_test', '' ),
 			'placeholder' => 'TEST-00000000-0000-0000-0000-000000000000',
+			'class'       => 'mp_credential_test_input',
 		);
 	}
 
@@ -1085,6 +1091,7 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 			'description' => '',
 			'default'     => $this->get_option_mp( '_mp_access_token_test', '' ),
 			'placeholder' => 'TEST-000000000000000000000000000000000-000000-00000000000000000000000000000000-000000000',
+			'class'       => 'mp_credential_test_input',
 		);
 	}
 
@@ -1125,7 +1132,7 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 			'description' => '',
 			'default'     => $this->get_option_mp( '_mp_public_key_prod', '' ),
 			'placeholder' => 'APP-USR-00000000-0000-0000-0000-000000000000',
-
+			'class'       => 'mp_credential_prod_input',
 		);
 	}
 
@@ -1141,6 +1148,7 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 			'description' => '',
 			'default'     => $this->get_option_mp( '_mp_access_token_prod', '' ),
 			'placeholder' => 'APP-USR-000000000000000000000000000000000-000000-00000000000000000000000000000000-000000000',
+			'class'       => 'mp_credential_prod_input',
 		);
 	}
 
