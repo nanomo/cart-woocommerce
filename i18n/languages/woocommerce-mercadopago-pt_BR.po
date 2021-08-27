@@ -6,7 +6,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/woocommerce-"
 "mercadopago\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2021-08-26 11:06-0300\n"
+"PO-Revision-Date: 2021-08-26 18:30-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: pt_BR\n"
@@ -116,7 +116,7 @@ msgid "Cancel order"
 msgstr "Cancelar ordem"
 
 #: ../../includes/module/class-wc-woomercadopago-module.php:356,
-#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:496
+#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:508
 msgid "Fill in your credentials to enable payment methods."
 msgstr "Complete suas credenciais para habilitar os meios de pagamento."
 
@@ -891,8 +891,8 @@ msgid ""
 "Complete this process to secure your customers data and comply with the "
 "regulations<br> and legal provisions of each country."
 msgstr ""
-"Complete este proceso para proteger los datos de sus clientes y cumplir con "
-"las regulaciones<br> y disposiciones legales de cada país."
+"Conclua este processo para proteger os dados de seus clientes e cumprir os "
+"regulamentos<br> e disposições legais de cada país."
 
 #: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1194
 msgid "Homologate account in Mercado Pago"
@@ -1610,7 +1610,7 @@ msgstr "Desconto para o cupom %s"
 msgid " and fee of"
 msgstr " e taxa de"
 
-#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:460
+#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:472
 msgid ""
 "<b>Public Key</b> production credential is invalid. Review the field to "
 "receive real payments."
@@ -1618,7 +1618,7 @@ msgstr ""
 "A credencial de produção <b>Public Key</b> é inválida. Revise o campo para "
 "poder receber pagamentos reais."
 
-#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:469
+#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:481
 msgid ""
 "<b>Public Key</b> test credential is invalid. Review the field to perform "
 "tests in your store."
@@ -1626,7 +1626,7 @@ msgstr ""
 "A credencial de teste <b>Public Key</b> é inválida. Revise o campo para "
 "poder realizar testes em sua loja."
 
-#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:478
+#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:490
 msgid ""
 "<b>Access Token</b> production credential is invalid. Remember that it must "
 "be complete to receive real payments."
@@ -1634,7 +1634,7 @@ msgstr ""
 "A credencial de produção <b>Access Token</b> é inválida. Revise o campo para "
 "poder receber pagamentos reais."
 
-#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:487
+#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:499
 msgid ""
 "<b>Access Token</b> test credential is invalid. Review the field to perform "
 "tests in your store."
@@ -1642,7 +1642,7 @@ msgstr ""
 "A credencial de teste <b>Access Token</b> é inválida. Revise o campo para "
 "poder realizar testes em sua loja."
 
-#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:505
+#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:517
 msgid ""
 "<b>Public Key</b> test credential is blank. Review the field to perform "
 "tests in your store."
@@ -1650,7 +1650,7 @@ msgstr ""
 "A credencial de teste <b>Public Key</b> está em branco. Revise o campo para "
 "poder realizar testes em sua loja."
 
-#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:514
+#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:526
 msgid ""
 "<b>Public Key</b> production credential is blank. Review the field to "
 "receive real payments."
@@ -1658,7 +1658,7 @@ msgstr ""
 "A credencial de produção <b>Public Key</b> está em branco. Revise o campo "
 "para poder receber pagamentos reais."
 
-#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:523
+#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:535
 msgid ""
 "<b>Access Token</b> test credential is blank. Review the field to perform "
 "tests in your store."
@@ -1666,7 +1666,7 @@ msgstr ""
 "A credencial de teste <b>Access Token</b> está em branco. Revise o campo "
 "para poder realizar testes em sua loja."
 
-#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:532
+#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:544
 msgid ""
 "<b>Access Token</b> production credential is blank. Remember that it must be "
 "complete to receive real payments."
