@@ -6,7 +6,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/woocommerce-"
 "mercadopago\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2021-08-20 10:16-0300\n"
+"PO-Revision-Date: 2021-08-27 15:47-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: es_AR\n"
@@ -35,8 +35,8 @@ msgstr "Convertir moneda"
 #: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:901,
 #: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:986,
 #: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1278,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1388,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1425,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1407,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1444,
 #: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:296
 msgid "No"
 msgstr "No"
@@ -47,8 +47,8 @@ msgstr "No"
 #: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:902,
 #: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:987,
 #: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1279,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1389,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1424,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1408,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1443,
 #: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:297
 msgid "Yes"
 msgstr "Sí"
@@ -1021,12 +1021,12 @@ msgstr "18x cuotas"
 msgid "24x installments"
 msgstr "24x cuotas"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1350
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1369
 msgid "URL for IPN"
 msgstr "URL para IPN"
 
 #. translators: %s link
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1354
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1373
 msgid ""
 "Enter a URL to receive payment notifications. In %s you can check more "
 "information."
@@ -1034,11 +1034,11 @@ msgstr ""
 "Ingresa una URL para recibir notificaciones de pagos. En %s puedes consultar "
 "más información."
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1355
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1374
 msgid "our guides"
 msgstr "nuestras guías"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1359
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1378
 msgid ""
 "IPN (Instant Payment Notification) is a notification of events that take "
 "place on your platform and that is sent from one server to another through "
@@ -1048,24 +1048,24 @@ msgstr ""
 "lugar en su plataforma y que se envía de un servidor a otro a través de una "
 "llamada HTTP POST. Vea más información en nuestras guías."
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1370
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1389
 msgid ""
 "Edit these advanced fields only when you want to modify the preset values."
 msgstr ""
 "Edita estos campos avanzados solo cuando quieras modificar los valores "
 "preestablecidos."
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1383
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1402
 msgid "Discount coupons"
 msgstr "Cupones de descuento"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1386
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1405
 msgid "Will you offer discount coupons to customers who buy with Mercado Pago?"
 msgstr ""
 "¿Ofrecerás cupones de descuento a los clientes que compren con Mercado Pago?"
 
 #. translators: %s link
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1403
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1422
 msgid ""
 "It appears that your credentials are not properly configured.<br/>Please, go "
 "to %s and configure it."
@@ -1073,20 +1073,20 @@ msgstr ""
 "Parece que sus credenciales no están configuradas correctamente.<br/> Por "
 "favor, vaya a %s y configúrelo."
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1404
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1423
 msgid "Market Payment Configuration"
 msgstr "Mercado Pago Configuración"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1418
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1437
 msgid "Binary mode"
 msgstr "Modo binario"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1421
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1440
 msgid ""
 "Accept and reject payments automatically. Do you want us to activate it?"
 msgstr "Acepta y rechaza pagos de forma automática. ¿Quieres que lo activemos?"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1422
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1441
 msgid ""
 "If you activate binary mode you will not be able to leave pending payments. "
 "This can affect fraud prevention. Leave it idle to be backed by our own tool."
@@ -1095,11 +1095,11 @@ msgstr ""
 "afectar la prevención del fraude. Déjelo inactivo para que sea respaldado "
 "por nuestra propia herramienta."
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1437
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1456
 msgid "Discounts per purchase with Mercado Pago"
 msgstr "Descuentos por compra con Mercado Pago"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1439
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1458
 msgid ""
 "Choose a percentage value that you want to discount your customers for "
 "paying with Mercado Pago."
@@ -1107,11 +1107,11 @@ msgstr ""
 "Elige un valor porcentual que quieras descontar a tus clientes por pagar con "
 "Mercado Pago."
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1456
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1475
 msgid "Commission for purchase with Mercado Pago"
 msgstr "Comisión por compra con Mercado Pago"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1458
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1477
 msgid ""
 "Choose an additional percentage value that you want to charge as commission "
 "to your customers for paying with Mercado Pago."
@@ -1119,11 +1119,11 @@ msgstr ""
 "Elige un valor porcentual adicional que quieras cobrar como comisión a tus "
 "clientes por pagar con Mercado Pago."
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1484
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1503
 msgid "Questions?"
 msgstr "¿Tienes alguna duda?"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1499
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1518
 msgid ""
 "Check out the step-by-step of how to integrate the Mercado Pago Plugin for "
 "WooCommerce in our developer website."
@@ -1131,26 +1131,34 @@ msgstr ""
 "Revisa el paso a paso de cómo integrar el Plugin de Mercado Pago para "
 "WooCommerce en nuestro sitio de desarrolladores."
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1514
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1533
 msgid "Review documentation"
 msgstr "Revisar documentación"
 
 #. translators: %s link
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1534
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1553
 msgid "Still having problems? Contact our support team through their %s"
 msgstr ""
 "¿Sigues con problemas? Comunícate con nuestro equipo de soporte a través de "
 "su %s"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1535
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1554
 msgid "contact form."
 msgstr "formulario de contacto."
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1551
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1574
+msgid "Set up your interest payments"
+msgstr "Configura pagos"
+
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1572
 msgid "Set up your installment and interest payments"
 msgstr "Configura meses sin intereses"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1566
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1595
+msgid "At Mercado Pago you can choose the fee you pay for each purchase"
+msgstr "En Mercado Pago puedes elegir la tarifa que pagas en cada venta"
+
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1593
 msgid ""
 "At Mercado Pago you can choose the fee you pay for each purchase and also "
 "offer interest-free installments to your customer."
@@ -1158,24 +1166,28 @@ msgstr ""
 "En Mercado Pago puedes elegir la tarifa que pagas en cada compra y también "
 "ofrecer meses sin intereses a tu cliente."
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1581
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1615
+msgid "Set up interest payments"
+msgstr "Configurar tasas y plazos"
+
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1613
 msgid "Set up installment and interest"
 msgstr "Configurar cuotas e intereses"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1604
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1635
 msgid "Everything set up? Go to your store in Sandbox mode"
 msgstr "¿Todo configurado? Ve a tu tienda en modo Sandbox"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1602
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1633
 msgid "Everything ready for the takeoff of your sales?"
 msgstr "¿Todo listo para el despegue de tus ventas?"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1623
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1654
 msgid ""
 "Visit your store and simulate a payment to check that everything is fine."
 msgstr "Visita tu tienda y simula un pago para revisar que todo esté bien."
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1621
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1652
 msgid ""
 "Visit your store as if you were one of your customers and check that "
 "everything is fine. If you already went to Production,<br> bring your "
@@ -1185,15 +1197,15 @@ msgstr ""
 "bien. Si ya saliste a Producción,<br> trae a tus clientes y aumenta tus "
 "ventas con la mejor experiencia de compra online."
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1642
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1673
 msgid "I want to test my sales"
 msgstr "Quiero testear mis ventas"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1640
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1671
 msgid "Visit my store"
 msgstr "Visitar mi tienda"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1648
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1679
 msgid "%s"
 msgstr "%s"
 
@@ -1528,8 +1540,8 @@ msgstr "Descartar"
 msgid "Shipping service used by the store."
 msgstr "Servicio de envío utilizado por la tienda."
 
-#: ../../includes/module/preference/class-wc-woomercadopago-preference-abstract.php:543,
-#: ../../includes/module/preference/class-wc-woomercadopago-preference-abstract.php:544
+#: ../../includes/module/preference/class-wc-woomercadopago-preference-abstract.php:540,
+#: ../../includes/module/preference/class-wc-woomercadopago-preference-abstract.php:541
 msgid "Discount provided by store"
 msgstr "Descuento proporcionado por la tienda"
 
