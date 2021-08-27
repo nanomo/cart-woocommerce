@@ -138,6 +138,23 @@ class WC_WooMercadoPago_Init {
 		}
 	}
 
+	// TODO: Deixar essa função em um lugar que faça mais sentido
+	public static function payment_status_container( $screen_name ) {
+		add_meta_box(
+			'payment-status-container',
+			'Status Mercado Pago',
+			array( __CLASS__, 'meta_box_content' ),
+			$screen_name
+		);
+		// TODO: Deixar isso em um script
+		echo '<script>window.addEventListener("load", () => document.querySelector("#payment-status-container").after(document.querySelector("#woocommerce-order-items")))</script>';
+	}
+
+	// TODO: Deixar essa função em um lugar que faça mais sentido
+	public static function meta_box_content() {
+		echo '<strong>Conteúdo</strong>';
+	}
+
 	/**
 	 * Init the plugin
 	 */
@@ -176,6 +193,8 @@ class WC_WooMercadoPago_Init {
 			WC_WooMercadoPago_Saved_Cards::init_singleton();
 			self::update_plugin_version();
 
+			// TODO: Deixar esse hook em um lugar que faça mais sentido
+			add_action( 'add_meta_boxes', array( __CLASS__, 'payment_status_container' ));
 			add_action( 'woocommerce_order_actions', array( __CLASS__, 'add_mp_order_meta_box_actions' ) );
 		} else {
 			add_action( 'admin_notices', array( __CLASS__, 'notify_woocommerce_miss' ) );
