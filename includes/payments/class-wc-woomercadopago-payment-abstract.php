@@ -1568,13 +1568,12 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 	 */
 	public function field_mp_psj_title( $checkout ) {
 
-		if ( $checkout !== 'mco' ) {
+		if ( 'mco' !== $checkout ) {
 			$message_support_title = __( 'Set up your installment and interest payments', 'woocommerce-mercadopago' );
 		} else {
 			$message_support_title = __( 'Set up your interest payments', 'woocommerce-mercadopago' );
 		}
 		
-
 		return array(
 			'title' => $message_support_title,
 			'type'  => 'title',
@@ -1589,7 +1588,7 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 	 */
 	public function field_mp_psj_description( $checkout ) {
 
-		if ( $checkout !== 'mco') {
+		if ( 'mco' !== $checkout ) {
 			$message_support_description = __( 'At Mercado Pago you can choose the fee you pay for each purchase and also offer interest-free installments to your customer.', 'woocommerce-mercadopago' );
 		} else {
 			$message_support_description = __( 'At Mercado Pago you can choose the fee you pay for each purchase', 'woocommerce-mercadopago' );
@@ -1609,7 +1608,7 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 	 */
 	public function field_mp_psj_description_link( $checkout ) {
 
-		if ( $checkout !== 'mco' ) {
+		if ( 'mco' !== $checkout ) {
 			$message_link = __( 'Set up installment and interest', 'woocommerce-mercadopago' );
 		} else {
 			$message_link = __( 'Set up interest payments', 'woocommerce-mercadopago' );
