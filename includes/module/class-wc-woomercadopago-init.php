@@ -152,7 +152,12 @@ class WC_WooMercadoPago_Init {
 
 	// TODO: Deixar essa função em um lugar que faça mais sentido
 	public static function meta_box_content() {
-		echo '<strong>Conteúdo</strong>';
+		wc_get_template(
+			'order/payment-status-metabox-content.php',
+			[],
+			'woo/mercado/pago/module/',
+			WC_WooMercadoPago_Module::get_templates_path()
+		);
 	}
 
 	/**
