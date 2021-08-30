@@ -91,6 +91,7 @@ class WC_WooMercadoPago_Module extends WC_WooMercadoPago_Configs {
 			$this->load_stock_manager();
 
 			add_action( 'admin_enqueue_scripts', array( $this, 'load_admin_css' ) );
+			add_action( 'admin_enqueue_scripts', array( $this, 'load_global_css' ) );
 
 			add_filter( 'woocommerce_available_payment_gateways', array( $this, 'filter_payment_method_by_shipping' ) );
 			add_filter( 'plugin_action_links_' . WC_MERCADOPAGO_BASENAME, array( $this, 'woomercadopago_settings_link' ) );
@@ -217,6 +218,7 @@ class WC_WooMercadoPago_Module extends WC_WooMercadoPago_Configs {
 		include_once dirname( __FILE__ ) . '/../payments/hooks/class-wc-woomercadopago-hook-custom.php';
 		include_once dirname( __FILE__ ) . '/../payments/hooks/class-wc-woomercadopago-hook-ticket.php';
 		include_once dirname( __FILE__ ) . '/../payments/hooks/class-wc-woomercadopago-hook-pix.php';
+		// TODO: Remover do hooks de payments
 		include_once dirname( __FILE__ ) . '/../payments/hooks/class-wc-woomercadopago-hook-order-details.php';
 
 		WC_WooMercadoPago_Hook_Order_Details::init_hook_order_details();
@@ -283,6 +285,15 @@ class WC_WooMercadoPago_Module extends WC_WooMercadoPago_Configs {
 	}
 
 	/**
+	 * Get Suffix to get minify files
+	 *
+	 * @return String
+	 */
+	private function get_suffix() {
+		return defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
+	}
+
+	/**
 	 *
 	 * Load Admin Css
 	 *
@@ -290,7 +301,7 @@ class WC_WooMercadoPago_Module extends WC_WooMercadoPago_Configs {
 	 */
 	public function load_admin_css() {
 		if ( is_admin() ) {
-			$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
+			$suffix = $this->get_suffix();
 
 			wp_enqueue_style(
 				'woocommerce-mercadopago-basic-config-styles',
@@ -299,6 +310,22 @@ class WC_WooMercadoPago_Module extends WC_WooMercadoPago_Configs {
 				WC_WooMercadoPago_Constants::VERSION
 			);
 		}
+	}
+
+	/**
+	 * Load global CSS
+	 *
+	 * @return void
+	 */
+	public function load_global_css() {
+		$suffix = $this->get_suffix();
+
+		wp_enqueue_style(
+			'woocommerce-mercadopago-global-css',
+			plugins_url( '../assets/css/global' . $suffix . '.css', plugin_dir_path( __FILE__ ) ),
+			array(),
+			WC_WooMercadoPago_Constants::VERSION
+		);
 	}
 
 	/**

@@ -79,7 +79,15 @@ class WC_WooMercadoPago_Hook_Order_Details {
 		function payment_status_metabox_content() {
 			wc_get_template(
 				'order/payment-status-metabox-content.php',
-				[],
+				[
+					// TODO: Corrigir caminho do arquivo depois de mudar de pasta, pois pretendo tirar de payment
+					'img_src' => esc_url( plugins_url( '../../assets/images/generics/circle-alert.png', plugin_dir_path( __FILE__ ) ) ),
+					'alert_title' => 'Pagamento Pendente',
+					'alert_description' => 'Descrição do pagamento pendente',
+					'link' => 'https://www.mercadopago.com.br/home',
+					'border_left_color' => '#f73',
+					'link_description' => 'Ver detalhes da compra no Mercado Pago'
+				],
 				'woo/mercado/pago/module/',
 				WC_WooMercadoPago_Module::get_templates_path()
 			);
@@ -87,7 +95,7 @@ class WC_WooMercadoPago_Hook_Order_Details {
 
 		add_meta_box(
 			'payment-status-metabox',
-			'Status Mercado Pago', // TODO: Colocar traduções
+			'Status de pagamento no Mercado Pago', // TODO: Colocar traduções
 			'payment_status_metabox_content',
 			$screen_name
 		);
