@@ -60,8 +60,14 @@ class WC_WooMercadoPago_Hook_Order_Details {
 	 * @return void
 	 */
 	public function load_scripts() {
-		// TODO: Deixar isso em um script
-		echo '<script>window.addEventListener("load", () => document.querySelector("#payment-status-metabox").after(document.querySelector("#woocommerce-order-items")))</script>';
+		add_action( 'admin_enqueue_scripts', array( $this, 'payment_status_metabox_script' ) );
+	}
+
+	/**
+	 * Get sufix to static files
+	 */
+	public function get_suffix() {
+		return defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 	}
 
 	/**
@@ -84,6 +90,23 @@ class WC_WooMercadoPago_Hook_Order_Details {
 			'Status Mercado Pago', // TODO: Colocar traduções
 			'payment_status_metabox_content',
 			$screen_name
+		);
+	}
+
+	/**
+	 * Payment Status Metabox Script
+	 *
+	 * @return void
+	 */
+	public function payment_status_metabox_script() {
+		$suffix = $this->get_suffix();
+
+		wp_enqueue_script(
+			'payment_status_metabox',
+			plugins_url( '../../assets/js/payment_status_metabox' . $suffix . '.js', plugin_dir_path( __FILE__ ) ),
+			array(),
+			WC_WooMercadoPago_Constants::VERSION,
+			false
 		);
 	}
 }
