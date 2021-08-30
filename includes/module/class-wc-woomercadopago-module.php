@@ -218,9 +218,6 @@ class WC_WooMercadoPago_Module extends WC_WooMercadoPago_Configs {
 		include_once dirname( __FILE__ ) . '/../payments/hooks/class-wc-woomercadopago-hook-custom.php';
 		include_once dirname( __FILE__ ) . '/../payments/hooks/class-wc-woomercadopago-hook-ticket.php';
 		include_once dirname( __FILE__ ) . '/../payments/hooks/class-wc-woomercadopago-hook-pix.php';
-		include_once dirname( __FILE__ ) . '/../admin/hooks/class-wc-woomercadopago-hook-order-details.php';
-
-		WC_WooMercadoPago_Hook_Order_Details::init_hook_order_details();
 	}
 
 	/**
