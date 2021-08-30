@@ -1573,7 +1573,6 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 		} else {
 			$message_support_title = __( 'Set up your interest payments', 'woocommerce-mercadopago' );
 		}
-		
 		return array(
 			'title' => $message_support_title,
 			'type'  => 'title',
