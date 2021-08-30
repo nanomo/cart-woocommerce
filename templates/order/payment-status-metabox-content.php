@@ -15,7 +15,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 
 <p style="font-family: 'Lato', sans-serif; font-size: 14px;">
-	Este é o <b>status de pagamento</b> das Atividades do seu Mercado Pago. Para <b>status do pedido</b>, consulte <b>Detalhes do Pedido.</b>
+	<?php
+		// @codingStandardsIgnoreStart
+		echo __( 'This is the <b>payment status</b> of your Pay Marketplace Activities. For <b>Order Status</b>, see <b>Order Details.</b>', 'woocommerce-mercadopago' );
+		// @codingStandardsIgnoreEnd
+	?>
 </p>
 
 <div class='mp-alert-checkout-test-mode' style='border-left: 5px solid <?php echo esc_html( $border_left_color ); ?>; min-height: 70px;'>

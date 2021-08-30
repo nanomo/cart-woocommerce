@@ -86,7 +86,7 @@ class WC_WooMercadoPago_Hook_Order_Details {
 					'alert_description' => 'Descrição do pagamento pendente',
 					'link' => 'https://www.mercadopago.com.br/home',
 					'border_left_color' => '#f73',
-					'link_description' => 'Ver detalhes da compra no Mercado Pago'
+					'link_description' => __( 'View purchase details at Mercado Pago', 'woocommerce-mercadopago' )
 				],
 				'woo/mercado/pago/module/',
 				WC_WooMercadoPago_Module::get_templates_path()
@@ -95,7 +95,7 @@ class WC_WooMercadoPago_Hook_Order_Details {
 
 		add_meta_box(
 			'payment-status-metabox',
-			'Status de pagamento no Mercado Pago', // TODO: Colocar traduções
+			__( 'Payment status on Mercado Pago', 'woocommerce-mercadopago' ),
 			'payment_status_metabox_content',
 			$screen_name
 		);

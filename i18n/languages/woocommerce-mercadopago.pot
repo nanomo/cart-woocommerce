@@ -1289,6 +1289,14 @@ msgstr ""
 msgid "Terms and conditions of use"
 msgstr ""
 
+#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-order-details.php:89
+msgid "View purchase details at Mercado Pago"
+msgstr ""
+
+#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-order-details.php:98
+msgid "Payment status on Mercado Pago"
+msgstr ""
+
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:120
 msgid "Now you just need to pay with PIX to finalize your purchase"
 msgstr ""
@@ -1567,6 +1575,10 @@ msgstr ""
 
 #: ../../templates/checkout/ticket-checkout.php:330
 msgid "Select the issuer with whom you want to process the payment"
+msgstr ""
+
+#: ../../templates/order/payment-status-metabox-content.php:20
+msgid "This is the <b>payment status</b> of your Pay Marketplace Activities. For <b>Order Status</b>, see <b>Order Details.</b>"
 msgstr ""
 
 #: ../../templates/order-received/show-ticket.php:19
