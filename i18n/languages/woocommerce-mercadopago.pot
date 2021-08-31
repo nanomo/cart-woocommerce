@@ -866,43 +866,55 @@ msgstr ""
 msgid "contact form."
 msgstr ""
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1570
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1574
+msgid "Set up your interest payments"
+msgstr ""
+
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1572
 msgid "Set up your installment and interest payments"
 msgstr ""
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1585
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1593
+msgid "At Mercado Pago you can choose the fee you pay for each purchase"
+msgstr ""
+
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1591
 msgid "At Mercado Pago you can choose the fee you pay for each purchase and also offer interest-free installments to your customer."
 msgstr ""
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1600
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1613
+msgid "Set up interest payments"
+msgstr ""
+
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1611
 msgid "Set up installment and interest"
 msgstr ""
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1619
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1633
 msgid "Everything set up? Go to your store in Sandbox mode"
 msgstr ""
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1617
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1631
 msgid "Everything ready for the takeoff of your sales?"
 msgstr ""
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1638
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1652
 msgid "Visit your store and simulate a payment to check that everything is fine."
 msgstr ""
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1636
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1650
 msgid "Visit your store as if you were one of your customers and check that everything is fine. If you already went to Production,<br> bring your customers and increase your sales with the best online shopping experience."
 msgstr ""
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1657
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1671
 msgid "I want to test my sales"
 msgstr ""
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1655
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1669
 msgid "Visit my store"
 msgstr ""
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1663
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1677
 msgid "%s"
 msgstr ""
 
