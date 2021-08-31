@@ -175,12 +175,14 @@ class WC_WooMercadoPago_Hook_Order_Details {
 	 * @return Array
 	 */
 	public function get_metabox_data( $alert_status ) {
+		$country = get_option( 'checkout_country', '' );
+
 		if ( 'success' === $alert_status ) {
 			return [
 				'img_src' => esc_url( plugins_url( '../../assets/images/generics/circle-green-check.png', plugin_dir_path( __FILE__ ) ) ),
 				'alert_title' => __( 'Payment approved', 'woocommerce-mercadopago' ),
 				'alert_description' => 'Descrição do pagamento aprovado', // TODO: Chavear descrição
-				'link' => 'https://www.mercadopago.com.br/home', // TODO: Chavear pelo país
+				'link' => $this->get_mp_home_link($country),
 				'border_left_color' => '#00A650',
 				'link_description' => __( 'View purchase details at Mercado Pago', 'woocommerce-mercadopago' )
 			];
@@ -191,7 +193,7 @@ class WC_WooMercadoPago_Hook_Order_Details {
 				'img_src' => esc_url( plugins_url( '../../assets/images/generics/circle-alert.png', plugin_dir_path( __FILE__ ) ) ),
 				'alert_title' => __( 'Payment pending', 'woocommerce-mercadopago' ),
 				'alert_description' => 'Descrição do pagamento pendente', // TODO: Chavear descrição
-				'link' => 'https://www.mercadopago.com.br/home', // TODO: Chavear pelo país
+				'link' => $this->get_mp_home_link($country),
 				'border_left_color' => '#f73',
 				'link_description' => __( 'View purchase details at Mercado Pago', 'woocommerce-mercadopago' )
 			];
@@ -207,5 +209,24 @@ class WC_WooMercadoPago_Hook_Order_Details {
 				'link_description' => __( 'Check the reasons why the purchase was declined.', 'woocommerce-mercadopago' )
 			];
 		}
+	}
+
+	/**
+	 * Get Mercado Pago Home Link
+	 *
+	 * @param String $country Country Acronym
+	 *
+	 * @return String
+	 */
+	public function get_mp_home_link( $country ) {
+		return [
+			'mla' => 'https://www.mercadopago.com.ar/home',
+			'mlb' => 'https://www.mercadopago.com.br/home',
+			'mlc' => 'https://www.mercadopago.cl/home',
+			'mco' => 'https://www.mercadopago.com.co/home',
+			'mlm' => 'https://www.mercadopago.com.mx/home',
+			'mpe' => 'https://www.mercadopago.com.pe/home',
+			'mlu' => 'https://www.mercadopago.com.uy/home',
+		][$country];
 	}
 }

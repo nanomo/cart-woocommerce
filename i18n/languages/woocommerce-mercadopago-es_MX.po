@@ -6,7 +6,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/woocommerce-"
 "mercadopago\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2021-08-31 09:18-0300\n"
+"PO-Revision-Date: 2021-08-31 09:33-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: es_AR\n"
@@ -1535,24 +1535,24 @@ msgstr "aquí"
 msgid "Payment status on Mercado Pago"
 msgstr "Estado de pago en el Mercado Pago"
 
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:181
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:183
 msgid "Payment approved"
 msgstr "Pago aprobado"
 
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:185,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:196
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:187,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:198
 msgid "View purchase details at Mercado Pago"
 msgstr "Ver detalles de compra en Mercado Pago"
 
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:192
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:194
 msgid "Payment pending"
 msgstr "Pago pendiente"
 
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:203
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:205
 msgid "Payment refused"
 msgstr "Pago rechazado"
 
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:207
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:209
 msgid "Check the reasons why the purchase was declined."
 msgstr "Consulta los motivos del rechazo de tu compra."
 

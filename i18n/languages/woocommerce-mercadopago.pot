@@ -1160,23 +1160,23 @@ msgstr ""
 msgid "Payment status on Mercado Pago"
 msgstr ""
 
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:181
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:183
 msgid "Payment approved"
 msgstr ""
 
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:185, ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:196
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:187, ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:198
 msgid "View purchase details at Mercado Pago"
 msgstr ""
 
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:192
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:194
 msgid "Payment pending"
 msgstr ""
 
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:203
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:205
 msgid "Payment refused"
 msgstr ""
 
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:207
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:209
 msgid "Check the reasons why the purchase was declined."
 msgstr ""
 
