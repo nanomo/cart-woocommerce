@@ -6,7 +6,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/woocommerce-"
 "mercadopago\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2021-08-30 16:23-0300\n"
+"PO-Revision-Date: 2021-08-31 09:18-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: es_AR\n"
@@ -1149,11 +1149,27 @@ msgstr ""
 msgid "contact form."
 msgstr "formulario de contacto."
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1570
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1574
+#, fuzzy
+#| msgid "Set up your installment and interest payments"
+msgid "Set up your interest payments"
+msgstr "Configura meses sin intereses"
+
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1572
 msgid "Set up your installment and interest payments"
 msgstr "Configura meses sin intereses"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1585
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1593
+#, fuzzy
+#| msgid ""
+#| "At Mercado Pago you can choose the fee you pay for each purchase and also "
+#| "offer interest-free installments to your customer."
+msgid "At Mercado Pago you can choose the fee you pay for each purchase"
+msgstr ""
+"En Mercado Pago puedes elegir la tarifa que pagas en cada compra y también "
+"ofrecer meses sin intereses a tu cliente."
+
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1591
 msgid ""
 "At Mercado Pago you can choose the fee you pay for each purchase and also "
 "offer interest-free installments to your customer."
@@ -1161,24 +1177,30 @@ msgstr ""
 "En Mercado Pago puedes elegir la tarifa que pagas en cada compra y también "
 "ofrecer meses sin intereses a tu cliente."
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1600
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1613
+#, fuzzy
+#| msgid "Set up your installment and interest payments"
+msgid "Set up interest payments"
+msgstr "Configura meses sin intereses"
+
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1611
 msgid "Set up installment and interest"
 msgstr "Configurar cuotas e intereses"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1619
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1633
 msgid "Everything set up? Go to your store in Sandbox mode"
 msgstr "¿Todo configurado? Ve a tu tienda en modo Sandbox"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1617
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1631
 msgid "Everything ready for the takeoff of your sales?"
 msgstr "¿Todo listo para el despegue de tus ventas?"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1638
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1652
 msgid ""
 "Visit your store and simulate a payment to check that everything is fine."
 msgstr "Visita tu tienda y simula un pago para revisar que todo esté bien."
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1636
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1650
 msgid ""
 "Visit your store as if you were one of your customers and check that "
 "everything is fine. If you already went to Production,<br> bring your "
@@ -1188,15 +1210,15 @@ msgstr ""
 "bien. Si ya saliste a Producción,<br> trae a tus clientes y aumenta tus "
 "ventas con la mejor experiencia de compra online."
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1657
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1671
 msgid "I want to test my sales"
 msgstr "Quiero testear mis ventas"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1655
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1669
 msgid "Visit my store"
 msgstr "Visitar mi tienda"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1663
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1677
 msgid "%s"
 msgstr "%s"
 
@@ -1513,10 +1535,22 @@ msgstr "aquí"
 msgid "Payment status on Mercado Pago"
 msgstr "Estado de pago en el Mercado Pago"
 
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:181
+msgid "Payment approved"
+msgstr "Pago aprobado"
+
 #: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:185,
 #: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:196
 msgid "View purchase details at Mercado Pago"
 msgstr "Ver detalles de compra en Mercado Pago"
+
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:192
+msgid "Payment pending"
+msgstr "Pago pendiente"
+
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:203
+msgid "Payment refused"
+msgstr "Pago rechazado"
 
 #: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:207
 msgid "Check the reasons why the purchase was declined."

@@ -1160,8 +1160,20 @@ msgstr ""
 msgid "Payment status on Mercado Pago"
 msgstr ""
 
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:181
+msgid "Payment approved"
+msgstr ""
+
 #: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:185, ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:196
 msgid "View purchase details at Mercado Pago"
+msgstr ""
+
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:192
+msgid "Payment pending"
+msgstr ""
+
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:203
+msgid "Payment refused"
 msgstr ""
 
 #: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:207

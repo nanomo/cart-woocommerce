@@ -178,9 +178,9 @@ class WC_WooMercadoPago_Hook_Order_Details {
 		if ( 'success' === $alert_status ) {
 			return [
 				'img_src' => esc_url( plugins_url( '../../assets/images/generics/circle-green-check.png', plugin_dir_path( __FILE__ ) ) ),
-				'alert_title' => 'Pagamento Aprovado', // TODO: Traduzir
+				'alert_title' => __( 'Payment approved', 'woocommerce-mercadopago' ),
 				'alert_description' => 'Descrição do pagamento aprovado', // TODO: Chavear descrição
-				'link' => 'https://www.mercadopago.com.br/home',
+				'link' => 'https://www.mercadopago.com.br/home', // TODO: Chavear pelo país
 				'border_left_color' => '#00A650',
 				'link_description' => __( 'View purchase details at Mercado Pago', 'woocommerce-mercadopago' )
 			];
@@ -189,9 +189,9 @@ class WC_WooMercadoPago_Hook_Order_Details {
 		if ( 'pending' === $alert_status ) {
 			return [
 				'img_src' => esc_url( plugins_url( '../../assets/images/generics/circle-alert.png', plugin_dir_path( __FILE__ ) ) ),
-				'alert_title' => 'Pagamento Pendente', // TODO: Traduzir
+				'alert_title' => __( 'Payment pending', 'woocommerce-mercadopago' ),
 				'alert_description' => 'Descrição do pagamento pendente', // TODO: Chavear descrição
-				'link' => 'https://www.mercadopago.com.br/home',
+				'link' => 'https://www.mercadopago.com.br/home', // TODO: Chavear pelo país
 				'border_left_color' => '#f73',
 				'link_description' => __( 'View purchase details at Mercado Pago', 'woocommerce-mercadopago' )
 			];
@@ -200,7 +200,7 @@ class WC_WooMercadoPago_Hook_Order_Details {
 		if ( 'rejected' === $alert_status ) {
 			return [
 				'img_src' => esc_url( plugins_url( '../../assets/images/generics/circle-red-alert.png', plugin_dir_path( __FILE__ ) ) ),
-				'alert_title' => 'Pagamento Reprovado', // TODO: Traduzir
+				'alert_title' => __( 'Payment refused', 'woocommerce-mercadopago' ),
 				'alert_description' => 'Descrição do pagamento reprovado', // TODO: Chavear descrição
 				'link' => 'https://www.mercadopago.com.br/home', // TODO: Colocar link do devsite com as infos de pagametos recusados
 				'border_left_color' => '#F23D4F',
