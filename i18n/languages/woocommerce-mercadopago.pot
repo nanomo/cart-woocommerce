@@ -243,15 +243,15 @@ msgid "Mercado Pago - Checkout Pro"
 msgstr ""
 
 #. translators: %s checkout
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:266
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:267
 msgid "Checkout Pro %s"
 msgstr ""
 
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:269
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:270
 msgid "Accept all method of payment and take your charges to another level"
 msgstr ""
 
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:273
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:274
 msgid "Turn your online store into your customers preferred payment gateway. Choose if the final payment experience will be inside or outside your store."
 msgstr ""
 
@@ -259,71 +259,71 @@ msgstr ""
 msgid "Configure Mercado Pago for WooCommerce"
 msgstr ""
 
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:303
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:304
 msgid "Enable the experience of the Checkout Pro in your online store, select the means of payment available to your customers and<br> define the maximum fees in which they can pay you."
 msgstr ""
 
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:316
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:317
 msgid "Set payment preferences in your store"
 msgstr ""
 
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:329
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:330
 msgid "Advanced settings"
 msgstr ""
 
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:342
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:343
 msgid "Payment experience"
 msgstr ""
 
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:344
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:345
 msgid "Define what payment experience your customers will have, whether inside or outside your store."
 msgstr ""
 
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:347
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:348
 msgid "Redirect"
 msgstr ""
 
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:348
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:349
 msgid "Modal"
 msgstr ""
 
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:364
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:365
 msgid "Choose the URL that we will show your customers when they finish their purchase."
 msgstr ""
 
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:362, ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:382, ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:403
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:363, ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:383, ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:404
 msgid "This seems to be an invalid URL."
 msgstr ""
 
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:367
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:368
 msgid "Success URL"
 msgstr ""
 
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:384
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:385
 msgid "Choose the URL that we will show to your customers when we refuse their purchase. Make sure it includes a message appropriate to the situation and give them useful information so they can solve it."
 msgstr ""
 
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:387
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:388
 msgid "Payment URL rejected"
 msgstr ""
 
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:405
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:406
 msgid "Choose the URL that we will show to your customers when they have a payment pending approval."
 msgstr ""
 
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:408
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:409
 msgid "Payment URL pending"
 msgstr ""
 
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:487
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:488
 msgid "Select offline payments"
 msgstr ""
 
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:476
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:477
 msgid "Select debit cards"
 msgstr ""
 
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:465
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:466
 msgid "Select credit cards"
 msgstr ""
 
@@ -339,11 +339,11 @@ msgstr ""
 msgid "Activate the available payment methods to your clients."
 msgstr ""
 
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:519
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:520
 msgid "Return to the store"
 msgstr ""
 
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:522
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:523
 msgid "Do you want your customer to automatically return to the store after payment?"
 msgstr ""
 
