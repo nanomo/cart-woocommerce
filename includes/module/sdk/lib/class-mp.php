@@ -588,6 +588,16 @@ class MP {
 	 * @throws WC_WooMercadoPago_Exception Get payment method exception.
 	 */
 	public function get_payment_methods( $access_token ) {
+		$key = sha1(sprintf('%s%s', __FUNCTION__, $access_token));
+
+		$cache = get_transient($key);
+
+		if ( ! empty($cache) ) {
+			$log = WC_WooMercadoPago_Log::init_mercado_pago_log( 'mercadopago_requests' );
+			$log->write_log( 'Cached:', __FUNCTION__ );
+			return $cache;
+		}
+
 		$request = array(
 			'headers' => array(
 				'Authorization' => 'Bearer ' . $access_token,
@@ -605,6 +615,8 @@ class MP {
 
 		asort( $response );
 
+		set_transient($key, $response, MINUTE_IN_SECONDS);
+
 		return $response;
 	}
 
@@ -617,6 +629,16 @@ class MP {
 	 * @throws WC_WooMercadoPago_Exception Get credentials wrapper.
 	 */
 	public function get_credentials_wrapper( $access_token = null, $public_key = null ) {
+		$key = sha1(sprintf('%s%s%s', __FUNCTION__, $access_token, $public_key));
+
+		$cache = get_transient($key);
+
+		if ( ! empty($cache) ) {
+			$log = WC_WooMercadoPago_Log::init_mercado_pago_log( 'mercadopago_requests' );
+			$log->write_log( 'Cached:', __FUNCTION__ );
+			return $cache;
+		}
+
 		$request = array(
 			'uri' => '/plugins-credentials-wrapper/credentials',
 		);
@@ -637,6 +659,8 @@ class MP {
 			$log->write_log( 'API GET Credentials Wrapper error:', $error_message );
 			return false;
 		}
+
+		set_transient($key, $response['response'], MINUTE_IN_SECONDS);
 
 		return $response['response'];
 	}

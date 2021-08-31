@@ -44,13 +44,15 @@ class Rest_Client_Abstract {
 	/**
 	 * Exec ABS
 	 *
-	 * @param array  $request Request.
+	 * @param array $request Request.
 	 * @param string $url URL.
+	 *
 	 * @return array|null
 	 */
 	public static function exec_abs( $request, $url ) {
 		try {
 			$connect = self::build_request( $request, $url );
+
 			return self::execute( $request, $connect );
 		} catch ( Exception $e ) {
 			return null;
@@ -60,8 +62,9 @@ class Rest_Client_Abstract {
 	/**
 	 * Build request
 	 *
-	 * @param array  $request Request data.
+	 * @param array $request Request data.
 	 * @param string $url URL.
+	 *
 	 * @return CurlHandle|false|resource
 	 * @throws WC_WooMercadoPago_Exception Build request exception.
 	 */
@@ -148,8 +151,9 @@ class Rest_Client_Abstract {
 	/**
 	 * Execute curl
 	 *
-	 * @param array      $request Request data.
+	 * @param array $request Request data.
 	 * @param CurlHandle $connect Curl Handle Connection.
+	 *
 	 * @return array|null
 	 * @throws WC_WooMercadoPago_Exception Execute call exception.
 	 */
@@ -162,7 +166,14 @@ class Rest_Client_Abstract {
 			// @codingStandardsIgnoreLine
 			throw new WC_WooMercadoPago_Exception( curl_error( $connect ) );
 		}
-		$api_http_code = curl_getinfo( $connect, CURLINFO_HTTP_CODE ); //phpcs:ignore
+
+		$info          = curl_getinfo( $connect ); //phpcs:ignore
+		$api_http_code = $info['http_code']; //phpcs:ignore
+
+		if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
+			$log = WC_WooMercadoPago_Log::init_mercado_pago_log( 'mercadopago_requests' );
+			$log->write_log( 'Execute cURL:', 'Took ' . $info['total_time'] . ' seconds to transfer a request to ' . $info['url'] );
+		}
 
 		if ( null !== $api_http_code && null !== $api_result ) {
 			$response = array(
@@ -172,6 +183,7 @@ class Rest_Client_Abstract {
 		}
 
 		curl_close( $connect ); //phpcs:ignore
+
 		return $response;
 	}
 
@@ -179,6 +191,7 @@ class Rest_Client_Abstract {
 	 * Build query
 	 *
 	 * @param array $params Params.
+	 *
 	 * @return string
 	 */
 	public static function build_query( $params ) {
@@ -188,6 +201,7 @@ class Rest_Client_Abstract {
 			foreach ( $params as $name => $value ) {
 				$elements[] = "{$name}=" . rawurldecode( $value );
 			}
+
 			return implode( '&', $elements );
 		}
 	}

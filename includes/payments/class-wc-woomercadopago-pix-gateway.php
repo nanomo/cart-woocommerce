@@ -620,7 +620,7 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 	 *
 	 * @return string
 	 */
-	public function get_pix_template( $order, $sent_to_admin, $plain_text, $email ) {
+	public static function get_pix_template( $order, $sent_to_admin, $plain_text, $email ) {
 
 		$pix_on = (int) array_pop( get_post_meta( $order->get_id(), 'pix_on' ));
 

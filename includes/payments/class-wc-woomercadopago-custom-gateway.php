@@ -49,7 +49,6 @@ class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 		$this->field_forms_order  = $this->get_fields_sequence();
 		parent::__construct();
 		$this->form_fields         = $this->get_form_mp_fields( 'Custom' );
-		$this->customer            = $this->get_or_create_customer();
 		$this->hook                = new WC_WooMercadoPago_Hook_Custom( $this );
 		$this->notification        = new WC_WooMercadoPago_Notification_Webhook( $this );
 		$this->currency_convertion = true;
@@ -645,40 +644,6 @@ class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 	}
 
 	/**
-	 * Check and save customer card
-	 *
-	 * @param array $checkout_info Checkout info.
-	 */
-	public function check_and_save_customer_card( $checkout_info ) {
-		$this->log->write_log( __FUNCTION__, 'checking info to create card: ' . wp_json_encode( $checkout_info, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE ) );
-		$cust_id           = null;
-		$token             = null;
-		$issuer_id         = null;
-		$payment_method_id = null;
-		if ( isset( $checkout_info['payer']['id'] ) && ! empty( $checkout_info['payer']['id'] ) ) {
-			$cust_id = $checkout_info['payer']['id'];
-		} else {
-			return;
-		}
-		if ( isset( $checkout_info['metadata']['token'] ) && ! empty( $checkout_info['metadata']['token'] ) ) {
-			$token = $checkout_info['metadata']['token'];
-		} else {
-			return;
-		}
-		if ( isset( $checkout_info['issuer_id'] ) && ! empty( $checkout_info['issuer_id'] ) ) {
-			$issuer_id = (int) ( $checkout_info['issuer_id'] );
-		}
-		if ( isset( $checkout_info['payment_method_id'] ) && ! empty( $checkout_info['payment_method_id'] ) ) {
-			$payment_method_id = $checkout_info['payment_method_id'];
-		}
-		try {
-			$this->mp->create_card_in_customer( $cust_id, $token, $payment_method_id, $issuer_id );
-		} catch ( WC_WooMercadoPago_Exception $ex ) {
-			$this->log->write_log( __FUNCTION__, 'card creation failed: ' . wp_json_encode( $ex, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE ) );
-		}
-	}
-
-	/**
 	 * Is available?
 	 *
 	 * @return bool
@@ -697,19 +662,6 @@ class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 		}
 
 		return true;
-	}
-
-	/**
-	 * Get or create customer
-	 *
-	 * @return array|mixed|null
-	 * @throws WC_WooMercadoPago_Exception Get or create user exception.
-	 */
-	public function get_or_create_customer() {
-		if ( empty( $this->mp ) ) {
-			return null;
-		}
-		return isset( $this->logged_user_email ) ? $this->mp->get_or_create_customer( $this->logged_user_email ) : null;
 	}
 
 	/**
