@@ -1645,7 +1645,7 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 		if ( $this->is_production_mode() ) {
 			$message_ready_title = __( 'Everything ready for the takeoff of your sales?', 'woocommerce-mercadopago' );
 		} else {
-			$message_ready_title = __( 'Everything set up? Go to your store in Sandbox mode', 'woocommerce-mercadopago' );
+			$message_ready_title = __( 'Test Mode Activated? Now visit your store and test the Mercado Pago checkouts', 'woocommerce-mercadopago' );
 		}
 
 		return array(
@@ -1662,7 +1662,7 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 	 */
 	public function field_checkout_ready_description() {
 		if ( $this->is_production_mode() ) {
-			$message_ready_description = __( 'Visit your store as if you were one of your customers and check that everything is fine. If you already went to Production,<br> bring your customers and increase your sales with the best online shopping experience.', 'woocommerce-mercadopago' );
+			$message_ready_description = __( 'Visit your store as usual and simulate a payment in our checkouts to make sure everything is working correctly.', 'woocommerce-mercadopago' );
 		} else {
 			$message_ready_description = __( 'Visit your store and simulate a payment to check that everything is fine.', 'woocommerce-mercadopago' );
 		}
@@ -1683,7 +1683,7 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 		if ( $this->is_production_mode() ) {
 			$message_link = __( 'Visit my store', 'woocommerce-mercadopago' );
 		} else {
-			$message_link = __( 'I want to test my sales', 'woocommerce-mercadopago' );
+			$message_link = __( 'Test payment via Mercado Pago', 'woocommerce-mercadopago' );
 		}
 
 		return array(
