@@ -30,4 +30,10 @@ class WC_WooMercadoPago_Constants {
 		'WC_WooMercadoPago_Ticket_Gateway',
 		'WC_WooMercadoPago_Pix_Gateway',
 	);
+	const GATEWAYS_IDS       = array(
+		'woo-mercado-pago-ticket',
+		'woo-mercado-pago-custom',
+		'woo-mercado-pago-basic',
+		'woo-mercado-pago-pix',
+	);
 }

@@ -120,12 +120,12 @@ class WC_WooMercadoPago_Hook_Order_Details {
 	 *
 	 * @return void
 	 */
-	public function payment_status_metabox( $screen_name ) {
+	public function payment_status_metabox() {
 		add_meta_box(
-			'payment-status-metabox',
+			'mp-payment-status-metabox',
 			__( 'Payment status on Mercado Pago', 'woocommerce-mercadopago' ),
 			[$this, 'payment_status_metabox_content'],
-			$screen_name
+			'shop_order'
 		);
 	}
 
@@ -138,7 +138,7 @@ class WC_WooMercadoPago_Hook_Order_Details {
 		$suffix = $this->get_suffix();
 
 		wp_enqueue_script(
-			'payment_status_metabox',
+			'mp_payment_status_metabox',
 			plugins_url( '../../assets/js/payment_status_metabox' . $suffix . '.js', plugin_dir_path( __FILE__ ) ),
 			array(),
 			WC_WooMercadoPago_Constants::VERSION,
@@ -149,22 +149,32 @@ class WC_WooMercadoPago_Hook_Order_Details {
 	/**
 	 * Payment Status Metabox Content
 	 *
+	 * @param WP_Post $post
+	 *
 	 * @return void
 	 */
-	public function payment_status_metabox_content() {
-		$order_id     = ! empty($_GET['post']) && ! wp_verify_nonce(sanitize_text_field($_GET['post'])) ? sanitize_text_field($_GET['post']) : null;
-		$order        = ! is_null($order_id) ? wc_get_order($order_id) : null;
+	public function payment_status_metabox_content( $post ) {
+		$order = wc_get_order($post->ID);
+
+		if ( is_null($order) || is_null($post->ID) ) {
+			return;
+		}
+
+		$is_mercadopago_payment_method = in_array($order->get_payment_method(), WC_WooMercadoPago_Constants::GATEWAYS_IDS, true);
+
+		if ( ! $is_mercadopago_payment_method ) {
+			return;
+		}
+
 		$alert_status = $this->get_processed_status($order->get_status());
 		$metabox_data = $this->get_metabox_data($alert_status);
 
-		if ( ! is_null($order) ) {
-			wc_get_template(
-				'order/payment-status-metabox-content.php',
-				$metabox_data,
-				'woo/mercado/pago/module/',
-				WC_WooMercadoPago_Module::get_templates_path()
-			);
-		}
+		wc_get_template(
+			'order/payment-status-metabox-content.php',
+			$metabox_data,
+			'woo/mercado/pago/module/',
+			WC_WooMercadoPago_Module::get_templates_path()
+		);
 	}
 
 	/**
@@ -219,7 +229,7 @@ class WC_WooMercadoPago_Hook_Order_Details {
 	 * @return String
 	 */
 	public function get_mp_home_link( $country ) {
-		return [
+		$country_links = [
 			'mla' => 'https://www.mercadopago.com.ar/home',
 			'mlb' => 'https://www.mercadopago.com.br/home',
 			'mlc' => 'https://www.mercadopago.cl/home',
@@ -227,6 +237,9 @@ class WC_WooMercadoPago_Hook_Order_Details {
 			'mlm' => 'https://www.mercadopago.com.mx/home',
 			'mpe' => 'https://www.mercadopago.com.pe/home',
 			'mlu' => 'https://www.mercadopago.com.uy/home',
-		][$country];
+		];
+		$link          = array_key_exists($country, $country_links) ? $country_links[$country] : $country_links['mla'];
+
+		return $link;
 	}
 }
