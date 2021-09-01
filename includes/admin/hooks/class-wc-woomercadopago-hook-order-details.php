@@ -29,7 +29,7 @@ class WC_WooMercadoPago_Hook_Order_Details {
 	 * @return void
 	 */
 	public function load_hooks() {
-		add_action( 'add_meta_boxes', array( $this, 'payment_status_metabox' ));
+		add_action( 'add_meta_boxes_shop_order', array( $this, 'payment_status_metabox' ));
 	}
 
 	/**
@@ -124,8 +124,7 @@ class WC_WooMercadoPago_Hook_Order_Details {
 		add_meta_box(
 			'mp-payment-status-metabox',
 			__( 'Payment status on Mercado Pago', 'woocommerce-mercadopago' ),
-			[$this, 'payment_status_metabox_content'],
-			'shop_order'
+			[$this, 'payment_status_metabox_content']
 		);
 	}
 
