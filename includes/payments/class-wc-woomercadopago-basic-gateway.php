@@ -25,13 +25,13 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 	 * @throws WC_WooMercadoPago_Exception On load payment exception.
 	 */
 	public function __construct() {
-		$this->id = self::ID;
+		$this->id          = self::ID;
+		$this->description = __( 'It offers all means of payment: credit and debit cards, cash and account money. Your customers choose whether they pay as guests or from their Mercado Pago account.', 'woocommerce-mercadopago' );
+		$this->title       = __( 'Pay with the payment method you prefer', 'woocommerce-mercadopago' );
 
 		if ( ! $this->validate_section() ) {
 			return;
 		}
-
-		$this->description = __( 'It offers all means of payment: credit and debit cards, cash and account money. Your customers choose whether they pay as guests or from their Mercado Pago account.', 'woocommerce-mercadopago' );
 
 		$this->form_fields          = array();
 		$this->method_title         = __( 'Mercado Pago - Checkout Pro', 'woocommerce-mercadopago' );
@@ -91,6 +91,9 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 			$form_fields['checkout_payments_description']    = $this->field_checkout_options_description();
 			$form_fields['binary_mode']                      = $this->field_binary_mode();
 			$form_fields['installments']                     = $this->field_installments();
+			$form_fields['mp_psj_title']                     = $this->field_mp_psj_title( $this->checkout_country );
+			$form_fields['mp_psj_description']               = $this->field_mp_psj_description( $this->checkout_country );
+			$form_fields['mp_psj_description_link']          = $this->field_mp_psj_description_link( $this->checkout_country );
 			$form_fields['checkout_payments_advanced_title'] = $this->field_checkout_payments_advanced_title();
 			$form_fields['method']                           = $this->field_method();
 			$form_fields['success_url']                      = $this->field_success_url();
@@ -164,6 +167,9 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 			'title',
 			WC_WooMercadoPago_Helpers_CurrencyConverter::CONFIG_KEY,
 			'installments',
+			'mp_psj_title',
+			'mp_psj_description',
+			'mp_psj_description_link',
 			// Advanced settings.
 			'checkout_payments_advanced_title',
 			'checkout_payments_advanced_description',
