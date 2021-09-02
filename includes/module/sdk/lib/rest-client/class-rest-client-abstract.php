@@ -172,7 +172,15 @@ class Rest_Client_Abstract {
 
 		if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
 			$log = WC_WooMercadoPago_Log::init_mercado_pago_log( 'mercadopago_requests' );
-			$log->write_log( 'Execute cURL:', 'Took ' . $info['total_time'] . ' seconds to transfer a request to ' . $info['url'] );
+			$log->write_log(
+				'Execute cURL',
+				sprintf(
+					/* translators: 1: total_time currency 2: url */
+					__('Took %1$s seconds to transfer a request to %2$s', 'woocommerce-mercadopago'),
+					$info['total_time'],
+					$info['url']
+				)
+			);
 		}
 
 		if ( null !== $api_http_code && null !== $api_result ) {

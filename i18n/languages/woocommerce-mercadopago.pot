@@ -1341,6 +1341,15 @@ msgstr ""
 msgid "Copy code"
 msgstr ""
 
+#: ../../includes/module/sdk/lib/class-mp.php:599, ../../includes/module/sdk/lib/class-mp.php:643
+msgid "Response from cache"
+msgstr ""
+
+#. translators: 1: total_time currency 2: url
+#: ../../includes/module/sdk/lib/rest-client/class-rest-client-abstract.php:179
+msgid "Took %1$s seconds to transfer a request to %2$s"
+msgstr ""
+
 #: ../../templates/checkout/basic-checkout.php:22, ../../templates/checkout/custom-checkout.php:61
 msgid "Credit cards"
 msgstr ""

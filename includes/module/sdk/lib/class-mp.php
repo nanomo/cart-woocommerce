@@ -588,13 +588,16 @@ class MP {
 	 * @throws WC_WooMercadoPago_Exception Get payment method exception.
 	 */
 	public function get_payment_methods( $access_token ) {
-		$key = sha1(sprintf('%s%s', __FUNCTION__, $access_token));
+		$key = sprintf('%s%s', __FUNCTION__, $access_token);
 
-		$cache = get_transient($key);
+		$cache = $this->get_cache_response($key);
 
 		if ( ! empty($cache) ) {
-			$log = WC_WooMercadoPago_Log::init_mercado_pago_log( 'mercadopago_requests' );
-			$log->write_log( 'Cached:', __FUNCTION__ );
+			$this->debug_mode_log(
+				'mercadopago_requests',
+				__FUNCTION__,
+				__('Response from cache', 'woocommerce-mercadopago')
+			);
 			return $cache;
 		}
 
@@ -615,7 +618,7 @@ class MP {
 
 		asort( $response );
 
-		set_transient($key, $response, MINUTE_IN_SECONDS);
+		$this->set_cache_response($key, $response);
 
 		return $response;
 	}
@@ -629,13 +632,16 @@ class MP {
 	 * @throws WC_WooMercadoPago_Exception Get credentials wrapper.
 	 */
 	public function get_credentials_wrapper( $access_token = null, $public_key = null ) {
-		$key = sha1(sprintf('%s%s%s', __FUNCTION__, $access_token, $public_key));
+		$key = sprintf('%s%s%s', __FUNCTION__, $access_token, $public_key);
 
-		$cache = get_transient($key);
+		$cache = $this->get_cache_response($key);
 
 		if ( ! empty($cache) ) {
-			$log = WC_WooMercadoPago_Log::init_mercado_pago_log( 'mercadopago_requests' );
-			$log->write_log( 'Cached:', __FUNCTION__ );
+			$this->debug_mode_log(
+				'mercadopago_requests',
+				__FUNCTION__,
+				__('Response from cache', 'woocommerce-mercadopago')
+			);
 			return $cache;
 		}
 
@@ -660,7 +666,7 @@ class MP {
 			return false;
 		}
 
-		set_transient($key, $response['response'], MINUTE_IN_SECONDS);
+		$this->set_cache_response($key, $response['response']);
 
 		return $response['response'];
 	}
@@ -793,6 +799,47 @@ class MP {
 	 */
 	public function get_payment_class() {
 		return $this->payment_class;
+	}
+
+
+	/**
+	 * Get response from cache
+	 *
+	 * @param $key
+	 *
+	 * @return mixed
+	 */
+	protected function get_cache_response( $key ) {
+		$key = sha1($key);
+
+		return get_transient($key);
+	}
+
+	/**
+	 * Save a response to cache
+	 *
+	 * @param $key
+	 * @param $value
+	 * @param int $ttl
+	 */
+	protected function set_cache_response( $key, $value, $ttl = MINUTE_IN_SECONDS ) {
+		$key = sha1($key);
+
+		set_transient($key, $value, $ttl);
+	}
+
+	/**
+	 * Set log when WordPress in Debug Mode
+	 *
+	 * @param $log_id
+	 * @param $function
+	 * @param $message
+	 */
+	protected function debug_mode_log( $log_id, $function, $message ) {
+		if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
+			$log = WC_WooMercadoPago_Log::init_mercado_pago_log( $log_id );
+			$log->write_log( $function, $message );
+		}
 	}
 
 }
