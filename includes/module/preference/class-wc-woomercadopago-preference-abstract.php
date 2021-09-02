@@ -425,6 +425,10 @@ abstract class WC_WooMercadoPago_Preference_Abstract extends WC_Payment_Gateway 
 				),
 				'apartment'   => method_exists( $this->order, 'get_id' ) ?
 					$this->order->get_shipping_address_2() : $this->order->shipping_address_2,
+        		'city_name'  => method_exists( $this->order, 'get_id' ) ?
+					$this->order->get_shipping_city() : $this->order->shipping_city,
+        		'state_name'  => method_exists( $this->order, 'get_id' ) ?
+					$this->order->get_shipping_state() : $this->order->shipping_state,
 			),
 		);
 	}
