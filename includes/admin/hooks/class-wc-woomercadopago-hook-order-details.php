@@ -49,71 +49,95 @@ class WC_WooMercadoPago_Hook_Order_Details {
 	}
 
 	/**
-	 * Get processed status for alert
+	 * Get Alert Description
+	 *
+	 * @param String $payment_status_detail Come from MP API
+	 *
+	 * @return String
+	 */
+	public function get_alert_description( $payment_status_detail ) {
+		$all_status_detail = [
+			'accredited' => 'accredited',
+			'settled' => 'settled',
+			'reimbursed' => 'reimbursed',
+			'refunded' => 'refunded',
+			'partially_refunded' => 'partially_refunded',
+			'by_collector' => 'by_collector',
+			'by_payer' => 'by_payer',
+			'pending' => 'pending',
+			'pending_waiting_payment' => 'pending_waiting_payment',
+			'pending_waiting_for_remedy' => 'pending_waiting_for_remedy',
+			'pending_waiting_transfer' => 'pending_waiting_transfer',
+			'pending_review_manual' => 'pending_review_manual',
+			'waiting_bank_confirmation' => 'waiting_bank_confirmation',
+			'pending_capture' => 'pending_capture',
+			'in_process' => 'in_process',
+			'pending_contingency' => 'pending_contingency',
+			'pending_card_validation' => 'pending_card_validation',
+			'pending_online_validation' => 'pending_online_validation',
+			'pending_additional_info' => 'pending_additional_info',
+			'offline_process' => 'offline_process',
+			'pending_challenge' => 'pending_challenge',
+			'pending_provider_response' => 'pending_provider_response',
+			'bank_rejected' => 'bank_rejected',
+			'rejected_by_bank' => 'rejected_by_bank',
+			'rejected_insufficient_data' => 'rejected_insufficient_data',
+			'bank_error' => 'bank_error',
+			'by_admin' => 'by_admin',
+			'expired' => 'expired',
+			'cc_rejected_bad_filled_card_number' => 'cc_rejected_bad_filled_card_number',
+			'cc_rejected_bad_filled_security_code' => 'cc_rejected_bad_filled_security_code',
+			'cc_rejected_bad_filled_date' => 'cc_rejected_bad_filled_date',
+			'cc_rejected_high_risk' => 'cc_rejected_high_risk',
+			'cc_rejected_fraud' => 'cc_rejected_fraud',
+			'cc_rejected_blacklist' => 'cc_rejected_blacklist',
+			'cc_rejected_insufficient_amount' => 'cc_rejected_insufficient_amount',
+			'cc_rejected_other_reason' => 'cc_rejected_other_reason',
+			'cc_rejected_max_attempts' => 'cc_rejected_max_attempts',
+			'cc_rejected_invalid_installments' => 'cc_rejected_invalid_installments',
+			'cc_rejected_call_for_authorize' => 'cc_rejected_call_for_authorize',
+			'cc_rejected_duplicated_payment' => 'cc_rejected_duplicated_payment',
+			'cc_rejected_card_disabled' => 'cc_rejected_card_disabled',
+			'payer_unavailable' => 'payer_unavailable',
+			'rejected_high_risk' => 'rejected_high_risk',
+			'rejected_by_regulations' => 'rejected_by_regulations',
+			'rejected_cap_exceeded' => 'rejected_cap_exceeded',
+			'cc_rejected_3ds_challenge' => 'cc_rejected_3ds_challenge',
+			'rejected_other_reason' => 'rejected_other_reason',
+			'authorization_revoked' => 'authorization_revoked',
+			'cc_amount_rate_limit_exceeded' => 'cc_amount_rate_limit_exceeded',
+			'cc_rejected_expired_operation' => 'cc_rejected_expired_operation',
+			'cc_rejected_bad_filled_other' => 'cc_rejected_bad_filled_other',
+			'rejected_call_for_authorize' => 'rejected_call_for_authorize',
+			'am_insufficient_amount' => 'am_insufficient_amount',
+			'generic' => 'generic',
+		];
+		$description       = array_key_exists($payment_status_detail, $all_status_detail) ? $all_status_detail[$payment_status_detail] : $all_status_detail['generic'];
+
+		return $description;
+	}
+
+	/**
+	 * Get Alert Status
 	 *
 	 * @param String $payment_status Come from MP API
 	 *
 	 * @return String 'success' | 'pending' | 'rejected'
 	 */
-	public function get_processed_status( $payment_status ) {
-		$processed_status = [
+	public function get_alert_status( $payment_status ) {
+		$all_payment_status = [
 			'approved' => 'success',
-			'accredited' => 'success',
-			'settled' => 'success',
-			'reimbursed' => 'success',
-			'refunded' => 'success',
-			'partially_refunded' => 'success',
-			'by_collector' => 'success',
-			'by_payer' => 'success',
+			'authorized' => 'success',
 			'pending' => 'pending',
-			'pending_waiting_payment' => 'pending',
-			'pending_waiting_for_remedy' => 'pending',
-			'pending_waiting_transfer' => 'pending',
-			'pending_review_manual' => 'pending',
-			'waiting_bank_confirmation' => 'pending',
-			'pending_capture' => 'pending',
 			'in_process' => 'pending',
-			'pending_contingency' => 'pending',
-			'pending_card_validation' => 'pending',
-			'pending_online_validation' => 'pending',
-			'pending_additional_info' => 'pending',
-			'offline_process' => 'pending',
-			'pending_challenge' => 'pending',
-			'pending_provider_response' => 'pending',
-			'bank_rejected' => 'rejected',
-			'rejected_by_bank' => 'rejected',
-			'rejected_insufficient_data' => 'rejected',
-			'bank_error' => 'rejected',
-			'by_admin' => 'rejected',
-			'expired' => 'rejected',
-			'cc_rejected_bad_filled_card_number' => 'rejected',
-			'cc_rejected_bad_filled_security_code' => 'rejected',
-			'cc_rejected_bad_filled_date' => 'rejected',
-			'cc_rejected_high_risk' => 'rejected',
-			'cc_rejected_fraud' => 'rejected',
-			'cc_rejected_blacklist' => 'rejected',
-			'cc_rejected_insufficient_amount' => 'rejected',
-			'cc_rejected_other_reason' => 'rejected',
-			'cc_rejected_max_attempts' => 'rejected',
-			'cc_rejected_invalid_installments' => 'rejected',
-			'cc_rejected_call_for_authorize' => 'rejected',
-			'cc_rejected_duplicated_payment' => 'rejected',
-			'cc_rejected_card_disabled' => 'rejected',
-			'payer_unavailable' => 'rejected',
-			'rejected_high_risk' => 'rejected',
-			'rejected_by_regulations' => 'rejected',
-			'rejected_cap_exceeded' => 'rejected',
-			'cc_rejected_3ds_challenge' => 'rejected',
-			'rejected_other_reason' => 'rejected',
-			'authorization_revoked' => 'rejected',
-			'cc_amount_rate_limit_exceeded' => 'rejected',
-			'cc_rejected_expired_operation' => 'rejected',
-			'cc_rejected_bad_filled_other' => 'rejected',
-			'rejected_call_for_authorize' => 'rejected',
-			'am_insufficient_amount' => 'rejected',
-			'generic' => 'rejected',
+			'in_mediation' => 'pending',
+			'rejected' => 'rejected',
+			'canceled' => 'rejected',
+			'refunded' => 'rejected',
+			'charged_back' => 'rejected',
+			'generic' => 'rejected'
 		];
-		$status           = array_key_exists($payment_status, $processed_status) ? $processed_status[$payment_status] : $processed_status['generic'];
+		$status             = array_key_exists($payment_status, $all_payment_status) ? $all_payment_status[$payment_status] : $all_payment_status['generic'];
 
 		return $status;
 	}
@@ -181,9 +205,11 @@ class WC_WooMercadoPago_Hook_Order_Details {
 			return;
 		}
 
-		$payment_status = $payment['response']['status'];
-		$alert_status   = $this->get_processed_status($payment_status);
-		$metabox_data   = $this->get_metabox_data($alert_status);
+		$payment_status         = $payment['response']['status'];
+		$payment_status_details = $payment['response']['status_detail'];
+		$alert_status           = $this->get_alert_status($payment_status);
+		$alert_description      = $this->get_alert_description($payment_status_details);
+		$metabox_data           = $this->get_metabox_data($alert_status, $alert_description);
 
 		wc_get_template(
 			'order/payment-status-metabox-content.php',
@@ -197,17 +223,18 @@ class WC_WooMercadoPago_Hook_Order_Details {
 	 * Metabox Data
 	 *
 	 * @param String $alert_status Alert Status (success|pending|rejected)
+	 * @param String $alert_description
 	 *
 	 * @return Array
 	 */
-	public function get_metabox_data( $alert_status ) {
+	public function get_metabox_data( $alert_status, $alert_description ) {
 		$country = get_option( 'checkout_country', '' );
 
 		if ( 'success' === $alert_status ) {
 			return [
 				'img_src' => esc_url( plugins_url( '../../assets/images/generics/circle-green-check.png', plugin_dir_path( __FILE__ ) ) ),
 				'alert_title' => __( 'Payment approved', 'woocommerce-mercadopago' ),
-				'alert_description' => 'Descrição do pagamento aprovado', // TODO: Chavear descrição
+				'alert_description' => $alert_description,
 				'link' => $this->get_mp_home_link($country),
 				'border_left_color' => '#00A650',
 				'link_description' => __( 'View purchase details at Mercado Pago', 'woocommerce-mercadopago' )
@@ -218,7 +245,7 @@ class WC_WooMercadoPago_Hook_Order_Details {
 			return [
 				'img_src' => esc_url( plugins_url( '../../assets/images/generics/circle-alert.png', plugin_dir_path( __FILE__ ) ) ),
 				'alert_title' => __( 'Payment pending', 'woocommerce-mercadopago' ),
-				'alert_description' => 'Descrição do pagamento pendente', // TODO: Chavear descrição
+				'alert_description' => $alert_description,
 				'link' => $this->get_mp_home_link($country),
 				'border_left_color' => '#f73',
 				'link_description' => __( 'View purchase details at Mercado Pago', 'woocommerce-mercadopago' )
@@ -229,7 +256,7 @@ class WC_WooMercadoPago_Hook_Order_Details {
 			return [
 				'img_src' => esc_url( plugins_url( '../../assets/images/generics/circle-red-alert.png', plugin_dir_path( __FILE__ ) ) ),
 				'alert_title' => __( 'Payment refused', 'woocommerce-mercadopago' ),
-				'alert_description' => 'Descrição do pagamento reprovado', // TODO: Chavear descrição
+				'alert_description' => $alert_description,
 				'link' => 'https://www.mercadopago.com.br/home', // TODO: Colocar link do devsite com as infos de pagametos recusados
 				'border_left_color' => '#F23D4F',
 				'link_description' => __( 'Check the reasons why the purchase was declined.', 'woocommerce-mercadopago' )
