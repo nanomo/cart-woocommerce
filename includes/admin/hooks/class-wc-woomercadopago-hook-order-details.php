@@ -51,10 +51,13 @@ class WC_WooMercadoPago_Hook_Order_Details {
 	/**
 	 * Get processed status for alert
 	 *
+	 * @param String $payment_status Come from MP API
+	 *
 	 * @return String 'success' | 'pending' | 'rejected'
 	 */
-	public function get_processed_status( $order_status ) {
+	public function get_processed_status( $payment_status ) {
 		$processed_status = [
+			'approved' => 'success',
 			'accredited' => 'success',
 			'settled' => 'success',
 			'reimbursed' => 'success',
@@ -110,7 +113,7 @@ class WC_WooMercadoPago_Hook_Order_Details {
 			'am_insufficient_amount' => 'rejected',
 			'generic' => 'rejected',
 		];
-		$status           = array_key_exists($order_status, $processed_status) ? $processed_status[$order_status] : $processed_status['generic'];
+		$status           = array_key_exists($payment_status, $processed_status) ? $processed_status[$payment_status] : $processed_status['generic'];
 
 		return $status;
 	}
@@ -159,14 +162,28 @@ class WC_WooMercadoPago_Hook_Order_Details {
 			return;
 		}
 
-		$is_mercadopago_payment_method = in_array($order->get_payment_method(), WC_WooMercadoPago_Constants::GATEWAYS_IDS, true);
+		$payment_method                = $order->get_payment_method();
+		$is_mercadopago_payment_method = in_array($payment_method, WC_WooMercadoPago_Constants::GATEWAYS_IDS, true);
+		$payment_id                    = $order->get_meta( '_Mercado_Pago_Payment_IDs' );
+		$is_production_mode            = $order->get_meta( 'is_production_mode' );
 
-		if ( ! $is_mercadopago_payment_method ) {
+		if ( ! $is_mercadopago_payment_method || ! $payment_id ) {
 			return;
 		}
 
-		$alert_status = $this->get_processed_status($order->get_status());
-		$metabox_data = $this->get_metabox_data($alert_status);
+		$access_token = 'no' === $is_production_mode
+			? get_option( '_mp_access_token_test' )
+			: get_option( '_mp_access_token_prod' );
+		$mp           = new MP($access_token);
+		$payment      = $mp->search_payment_v1($payment_id);
+
+		if ( ! $payment || ! $payment['status'] || 200 !== $payment['status'] ) {
+			return;
+		}
+
+		$payment_status = $payment['response']['status'];
+		$alert_status   = $this->get_processed_status($payment_status);
+		$metabox_data   = $this->get_metabox_data($alert_status);
 
 		wc_get_template(
 			'order/payment-status-metabox-content.php',
