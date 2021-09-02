@@ -139,6 +139,7 @@ class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 			'checkout_credential_description_test',
 			'_mp_public_key_test',
 			'_mp_access_token_test',
+			'checkout_mode_title',
 			'checkout_subtitle_checkout_mode',
 			'checkbox_checkout_test_mode',
 			'checkbox_checkout_production_mode',
@@ -368,8 +369,8 @@ class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 			'checkout_alert_test_mode' => $this->is_production_mode()
 			? ''
 			: $this->checkout_alert_test_mode_template(
-				__( 'Credit Cards in Test Mode', 'woocommerce-mercadopago' ),
-				__( 'Use the specific test cards that are in the', 'woocommerce-mercadopago' )
+				__( 'Cards in Test Mode', 'woocommerce-mercadopago' ),
+				__( 'Use the test-specific cards that are in the', 'woocommerce-mercadopago' )
 				. "<a style='color: #74AFFC; text-decoration: none; outline: none;' target='_blank' href='$test_mode_rules_link'> "
 				. __( 'test mode rules', 'woocommerce-mercadopago' ) . '</a>.</p>'
 			),

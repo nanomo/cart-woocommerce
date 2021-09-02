@@ -163,6 +163,7 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 			'checkout_credential_description_test',
 			'_mp_public_key_test',
 			'_mp_access_token_test',
+			'checkout_mode_title',
 			'checkout_subtitle_checkout_mode',
 			'checkbox_checkout_test_mode',
 			'checkbox_checkout_production_mode',

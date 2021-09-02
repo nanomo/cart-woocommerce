@@ -138,6 +138,7 @@ class WC_WooMercadoPago_Ticket_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 			'checkout_credential_description_test',
 			'_mp_public_key_test',
 			'_mp_access_token_test',
+			'checkout_mode_title',
 			'checkout_subtitle_checkout_mode',
 			'checkbox_checkout_test_mode',
 			'checkbox_checkout_production_mode',
@@ -412,8 +413,8 @@ class WC_WooMercadoPago_Ticket_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 			'checkout_alert_test_mode' => $this->is_production_mode()
 			? ''
 			: $this->checkout_alert_test_mode_template(
-				__( 'Tickets in Test Mode', 'woocommerce-mercadopago' ),
-				__( 'It is possible to test the flow to generate a boleto, but it is not possible to finalize the payment.', 'woocommerce-mercadopago' )
+				__( 'Offline Methods in Test Mode', 'woocommerce-mercadopago' ),
+				__( 'You can test the flow to generate an invoice, but you cannot finalize the payment.', 'woocommerce-mercadopago' )
 			),
 			'amount'               => $amount,
 			'payment_methods'      => $this->activated_payment,
