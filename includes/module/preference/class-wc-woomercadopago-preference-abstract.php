@@ -586,6 +586,7 @@ abstract class WC_WooMercadoPago_Preference_Abstract extends WC_Payment_Gateway 
 
 		$seller = get_option( '_collector_id_v1', '' );
 		$w      = WC_WooMercadoPago_Module::woocommerce_instance();
+		$user_id = get_current_user_id();
 		return array(
 			'platform'         => WC_WooMercadoPago_Constants::PLATAFORM_ID,
 			'platform_version' => $w->version,
@@ -599,6 +600,29 @@ abstract class WC_WooMercadoPago_Preference_Abstract extends WC_Payment_Gateway 
 			'custom_settings'  => $analytics->get_custom_settings(),
 			'ticket_settings'  => $analytics->get_ticket_settings(),
 			'pix_settings'     => $analytics->get_pix_settings(),
+			'seller_website'   => get_option('siteurl'),
+      		'billing_address'=> array(
+				'zip_code'    => ( method_exists( $this->order, 'get_id' ) ? $this->order->get_billing_postcode() : $this->order->billing_postcode ),
+				'street_name' => html_entity_decode(
+				method_exists( $this->order, 'get_id' ) ?
+					$this->order->get_billing_address_1() : $this->order->billing_address_1
+				),
+				'city_name' =>  html_entity_decode(
+				method_exists( $this->order, 'get_id' ) ? 
+					$this->order->get_billing_city() : $this->order->billing_city         
+				),
+				'state_name' =>  html_entity_decode(
+				method_exists( $this->order, 'get_id' ) ? 
+					$this->order->get_billing_state() : $this->order->billing_state         
+				),
+				'country_name' => html_entity_decode(
+				method_exists( $this->order, 'get_id' ) ? 
+					$this->order->get_billing_country() : $this->order->billing_country 
+				),
+			),
+		  	'user'=> array(
+				'user_email' => get_userdata($user_id)->user_email,
+			),
 		);
 	}
 
