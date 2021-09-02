@@ -1172,11 +1172,15 @@ msgstr ""
 msgid "Payment pending"
 msgstr ""
 
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:258
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:257
 msgid "Payment refused"
 msgstr ""
 
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:262
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:258
+msgid "Payment refunded"
+msgstr ""
+
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:266
 msgid "Check the reasons why the purchase was declined."
 msgstr ""
 

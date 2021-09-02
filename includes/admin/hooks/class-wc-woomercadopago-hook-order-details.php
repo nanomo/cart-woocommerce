@@ -122,7 +122,7 @@ class WC_WooMercadoPago_Hook_Order_Details {
 	 *
 	 * @param String $payment_status Come from MP API
 	 *
-	 * @return String 'success' | 'pending' | 'rejected'
+	 * @return String 'success' | 'pending' | 'rejected' | 'refunded' | 'charged_back'
 	 */
 	public function get_alert_status( $payment_status ) {
 		$all_payment_status = [
@@ -133,8 +133,8 @@ class WC_WooMercadoPago_Hook_Order_Details {
 			'in_mediation' => 'pending',
 			'rejected' => 'rejected',
 			'canceled' => 'rejected',
-			'refunded' => 'rejected',
-			'charged_back' => 'rejected',
+			'refunded' => 'refunded',
+			'charged_back' => 'charged_back',
 			'generic' => 'rejected'
 		];
 		$status             = array_key_exists($payment_status, $all_payment_status) ? $all_payment_status[$payment_status] : $all_payment_status['generic'];
@@ -252,10 +252,14 @@ class WC_WooMercadoPago_Hook_Order_Details {
 			];
 		}
 
-		if ( 'rejected' === $alert_status ) {
+		if ( 'rejected' === $alert_status || 'refunded' === $alert_status || 'charged_back' === $alert_description ) {
+			$title = 'rejected' === $alert_status
+				? __( 'Payment refused', 'woocommerce-mercadopago' )
+				: __( 'Payment refunded', 'woocommerce-mercadopago' );
+
 			return [
 				'img_src' => esc_url( plugins_url( '../../assets/images/generics/circle-red-alert.png', plugin_dir_path( __FILE__ ) ) ),
-				'alert_title' => __( 'Payment refused', 'woocommerce-mercadopago' ),
+				'alert_title' => $title,
 				'alert_description' => $alert_description,
 				'link' => 'https://www.mercadopago.com.br/home', // TODO: Colocar link do devsite com as infos de pagametos recusados
 				'border_left_color' => '#F23D4F',
