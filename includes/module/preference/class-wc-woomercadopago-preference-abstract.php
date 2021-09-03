@@ -621,7 +621,9 @@ abstract class WC_WooMercadoPago_Preference_Abstract extends WC_Payment_Gateway 
 				),
 			),
 			'user' => array(
-				'user_email' => get_userdata($user_id)->user_email,
+				'registered_user' => ( null !== $user_id && '' !== $user_id ) ? 'yes' : 'no',
+				'user_email' => get_userdata( $user_id )->user_email,
+				'user_registration_date' => ( null !== $user_id && '' !== $user_id ) ? gmdate( DateTimeInterface::RFC3339_EXTENDED, strtotime(get_userdata($user_id)->user_registered) ) : null,
 			),
 		);
 	}
