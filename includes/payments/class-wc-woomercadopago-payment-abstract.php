@@ -620,6 +620,7 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 			$this->load_custom_js_for_checkbox();
 
 			$form_fields['checkout_credential_title']            = $this->field_checkout_credential_title();
+			$form_fields['checkout_mode_title']                  = $this->field_checkout_mode_title();
 			$form_fields['checkout_subtitle_checkout_mode']      = $this->field_subtitle_checkout_mode();
 			$form_fields['checkbox_checkout_test_mode']          = $this->field_checkbox_checkout_test_mode();
 			$form_fields['checkbox_checkout_production_mode']    = $this->field_checkbox_checkout_production_mode();
@@ -919,6 +920,19 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 	 */
 	public function field_checkout_credential_title() {
 		return array(
+			'title' => __( 'Add credentials to &quot;Test Mode&quot; or &quot;Production Mode&quot;', 'woocommerce-mercadopago' ),
+			'type'  => 'title',
+			'class' => 'mp_subtitle_bd',
+		);
+	}
+
+	/**
+	 * Field checkout mode title
+	 *
+	 * @return array
+	 */
+	public function field_checkout_mode_title() {
+		return array(
 			'title' => __( 'Set up store payments for Test or Production Mode', 'woocommerce-mercadopago' ),
 			'type'  => 'title',
 			'class' => 'mp_subtitle_bd',
@@ -1059,7 +1073,7 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 	 */
 	public function field_checkout_credential_description_test() {
 		return array(
-			'title' => __( 'With these keys you can do the tests you want..', 'woocommerce-mercadopago' ),
+			'title' => __( 'With these credentials, you enable payment simulations in your Mercado Pago checkouts.', 'woocommerce-mercadopago' ),
 			'type'  => 'title',
 			'class' => 'mp_small_text mp-mt--12',
 		);
@@ -1116,7 +1130,7 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 	 */
 	public function field_checkout_credential_description_prod() {
 		return array(
-			'title' => __( 'With these keys you can receive real payments from your customers.', 'woocommerce-mercadopago' ),
+			'title' => __( 'With these credentials, you enable your Mercado Pago checkouts to receive real payments.', 'woocommerce-mercadopago' ),
 			'type'  => 'title',
 			'class' => 'mp_small_text mp-mt--12',
 		);
