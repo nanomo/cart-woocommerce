@@ -409,10 +409,10 @@ abstract class WC_WooMercadoPago_Preference_Abstract extends WC_Payment_Gateway 
 	public function shipments_receiver_address() {
 		return array(
 			'receiver_address' => array(
-				'zip_code'    => method_exists( $this->order, 'get_id' ) ?
-					$this->order->get_shipping_postcode() : $this->order->shipping_postcode,
-				'street_name' => html_entity_decode(
-					method_exists( $this->order, 'get_id' ) ?
+				'zip_code'    => html_entity_decode( ( is_object($this->order) && method_exists( $this->order, 'get_shipping_postcode' ) ) ?
+					$this->order->get_shipping_postcode() : $this->order->shipping_postcode ),
+				'street_name' => html_entity_decode( ( is_object($this->order) &&
+					method_exists( $this->order, 'get_id' ) ) ?
 						$this->order->get_shipping_address_1() . ' ' .
 						$this->order->get_shipping_address_2() . ' ' .
 						$this->order->get_shipping_city() . ' ' .
@@ -423,11 +423,11 @@ abstract class WC_WooMercadoPago_Preference_Abstract extends WC_Payment_Gateway 
 						$this->order->shipping_state . ' ' .
 						$this->order->shipping_country
 				),
-				'apartment'   => method_exists( $this->order, 'get_id' ) ?
+				'apartment'   => ( is_object($this->order) && method_exists( $this->order, 'get_shipping_address_2' ) ) ?
 					$this->order->get_shipping_address_2() : $this->order->shipping_address_2,
-				'city_name'  => method_exists( $this->order, 'get_id' ) ?
+				'city_name'  => ( is_object($this->order) && method_exists( $this->order, 'get_shipping_city' ) ) ?
 					$this->order->get_shipping_city() : $this->order->shipping_city,
-				'state_name'  => method_exists( $this->order, 'get_id' ) ?
+				'state_name'  => ( is_object($this->order) && method_exists( $this->order, 'get_shipping_state' ) ) ?
 					$this->order->get_shipping_state() : $this->order->shipping_state,
 			),
 		);
@@ -602,28 +602,30 @@ abstract class WC_WooMercadoPago_Preference_Abstract extends WC_Payment_Gateway 
 			'pix_settings'     => $analytics->get_pix_settings(),
 			'seller_website'   => get_option('siteurl'),
 			'billing_address' => array(
-				'zip_code'    => ( method_exists( $this->order, 'get_id' ) ? $this->order->get_billing_postcode() : $this->order->billing_postcode ),
+				'zip_code'    => html_entity_decode( is_object($this->order) &&
+				method_exists( $this->order, 'get_billing_postcode' ) ?
+					$this->order->get_billing_postcode() : $this->order->billing_postcode ),
 				'street_name' => html_entity_decode(
-				method_exists( $this->order, 'get_id' ) ?
+				method_exists( $this->order, 'get_billing_address_1' ) ?
 					$this->order->get_billing_address_1() : $this->order->billing_address_1
 				),
-				'city_name' => html_entity_decode(
-				method_exists( $this->order, 'get_id' ) ?
+				'city_name' => html_entity_decode( is_object($this->order) &&
+				method_exists( $this->order, 'get_billing_city' ) ?
 					$this->order->get_billing_city() : $this->order->billing_city
 				),
-				'state_name' => html_entity_decode(
-				method_exists( $this->order, 'get_id' ) ?
+				'state_name' => html_entity_decode( is_object($this->order) &&
+				method_exists( $this->order, 'get_billing_state' ) ?
 					$this->order->get_billing_state() : $this->order->billing_state
 				),
-				'country_name' => html_entity_decode(
-				method_exists( $this->order, 'get_id' ) ?
+				'country_name' => html_entity_decode( is_object($this->order) &&
+				method_exists( $this->order, 'get_billing_country' ) ?
 					$this->order->get_billing_country() : $this->order->billing_country
 				),
 			),
 			'user' => array(
-				'registered_user' => ( null !== $user_id && '' !== $user_id ) ? 'yes' : 'no',
-				'user_email' => get_userdata( $user_id )->user_email,
-				'user_registration_date' => ( null !== $user_id && '' !== $user_id ) ? gmdate( DateTimeInterface::RFC3339_EXTENDED, strtotime(get_userdata($user_id)->user_registered) ) : null,
+				'registered_user' => ( null !== $user_id && '' !== $user_id && 0 !== $user_id ) ? 'yes' : 'no',
+				'user_email' => ( null !== $user_id && '' !== $user_id && 0 !== $user_id ) ? get_userdata( $user_id )->user_email : null,
+				'user_registration_date' => ( null !== $user_id && ' ' !== $user_id && 0 !== $user_id ) ? gmdate( DateTimeInterface::RFC3339_EXTENDED, strtotime(get_userdata($user_id)->user_registered) ) : null,
 			),
 		);
 	}
