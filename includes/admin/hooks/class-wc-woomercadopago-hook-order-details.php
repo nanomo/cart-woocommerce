@@ -261,7 +261,7 @@ class WC_WooMercadoPago_Hook_Order_Details {
 				'img_src' => esc_url( plugins_url( '../../assets/images/generics/circle-red-alert.png', plugin_dir_path( __FILE__ ) ) ),
 				'alert_title' => $title,
 				'alert_description' => $alert_description,
-				'link' => 'https://www.mercadopago.com.br/home', // TODO: Colocar link do devsite com as infos de pagametos recusados
+				'link' => $this->get_mp_devsite_link($country),
 				'border_left_color' => '#F23D4F',
 				'link_description' => __( 'Check the reasons why the purchase was declined.', 'woocommerce-mercadopago' )
 			];
@@ -284,6 +284,28 @@ class WC_WooMercadoPago_Hook_Order_Details {
 			'mlm' => 'https://www.mercadopago.com.mx/home',
 			'mpe' => 'https://www.mercadopago.com.pe/home',
 			'mlu' => 'https://www.mercadopago.com.uy/home',
+		];
+		$link          = array_key_exists($country, $country_links) ? $country_links[$country] : $country_links['mla'];
+
+		return $link;
+	}
+
+	/**
+	 * Get Mercado Pago Devsite Page Link
+	 *
+	 * @param String $country Country Acronym
+	 *
+	 * @return String
+	 */
+	public function get_mp_devsite_link( $country ) {
+		$country_links = [
+			'mla' => 'https://rebrand.ly/l5bt0p3',
+			'mlb' => 'https://rebrand.ly/g20teif',
+			'mlc' => 'https://rebrand.ly/6drvoof',
+			'mco' => 'https://rebrand.ly/o5av2xn',
+			'mlm' => 'https://rebrand.ly/ajrdsp3',
+			'mpe' => 'https://rebrand.ly/m16d4v4',
+			'mlu' => 'https://rebrand.ly/0a2ngts',
 		];
 		$link          = array_key_exists($country, $country_links) ? $country_links[$country] : $country_links['mla'];
 
