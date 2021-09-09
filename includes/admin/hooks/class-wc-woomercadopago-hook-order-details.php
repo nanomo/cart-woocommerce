@@ -55,7 +55,7 @@ class WC_WooMercadoPago_Hook_Order_Details {
 	 *
 	 * @return String
 	 */
-	public function get_alert_description( $payment_status_detail ) {
+	public function get_alert_description( $payment_status_detail, $is_credit_card ) {
 		$all_status_detail = [
 			'accredited' => array(
 				'alert_title' => __( 'Payment made', 'woocommerce-mercadopago' ),
@@ -195,7 +195,9 @@ class WC_WooMercadoPago_Hook_Order_Details {
 			),
 			'cc_rejected_insufficient_amount' => array(
 				'alert_title' => __( 'Declined payment', 'woocommerce-mercadopago' ),
-				'description' => __( 'The card does not have enough limit. Please ask your client to use another card or to get in touch with the bank.', 'woocommerce-mercadopago' ),
+				'description' => $is_credit_card
+					? __( 'The card does not have enough limit. Please ask your client to use another card or to get in touch with the bank.', 'woocommerce-mercadopago' )
+					: __( 'The card does not have sufficient balance. Please ask your client to use another card or to get in touch with the bank.', 'woocommerce-mercadopago' ),
 			),
 			'cc_rejected_other_reason' => array(
 				'alert_title' => __( 'Declined payment', 'woocommerce-mercadopago' ),
@@ -259,7 +261,9 @@ class WC_WooMercadoPago_Hook_Order_Details {
 			),
 			'cc_rejected_bad_filled_other' => array(
 				'alert_title' => __( 'Declined payment', 'woocommerce-mercadopago' ),
-				'description' => __( 'The credit function is not enabled for the card. Please tell your client that it is possible to pay with debit or to use another one.', 'woocommerce-mercadopago' ),
+				'description' => $is_credit_card
+					? __( 'The credit function is not enabled for the card. Please tell your client that it is possible to pay with debit or to use another one.', 'woocommerce-mercadopago' )
+					: __( 'The debit function is not enabled for the card. Please tell your client that it is possible to pay with credit or to use another one.', 'woocommerce-mercadopago' ),
 			),
 			'rejected_call_for_authorize' => array(
 				'alert_title' => __( 'Declined payment', 'woocommerce-mercadopago' ),
@@ -370,9 +374,18 @@ class WC_WooMercadoPago_Hook_Order_Details {
 
 		$payment_status         = $payment['response']['status'];
 		$payment_status_details = $payment['response']['status_detail'];
-		$alert_status           = $this->get_alert_status($payment_status);
-		$alert_description      = $this->get_alert_description($payment_status_details);
-		$metabox_data           = $this->get_metabox_data($alert_status, $alert_description);
+
+		if (
+			( 'cc_rejected_insufficient_amount' === $payment_status_details || 'cc_rejected_bad_filled_other' === $payment_status_details )
+			&& ! $payment['payment_type_id']
+		) {
+			return;
+		}
+
+		$is_credit_card    = 'credit_card' === $payment['payment_type_id'];
+		$alert_status      = $this->get_alert_status($payment_status);
+		$alert_description = $this->get_alert_description($payment_status_details, $is_credit_card);
+		$metabox_data      = $this->get_metabox_data($alert_status, $alert_description);
 
 		wc_get_template(
 			'order/payment-status-metabox-content.php',

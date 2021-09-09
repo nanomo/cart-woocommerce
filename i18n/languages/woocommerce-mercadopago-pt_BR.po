@@ -2475,5 +2475,15 @@ msgstr "Ótimo, processamos seu pedido. Complete o pagamento com ticket para que
 msgid "Print ticket"
 msgstr "Imprimir boleto"
 
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:200,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:200
+msgid "The card does not have sufficient balance. Please ask your client to use another card or to get in touch with the bank."
+msgstr "O cartão não tem saldo suficiente. Peça para seu cliente usar outro cartão ou entrar em contato com o banco."
+
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:266,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:266
+msgid "The debit function is not enabled for the card. Please tell your client that it is possible to pay with credit or to use another one."
+msgstr "A função débito não está habilitada no cartão. Informe ao seu cliente que é possível pagar no crédito ou peça para usar outro cartão."
+
 #~ msgid "Payment refused"
 #~ msgstr "Pagamento recusado"
