@@ -660,9 +660,8 @@ class MP {
 		$response = MP_Rest_Client::get( $request );
 
 		if ( $response['status'] > 202 ) {
-			$log           = WC_WooMercadoPago_Log::init_mercado_pago_log( 'getCredentialsWrapper' );
-			$error_message = $response['response'] ? $response['response']['message'] : '';
-			$log->write_log( 'API GET Credentials Wrapper error:', $error_message );
+			$log = WC_WooMercadoPago_Log::init_mercado_pago_log( __FUNCTION__ );
+			$log->write_log( 'API GET Credentials Wrapper error:', wp_json_encode($response) );
 			return false;
 		}
 
@@ -759,7 +758,7 @@ class MP {
 	/**
 	 * Delete call
 	 *
-	 * @param array      $request Request.
+	 * @param array|string      $request Request.
 	 * @param null|array $params Params.
 	 * @return array|null
 	 * @throws WC_WooMercadoPago_Exception Delete exception.
@@ -787,7 +786,7 @@ class MP {
 	 * @param null|WC_WooMercadoPago_Payment_Abstract $payment Payment class.
 	 */
 	public function set_payment_class( $payment = null ) {
-		if ( ! empty( $payment ) ) {
+		if ( ! is_null( $payment ) ) {
 			$this->payment_class = get_class( $payment );
 		}
 	}
