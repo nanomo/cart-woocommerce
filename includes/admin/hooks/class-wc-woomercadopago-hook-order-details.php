@@ -394,7 +394,7 @@ class WC_WooMercadoPago_Hook_Order_Details {
 	 * @return Array
 	 */
 	public function get_metabox_data( $alert_status, $alert ) {
-		
+
 		$country = get_option( 'checkout_country', '' );
 
 		if ( 'success' === $alert_status ) {
@@ -419,7 +419,7 @@ class WC_WooMercadoPago_Hook_Order_Details {
 			];
 		}
 
-		if ( 'rejected' === $alert_status || 'refunded' === $alert_status || 'charged_back' === $alert ) {
+		if ( 'rejected' === $alert_status || 'refunded' === $alert_status || 'charged_back' === $alert_status ) {
 			return [
 				'img_src' => esc_url( plugins_url( '../../assets/images/generics/circle-red-alert.png', plugin_dir_path( __FILE__ ) ) ),
 				'alert_title' => $alert['title'],
