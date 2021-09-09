@@ -48,9 +48,6 @@ class WC_WooMercadoPago_Hook_Order_Details {
 		return defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 	}
 
-
-
-	
 	/**
 	 * Get Alert Description
 	 *
@@ -96,15 +93,15 @@ class WC_WooMercadoPago_Hook_Order_Details {
 				'alert_title' => __( 'Pending payment', 'woocommerce-mercadopago' ),
 				'description' => __( 'Awaiting payment from the buyer.', 'woocommerce-mercadopago' ),
 			),
-			'pending_waiting_for_remedy' =>  array(
+			'pending_waiting_for_remedy' => array(
 				'alert_title' => __( 'Pending payment', 'woocommerce-mercadopago' ),
 				'description' => __( 'Awaiting payment from the buyer.', 'woocommerce-mercadopago' ),
 			),
-			'pending_waiting_transfer' =>  array(
+			'pending_waiting_transfer' => array(
 				'alert_title' => __( 'Pending payment', 'woocommerce-mercadopago' ),
 				'description' => __( 'Awaiting payment from the buyer.', 'woocommerce-mercadopago' ),
 			),
-			'pending_review_manual' =>  array(
+			'pending_review_manual' => array(
 				'alert_title' => __( 'Pending payment', 'woocommerce-mercadopago' ),
 				'description' => __( 'We are veryfing the payment. We will notify you by email in up to 6 hours if everything is fine so that you can deliver the product or provide the service.', 'woocommerce-mercadopago' ),
 			),
@@ -118,7 +115,7 @@ class WC_WooMercadoPago_Hook_Order_Details {
 			),
 			'in_process' => array(
 				'alert_title' => __( 'Payment in process', 'woocommerce-mercadopago' ),
-				'description' => __( "Please wait or contact Mercado Pago for further details.", 'woocommerce-mercadopago' ),
+				'description' => __( 'Please wait or contact Mercado Pago for further details.', 'woocommerce-mercadopago' ),
 			),
 			'pending_contingency' => array(
 				'alert_title' => __( 'Pending payment', 'woocommerce-mercadopago' ),
@@ -258,23 +255,23 @@ class WC_WooMercadoPago_Hook_Order_Details {
 			),
 			'cc_rejected_expired_operation' => array(
 				'alert_title' => __( 'Expired payment deadline', 'woocommerce-mercadopago' ),
-				'description' => __( "The client did not pay within the time limit.", 'woocommerce-mercadopago' ),
+				'description' => __( 'The client did not pay within the time limit.', 'woocommerce-mercadopago' ),
 			),
 			'cc_rejected_bad_filled_other' => array(
 				'alert_title' => __( 'Declined payment', 'woocommerce-mercadopago' ),
-				'description' => __( "The credit function is not enabled for the card. Please tell your client that it is possible to pay with debit or to use another one.", 'woocommerce-mercadopago' ),
+				'description' => __( 'The credit function is not enabled for the card. Please tell your client that it is possible to pay with debit or to use another one.', 'woocommerce-mercadopago' ),
 			),
 			'rejected_call_for_authorize' => array(
 				'alert_title' => __( 'Declined payment', 'woocommerce-mercadopago' ),
-				'description' => __( "The card-issuing bank declined the payment. Please instruct your client to ask the bank to authorize it.", 'woocommerce-mercadopago' ),
+				'description' => __( 'The card-issuing bank declined the payment. Please instruct your client to ask the bank to authorize it.', 'woocommerce-mercadopago' ),
 			),
 			'am_insufficient_amount' => array(
 				'alert_title' => __( 'Declined payment', 'woocommerce-mercadopago' ),
-				'description' => __( "The buyer does not have enough balance to make the purchase. Please ask your client to deposit money to the Mercado Pago Account or to use a different payment method.", 'woocommerce-mercadopago' ),
+				'description' => __( 'The buyer does not have enough balance to make the purchase. Please ask your client to deposit money to the Mercado Pago Account or to use a different payment method.', 'woocommerce-mercadopago' ),
 			),
 			'generic' => array(
 				'alert_title' => __( 'There was an error', 'woocommerce-mercadopago' ),
-				'description' => __( "The transaction could not be completed.", 'woocommerce-mercadopago' ),
+				'description' => __( 'The transaction could not be completed.', 'woocommerce-mercadopago' ),
 			),
 		];
 
@@ -400,7 +397,7 @@ class WC_WooMercadoPago_Hook_Order_Details {
 		if ( 'success' === $alert_status ) {
 			return [
 				'img_src' => esc_url( plugins_url( '../../assets/images/generics/circle-green-check.png', plugin_dir_path( __FILE__ ) ) ),
-				'alert_title' => $alert['title'],
+				'alert_title' => $alert['alert_title'],
 				'alert_description' => $alert['description'],
 				'link' => $this->get_mp_home_link($country),
 				'border_left_color' => '#00A650',
@@ -411,7 +408,7 @@ class WC_WooMercadoPago_Hook_Order_Details {
 		if ( 'pending' === $alert_status ) {
 			return [
 				'img_src' => esc_url( plugins_url( '../../assets/images/generics/circle-alert.png', plugin_dir_path( __FILE__ ) ) ),
-				'alert_title' => $alert['title'],
+				'alert_title' => $alert['alert_title'],
 				'alert_description' => $alert['description'],
 				'link' => $this->get_mp_home_link($country),
 				'border_left_color' => '#f73',
@@ -422,7 +419,7 @@ class WC_WooMercadoPago_Hook_Order_Details {
 		if ( 'rejected' === $alert_status || 'refunded' === $alert_status || 'charged_back' === $alert_status ) {
 			return [
 				'img_src' => esc_url( plugins_url( '../../assets/images/generics/circle-red-alert.png', plugin_dir_path( __FILE__ ) ) ),
-				'alert_title' => $alert['title'],
+				'alert_title' => $alert['alert_title'],
 				'alert_description' => $alert['description'],
 				'link' => 'https://www.mercadopago.com.br/home', // TODO: Colocar link do devsite com as infos de pagametos recusados
 				'border_left_color' => '#F23D4F',
