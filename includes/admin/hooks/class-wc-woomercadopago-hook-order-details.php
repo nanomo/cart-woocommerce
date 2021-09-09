@@ -394,6 +394,7 @@ class WC_WooMercadoPago_Hook_Order_Details {
 	 * @return Array
 	 */
 	public function get_metabox_data( $alert_status, $alert ) {
+		
 		$country = get_option( 'checkout_country', '' );
 
 		if ( 'success' === $alert_status ) {
@@ -419,14 +420,10 @@ class WC_WooMercadoPago_Hook_Order_Details {
 		}
 
 		if ( 'rejected' === $alert_status || 'refunded' === $alert_status || 'charged_back' === $alert ) {
-			$title = 'rejected' === $alert_status
-				? __( 'Payment refused', 'woocommerce-mercadopago' )
-				: __( 'Payment refunded', 'woocommerce-mercadopago' );
-
 			return [
 				'img_src' => esc_url( plugins_url( '../../assets/images/generics/circle-red-alert.png', plugin_dir_path( __FILE__ ) ) ),
-				'alert_title' => $title,
-				'alert_description' => $alert,
+				'alert_title' => $alert['title'],
+				'alert_description' => $alert['description'],
 				'link' => 'https://www.mercadopago.com.br/home', // TODO: Colocar link do devsite com as infos de pagametos recusados
 				'border_left_color' => '#F23D4F',
 				'link_description' => __( 'Check the reasons why the purchase was declined.', 'woocommerce-mercadopago' )
