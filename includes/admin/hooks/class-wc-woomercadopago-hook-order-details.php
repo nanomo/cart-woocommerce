@@ -75,7 +75,7 @@ class WC_WooMercadoPago_Hook_Order_Details {
 			),
 			'partially_refunded' => array(
 				'alert_title' => __( 'Payment returned', 'woocommerce-mercadopago' ),
-				'description' => __( 'The payment has been returned to the client.', 'woocommerce-mercadopago' ),
+				'description' => __( 'The payment has been partially returned to the client.', 'woocommerce-mercadopago' ),
 			),
 			'by_collector' => array(
 				'alert_title' => __( 'Payment canceled', 'woocommerce-mercadopago' ),
@@ -139,15 +139,15 @@ class WC_WooMercadoPago_Hook_Order_Details {
 			),
 			'pending_challenge' => array(
 				'alert_title' => __( 'Pending payment', 'woocommerce-mercadopago' ),
-				'description' => __( 'Waiting for the card issuer.', 'woocommerce-mercadopago' ),
+				'description' => __( 'Waiting for the buyer. ', 'woocommerce-mercadopago' ),
 			),
 			'pending_provider_response' => array(
 				'alert_title' => __( 'Pending payment', 'woocommerce-mercadopago' ),
-				'description' => __( 'Waiting for the buyer. ', 'woocommerce-mercadopago' ),
+				'description' => __( 'Waiting for the card issuer.', 'woocommerce-mercadopago' ),
 			),
 			'bank_rejected' => array(
 				'alert_title' => __( 'Declined payment', 'woocommerce-mercadopago' ),
-				'description' => __( 'The card-issuing bank declined the payment. Please ask your client to use another card or to get in touch with the bank.', 'woocommerce-mercadopago' ),
+				'description' => __( 'The payment could not be processed. Please ask your client to use another card or to get in touch with the bank.', 'woocommerce-mercadopago' ),
 			),
 			'rejected_by_bank' => array(
 				'alert_title' => __( 'Declined payment', 'woocommerce-mercadopago' ),
