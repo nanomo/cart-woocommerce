@@ -92,7 +92,6 @@ class WC_WooMercadoPago_Module extends WC_WooMercadoPago_Configs {
 
 			add_action( 'admin_enqueue_scripts', array( $this, 'load_admin_css' ) );
 			add_action( 'admin_enqueue_scripts', array( $this, 'load_global_css' ) );
-			add_action( 'wp_enqueue_scripts', array( $this, 'load_global_css' ) );
 
 			add_filter( 'woocommerce_available_payment_gateways', array( $this, 'filter_payment_method_by_shipping' ) );
 			add_filter( 'plugin_action_links_' . WC_MERCADOPAGO_BASENAME, array( $this, 'woomercadopago_settings_link' ) );

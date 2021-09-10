@@ -1,9 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
 .mp-alert-checkout-test-mode {
 	margin-bottom: 16px;
 	display: flex;
     flex: 1;
     flex-direction: row;
-    align-items: end;
+    align-items: flex-start;
     width: 100%;
     min-height: 94px;
     padding-bottom: 10px;
