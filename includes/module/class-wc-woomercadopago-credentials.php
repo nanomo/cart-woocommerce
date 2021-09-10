@@ -459,6 +459,8 @@ class WC_WooMercadoPago_Credentials {
 	 * @return bool
 	 */
 	public static function validate_credentials_prod( $mp_instance, $access_token = null, $public_key = null ) {
+		$log = WC_WooMercadoPago_Log::init_mercado_pago_log( 'mercadopago_requests' );
+		$log->write_log( 'Func:', __FUNCTION__ );
 		$is_test = $mp_instance->get_credentials_wrapper( $access_token, $public_key );
 		if ( is_array( $is_test ) && isset( $is_test['is_test'] ) && false === $is_test['is_test'] ) {
 			if ( ! empty($is_test['client_id']) ) {

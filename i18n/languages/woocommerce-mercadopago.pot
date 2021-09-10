@@ -56,7 +56,7 @@ msgstr ""
 msgid "The store should have HTTPS in order to activate both Checkout Personalizado and Ticket Checkout."
 msgstr ""
 
-#: ../../includes/module/class-wc-woomercadopago-credentials.php:485, ../../includes/module/class-wc-woomercadopago-credentials.php:485, ../../includes/module/class-wc-woomercadopago-credentials.php:485
+#: ../../includes/module/class-wc-woomercadopago-credentials.php:487, ../../includes/module/class-wc-woomercadopago-credentials.php:487, ../../includes/module/class-wc-woomercadopago-credentials.php:487
 msgid "Invalid credentials"
 msgstr ""
 
@@ -1625,6 +1625,17 @@ msgstr ""
 
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:133, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:133, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:133
 msgid "Copy code"
+msgstr ""
+
+#: ../../includes/module/sdk/lib/class-mp.php:599, ../../includes/module/sdk/lib/class-mp.php:643, ../../includes/module/sdk/lib/class-mp.php:599, ../../includes/module/sdk/lib/class-mp.php:643, ../../includes/module/sdk/lib/class-mp.php:599, ../../includes/module/sdk/lib/class-mp.php:643
+msgid "Response from cache"
+msgstr ""
+
+#. translators: 1: total_time currency 2: url
+#. translators: 1: total_time currency 2: url
+#. translators: 1: total_time currency 2: url
+#: ../../includes/module/sdk/lib/rest-client/class-rest-client-abstract.php:179, ../../includes/module/sdk/lib/rest-client/class-rest-client-abstract.php:179, ../../includes/module/sdk/lib/rest-client/class-rest-client-abstract.php:179
+msgid "Took %1$s seconds to transfer a request to %2$s"
 msgstr ""
 
 #: ../../templates/checkout/basic-checkout.php:26, ../../templates/checkout/basic-checkout.php:26, ../../templates/checkout/basic-checkout.php:26, ../../templates/checkout/custom-checkout.php:64, ../../templates/checkout/custom-checkout.php:64, ../../templates/checkout/custom-checkout.php:64
