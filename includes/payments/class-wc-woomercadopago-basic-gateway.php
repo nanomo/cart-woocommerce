@@ -605,6 +605,8 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 		$amount = $this->get_order_total();
 
 		if ( method_exists( $order, 'update_meta_data' ) ) {
+			// TODO: Ao mergear com a branch feature/PPWP-6/test-flow o nome dessa opção será 'checkbox_checkout_test_mode'
+			$order->update_meta_data( 'is_production_mode', $this->get_option_mp( 'checkout_credential_prod' ) );
 			$order->update_meta_data( '_used_gateway', get_class( $this ) );
 
 			if ( ! empty( $this->gateway_discount ) ) {
