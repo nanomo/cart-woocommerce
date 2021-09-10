@@ -869,7 +869,7 @@ msgstr "Buscar minhas credenciais"
 #: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1024,
 #: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1024
 msgid "Test credentials"
-msgstr "Credenciais de Teste"
+msgstr "Credenciais de Testes"
 
 #: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1036,
 #: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1036

@@ -290,7 +290,6 @@ class WC_WooMercadoPago_Module extends WC_WooMercadoPago_Configs {
 	}
 
 	/**
-	 *
 	 * Load Admin Css
 	 *
 	 * @return void

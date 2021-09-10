@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const minify = require('minify');
 const wpPot = require('wp-pot');
-
+// 
 function minifyFiles(extension) {
     const assetsPath = path.resolve(`./assets/${extension}`);
     const assetsFiles = fs.readdirSync(assetsPath);

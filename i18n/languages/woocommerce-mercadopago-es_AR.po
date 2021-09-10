@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Mercado Pago payments for WooCommerce 5.3.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/woocommerce-mercadopago\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2021-09-09 18:29-0300\n"
+"PO-Revision-Date: 2021-09-10 15:03-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: es_AR\n"
@@ -872,7 +872,7 @@ msgstr "Buscar mis credenciales"
 #: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1024,
 #: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1024
 msgid "Test credentials"
-msgstr "Credenciales de prueba"
+msgstr "Credenciales de Testeos"
 
 #: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1036,
 #: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1036
@@ -2548,6 +2548,3 @@ msgstr "La función débito de la tarjeta está deshabilitada. Dile a tu cliente
 
 #~ msgid "https://github.com/mercadopago/cart-woocommerce"
 #~ msgstr "https://github.com/mercadopago/cart-woocommerce"
-
-#~ msgid "Mercado Pago payments for WooCommerce"
-#~ msgstr "Mercado Pago payments for WooCommerce"
