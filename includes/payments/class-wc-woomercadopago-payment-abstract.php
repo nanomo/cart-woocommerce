@@ -431,8 +431,6 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 		$homolog_validate = (int) get_option( 'homolog_validate', 0 );
 		if ( ( $this->is_production_mode() && ! empty( $this->mp_access_token_prod ) ) && 0 === $homolog_validate ) {
 			if ( $this->mp instanceof MP ) {
-				$log = WC_WooMercadoPago_Log::init_mercado_pago_log( 'mercadopago_requests' );
-				$log->write_log( 'Func:', __FUNCTION__ );
 				$homolog_validate = $this->mp->get_credentials_wrapper( $this->mp_access_token_prod );
 				$homolog_validate = isset( $homolog_validate['homologated'] ) && true === $homolog_validate['homologated'] ? 1 : 0;
 				update_option( 'homolog_validate', $homolog_validate, true );
