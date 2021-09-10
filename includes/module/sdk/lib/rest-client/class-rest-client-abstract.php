@@ -99,11 +99,11 @@ class Rest_Client_Abstract {
 					$json_content         = 'application/json' === $v;
 					$form_content         = 'application/x-www-form-urlencoded' === $v;
 				}
-				array_push( $headers, $h . ': ' . $v );
+				$headers[] = $h . ': ' . $v;
 			}
 		}
 		if ( $default_content_type ) {
-			array_push( $headers, 'content-type: application/json' );
+			$headers[] = 'content-type: application/json';
 		}
 
 		//@codingStandardsIgnoreStart
@@ -127,7 +127,7 @@ class Rest_Client_Abstract {
 
 		if ( isset( $request['data'] ) ) {
 			if ( $json_content ) {
-				if ( 'string' === gettype( $request['data'] ) ) {
+				if ( is_string( $request['data'] ) ) {
 					json_decode( $request['data'], true );
 				} else {
 					$request['data'] = wp_json_encode( $request['data'] );

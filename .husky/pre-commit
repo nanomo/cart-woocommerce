@@ -1,11 +1,11 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-npm run php:lint
-npm run lint
-npm run build:js
-npm run build:css
-npm run pot
+clear && npm run php:lint && clear && echo "Verificando sintaxe do PHP 🔍" && sleep 1 && echo "Verificando sintaxe do PHP ✅"
+npm run lint && clear && echo "Verificando sintaxe do JS 🔍" && sleep 1 && echo "Verificando sintaxe do JS ✅"
+npm run build:js && clear && echo "Minificando JS 🔍" && sleep 1 && echo "Minificando JS ✅"
+npm run build:css && clear && echo "Minificando CSS 🔍" && sleep 1 && echo "Minificando CSS ✅"
+npm run pot && clear && echo "Atualizando arquivo .pot 🔍" && sleep 1 && echo "Atualizando arquivo .pot ✅"
 git add *.min.js
 git add *.min.css
 git add *.pot

@@ -82,7 +82,7 @@ class WC_WooMercadoPago_Credentials {
 
 		if ( ! is_null( $this->payment ) ) {
 			$this->sandbox = $payment->is_test_user();
-			if ( 'no' === $this->payment->get_option_mp( 'checkout_credential_prod', '' ) || empty( $this->payment->get_option_mp( 'checkout_credential_prod', '' ) ) ) {
+			if ( 'yes' === $this->payment->get_option_mp( 'checkbox_checkout_test_mode', '' ) || empty( $this->payment->get_option_mp( 'checkbox_checkout_test_mode', '' ) ) ) {
 				$public_key   = get_option( '_mp_public_key_test', '' );
 				$access_token = get_option( '_mp_access_token_test', '' );
 			}
@@ -469,5 +469,47 @@ class WC_WooMercadoPago_Credentials {
 			return true;
 		}
 		return false;
+	}
+
+	/**
+	 * Ajax endpoint to consult the credentials
+	 */
+	public static function ajax_validate_credentials() {
+		try {
+			$access_token = self::get_sanitize_text_from_post('access_token');
+			$public_key   = self::get_sanitize_text_from_post('public_key');
+
+			$mp                    = WC_WooMercadoPago_Module::get_mp_instance_singleton();
+			$validate_access_token = $mp->get_credentials_wrapper( $access_token );
+			$validate_public_key   = $mp->get_credentials_wrapper( null, $public_key );
+
+			if ( ! $validate_public_key || ! $validate_access_token ) {
+				throw new Exception( __( 'Invalid credentials', 'woocommerce-mercadopago' ) );
+			}
+
+			$response = [
+				'access_token' => $validate_access_token,
+				'public_key'   => $validate_public_key,
+			];
+
+			wp_send_json_success( $response );
+		} catch ( Exception $e ) {
+			$response = [
+				'message' => $e->getMessage()
+			];
+
+			wp_send_json_error( $response );
+		}
+	}
+
+	/**
+	 * Get data from $_POST method with sanitize for text field
+	 *
+	 * @param $key
+	 *
+	 * @return string
+	 */
+	public static function get_sanitize_text_from_post( $key ) {
+		return sanitize_text_field( isset( $_POST[ $key ] ) ? $_POST[ $key ] : '' ); //phpcs:ignore
 	}
 }
