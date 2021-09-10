@@ -361,8 +361,6 @@ abstract class WC_WooMercadoPago_Hook_Abstract {
 			update_option( $key, $value, true );
 
 			if ( '_mp_access_token_prod' === $key ) {
-				$log = WC_WooMercadoPago_Log::init_mercado_pago_log( 'mercadopago_requests' );
-				$log->write_log( 'Func:', __FUNCTION__ );
 				$homolog_validate = $this->mp_instance->get_credentials_wrapper( $value );
 				$homolog_validate = isset( $homolog_validate['homologated'] ) && true === $homolog_validate['homologated'] ? 1 : 0;
 				update_option( 'homolog_validate', $homolog_validate, true );
