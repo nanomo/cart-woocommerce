@@ -1941,4 +1941,26 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 
 		return $countries[$meliAcronym];
 	}
+
+	/**
+	 * Get Mercado Pago Devsite Page Link
+	 *
+	 * @param String $country Country Acronym
+	 *
+	 * @return String
+	 */
+	public function get_mp_devsite_link( $country ) {
+		$country_links = [
+			'mla' => 'https://rebrand.ly/test-woo-ar',
+			'mlb' => 'https://rebrand.ly/test-woo-br',
+			'mlc' => 'https://rebrand.ly/test-woo-cl',
+			'mco' => 'https://rebrand.ly/test-woo-co',
+			'mlm' => 'https://rebrand.ly/test-woo-mx',
+			'mpe' => 'https://rebrand.ly/test-woo-pe',
+			'mlu' => 'https://rebrand.ly/test-woo-uy',
+		];
+		$link          = array_key_exists($country, $country_links) ? $country_links[$country] : $country_links['mla'];
+
+		return $link;
+	}
 }

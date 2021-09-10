@@ -363,8 +363,7 @@ class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 			$currency_ratio = WC_WooMercadoPago_Helpers_CurrencyConverter::DEFAULT_RATIO;
 		}
 
-		// TODO: Remover link provisório
-		$test_mode_rules_link = 'https://mercadopago.com.' . $this->get_country_domain_by_meli_acronym($this->checkout_country);
+		$test_mode_rules_link = $this->get_mp_devsite_link($this->checkout_country);
 		$parameters           = array(
 			'checkout_alert_test_mode' => $this->is_production_mode()
 			? ''
