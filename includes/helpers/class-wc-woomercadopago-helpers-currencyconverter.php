@@ -91,6 +91,7 @@ class WC_WooMercadoPago_Helpers_CurrencyConverter {
 	private function __construct() {
 		$this->msg_description = __( 'Activate this option so that the value of the currency set in WooCommerce is compatible with the value of the currency you use in Mercado Pago.', 'woocommerce-mercadopago' );
 		$this->log             = new WC_WooMercadoPago_Log();
+
 		return $this;
 	}
 
@@ -113,6 +114,7 @@ class WC_WooMercadoPago_Helpers_CurrencyConverter {
 	 * Init function
 	 *
 	 * @param WC_WooMercadoPago_Payment_Abstract $method method.
+	 *
 	 * @return $this
 	 * @throws Exception Return e.
 	 */
@@ -122,6 +124,7 @@ class WC_WooMercadoPago_Helpers_CurrencyConverter {
 			try {
 				if ( ! $this->is_enabled( $method ) ) {
 					$this->set_ratio( $method->id );
+
 					return $this;
 				}
 
@@ -130,6 +133,7 @@ class WC_WooMercadoPago_Helpers_CurrencyConverter {
 
 				if ( ! $account_currency || $account_currency === $local_currency ) {
 					$this->set_ratio( $method->id );
+
 					return $this;
 				}
 
@@ -148,6 +152,7 @@ class WC_WooMercadoPago_Helpers_CurrencyConverter {
 	 * Get Account Currency
 	 *
 	 * @param WC_WooMercadoPago_Payment_Abstract $method method.
+	 *
 	 * @return mixed|null
 	 */
 	private function get_account_currency( WC_WooMercadoPago_Payment_Abstract $method ) {
@@ -181,6 +186,7 @@ class WC_WooMercadoPago_Helpers_CurrencyConverter {
 	private function get_country_configs() {
 		try {
 			$config_instance = new WC_WooMercadoPago_Configs();
+
 			return $config_instance->get_country_configs();
 		} catch ( Exception $e ) {
 			return array();
@@ -192,10 +198,11 @@ class WC_WooMercadoPago_Helpers_CurrencyConverter {
 	 * Get Access Token
 	 *
 	 * @param WC_WooMercadoPago_Payment_Abstract $method method.
+	 *
 	 * @return mixed
 	 */
 	private function get_access_token( WC_WooMercadoPago_Payment_Abstract $method ) {
-		$type = $method->get_option_mp( 'checkout_credential_prod' ) === 'no'
+		$type = $method->get_option_mp( 'checkbox_checkout_test_mode' ) === 'yes'
 			? '_mp_access_token_test'
 			: '_mp_access_token_prod';
 
@@ -207,6 +214,7 @@ class WC_WooMercadoPago_Helpers_CurrencyConverter {
 	 * Is Enabled
 	 *
 	 * @param WC_WooMercadoPago_Payment_Abstract $method method.
+	 *
 	 * @return mixed
 	 */
 	public function is_enabled( WC_WooMercadoPago_Payment_Abstract $method ) {
@@ -218,7 +226,7 @@ class WC_WooMercadoPago_Helpers_CurrencyConverter {
 	 * Set Ratio
 	 *
 	 * @param mixed $method_id method id.
-	 * @param int   $value value.
+	 * @param int $value value.
 	 */
 	private function set_ratio( $method_id, $value = self::DEFAULT_RATIO ) {
 		$this->ratios[ $method_id ] = $value;
@@ -229,10 +237,12 @@ class WC_WooMercadoPago_Helpers_CurrencyConverter {
 	 * Get Ratio
 	 *
 	 * @param WC_WooMercadoPago_Payment_Abstract $method method.
+	 *
 	 * @return int|mixed
 	 */
 	private function get_ratio( WC_WooMercadoPago_Payment_Abstract $method ) {
 		$this->init( $method );
+
 		return isset( $this->ratios[ $method->id ] )
 			? $this->ratios[ $method->id ]
 			: self::DEFAULT_RATIO;
@@ -242,9 +252,10 @@ class WC_WooMercadoPago_Helpers_CurrencyConverter {
 	 *
 	 * Load Ratio
 	 *
-	 * @param string                             $from_currency from Currency.
-	 * @param string                             $to_currency to Currency.
+	 * @param string $from_currency from Currency.
+	 * @param string $to_currency to Currency.
 	 * @param WC_WooMercadoPago_Payment_Abstract $method method.
+	 *
 	 * @return int
 	 * @throws Exception Return e.
 	 */
@@ -259,6 +270,7 @@ class WC_WooMercadoPago_Helpers_CurrencyConverter {
 
 		if ( $from_currency === $to_currency ) {
 			$this->cache[ $cache_key ] = $ratio;
+
 			return $ratio;
 		}
 
@@ -291,6 +303,7 @@ class WC_WooMercadoPago_Helpers_CurrencyConverter {
 		}
 
 		$this->cache[ $cache_key ] = $ratio;
+
 		return $ratio;
 	}
 
@@ -299,13 +312,24 @@ class WC_WooMercadoPago_Helpers_CurrencyConverter {
 	 * Get SiteId
 	 *
 	 * @param string $access_token Access token.
+	 *
 	 * @return string | null
 	 */
 	private function get_site_id( $access_token ) {
 		try {
-			$mp     = new MP( $access_token );
-			$result = $mp->get( '/users/me', array( 'Authorization' => 'Bearer ' . $access_token ) );
-			return isset( $result['response'], $result['response']['site_id'] ) ? $result['response']['site_id'] : null;
+			$site_id = get_option( '_site_id_v1', false );
+
+			if ( $site_id ) {
+				return $site_id;
+			}
+
+			$mp      = new MP( $access_token );
+			$result  = $mp->get( '/users/me', array( 'Authorization' => 'Bearer ' . $access_token ) );
+			$site_id = isset( $result['response'], $result['response']['site_id'] ) ? $result['response']['site_id'] : null;
+
+			update_option( '_site_id_v1', $site_id );
+
+			return $site_id;
 		} catch ( Exception $e ) {
 			return null;
 		}
@@ -316,10 +340,12 @@ class WC_WooMercadoPago_Helpers_CurrencyConverter {
 	 * Ratio
 	 *
 	 * @param WC_WooMercadoPago_Payment_Abstract $method method.
+	 *
 	 * @return float
 	 */
 	public function ratio( WC_WooMercadoPago_Payment_Abstract $method ) {
 		$this->init( $method );
+
 		return $this->get_ratio( $method );
 	}
 
@@ -328,6 +354,7 @@ class WC_WooMercadoPago_Helpers_CurrencyConverter {
 	 * Get Description
 	 *
 	 * @param WC_WooMercadoPago_Payment_Abstract $method method.
+	 *
 	 * @return string|void
 	 */
 	public function get_description( WC_WooMercadoPago_Payment_Abstract $method ) {
@@ -337,8 +364,9 @@ class WC_WooMercadoPago_Helpers_CurrencyConverter {
 	/**
 	 * Check if currency is supported in mercado pago API
 	 *
-	 * @param string                             $currency currency.
+	 * @param string $currency currency.
 	 * @param WC_WooMercadoPago_Payment_Abstract $method method.
+	 *
 	 * @return bool
 	 */
 	private function is_currency_supported( $currency, WC_WooMercadoPago_Payment_Abstract $method ) {
@@ -355,6 +383,7 @@ class WC_WooMercadoPago_Helpers_CurrencyConverter {
 	 * Get supported currencies from mercado pago API
 	 *
 	 * @param WC_WooMercadoPago_Payment_Abstract $method method.
+	 *
 	 * @return array|bool
 	 */
 	public function get_supported_currencies( WC_WooMercadoPago_Payment_Abstract $method ) {
@@ -388,6 +417,7 @@ class WC_WooMercadoPago_Helpers_CurrencyConverter {
 	 * Get Field
 	 *
 	 * @param WC_WooMercadoPago_Payment_Abstract $method method.
+	 *
 	 * @return array
 	 */
 	public function get_field( WC_WooMercadoPago_Payment_Abstract $method ) {
@@ -408,8 +438,8 @@ class WC_WooMercadoPago_Helpers_CurrencyConverter {
 	 * Schedule Notice
 	 *
 	 * @param WC_WooMercadoPago_Payment_Abstract $method methos.
-	 * @param array                              $old_data old data.
-	 * @param array                              $new_data new data.
+	 * @param array $old_data old data.
+	 * @param array $new_data new data.
 	 */
 	public function schedule_notice( WC_WooMercadoPago_Payment_Abstract $method, $old_data, $new_data ) {
 		if ( ! isset( $old_data[ self::CONFIG_KEY ] ) || ! isset( $new_data[ self::CONFIG_KEY ] ) ) {
@@ -518,7 +548,8 @@ class WC_WooMercadoPago_Helpers_CurrencyConverter {
 	 * Translate
 	 *
 	 * @param string $str str.
-	 * @param mixed  ...$values value.
+	 * @param mixed ...$values value.
+	 *
 	 * @return string|void
 	 */
 	private function __( $str, ...$values ) {
