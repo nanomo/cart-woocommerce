@@ -382,7 +382,7 @@ class WC_WooMercadoPago_Hook_Order_Details {
 			return;
 		}
 
-		$is_credit_card    = 'credit_card' === $payment['payment_type_id'];
+		$is_credit_card    = 'credit_card' === $payment['response']['payment_type_id'];
 		$alert_status      = $this->get_alert_status($payment_status);
 		$alert_description = $this->get_alert_description($payment_status_details, $is_credit_card);
 		$metabox_data      = $this->get_metabox_data($alert_status, $alert_description);
