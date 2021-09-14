@@ -1432,11 +1432,11 @@ msgstr ""
 msgid "Payment status on Mercado Pago"
 msgstr ""
 
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:417, ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:428, ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:417, ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:428, ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:417, ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:428
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:418, ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:429, ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:418, ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:429, ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:418, ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:429
 msgid "View purchase details at Mercado Pago"
 msgstr ""
 
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:439, ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:439, ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:439
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:440, ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:440, ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:440
 msgid "Check the reasons why the purchase was declined."
 msgstr ""
 
@@ -1627,7 +1627,7 @@ msgstr ""
 msgid "Copy code"
 msgstr ""
 
-#: ../../includes/module/sdk/lib/class-mp.php:599, ../../includes/module/sdk/lib/class-mp.php:643, ../../includes/module/sdk/lib/class-mp.php:599, ../../includes/module/sdk/lib/class-mp.php:643, ../../includes/module/sdk/lib/class-mp.php:599, ../../includes/module/sdk/lib/class-mp.php:643
+#: ../../includes/module/sdk/lib/class-mp.php:601, ../../includes/module/sdk/lib/class-mp.php:645, ../../includes/module/sdk/lib/class-mp.php:601, ../../includes/module/sdk/lib/class-mp.php:645, ../../includes/module/sdk/lib/class-mp.php:601, ../../includes/module/sdk/lib/class-mp.php:645
 msgid "Response from cache"
 msgstr ""
 
