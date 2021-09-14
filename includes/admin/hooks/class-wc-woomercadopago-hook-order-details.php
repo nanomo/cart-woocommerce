@@ -110,12 +110,12 @@ class WC_WooMercadoPago_Hook_Order_Details {
 				'description' => __( 'The card-issuing bank declined the payment. Please ask your client to use another card or to get in touch with the bank.', 'woocommerce-mercadopago' ),
 			),
 			'pending_capture' => array(
-				'alert_title' => __( 'Payment authorized. Awaiting capture', 'woocommerce-mercadopago' ),
+				'alert_title' => __( 'Payment authorized. Awaiting capture.', 'woocommerce-mercadopago' ),
 				'description' => __( "The payment has been authorized on the client's card. Please capture the payment.", 'woocommerce-mercadopago' ),
 			),
 			'in_process' => array(
 				'alert_title' => __( 'Payment in process', 'woocommerce-mercadopago' ),
-				'description' => __( 'Please wait or contact Mercado Pago for further details.', 'woocommerce-mercadopago' ),
+				'description' => __( 'Please wait or contact Mercado Pago for further details', 'woocommerce-mercadopago' ),
 			),
 			'pending_contingency' => array(
 				'alert_title' => __( 'Pending payment', 'woocommerce-mercadopago' ),
@@ -135,11 +135,11 @@ class WC_WooMercadoPago_Hook_Order_Details {
 			),
 			'offline_process' => array(
 				'alert_title' => __( 'Pending payment', 'woocommerce-mercadopago' ),
-				'description' => __( 'Please wait or contact Mercado Pago for further details.', 'woocommerce-mercadopago' ),
+				'description' => __( 'Please wait or contact Mercado Pago for further details', 'woocommerce-mercadopago' ),
 			),
 			'pending_challenge' => array(
 				'alert_title' => __( 'Pending payment', 'woocommerce-mercadopago' ),
-				'description' => __( 'Waiting for the buyer. ', 'woocommerce-mercadopago' ),
+				'description' => __( 'Waiting for the buyer.', 'woocommerce-mercadopago' ),
 			),
 			'pending_provider_response' => array(
 				'alert_title' => __( 'Pending payment', 'woocommerce-mercadopago' ),
@@ -355,18 +355,19 @@ class WC_WooMercadoPago_Hook_Order_Details {
 
 		$payment_method                = $order->get_payment_method();
 		$is_mercadopago_payment_method = in_array($payment_method, WC_WooMercadoPago_Constants::GATEWAYS_IDS, true);
-		$payment_id                    = $order->get_meta( '_Mercado_Pago_Payment_IDs' );
-		$is_production_mode            = $order->get_meta( 'is_production_mode' );
+		$payment_ids                   = explode(',', $order->get_meta( '_Mercado_Pago_Payment_IDs' ));
 
-		if ( ! $is_mercadopago_payment_method || ! $payment_id ) {
+		if ( ! $is_mercadopago_payment_method || empty($payment_ids) ) {
 			return;
 		}
 
-		$access_token = 'no' === $is_production_mode
+		$last_payment_id    = end($payment_ids);
+		$is_production_mode = $order->get_meta( 'is_production_mode' );
+		$access_token       = 'no' === $is_production_mode
 			? get_option( '_mp_access_token_test' )
 			: get_option( '_mp_access_token_prod' );
-		$mp           = new MP($access_token);
-		$payment      = $mp->search_payment_v1($payment_id);
+		$mp                 = new MP($access_token);
+		$payment            = $mp->search_payment_v1(trim($last_payment_id));
 
 		if ( ! $payment || ! $payment['status'] || 200 !== $payment['status'] ) {
 			return;
@@ -382,7 +383,7 @@ class WC_WooMercadoPago_Hook_Order_Details {
 			return;
 		}
 
-		$is_credit_card    = 'credit_card' === $payment['payment_type_id'];
+		$is_credit_card    = 'credit_card' === $payment['response']['payment_type_id'];
 		$alert_status      = $this->get_alert_status($payment_status);
 		$alert_description = $this->get_alert_description($payment_status_details, $is_credit_card);
 		$metabox_data      = $this->get_metabox_data($alert_status, $alert_description);

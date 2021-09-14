@@ -1009,14 +1009,14 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 		$previously_configured_plugin = 'woo-mercado-pago-basic' === $this->id && $this->clientid_old_version;
 		$mode                         = $this->is_production_mode() || $previously_configured_plugin ? 'production' : 'test';
 		$isCheckedCSSClass            = 'test' === $mode ? 'checked' : '';
-		$testGuideLines               = '<a style="text-decoration: none; outline: none;" target="_blank" href="https://mercadopago.com.'
-			. $this->get_country_domain_by_meli_acronym($this->checkout_country) . '" >'
+		$testGuideLines               = '<a style="text-decoration: none; outline: none;" target="_blank" href="'
+			. $this->get_mp_devsite_link($this->checkout_country) . '" >'
 			. __('test mode guidelines.', 'woocommerce-mercadopago')
 			. '</a>';
 
 		return array(
 			'label' => "<b id='checkout-mode-checkbox-test' class='{$isCheckedCSSClass}'>"
-				. __( 'Activar Modo Test para checkouts Mercado Pago', 'woocommerce-mercadopago' )
+				. __( 'Activate Test Mode for Mercado Pago checkouts', 'woocommerce-mercadopago' )
 				. '</b>',
 			'description' => '<span>'
 				. __(
@@ -1118,7 +1118,7 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 	 */
 	public function field_checkout_credential_title_prod() {
 		return array(
-			'title' => __( 'Production credentials', 'woocommerce-mercadopago' ),
+			'title' => __( 'Production Credentials', 'woocommerce-mercadopago' ),
 			'type'  => 'title',
 		);
 	}
@@ -1854,10 +1854,12 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 			$key     = 'woocommerce_' . $gateway::get_id() . '_settings';
 			$options = get_option( $key );
 			if ( ! empty( $options ) ) {
-				if ( ! isset( $options['checkout_credential_prod'] ) || empty( $options['checkout_credential_prod'] ) ) {
+				if ( ! isset( $options['checkbox_checkout_test_mode'] ) || empty( $options['checkbox_checkout_test_mode'] ) ) {
 					continue;
 				}
-				$options['checkbox_checkout_test_mode'] = 'yes' === $options['checkout_credential_prod'] ? 'no' : 'yes';
+
+				$old_credential_is_prod                 = $options['checkout_credential_prod'];
+				$options['checkbox_checkout_test_mode'] = 'yes' === $old_credential_is_prod ? 'no' : 'yes';
 				update_option( $key, apply_filters( 'woocommerce_settings_api_sanitized_fields_' . $gateway::get_id(), $options ) );
 			}
 		}
