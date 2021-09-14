@@ -647,7 +647,7 @@ msgid "test mode guidelines."
 msgstr ""
 
 #: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1019, ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1019, ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1019
-msgid "Activar Modo Test para checkouts Mercado Pago"
+msgid "Activate Test Mode for Mercado Pago checkouts"
 msgstr ""
 
 #: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1022, ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1022, ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1022
@@ -679,7 +679,7 @@ msgid "Access token"
 msgstr ""
 
 #: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1121, ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1121, ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1121
-msgid "Production credentials"
+msgid "Production Credentials"
 msgstr ""
 
 #: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1133, ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1133, ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1133
@@ -1301,7 +1301,7 @@ msgid "The card-issuing bank declined the payment. Please ask your client to use
 msgstr ""
 
 #: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:113, ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:113, ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:113
-msgid "Payment authorized. Awaiting capture"
+msgid "Payment authorized. Awaiting capture."
 msgstr ""
 
 #: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:114, ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:114, ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:114
@@ -1313,7 +1313,7 @@ msgid "Payment in process"
 msgstr ""
 
 #: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:118, ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:138, ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:118, ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:138, ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:118, ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:138
-msgid "Please wait or contact Mercado Pago for further details."
+msgid "Please wait or contact Mercado Pago for further details"
 msgstr ""
 
 #: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:122, ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:122, ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:122
@@ -1325,7 +1325,7 @@ msgid "Awaiting payment information validation."
 msgstr ""
 
 #: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:142, ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:142, ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:142
-msgid "Waiting for the buyer. "
+msgid "Waiting for the buyer."
 msgstr ""
 
 #: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:146, ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:146, ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:146

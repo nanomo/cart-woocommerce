@@ -1016,7 +1016,7 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 
 		return array(
 			'label' => "<b id='checkout-mode-checkbox-test' class='{$isCheckedCSSClass}'>"
-				. __( 'Activar Modo Test para checkouts Mercado Pago', 'woocommerce-mercadopago' )
+				. __( 'Activate Test Mode for Mercado Pago checkouts', 'woocommerce-mercadopago' )
 				. '</b>',
 			'description' => '<span>'
 				. __(
@@ -1118,7 +1118,7 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 	 */
 	public function field_checkout_credential_title_prod() {
 		return array(
-			'title' => __( 'Production credentials', 'woocommerce-mercadopago' ),
+			'title' => __( 'Production Credentials', 'woocommerce-mercadopago' ),
 			'type'  => 'title',
 		);
 	}

@@ -110,12 +110,12 @@ class WC_WooMercadoPago_Hook_Order_Details {
 				'description' => __( 'The card-issuing bank declined the payment. Please ask your client to use another card or to get in touch with the bank.', 'woocommerce-mercadopago' ),
 			),
 			'pending_capture' => array(
-				'alert_title' => __( 'Payment authorized. Awaiting capture', 'woocommerce-mercadopago' ),
+				'alert_title' => __( 'Payment authorized. Awaiting capture.', 'woocommerce-mercadopago' ),
 				'description' => __( "The payment has been authorized on the client's card. Please capture the payment.", 'woocommerce-mercadopago' ),
 			),
 			'in_process' => array(
 				'alert_title' => __( 'Payment in process', 'woocommerce-mercadopago' ),
-				'description' => __( 'Please wait or contact Mercado Pago for further details.', 'woocommerce-mercadopago' ),
+				'description' => __( 'Please wait or contact Mercado Pago for further details', 'woocommerce-mercadopago' ),
 			),
 			'pending_contingency' => array(
 				'alert_title' => __( 'Pending payment', 'woocommerce-mercadopago' ),
@@ -135,11 +135,11 @@ class WC_WooMercadoPago_Hook_Order_Details {
 			),
 			'offline_process' => array(
 				'alert_title' => __( 'Pending payment', 'woocommerce-mercadopago' ),
-				'description' => __( 'Please wait or contact Mercado Pago for further details.', 'woocommerce-mercadopago' ),
+				'description' => __( 'Please wait or contact Mercado Pago for further details', 'woocommerce-mercadopago' ),
 			),
 			'pending_challenge' => array(
 				'alert_title' => __( 'Pending payment', 'woocommerce-mercadopago' ),
-				'description' => __( 'Waiting for the buyer. ', 'woocommerce-mercadopago' ),
+				'description' => __( 'Waiting for the buyer.', 'woocommerce-mercadopago' ),
 			),
 			'pending_provider_response' => array(
 				'alert_title' => __( 'Pending payment', 'woocommerce-mercadopago' ),
