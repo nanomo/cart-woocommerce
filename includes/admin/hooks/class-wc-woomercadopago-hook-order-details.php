@@ -355,18 +355,19 @@ class WC_WooMercadoPago_Hook_Order_Details {
 
 		$payment_method                = $order->get_payment_method();
 		$is_mercadopago_payment_method = in_array($payment_method, WC_WooMercadoPago_Constants::GATEWAYS_IDS, true);
-		$payment_id                    = $order->get_meta( '_Mercado_Pago_Payment_IDs' );
-		$is_production_mode            = $order->get_meta( 'is_production_mode' );
+		$payment_ids                   = explode(',', $order->get_meta( '_Mercado_Pago_Payment_IDs' ));
 
-		if ( ! $is_mercadopago_payment_method || ! $payment_id ) {
+		if ( ! $is_mercadopago_payment_method || empty($payment_ids) ) {
 			return;
 		}
 
-		$access_token = 'no' === $is_production_mode
+		$last_payment_id    = end($payment_ids);
+		$is_production_mode = $order->get_meta( 'is_production_mode' );
+		$access_token       = 'no' === $is_production_mode
 			? get_option( '_mp_access_token_test' )
 			: get_option( '_mp_access_token_prod' );
-		$mp           = new MP($access_token);
-		$payment      = $mp->search_payment_v1($payment_id);
+		$mp                 = new MP($access_token);
+		$payment            = $mp->search_payment_v1(trim($last_payment_id));
 
 		if ( ! $payment || ! $payment['status'] || 200 !== $payment['status'] ) {
 			return;
