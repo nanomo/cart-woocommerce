@@ -1858,8 +1858,9 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 					continue;
 				}
 
-				$old_credential_is_prod                 = $options['checkout_credential_prod'];
-				$options['checkbox_checkout_test_mode'] = 'yes' === $old_credential_is_prod ? 'no' : 'yes';
+				$old_credential_is_prod                 = array_key_exists('checkout_credential_prod', $options) && isset($options['checkout_credential_prod']) ? $options['checkout_credential_prod'] : 'no';
+				$has_new_key                            = array_key_exists('checkbox_checkout_test_mode', $options) && isset($options['checkbox_checkout_test_mode']);
+				$options['checkbox_checkout_test_mode'] = $has_new_key ? $options['checkbox_checkout_test_mode'] : ( 'yes' === $old_credential_is_prod ? 'no' : 'yes' );
 				update_option( $key, apply_filters( 'woocommerce_settings_api_sanitized_fields_' . $gateway::get_id(), $options ) );
 			}
 		}
