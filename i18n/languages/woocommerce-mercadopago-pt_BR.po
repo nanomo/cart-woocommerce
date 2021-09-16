@@ -2578,5 +2578,20 @@ msgstr "Utilize os cartões específicos para teste que estão nas"
 msgid "test mode rules"
 msgstr "regras do modo teste"
 
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:580,
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:580
+msgid "Checkout Pro in Test Mode"
+msgstr "Checkout Pro em Modo Teste"
+
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:581,
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:581
+msgid "Use Mercado Pago's payment methods without real charges. See the"
+msgstr "Utilize meios do Mercado Pago sem cobranças reais. Consulte as"
+
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:582,
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:582
+msgid "rules for the test mode"
+msgstr "regras do modo teste"
+
 #~ msgid "Payment refused"
 #~ msgstr "Pagamento recusado"
