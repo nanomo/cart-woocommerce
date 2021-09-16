@@ -378,7 +378,7 @@ class WC_WooMercadoPago_Hook_Order_Details {
 
 		if (
 			( 'cc_rejected_insufficient_amount' === $payment_status_details || 'cc_rejected_bad_filled_other' === $payment_status_details )
-			&& ! $payment['payment_type_id']
+			&& ! $payment['response']['payment_type_id']
 		) {
 			return;
 		}

@@ -577,9 +577,9 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 			'checkout_alert_test_mode' => $this->is_production_mode()
 				? ''
 				: $this->checkout_alert_test_mode_template(
-					'Checkout Pro em Modo Teste',
-					'Utilize meios do Mercado Pago sem cobranças reais. Consulte as '
-					. "<a style='color: #74AFFC; text-decoration: none; outline: none;' target='_blank' href='" . $test_mode_rules_link . "'>regras do modo teste</a>.</p>"
+					__( 'Checkout Pro in Test Mode', 'woocommerce-mercadopago' ),
+					__( "Use Mercado Pago's payment methods without real charges. See the", 'woocommerce-mercadopago' )
+					. "&nbsp;<a style='color: #74AFFC; text-decoration: none; outline: none;' target='_blank' href='" . $test_mode_rules_link . "'>" . __( 'rules for the test mode', 'woocommerce-mercadopago' ) . '</a>.</p>'
 				),
 			'debito'         => $debito,
 			'credito'        => $credito,
