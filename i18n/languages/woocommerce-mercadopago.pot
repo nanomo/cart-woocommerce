@@ -1891,7 +1891,7 @@ msgid "Select the issuer with whom you want to process the payment"
 msgstr ""
 
 #: ../../templates/order/payment-status-metabox-content.php:20, ../../templates/order/payment-status-metabox-content.php:20, ../../templates/order/payment-status-metabox-content.php:20
-msgid "This is the <b>payment status</b> of your Pay Marketplace Activities. For <b>Order Status</b>, see <b>Order Details.</b>"
+msgid "This is the payment status of your Mercado Pago Activities. To check the order status, please refer to Order details."
 msgstr ""
 
 #: ../../templates/order-received/show-ticket.php:19, ../../templates/order-received/show-ticket.php:19, ../../templates/order-received/show-ticket.php:19
