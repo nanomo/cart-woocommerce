@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Mercado Pago payments for WooCommerce 5.4.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/woocommerce-mercadopago\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2021-09-17 14:00-0300\n"
+"PO-Revision-Date: 2021-09-17 15:44-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: es_AR\n"
@@ -2437,8 +2437,8 @@ msgstr "Selecciona el emisor con el que quieras procesar el pago"
 
 #: ../../templates/order/payment-status-metabox-content.php:20,
 #: ../../templates/order/payment-status-metabox-content.php:20
-msgid "This is the <b>payment status</b> of your Pay Marketplace Activities. For <b>Order Status</b>, see <b>Order Details.</b>"
-msgstr "Este es el <b> estado de pago </b> de sus actividades del mercado de pagos. Para <b> Estado del pedido </b>, consulte <b> Detalles del pedido </b>"
+msgid "This is the payment status of your Mercado Pago Activities. To check the order status, please refer to Order details."
+msgstr "Este es el estado del pago de las Actividades de tu Mercado Pago. Para consultar el estado del pedido, consulta en Detalles del Pedido."
 
 #: ../../templates/order-received/show-ticket.php:19,
 #: ../../templates/order-received/show-ticket.php:19
