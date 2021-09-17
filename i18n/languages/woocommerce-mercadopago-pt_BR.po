@@ -1,8 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: teste\n"
+"Project-Id-Version: Mercado Pago payments for WooCommerce 5.4.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/woocommerce-mercadopago\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: \n"
+"PO-Revision-Date: 2021-09-17 14:19-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: pt_BR\n"
@@ -10,6 +11,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 3.0\n"
+"X-Domain: woocommerce-mercadopago\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../../includes/helpers/class-wc-woomercadopago-helpers-currencyconverter.php:92,
 #: ../../includes/helpers/class-wc-woomercadopago-helpers-currencyconverter.php:92
