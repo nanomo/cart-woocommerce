@@ -577,9 +577,9 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 			'checkout_alert_test_mode' => $this->is_production_mode()
 				? ''
 				: $this->checkout_alert_test_mode_template(
-					'Checkout Pro em Modo Teste',
-					'Utilize meios do Mercado Pago sem cobranças reais. Consulte as '
-					. "<a style='color: #74AFFC; text-decoration: none; outline: none;' target='_blank' href='" . $test_mode_rules_link . "'>regras do modo teste</a>.</p>"
+					__( 'Checkout Pro in Test Mode', 'woocommerce-mercadopago' ),
+					__( "Use Mercado Pago's payment methods without real charges. See the", 'woocommerce-mercadopago' )
+					. "&nbsp;<a style='color: #74AFFC; text-decoration: none; outline: none;' target='_blank' href='" . $test_mode_rules_link . "'>" . __( 'rules for the test mode', 'woocommerce-mercadopago' ) . '</a>.</p>'
 				),
 			'debito'         => $debito,
 			'credito'        => $credito,
@@ -605,8 +605,7 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 		$amount = $this->get_order_total();
 
 		if ( method_exists( $order, 'update_meta_data' ) ) {
-			// TODO: Ao mergear com a branch feature/PPWP-6/test-flow o nome dessa opção será 'checkbox_checkout_test_mode'
-			$order->update_meta_data( 'is_production_mode', $this->get_option_mp( 'checkout_credential_prod' ) );
+			$order->update_meta_data( 'is_production_mode', $this->get_option_mp( 'checkbox_checkout_production_mode' ) );
 			$order->update_meta_data( '_used_gateway', get_class( $this ) );
 
 			if ( ! empty( $this->gateway_discount ) ) {
