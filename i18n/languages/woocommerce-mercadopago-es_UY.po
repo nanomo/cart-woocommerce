@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: Mercado Pago payments for WooCommerce 5.4.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/woocommerce-mercadopago\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2021-09-17 15:45-0300\n"
+"PO-Revision-Date: 2021-09-20 09:35-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: es_AR\n"
@@ -1094,7 +1094,7 @@ msgstr "Vencimiento del Pix"
 
 #: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:390
 msgid "Set the time limit in which your customers can pay."
-msgstr "Establezca el límite de tiempo en los que sus clientes pueden pagar."
+msgstr "Establezca el límite de tiempo en el que sus clientes pueden pagar."
 
 #: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:405
 msgid "Want to learn how Pix works?"
@@ -1786,7 +1786,7 @@ msgstr "Activar Modo Test para checkouts Mercado Pago"
 #: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1022,
 #: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1022
 msgid "Mercado Pago checkouts are inactive for real payments in the Test Mode. Please check the"
-msgstr "Checkouts Mercado Pago inactivos para cobros reales. Consulta las"
+msgstr "Checkouts Mercado Pago están inactivos para cobros reales en el Modo de Prueba. Consulta las"
 
 #: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1014,
 #: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1014
