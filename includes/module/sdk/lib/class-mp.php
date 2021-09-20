@@ -174,7 +174,9 @@ class MP {
 
 		$request = array(
 			'uri'    => '/v1/payments/' . $id,
-			'params' => array( 'access_token' => $this->get_access_token() ),
+			'headers' => array(
+				'Authorization' => 'Bearer ' . $this->get_access_token(),
+			)
 		);
 
 		return MP_Rest_Client::get( $request );

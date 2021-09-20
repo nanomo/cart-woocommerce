@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <p style="font-family: 'Lato', sans-serif; font-size: 14px;">
 	<?php
 		// @codingStandardsIgnoreStart
-		echo __( 'This is the <b>payment status</b> of your Pay Marketplace Activities. For <b>Order Status</b>, see <b>Order Details.</b>', 'woocommerce-mercadopago' );
+		echo __( 'This is the payment status of your Mercado Pago Activities. To check the order status, please refer to Order details.', 'woocommerce-mercadopago' );
 		// @codingStandardsIgnoreEnd
 	?>
 </p>
