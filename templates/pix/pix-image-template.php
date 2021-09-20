@@ -43,17 +43,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<small><?php esc_html_e( $text_expiration_date, 'woocommerce-mercadopago' ) . esc_html_e( $expiration_date, 'woocommerce-mercadopago' ); ?></small>
 	</div>
 
-	<div>		
-		<p style="width: 320px;
-			margin: 0 0 16px;
-			font-size: 10px;  
-			max-width: 100%; 
-			height: 80px;
-			display: inline-block; 
-			margin-left: auto; 
-			margin-right: auto;">
-			<small><?php esc_html_e( $qr_code, 'woocommerce-mercadopago' ); ?></small>
+	<div style="margin-left: auto; 
+			margin-right: auto;
+			width: 320px;
+			word-break: break-word;
+			font-size: 10px;">      
+		<p>
+			<?php esc_html_e( $qr_code, 'woocommerce-mercadopago' ); ?>
 		</p>
 	</div>
 </div>
-
