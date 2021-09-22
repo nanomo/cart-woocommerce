@@ -363,11 +363,11 @@ class WC_WooMercadoPago_Hook_Order_Details {
 
 		$last_payment_id    = end($payment_ids);
 		$is_production_mode = $order->get_meta( 'is_production_mode' );
-		$access_token       = 'no' === $is_production_mode
+		$access_token       = 'no' === $is_production_mode || ! $is_production_mode
 			? get_option( '_mp_access_token_test' )
 			: get_option( '_mp_access_token_prod' );
 		$mp                 = new MP($access_token);
-		$payment            = $mp->search_payment_v1(trim($last_payment_id));
+		$payment            = $mp->search_payment_v1(trim($last_payment_id), $access_token);
 
 		if ( ! $payment || ! $payment['status'] || 200 !== $payment['status'] ) {
 			return;
@@ -473,13 +473,13 @@ class WC_WooMercadoPago_Hook_Order_Details {
 	 */
 	public function get_mp_devsite_link( $country ) {
 		$country_links = [
-			'mla' => 'https://rebrand.ly/l5bt0p3',
-			'mlb' => 'https://rebrand.ly/g20teif',
-			'mlc' => 'https://rebrand.ly/6drvoof',
-			'mco' => 'https://rebrand.ly/o5av2xn',
-			'mlm' => 'https://rebrand.ly/ajrdsp3',
-			'mpe' => 'https://rebrand.ly/m16d4v4',
-			'mlu' => 'https://rebrand.ly/0a2ngts',
+			'mla' => 'https://www.mercadopago.com.ar/developers/es/guides/plugins/woocommerce/sales-processing#bookmark_motivos_de_las_recusas',
+			'mlb' => 'https://www.mercadopago.com.br/developers/pt/guides/plugins/woocommerce/sales-processing#bookmark_motivos_de_recusas',
+			'mlc' => 'https://www.mercadopago.cl/developers/es/guides/plugins/woocommerce/sales-processing#bookmark_motivos_de_las_recusas',
+			'mco' => 'https://www.mercadopago.com.co/developers/es/guides/plugins/woocommerce/sales-processing#bookmark_motivos_de_las_recusas',
+			'mlm' => 'https://www.mercadopago.com.mx/developers/es/guides/plugins/woocommerce/sales-processing#bookmark_motivos_de_las_recusas',
+			'mpe' => 'https://www.mercadopago.com.pe/developers/es/guides/plugins/woocommerce/sales-processing#bookmark_motivos_de_las_recusas',
+			'mlu' => 'https://www.mercadopago.com.uy/developers/es/guides/plugins/woocommerce/sales-processing#bookmark_motivos_de_las_recusas',
 		];
 		$link          = array_key_exists($country, $country_links) ? $country_links[$country] : $country_links['mla'];
 

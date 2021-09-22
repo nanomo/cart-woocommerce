@@ -974,19 +974,19 @@ msgstr ""
 msgid "%s"
 msgstr ""
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1876, ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1876, ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1876
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1877, ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1877, ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1877
 msgid "All Mercado Pago payment methods are in Production Mode"
 msgstr ""
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1877, ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1877, ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1877
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1878, ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1878, ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1878
 msgid "All Mercado Pago payment methods are in Test Mode"
 msgstr ""
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1879, ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1879, ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1879
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1880, ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1880, ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1880
 msgid "Your store is ready to receive payments from customers."
 msgstr ""
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1880, ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1880, ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1880
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1881, ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1881, ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1881
 msgid "Your customers will not be able to make purchases while in Test Mode."
 msgstr ""
 
@@ -1639,7 +1639,7 @@ msgstr ""
 msgid "Copy code"
 msgstr ""
 
-#: ../../includes/module/sdk/lib/class-mp.php:601, ../../includes/module/sdk/lib/class-mp.php:645, ../../includes/module/sdk/lib/class-mp.php:601, ../../includes/module/sdk/lib/class-mp.php:645, ../../includes/module/sdk/lib/class-mp.php:601, ../../includes/module/sdk/lib/class-mp.php:645
+#: ../../includes/module/sdk/lib/class-mp.php:599, ../../includes/module/sdk/lib/class-mp.php:643, ../../includes/module/sdk/lib/class-mp.php:599, ../../includes/module/sdk/lib/class-mp.php:643, ../../includes/module/sdk/lib/class-mp.php:599, ../../includes/module/sdk/lib/class-mp.php:643
 msgid "Response from cache"
 msgstr ""
 
