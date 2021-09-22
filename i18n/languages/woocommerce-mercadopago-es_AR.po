@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Mercado Pago payments for WooCommerce 5.4.0\n"
+"Project-Id-Version: Mercado Pago payments for WooCommerce 5.4.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/woocommerce-mercadopago\n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: 2021-09-20 09:36-0300\n"
