@@ -128,7 +128,6 @@ class MP {
 	 * @throws WC_WooMercadoPago_Exception Get Access Token Exception.
 	 */
 	public function get_access_token() {
-
 		if ( isset( $this->ll_access_token ) && ! is_null( $this->ll_access_token ) ) {
 			return $this->ll_access_token;
 		}
@@ -170,12 +169,11 @@ class MP {
 	 * @return array|null
 	 * @throws WC_WooMercadoPago_Exception Search Payment V1 Exception.
 	 */
-	public function search_payment_v1( $id ) {
-
+	public function search_payment_v1( $id, $token = null ) {
 		$request = array(
 			'uri'    => '/v1/payments/' . $id,
 			'headers' => array(
-				'Authorization' => 'Bearer ' . $this->get_access_token(),
+				'Authorization' => 'Bearer ' . ( is_null($token) ? $this->get_access_token() : $token ),
 			)
 		);
 
