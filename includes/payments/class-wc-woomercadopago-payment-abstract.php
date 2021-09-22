@@ -1954,13 +1954,13 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 	 */
 	public function get_mp_devsite_link( $country ) {
 		$country_links = [
-			'mla' => 'https://rebrand.ly/test-woo-ar',
-			'mlb' => 'https://rebrand.ly/test-woo-br',
-			'mlc' => 'https://rebrand.ly/test-woo-cl',
-			'mco' => 'https://rebrand.ly/test-woo-co',
-			'mlm' => 'https://rebrand.ly/test-woo-mx',
-			'mpe' => 'https://rebrand.ly/test-woo-pe',
-			'mlu' => 'https://rebrand.ly/test-woo-uy',
+			'mla' => 'https://www.mercadopago.com.ar/developers/es/guides/plugins/woocommerce/testing',
+			'mlb' => 'https://www.mercadopago.com.br/developers/pt/guides/plugins/woocommerce/testing',
+			'mlc' => 'https://www.mercadopago.cl/developers/es/guides/plugins/woocommerce/testing',
+			'mco' => 'https://www.mercadopago.com.co/developers/es/guides/plugins/woocommerce/testing',
+			'mlm' => 'https://www.mercadopago.com.mx/developers/es/guides/plugins/woocommerce/testing',
+			'mpe' => 'https://www.mercadopago.com.pe/developers/es/guides/plugins/woocommerce/testing',
+			'mlu' => 'https://www.mercadopago.com.uy/developers/es/guides/plugins/woocommerce/testing',
 		];
 		$link          = array_key_exists($country, $country_links) ? $country_links[$country] : $country_links['mla'];
 
