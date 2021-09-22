@@ -363,11 +363,11 @@ class WC_WooMercadoPago_Hook_Order_Details {
 
 		$last_payment_id    = end($payment_ids);
 		$is_production_mode = $order->get_meta( 'is_production_mode' );
-		$access_token       = 'no' === $is_production_mode
+		$access_token       = 'no' === $is_production_mode || ! $is_production_mode
 			? get_option( '_mp_access_token_test' )
 			: get_option( '_mp_access_token_prod' );
 		$mp                 = new MP($access_token);
-		$payment            = $mp->search_payment_v1(trim($last_payment_id));
+		$payment            = $mp->search_payment_v1(trim($last_payment_id), $access_token);
 
 		if ( ! $payment || ! $payment['status'] || 200 !== $payment['status'] ) {
 			return;
