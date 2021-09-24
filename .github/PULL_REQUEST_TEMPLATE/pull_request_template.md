@@ -5,25 +5,21 @@
 [descrição]
 
 # SE FOR UMA NOVA FUNCIONALIDADE
+## Descrição
 [descrição]
 
 # COLOCAR IMAGEM SE FOR ALGO VISUAL (exceto traduções)
+## Como era:
+[imagem]
+## Como ficou:
 [imagem]
 
-## Definição de Pronto (DOD)
-- [ ] Unit Test provided
-- Checklist na PR (desenvolvimento, testes, release, traduções. Pedir sugestões. Checklist com itens defaults);
-  - Análise junto a UX
-  - Documentação
-  - Fluxograma de cenários (felizes e de 
-  falha)
-  - implementação
-  - métricas
-  - testes automatizados
-  - teste funcionais
-  - teste de produtos
-  - release
-  - aprovação plataforma
-  - Devsite
-  - Comunicação (Template e envio de E- 
-  mail)
+## Definição de Pronto (DOD) (Remova ou adicione se aplicável)
+- [ ] Cenários de teste
+- [ ] Testes unitários
+- [ ] Testes E2E
+- [ ] Testes por parte da equipe (IT, UX e Product)
+- [ ] Documentação
+- [ ] DevSite
+- [ ] Comunicação (Template e envio de E-mail)
+- [ ] Aprovação da plataforma
