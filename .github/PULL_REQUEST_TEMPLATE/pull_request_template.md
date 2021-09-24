@@ -21,5 +21,3 @@
 - [ ] Testes por parte da equipe (IT, UX e Product)
 - [ ] Documentação
 - [ ] DevSite
-- [ ] Comunicação (Template e envio de E-mail)
-- [ ] Aprovação da plataforma
