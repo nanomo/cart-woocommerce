@@ -1,5 +1,10 @@
 CHANGELOG:
 == Changelog ==
+= v5.4.1 (22/09/2021) =
+* Bug fixes
+- On the order page, the payment was fetched with the wrong token
+- When the plugin was updated the checkout mode visually went to test
+
 = v5.4.0 (20/09/2021) =
 * Features
 - Performance improvements
