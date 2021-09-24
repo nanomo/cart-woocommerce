@@ -1854,13 +1854,13 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 			$key     = 'woocommerce_' . $gateway::get_id() . '_settings';
 			$options = get_option( $key );
 			if ( ! empty( $options ) ) {
-				if ( ! isset( $options['checkbox_checkout_test_mode'] ) || empty( $options['checkbox_checkout_test_mode'] ) ) {
-					continue;
-				}
-
 				$old_credential_is_prod                 = array_key_exists('checkout_credential_prod', $options) && isset($options['checkout_credential_prod']) ? $options['checkout_credential_prod'] : 'no';
 				$has_new_key                            = array_key_exists('checkbox_checkout_test_mode', $options) && isset($options['checkbox_checkout_test_mode']);
-				$options['checkbox_checkout_test_mode'] = $has_new_key ? $options['checkbox_checkout_test_mode'] : ( 'yes' === $old_credential_is_prod ? 'no' : 'yes' );
+				$options['checkbox_checkout_test_mode'] = $has_new_key && 'deprecated' === $old_credential_is_prod
+					? $options['checkbox_checkout_test_mode']
+					: ( 'yes' === $old_credential_is_prod ? 'no' : 'yes' );
+				$options['checkout_credential_prod']    = 'deprecated';
+
 				update_option( $key, apply_filters( 'woocommerce_settings_api_sanitized_fields_' . $gateway::get_id(), $options ) );
 			}
 		}
@@ -1954,13 +1954,13 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 	 */
 	public function get_mp_devsite_link( $country ) {
 		$country_links = [
-			'mla' => 'https://rebrand.ly/test-woo-ar',
-			'mlb' => 'https://rebrand.ly/test-woo-br',
-			'mlc' => 'https://rebrand.ly/test-woo-cl',
-			'mco' => 'https://rebrand.ly/test-woo-co',
-			'mlm' => 'https://rebrand.ly/test-woo-mx',
-			'mpe' => 'https://rebrand.ly/test-woo-pe',
-			'mlu' => 'https://rebrand.ly/test-woo-uy',
+			'mla' => 'https://www.mercadopago.com.ar/developers/es/guides/plugins/woocommerce/testing',
+			'mlb' => 'https://www.mercadopago.com.br/developers/pt/guides/plugins/woocommerce/testing',
+			'mlc' => 'https://www.mercadopago.cl/developers/es/guides/plugins/woocommerce/testing',
+			'mco' => 'https://www.mercadopago.com.co/developers/es/guides/plugins/woocommerce/testing',
+			'mlm' => 'https://www.mercadopago.com.mx/developers/es/guides/plugins/woocommerce/testing',
+			'mpe' => 'https://www.mercadopago.com.pe/developers/es/guides/plugins/woocommerce/testing',
+			'mlu' => 'https://www.mercadopago.com.uy/developers/es/guides/plugins/woocommerce/testing',
 		];
 		$link          = array_key_exists($country, $country_links) ? $country_links[$country] : $country_links['mla'];
 
