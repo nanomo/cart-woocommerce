@@ -1966,4 +1966,14 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 
 		return $link;
 	}
+
+	/**
+	 * Set Order to Status Pending when is a new attempt
+	 * @param $order
+	 */
+	public function set_order_to_pending_on_retry( $order ) {
+		if ($order->get_status() === 'failed') {
+			$order->set_status('pending');
+		}
+	}
 }
