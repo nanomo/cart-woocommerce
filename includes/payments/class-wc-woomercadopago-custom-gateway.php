@@ -486,6 +486,7 @@ class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 					case 'approved':
 						WC()->cart->empty_cart();
 						wc_add_notice( '<p>' . $this->get_order_status( 'accredited' ) . '</p>', 'notice' );
+						$this->set_order_to_pending_on_retry( $order );
 						return array(
 							'result'   => 'success',
 							'redirect' => $order->get_checkout_order_received_url(),
