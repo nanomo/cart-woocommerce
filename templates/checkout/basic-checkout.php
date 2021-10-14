@@ -79,3 +79,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	</div>
 </div>
+<div>       
+			<?php echo WC_WooMercadoPago_Module::mp_define_terms_and_conditions();?>	
+</div>
