@@ -79,6 +79,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	</div>
 </div>
+<!-- Terms and conditions link at checkout -->
 <div>       
 	<p class="mp-terms-and-conditions"> 
 		<?php echo esc_html($text_prefix); ?> 		
