@@ -66,10 +66,10 @@ class WC_WooMercadoPago_Image_Generator
         $payment_data = array();
         $payment_data = self::get_payment_data();
 
-        $pix = $payment_data['response']['point_of_interaction']['transaction_data']['qr_code_base64'];
+        $pix_base64 = $payment_data['response']['point_of_interaction']['transaction_data']['qr_code_base64'];
 
         header("Content-type: image/png");
-        $pix_qr_image = base64_decode($pix);
+        $pix_qr_image = base64_decode($pix_base64);
         $pix_qr_image = imagecreatefromstring($pix_qr_image);
 
         $pix_qr_image = imagescale($pix_qr_image, 447);
@@ -91,7 +91,19 @@ class WC_WooMercadoPago_Image_Generator
     {
 
         $id_payment = $_GET['id'];
+
+        if (is_null($id_payment) || empty($id_payment) || !is_numeric($id_payment)) {
+            self::get_error_image();
+            exit();
+        }
+
         $order = wc_get_order($id_payment);
+
+        if (is_null($order) || empty($order)) {
+            self::get_error_image();
+            exit();
+        }
+        
         $payment_method                = $order->get_payment_method();
         $is_mercadopago_payment_method = in_array($payment_method, WC_WooMercadoPago_Constants::GATEWAYS_IDS, true);
         $payment_ids                   = explode(',', $order->get_meta('_Mercado_Pago_Payment_IDs'));
@@ -127,5 +139,20 @@ class WC_WooMercadoPago_Image_Generator
         }
 
         return self::$instance;
+    }
+
+    /**
+     * Get Error Image
+     */
+    public static function get_error_image()
+    {
+
+        header('Content-type: image/png');
+        $png_image = dirname(__FILE__) . '/../../assets/images/pix_has_expired.png';
+        $png_image = imagecreatefrompng($png_image);
+        $png_image = imagescale($png_image, 447);
+        imagepng($png_image);
+        imagedestroy($png_image);
+        exit();
     }
 }
