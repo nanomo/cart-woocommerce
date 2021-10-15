@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Part of Woo Mercado Pago Module
  * Author - Mercado Pago
@@ -8,76 +9,108 @@
  *
  * @package MercadoPago
  */
+include_once dirname(__FILE__) . '/../module/sdk/lib/rest-client/class-rest-client-abstract.php';
+include_once dirname(__FILE__) . '/../module/sdk/lib/rest-client/class-mp-rest-client.php';
 
-
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
+if (!defined('ABSPATH')) {
+    exit;
 }
 
 /**
  * Class WC_WooMercadoPago_Image_Generator
  */
-class WC_WooMercadoPago_Image_Generator{
- 
-	/**
-	 * Static Instance
-	 */
-	public static $instance = null;
-  
-	/**
-	 * WC_WooMercadoPago_Notification_Abstrac constructor.
-	 */
-	public function __construct() {
-    
-		add_action( 'woocommerce_api_wc_mp_pix_image', array($this, 'get_image_qr'));
-    
-	}
- 
-	/**
-	 * Get qr code image
-	 */
-	public function get_image_qr( ){
-    
-    echo "testing endpoint";
+class WC_WooMercadoPago_Image_Generator
+{
 
-  }  
+    /**
+     * Static Instance
+     */
+    public static $instance = null;
 
-  public static function get_access_data(){
-    
-    $post = $_GET['id'];
-    $order = wc_get_order($post);
-    $payment_method                = $order->get_payment_method();
-		$is_mercadopago_payment_method = in_array($payment_method, WC_WooMercadoPago_Constants::GATEWAYS_IDS, true);
-		$payment_ids                   = explode(',', $order->get_meta( '_Mercado_Pago_Payment_IDs' ));
+    /**
+     * WC_WooMercadoPago_Notification_Abstrac constructor.
+     */
+    public function __construct()
+    {
 
-    
-		if ( ! $is_mercadopago_payment_method || empty($payment_ids) ) {
-			return;
-		}
-    
-		$is_production_mode = $order->get_meta( 'is_production_mode' );
-		$access_token       = 'no' === $is_production_mode || ! $is_production_mode
-			? get_option( '_mp_access_token_test' )
-			: get_option( '_mp_access_token_prod' );
-    
-    $data = array(
-			'payment_id'     => $payment_ids,
-			'access_token' => $access_token,
-		);
-    
-    return $data;
-	}
-  
-	/**
-	 * Init Mercado Pago Image Generator Class
-	 *
-	 * @return WC_WooMercadoPago_Image_Generator|null
-	 * Singleton
-	 */
-	public static function init_image_generator_class() {
-		if ( null === self::$instance ) {
-			self::$instance = new self();
-		}
-		return self::$instance;
+        add_action('woocommerce_api_wc_mp_pix_image', array($this, 'get_image_qr'));
+    }
+
+    /**
+     * Get Pix Payment Data
+     *
+     * @return array
+     */
+    public static function get_payment_data()
+    {
+
+        $data  = self::get_access_data();
+        $payment_id =  $data['payment_id'];
+        $access_token =  $data['access_token'];
+        $request = array(
+            'uri'    => '/v1/payments/' . $payment_id[0],
+            'headers' => array(
+                'Authorization' => 'Bearer ' . $access_token,
+            )
+        );
+
+        return MP_Rest_Client::get($request);
+    }
+
+    /**
+     * Get qr code image
+     */
+    public function get_image_qr()
+    {
+
+        echo "testing endpoint";
+    }
+
+
+     /**
+     * Get Access Data
+     *
+     * @return array
+     */
+    public static function get_access_data()
+    {
+
+        $post = $_GET['id'];
+        $order = wc_get_order($post);
+        $payment_method                = $order->get_payment_method();
+        $is_mercadopago_payment_method = in_array($payment_method, WC_WooMercadoPago_Constants::GATEWAYS_IDS, true);
+        $payment_ids                   = explode(',', $order->get_meta('_Mercado_Pago_Payment_IDs'));
+
+
+        if (!$is_mercadopago_payment_method || empty($payment_ids)) {
+            return;
+        }
+
+        $is_production_mode = $order->get_meta('is_production_mode');
+        $access_token       = 'no' === $is_production_mode || !$is_production_mode
+            ? get_option('_mp_access_token_test')
+            : get_option('_mp_access_token_prod');
+
+        $data = array(
+            'payment_id'     => $payment_ids,
+            'access_token' => $access_token,
+        );
+
+        return $data;
+    }
+
+    /**
+     * Init Mercado Pago Image Generator Class
+     *
+     * @return WC_WooMercadoPago_Image_Generator|null
+     * Singleton
+     */
+    public static function init_image_generator_class()
+    {
+        if (null === self::$instance) {
+            self::$instance = new self();
+        }
+
+        return self::$instance;
     }
 }
