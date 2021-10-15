@@ -63,11 +63,26 @@ class WC_WooMercadoPago_Image_Generator
     public function get_image_qr()
     {
 
-        echo "testing endpoint";
+        $payment_data = array();
+        $payment_data = self::get_payment_data();
+
+        $pix = $payment_data['response']['point_of_interaction']['transaction_data']['qr_code_base64'];
+
+        header("Content-type: image/png");
+        $pix_qr_image = base64_decode($pix);
+        $pix_qr_image = imagecreatefromstring($pix_qr_image);
+
+        $pix_qr_image = imagescale($pix_qr_image, 447);
+
+        imagepng($pix_qr_image);
+
+        imagedestroy($pix_qr_image);
+
+        exit();
     }
 
 
-     /**
+    /**
      * Get Access Data
      *
      * @return array
