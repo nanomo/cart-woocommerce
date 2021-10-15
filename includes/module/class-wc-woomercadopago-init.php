@@ -172,10 +172,12 @@ class WC_WooMercadoPago_Init {
 			require_once dirname( __FILE__ ) . '/class-wc-woomercadopago-module.php';
 			require_once dirname( __FILE__ ) . '/class-wc-woomercadopago-credentials.php';
 			require_once dirname( __FILE__ ) . '../../admin/notices/class-wc-woomercadopago-review-notice.php';
+			require_once dirname( __FILE__ ) . '../../pix/class-wc-woomercadopago-image-generator.php';
 
 			WC_WooMercadoPago_Module::init_mercado_pago_class();
 			WC_WooMercadoPago_Review_Notice::init_mercadopago_review_notice();
 			WC_WooMercadoPago_Saved_Cards::init_singleton();
+      		WC_WooMercadoPago_Image_Generator::init_image_generator_class();
 			self::update_plugin_version();
 
 			new WC_WooMercadoPago_Hook_Order_Details();
