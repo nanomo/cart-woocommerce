@@ -80,5 +80,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	</div>
 </div>
 <div>       
-			<?php echo WC_WooMercadoPago_Module::mp_define_terms_and_conditions();?>	
+	<p class="mp-terms-and-conditions"> 
+		<?php echo esc_html($text_prefix); ?> 		
+		<a target="_blank" href="<?php echo esc_html($link_terms_and_conditions); ?>">  <?php echo esc_html($text_suffix); ?> </a>
+	</p> 		
 </div>

@@ -280,11 +280,15 @@
 .mp-terms-and-conditions {
 	height: 18px !important;
 	padding: 16px !important;
-	font-family: Proxima Nova !important;
+	font-family: sans-serif !important;
 	font-size: 12px !important;
 	line-height: 18px !important;
 	text-align: center !important;
 	color: rgba(0, 0, 0, 0.9);
+}
+
+.mp-terms-and-conditions a {
+	color: #009ee3;
 }
 
 /* ----- Custom Checkout ----- */

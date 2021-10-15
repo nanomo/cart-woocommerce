@@ -456,16 +456,15 @@ class WC_WooMercadoPago_Module extends WC_WooMercadoPago_Configs {
 	 * @return string
 	 */
 	public static function mp_define_terms_and_conditions() {
-		$links_mp = self::define_link_country();
-		$link_prefix_mp = "https://www.mercadopago.";
-    
-    return (
-        '<div> <p class="mp-terms-and-conditions">' .
-        __( 'By continuing, you agree to our ', 'woocommerce-mercadopago' ) .
-        '<a target="_blank" href="' . $link_prefix_mp . $links_mp['sufix_url'] . $links_mp['help'] . $links_mp['term_conditition'] . '">'. __( 'Terms and Conditions', 'woocommerce-mercadopago' ) . '</a>
-      </p> </div>'
-    );
-	
+		$links_mp       = self::define_link_country();
+		$link_prefix_mp = 'https://www.mercadopago.';
+
+	return array (
+		'text_prefix'                           => __( 'By continuing, you agree to our ', 'woocommerce-mercadopago' ),
+		'link_terms_and_conditions' => $link_prefix_mp . $links_mp['sufix_url'] . $links_mp['help'] . $links_mp['term_conditition'],
+		'text_suffix'                               => __( 'Terms and Conditions', 'woocommerce-mercadopago' ),
+	);
+
 	}
 
 	/**
