@@ -90,8 +90,8 @@ class WC_WooMercadoPago_Image_Generator
     public static function get_access_data()
     {
 
-        $post = $_GET['id'];
-        $order = wc_get_order($post);
+        $id_payment = $_GET['id'];
+        $order = wc_get_order($id_payment);
         $payment_method                = $order->get_payment_method();
         $is_mercadopago_payment_method = in_array($payment_method, WC_WooMercadoPago_Constants::GATEWAYS_IDS, true);
         $payment_ids                   = explode(',', $order->get_meta('_Mercado_Pago_Payment_IDs'));
