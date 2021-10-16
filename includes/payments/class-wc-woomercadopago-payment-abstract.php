@@ -1978,4 +1978,79 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 			$order->save();
 		}
 	}
+
+	/**
+	 * Get Country Link to Mercado Pago
+	 *
+	 * @param string $checkout Checkout by country.
+	 * @return string
+	 */
+	public static function get_country_link_mp_terms() {
+
+		$country_link = array(
+			'mla' => array(
+				'help'      => 'ayuda',
+				'sufix_url' => 'com.ar/',
+				'translate' => 'es',
+				'term_conditition' => '/terminos-y-politicas_194',  // Argentinian.
+			),
+			'mlb' => array(
+				'help'      => 'ajuda',
+				'sufix_url' => 'com.br/',
+				'translate' => 'pt',
+				'term_conditition' => '/termos-e-politicas_194',   //Brasil
+			),
+			'mlc' => array(
+				'help'      => 'ayuda',
+				'sufix_url' => 'cl/',
+				'translate' => 'es',
+				'term_conditition' => '/terminos-y-politicas_194',   // Chile.
+			),
+			'mco' => array(
+				'help'      => 'ayuda',
+				'sufix_url' => 'com.co/',
+				'translate' => 'es',
+				'term_conditition' => '/terminos-y-politicas_194',   // Colombia.
+			),
+			'mlm' => array(
+				'help'      => 'ayuda',
+				'sufix_url' => 'com.mx/',
+				'translate' => 'es',
+				'term_conditition' => '/terminos-y-politicas_194',   // Mexico.
+			),
+			'mpe' => array(
+				'help'      => 'ayuda',
+				'sufix_url' => 'com.pe/',
+				'translate' => 'es',
+				'term_conditition' => '/terminos-y-politicas_194',   // Peru.
+			),
+			'mlu' => array(
+				'help'      => 'ayuda',
+				'sufix_url' => 'com.uy/',
+				'translate' => 'es',
+				'term_conditition' => '/terminos-y-politicas_194',   // Uruguay.
+			),
+	);
+
+	$checkout_country = strtolower(get_option( 'checkout_country', '' ));
+		return $country_link[ $checkout_country ];
+	}
+
+	/**
+	 *
+	 * Define terms and conditions link
+	 *
+	 * @return array
+	 */
+	public static function mp_define_terms_and_conditions() {
+
+		$links_mp       = self::get_country_link_mp_terms();
+		$link_prefix_mp = 'https://www.mercadopago.';
+	return array (
+		'text_prefix'                           => __( 'By continuing, you agree to our ', 'woocommerce-mercadopago' ),
+		'link_terms_and_conditions' => $link_prefix_mp . $links_mp['sufix_url'] . $links_mp['help'] . $links_mp['term_conditition'],
+		'text_suffix'                               => __( 'Terms and Conditions', 'woocommerce-mercadopago' ),
+	);
+
+	}
 }
