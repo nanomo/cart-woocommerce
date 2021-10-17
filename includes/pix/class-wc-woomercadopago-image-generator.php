@@ -66,6 +66,12 @@ class WC_WooMercadoPago_Image_Generator
         $payment_data = array();
         $payment_data = self::get_payment_data();
 
+        $pix = $payment_data ['response']['point_of_interaction']['transaction_data'];
+            
+        if( is_null($pix) || empty($pix) || !array_key_exists('qr_code_base64', $pix ) ){
+          self::get_error_image();     
+        }
+        
         $pix_base64 = $payment_data['response']['point_of_interaction']['transaction_data']['qr_code_base64'];
 
         header("Content-type: image/png");
