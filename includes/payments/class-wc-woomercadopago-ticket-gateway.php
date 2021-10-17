@@ -449,7 +449,7 @@ class WC_WooMercadoPago_Ticket_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 			'images_path'          => plugins_url( '../assets/images/', plugin_dir_path( __FILE__ ) ),
 		);
 
-		$parameters = array_merge($parameters, WC_WooMercadoPago_Module::mp_define_terms_and_conditions());
+		$parameters = array_merge($parameters, WC_WooMercadoPago_Payment_Abstract::mp_define_terms_and_conditions());
 		wc_get_template( 'checkout/ticket-checkout.php', $parameters, 'woo/mercado/pago/module/', WC_WooMercadoPago_Module::get_templates_path() );
 	}
 
