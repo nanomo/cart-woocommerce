@@ -652,6 +652,7 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 	public static function get_pix_template( $order ) {
 
 		$pix_on = get_post_meta( $order->get_id(), 'pix_on' );
+    
 
 		$pix_on = (int) array_pop( $pix_on );
 
@@ -665,7 +666,10 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 			$qr_image        = array_pop( $mp_pix_qr_base64 );
 			$src             = 'data:image/jpeg;base64';
 			$expiration_date = array_pop( $checkout_pix_date_expiration );
-
+			
+      		$order =  $order->get_id();
+      		$site_url = get_option('siteurl') . '/?wc-api=wc_mp_pix_image&id=' . $order;
+            
 			$pix_template = wc_get_template(
 				'pix/pix-image-template.php',
 				array(
@@ -674,6 +678,7 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 					'qr_code'              => $qr_code,
 					'expiration_date'      => $expiration_date,
 					'text_expiration_date' => __( 'Code valid for ', 'woocommerce-mercadopago' ),
+          			'site_url'=> $site_url,
 				),
 				'',
 				WC_WooMercadoPago_Module::get_templates_path()
