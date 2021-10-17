@@ -13,6 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 ?>
+
 <div style="text-align: center;">
 	<div>
 	<img style="border: none; 
@@ -27,7 +28,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				width: 168px; 
 				height: 168px;
 				margin: 0 0 10px;" 
-				src="<?php esc_html_e( $src, 'woocommerce-mercadopago' ); ?>, <?php esc_html_e( $qr_image, 'woocommerce-mercadopago' ); ?>" alt="pix">	
+				src="<?php esc_html_e( $site_url, 'woocommerce-mercadopago' ) ?>" alt="pix">	
 	</div>
 
 	<div style="margin: 0 0 16px;
