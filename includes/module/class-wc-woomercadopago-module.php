@@ -388,36 +388,43 @@ class WC_WooMercadoPago_Module extends WC_WooMercadoPago_Configs {
 				'help'      => 'ayuda',
 				'sufix_url' => 'com.ar/',
 				'translate' => 'es',
+				'term_conditition' => '/terminos-y-politicas_194',
 			),
 			'BR' => array( // Brazil.
 				'help'      => 'ajuda',
 				'sufix_url' => 'com.br/',
 				'translate' => 'pt',
+				'term_conditition' => '/termos-e-politicas_194',
 			),
 			'CL' => array( // Chile.
 				'help'      => 'ayuda',
 				'sufix_url' => 'cl/',
 				'translate' => 'es',
+				'term_conditition' => '/terminos-y-politicas_194',
 			),
 			'CO' => array( // Colombia.
 				'help'      => 'ayuda',
 				'sufix_url' => 'com.co/',
 				'translate' => 'es',
+				'term_conditition' => '/terminos-y-politicas_194',
 			),
 			'MX' => array( // Mexico.
 				'help'      => 'ayuda',
 				'sufix_url' => 'com.mx/',
 				'translate' => 'es',
+				'term_conditition' => '/terminos-y-politicas_194',
 			),
 			'PE' => array( // Peru.
 				'help'      => 'ayuda',
 				'sufix_url' => 'com.pe/',
 				'translate' => 'es',
+				'term_conditition' => '/terminos-y-politicas_194',
 			),
 			'UY' => array( // Uruguay.
 				'help'      => 'ayuda',
 				'sufix_url' => 'com.uy/',
 				'translate' => 'es',
+				'term_conditition' => '/terminos-y-politicas_194',
 			),
 		);
 
@@ -440,6 +447,24 @@ class WC_WooMercadoPago_Module extends WC_WooMercadoPago_Configs {
 		}
 
 		return $wc_country;
+	}
+
+	/**
+	 *
+	 * Define terms and conditions link
+	 *
+	 * @return string
+	 */
+	public static function mp_define_terms_and_conditions() {
+		$links_mp       = self::define_link_country();
+		$link_prefix_mp = 'https://www.mercadopago.';
+
+	return array (
+		'text_prefix'                           => __( 'By continuing, you agree to our ', 'woocommerce-mercadopago' ),
+		'link_terms_and_conditions' => $link_prefix_mp . $links_mp['sufix_url'] . $links_mp['help'] . $links_mp['term_conditition'],
+		'text_suffix'                               => __( 'Terms and Conditions', 'woocommerce-mercadopago' ),
+	);
+
 	}
 
 	/**

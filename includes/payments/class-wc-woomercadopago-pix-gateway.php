@@ -441,6 +441,7 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 			'image_pix' => plugins_url( '../assets/images/pix.png', plugin_dir_path( __FILE__ ) ),
 		);
 
+		$parameters = array_merge($parameters, WC_WooMercadoPago_Payment_Abstract::mp_define_terms_and_conditions());
 		wc_get_template( 'checkout/pix-checkout.php', $parameters, 'woo/mercado/pago/module/', WC_WooMercadoPago_Module::get_templates_path() );
 	}
 
