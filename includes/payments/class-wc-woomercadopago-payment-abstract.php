@@ -1987,50 +1987,50 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 	 */
 	public static function get_country_link_mp_terms() {
 
-		$country_link = array(
-			'mla' => array(
+		$country_link = [
+			'mla' => [
 				'help'      => 'ayuda',
 				'sufix_url' => 'com.ar/',
 				'translate' => 'es',
 				'term_conditition' => '/terminos-y-politicas_194',  // Argentinian.
-			),
-			'mlb' => array(
+			],
+			'mlb' => [
 				'help'      => 'ajuda',
 				'sufix_url' => 'com.br/',
 				'translate' => 'pt',
 				'term_conditition' => '/termos-e-politicas_194',   //Brasil
-			),
-			'mlc' => array(
+			],
+			'mlc' => [
 				'help'      => 'ayuda',
 				'sufix_url' => 'cl/',
 				'translate' => 'es',
 				'term_conditition' => '/terminos-y-politicas_194',   // Chile.
-			),
-			'mco' => array(
+			],
+			'mco' => [
 				'help'      => 'ayuda',
 				'sufix_url' => 'com.co/',
 				'translate' => 'es',
 				'term_conditition' => '/terminos-y-politicas_194',   // Colombia.
-			),
-			'mlm' => array(
+			],
+			'mlm' => [
 				'help'      => 'ayuda',
 				'sufix_url' => 'com.mx/',
 				'translate' => 'es',
 				'term_conditition' => '/terminos-y-politicas_194',   // Mexico.
-			),
-			'mpe' => array(
+			],
+			'mpe' => [
 				'help'      => 'ayuda',
 				'sufix_url' => 'com.pe/',
 				'translate' => 'es',
 				'term_conditition' => '/terminos-y-politicas_194',   // Peru.
-			),
-			'mlu' => array(
+			],
+			'mlu' => [
 				'help'      => 'ayuda',
 				'sufix_url' => 'com.uy/',
 				'translate' => 'es',
 				'term_conditition' => '/terminos-y-politicas_194',   // Uruguay.
-			),
-	);
+			],
+		];
 
 	$checkout_country = strtolower(get_option( 'checkout_country', '' ));
 		return $country_link[ $checkout_country ];
