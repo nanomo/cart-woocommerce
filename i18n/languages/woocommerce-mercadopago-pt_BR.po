@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Mercado Pago payments for WooCommerce 5.4.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/woocommerce-mercadopago\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2021-09-17 15:44-0300\n"
+"PO-Revision-Date: 2021-10-18 10:48-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: pt_BR\n"
@@ -2595,6 +2595,18 @@ msgstr "Utilize meios do Mercado Pago sem cobranças reais. Consulte as"
 #: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:582
 msgid "rules for the test mode"
 msgstr "regras do modo teste"
+
+#: ../../includes/module/class-wc-woomercadopago-module.php:463,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:2050,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:2050
+msgid "By continuing, you agree to our "
+msgstr "Ao continuar, você concorda com nossos "
+
+#: ../../includes/module/class-wc-woomercadopago-module.php:465,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:2052,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:2052
+msgid "Terms and Conditions"
+msgstr "Termos e Condições"
 
 #~ msgid "Payment refused"
 #~ msgstr "Pagamento recusado"
