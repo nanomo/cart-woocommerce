@@ -666,9 +666,9 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 			$src             = 'data:image/jpeg;base64';
 			$expiration_date = array_pop( $checkout_pix_date_expiration );
 
-			$order    = $order->get_id();
+			$order = $order->get_id();
 
-			$qr_code_image = get_option('siteurl') . '/?wc-api=wc_mp_pix_image&id=' . $order;;
+			$qr_code_image = get_option('siteurl') . '/?wc-api=wc_mp_pix_image&id=' . $order;
 
 			if ( ! in_array( 'gd', get_loaded_extensions(), true ) ) {
 				$qr_code_image = $src . ',' . $qr_image;
