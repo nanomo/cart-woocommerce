@@ -31,7 +31,7 @@ if ( ! defined('ABSPATH') ) {
 
 		</div>
 	</div>
-
+</div>
 	<!-- Terms and conditions link at checkout -->
 	<div>
 		<p class="mp-terms-and-conditions">
@@ -39,4 +39,3 @@ if ( ! defined('ABSPATH') ) {
 			<a target="_blank" href="<?php echo esc_html($link_terms_and_conditions); ?>"> <?php echo esc_html($text_suffix); ?> </a>
 		</p>
 	</div>
-</div>
