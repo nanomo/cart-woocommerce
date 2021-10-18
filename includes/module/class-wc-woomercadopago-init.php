@@ -62,6 +62,17 @@ class WC_WooMercadoPago_Init {
 	}
 
 	/**
+	 * GD validation
+	 */
+	public static function wc_mercado_pago_notify_gd_error() {
+		$type    = 'error';
+		$message = __( 'Mercado Pago Error: PHP Extension GD is not installed. Installation of GD extension is required to send QR Code Pix by email.', 'woocommerce-mercadopago' );
+		// @todo using escaping function
+		// @codingStandardsIgnoreLine
+		echo WC_WooMercadoPago_Notices::get_alert_frame( $message, $type );
+	}
+
+	/**
 	 * Summary: Places a warning error to notify user that WooCommerce is missing.
 	 * Description: Places a warning error to notify user that WooCommerce is missing.
 	 */
@@ -161,6 +172,10 @@ class WC_WooMercadoPago_Init {
 			return;
 		}
 
+		if ( ! in_array( 'gd', get_loaded_extensions(), true ) ) {
+			add_action( 'admin_notices', array( __CLASS__, 'wc_mercado_pago_notify_gd_error' ) );
+		}
+
 		// Load Mercado Pago SDK.
 		require_once dirname( __FILE__ ) . '/sdk/lib/class-mp.php';
 
@@ -177,7 +192,7 @@ class WC_WooMercadoPago_Init {
 			WC_WooMercadoPago_Module::init_mercado_pago_class();
 			WC_WooMercadoPago_Review_Notice::init_mercadopago_review_notice();
 			WC_WooMercadoPago_Saved_Cards::init_singleton();
-      		WC_WooMercadoPago_Image_Generator::init_image_generator_class();
+			WC_WooMercadoPago_Image_Generator::init_image_generator_class();
 			self::update_plugin_version();
 
 			new WC_WooMercadoPago_Hook_Order_Details();
