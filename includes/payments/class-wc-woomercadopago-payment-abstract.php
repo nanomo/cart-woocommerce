@@ -1966,4 +1966,91 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 
 		return $link;
 	}
+
+	/**
+	 * Set Order to Status Pending when is a new attempt
+	 *
+	 * @param $order
+	 */
+	public function set_order_to_pending_on_retry( $order ) {
+		if ( $order->get_status() === 'failed' ) {
+			$order->set_status('pending');
+			$order->save();
+		}
+	}
+
+	/**
+	 * Get Country Link to Mercado Pago
+	 *
+	 * @param string $checkout Checkout by country.
+	 * @return string
+	 */
+	public static function get_country_link_mp_terms() {
+
+		$country_link = [
+			'mla' => [
+				'help'      => 'ayuda',
+				'sufix_url' => 'com.ar/',
+				'translate' => 'es',
+				'term_conditition' => '/terminos-y-politicas_194',  // Argentinian.
+			],
+			'mlb' => [
+				'help'      => 'ajuda',
+				'sufix_url' => 'com.br/',
+				'translate' => 'pt',
+				'term_conditition' => '/termos-e-politicas_194',   //Brasil
+			],
+			'mlc' => [
+				'help'      => 'ayuda',
+				'sufix_url' => 'cl/',
+				'translate' => 'es',
+				'term_conditition' => '/terminos-y-politicas_194',   // Chile.
+			],
+			'mco' => [
+				'help'      => 'ayuda',
+				'sufix_url' => 'com.co/',
+				'translate' => 'es',
+				'term_conditition' => '/terminos-y-politicas_194',   // Colombia.
+			],
+			'mlm' => [
+				'help'      => 'ayuda',
+				'sufix_url' => 'com.mx/',
+				'translate' => 'es',
+				'term_conditition' => '/terminos-y-politicas_194',   // Mexico.
+			],
+			'mpe' => [
+				'help'      => 'ayuda',
+				'sufix_url' => 'com.pe/',
+				'translate' => 'es',
+				'term_conditition' => '/terminos-y-politicas_194',   // Peru.
+			],
+			'mlu' => [
+				'help'      => 'ayuda',
+				'sufix_url' => 'com.uy/',
+				'translate' => 'es',
+				'term_conditition' => '/terminos-y-politicas_194',   // Uruguay.
+			],
+		];
+
+	$checkout_country = strtolower(get_option( 'checkout_country', '' ));
+		return $country_link[ $checkout_country ];
+	}
+
+	/**
+	 *
+	 * Define terms and conditions link
+	 *
+	 * @return array
+	 */
+	public static function mp_define_terms_and_conditions() {
+
+		$links_mp       = self::get_country_link_mp_terms();
+		$link_prefix_mp = 'https://www.mercadopago.';
+	return array (
+		'text_prefix'                           => __( 'By continuing, you agree to our ', 'woocommerce-mercadopago' ),
+		'link_terms_and_conditions' => $link_prefix_mp . $links_mp['sufix_url'] . $links_mp['help'] . $links_mp['term_conditition'],
+		'text_suffix'                               => __( 'Terms and Conditions', 'woocommerce-mercadopago' ),
+	);
+
+	}
 }

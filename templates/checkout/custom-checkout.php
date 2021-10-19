@@ -246,6 +246,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	</div>
 </div>
+<!-- Terms and conditions link at checkout -->
+<div>       
+	<p class="mp-terms-and-conditions"> 
+		<?php echo esc_html($text_prefix); ?> 		
+		<a target="_blank" href="<?php echo esc_html($link_terms_and_conditions); ?>">  <?php echo esc_html($text_suffix); ?> </a>
+	</p> 		
+</div>
 
 <script type="text/javascript">
 	function mpCreditExecmascara() {

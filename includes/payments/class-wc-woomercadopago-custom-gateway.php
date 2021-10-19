@@ -388,6 +388,7 @@ class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 			'wallet_button'        => $this->wallet_button,
 		);
 
+		$parameters = array_merge($parameters, WC_WooMercadoPago_Payment_Abstract::mp_define_terms_and_conditions());
 		wc_get_template( 'checkout/custom-checkout.php', $parameters, 'woo/mercado/pago/module/', WC_WooMercadoPago_Module::get_templates_path() );
 	}
 
@@ -486,6 +487,7 @@ class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 					case 'approved':
 						WC()->cart->empty_cart();
 						wc_add_notice( '<p>' . $this->get_order_status( 'accredited' ) . '</p>', 'notice' );
+						$this->set_order_to_pending_on_retry( $order );
 						return array(
 							'result'   => 'success',
 							'redirect' => $order->get_checkout_order_received_url(),
