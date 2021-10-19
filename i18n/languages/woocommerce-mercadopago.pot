@@ -68,14 +68,18 @@ msgstr ""
 msgid "Mercado Pago Error: PHP Extension CURL is not installed."
 msgstr ""
 
+#: ../../includes/module/class-wc-woomercadopago-init.php:69, ../../includes/module/class-wc-woomercadopago-init.php:69, ../../includes/module/class-wc-woomercadopago-init.php:69
+msgid "Mercado Pago Error: PHP Extension GD is not installed. Installation of GD extension is required to send QR Code Pix by email."
+msgstr ""
+
 #. translators: %s link to WooCommerce
 #. translators: %s link to WooCommerce
 #. translators: %s link to WooCommerce
-#: ../../includes/module/class-wc-woomercadopago-init.php:72, ../../includes/module/class-wc-woomercadopago-init.php:72, ../../includes/module/class-wc-woomercadopago-init.php:72
+#: ../../includes/module/class-wc-woomercadopago-init.php:83, ../../includes/module/class-wc-woomercadopago-init.php:83, ../../includes/module/class-wc-woomercadopago-init.php:83
 msgid "The Mercado Pago module needs an active version of %s in order to work!"
 msgstr ""
 
-#: ../../includes/module/class-wc-woomercadopago-init.php:85, ../../includes/module/class-wc-woomercadopago-init.php:85, ../../includes/module/class-wc-woomercadopago-init.php:85
+#: ../../includes/module/class-wc-woomercadopago-init.php:96, ../../includes/module/class-wc-woomercadopago-init.php:96, ../../includes/module/class-wc-woomercadopago-init.php:96
 msgid "Cancel order"
 msgstr ""
 
@@ -1169,7 +1173,7 @@ msgstr ""
 msgid "Register your Pix key at Mercado Pago."
 msgstr ""
 
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:676, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:676, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:676, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:129, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:129, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:129
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:682, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:682, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:682, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:129, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:129, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:129
 msgid "Code valid for "
 msgstr ""
 
