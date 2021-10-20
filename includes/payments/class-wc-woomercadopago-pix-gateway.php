@@ -441,6 +441,7 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 			'image_pix' => plugins_url( '../assets/images/pix.png', plugin_dir_path( __FILE__ ) ),
 		);
 
+		$parameters = array_merge($parameters, WC_WooMercadoPago_Payment_Abstract::mp_define_terms_and_conditions());
 		wc_get_template( 'checkout/pix-checkout.php', $parameters, 'woo/mercado/pago/module/', WC_WooMercadoPago_Module::get_templates_path() );
 	}
 
@@ -665,14 +666,21 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 			$src             = 'data:image/jpeg;base64';
 			$expiration_date = array_pop( $checkout_pix_date_expiration );
 
+			$order = $order->get_id();
+
+			$qr_code_image = get_option('siteurl') . '/?wc-api=wc_mp_pix_image&id=' . $order;
+
+			if ( ! in_array( 'gd', get_loaded_extensions(), true ) ) {
+				$qr_code_image = $src . ',' . $qr_image;
+			}
+
 			$pix_template = wc_get_template(
 				'pix/pix-image-template.php',
 				array(
-					'src'                  => $src,
-					'qr_image'             => $qr_image,
 					'qr_code'              => $qr_code,
 					'expiration_date'      => $expiration_date,
 					'text_expiration_date' => __( 'Code valid for ', 'woocommerce-mercadopago' ),
+					'qr_code_image'        => $qr_code_image,
 				),
 				'',
 				WC_WooMercadoPago_Module::get_templates_path()
