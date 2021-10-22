@@ -22,7 +22,7 @@ if ( ! defined('ABSPATH') ) {
 	<div class="mp-row-checkout">
 		<!-- Cupom mode, creat a campaign on mercado pago -->
 		<?php if ( 'yes' === $coupon_mode ) : ?>
-			<div id="mercadopago-form-coupon-ticket" class="mp-col-md-12 mp-pb-20">
+			<div id="mercadopago-form-coupon-ticket" class="mp-col-md-12 mp-pb-15">
 				<div class="frame-tarjetas mp-text-justify">
 					<p class="mp-subtitle-ticket-checkout"><?php echo esc_html__('Enter your discount coupon', 'woocommerce-mercadopago'); ?></p>
 
@@ -82,9 +82,7 @@ if ( ! defined('ABSPATH') ) {
 										<div id="paymentMethodIdTicket" class="mp-ticket-payments">
 											<label for="<?php echo esc_attr($payment['id']); ?>" class="mp-label-form mp-pointer">
 												<input type="radio" class="mp-form-control-check" name="mercadopago_ticket[paymentMethodId]" id="<?php echo esc_attr($payment['id']); ?>" value="<?php echo esc_attr($payment['id']); ?>" 
-																																							<?php
-																																							if ( $at_first ) :
-																																								?>
+													<?php if ( $at_first ) : ?>
 													checked="checked" <?php endif; ?> />
 												<img src="<?php echo esc_attr($payment['secure_thumbnail']); ?>" class="mp-img-ticket" alt="<?php echo esc_attr($payment['name']); ?>" />
 												<span class="mp-ticket-name"><?php echo esc_attr($payment['name']); ?></span>
@@ -99,7 +97,7 @@ if ( ! defined('ABSPATH') ) {
 					<?php if ( 'MLB' === $site_id ) : ?>
 						<div class="mp-col-md-12 mp-pb-15" id="box-docnumber">
 							<label for="cpfcnpj" id="mp_cpf_cnpj_label" class="mp-label-form title-cpf"><?php echo esc_html__('CPF/CNPJ', 'woocommerce-mercadopago'); ?> <em>*</em></label>
-							<input type="text" class="mp-form-control" value="<?php echo esc_textarea($febraban['docNumber']); ?>" id="mp_doc_number" data-checkout="mp_doc_number" name="mercadopago_ticket[docNumber]" onkeyup="mpMaskInput(this, mpCpf);" maxlength="18">
+							<input type="text" class="mp-form-control" value="<?php echo esc_textarea($febraban['docNumber']); ?>" id="mp_doc_number" data-checkout="mp_doc_number" name="mercadopago_ticket[docNumber]" onkeyup="mpMaskInput(this, mpCpfCnpj);" maxlength="18">
 							<span class="mp-erro_febraban" data-main="#mp_doc_number"><?php echo esc_html__('You must provide your document number', 'woocommerce-mercadopago'); ?></span>
 							<span class="mp_error_docnumber" id="mp_error_docnumber"><?php echo esc_html__('Invalid Document Number', 'woocommerce-mercadopago'); ?></span>
 						</div>
@@ -148,7 +146,7 @@ if ( ! defined('ABSPATH') ) {
 		return v.replace(/\D/g, "")
 	}
 
-	function mpCpf(v, element) {
+	function mpCpfCnpj(v, element) {
 		v = v.replace(/\D/g, "")
 
 		if (v.length <= 11) { //CPF
