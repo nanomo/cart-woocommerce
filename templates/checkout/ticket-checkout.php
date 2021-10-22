@@ -345,7 +345,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 												<img src="<?php echo esc_attr( $payment['secure_thumbnail'] ); ?>" class="mp-img-ticket" alt="<?php echo esc_attr( $payment['name'] ); ?>" />
 											</label>
 											</br>
-                      <p class="mp-ticket-name"><?php echo ( 'Pagamento na lotérica sem boleto' === $payment['name'] ) ? $payment['name'] = 'Lotéricas' : esc_attr( $payment['name'] ); ?></p>
+											<p class="mp-ticket-name">
+												<?php echo esc_attr( ( 'Pagamento na lotérica sem boleto' === $payment['name'] ) ? $payment['name'] = 'Lotéricas' : $payment['name'] ); ?>
+											</p>
 										</div>
 										<?php $at_first = false; ?>
 									</div>
