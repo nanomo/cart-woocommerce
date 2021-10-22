@@ -334,7 +334,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 							<div class="mp-row-checkout mp-pt-10">
 								<?php $at_first = true; ?>
 								<?php foreach ( $payment_methods as $payment ) : ?>
-								<div id="frameTicket" class="mp-col-md-6 mp-pb-15 mp-min-hg">
+								<div id="frameTicket" class="mp-col-md-6 mp-pb-25 mp-min-hg">
 										<div id="paymentMethodIdTicket" class="mp-ticket-payments">
 											<label for="<?php echo esc_attr( $payment['id'] ); ?>" class="mp-label-form mp-pointer">
 												<input type="radio" class="mp-form-control-check" name="mercadopago_ticket[paymentMethodId]" id="<?php echo esc_attr( $payment['id'] ); ?>" value="<?php echo esc_attr( $payment['id'] ); ?>"
@@ -343,8 +343,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 																																								?>
 													checked="checked" <?php endif; ?> />
 												<img src="<?php echo esc_attr( $payment['secure_thumbnail'] ); ?>" class="mp-img-ticket" alt="<?php echo esc_attr( $payment['name'] ); ?>" />
-												<span class="mp-ticket-name"><?php echo esc_attr( $payment['name'] ); ?></span>
 											</label>
+											</br>
+											<p class="mp-ticket-name">
+												<?php echo esc_attr( ( 'Pagamento na lotérica sem boleto' === $payment['name'] ) ? $payment['name'] = 'Lotéricas' : $payment['name'] ); ?>
+											</p>
 										</div>
 										<?php $at_first = false; ?>
 									</div>
