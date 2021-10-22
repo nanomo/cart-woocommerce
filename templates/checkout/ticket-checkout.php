@@ -10,7 +10,7 @@
  * @package MercadoPago
  */
 
-if (!defined('ABSPATH')) {
+if ( ! defined('ABSPATH') ) {
 	exit;
 }
 ?>
@@ -21,7 +21,7 @@ if (!defined('ABSPATH')) {
 	?>
 	<div class="mp-row-checkout">
 		<!-- Cupom mode, creat a campaign on mercado pago -->
-		<?php if ('yes' === $coupon_mode) : ?>
+		<?php if ( 'yes' === $coupon_mode ) : ?>
 			<div id="mercadopago-form-coupon-ticket" class="mp-col-md-12 mp-pb-20">
 				<div class="frame-tarjetas mp-text-justify">
 					<p class="mp-subtitle-ticket-checkout"><?php echo esc_html__('Enter your discount coupon', 'woocommerce-mercadopago'); ?></p>
@@ -45,7 +45,7 @@ if (!defined('ABSPATH')) {
 			<div class="frame-tarjetas">
 				<div id="mercadopago-form-ticket">
 
-					<?php if ('MLU' === $site_id) : ?>
+					<?php if ( 'MLU' === $site_id ) : ?>
 						<div id="form-ticket">
 							<div class="mp-row-checkout">
 								<p class="mp-subtitle-custom-checkout"><?php echo esc_html__('Enter your document number', 'woocommerce-mercadopago'); ?></p>
@@ -77,11 +77,15 @@ if (!defined('ABSPATH')) {
 							<p class="mp-subtitle-ticket-checkout"><?php echo esc_html__('Select the issuer with whom you want to process the payment', 'woocommerce-mercadopago'); ?></p>
 							<div class="mp-row-checkout mp-pt-10">
 								<?php $at_first = true; ?>
-								<?php foreach ($payment_methods as $payment) : ?>
+								<?php foreach ( $payment_methods as $payment ) : ?>
 									<div id="frameTicket" class="mp-col-md-6 mp-pb-15 mp-min-hg">
 										<div id="paymentMethodIdTicket" class="mp-ticket-payments">
 											<label for="<?php echo esc_attr($payment['id']); ?>" class="mp-label-form mp-pointer">
-												<input type="radio" class="mp-form-control-check" name="mercadopago_ticket[paymentMethodId]" id="<?php echo esc_attr($payment['id']); ?>" value="<?php echo esc_attr($payment['id']); ?>" <?php if ($at_first) : ?> checked="checked" <?php endif; ?> />
+												<input type="radio" class="mp-form-control-check" name="mercadopago_ticket[paymentMethodId]" id="<?php echo esc_attr($payment['id']); ?>" value="<?php echo esc_attr($payment['id']); ?>" 
+																																							<?php
+																																							if ( $at_first ) :
+																																								?>
+													checked="checked" <?php endif; ?> />
 												<img src="<?php echo esc_attr($payment['secure_thumbnail']); ?>" class="mp-img-ticket" alt="<?php echo esc_attr($payment['name']); ?>" />
 												<span class="mp-ticket-name"><?php echo esc_attr($payment['name']); ?></span>
 											</label>
@@ -92,7 +96,7 @@ if (!defined('ABSPATH')) {
 							</div>
 						</div>
 					</div>
-					<?php if ('MLB' === $site_id) : ?>
+					<?php if ( 'MLB' === $site_id ) : ?>
 						<div class="mp-col-md-12 mp-pb-15" id="box-docnumber">
 							<label for="cpfcnpj" id="mp_cpf_cnpj_label" class="mp-label-form title-cpf"><?php echo esc_html__('CPF/CNPJ', 'woocommerce-mercadopago'); ?> <em>*</em></label>
 							<input type="text" class="mp-form-control" value="<?php echo esc_textarea($febraban['docNumber']); ?>" id="mp_doc_number" data-checkout="mp_doc_number" name="mercadopago_ticket[docNumber]" onkeyup="mpMaskInput(this, mpCpf);" maxlength="18">
@@ -145,43 +149,29 @@ if (!defined('ABSPATH')) {
 	}
 
 	function mpCpf(v, element) {
-
-		//Remove tudo o que não é dígito
-
 		v = v.replace(/\D/g, "")
 
 		if (v.length <= 11) { //CPF
 
 			document.getElementById('mp_cpf_cnpj_label').innerHTML = 'CPF/CNPJ <em>*</em>'
 
-			//Coloca um ponto entre o terceiro e o quarto dígitos
 			v = v.replace(/(\d{3})(\d)/, "$1.$2")
-
-			//Coloca um ponto entre o terceiro e o quarto dígitos
-			//de novo (para o segundo bloco de números)
 			v = v.replace(/(\d{3})(\d)/, "$1.$2")
-
-			//Coloca um hífen entre o terceiro e o quarto dígitos
 			v = v.replace(/(\d{3})(\d{1,2})$/, "$1-$2")
 
 			if (v.length == 14) {
 				document.getElementById('mp_cpf_cnpj_label').innerHTML = 'CPF <em>*</em>'
-
 			}
 
 		} else { //CNPJ
-
 			document.getElementById('mp_cpf_cnpj_label').innerHTML = 'CNPJ <em>*</em>'
-
 
 			v = v.replace(/^(\d{2})(\d)/, '$1.$2');
 			v = v.replace(/^(\d{2})\.(\d{3})(\d)/, '$1.$2.$3');
 			v = v.replace(/\.(\d{3})(\d)/, '.$1/$2');
 			v = v.replace(/(\d{4})(\d)/, '$1-$2');
-
 		}
 
 		return v
-
 	}
 </script>
