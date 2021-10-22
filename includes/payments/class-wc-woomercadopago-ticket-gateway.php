@@ -498,15 +498,8 @@ class WC_WooMercadoPago_Ticket_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 
 		// Check for brazilian FEBRABAN rules.
 		if ( 'MLB' === $this->get_option_mp( '_site_id_v1' ) ) {
-			if ( ! isset( $ticket_checkout['firstname'] ) || empty( $ticket_checkout['firstname'] ) ||
-				! isset( $ticket_checkout['lastname'] ) || empty( $ticket_checkout['lastname'] ) ||
-				! isset( $ticket_checkout['docNumber'] ) || empty( $ticket_checkout['docNumber'] ) ||
-				( 14 !== strlen( $ticket_checkout['docNumber'] ) && 18 !== strlen( $ticket_checkout['docNumber'] ) ) ||
-				! isset( $ticket_checkout['address'] ) || empty( $ticket_checkout['address'] ) ||
-				! isset( $ticket_checkout['number'] ) || empty( $ticket_checkout['number'] ) ||
-				! isset( $ticket_checkout['city'] ) || empty( $ticket_checkout['city'] ) ||
-				! isset( $ticket_checkout['state'] ) || empty( $ticket_checkout['state'] ) ||
-				! isset( $ticket_checkout['zipcode'] ) || empty( $ticket_checkout['zipcode'] ) ) {
+			if ( ! isset( $ticket_checkout['docNumber'] ) || empty( $ticket_checkout['docNumber'] ) ||
+				( 14 !== strlen( $ticket_checkout['docNumber'] ) && 18 !== strlen( $ticket_checkout['docNumber'] ) ) ) {
 				wc_add_notice(
 					'<p>' .
 					__( 'There was a problem processing your payment. Are you sure you have correctly filled out all the information on the payment form?', 'woocommerce-mercadopago' ) .
