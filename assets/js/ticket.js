@@ -5,7 +5,6 @@
 
     $(function () {
         var mercado_pago_submit_ticket = false;
-        var mercado_pago_docnumber = 'CPF';
 
         var seller = {
             site_id: wc_mercadopago_ticket_params.site_id
@@ -26,61 +25,10 @@
 
         // Load woocommerce checkout form
         $('body').on('updated_checkout', function () {
-            if (seller.site_id === 'MLB') {
-                validateDocumentInputs();
-            }
-
             if (coupon_of_discounts.activated === 'yes') {
                 $('#applyCouponTicket').on('click', discountCampaignsHandler);
             }
         });
-
-        /**
-         * Validate input depending on document type
-         */
-        function validateDocumentInputs() {
-            var mp_box_lastname = document.getElementById('mp_box_lastname');
-            var mp_box_firstname = document.getElementById('mp_box_firstname');
-            var mp_firstname_label = document.getElementById('mp_firstname_label');
-            var mp_socialname_label = document.getElementById('mp_socialname_label');
-            var mp_cpf_label = document.getElementById('mp_cpf_label');
-            var mp_cnpj_label = document.getElementById('mp_cnpj_label');
-            var mp_doc_number = document.getElementById('mp_doc_number');
-            var mp_doc_type = document.querySelectorAll('input[type=radio][name="mercadopago_ticket[docType]"]');
-
-            mp_cnpj_label.style.display = 'none';
-            mp_socialname_label.style.display = 'none';
-
-            var choose_document = function () {
-                if (this.value === 'CPF') {
-                    mp_cpf_label.style.display = 'block';
-                    mp_box_lastname.style.display = 'grid';
-                    mp_firstname_label.style.display = 'block';
-                    mp_cnpj_label.style.display = 'none';
-                    mp_socialname_label.style.display = 'none';
-                    mp_box_firstname.classList.remove('mp-col-md-8');
-                    mp_box_firstname.classList.add('mp-col-md-4');
-                    mp_doc_number.setAttribute('maxlength', '14');
-                    mp_doc_number.setAttribute('onkeyup', 'mpMaskInput(this, mpCpf)');
-                    mercado_pago_docnumber = 'CPF';
-                } else {
-                    mp_cpf_label.style.display = 'none';
-                    mp_box_lastname.style.display = 'none';
-                    mp_firstname_label.style.display = 'none';
-                    mp_cnpj_label.style.display = 'block';
-                    mp_socialname_label.style.display = 'block';
-                    mp_box_firstname.classList.remove('mp-col-md-4');
-                    mp_box_firstname.classList.add('mp-col-md-8');
-                    mp_doc_number.setAttribute('maxlength', '18');
-                    mp_doc_number.setAttribute('onkeyup', 'mpMaskInput(this, mpCnpj)');
-                    mercado_pago_docnumber = 'CNPJ';
-                }
-            };
-
-            for (var i = 0; i < mp_doc_type.length; i++) {
-                mp_doc_type[i].addEventListener('change', choose_document);
-            }
-        }
 
         /**
          * Handler form submit
@@ -200,6 +148,10 @@
         * @return {bool}
         */
         function validateDocTypeMLB(docnumber) {
+            var mercado_pago_docnumber = document.getElementById('mp_cpf_cnpj_label').innerText.includes('CPF') ? 'CPF' : 'CNPJ';
+
+        console.log(mercado_pago_docnumber)
+
             if (mercado_pago_docnumber === 'CPF') {
                 return validateCPF(docnumber);
             }
