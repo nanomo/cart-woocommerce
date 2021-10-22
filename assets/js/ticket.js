@@ -150,8 +150,6 @@
         function validateDocTypeMLB(docnumber) {
             var mercado_pago_docnumber = document.getElementById('mp_cpf_cnpj_label').innerText.includes('CPF') ? 'CPF' : 'CNPJ';
 
-        console.log(mercado_pago_docnumber)
-
             if (mercado_pago_docnumber === 'CPF') {
                 return validateCPF(docnumber);
             }

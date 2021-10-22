@@ -150,7 +150,6 @@ if ( ! defined('ABSPATH') ) {
 		v = v.replace(/\D/g, "")
 
 		if (v.length <= 11) { //CPF
-
 			document.getElementById('mp_cpf_cnpj_label').innerHTML = 'CPF/CNPJ <em>*</em>'
 
 			v = v.replace(/(\d{3})(\d)/, "$1.$2")
