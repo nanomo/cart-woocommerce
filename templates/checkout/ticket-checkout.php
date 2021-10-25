@@ -85,7 +85,10 @@ if ( ! defined('ABSPATH') ) {
 													<?php if ( $at_first ) : ?>
 													checked="checked" <?php endif; ?> />
 												<img src="<?php echo esc_attr($payment['secure_thumbnail']); ?>" class="mp-img-ticket" alt="<?php echo esc_attr($payment['name']); ?>" />
-												<span class="mp-ticket-name"><?php echo esc_attr($payment['name']); ?></span>
+												</br>
+												<p class="mp-ticket-name">
+														<?php echo esc_attr( ( 'Pagamento na lotérica sem boleto' === $payment['name'] ) ? $payment['name'] = 'Lotéricas' : $payment['name'] ); ?>
+												</p>
 											</label>
 										</div>
 										<?php $at_first = false; ?>
