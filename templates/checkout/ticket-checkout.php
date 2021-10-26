@@ -87,7 +87,7 @@ if ( ! defined('ABSPATH') ) {
 												<img src="<?php echo esc_attr($payment['secure_thumbnail']); ?>" class="mp-img-ticket" alt="<?php echo esc_attr($payment['name']); ?>" />
 												</br>
 												<p class="mp-ticket-name">
-														<?php echo esc_attr( ( 'Pagamento na lotérica sem boleto' === $payment['name'] ) ? $payment['name'] = 'Lotéricas' : $payment['name'] ); ?>
+														<?php echo esc_attr( ( 'Pagamento na lotérica sem boleto' === $payment['name'] ) ? $payment['name'] = esc_html__('Lottery', 'woocommerce-mercadopago') : $payment['name'] ); ?>
 												</p>
 											</label>
 										</div>

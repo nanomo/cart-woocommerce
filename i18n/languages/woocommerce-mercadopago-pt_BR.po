@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Mercado Pago payments for WooCommerce 5.4.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/woocommerce-mercadopago\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2021-10-18 10:48-0300\n"
+"PO-Revision-Date: 2021-10-26 10:13-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: pt_BR\n"
@@ -2607,6 +2607,11 @@ msgstr "Ao continuar, você concorda com nossos "
 #: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:2052
 msgid "Terms and Conditions"
 msgstr "Termos e Condições"
+
+#: ../../templates/checkout/ticket-checkout.php:90,
+#: ../../templates/checkout/ticket-checkout.php:90
+msgid "Lottery"
+msgstr "Lotéricas"
 
 #~ msgid "Payment refused"
 #~ msgstr "Pagamento recusado"
