@@ -1,7 +1,8 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Mercado Pago payments for WooCommerce 5.4.1\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/woocommerce-mercadopago\n"
+"Project-Id-Version: Mercado Pago payments for WooCommerce 5.5.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/woocommerce-"
+"mercadopago\n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: 2021-10-26 10:39-0300\n"
 "Last-Translator: \n"
@@ -1233,6 +1234,26 @@ msgstr "Visitar mi tienda"
 msgid "%s"
 msgstr "%s"
 
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1877,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1877
+msgid "All Mercado Pago payment methods are in Production Mode"
+msgstr "Todos los medios de pago Mercado Pago están en Modo Producción"
+
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1878,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1878
+msgid "All Mercado Pago payment methods are in Test Mode"
+msgstr "Todos los medios de pago Mercado Pago están en Modo Test"
+
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1880,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1880
+msgid "Your store is ready to receive payments from customers."
+msgstr "Tu tienda está lista para recibir pagos de clientes."
+
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1881,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1881
+msgid "Your customers will not be able to make purchases while in Test Mode."
+msgstr "Los clientes no podrán hacer compras en Modo Test."
+
 #: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:30,
 #: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:30
 msgid "Accept payments via Pix Transfer and receive the funds instantly. Your customers can pay at any time, without date or time restrictions."
@@ -1711,6 +1732,11 @@ msgstr "El banco está revisando el pago. Te avisaremos por e-mail cuando esté 
 msgid "Awaiting payment information validation."
 msgstr "Esperando validación de los datos de pago.."
 
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:142,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:142
+msgid "Waiting for the buyer."
+msgstr "Esperando al comprador."
+
 #: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:146,
 #: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:146
 msgid "Waiting for the card issuer."
@@ -2117,9 +2143,23 @@ msgstr "Si lo prefieres, puedes pagar copiando y pegando el siguiente código"
 msgid "Copy code"
 msgstr "Copiar código"
 
-#: ../../templates/checkout/basic-checkout.php:22,
-#: ../../templates/checkout/custom-checkout.php:61,
-#: ../../templates/checkout/custom-checkout.php:61
+#: ../../includes/module/sdk/lib/class-mp.php:599,
+#: ../../includes/module/sdk/lib/class-mp.php:643,
+#: ../../includes/module/sdk/lib/class-mp.php:643
+msgid "Response from cache"
+msgstr ""
+
+#. translators: 1: total_time currency 2: url
+#. translators: 1: total_time currency 2: url
+#. translators: 1: total_time currency 2: url
+#: ../../includes/module/sdk/lib/rest-client/class-rest-client-abstract.php:179,
+#: ../../includes/module/sdk/lib/rest-client/class-rest-client-abstract.php:179
+msgid "Took %1$s seconds to transfer a request to %2$s"
+msgstr ""
+
+#: ../../templates/checkout/basic-checkout.php:26,
+#: ../../templates/checkout/custom-checkout.php:64,
+#: ../../templates/checkout/custom-checkout.php:64
 msgid "Credit cards"
 msgstr "Tarjetas de crédito"
 
@@ -2435,13 +2475,21 @@ msgstr "Selecciona el emisor con el que quieras procesar el pago"
 
 #: ../../templates/order/payment-status-metabox-content.php:20,
 #: ../../templates/order/payment-status-metabox-content.php:20
-msgid "This is the payment status of your Mercado Pago Activities. To check the order status, please refer to Order details."
-msgstr "Este es el estado del pago de las Actividades de tu Mercado Pago. Para consultar el estado del pedido, consulta en Detalles del Pedido."
+msgid ""
+"This is the payment status of your Mercado Pago Activities. To check the "
+"order status, please refer to Order details."
+msgstr ""
+"Este es el estado del pago de las Actividades de tu Mercado Pago. Para "
+"consultar el estado del pedido, consulta en Detalles del Pedido."
 
 #: ../../templates/order-received/show-ticket.php:19,
 #: ../../templates/order-received/show-ticket.php:19
-msgid "Great, we processed your purchase order. Complete the payment with ticket so that we finish approving it."
-msgstr "Excelente, procesamos tu orden de compra. Completa el pago con ticket para que terminemos de aprobarla."
+msgid ""
+"Great, we processed your purchase order. Complete the payment with ticket so "
+"that we finish approving it."
+msgstr ""
+"Excelente, procesamos tu orden de compra. Completa el pago con ticket para "
+"que terminemos de aprobarla."
 
 #: ../../templates/order-received/show-ticket.php:23,
 #: ../../templates/order-received/show-ticket.php:23
