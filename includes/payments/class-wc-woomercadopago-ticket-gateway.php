@@ -195,15 +195,15 @@ class WC_WooMercadoPago_Ticket_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 		$get_payment_methods_ticket = get_option( '_all_payment_methods_ticket', '' );
 
 		if ( ! empty( $get_payment_methods_ticket ) ) {
-			$saved_optons = get_option( 'woocommerce_woo-mercado-pago-ticket_settings', '' );
+			$saved_options = get_option( 'woocommerce_woo-mercado-pago-ticket_settings', '' );
 
 			if ( ! is_array( $get_payment_methods_ticket ) ) {
 				$get_payment_methods_ticket = json_decode( $get_payment_methods_ticket, true );
 			}
 
 			foreach ( $get_payment_methods_ticket as $payment_methods_ticket ) {
-				if ( ! isset( $saved_optons[ 'ticket_payment_' . $payment_methods_ticket['id'] ] )
-					|| 'yes' === $saved_optons[ 'ticket_payment_' . $payment_methods_ticket['id'] ] ) {
+				if ( ! isset( $saved_options[ 'ticket_payment_' . $payment_methods_ticket['id'] ] )
+					|| 'yes' === $saved_options[ 'ticket_payment_' . $payment_methods_ticket['id'] ] ) {
 					array_push( $activated_payment, $payment_methods_ticket );
 					sort($activated_payment);
 				}
@@ -418,7 +418,7 @@ class WC_WooMercadoPago_Ticket_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 				__( 'You can test the flow to generate an invoice, but you cannot finalize the payment.', 'woocommerce-mercadopago' )
 			),
 			'amount'               => $amount,
-			'payment_methods'      => $this->activated_payment,
+			'payment_methods'      => $this->split_paycash(),
 			'site_id'              => $this->get_option_mp( '_site_id_v1' ),
 			'coupon_mode'          => isset( $logged_user_email ) ? $this->coupon_mode : 'no',
 			'discount_action_url'  => $this->discount_action_url,
@@ -452,6 +452,55 @@ class WC_WooMercadoPago_Ticket_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 
 		$parameters = array_merge($parameters, WC_WooMercadoPago_Payment_Abstract::mp_define_terms_and_conditions());
 		wc_get_template( 'checkout/ticket-checkout.php', $parameters, 'woo/mercado/pago/module/', WC_WooMercadoPago_Module::get_templates_path() );
+	}
+
+	 public function split_paycash(): array {
+		$payments = $this->activated_payment;
+		foreach ($payments as $key => $value) {
+			if($value['id'] === 'paycash'){
+                $payments[$key]['payment_places'] = $this->build_payment_places();
+			 }
+		}
+		return $payments;
+	 }
+
+	 public function build_payment_places(): array {
+
+		$payment_places =
+		[
+				[
+        			"payment_option_id"=> "7eleven",
+        			"name"=> "7 Eleven",
+        			"status"=> "active",
+        			"thumbnail"=> "https://http2.mlstatic.com/storage/logos-api-admin/417ddb90-34ab-11e9-b8b8-15cad73057aa-s.png"
+				],
+				[
+					"payment_option_id"=> "circlek",
+					"name"=> "Circle K",
+					"status"=> "active",
+					"thumbnail"=> "https://http2.mlstatic.com/storage/logos-api-admin/6f952c90-34ab-11e9-8357-f13e9b392369-s.png"
+				],
+				[
+					"payment_option_id"=> "soriana",
+					"name"=> "Soriana",
+					"status"=> "active",
+					"thumbnail"=> "https://http2.mlstatic.com/storage/logos-api-admin/dac0bf10-01eb-11ec-ad92-052532916206-s.png"
+				],
+				[
+					"payment_option_id"=> "extra",
+					"name"=> "Extra",
+					"status"=> "active",
+					"thumbnail"=> "https://http2.mlstatic.com/storage/logos-api-admin/9c8f26b0-34ab-11e9-b8b8-15cad73057aa-s.png"
+				],
+				[
+					"payment_option_id"=> "calimax",
+					"name"=> "Calimax",
+					"status"=> "active",
+					"thumbnail"=> "https://http2.mlstatic.com/storage/logos-api-admin/52efa730-01ec-11ec-ba6b-c5f27048193b-s.png"
+				]
+		];
+
+		return $payment_places;
 	}
 
 	/**
