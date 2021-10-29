@@ -454,17 +454,17 @@ class WC_WooMercadoPago_Ticket_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 		wc_get_template( 'checkout/ticket-checkout.php', $parameters, 'woo/mercado/pago/module/', WC_WooMercadoPago_Module::get_templates_path() );
 	}
 
-	 public function split_paycash() {
+	public function split_paycash() {
 		$payments = $this->activated_payment;
-		foreach ($payments as $key => $value) {
-			if($value['id'] === 'paycash') {
-                $payments[$key]['payment_places'] = $this->build_payment_places();
-			 }
+		foreach ( $payments as $key => $value ) {
+			if ( 'paycash' === $value['id']  ) {
+            	$payments[$key]['payment_places'] = $this->build_payment_places();
+			}
 		}
 		return $payments;
-	 }
+	}
 
-	 public function build_payment_places() {
+	public function build_payment_places() {
 
 		$payment_places =
 		[
