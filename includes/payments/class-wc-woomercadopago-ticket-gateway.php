@@ -457,8 +457,8 @@ class WC_WooMercadoPago_Ticket_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 	public function split_paycash() {
 		$payments = $this->activated_payment;
 		foreach ( $payments as $key => $value ) {
-			if ( 'paycash' === $value['id']  ) {
-            	$payments[$key]['payment_places'] = $this->build_payment_places();
+			if ( 'paycash' === $value['id'] ) {
+				$payments[$key]['payment_places'] = $this->build_payment_places();
 			}
 		}
 		return $payments;
@@ -469,34 +469,34 @@ class WC_WooMercadoPago_Ticket_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 		$payment_places =
 		[
 			[
-        		'payment_option_id'=> '7eleven',
-        		'name'=> '7 Eleven',
-        		'status'=> 'active',
-        		'thumbnail'=> 'https://http2.mlstatic.com/storage/logos-api-admin/417ddb90-34ab-11e9-b8b8-15cad73057aa-s.png'
+				'payment_option_id' => '7eleven',
+				'name' => '7 Eleven',
+				'status' => 'active',
+				'thumbnail' => 'https://http2.mlstatic.com/storage/logos-api-admin/417ddb90-34ab-11e9-b8b8-15cad73057aa-s.png'
 			],
 			[
-				'payment_option_id'=> 'circlek',
-				'name'=> 'Circle K',
-				'status'=> 'active',
-				'thumbnail'=> 'https://http2.mlstatic.com/storage/logos-api-admin/6f952c90-34ab-11e9-8357-f13e9b392369-s.png'
+				'payment_option_id' => 'circlek',
+				'name' => 'Circle K',
+				'status' => 'active',
+				'thumbnail' => 'https://http2.mlstatic.com/storage/logos-api-admin/6f952c90-34ab-11e9-8357-f13e9b392369-s.png'
 			],
 			[
-				'payment_option_id'=> 'soriana',
-				'name'=> 'Soriana',
-				'status'=> 'active',
-				'thumbnail'=> 'https://http2.mlstatic.com/storage/logos-api-admin/dac0bf10-01eb-11ec-ad92-052532916206-s.png'
+				'payment_option_id' => 'soriana',
+				'name' => 'Soriana',
+				'status' => 'active',
+				'thumbnail' => 'https://http2.mlstatic.com/storage/logos-api-admin/dac0bf10-01eb-11ec-ad92-052532916206-s.png'
 			],
 			[
-				'payment_option_id'=> 'extra',
-				'name'=> 'Extra',
-				'status'=> 'active',
-				'thumbnail'=> 'https://http2.mlstatic.com/storage/logos-api-admin/9c8f26b0-34ab-11e9-b8b8-15cad73057aa-s.png'
+				'payment_option_id' => 'extra',
+				'name' => 'Extra',
+				'status' => 'active',
+				'thumbnail' => 'https://http2.mlstatic.com/storage/logos-api-admin/9c8f26b0-34ab-11e9-b8b8-15cad73057aa-s.png'
 			],
 			[
-				'payment_option_id'=> 'calimax',
-				'name'=> 'Calimax',
-				'status'=> 'active',
-				'thumbnail'=> 'https://http2.mlstatic.com/storage/logos-api-admin/52efa730-01ec-11ec-ba6b-c5f27048193b-s.png'
+				'payment_option_id' => 'calimax',
+				'name' => 'Calimax',
+				'status' => 'active',
+				'thumbnail' => 'https://http2.mlstatic.com/storage/logos-api-admin/52efa730-01ec-11ec-ba6b-c5f27048193b-s.png'
 			]
 		];
 
