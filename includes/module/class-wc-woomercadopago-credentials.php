@@ -406,6 +406,7 @@ class WC_WooMercadoPago_Credentials {
 				'prepaid_card' !== $payment['payment_type_id']
 			) {
 				$payment_methods_ticket[] = $payment;
+			}
 		}
 
 		update_option( '_all_payment_methods_ticket', $payment_methods_ticket, true );
