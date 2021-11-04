@@ -5,6 +5,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [5.5.0] - 2021-10-19
+
+### Added
+- Render pix image from backend for e-mails
+- Added link to terms and conditions of Mercado Pago on checkout screen
+
+### Changed
+- Fixed retry payment
+
 ## [5.4.1] - 2021-09-22
 ### Changed
 - On the order page, the payment was fetched with the wrong token
