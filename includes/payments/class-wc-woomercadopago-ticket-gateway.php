@@ -341,7 +341,7 @@ class WC_WooMercadoPago_Ticket_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 
 		foreach ( $get_payment_methods_ticket as $payment_method_ticket ) {
 			$element = array(
-				'label'             => 'paycash' === strtolower($payment_method_ticket['name']) ? 'PayCash (Soriana, Extra, 7-Eleven, Calimax e Circle K)' : $payment_method_ticket['name'],
+				'label'             => $payment_method_ticket['name'],
 				'id'                => 'woocommerce_mercadopago_' . $payment_method_ticket['id'],
 				'default'           => 'yes',
 				'type'              => 'checkbox',
