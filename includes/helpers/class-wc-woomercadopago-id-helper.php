@@ -18,27 +18,27 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class WC_WooMercadoPago_Composite_Id_Helper {
 
-	const SEPARATOR = "|";
+	const SEPARATOR = '|';
 
-    public function generateIdFromPlace($paymentMethodId, $paymentPlaceId) {
-        return $paymentMethodId . self::SEPARATOR . $paymentPlaceId;
-    }
+	public function generateIdFromPlace( $paymentMethodId, $paymentPlaceId ) {
+		return $paymentMethodId . self::SEPARATOR . $paymentPlaceId;
+	}
 
-    private function parse($compositeId) {
+	private function parse( $compositeId ) {
 
 		$exploded = explode(self::SEPARATOR, $compositeId);
 
-        return [
-            'payment_method_id' => $exploded[0],
-            'payment_place_id' => isset($exploded[1]) ? $exploded[1] : null,
+		return [
+			'payment_method_id' => $exploded[0],
+			'payment_place_id' => isset($exploded[1]) ? $exploded[1] : null,
 		];
-    }
+	}
 
-    public function getPaymentMethodId($compositeId) {
-        return $this->parse($compositeId)['payment_method_id'];
-    }
+	public function getPaymentMethodId( $compositeId ) {
+		return $this->parse($compositeId)['payment_method_id'];
+	}
 
-    public function getPaymentPlaceId($compositeId) {
-        return $this->parse($compositeId)['payment_place_id'];
-    }
+	public function getPaymentPlaceId( $compositeId ) {
+		return $this->parse($compositeId)['payment_place_id'];
+	}
 }

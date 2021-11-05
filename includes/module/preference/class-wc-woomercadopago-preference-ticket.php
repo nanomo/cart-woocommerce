@@ -28,8 +28,8 @@ class WC_WooMercadoPago_Preference_Ticket extends WC_WooMercadoPago_Preference_A
 	public function __construct( $payment, $order, $ticket_checkout ) {
 		parent::__construct( $payment, $order, $ticket_checkout );
 
-		$helper 								= new WC_WooMercadoPago_Composite_Id_Helper();
-		$id 									= $ticket_checkout['paymentMethodId'];
+		$helper                                 = new WC_WooMercadoPago_Composite_Id_Helper();
+		$id                                     = $ticket_checkout['paymentMethodId'];
 		$date_expiration                        = $payment->get_option_mp( 'date_expiration', '' ) . ' days';
 		$this->preference                       = $this->make_commum_preference();
 		$this->preference['payment_method_id']  = $helper->getPaymentMethodId($id);
@@ -77,9 +77,9 @@ class WC_WooMercadoPago_Preference_Ticket extends WC_WooMercadoPago_Preference_A
 		$internal_metadata            = parent::get_internal_metadata();
 		$merge_array                  = array_merge( $internal_metadata, $this->get_internal_metadata_ticket() );
 		$this->preference['metadata'] = $merge_array;
-		$paymentPlaceId = $helper->getPaymentPlaceId($id);
-		if ($paymentPlaceId) {
-    		$this->preference['metadata']['payment_option_id'] = $paymentPlaceId;
+		$paymentPlaceId               = $helper->getPaymentPlaceId($id);
+		if ( $paymentPlaceId ) {
+			$this->preference['metadata']['payment_option_id'] = $paymentPlaceId;
 		}
 	}
 
