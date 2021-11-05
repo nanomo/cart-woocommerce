@@ -847,7 +847,7 @@ class MP {
 	 *
 	 * @param $lpayment_id
 	 */
-	private function build_payment_places(&$api_response ) {
+	private function build_payment_places( &$api_response ) {
 
 		$payment_places =
 		[
@@ -885,10 +885,10 @@ class MP {
 					],
 		];
 
-		foreach ($api_response as $k => $method) {
-        	if (isset($payment_places[$method['id']])) {
-            	$api_response[$k]['payment_places'] = $payment_places[$method['id']];
-        	}
+		foreach ( $api_response as $k => $method ) {
+			if ( isset($payment_places[$method['id']]) ) {
+				$api_response[$k]['payment_places'] = $payment_places[$method['id']];
+			}
 		}
 
 	}
