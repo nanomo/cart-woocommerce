@@ -18,7 +18,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class WC_WooMercadoPago_Preference_Ticket extends WC_WooMercadoPago_Preference_Abstract {
 
-
 	/**
 	 * WC_WooMercadoPago_PreferenceTicket constructor.
 	 *
@@ -28,12 +27,15 @@ class WC_WooMercadoPago_Preference_Ticket extends WC_WooMercadoPago_Preference_A
 	 */
 	public function __construct( $payment, $order, $ticket_checkout ) {
 		parent::__construct( $payment, $order, $ticket_checkout );
+
+		$helper                                 = new WC_WooMercadoPago_Composite_Id_Helper();
+		$id                                     = $ticket_checkout['paymentMethodId'];
 		$date_expiration                        = $payment->get_option_mp( 'date_expiration', '' ) . ' days';
 		$this->preference                       = $this->make_commum_preference();
+		$this->preference['payment_method_id']  = $helper->getPaymentMethodId($id);
 		$this->preference['date_of_expiration'] = $this->get_date_of_expiration( $date_expiration );
 		$this->preference['transaction_amount'] = $this->get_transaction_amount();
 		$this->preference['description']        = implode( ', ', $this->list_of_items );
-		$this->preference['payment_method_id']  = $this->checkout['paymentMethodId'];
 		$get_payer                              = $this->get_payer_custom();
 		unset($get_payer['phone']);
 		$this->preference['payer']          = $get_payer;
@@ -75,6 +77,10 @@ class WC_WooMercadoPago_Preference_Ticket extends WC_WooMercadoPago_Preference_A
 		$internal_metadata            = parent::get_internal_metadata();
 		$merge_array                  = array_merge( $internal_metadata, $this->get_internal_metadata_ticket() );
 		$this->preference['metadata'] = $merge_array;
+		$paymentPlaceId               = $helper->getPaymentPlaceId($id);
+		if ( $paymentPlaceId ) {
+			$this->preference['metadata']['payment_option_id'] = $paymentPlaceId;
+		}
 	}
 
 	/**

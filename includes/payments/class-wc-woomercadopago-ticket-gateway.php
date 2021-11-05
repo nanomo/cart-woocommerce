@@ -195,15 +195,15 @@ class WC_WooMercadoPago_Ticket_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 		$get_payment_methods_ticket = get_option( '_all_payment_methods_ticket', '' );
 
 		if ( ! empty( $get_payment_methods_ticket ) ) {
-			$saved_optons = get_option( 'woocommerce_woo-mercado-pago-ticket_settings', '' );
+			$saved_options = get_option( 'woocommerce_woo-mercado-pago-ticket_settings', '' );
 
 			if ( ! is_array( $get_payment_methods_ticket ) ) {
 				$get_payment_methods_ticket = json_decode( $get_payment_methods_ticket, true );
 			}
 
 			foreach ( $get_payment_methods_ticket as $payment_methods_ticket ) {
-				if ( ! isset( $saved_optons[ 'ticket_payment_' . $payment_methods_ticket['id'] ] )
-					|| 'yes' === $saved_optons[ 'ticket_payment_' . $payment_methods_ticket['id'] ] ) {
+				if ( ! isset( $saved_options[ 'ticket_payment_' . $payment_methods_ticket['id'] ] )
+					|| 'yes' === $saved_options[ 'ticket_payment_' . $payment_methods_ticket['id'] ] ) {
 					array_push( $activated_payment, $payment_methods_ticket );
 					sort($activated_payment);
 				}
