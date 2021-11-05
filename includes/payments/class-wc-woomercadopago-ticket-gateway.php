@@ -341,7 +341,7 @@ class WC_WooMercadoPago_Ticket_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 
 		foreach ( $get_payment_methods_ticket as $payment_method_ticket ) {
 			$element = array(
-				'label'             => $payment_method_ticket['name'],
+				'label'             => 'paycash' == strtolower($payment_method_ticket['name']) ? 'PayCash (Soriana, Extra, 7-Eleven, Calimax e Circle K)' : $payment_method_ticket['name'],
 				'id'                => 'woocommerce_mercadopago_' . $payment_method_ticket['id'],
 				'default'           => 'yes',
 				'type'              => 'checkbox',
@@ -418,7 +418,7 @@ class WC_WooMercadoPago_Ticket_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 				__( 'You can test the flow to generate an invoice, but you cannot finalize the payment.', 'woocommerce-mercadopago' )
 			),
 			'amount'               => $amount,
-			'payment_methods'      => $this->split_paycash(),
+			'payment_methods'      => $this->activated_payment,
 			'site_id'              => $this->get_option_mp( '_site_id_v1' ),
 			'coupon_mode'          => isset( $logged_user_email ) ? $this->coupon_mode : 'no',
 			'discount_action_url'  => $this->discount_action_url,
@@ -452,55 +452,6 @@ class WC_WooMercadoPago_Ticket_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 
 		$parameters = array_merge($parameters, WC_WooMercadoPago_Payment_Abstract::mp_define_terms_and_conditions());
 		wc_get_template( 'checkout/ticket-checkout.php', $parameters, 'woo/mercado/pago/module/', WC_WooMercadoPago_Module::get_templates_path() );
-	}
-
-	public function split_paycash() {
-		$payments = $this->activated_payment;
-		foreach ( $payments as $key => $value ) {
-			if ( 'paycash' === $value['id']  ) {
-            	$payments[$key]['payment_places'] = $this->build_payment_places();
-			}
-		}
-		return $payments;
-	}
-
-	public function build_payment_places() {
-
-		$payment_places =
-		[
-			[
-        		'payment_option_id'=> '7eleven',
-        		'name'=> '7 Eleven',
-        		'status'=> 'active',
-        		'thumbnail'=> 'https://http2.mlstatic.com/storage/logos-api-admin/417ddb90-34ab-11e9-b8b8-15cad73057aa-s.png'
-			],
-			[
-				'payment_option_id'=> 'circlek',
-				'name'=> 'Circle K',
-				'status'=> 'active',
-				'thumbnail'=> 'https://http2.mlstatic.com/storage/logos-api-admin/6f952c90-34ab-11e9-8357-f13e9b392369-s.png'
-			],
-			[
-				'payment_option_id'=> 'soriana',
-				'name'=> 'Soriana',
-				'status'=> 'active',
-				'thumbnail'=> 'https://http2.mlstatic.com/storage/logos-api-admin/dac0bf10-01eb-11ec-ad92-052532916206-s.png'
-			],
-			[
-				'payment_option_id'=> 'extra',
-				'name'=> 'Extra',
-				'status'=> 'active',
-				'thumbnail'=> 'https://http2.mlstatic.com/storage/logos-api-admin/9c8f26b0-34ab-11e9-b8b8-15cad73057aa-s.png'
-			],
-			[
-				'payment_option_id'=> 'calimax',
-				'name'=> 'Calimax',
-				'status'=> 'active',
-				'thumbnail'=> 'https://http2.mlstatic.com/storage/logos-api-admin/52efa730-01ec-11ec-ba6b-c5f27048193b-s.png'
-			]
-		];
-
-		return $payment_places;
 	}
 
 	/**
