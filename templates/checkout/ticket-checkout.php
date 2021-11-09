@@ -78,21 +78,38 @@ if ( ! defined('ABSPATH') ) {
 							<div class="mp-row-checkout mp-pt-10">
 								<?php $at_first = true; ?>
 								<?php foreach ( $payment_methods as $payment ) : ?>
-									<div id="frameTicket" class="mp-col-md-6 mp-pb-15 mp-min-hg">
-										<div id="paymentMethodIdTicket" class="mp-ticket-payments">
-											<label for="<?php echo esc_attr($payment['id']); ?>" class="mp-label-form mp-pointer">
-												<input type="radio" class="mp-form-control-check" name="mercadopago_ticket[paymentMethodId]" id="<?php echo esc_attr($payment['id']); ?>" value="<?php echo esc_attr($payment['id']); ?>" 
-													<?php if ( $at_first ) : ?>
-													checked="checked" <?php endif; ?> />
-												<img src="<?php echo esc_attr($payment['secure_thumbnail']); ?>" class="mp-img-ticket" alt="<?php echo esc_attr($payment['name']); ?>" />
-												</br>
-												<p class="mp-ticket-name">
-														<?php echo esc_attr( ( 'Pagamento na lotérica sem boleto' === $payment['name'] ) ? $payment['name'] = esc_html__('Lottery', 'woocommerce-mercadopago') : $payment['name'] ); ?>
-												</p>
-											</label>
-										</div>
-										<?php $at_first = false; ?>
-									</div>
+											<?php if ( isset($payment['payment_places']) ) { ?>
+												<?php foreach ( $payment['payment_places'] as $place ) : ?>
+													<div id="frameTicket" class="mp-col-md-6 mp-pb-15 mp-min-hg">
+														<div id="paymentMethodIdTicket" class="mp-ticket-payments">
+														<label for="<?php echo esc_attr($payment['id']); ?>" class="mp-label-form mp-pointer">
+															<input type="radio" class="mp-form-control-check" name="mercadopago_ticket[paymentMethodId]" id="<?php echo esc_attr($payment['id']); ?>" value="<?php echo esc_attr(( new WC_WooMercadoPago_Composite_Id_Helper() )->generateIdFromPlace($payment['id'], $place['payment_option_id'])); ?>"
+															<?php if ( $at_first ) : ?>
+															checked="checked" <?php endif; ?> />
+															<img src="<?php echo esc_attr($place['thumbnail']); ?>" class="mp-img-ticket" alt="<?php echo esc_attr($place['name']); ?>" />
+															<br>
+															<p class="mp-ticket-name"><?php echo esc_attr( $place['name'] ); ?></p>
+														</label>
+													</div>
+												</div>
+												<?php endforeach; ?>
+											<?php } else { ?>
+												<div id="frameTicket" class="mp-col-md-6 mp-pb-15 mp-min-hg">
+													<div id="paymentMethodIdTicket" class="mp-ticket-payments">
+														<label for="<?php echo esc_attr($payment['id']); ?>" class="mp-label-form mp-pointer">
+															<input type="radio" class="mp-form-control-check" name="mercadopago_ticket[paymentMethodId]" id="<?php echo esc_attr($payment['id']); ?>" value="<?php echo esc_attr($payment['id']); ?>"
+																<?php if ( $at_first ) : ?>
+																checked="checked" <?php endif; ?> />
+															<img src="<?php echo esc_attr($payment['secure_thumbnail']); ?>" class="mp-img-ticket" alt="<?php echo esc_attr($payment['name']); ?>" />
+														<br>
+															<p class="mp-ticket-name">
+																<?php echo esc_attr( ( 'Pagamento na lotérica sem boleto' === $payment['name'] ) ? $payment['name'] = esc_html__('Lottery', 'woocommerce-mercadopago') : $payment['name'] ); ?>
+															</p>
+														</label>
+													</div>
+													<?php $at_first = false; ?>
+												</div>
+												<?php }; ?>
 								<?php endforeach; ?>
 							</div>
 						</div>
