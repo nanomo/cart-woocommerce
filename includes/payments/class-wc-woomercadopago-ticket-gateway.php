@@ -341,8 +341,7 @@ class WC_WooMercadoPago_Ticket_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 
 		foreach ( $get_payment_methods_ticket as $payment_method_ticket ) {
 			$element = array(
-				//TODO: change label for dinamic text when paycash
-				'label'             => 'paycash' === strtolower( $payment_method_ticket['name'] ) ? $payment_method_ticket['name'] . ' (' . $this->build_paycash_payments_string() . ')' : $payment_method_ticket['name'] ,
+				'label'             => array_key_exists('payment_places', $payment_method_ticket) ? $payment_method_ticket['name'] . ' (' . $this->build_paycash_payments_string() . ')' : $payment_method_ticket['name'] ,
 				'id'                => 'woocommerce_mercadopago_' . $payment_method_ticket['id'],
 				'default'           => 'yes',
 				'type'              => 'checkbox',
