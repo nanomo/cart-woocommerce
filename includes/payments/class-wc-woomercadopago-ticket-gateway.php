@@ -341,7 +341,7 @@ class WC_WooMercadoPago_Ticket_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 
 		foreach ( $get_payment_methods_ticket as $payment_method_ticket ) {
 			$element = array(
-				'label'             => $payment_method_ticket['name'],
+				'label'             => array_key_exists('payment_places', $payment_method_ticket) ? $payment_method_ticket['name'] . ' (' . $this->build_paycash_payments_string() . ')' : $payment_method_ticket['name'] ,
 				'id'                => 'woocommerce_mercadopago_' . $payment_method_ticket['id'],
 				'default'           => 'yes',
 				'type'              => 'checkbox',
@@ -657,5 +657,27 @@ class WC_WooMercadoPago_Ticket_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 	 */
 	public static function get_id() {
 		return self::ID;
+	}
+
+	/**
+	 * Build Paycash Payments String
+	 *
+	 * @return string
+	 */
+	public static function build_paycash_payments_string() {
+
+		$get_payment_methods_ticket = get_option( '_all_payment_methods_ticket', '[]' );
+
+		foreach ( $get_payment_methods_ticket as $payment ) {
+
+			if ( 'paycash' === $payment['id'] ) {
+				$payments = array_column( $payment['payment_places'] , 'name');
+			}
+		}
+
+		$last_element     = array_pop( $payments );
+		$paycash_payments = implode (', ', $payments);
+
+		return implode( __(' and ', 'woocommerce-mercadopago') , array( $paycash_payments, $last_element ));
 	}
 }
