@@ -16,5 +16,5 @@ if ( ! defined('ABSPATH') ) {
 ?>
 
 <div class="wrap">
-  <h1>Mercado Pago Settings</h1>
+<h1>Mercado Pago Settings</h1>
 </div>
