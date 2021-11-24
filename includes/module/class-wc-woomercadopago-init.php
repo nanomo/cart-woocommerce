@@ -167,7 +167,7 @@ class WC_WooMercadoPago_Init {
 	 * Mercado Pago Template Call
 	 */
 	public static function mercadopago_submenu_page_callback() {
-		echo '<h3>Mercado Pago Settings</h3>';
+		include dirname( __FILE__ ) . '../../../templates/mercadopago/admin-mercadopago.php';
 	}
 
 	/**
