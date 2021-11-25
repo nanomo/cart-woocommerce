@@ -50,7 +50,8 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 			'mercadopago_settings_javascript',
 			$this->get_url( '../../../assets/js/mercadopago-settings/base', '.js'),
 			array(),
-			WC_WooMercadoPago_Constants::VERSION
+			WC_WooMercadoPago_Constants::VERSION,
+			true
 		);
 	}
 
