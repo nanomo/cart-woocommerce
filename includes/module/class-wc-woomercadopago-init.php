@@ -150,27 +150,6 @@ class WC_WooMercadoPago_Init {
 	}
 
 	/**
-	 * Register Mercado Pago Menu in WooCommerce
-	 */
-	public static function register_mercadopago_in_woocommerce_menu() {
-		add_submenu_page(
-			'woocommerce',
-			__('Mercado Pago Settings', 'woocommerce-mercadopago'),
-			'Mercado Pago',
-			'manage_options',
-			'my-custom-submenu-page',
-			array(__CLASS__, 'mercadopago_submenu_page_callback')
-		);
-	}
-
-	/**
-	 * Mercado Pago Template Call
-	 */
-	public static function mercadopago_submenu_page_callback() {
-		include dirname( __FILE__ ) . '../../../templates/mercadopago/admin-mercadopago.php';
-	}
-
-	/**
 	 * Init the plugin
 	 */
 	public static function woocommerce_mercadopago_init() {
@@ -209,6 +188,7 @@ class WC_WooMercadoPago_Init {
 			require_once dirname( __FILE__ ) . '/class-wc-woomercadopago-credentials.php';
 			require_once dirname( __FILE__ ) . '../../admin/notices/class-wc-woomercadopago-review-notice.php';
 			require_once dirname( __FILE__ ) . '../../pix/class-wc-woomercadopago-image-generator.php';
+			require_once dirname( __FILE__ ) . '/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php';
 
 			WC_WooMercadoPago_Module::init_mercado_pago_class();
 			WC_WooMercadoPago_Review_Notice::init_mercadopago_review_notice();
@@ -218,13 +198,14 @@ class WC_WooMercadoPago_Init {
 
 			new WC_WooMercadoPago_Hook_Order_Details();
 			add_action( 'woocommerce_order_actions', array( __CLASS__, 'add_mp_order_meta_box_actions' ) );
+
+			// Load Mercado Pago Settings Screen
+			(new WC_WooMercadoPago_MercadoPago_Settings())->init();
 		} else {
 			add_action( 'admin_notices', array( __CLASS__, 'notify_woocommerce_miss' ) );
 		}
 		add_action( 'woocommerce_settings_checkout', array( __CLASS__, 'mp_show_admin_notices' ) );
 		add_action( 'wp_ajax_mercadopago_validate_credentials', array('WC_WooMercadoPago_Credentials', 'ajax_validate_credentials'));
-
-		add_action('admin_menu', array(__CLASS__, 'register_mercadopago_in_woocommerce_menu'), 90);
 
 		add_filter('query_vars', function ( $vars ) {
 			$vars[] = 'wallet_button';
