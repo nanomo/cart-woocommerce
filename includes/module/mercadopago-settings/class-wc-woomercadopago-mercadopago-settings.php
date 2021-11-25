@@ -83,7 +83,7 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 	 *
 	 * @return string
 	 */
-	public function get_url($path, $extension) {
+	public function get_url( $path, $extension ) {
 		return sprintf(
 			'%s%s%s%s',
 			plugin_dir_url( __FILE__ ),

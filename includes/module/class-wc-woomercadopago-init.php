@@ -200,7 +200,7 @@ class WC_WooMercadoPago_Init {
 			add_action( 'woocommerce_order_actions', array( __CLASS__, 'add_mp_order_meta_box_actions' ) );
 
 			// Load Mercado Pago Settings Screen
-			(new WC_WooMercadoPago_MercadoPago_Settings())->init();
+			( new WC_WooMercadoPago_MercadoPago_Settings() )->init();
 		} else {
 			add_action( 'admin_notices', array( __CLASS__, 'notify_woocommerce_miss' ) );
 		}
