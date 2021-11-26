@@ -35,7 +35,7 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 	public function load_admin_style() {
 		wp_register_style(
 			'mercadopago_settings_admin_css',
-			$this->get_url( '../../../assets/css/mercadopago-settings/base', '.css' ),
+			$this->get_url( '../../../assets/css/mercadopago-settings/mercadopago_settings', '.css' ),
 			false,
 			WC_WooMercadoPago_Constants::VERSION
 		);
@@ -73,7 +73,7 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 	 * Mercado Pago Template Call
 	 */
 	public function mercadopago_submenu_page_callback() {
-		include __DIR__ . '/../../../templates/mercadopago/admin-mercadopago.php';
+		include __DIR__ . '/../../../templates/mercadopago-settings/mercadopago-settings.php';
 	}
 
 	/**

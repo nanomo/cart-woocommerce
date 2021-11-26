@@ -1,0 +1,19 @@
+.mp-settings-header {
+	margin: 33px 56px 16px 43px;
+}
+.mp-settings-header img {
+	width: 100%;
+	border-radius: 100px 100px 100px 0px;
+}
+.mp-settings-header p {
+	position: absolute;
+	top: 180px;
+	font-family: Proxima Nova;
+	font-size: 32px;
+	line-height: 36px;
+	color: #ffffff;
+	flex: none;
+	order: 2;
+	flex-grow: 0;
+	margin: 16px 0px 0px 70px;
+}

@@ -15,6 +15,9 @@ if ( ! defined('ABSPATH') ) {
 }
 ?>
 
-<div class="wrap">
-<h1>Mercado Pago Settings</h1>
+<div class="mp-settings">
+  <div class="mp-settings-header"> 
+    <img src="<?php echo esc_url( plugins_url( '../assets/images/mercadopago-settings/header-settings.png', plugin_dir_path( __FILE__ ) ) ); ?>">
+    <p>Aceite <b>pagamentos no ato<b> com toda a <b>segurança<b> Mercado Pago</p>
+  </div>
 </div>
