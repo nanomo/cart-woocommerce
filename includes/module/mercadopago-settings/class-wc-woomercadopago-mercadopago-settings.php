@@ -16,7 +16,7 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 	 * Load menu
 	 */
 	public function load_menu() {
-		add_action('admin_menu', array($this, 'register_mercadopago_in_woocommerce_menu'), self::PRIORITY_ON_MENU);
+		add_action( 'admin_menu', array( $this, 'register_mercadopago_in_woocommerce_menu' ), self::PRIORITY_ON_MENU );
 	}
 
 	/**
@@ -35,7 +35,7 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 	public function load_admin_style() {
 		wp_register_style(
 			'mercadopago_settings_admin_css',
-			$this->get_url( '../../../assets/css/mercadopago-settings/base', '.css'),
+			$this->get_url( '../../../assets/css/mercadopago-settings/base', '.css' ),
 			false,
 			WC_WooMercadoPago_Constants::VERSION
 		);
@@ -48,7 +48,7 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 	public function load_admin_scripts() {
 		wp_enqueue_script(
 			'mercadopago_settings_javascript',
-			$this->get_url( '../../../assets/js/mercadopago-settings/base', '.js'),
+			$this->get_url( '../../../assets/js/mercadopago-settings/base', '.js' ),
 			array(),
 			WC_WooMercadoPago_Constants::VERSION,
 			true
@@ -61,11 +61,11 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 	public function register_mercadopago_in_woocommerce_menu() {
 		add_submenu_page(
 			'woocommerce',
-			__('Mercado Pago Settings', 'woocommerce-mercadopago'),
+			__( 'Mercado Pago Settings', 'woocommerce-mercadopago' ),
 			'Mercado Pago',
 			'manage_options',
 			'my-custom-submenu-page',
-			array($this, 'mercadopago_submenu_page_callback')
+			array( $this, 'mercadopago_submenu_page_callback' )
 		);
 	}
 
