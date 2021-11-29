@@ -1,21 +1,38 @@
 .mp-settings-header {
-	margin: 33px 56px 16px 43px;
+	margin: 30px 40px 15px 30px;
 }
-.mp-settings-header img {
-	width: 100%;
-	border-radius: 100px 100px 100px 0px;
+.mp-settings-header-img {
+	position: absolute;
+	width: 95%;
+	border-radius: 140px 170px 170px 0px;
+}
+.mp-settings-header-logo {
+	position: relative;
+	top: 60px;
+	line-height: 36px;
+	flex: none;
+	flex-grow: 0;
+	margin: 16px 0px 0px 50px;
+}
+.mp-settings-header hr {
+	position: relative;
+	top: 65px;
+	width: 28%;
+	border: 1px solid #00b1ea;
+	flex: none;
+	flex-grow: 0;
+	margin: 16px 0px 0px 50px;
 }
 .mp-settings-header p {
-	position: absolute;
-	top: 180px;
-	font-family: Proxima Nova;
+	position: relative;
+	top: 70px;
+	font-family: sans-serif;
 	font-size: 32px;
 	line-height: 36px;
 	color: #ffffff;
 	flex: none;
-	order: 2;
 	flex-grow: 0;
-	margin: 16px 0px 0px 70px;
+	margin: 16px 0px 0px 50px;
 }
 .mp-container {
 	display: flex; 
