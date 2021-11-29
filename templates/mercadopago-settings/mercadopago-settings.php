@@ -30,7 +30,7 @@ if (!defined('ABSPATH')) {
 		<div class="mp-inner-container">
 			<div>
 				<h4>SSL</h4>
-				<img class="mp-icon" src="<?php echo esc_url(plugins_url('../assets/images/mercadopago-settings/icon_shape.png', plugin_dir_path(__FILE__))); ?>">
+				<img class="mp-icon" src="<?php echo esc_url(plugins_url('../assets/images/mercadopago-settings/icon-info.png', plugin_dir_path(__FILE__))); ?>">
 			</div>
 			<div>
 				<img class="mp-credential-input-success">
@@ -40,7 +40,7 @@ if (!defined('ABSPATH')) {
 		<div class="mp-inner-container">
 			<div>
 				<h4>Extensões GD</h4>
-				<img class="mp-icon" src="<?php echo esc_url(plugins_url('../assets/images/mercadopago-settings/icon_shape.png', plugin_dir_path(__FILE__))); ?>">
+				<img class="mp-icon" src="<?php echo esc_url(plugins_url('../assets/images/mercadopago-settings/icon-info.png', plugin_dir_path(__FILE__))); ?>">
 			</div>
 			<div>
 				<img class="mp-credential-input-success">
@@ -50,7 +50,7 @@ if (!defined('ABSPATH')) {
 		<div class="mp-inner-container">
 			<div>
 				<h4>Curl</h4>
-				<img class="mp-icon" src="<?php echo esc_url(plugins_url('../assets/images/mercadopago-settings/icon_shape.png', plugin_dir_path(__FILE__))); ?>">
+				<img class="mp-icon" src="<?php echo esc_url(plugins_url('../assets/images/mercadopago-settings/icon-info.png', plugin_dir_path(__FILE__))); ?>">
 			</div>
 			<div>
 				<img class="mp-credential-input-success">
