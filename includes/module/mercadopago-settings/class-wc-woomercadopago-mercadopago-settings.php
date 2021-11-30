@@ -64,7 +64,7 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 			__( 'Mercado Pago Settings', 'woocommerce-mercadopago' ),
 			'Mercado Pago',
 			'manage_options',
-			'my-custom-submenu-page',
+			'mercadopago-settings',
 			array( $this, 'mercadopago_submenu_page_callback' )
 		);
 	}
