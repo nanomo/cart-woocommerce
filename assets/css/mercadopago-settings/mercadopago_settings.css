@@ -1,4 +1,5 @@
 .mp-settings-header {
+	height: 340px;
 	margin: 30px 40px 15px 30px;
 }
 .mp-settings-header-img {
@@ -14,7 +15,7 @@
 	flex-grow: 0;
 	margin: 16px 0px 0px 50px;
 }
-.mp-settings-header hr {
+.mp-settings-header-hr {
 	position: relative;
 	top: 65px;
 	width: 28%;
@@ -148,4 +149,36 @@
 .mp-credential-input-info {
 	background: url("../../images/icon_shape.png") 98% 50% no-repeat transparent;
 	padding-right: 30px !important;
+}
+.mp-settings-hr {
+	position: static;
+	border: 1px solid #c6c6c6;
+	flex: none;
+	order: 0;
+	align-self: stretch;
+	flex-grow: 0;
+	margin: 32px 30px 32px 30px;
+}
+.mp-settings-title{
+	font-family: sans-serif;
+	font-size: 28px;
+	line-height: 35px;
+	color: rgba(0, 0, 0, 0.9);
+	flex: none;
+	order: 0;
+	flex-grow: 0;
+	margin: 0px 8px 0px 30px;
+}
+.mp-settings-subtitle{
+	font-family: sans-serif;
+	font-size: 15px;
+	line-height: 20px;
+	color: rgba(0, 0, 0, 0.55);
+	flex: none;
+	order: 1;
+	flex-grow: 0;
+	margin: 16px 0px 0px 30px;
+}
+.mp-settings-credentials button{
+	margin: 16px 0px 16px 30px;
 }
