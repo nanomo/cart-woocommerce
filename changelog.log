@@ -1,5 +1,23 @@
 CHANGELOG:
 == Changelog ==
+= v5.6.0 (01/12/2021) =
+* Features
+- Support to PayCash in Mexico
+- Simplified filling for ticket
+
+* Bug fixes
+- Adjusted term and conditions CSS
+- Admin Order Details validation if is Mercado Pago order
+- Updated develop dependencies
+
+= v5.5.0 (19/10/2021) =
+* Features
+- Render pix image from backend for e-mails
+- Added link to terms and conditions of Mercado Pago on checkout screen
+
+* Bug fixes
+- Fixed retry payment
+
 = v5.4.1 (22/09/2021) =
 * Bug fixes
 - On the order page, the payment was fetched with the wrong token
