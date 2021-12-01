@@ -26,11 +26,11 @@ if ( ! defined('ABSPATH') ) {
 			toda a <b>segurança</b> Mercado Pago</p>
 	</div>
 	<div class="mp-container">
-		<div class="mp-block">
-			<h2>Requisitos técnicos</h2>
+		<div class="mp-block mp-block-requirements">
+			<p class="mp-settings-font-color mp-settings-title-requirements-font-size">Requisitos técnicos</p>
 			<div class="mp-inner-container">
 				<div>
-					<h4>SSL</h4>
+					<p class="mp-settings-font-color mp-settings-subtitle-font-size">SSL</p>
 					<img class="mp-icon"
 						src="<?php echo esc_url(plugins_url('../assets/images/mercadopago-settings/icon-info.png', plugin_dir_path(__FILE__))); ?>">
 				</div>
@@ -41,7 +41,7 @@ if ( ! defined('ABSPATH') ) {
 			<hr>
 			<div class="mp-inner-container">
 				<div>
-					<h4>Extensões GD</h4>
+					<p class="mp-settings-font-color mp-settings-subtitle-font-size">Extensões GD</p>
 					<img class="mp-icon"
 						src="<?php echo esc_url(plugins_url('../assets/images/mercadopago-settings/icon-info.png', plugin_dir_path(__FILE__))); ?>">
 				</div>
@@ -52,7 +52,7 @@ if ( ! defined('ABSPATH') ) {
 			<hr>
 			<div class="mp-inner-container">
 				<div>
-					<h4>Curl</h4>
+					<p class="mp-settings-font-color mp-settings-subtitle-font-size">Curl</p>
 					<img class="mp-icon"
 						src="<?php echo esc_url(plugins_url('../assets/images/mercadopago-settings/icon-info.png', plugin_dir_path(__FILE__))); ?>">
 				</div>
@@ -61,28 +61,28 @@ if ( ! defined('ABSPATH') ) {
 				</div>
 			</div>
 		</div>
-		<div class="mp-block">
+		<div class="mp-block mp-block-flex">
 			<div class="mp-inner-container-settings">
 				<div>
-					<h2>Recebimentos e parcelamento</h2>
-					<p>Escolha <span>quando quer receber o dinheiro</span> das vendas e se quer oferecer
-						<span>parcelamento sem
-							juros</span> aos clientes. </p>
+					<p class="mp-settings-font-color mp-settings-title-font-size">Recebimentos e parcelamento</p>
+					<p class="mp-settings-font-color mp-settings-subtitle-font-size mp-settings-title-color">Escolha <b>quando quer receber o dinheiro</b> das vendas e se quer oferecer
+						<b>parcelamento sem
+							juros</b> aos clientes. </p>
 				</div>
 				<div>
 					<button class="mp-button">Ajustar prazos e taxas </button>
 				</div>
 			</div>
 		</div>
-		<div class="mp-block">
+		<div class="mp-block mp-block-flex mp-block-manual">
 			<div class="mp-inner-container-settings">
 				<div>
-					<h2>Dúvidas?</h2>
-					<p>Revise o passo a passo de <span>como integrar o Plugin do Mercado Pago</span> no nosso site de
+					<p class="mp-settings-font-color mp-settings-title-font-size">Dúvidas?</p>
+					<p class="mp-settings-font-color mp-settings-subtitle-font-size mp-settings-title-color">Revise o passo a passo de <span>como integrar o Plugin do Mercado Pago</span> no nosso site de
 						desenvolvedores. </p>
 				</div>
 				<div>
-					<button class="mp-button"> Manual do plugin </button>
+					<button class="mp-button mp-button-light-blue"> Manual do plugin </button>
 				</div>
 			</div>
 		</div>
@@ -90,24 +90,23 @@ if ( ! defined('ABSPATH') ) {
 	<hr class="mp-settings-hr" />
 	<div class="mp-settings-credentials">
 		<div>
-			<p class="mp-settings-title">1. Insira suas credenciais</p>
+			<p class="mp-settings-font-color mp-settings-title-blocks">1. Insira suas credenciais</p>
 			<p class="mp-settings-subtitle">Insira as credenciais e habilite sua loja para testes e vendas</p>
 		</div>
 		<div>
-			<h2 class="mp-settings-subtitle">Não sabe suas credenciais?</h2>
-			<h4 class="mp-settings-subtitle">Você pode conferir suas credenciais na sua conta de vendedor do Mercado.
-			</h4>
+			<p class="mp-settings-title">Não sabe suas credenciais?</p>
+			<p class="mp-settings-subtitle">Você pode conferir suas credenciais na sua conta de vendedor do Mercado.</p>
 			<button class="mp-button"> Conferir credenciais </button>
 		</div>
+		<div class="mp-container">
 		<div class="mp-block">
-			<h2 class="mp-settings-subtitle">Não sabe suas credenciais?</h2>
-			<h4 class="mp-settings-subtitle">Você pode conferir suas credenciais na sua conta de vendedor do Mercado.
-			</h4>
+			<p class="mp-settings-title">Credenciais de teste</p>
+			<p class="mp-settings-subtitle">Com estas credenciais, você habilita seus checkouts Mercado Pago para poder testar compras na sua loja. </p>
 		</div>
 		<div class="mp-block">
-			<h2 class="mp-settings-subtitle">Não sabe suas credenciais?</h2>
-			<h4 class="mp-settings-subtitle">Você pode conferir suas credenciais na sua conta de vendedor do Mercado.
-			</h4>
+			<p class="mp-settings-title">Credenciais de produção</p>
+			<p class="mp-settings-subtitle">Com estas credenciais, você habilita seus checkouts Mercado Pago para receber pagamentos reais na sua loja.</p>
+		</div>
 		</div>
 		<button class="mp-button"> Salvar e continuar </button>
 	</div>
