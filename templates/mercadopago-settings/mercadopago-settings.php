@@ -10,29 +10,26 @@
  * @package MercadoPago
  */
 
-if ( ! defined('ABSPATH') ) {
+if (!defined('ABSPATH')) {
 	exit;
 }
 ?>
 
 <div class="mp-settings">
 	<div class="mp-settings-header">
-		<img class="mp-settings-header-img"
-			src="<?php echo esc_url(plugins_url('../assets/images/mercadopago-settings/header-settings.png', plugin_dir_path(__FILE__))); ?>">
-		<img class="mp-settings-header-logo"
-			src="<?php echo esc_url(plugins_url('../assets/images/mercadopago-settings/mercadopago-logo.png', plugin_dir_path(__FILE__))); ?>">
+		<img class="mp-settings-header-img" src="<?php echo esc_url(plugins_url('../assets/images/mercadopago-settings/header-settings.png', plugin_dir_path(__FILE__))); ?>">
+		<img class="mp-settings-header-logo" src="<?php echo esc_url(plugins_url('../assets/images/mercadopago-settings/mercadopago-logo.png', plugin_dir_path(__FILE__))); ?>">
 		<hr class="mp-settings-header-hr" />
 		<p>Aceite <b>pagamentos no ato</b> com<br />
 			toda a <b>segurança</b> Mercado Pago</p>
 	</div>
 	<div class="mp-container">
-		<div class="mp-block mp-block-requirements">
+		<div class="mp-block mp-block-requirements mp-settings-margin-right">
 			<p class="mp-settings-font-color mp-settings-title-requirements-font-size">Requisitos técnicos</p>
 			<div class="mp-inner-container">
 				<div>
 					<p class="mp-settings-font-color mp-settings-subtitle-font-size">SSL</p>
-					<img class="mp-icon"
-						src="<?php echo esc_url(plugins_url('../assets/images/mercadopago-settings/icon-info.png', plugin_dir_path(__FILE__))); ?>">
+					<img class="mp-icon" src="<?php echo esc_url(plugins_url('../assets/images/mercadopago-settings/icon-info.png', plugin_dir_path(__FILE__))); ?>">
 				</div>
 				<div>
 					<img class="mp-credential-input-success">
@@ -42,8 +39,7 @@ if ( ! defined('ABSPATH') ) {
 			<div class="mp-inner-container">
 				<div>
 					<p class="mp-settings-font-color mp-settings-subtitle-font-size">Extensões GD</p>
-					<img class="mp-icon"
-						src="<?php echo esc_url(plugins_url('../assets/images/mercadopago-settings/icon-info.png', plugin_dir_path(__FILE__))); ?>">
+					<img class="mp-icon" src="<?php echo esc_url(plugins_url('../assets/images/mercadopago-settings/icon-info.png', plugin_dir_path(__FILE__))); ?>">
 				</div>
 				<div>
 					<img class="mp-credential-input-success">
@@ -53,28 +49,28 @@ if ( ! defined('ABSPATH') ) {
 			<div class="mp-inner-container">
 				<div>
 					<p class="mp-settings-font-color mp-settings-subtitle-font-size">Curl</p>
-					<img class="mp-icon"
-						src="<?php echo esc_url(plugins_url('../assets/images/mercadopago-settings/icon-info.png', plugin_dir_path(__FILE__))); ?>">
+					<img class="mp-icon" src="<?php echo esc_url(plugins_url('../assets/images/mercadopago-settings/icon-info.png', plugin_dir_path(__FILE__))); ?>">
 				</div>
 				<div>
 					<img class="mp-credential-input-success">
 				</div>
 			</div>
 		</div>
-		<div class="mp-block mp-block-flex">
+		<div class="mp-block mp-block-flex mp-settings-margin-left mp-settings-margin-right">
 			<div class="mp-inner-container-settings">
 				<div>
 					<p class="mp-settings-font-color mp-settings-title-font-size">Recebimentos e parcelamento</p>
 					<p class="mp-settings-font-color mp-settings-subtitle-font-size mp-settings-title-color">Escolha <b>quando quer receber o dinheiro</b> das vendas e se quer oferecer
 						<b>parcelamento sem
-							juros</b> aos clientes. </p>
+							juros</b> aos clientes.
+					</p>
 				</div>
 				<div>
 					<button class="mp-button">Ajustar prazos e taxas </button>
 				</div>
 			</div>
 		</div>
-		<div class="mp-block mp-block-flex mp-block-manual">
+		<div class="mp-block mp-block-flex mp-block-manual mp-settings-margin-left">
 			<div class="mp-inner-container-settings">
 				<div>
 					<p class="mp-settings-font-color mp-settings-title-font-size">Dúvidas?</p>
@@ -99,15 +95,83 @@ if ( ! defined('ABSPATH') ) {
 			<button class="mp-button"> Conferir credenciais </button>
 		</div>
 		<div class="mp-container">
-		<div class="mp-block">
-			<p class="mp-settings-title">Credenciais de teste</p>
-			<p class="mp-settings-subtitle">Com estas credenciais, você habilita seus checkouts Mercado Pago para poder testar compras na sua loja. </p>
-		</div>
-		<div class="mp-block">
-			<p class="mp-settings-title">Credenciais de produção</p>
-			<p class="mp-settings-subtitle">Com estas credenciais, você habilita seus checkouts Mercado Pago para receber pagamentos reais na sua loja.</p>
-		</div>
+			<div class="mp-block mp-block-flex mp-settings-margin-right">
+				<p class="mp-settings-title">Credenciais de teste</p>
+				<p class="mp-settings-subtitle">Com estas credenciais, você habilita seus checkouts Mercado Pago para poder testar compras na sua loja. </p>
+			</div>
+			<div class="mp-block mp-block-flex mp-settings-margin-left">
+				<p class="mp-settings-title">Credenciais de produção</p>
+				<p class="mp-settings-subtitle">Com estas credenciais, você habilita seus checkouts Mercado Pago para receber pagamentos reais na sua loja.</p>
+			</div>
 		</div>
 		<button class="mp-button"> Salvar e continuar </button>
+	</div>
+	<div>
+
+		<p class="mp-settings-font-color mp-settings-title-blocks">2. Personalize seu negócio</p>
+		<p class="mp-settings-font-color mp-settings-subtitle-font-size mp-settings-title-color">Preencha as informações a seguir para ter uma melhor experiência e oferecer mais informações aos clientes</p>
+
+		<div class="mp-container">
+			<div class="mp-block mp-block-flex mp-settings-margin-right" style="flex-direction:column; justify-content:space-between">
+				<div>
+					Informações sobre sua loja
+				</div>
+				<div>
+					<fieldset>
+
+						<legend class="mp-setting-label">Nome da sua loja nas faturas do cliente</legend>
+						<input type="text" class="mp-settings-input">
+
+					</fieldset>
+				</div>
+				<div>
+					<fieldset>
+
+						<legend class="mp-setting-label">Nome da sua loja nas faturas do cliente</legend>
+						<input type="text" class="mp-settings-input">
+
+					</fieldset>
+				</div>
+				<div>
+					<fieldset>
+
+						<p class="mp-settings-label">Nome da sua loja nas faturas do cliente</p>
+						<input type="text" class="mp-settings-input">
+
+					</fieldset>
+				</div>
+			</div>
+
+			<div class="mp-block mp-block-flex mp-settings-margin-left">
+				<div>
+					Informações sobre sua loja
+				</div>
+				<div>
+					<fieldset>
+
+						<legend class="mp-setting-label">Nome da sua loja nas faturas do cliente</legend>
+						<input type="text" class="mp-settings-input">
+
+					</fieldset>
+				</div>
+				<div>
+					<fieldset>
+
+						<legend class="mp-setting-label">Nome da sua loja nas faturas do cliente</legend>
+						<input type="text" class="mp-settings-input">
+
+					</fieldset>
+				</div>
+				<div>
+					<fieldset>
+
+						<legend class="mp-setting-label">Nome da sua loja nas faturas do cliente</legend>
+						<input type="text" class="mp-settings-input">
+
+					</fieldset>
+				</div>
+
+			</div>
+		</div>
 	</div>
 </div>
