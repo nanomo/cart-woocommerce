@@ -195,16 +195,17 @@ class WC_WooMercadoPago_Ticket_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 		$get_payment_methods_ticket = get_option( '_all_payment_methods_ticket', '' );
 
 		if ( ! empty( $get_payment_methods_ticket ) ) {
-			$saved_optons = get_option( 'woocommerce_woo-mercado-pago-ticket_settings', '' );
+			$saved_options = get_option( 'woocommerce_woo-mercado-pago-ticket_settings', '' );
 
 			if ( ! is_array( $get_payment_methods_ticket ) ) {
 				$get_payment_methods_ticket = json_decode( $get_payment_methods_ticket, true );
 			}
 
 			foreach ( $get_payment_methods_ticket as $payment_methods_ticket ) {
-				if ( ! isset( $saved_optons[ 'ticket_payment_' . $payment_methods_ticket['id'] ] )
-					|| 'yes' === $saved_optons[ 'ticket_payment_' . $payment_methods_ticket['id'] ] ) {
+				if ( ! isset( $saved_options[ 'ticket_payment_' . $payment_methods_ticket['id'] ] )
+					|| 'yes' === $saved_options[ 'ticket_payment_' . $payment_methods_ticket['id'] ] ) {
 					array_push( $activated_payment, $payment_methods_ticket );
+					sort($activated_payment);
 				}
 			}
 		}
@@ -340,7 +341,7 @@ class WC_WooMercadoPago_Ticket_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 
 		foreach ( $get_payment_methods_ticket as $payment_method_ticket ) {
 			$element = array(
-				'label'             => $payment_method_ticket['name'],
+				'label'             => array_key_exists('payment_places', $payment_method_ticket) ? $payment_method_ticket['name'] . ' (' . $this->build_paycash_payments_string() . ')' : $payment_method_ticket['name'] ,
 				'id'                => 'woocommerce_mercadopago_' . $payment_method_ticket['id'],
 				'default'           => 'yes',
 				'type'              => 'checkbox',
@@ -497,15 +498,8 @@ class WC_WooMercadoPago_Ticket_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 
 		// Check for brazilian FEBRABAN rules.
 		if ( 'MLB' === $this->get_option_mp( '_site_id_v1' ) ) {
-			if ( ! isset( $ticket_checkout['firstname'] ) || empty( $ticket_checkout['firstname'] ) ||
-				! isset( $ticket_checkout['lastname'] ) || empty( $ticket_checkout['lastname'] ) ||
-				! isset( $ticket_checkout['docNumber'] ) || empty( $ticket_checkout['docNumber'] ) ||
-				( 14 !== strlen( $ticket_checkout['docNumber'] ) && 18 !== strlen( $ticket_checkout['docNumber'] ) ) ||
-				! isset( $ticket_checkout['address'] ) || empty( $ticket_checkout['address'] ) ||
-				! isset( $ticket_checkout['number'] ) || empty( $ticket_checkout['number'] ) ||
-				! isset( $ticket_checkout['city'] ) || empty( $ticket_checkout['city'] ) ||
-				! isset( $ticket_checkout['state'] ) || empty( $ticket_checkout['state'] ) ||
-				! isset( $ticket_checkout['zipcode'] ) || empty( $ticket_checkout['zipcode'] ) ) {
+			if ( ! isset( $ticket_checkout['docNumber'] ) || empty( $ticket_checkout['docNumber'] ) ||
+				( 14 !== strlen( $ticket_checkout['docNumber'] ) && 18 !== strlen( $ticket_checkout['docNumber'] ) ) ) {
 				wc_add_notice(
 					'<p>' .
 					__( 'There was a problem processing your payment. Are you sure you have correctly filled out all the information on the payment form?', 'woocommerce-mercadopago' ) .
@@ -663,5 +657,27 @@ class WC_WooMercadoPago_Ticket_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 	 */
 	public static function get_id() {
 		return self::ID;
+	}
+
+	/**
+	 * Build Paycash Payments String
+	 *
+	 * @return string
+	 */
+	public static function build_paycash_payments_string() {
+
+		$get_payment_methods_ticket = get_option( '_all_payment_methods_ticket', '[]' );
+
+		foreach ( $get_payment_methods_ticket as $payment ) {
+
+			if ( 'paycash' === $payment['id'] ) {
+				$payments = array_column( $payment['payment_places'] , 'name');
+			}
+		}
+
+		$last_element     = array_pop( $payments );
+		$paycash_payments = implode (', ', $payments);
+
+		return implode( __(' and ', 'woocommerce-mercadopago') , array( $paycash_payments, $last_element ));
 	}
 }

@@ -4,7 +4,7 @@ Tags: ecommerce, mercadopago, woocommerce
 Requires at least: 4.9.10
 Tested up to: 5.8
 Requires PHP: 5.6
-Stable tag: 5.5.0
+Stable tag: 5.6.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -23,7 +23,7 @@ To install it, **you don't need to have technical knowledge:** you can follow th
 * Sell in **installments** and offer the current promotions in Checkout Pro or apply your own discount coupon in Custom Checkout.
 * Test your store before going into production with our Sandbox environment.
 * **Receive the money** from your sales on the same day.
-* **IMPORTANT:** At the moment the Mercado Envíos service is deactivated.
+* **IMPORTANT:** At the moment the Mercado Envios service is deactivated.
 * **Mercado Pago customers can use already stored cards** For your customers who use Mercado Pago to buy without having to fill in card details at the store's checkout.
 
 ### Adapted to your business
@@ -129,6 +129,16 @@ Set up both the plugin and the checkouts you want to activate on your payment av
 Check out our <a href="https://www.mercadopago.com.br/developers/pt/plugins_sdks/plugins/official/woo-commerce/">official documentation</a> for more information on the specific fields to configure.
 
 == Changelog ==
+= v5.6.0 (01/12/2021) =
+* Features
+- Support to PayCash in Mexico
+- Simplified filling for ticket
+
+* Bug fixes
+- Adjusted term and conditions CSS
+- Admin Order Details validation if is Mercado Pago order
+- Updated develop dependencies
+
 = v5.5.0 (19/10/2021) =
 * Features
 - Render pix image from backend for e-mails
