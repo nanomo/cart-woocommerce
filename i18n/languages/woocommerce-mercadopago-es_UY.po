@@ -1,10 +1,10 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Mercado Pago payments for WooCommerce 5.5.0\n"
+"Project-Id-Version: Mercado Pago payments for WooCommerce 5.6.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/woocommerce-"
 "mercadopago\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2021-11-09 16:20-0300\n"
+"PO-Revision-Date: 2021-12-01 09:45-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: es_AR\n"
@@ -555,20 +555,20 @@ msgid "Select credit cards"
 msgstr "Selecciona tarjetas de crédito"
 
 #: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:501,
-#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:358,
-#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:358
+#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:357,
+#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:357
 msgid "Payment methods"
 msgstr "Medios de pagos"
 
 #: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:502,
-#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:359,
-#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:359
+#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:358,
+#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:358
 msgid "Choose the available payment methods in your store."
 msgstr "Selecciona los medios de pago disponibles en tu tienda."
 
 #: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:508,
-#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:362,
-#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:362
+#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:361,
+#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:361
 msgid "Activate the available payment methods to your clients."
 msgstr "Habilita los medios de pago disponibles para tus clientes."
 
@@ -605,8 +605,8 @@ msgstr "reglas del modo test"
 #: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:568,
 #: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:481,
 #: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:468,
-#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:491,
-#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:478,
+#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:490,
+#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:477,
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:169,
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:167,
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:167
@@ -619,8 +619,8 @@ msgstr "descuento de"
 #: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:573,
 #: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:486,
 #: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:473,
-#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:496,
-#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:483,
+#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:495,
+#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:482,
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:171,
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:171
 msgid "fee of"
@@ -1016,7 +1016,9 @@ msgstr "Activa la experiencia de Mercado Pago en el checkout de tu tienda."
 #: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:923,
 #: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:923
 msgid "Add credentials to &quot;Test Mode&quot; or &quot;Production Mode&quot;"
-msgstr "Ingresa las credenciales para el Modo Test o el Modo Producción"
+msgstr ""
+"Ingresa las credenciales para el &quot;Modo Test&quot; o el &quot;Modo "
+"Producción&quot;"
 
 #: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:936,
 #: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:936
@@ -1754,15 +1756,15 @@ msgstr ""
 "sus ventajas."
 
 #: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:550,
-#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:595,
-#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:595
+#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:594,
+#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:594
 msgid "A problem occurred when processing your payment. Please try again."
 msgstr ""
 "Un problema se produjo al procesar su pago. Por favor, inténtelo de nuevo."
 
 #: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:536,
-#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:581,
-#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:581
+#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:580,
+#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:580
 msgid ""
 "A problem occurred when processing your payment. Are you sure you have "
 "correctly filled in all the information on the checkout form?"
@@ -1771,8 +1773,8 @@ msgstr ""
 "correctamente toda la información en el formulario de checkout?"
 
 #: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:515,
-#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:556,
-#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:556
+#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:555,
+#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:555
 msgid "The customer has not paid yet."
 msgstr "El cliente no ha pagado todavía."
 
@@ -1889,18 +1891,18 @@ msgstr "Vencimiento del pago"
 msgid "In how many days will cash payments expire."
 msgstr "En cuántos días caducarán los pagos en efectivo."
 
-#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:351,
-#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:351
+#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:350,
+#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:350
 msgid "All payment methods"
 msgstr "Todos los medios de pago"
 
-#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:418,
-#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:418
+#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:417,
+#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:417
 msgid "Offline Methods in Test Mode"
 msgstr "Facturas en Modo Test"
 
-#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:419,
-#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:419
+#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:418,
+#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:418
 msgid ""
 "You can test the flow to generate an invoice, but you cannot finalize the "
 "payment."
@@ -1908,9 +1910,9 @@ msgstr ""
 "Es posible testear el flujo para generar una factura, pero no es posible "
 "finalizar el pago."
 
-#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:506,
-#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:524,
-#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:524
+#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:505,
+#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:523,
+#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:523
 msgid ""
 "There was a problem processing your payment. Are you sure you have correctly "
 "filled out all the information on the payment form?"
@@ -1918,50 +1920,50 @@ msgstr ""
 "Se produjo un problema al procesar su pago. ¿Está seguro de que ha llenado "
 "correctamente toda la información en el formulario de pago?"
 
-#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:561,
-#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:561
+#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:560,
+#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:560
 msgid "To print the ticket again click"
 msgstr "Para imprimir nuevamente el ticket hace clic"
 
-#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:564,
-#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:564
+#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:563,
+#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:563
 msgid "here"
 msgstr "aquí"
 
-#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:682,
-#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:682
+#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:681,
+#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:681
 msgid " and "
 msgstr " y "
 
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:61,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:61
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:68,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:68
 msgid "Payment made"
 msgstr "Pago realizado"
 
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:62,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:62
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:69,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:69
 msgid "Payment made by the buyer and already credited in the account."
 msgstr ""
 "El pago realizado por el comprador y que ya está acreditado en la cuenta."
 
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:65,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:65
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:72,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:72
 msgid "Call resolved"
 msgstr "Llamado resuelto"
 
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:66,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:166,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:166
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:73,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:173,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:173
 msgid "Please contact Mercado Pago for further details."
 msgstr "Contacta a Mercado Pago para saber más detalles."
 
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:69,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:69
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:76,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:76
 msgid "Payment refunded"
 msgstr "Pago devuelto"
 
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:70,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:70
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:77,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:77
 msgid ""
 "Your refund request has been made. Please contact Mercado Pago for further "
 "details."
@@ -1969,69 +1971,69 @@ msgstr ""
 "Tu pedido de reebolso ya fue realizado. Contacta a Mercado Pago para saber "
 "más detalles."
 
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:73,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:77,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:77
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:80,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:84,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:84
 msgid "Payment returned"
 msgstr "Pago devuelto"
 
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:74,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:74
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:81,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:81
 msgid "The payment has been returned to the client."
 msgstr "El pago ya fue devuelto al cliente."
 
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:78,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:78
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:85,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:85
 msgid "The payment has been partially returned to the client."
 msgstr "El pago ya fue devuelto parcialmente al cliente."
 
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:81,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:81
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:88,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:88
 msgid "Payment canceled"
 msgstr "Pago cancelado"
 
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:82,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:82
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:89,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:89
 msgid "The payment has been successfully canceled."
 msgstr "El pago fue cancelado con éxito."
 
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:85,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:85
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:92,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:92
 msgid "Purchase canceled"
 msgstr "Compra cancelada"
 
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:86,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:86
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:93,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:93
 msgid "The payment has been canceled by the customer."
 msgstr "El pago fue cancelado por el cliente."
 
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:89,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:93,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:97,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:101,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:105,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:121,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:125,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:129,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:133,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:137,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:141,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:145,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:255,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:255
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:96,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:100,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:104,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:108,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:112,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:128,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:132,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:136,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:140,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:144,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:148,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:152,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:262,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:262
 msgid "Pending payment"
 msgstr "Cobro pendiente"
 
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:90,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:94,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:98,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:102,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:102
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:97,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:101,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:105,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:109,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:109
 msgid "Awaiting payment from the buyer."
 msgstr "Esperando el pago del comprador."
 
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:106,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:106
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:113,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:113
 msgid ""
 "We are veryfing the payment. We will notify you by email in up to 6 hours if "
 "everything is fine so that you can deliver the product or provide the "
@@ -2040,46 +2042,46 @@ msgstr ""
 "Estamos revisando el pago. En menos de 6 horas te avisaremos por e-mail si "
 "está todo bien para que puedas entregar el producto o brindar el servicio."
 
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:109,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:149,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:153,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:157,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:161,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:173,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:177,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:181,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:185,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:189,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:193,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:197,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:203,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:207,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:211,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:215,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:219,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:223,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:227,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:231,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:235,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:239,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:243,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:247,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:251,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:263,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:269,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:273,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:273
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:116,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:156,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:160,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:164,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:168,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:180,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:184,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:188,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:192,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:196,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:200,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:204,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:210,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:214,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:218,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:222,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:226,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:230,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:234,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:238,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:242,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:246,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:250,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:254,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:258,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:270,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:276,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:280,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:280
 msgid "Declined payment"
 msgstr "Cobro rechazado"
 
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:110,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:154,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:158,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:162,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:174,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:194,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:204,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:204
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:117,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:161,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:165,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:169,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:181,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:201,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:211,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:211
 msgid ""
 "The card-issuing bank declined the payment. Please ask your client to use "
 "another card or to get in touch with the bank."
@@ -2087,32 +2089,32 @@ msgstr ""
 "El banco emisor de la tarjeta rechazó el pago. Pedile a tu cliente que use "
 "otra tarjeta o que se comunique con su banco."
 
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:113,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:113
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:120,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:120
 msgid "Payment authorized. Awaiting capture."
 msgstr "Pago autorizado. Esperando captura."
 
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:114,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:114
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:121,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:121
 msgid ""
 "The payment has been authorized on the client's card. Please capture the "
 "payment."
 msgstr ""
 "Ya se autorizó el pago en la tarjeta del cliente. Haz la captura del pago."
 
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:117,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:117
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:124,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:124
 msgid "Payment in process"
 msgstr "Pago en proceso"
 
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:118,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:138,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:138
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:125,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:145,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:145
 msgid "Please wait or contact Mercado Pago for further details"
 msgstr "Espera o contacta a Mercado Pago para saber más detalles"
 
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:122,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:122
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:129,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:129
 msgid ""
 "The bank is reviewing the payment. As soon as we have their confirmation, we "
 "will notify you via email so that you can deliver the product or provide the "
@@ -2121,25 +2123,25 @@ msgstr ""
 "El banco está revisando el pago. Te avisaremos por e-mail cuando esté "
 "confirmado para que puedas entregar el producto o brindar el servicio."
 
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:126,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:130,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:134,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:134
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:133,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:137,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:141,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:141
 msgid "Awaiting payment information validation."
 msgstr "Esperando validación de los datos de pago.."
 
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:142,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:142
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:149,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:149
 msgid "Waiting for the buyer."
 msgstr "Esperando al comprador."
 
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:146,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:146
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:153,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:153
 msgid "Waiting for the card issuer."
 msgstr "Espererando al emisor de la tarjeta.."
 
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:150,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:150
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:157,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:157
 msgid ""
 "The payment could not be processed. Please ask your client to use another "
 "card or to get in touch with the bank."
@@ -2147,25 +2149,25 @@ msgstr ""
 "El pago no fue procesado por el banco. Pídele a tu cliente que use otro "
 "medio de pago o que se contacte con el banco."
 
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:165,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:165
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:172,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:172
 msgid "Mercado Pago did not process the payment"
 msgstr "Mercado Pago no procesó el pago"
 
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:169,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:259,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:259
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:176,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:266,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:266
 msgid "Expired payment deadline"
 msgstr "Venció el plazo para el pago"
 
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:170,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:260,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:260
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:177,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:267,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:267
 msgid "The client did not pay within the time limit."
 msgstr "El cliente no pagó dentro del límite de tiempo.."
 
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:178,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:178
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:185,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:185
 msgid ""
 "The CVV is invalid. Please ask your client to review the details or use "
 "another card."
@@ -2173,8 +2175,8 @@ msgstr ""
 "El código de seguridad de la tarjeta es inválido. Revisá los datos que "
 "ingresaste o pedile a tu cliente que use otra tarjeta."
 
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:182,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:182
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:189,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:189
 msgid ""
 "The card is expired. Please ask your client to use another card or to "
 "contact the bank."
@@ -2182,10 +2184,10 @@ msgstr ""
 "La tarjeta está vencida. Pedile a tu cliente que use otra tarjeta o que se "
 "comunique con su banco."
 
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:186,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:232,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:236,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:236
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:193,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:239,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:243,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:243
 msgid ""
 "This payment was declined because it did not pass Mercado Pago security "
 "controls. Please ask your client to use another card."
@@ -2193,9 +2195,9 @@ msgstr ""
 "Rechazamos este pago porque no pasó los controles de seguridad de Mercado "
 "Pago. Pedile a tu cliente que use otra tarjeta."
 
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:190,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:228,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:228
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:197,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:235,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:235
 msgid ""
 "The buyer is suspended in our platform. Your client must contact us to check "
 "what happened."
@@ -2203,8 +2205,8 @@ msgstr ""
 "El comprador está suspendido en Mercado Pago. Tu cliente debe comunicarse "
 "con nosotros para ver qué pasó."
 
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:199,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:199
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:206,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:206
 msgid ""
 "The card does not have enough limit. Please ask your client to use another "
 "card or to get in touch with the bank."
@@ -2212,8 +2214,8 @@ msgstr ""
 "La tarjeta no tiene límite disponible. Pedile a tu cliente que use otra "
 "tarjeta o que se comunique con su banco."
 
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:200,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:200
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:207,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:207
 msgid ""
 "The card does not have sufficient balance. Please ask your client to use "
 "another card or to get in touch with the bank."
@@ -2221,8 +2223,8 @@ msgstr ""
 "La tarjeta no tiene fondos suficientes. Pedile a tu cliente que use otra "
 "tarjeta o que se comunique con su banco."
 
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:208,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:208
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:215,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:215
 msgid ""
 "The CVV was entered incorrectly several times. Please ask your client to use "
 "another card or to get in touch with the bank."
@@ -2230,8 +2232,8 @@ msgstr ""
 "Se ingresó varias veces mal el código de seguridad de la tarjeta. Pedile a "
 "tu cliente que use otra tarjeta o que se comunique con su banco."
 
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:212,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:212
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:219,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:219
 msgid ""
 "The card does not allow the number of installments entered. Please ask your "
 "client to choose another installment plan or to use another card."
@@ -2239,8 +2241,8 @@ msgstr ""
 "La tarjeta no acepta la cantidad de cuotas ingresadas. Pedile a tu cliente "
 "que elija otro plan de cuotas o que use otra tarjeta."
 
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:216,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:216
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:223,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:223
 msgid ""
 "The card-issuing bank declined the payment. Please instruct your client to "
 "ask the bank to authotize it or to use another card."
@@ -2248,8 +2250,8 @@ msgstr ""
 "El banco emisor de la tarjeta no autorizó el pago. Pedile a tu cliente que "
 "se contacte con el banco para autorizarlo o que use otra tarjeta."
 
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:220,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:220
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:227,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:227
 msgid ""
 "From Mercado Pago we have detected that this payment has already been made "
 "before. If that is not the case, your client may try to pay again."
@@ -2257,8 +2259,8 @@ msgstr ""
 "Desde Mercado Pago detectamos que este pago ya se hizo anteriormente. Si no "
 "es así, tu cliente puede intentarlo de nuevo."
 
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:224,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:224
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:231,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:231
 msgid ""
 "The card is not active yet. Please ask your client to use another card or to "
 "get in touch with the bank to activate it."
@@ -2266,8 +2268,8 @@ msgstr ""
 "La tarjeta aún no está habilitada. Pedile a tu cliente que use otra tarjeta "
 "o que se comunique con su banco para activarla."
 
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:240,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:240
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:247,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:247
 msgid ""
 "The amount exceeded the card limit. Please ask your client to use another "
 "card or to get in touch with the bank."
@@ -2275,10 +2277,10 @@ msgstr ""
 "El valor excedió el límite de la tarjeta. Pídele a tu cliente que use otra "
 "tarjeta o que se comunique con el banco."
 
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:244,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:248,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:252,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:252
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:251,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:255,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:259,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:259
 msgid ""
 "Please ask your client to use another card or to get in touch with the card "
 "issuer."
@@ -2286,8 +2288,8 @@ msgstr ""
 "Pídele a tu cliente que use otra tarjeta o que se comunique con el emisor de "
 "la tarjeta."
 
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:256,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:256
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:263,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:263
 msgid ""
 "The amount exceeded the card's limit. Please ask your client to use another "
 "card or to get in touch with the bank."
@@ -2295,8 +2297,8 @@ msgstr ""
 "El valor excedió el límite de la tarjeta. Pídele a tu cliente que use otra "
 "tarjeta o que se comunique con el banco."
 
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:265,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:265
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:272,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:272
 msgid ""
 "The credit function is not enabled for the card. Please tell your client "
 "that it is possible to pay with debit or to use another one."
@@ -2304,8 +2306,8 @@ msgstr ""
 "La función crédito de la tarjeta está deshabilitada. Dile a tu cliente que "
 "puede pagar con la función débito de la misma tarjeta o pídele que use otra."
 
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:266,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:266
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:273,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:273
 msgid ""
 "The debit function is not enabled for the card. Please tell your client that "
 "it is possible to pay with credit or to use another one."
@@ -2313,8 +2315,8 @@ msgstr ""
 "La función débito de la tarjeta está deshabilitada. Dile a tu cliente que "
 "puede pagar con la función crédito de la misma tarjeta o pídele que use otra."
 
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:270,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:270
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:277,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:277
 msgid ""
 "The card-issuing bank declined the payment. Please instruct your client to "
 "ask the bank to authorize it."
@@ -2322,8 +2324,8 @@ msgstr ""
 "El banco emisor de la tarjeta rechazó el pago. Pídele a tu cliente que se "
 "comunique con el banco para autorizar el pago."
 
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:274,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:274
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:281,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:281
 msgid ""
 "The buyer does not have enough balance to make the purchase. Please ask your "
 "client to deposit money to the Mercado Pago Account or to use a different "
@@ -2333,29 +2335,29 @@ msgstr ""
 "Pídele a tu cliente que cargue saldo en Mercado Pago o que use otro medio de "
 "pago."
 
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:277,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:277
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:284,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:284
 msgid "There was an error"
 msgstr "Hubo un error"
 
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:278,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:278
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:285,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:285
 msgid "The transaction could not be completed."
 msgstr "No fue posible completar la transacción."
 
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:320,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:320
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:367,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:367
 msgid "Payment status on Mercado Pago"
 msgstr "Estado de pago en el Mercado Pago"
 
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:418,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:429,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:429
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:463,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:474,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:474
 msgid "View purchase details at Mercado Pago"
 msgstr "Ver detalles de compra en Mercado Pago"
 
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:440,
-#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:440
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:485,
+#: ../../includes/admin/hooks/class-wc-woomercadopago-hook-order-details.php:485
 msgid "Check the reasons why the purchase was declined."
 msgstr "Consulta los motivos del rechazo de tu compra."
 

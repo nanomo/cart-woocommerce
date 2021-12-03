@@ -10,7 +10,7 @@
  * @package MercadoPago
  */
 
-if ( ! defined('ABSPATH') ) {
+if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 ?>
@@ -24,18 +24,18 @@ if ( ! defined('ABSPATH') ) {
 		<?php if ( 'yes' === $coupon_mode ) : ?>
 			<div id="mercadopago-form-coupon-ticket" class="mp-col-md-12 mp-pb-15">
 				<div class="frame-tarjetas mp-text-justify">
-					<p class="mp-subtitle-ticket-checkout"><?php echo esc_html__('Enter your discount coupon', 'woocommerce-mercadopago'); ?></p>
+					<p class="mp-subtitle-ticket-checkout"><?php echo esc_html__( 'Enter your discount coupon', 'woocommerce-mercadopago' ); ?></p>
 
 					<div class="mp-row-checkout mp-pt-10">
 						<div class="mp-col-md-9 mp-pr-15">
-							<input type="text" class="mp-form-control" id="couponCodeTicket" name="mercadopago_ticket[coupon_code]" autocomplete="off" maxlength="24" placeholder="<?php echo esc_html__('Enter your coupon', 'woocommerce-mercadopago'); ?>" />
+							<input type="text" class="mp-form-control" id="couponCodeTicket" name="mercadopago_ticket[coupon_code]" autocomplete="off" maxlength="24" placeholder="<?php echo esc_html__( 'Enter your coupon', 'woocommerce-mercadopago' ); ?>" />
 						</div>
 						<div class="mp-col-md-3">
-							<input type="button" class="mp-button mp-pointer" id="applyCouponTicket" value="<?php echo esc_html__('Apply', 'woocommerce-mercadopago'); ?>">
+							<input type="button" class="mp-button mp-pointer" id="applyCouponTicket" value="<?php echo esc_html__( 'Apply', 'woocommerce-mercadopago' ); ?>">
 						</div>
 						<div class="mp-row-checkout">
 							<div class="mp-discount mp-col-md-9 mp-pr-15" id="mpCouponApplyedTicket"></div>
-							<span class="mp-erro_febraban" id="mpCouponErrorTicket"><?php echo esc_html__('The code you entered is incorrect', 'woocommerce-mercadopago'); ?></span>
+							<span class="mp-erro_febraban" id="mpCouponErrorTicket"><?php echo esc_html__( 'The code you entered is incorrect', 'woocommerce-mercadopago' ); ?></span>
 						</div>
 					</div>
 				</div>
@@ -48,24 +48,24 @@ if ( ! defined('ABSPATH') ) {
 					<?php if ( 'MLU' === $site_id ) : ?>
 						<div id="form-ticket">
 							<div class="mp-row-checkout">
-								<p class="mp-subtitle-custom-checkout"><?php echo esc_html__('Enter your document number', 'woocommerce-mercadopago'); ?></p>
+								<p class="mp-subtitle-custom-checkout"><?php echo esc_html__( 'Enter your document number', 'woocommerce-mercadopago' ); ?></p>
 								<div class="mp-col-md-4 mp-pr-15">
-									<label for="mp-docType" class="mp-label-form mp-pt-5"><?php echo esc_html__('Type', 'woocommerce-mercadopago'); ?></label>
+									<label for="mp-docType" class="mp-label-form mp-pt-5"><?php echo esc_html__( 'Type', 'woocommerce-mercadopago' ); ?></label>
 									<select id="mp-docType" class="form-control mp-form-control mp-select mp-pointer" name="mercadopago_ticket[docType]">
-										<option value="CI" selected><?php echo esc_html__('CI', 'woocommerce-mercadopago'); ?></option>
+										<option value="CI" selected><?php echo esc_html__( 'CI', 'woocommerce-mercadopago' ); ?></option>
 									</select>
 								</div>
 								<div class="mp-col-md-8" id="box-docnumber">
-									<label for="cpfcnpj" id="mp_cpf_label" class="mp-label-form title-cpf"><?php echo esc_html__('Document number', 'woocommerce-mercadopago'); ?> <em>*</em></label>
+									<label for="cpfcnpj" id="mp_cpf_label" class="mp-label-form title-cpf"><?php echo esc_html__( 'Document number', 'woocommerce-mercadopago' ); ?> <em>*</em></label>
 									<input type="text" class="mp-form-control" id="mp_doc_number" data-checkout="mp_doc_number" name="mercadopago_ticket[docNumber]" onkeyup="mpMaskInput(this, mpTicketInteger);" autocomplete="off" maxlength="8">
-									<span class="mp-erro_febraban" data-main="#mp_doc_number"><?php echo esc_html__('You must provide your document number', 'woocommerce-mercadopago'); ?></span>
-									<span class="mp_error_docnumber" id="mp_error_docnumber"><?php echo esc_html__('Invalid Document Number', 'woocommerce-mercadopago'); ?></span>
+									<span class="mp-erro_febraban" data-main="#mp_doc_number"><?php echo esc_html__( 'You must provide your document number', 'woocommerce-mercadopago' ); ?></span>
+									<span class="mp_error_docnumber" id="mp_error_docnumber"><?php echo esc_html__( 'Invalid Document Number', 'woocommerce-mercadopago' ); ?></span>
 								</div>
 							</div>
 							<div class="mp-col-md-12 mp-pt-10">
 								<div class="frame-tarjetas">
 									<div class="mp-row-checkout">
-										<p class="mp-obrigatory"><?php echo esc_html__('Complete all fields, they are mandatory.', 'woocommerce-mercadopago'); ?></p>
+										<p class="mp-obrigatory"><?php echo esc_html__( 'Complete all fields, they are mandatory.', 'woocommerce-mercadopago' ); ?></p>
 									</div>
 								</div>
 							</div>
@@ -74,19 +74,22 @@ if ( ! defined('ABSPATH') ) {
 
 					<div class="mp-col-md-12">
 						<div class="frame-tarjetas">
-							<p class="mp-subtitle-ticket-checkout"><?php echo esc_html__('Select the issuer with whom you want to process the payment', 'woocommerce-mercadopago'); ?></p>
+							<p class="mp-subtitle-ticket-checkout"><?php echo esc_html__( 'Select the issuer with whom you want to process the payment', 'woocommerce-mercadopago' ); ?></p>
 							<div class="mp-row-checkout mp-pt-10">
 								<?php $at_first = true; ?>
 								<?php foreach ( $payment_methods as $payment ) : ?>
 											<?php if ( isset($payment['payment_places']) ) { ?>
-												<?php foreach ( $payment['payment_places'] as $place ) : ?>
+												<?php
+												foreach ( $payment['payment_places'] as $place ) :
+														$payment_place_id = ( new WC_WooMercadoPago_Composite_Id_Helper() )->generateIdFromPlace($payment['id'], $place['payment_option_id']);
+													?>
 													<div id="frameTicket" class="mp-col-md-6 mp-pb-15 mp-min-hg">
 														<div id="paymentMethodIdTicket" class="mp-ticket-payments">
-														<label for="<?php echo esc_attr($payment['id']); ?>" class="mp-label-form mp-pointer">
-															<input type="radio" class="mp-form-control-check" name="mercadopago_ticket[paymentMethodId]" id="<?php echo esc_attr($payment['id']); ?>" value="<?php echo esc_attr(( new WC_WooMercadoPago_Composite_Id_Helper() )->generateIdFromPlace($payment['id'], $place['payment_option_id'])); ?>"
+														<label for="<?php echo esc_attr( $payment_place_id ); ?>" class="mp-label-form mp-pointer">
+															<input type="radio" class="mp-form-control-check" name="mercadopago_ticket[paymentMethodId]" id="<?php echo esc_attr( $payment_place_id ); ?>" value="<?php echo esc_attr( $payment_place_id ); ?>"
 															<?php if ( $at_first ) : ?>
 															checked="checked" <?php endif; ?> />
-															<img src="<?php echo esc_attr($place['thumbnail']); ?>" class="mp-img-ticket" alt="<?php echo esc_attr($place['name']); ?>" />
+															<img src="<?php echo esc_attr( $place['thumbnail'] ); ?>" class="mp-img-ticket" alt="<?php echo esc_attr( $place['name'] ); ?>" />
 															<br>
 															<p class="mp-ticket-name"><?php echo esc_attr( $place['name'] ); ?></p>
 														</label>
@@ -96,14 +99,14 @@ if ( ! defined('ABSPATH') ) {
 											<?php } else { ?>
 												<div id="frameTicket" class="mp-col-md-6 mp-pb-15 mp-min-hg">
 													<div id="paymentMethodIdTicket" class="mp-ticket-payments">
-														<label for="<?php echo esc_attr($payment['id']); ?>" class="mp-label-form mp-pointer">
-															<input type="radio" class="mp-form-control-check" name="mercadopago_ticket[paymentMethodId]" id="<?php echo esc_attr($payment['id']); ?>" value="<?php echo esc_attr($payment['id']); ?>"
+														<label for="<?php echo esc_attr( $payment['id'] ); ?>" class="mp-label-form mp-pointer">
+															<input type="radio" class="mp-form-control-check" name="mercadopago_ticket[paymentMethodId]" id="<?php echo esc_attr( $payment['id'] ); ?>" value="<?php echo esc_attr( $payment['id'] ); ?>"
 																<?php if ( $at_first ) : ?>
 																checked="checked" <?php endif; ?> />
-															<img src="<?php echo esc_attr($payment['secure_thumbnail']); ?>" class="mp-img-ticket" alt="<?php echo esc_attr($payment['name']); ?>" />
+															<img src="<?php echo esc_attr( $payment['secure_thumbnail'] ); ?>" class="mp-img-ticket" alt="<?php echo esc_attr( $payment['name'] ); ?>" />
 														<br>
 															<p class="mp-ticket-name">
-																<?php echo esc_attr( ( 'Pagamento na lotérica sem boleto' === $payment['name'] ) ? $payment['name'] = esc_html__('Lottery', 'woocommerce-mercadopago') : $payment['name'] ); ?>
+																<?php echo esc_attr( ( 'Pagamento na lotérica sem boleto' === $payment['name'] ) ? $payment['name'] = esc_html__( 'Lottery', 'woocommerce-mercadopago' ) : $payment['name'] ); ?>
 															</p>
 														</label>
 													</div>
@@ -116,10 +119,10 @@ if ( ! defined('ABSPATH') ) {
 					</div>
 					<?php if ( 'MLB' === $site_id ) : ?>
 						<div class="mp-col-md-12 mp-pb-15" id="box-docnumber">
-							<label for="cpfcnpj" id="mp_cpf_cnpj_label" class="mp-label-form title-cpf"><?php echo esc_html__('CPF/CNPJ', 'woocommerce-mercadopago'); ?> <em>*</em></label>
-							<input type="text" class="mp-form-control" value="<?php echo esc_textarea($febraban['docNumber']); ?>" id="mp_doc_number" data-checkout="mp_doc_number" name="mercadopago_ticket[docNumber]" onkeyup="mpMaskInput(this, mpCpfCnpj);" maxlength="18">
-							<span class="mp-erro_febraban" data-main="#mp_doc_number"><?php echo esc_html__('You must provide your document number', 'woocommerce-mercadopago'); ?></span>
-							<span class="mp_error_docnumber" id="mp_error_docnumber"><?php echo esc_html__('Invalid Document Number', 'woocommerce-mercadopago'); ?></span>
+							<label for="cpfcnpj" id="mp_cpf_cnpj_label" class="mp-label-form title-cpf"><?php echo esc_html__( 'CPF/CNPJ', 'woocommerce-mercadopago' ); ?> <em>*</em></label>
+							<input type="text" class="mp-form-control" value="<?php echo esc_textarea( $febraban['docNumber'] ); ?>" id="mp_doc_number" data-checkout="mp_doc_number" name="mercadopago_ticket[docNumber]" onkeyup="mpMaskInput(this, mpCpfCnpj);" maxlength="18">
+							<span class="mp-erro_febraban" data-main="#mp_doc_number"><?php echo esc_html__( 'You must provide your document number', 'woocommerce-mercadopago' ); ?></span>
+							<span class="mp_error_docnumber" id="mp_error_docnumber"><?php echo esc_html__( 'Invalid Document Number', 'woocommerce-mercadopago' ); ?></span>
 						</div>
 					<?php endif; ?>
 				</div>
@@ -131,9 +134,9 @@ if ( ! defined('ABSPATH') ) {
 
 		<!-- utilities -->
 		<div id="mercadopago-utilities">
-			<input type="hidden" id="site_id" value="<?php echo esc_textarea($site_id); ?>" name="mercadopago_ticket[site_id]" />
-			<input type="hidden" id="amountTicket" value="<?php echo esc_textarea($amount); ?>" name="mercadopago_ticket[amount]" />
-			<input type="hidden" id="currency_ratioTicket" value="<?php echo esc_textarea($currency_ratio); ?>" name="mercadopago_ticket[currency_ratio]" />
+			<input type="hidden" id="site_id" value="<?php echo esc_textarea( $site_id ); ?>" name="mercadopago_ticket[site_id]" />
+			<input type="hidden" id="amountTicket" value="<?php echo esc_textarea( $amount ); ?>" name="mercadopago_ticket[amount]" />
+			<input type="hidden" id="currency_ratioTicket" value="<?php echo esc_textarea( $currency_ratio ); ?>" name="mercadopago_ticket[currency_ratio]" />
 			<input type="hidden" id="campaign_idTicket" name="mercadopago_ticket[campaign_id]" />
 			<input type="hidden" id="campaignTicket" name="mercadopago_ticket[campaign]" />
 			<input type="hidden" id="discountTicket" name="mercadopago_ticket[discount]" />
@@ -145,8 +148,8 @@ if ( ! defined('ABSPATH') ) {
 <!-- Terms and conditions link at checkout -->
 <div>
 	<p class="mp-terms-and-conditions">
-		<?php echo esc_html($text_prefix); ?>
-		<a target="_blank" href="<?php echo esc_html($link_terms_and_conditions); ?>"> <?php echo esc_html($text_suffix); ?> </a>
+		<?php echo esc_html( $text_prefix ); ?>
+		<a target="_blank" href="<?php echo esc_html( $link_terms_and_conditions ); ?>"> <?php echo esc_html( $text_suffix ); ?> </a>
 	</p>
 </div>
 
