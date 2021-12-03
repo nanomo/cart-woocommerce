@@ -86,27 +86,39 @@ if (!defined('ABSPATH')) {
 	<hr class="mp-settings-hr" />
 	<div class="mp-settings-credentials">
 		<div>
-			<p class="mp-settings-font-color mp-settings-title-blocks">1. Insira suas credenciais</p>
-			<p class="mp-settings-subtitle">Insira as credenciais e habilite sua loja para testes e vendas</p>
-		</div>
-		<div>
-			<p class="mp-settings-title">Não sabe suas credenciais?</p>
-			<p class="mp-settings-subtitle">Você pode conferir suas credenciais na sua conta de vendedor do Mercado.</p>
-			<button class="mp-button"> Conferir credenciais </button>
+			<p class="mp-settings-font-color mp-settings-title-blocks">1. Integre a loja com o Mercado Pago</p>
+			<div class="mp-settings-margin-right">
+			<p class="mp-settings-subtitle-font-size">Para habilitar e testar e vendas, você deve <b>copiar e colar suas credenciais abaixo.</b></p>
+			<button class="mp-button mp-button-light-blue"> Consultar credenciais </button>
 		</div>
 		<div class="mp-container">
-			<div class="mp-block mp-block-flex mp-settings-margin-right">
-				<p class="mp-settings-title">Credenciais de teste</p>
-				<p class="mp-settings-subtitle">Com estas credenciais, você habilita seus checkouts Mercado Pago para poder testar compras na sua loja. </p>
-			</div>
-			<div class="mp-block mp-block-flex mp-settings-margin-left">
-				<p class="mp-settings-title">Credenciais de produção</p>
-				<p class="mp-settings-subtitle">Com estas credenciais, você habilita seus checkouts Mercado Pago para receber pagamentos reais na sua loja.</p>
-			</div>
+		<div class="mp-block mp-block-flex mp-settings-margin-right">
+			<p class="mp-settings-title-font-size"><b>Credenciais de teste</b></p>
+			<p class="mp-settings-label">Habilitam os checkouts Mercado Pago para testes de compras na loja.</p>
+			<fieldset>
+				<legend clas="mp-settings-label">Public Key</legend>
+				<input class="mp-settings-input" type="text" placeholder="Cole aqui sua Public Key">
+			</fieldset>
+			<fieldset>
+			<legend clas="mp-settings-label">Access token</legend>
+				<input class="mp-settings-input" type="text" placeholder="Cole aqui seu Access Token">
+			</fieldset>
+		</div>
+		<div class="mp-block mp-block-flex mp-settings-margin-left">
+			<p class="mp-settings-title-font-size"><b>Credenciais de produção</b></p>
+			<p class="mp-settings-label">Habilitam os checkouts Mercado Pago para receber pagamentos reais na loja.</p>
+			<fieldset>
+			<legend clas="mp-settings-label">Public Key</legend>
+				<input class="mp-settings-input" type="text" placeholder="Cole aqui seu Access Token">
+			</fieldset>
+			<fieldset>
+			<legend clas="mp-settings-label">Access token</legend>
+			<input class="mp-settings-input" type="text" placeholder="Cole aqui seu Access Token">
+			</fieldset>
+		</div>
 		</div>
 		<button class="mp-button"> Salvar e continuar </button>
 	</div>
-	<div>
 
 		<p class="mp-settings-font-color mp-settings-title-blocks">2. Personalize seu negócio</p>
 		<p class="mp-settings-font-color mp-settings-subtitle-font-size mp-settings-title-color">Preencha as informações a seguir para ter uma melhor experiência e oferecer mais informações aos clientes</p>

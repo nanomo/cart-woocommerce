@@ -1,4 +1,4 @@
-.mp-settings{
+.mp-settings {
 	margin: 0 55px 0 23px;
 }
 .mp-settings-header {
@@ -118,6 +118,7 @@
 	padding: 9px 12px 7px;
 	background: #009ee3;
 	border-radius: 5px;
+	margin: 15px 0px 15px 0px;
 }
 .mp-button-light-blue {
 	background: rgba(71, 154, 209, 0.15);
@@ -170,11 +171,10 @@
 }
 .mp-settings-label {
 	padding-inline-start: unset;
-    padding-inline-end: unset;
+	padding-inline-end: unset;
 	font-family: sans-serif;
 	font-size: 14px;
 	line-height: 18px;
-	text-indent: 6px;
 	color: rgba(0, 0, 0, 0.9);
 	padding: 0;
 	margin: 0;
