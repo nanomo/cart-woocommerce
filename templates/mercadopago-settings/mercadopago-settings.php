@@ -86,17 +86,20 @@ if (!defined('ABSPATH')) {
 	<hr class="mp-settings-hr" />
 	<div class="mp-settings-credentials">
 		<div>
-			<p class="mp-settings-font-color mp-settings-title-blocks">1. Integre a loja com o Mercado Pago</p>
+			<div class="mp-settings-align-div">
+				<span class="mp-settings-font-color mp-settings-title-blocks">1. Integre a loja com o Mercado Pago</span>
+				<img src="<?php echo esc_url(plugins_url('../assets/images/mercadopago-settings/icon-open.png', plugin_dir_path(__FILE__))); ?>">
+			</div>
 			<div class="mp-settings-margin-right">
-				<p class="mp-settings-subtitle-font-size">Para habilitar e testar e vendas, você deve <b>copiar e colar suas credenciais abaixo.</b></p>
+				<p class="mp-settings-subtitle-font-size mp-settings-title-color">Para habilitar e testar e vendas, você deve <b>copiar e colar suas credenciais abaixo.</b></p>
 				<button class="mp-button mp-button-light-blue"> Consultar credenciais </button>
 			</div>
 			<div class="mp-container">
 				<div class="mp-block mp-block-flex mp-settings-margin-right">
 					<p class="mp-settings-title-font-size"><b>Credenciais de teste</b></p>
-					<p class="mp-settings-label">Habilitam os checkouts Mercado Pago para testes de compras na loja.</p>
-					<fieldset>
-						<legend clas="mp-settings-label">Public Key</legend>
+					<p class="mp-settings-label mp-settings-title-color mp-settings-margin-bottom">Habilitam os checkouts Mercado Pago para testes de compras na loja.</p>
+					<fieldset class="mp-settings-fieldset">
+						<legend clas="mp-settings-label mp-settings-font-color">Public Key</legend>
 						<input class="mp-settings-input" type="text" placeholder="Cole aqui sua Public Key">
 					</fieldset>
 					<fieldset>
@@ -106,8 +109,8 @@ if (!defined('ABSPATH')) {
 				</div>
 				<div class="mp-block mp-block-flex mp-settings-margin-left">
 					<p class="mp-settings-title-font-size"><b>Credenciais de produção</b></p>
-					<p class="mp-settings-label">Habilitam os checkouts Mercado Pago para receber pagamentos reais na loja.</p>
-					<fieldset>
+					<p class="mp-settings-label mp-settings-title-color mp-settings-margin-bottom">Habilitam os checkouts Mercado Pago para receber pagamentos reais na loja.</p>
+					<fieldset class="mp-settings-fieldset">
 						<legend clas="mp-settings-label">Public Key</legend>
 						<input class="mp-settings-input" type="text" placeholder="Cole aqui seu Access Token">
 					</fieldset>
@@ -122,7 +125,10 @@ if (!defined('ABSPATH')) {
 	</div>
 	<hr class="mp-settings-hr" />
 	<div class="mp-settings-credentials">
-		<p class="mp-settings-font-color mp-settings-title-blocks">2. Personalize seu negócio</p>
+		<div class="mp-settings-align-div">
+			<span class="mp-settings-font-color mp-settings-title-blocks">2. Personalize seu negócio</span>
+			<img  src="<?php echo esc_url(plugins_url('../assets/images/mercadopago-settings/icon-open.png', plugin_dir_path(__FILE__))); ?>">
+		</div>
 		<p class="mp-settings-font-color mp-settings-subtitle-font-size mp-settings-title-color">Preencha as informações a seguir para ter uma melhor experiência e oferecer mais informações aos clientes</p>
 		<div class="mp-container">
 			<div class="mp-block mp-block-flex mp-settings-margin-right" style="flex-direction:column; justify-content:space-between">
@@ -195,10 +201,10 @@ if (!defined('ABSPATH')) {
 							<!-- Rounded switch -->
 							<div>
 
-								<label class="mp-settings-switch">
+								<legend class="mp-settings-switch">
 									<input type="checkbox">
 									<span class="mp-settings-slider mp-settings-round"></span>
-								</label>
+								</legend>
 							</div>
 							<div class="mp-settings-margin-left">
 								<p class="mp-settings-subtitle-font-size mp-settings-debug">
@@ -218,49 +224,67 @@ if (!defined('ABSPATH')) {
 	<hr class="mp-settings-hr" />
 	<div class="mp-settings-payment">
 		<div>
-			<p class="mp-settings-font-color mp-settings-title-blocks">3. Configure os meios de pagamento</p>
+			<div class="mp-settings-align-div">
+				<span class="mp-settings-font-color mp-settings-title-blocks">3. Configure os meios de pagamento</span>
+				<img  src="<?php echo esc_url(plugins_url('../assets/images/mercadopago-settings/icon-open.png', plugin_dir_path(__FILE__))); ?>">
+			</div>
 			<p class="mp-settings-subtitle-font-size">Selecione um meio de pagamento a seguir para ver mais opções</p>
 		</div>
 
 		<div class="mp-block mp-block-flex mp-settings-payment-block mp-settings-margin-right">
-			<img class="" src="<?php echo esc_url(plugins_url('../assets/images/mercadopago-settings/icon-mp.png', plugin_dir_path(__FILE__))); ?>">
-			<span class="mp-settings-subtitle-font-size">Checkout Pro - Pix, débito, crédito e boleto, no ambiente do Mercado Pago</span>
-			<span class="mp-settings-badge-active">Ativado</span>
-			<span class="">Configurar</span>
-			<img class="" src="<?php echo esc_url(plugins_url('../assets/images/mercadopago-settings/icon-config.png', plugin_dir_path(__FILE__))); ?>">
+			<div class="mp-settings-align-div mp-block-flex">
+				<img src="<?php echo esc_url(plugins_url('../assets/images/mercadopago-settings/icon-mp.png', plugin_dir_path(__FILE__))); ?>">
+				<span class="mp-settings-subtitle-font-size mp-settings-margin-title-payment"><b>Checkout Pro</b> - Pix, débito, crédito e boleto, no ambiente do Mercado Pago</span>
+				<span class="mp-settings-badge-active">Ativado</span>
+			</div>
+			<div class="mp-settings-align-div">
+				<span class="mp-settings-text-payment">Configurar</span>
+				<img src="<?php echo esc_url(plugins_url('../assets/images/mercadopago-settings/icon-config.png', plugin_dir_path(__FILE__))); ?>">
+			</div>
 		</div>
 
 		<div class="mp-block mp-block-flex mp-settings-payment-block mp-settings-margin-right">
-			<img class="" src="<?php echo esc_url(plugins_url('../assets/images/mercadopago-settings/icon-card.png', plugin_dir_path(__FILE__))); ?>">
-			<span class="mp-settings-subtitle-font-size">Débito e crédito - Checkout Transparente, no ambiente da sua loja</span>
+		<div class="mp-settings-align-div mp-block-flex">
+			<img src="<?php echo esc_url(plugins_url('../assets/images/mercadopago-settings/icon-card.png', plugin_dir_path(__FILE__))); ?>">
+			<span class="mp-settings-subtitle-font-size mp-settings-margin-title-payment"><b>Débito e crédito</b> - Checkout Transparente, no ambiente da sua loja</span>
 			<span class="mp-settings-badge-active">Ativado</span>
-			<span class="">Configurar</span>
-			<img class="" src="<?php echo esc_url(plugins_url('../assets/images/mercadopago-settings/icon-config.png', plugin_dir_path(__FILE__))); ?>">
 		</div>
+		<div class="mp-settings-align-div">
+			<span class="mp-settings-text-payment">Configurar</span>
+			<img src="<?php echo esc_url(plugins_url('../assets/images/mercadopago-settings/icon-config.png', plugin_dir_path(__FILE__))); ?>">
+		</div>
+	</div>
 		<div class="mp-block mp-block-flex mp-settings-payment-block mp-settings-margin-right">
-			<img class="" src="<?php echo esc_url(plugins_url('../assets/images/mercadopago-settings/icon-code.png', plugin_dir_path(__FILE__))); ?>">
-			<span class="mp-settings-subtitle-font-size">Boleto e lotérica - Checkout Transparente, no ambiente da sua loja</span>
-			<span class="mp-settings-badge-inactive">Ativado</span>
-			<span class="">Configurar</span>
+		<div class="mp-settings-align-div mp-block-flex">
+			<img src="<?php echo esc_url(plugins_url('../assets/images/mercadopago-settings/icon-code.png', plugin_dir_path(__FILE__))); ?>">
+			<span class="mp-settings-subtitle-font-size mp-settings-margin-title-payment"><b>Boleto e lotérica</b> - Checkout Transparente, no ambiente da sua loja</span>
+			<span class="mp-settings-badge-inactive">Inativo</span>
+		</div>
+		<div class="mp-settings-align-div">
+			<span class="mp-settings-text-payment">Configurar</span>
 			<img class="" src="<?php echo esc_url(plugins_url('../assets/images/mercadopago-settings/icon-config.png', plugin_dir_path(__FILE__))); ?>">
 		</div>
-		<div class="mp-block mp-block-flex mp-settings-payment-block mp-settings-margin-right">
-			<img class="" src="<?php echo esc_url(plugins_url('../assets/images/mercadopago-settings/icon-pix.png', plugin_dir_path(__FILE__))); ?>">
-			<span class="mp-settings-subtitle-font-size">Pix - Checkout Transparente, no ambiente da sua loja</span>
-			<span class="mp-settings-badge-inactive">Ativado</span>
-			<span class="">Configurar</span>
+	</div>
+		<div class="mp-block mp-block-flex mp-settings-payment-block mp-settings-margin-right mp-settings-border-bottom-payment">
+		<div class="mp-settings-align-div mp-block-flex">
+			<img src="<?php echo esc_url(plugins_url('../assets/images/mercadopago-settings/icon-pix.png', plugin_dir_path(__FILE__))); ?>">
+			<span class="mp-settings-subtitle-font-size mp-settings-margin-title-payment"><b>Pix</b> - Checkout Transparente, no ambiente da sua loja</span>
+			<span class="mp-settings-badge-inactive">Inativo</span>
+		</div>
+		<div class="mp-settings-align-div">
+			<span class="mp-settings-text-payment">Configurar</span>
 			<img class="" src="<?php echo esc_url(plugins_url('../assets/images/mercadopago-settings/icon-config.png', plugin_dir_path(__FILE__))); ?>">
 		</div>
+</div>
 
 		<button class="mp-button"> Continuar </button>
 	</div>
 	<hr class="mp-settings-hr" />
 	<div class="mp-settings-credentials">
 		<div class="mp-container mp-settings-container-align">
-
-			<p class="mp-settings-font-color mp-settings-title-blocks mp-settings-margin-right">4. Teste sua loja antes de vender</p>
-
+				<span class="mp-settings-font-color mp-settings-title-blocks mp-settings-margin-right">4. Teste sua loja antes de vender</span>
 			<div class="mp-settings-test-mode-alert mp-settings-margin-left"><span>Loja em modo teste</span></div>
+			<img src="<?php echo esc_url(plugins_url('../assets/images/mercadopago-settings/icon-open.png', plugin_dir_path(__FILE__))); ?>">
 		</div>
 
 		<p class="mp-settings-font-color mp-settings-subtitle-font-size mp-settings-title-color">Teste a experiência no Modo Teste. Depois ative o Modo Vendas (Produção) para fazer vendas.</p>
