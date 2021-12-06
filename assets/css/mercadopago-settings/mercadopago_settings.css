@@ -170,13 +170,89 @@
 	margin-left: 8px;
 }
 .mp-settings-label {
-	padding-inline-start: unset;
-	padding-inline-end: unset;
 	font-family: sans-serif;
 	font-size: 14px;
 	line-height: 18px;
 	color: rgba(0, 0, 0, 0.9);
-	padding: 0;
+	margin: 4px 4px;
+}
+.mp-settings-helper {
+	font-family: sans-serif;
+	position: static;
+	width: 532px;
+	height: 18px;
+	left: calc(50% - 532px/2);
+	top: 0px;;
+	font-size: 13px;
+	line-height: 18px;
+	color: rgba(0, 0, 0, 0.55);
+	margin: 0px 6px 10px;
+}
+.mp-settings-standard-margin {
+	margin: 0px 0px 24px;
+}
+.mp-settings-blue-text {
+	color: rgba(0, 158, 227, 1)
+}
+.mp-settings-switch {
+	position: relative;
+	display: inline-block;
+	width: 40px;
+	height: 24px;
+  }
+
+  .mp-settings-switch input {
+	opacity: 0;
+	width: 0;
+	height: 0;
+  }
+.mp-settings-slider {
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #ccc;
+	-webkit-transition: .4s;
+	transition: .4s;
+  }
+
+  .mp-settings-slider:before {
+	position: absolute;
+	content: "";
+	height: 20px;
+	width: 20px;
+	left: 2px;
+	bottom: 2px;
+	background-color: white;
+	-webkit-transition: .4s;
+	transition: .4s;
+  }
+
+  input:checked + .mp-settings-slider {
+	background-color: #2196F3;
+  }
+
+  input:focus + .mp-settings-slider {
+	box-shadow: 0 0 1px #2196F3;
+  }
+
+  input:checked + .mp-settings-slider:before {
+	-webkit-transform: translateX(16px);
+	-ms-transform: translateX(16px);
+	transform: translateX(16px);
+  }
+
+  /* Rounded sliders */
+  .mp-settings-slider.mp-settings-round {
+	border-radius: 34px;
+  }
+
+  .mp-settings-slider.mp-settings-round:before {
+	border-radius: 50%;
+  }
+.mp-settings-debug {
 	margin: 0;
 }
 .mp-settings-payment-block {
@@ -214,4 +290,37 @@
 	align-items: center;
 	text-align: center;
 	color: rgba(0, 0, 0, 0.55);
+}
+.mp-settings-test-mode-alert {
+
+justify-content: center;
+align-items: center;
+padding: 7px 8px 5px;
+width: 128px;
+height:24px;
+
+position: static;
+width: 124px;
+left: calc(50% - 124px/2);
+top: 0%;
+bottom: 0%;
+
+/* Extended palette/andes-orange-100 */
+
+background: rgba(255, 119, 51, 0.1);
+border-radius: 12px;
+font-family: sans-serif;
+font-size: 12px;
+line-height: 12px;
+/* identical to box height, or 100% */
+
+display: flex;
+align-items: center;
+text-align: center;
+color: #FF7733;
+}
+
+.mp-settings-container-align {
+	align-items: center;
+	margin-top: 0;
 }
