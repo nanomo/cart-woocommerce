@@ -345,3 +345,32 @@ input:checked + .mp-settings-slider:before {
 .mp-settings-border-bottom-payment {
 	border-bottom: unset;
 }
+.mp-settings-helper-payment-methods {
+	padding: 0px 16px 0px 14px;
+	margin: unset;
+}
+
+.mp-settings-radio-button {
+	max-width: 16px;
+	max-height: 16px;
+}
+.mp-settings-alert-payment-methods {
+	display: flex;
+	align-items: flex-start;
+	margin-top: 22px;
+}
+
+.mp-settings-alert-payment-methods-orange {
+	width: 6px;
+	background-color: #ff7733;
+	height: 72px;
+	border-radius: 6px 0 0 6px;
+}
+.mp-settings-alert-payment-methods-gray {
+	border-radius: 0 6px 6px 0;
+	width: 533px;
+	background: rgba(0, 0, 0, 0.04);
+	height: 72px;
+	display: flex;
+	align-items: center;
+}
