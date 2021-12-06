@@ -23,66 +23,69 @@ if (!defined('ABSPATH')) {
 		<p>Aceite <b>pagamentos no ato</b> com<br />
 			toda a <b>segurança</b> Mercado Pago</p>
 	</div>
-	<div class="mp-container">
-		<div class="mp-block mp-block-requirements mp-settings-margin-right">
-			<p class="mp-settings-font-color mp-settings-title-requirements-font-size">Requisitos técnicos</p>
-			<div class="mp-inner-container">
-				<div>
-					<p class="mp-settings-font-color mp-settings-subtitle-font-size">SSL</p>
-					<img class="mp-icon" src="<?php echo esc_url(plugins_url('../assets/images/mercadopago-settings/icon-info.png', plugin_dir_path(__FILE__))); ?>">
+	<div class="mp-settings-requirements">
+		<div class="mp-container">
+			<div class="mp-block mp-block-requirements mp-settings-margin-right">
+				<p class="mp-settings-font-color mp-settings-title-requirements-font-size">Requisitos técnicos</p>
+				<div class="mp-inner-container">
+					<div>
+						<p class="mp-settings-font-color mp-settings-subtitle-font-size">SSL</p>
+						<img class="mp-icon" src="<?php echo esc_url(plugins_url('../assets/images/mercadopago-settings/icon-info.png', plugin_dir_path(__FILE__))); ?>">
+					</div>
+					<div>
+						<img class="mp-credential-input-success">
+					</div>
 				</div>
-				<div>
-					<img class="mp-credential-input-success">
+				<hr>
+				<div class="mp-inner-container">
+					<div>
+						<p class="mp-settings-font-color mp-settings-subtitle-font-size">Extensões GD</p>
+						<img class="mp-icon" src="<?php echo esc_url(plugins_url('../assets/images/mercadopago-settings/icon-info.png', plugin_dir_path(__FILE__))); ?>">
+					</div>
+					<div>
+						<img class="mp-credential-input-success">
+					</div>
 				</div>
-			</div>
-			<hr>
-			<div class="mp-inner-container">
-				<div>
-					<p class="mp-settings-font-color mp-settings-subtitle-font-size">Extensões GD</p>
-					<img class="mp-icon" src="<?php echo esc_url(plugins_url('../assets/images/mercadopago-settings/icon-info.png', plugin_dir_path(__FILE__))); ?>">
-				</div>
-				<div>
-					<img class="mp-credential-input-success">
-				</div>
-			</div>
-			<hr>
-			<div class="mp-inner-container">
-				<div>
-					<p class="mp-settings-font-color mp-settings-subtitle-font-size">Curl</p>
-					<img class="mp-icon" src="<?php echo esc_url(plugins_url('../assets/images/mercadopago-settings/icon-info.png', plugin_dir_path(__FILE__))); ?>">
-				</div>
-				<div>
-					<img class="mp-credential-input-success">
-				</div>
-			</div>
-		</div>
-		<div class="mp-block mp-block-flex mp-settings-margin-left mp-settings-margin-right">
-			<div class="mp-inner-container-settings">
-				<div>
-					<p class="mp-settings-font-color mp-settings-title-font-size">Recebimentos e parcelamento</p>
-					<p class="mp-settings-font-color mp-settings-subtitle-font-size mp-settings-title-color">Escolha <b>quando quer receber o dinheiro</b> das vendas e se quer oferecer
-						<b>parcelamento sem
-							juros</b> aos clientes.
-					</p>
-				</div>
-				<div>
-					<button class="mp-button">Ajustar prazos e taxas </button>
+				<hr>
+				<div class="mp-inner-container">
+					<div>
+						<p class="mp-settings-font-color mp-settings-subtitle-font-size">Curl</p>
+						<img class="mp-icon" src="<?php echo esc_url(plugins_url('../assets/images/mercadopago-settings/icon-info.png', plugin_dir_path(__FILE__))); ?>">
+					</div>
+					<div>
+						<img class="mp-credential-input-success">
+					</div>
 				</div>
 			</div>
-		</div>
-		<div class="mp-block mp-block-flex mp-block-manual mp-settings-margin-left">
-			<div class="mp-inner-container-settings">
-				<div>
-					<p class="mp-settings-font-color mp-settings-title-font-size">Dúvidas?</p>
-					<p class="mp-settings-font-color mp-settings-subtitle-font-size mp-settings-title-color">Revise o passo a passo de <span>como integrar o Plugin do Mercado Pago</span> no nosso site de
-						desenvolvedores. </p>
+			<div class="mp-block mp-block-flex mp-settings-margin-left mp-settings-margin-right">
+				<div class="mp-inner-container-settings">
+					<div>
+						<p class="mp-settings-font-color mp-settings-title-font-size">Recebimentos e parcelamento</p>
+						<p class="mp-settings-font-color mp-settings-subtitle-font-size mp-settings-title-color">Escolha <b>quando quer receber o dinheiro</b> das vendas e se quer oferecer
+							<b>parcelamento sem
+								juros</b> aos clientes.
+						</p>
+					</div>
+					<div>
+						<button class="mp-button">Ajustar prazos e taxas </button>
+					</div>
 				</div>
-				<div>
-					<button class="mp-button mp-button-light-blue"> Manual do plugin </button>
+			</div>
+			<div class="mp-block mp-block-flex mp-block-manual mp-settings-margin-left">
+				<div class="mp-inner-container-settings">
+					<div>
+						<p class="mp-settings-font-color mp-settings-title-font-size">Dúvidas?</p>
+						<p class="mp-settings-font-color mp-settings-subtitle-font-size mp-settings-title-color">Revise o passo a passo de <span>como integrar o Plugin do Mercado Pago</span> no nosso site de
+							desenvolvedores. </p>
+					</div>
+					<div>
+						<button class="mp-button mp-button-light-blue"> Manual do plugin </button>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+
 	<hr class="mp-settings-hr" />
 	<div class="mp-settings-credentials">
 		<div>
@@ -120,8 +123,9 @@ if (!defined('ABSPATH')) {
 			<button class="mp-button"> Salvar e continuar </button>
 		</div>
 	</div>
+	
 	<hr class="mp-settings-hr" />
-	<div class="mp-settings-credentials">
+	<div class="mp-settings-customize">
 		<p class="mp-settings-font-color mp-settings-title-blocks">2. Personalize seu negócio</p>
 		<p class="mp-settings-font-color mp-settings-subtitle-font-size mp-settings-title-color">Preencha as informações a seguir para ter uma melhor experiência e oferecer mais informações aos clientes</p>
 		<div class="mp-container">
@@ -254,52 +258,68 @@ if (!defined('ABSPATH')) {
 
 		<button class="mp-button"> Continuar </button>
 	</div>
+
 	<hr class="mp-settings-hr" />
-	<div class="mp-settings-credentials">
-		<div class="mp-container mp-settings-container-align">
-
-			<p class="mp-settings-font-color mp-settings-title-blocks mp-settings-margin-right">4. Teste sua loja antes de vender</p>
-
-			<div class="mp-settings-test-mode-alert mp-settings-margin-left"><span>Loja em modo teste</span></div>
+	<div class="mp-settings-payment">
+		<div class="mp-container">
+			<span class="mp-settings-font-color mp-settings-title-blocks mp-settings-margin-right">4. Teste sua loja antes de vender</span>
+			<span class="mp-settings-test-mode-alert mp-settings-margin-left">Loja em modo teste</span>
 		</div>
-
+		<div>
+			<p class="mp-settings-subtitle-font-size">Selecione um meio de pagamento a seguir para ver mais opções</p>
+		</div>
 		<p class="mp-settings-font-color mp-settings-subtitle-font-size mp-settings-title-color">Teste a experiência no Modo Teste. Depois ative o Modo Vendas (Produção) para fazer vendas.</p>
-		<div class="mp-container mp-settings-payment-block">
-			<div class="mp-block mp-block-flex mp-settings-margin-right" style="flex-direction:column; justify-content:space-between">
+
+		<div class="mp-container">
+			<div class="mp-block mp-block-flex" style="flex-direction:column; justify-content:space-between">
 				<div>
 					<p class="mp-settings-title-font-size"><b>Escolha como você quer operar sua loja:</b></p>
 				</div>
-				<div class="mp-container">
+				<div class="mp-container" style="margin-top: 20px;">
 					<div>
-						<input type="radio">
+						<input type="radio" class="mp-settings-radio-button">
 					</div>
 					<div>
-						<span class="mp-settings-font-color mp-settings-subtitle-font-size mp-settings-font-color"><b>Modo Teste</b></span><br>
+						<span class="mp-settings-font-color mp-settings-subtitle-font-size mp-settings-font-color">Modo Teste</span><br>
 
-						<span class="mp-settings-font-color mp-settings-subtitle-font-size mp-settings-title-color">Checkouts Mercado Pago inativos para cobranças reais.<span class="mp-settings-blue-text"> Regras do modo teste.<span></span>
+						<span class="mp-settings-font-color mp-settings-subtitle-font-size mp-settings-title-color">Checkouts Mercado Pago inativos para cobranças reais.<span class="mp-settings-blue-text">Regras do modo teste.<span></span>
 					</div>
 				</div>
-				<div class="mp-container">
+				<div class="mp-container mp-settings-margin-right" style="margin-top: 20px;">
 					<div>
-						<input type="radio">
+						<input type="radio" class="mp-settings-radio-button">
 					</div>
 					<div>
-						<span class="mp-settings-font-color mp-settings-subtitle-font-size mp-settings-font-color"><b>Modo Teste</b></span><br>
+						<span class="mp-settings-font-color mp-settings-subtitle-font-size mp-settings-font-color">Modo Vendas (Produção)</span><br>
 
-						<span class="mp-settings-font-color mp-settings-subtitle-font-size mp-settings-title-color">Checkouts Mercado Pago ativos para cobranças reais.</span>
+						<span class="mp-settings-font-color mp-settings-subtitle-font-size mp-settings-title-color">Mercado Pago ativos para cobranças reais.</span>
 					</div>
 				</div>
-				<div style="display:inline-block;">
-					<div style="width: 6px; background-color: #FF7733; height:40px; position:absolute; border-radius:6px 0 0 6px;">
+				<div class="mp-settings-alert-payment-methods">
+					<div class="mp-settings-alert-payment-methods-orange">
+					</div>
+					<div class="mp-settings-helper-payment-methods mp-settings-alert-payment-methods-gray">
+						<div style="width: 40px; height:40px; background:rgba(0, 0, 0, 0.04);" class="mp-settings-margin-right">
 
+						</div>
+						<div style="display:flex; flex-direction:column; justify-content:flex-start;">
+							<div class="mp-settings-margin-left">
+								<div>
+									<span class="mp-settings-font-color mp-settings-subtitle-font-size mp-settings-font-color">Meios de pagamento Mercado Pago em Modo Teste </span>
+								</div>
+								<div>
+									<span class="mp-settings-font-color mp-settings-font-color"><span class="mp-settings-blue-text">Visite sua loja</span> para testar compras </span>
+								</div>
+							</div>
+
+						</div>
 					</div>
-					<div style="width: 300px; background: rgba(0, 0, 0, 0.04); height:40px; position:relative;
-  left: 6px;"> <div> <div></div></div><span>Meios de pagamento Mercado Pago em Modo Teste </span>
-					</div>
+
 				</div>
-
 			</div>
-		</div>
-	</div>
 
+		</div>
+		<button class="mp-button"> Salvar Mudanças </button>
+
+	</div>
 </div>
