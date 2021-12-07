@@ -17,7 +17,7 @@ if ( ! defined('ABSPATH') ) {
 
 <div class="mp-settings">
 	<div class="mp-settings-header">
-		<img class="mp-settings-header-img" src="<?php echo esc_url(plugins_url('../assets/images/mercadopago-settings/header-settings.png', plugin_dir_path(__FILE__))); ?>">
+		<img class="mp-settings-header-img">
 		<img class="mp-settings-header-logo" src="<?php echo esc_url(plugins_url('../assets/images/mercadopago-settings/mercadopago-logo.png', plugin_dir_path(__FILE__))); ?>">
 		<hr class="mp-settings-header-hr" />
 		<p>Aceite <b>pagamentos no ato</b> com<br />
@@ -103,11 +103,11 @@ if ( ! defined('ABSPATH') ) {
 					<p class="mp-settings-label mp-settings-title-color mp-settings-margin-bottom">Habilitam os checkouts Mercado Pago para testes de compras na loja.</p>
 					<fieldset class="mp-settings-fieldset">
 						<legend clas="mp-settings-label mp-settings-font-color">Public Key</legend>
-						<input class="mp-settings-input" type="text" placeholder="Cole aqui sua Public Key">
+						<input class="mp-settings-input mp-credential-feedback-positive" type="text" placeholder="Cole aqui sua Public Key">
 					</fieldset>
 					<fieldset>
 						<legend clas="mp-settings-label">Access token</legend>
-						<input class="mp-settings-input" type="text" placeholder="Cole aqui seu Access Token">
+						<input class="mp-settings-input mp-credential-feedback-positive" type="text" placeholder="Cole aqui seu Access Token">
 					</fieldset>
 				</div>
 				<div class="mp-block mp-block-flex mp-settings-margin-left">
@@ -115,11 +115,11 @@ if ( ! defined('ABSPATH') ) {
 					<p class="mp-settings-label mp-settings-title-color mp-settings-margin-bottom">Habilitam os checkouts Mercado Pago para receber pagamentos reais na loja.</p>
 					<fieldset class="mp-settings-fieldset">
 						<legend clas="mp-settings-label">Public Key</legend>
-						<input class="mp-settings-input" type="text" placeholder="Cole aqui seu Access Token">
+						<input class="mp-settings-input mp-credential-feedback-negative" type="text" placeholder="Cole aqui seu Access Token">
 					</fieldset>
 					<fieldset>
 						<legend clas="mp-settings-label">Access token</legend>
-						<input class="mp-settings-input" type="text" placeholder="Cole aqui seu Access Token">
+						<input class="mp-settings-input mp-credential-feedback-negative" type="text" placeholder="Cole aqui seu Access Token">
 					</fieldset>
 				</div>
 			</div>
@@ -266,7 +266,7 @@ if ( ! defined('ABSPATH') ) {
 		</div>
 		<div class="mp-settings-align-div">
 			<span class="mp-settings-text-payment">Configurar</span>
-			<img class="" src="<?php echo esc_url(plugins_url('../assets/images/mercadopago-settings/icon-config.png', plugin_dir_path(__FILE__))); ?>">
+			<img src="<?php echo esc_url(plugins_url('../assets/images/mercadopago-settings/icon-config.png', plugin_dir_path(__FILE__))); ?>">
 		</div>
 	</div>
 		<div class="mp-block mp-block-flex mp-settings-payment-block mp-settings-margin-right mp-settings-border-bottom-payment">

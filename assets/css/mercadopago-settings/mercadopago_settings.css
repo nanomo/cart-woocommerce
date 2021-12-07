@@ -1,5 +1,6 @@
 .mp-settings {
 	margin: 0 55px 0 23px;
+	font-size: 16px;
 }
 .mp-settings-header {
 	height: 340px;
@@ -7,8 +8,30 @@
 }
 .mp-settings-header-img {
 	position: absolute;
+	background-image: url("../../images/mercadopago-settings/header-settings.png");
+	height: 10%;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
 	width: 95%;
 	border-radius: 140px 170px 170px 0px;
+}
+@media (min-width: 600px) and (max-width: 992px) {
+	.mp-settings-header {
+		width: 95%;
+		height: 5%;
+	}
+	.mp-block-requirements {
+		flex-direction: column;
+		margin: 50px 0px 50px 0px;
+	}
+	.mp-container {
+		flex-direction: column;
+		margin: 50px 0px 50px 0px;
+	}
+	.mp-block {
+		margin: 50px 0px 50px 0px;
+	}
 }
 .mp-settings-header-logo {
 	position: relative;
@@ -31,7 +54,7 @@
 	position: relative;
 	top: 70px;
 	font-family: sans-serif;
-	font-size: 32px;
+	font-size: 2rem;
 	line-height: 36px;
 	color: #ffffff;
 	flex: none;
@@ -373,4 +396,16 @@ input:checked + .mp-settings-slider:before {
 	height: 72px;
 	display: flex;
 	align-items: center;
+}
+.mp-credential-feedback-positive {
+	background: url("../../images/mercadopago-settings/feedback-positive.png") 98%
+		50% no-repeat transparent;
+	background-size: 1rem;
+	padding-right: 30px !important;
+}
+.mp-credential-feedback-negative {
+	background: url("../../images/mercadopago-settings/feedback-negative.png") 98%
+		50% no-repeat transparent;
+	background-size: 1rem;
+	padding-right: 30px !important;
 }
