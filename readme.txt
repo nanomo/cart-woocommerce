@@ -33,6 +33,10 @@ Just focus on selling and **we'll take care of the security:** keep your store's
 
 Boost your sales with Mercado Pago payments for WooCommerce!
 
+### Sell more with the paid market
+
+[Leave your details](https://www.mercadopago.com.br/quero-usar/) to talk to our team of experts and understand how to sell more.
+
 == Screenshots ==
 
 1. RECEIVE THE MONEY FROM YOUR SALES ON THE SAME DAY
