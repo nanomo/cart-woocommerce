@@ -10,7 +10,7 @@
  * @package MercadoPago
  */
 
-if (!defined('ABSPATH')) {
+if ( ! defined('ABSPATH') ) {
 	exit;
 }
 ?>
@@ -33,7 +33,7 @@ if (!defined('ABSPATH')) {
 						<img class="mp-icon" src="<?php echo esc_url(plugins_url('../assets/images/mercadopago-settings/icon-info.png', plugin_dir_path(__FILE__))); ?>">
 					</div>
 					<div>
-						<img class="mp-credential-input-success">
+						<img class="mp-settings-icon-success">
 					</div>
 				</div>
 				<hr>
@@ -43,7 +43,7 @@ if (!defined('ABSPATH')) {
 						<img class="mp-icon" src="<?php echo esc_url(plugins_url('../assets/images/mercadopago-settings/icon-info.png', plugin_dir_path(__FILE__))); ?>">
 					</div>
 					<div>
-						<img class="mp-credential-input-success">
+						<img class="mp-settings-icon-success">
 					</div>
 				</div>
 				<hr>
@@ -53,7 +53,7 @@ if (!defined('ABSPATH')) {
 						<img class="mp-icon" src="<?php echo esc_url(plugins_url('../assets/images/mercadopago-settings/icon-info.png', plugin_dir_path(__FILE__))); ?>">
 					</div>
 					<div>
-						<img class="mp-credential-input-success">
+						<img class="mp-settings-icon-success">
 					</div>
 				</div>
 			</div>
@@ -88,19 +88,15 @@ if (!defined('ABSPATH')) {
 
 	<hr class="mp-settings-hr" />
 	<div class="mp-settings-credentials">
-		<div class="mp-settings-badge-spacing">
-			<div class="mp-settings-badge-align">
-				<div class="mp-settings-align-div">
-					<div><span class="mp-settings-font-color mp-settings-title-blocks mp-settings-margin-right">1. Integre a loja com o Mercado Pago</span></div>
-
-					<img class="mp-icon mp-settings-margin-left mp-settings-margin-right" src="<?php echo esc_url(plugins_url('../assets/images/mercadopago-settings/icon-info.png', plugin_dir_path(__FILE__))); ?>">
-				</div>
-			</div>
-
-			<div class="mp-settings-margin-left">
-				<img src="<?php echo esc_url(plugins_url('../assets/images/mercadopago-settings/icon-open.png', plugin_dir_path(__FILE__))); ?>">
-			</div>
+	<div class="mp-settings-title-align">
+		<div class="mp-settings-title-container">
+			<span class="mp-settings-font-color mp-settings-title-blocks mp-settings-margin-right">1. Integre a loja com o Mercado Pago</span>
+			<img class="mp-settings-margin-left mp-settings-margin-right mp-settings-icon-success">
 		</div>
+		<div class="mp-settings-title-container mp-settings-margin-left">
+				<img class="mp-settings-icon-open">
+		</div>
+	</div>
 		<div class="mp-settings-block-align-top">
 			<div>
 				<p class="mp-settings-subtitle-font-size mp-settings-title-color">Para habilitar e testar e vendas, você deve <b>copiar e colar suas credenciais abaixo.</b></p>
@@ -140,19 +136,15 @@ if (!defined('ABSPATH')) {
 
 	<hr class="mp-settings-hr" />
 	<div class="mp-settings-credentials">
-		<div class="mp-settings-badge-spacing">
-			<div class="mp-settings-badge-align">
-				<div class="mp-settings-align-div">
-					<div><span class="mp-settings-font-color mp-settings-title-blocks mp-settings-margin-right">2. Personalize seu negócio</span></div>
-
-					<img class="mp-icon mp-settings-margin-left mp-settings-margin-right" src="<?php echo esc_url(plugins_url('../assets/images/mercadopago-settings/icon-info.png', plugin_dir_path(__FILE__))); ?>">
-				</div>
-			</div>
-
-			<div class="mp-settings-margin-left">
-				<img src="<?php echo esc_url(plugins_url('../assets/images/mercadopago-settings/icon-open.png', plugin_dir_path(__FILE__))); ?>">
-			</div>
+	<div class="mp-settings-title-align">
+		<div class="mp-settings-title-container">
+				<span class="mp-settings-font-color mp-settings-title-blocks mp-settings-margin-right">2. Personalize seu negócio</span>
+				<img class="mp-settings-margin-left mp-settings-margin-right mp-settings-icon-success">
 		</div>
+		<div class="mp-settings-title-container mp-settings-margin-left">
+				<img class="mp-settings-icon-open">
+		</div>
+	</div>
 		<div class="mp-settings-block-align-top ">
 		<p class="mp-settings-font-color mp-settings-subtitle-font-size mp-settings-title-color">Preencha as informações a seguir para ter uma melhor experiência e oferecer mais informações aos clientes</p>
 		<div class="mp-container">
@@ -249,19 +241,16 @@ if (!defined('ABSPATH')) {
 
 	<hr class="mp-settings-hr" />
 	<div class="mp-settings-payment">
-		<div class="mp-settings-badge-spacing">
-			<div class="mp-settings-badge-align">
-				<div class="mp-settings-align-div">
-					<div><span class="mp-settings-font-color mp-settings-title-blocks mp-settings-margin-right">3. Configure os meios de pagamento</span></div>
-
-					<img class="mp-icon mp-settings-margin-left mp-settings-margin-right" src="<?php echo esc_url(plugins_url('../assets/images/mercadopago-settings/icon-info.png', plugin_dir_path(__FILE__))); ?>">
-				</div>
-			</div>
-
-			<div class="mp-settings-margin-left">
-				<img src="<?php echo esc_url(plugins_url('../assets/images/mercadopago-settings/icon-open.png', plugin_dir_path(__FILE__))); ?>">
-			</div>
+	<div class="mp-settings-title-align">
+		<div class="mp-settings-title-container">
+					<span class="mp-settings-font-color mp-settings-title-blocks mp-settings-margin-right">3. Configure os meios de pagamento</span>
+					<img class="mp-settings-margin-left mp-settings-margin-right mp-settings-icon-success">
 		</div>
+
+		<div class="mp-settings-title-container mp-settings-margin-left">
+				<img class="mp-settings-icon-open">
+		</div>
+	</div>
 		<div class="mp-settings-block-align-top">
 		<p class="mp-settings-subtitle-font-size">Selecione um meio de pagamento a seguir para ver mais opções</p>
 		<div class="mp-block mp-block-flex mp-settings-payment-block mp-settings-margin-right">
@@ -314,19 +303,13 @@ if (!defined('ABSPATH')) {
 	</div>
 	<hr class="mp-settings-hr" />
 	<div class="mp-settings-mode">
-		<div class="mp-settings-badge-spacing"">
-			<div class=" mp-settings-badge-align">
-			<div class="mp-settings-align-div">
-				<div><span class="mp-settings-font-color mp-settings-title-blocks mp-settings-margin-right">4. Teste sua loja antes de vender</span></div>
-			</div>
-
-			<div>
+	<div class="mp-settings-title-align">
+		<div class="mp-settings-title-container">
+				<span class="mp-settings-font-color mp-settings-title-blocks mp-settings-margin-right">4. Teste sua loja antes de vender</span>
 				<div class="mp-settings-test-mode-alert mp-settings-margin-left mp-settings-margin-right"><span>Loja em modo teste</span></div>
-			</div>
 		</div>
-
-		<div class="mp-settings-margin-left">
-			<img src="<?php echo esc_url(plugins_url('../assets/images/mercadopago-settings/icon-open.png', plugin_dir_path(__FILE__))); ?>">
+		<div class="mp-settings-title-container mp-settings-margin-left">
+				<img class="mp-settings-icon-open">
 		</div>
 	</div>
 	<div class="mp-settings-block-align-top ">

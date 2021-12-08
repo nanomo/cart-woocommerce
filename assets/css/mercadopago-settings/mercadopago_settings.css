@@ -1,37 +1,22 @@
 .mp-settings {
 	margin: 0 55px 0 23px;
 	font-size: 16px;
+	min-width: 550px;
 }
 .mp-settings-header {
 	height: 340px;
 	margin: 30px 0 15px 0;
+	position: relative;
 }
 .mp-settings-header-img {
 	position: absolute;
 	background-image: url("../../images/mercadopago-settings/header-settings.png");
-	height: 10%;
+	height: 100%;
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
 	width: 95%;
 	border-radius: 140px 170px 170px 0px;
-}
-@media (min-width: 600px) and (max-width: 992px) {
-	.mp-settings-header {
-		width: 95%;
-		height: 5%;
-	}
-	.mp-block-requirements {
-		flex-direction: column;
-		margin: 50px 0px 50px 0px;
-	}
-	.mp-container {
-		flex-direction: column;
-		margin: 50px 0px 50px 0px;
-	}
-	.mp-block {
-		margin: 50px 0px 50px 0px;
-	}
 }
 .mp-settings-header-logo {
 	position: relative;
@@ -62,6 +47,9 @@
 	margin: 16px 0px 0px 50px;
 }
 .mp-container {
+	display: flex;
+}
+.mp-settings-title-container {
 	display: flex;
 }
 .mp-block {
@@ -147,17 +135,29 @@
 	background: rgba(71, 154, 209, 0.15);
 	color: #009ee3;
 }
-.mp-credential-input-success {
-	background: url("../../images/icon-success.png") 98% 50% no-repeat transparent;
-	padding-right: 30px !important;
+.mp-settings-icon-success {
+	background: url("../../images/mercadopago-settings/icon-success.png") 98% 50%
+		no-repeat transparent;
+	padding-right: 16px !important;
+}
+.mp-settings-icon-warning {
+	background: url("../../images/mercadopago-settings/icon-warning.png") 98% 50%
+		no-repeat transparent;
+	padding-right: 16px !important;
+}
+.mp-settings-icon-open {
+	background: url("../../images/mercadopago-settings/icon-open.png") 98% 50%
+		no-repeat transparent;
+	padding-right: 16px !important;
 }
 .mp-icon {
 	width: 15.6px;
 	height: 15.6px;
 }
-.mp-credential-input-info {
-	background: url("../../images/icon_shape.png") 98% 50% no-repeat transparent;
-	padding-right: 30px !important;
+.mp-settings-icon-info {
+	background: url("../../images/mercadopago-settings/icon-info.png") 98% 50%
+		no-repeat transparent;
+	padding-right: 16px !important;
 }
 .mp-settings-hr {
 	position: static;
@@ -169,10 +169,8 @@
 	margin: 32px 0 32px;
 }
 .mp-settings-title-blocks {
-	width: 100%;
 	font-size: 28px;
 	line-height: 35px;
-	margin: 0px 0px 24px 0px;
 }
 .mp-settings-input {
 	width: 100%;
@@ -391,13 +389,13 @@ input:checked + .mp-settings-slider:before {
 	padding: 16px 16px 14px;
 	align-items: flex-start;
 }
-.mp-settings-alert-mode-body{
+.mp-settings-alert-mode-body {
 	font-family: sans-serif;
 	font-size: 14px;
 	line-height: 18px;
 	margin-top: 4px;
 }
-.mp-settings-alert-mode-title{
+.mp-settings-alert-mode-title {
 	font-family: sans-serif;
 	font-size: 16px;
 	line-height: 20px;
@@ -411,20 +409,13 @@ input:checked + .mp-settings-slider:before {
 .mp-settings-mode-spacing {
 	margin-right: 12px;
 }
-.mp-settings-badge-align {
-	display:flex;
-	flex-direction:row;
-	justify-content:flex-start;
+.mp-settings-title-align {
+	display: flex;
+	justify-content: space-between;
 }
-.mp-settings-badge-spacing {
-	display:flex;
-	justify-content:space-between;
-	margin: 0 0 16px;
-}
-.mp-icon-align{
+.mp-icon-align {
 	display: flex;
 	align-items: center;
-
 }
 .mp-settings-block-align-top {
 	padding-top: 8px;
@@ -440,4 +431,40 @@ input:checked + .mp-settings-slider:before {
 		50% no-repeat transparent;
 	background-size: 1rem;
 	padding-right: 30px !important;
+}
+@media screen and (max-width: 600px) {
+	.mp-settings-header-img {
+		height: 100%;
+		width: 95%;
+	}
+	.mp-block-requirements {
+		flex-direction: column;
+		margin: 10px 0px 10px 0px;
+		margin-right: unset;
+		margin-left: unset;
+	}
+	.mp-container {
+		flex-direction: column;
+		margin: 10px 0px 10px 0px;
+		margin-right: unset;
+		margin-left: unset;
+	}
+	.mp-block {
+		margin: 10px 0px 10px 0px;
+		margin-right: unset;
+		margin-left: unset;
+	}
+	.mp-settings-payment-block {
+		margin: unset;
+	}
+	.mp-settings-header {
+		height: 250px;
+	}
+	.mp-settings-header p {
+		top: 55px;
+		font-size: 1.25rem;
+	}
+	.mp-settings-title-blocks {
+		font-size: 1.25rem;
+	}
 }
