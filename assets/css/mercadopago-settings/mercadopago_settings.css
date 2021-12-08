@@ -320,11 +320,6 @@ input:checked + .mp-settings-slider:before {
 	text-align: center;
 	color: #ff7733;
 }
-
-.mp-settings-container-align {
-	align-items: center;
-	margin-top: 0;
-}
 .mp-settings-fieldset {
 	margin: 0px 0px 24px 0px;
 }
@@ -349,7 +344,6 @@ input:checked + .mp-settings-slider:before {
 	padding: 0px 16px 0px 14px;
 	margin: unset;
 }
-
 .mp-settings-radio-button {
 	max-width: 16px;
 	max-height: 16px;
@@ -359,7 +353,6 @@ input:checked + .mp-settings-slider:before {
 	align-items: flex-start;
 	margin-top: 22px;
 }
-
 .mp-settings-alert-payment-methods-orange {
 	width: 6px;
 	background-color: #ff7733;
@@ -370,7 +363,46 @@ input:checked + .mp-settings-slider:before {
 	border-radius: 0 6px 6px 0;
 	width: 533px;
 	background: rgba(0, 0, 0, 0.04);
-	height: 72px;
+
+	display: flex;
+	padding: 16px 16px 14px;
+	align-items: flex-start;
+}
+.mp-settings-alert-mode-body{
+	font-family: sans-serif;
+	font-size: 14px;
+	line-height: 18px;
+	margin-top: 4px;
+}
+.mp-settings-alert-mode-title{
+	font-family: sans-serif;
+	font-size: 16px;
+	line-height: 20px;
+	margin-top: 0;
+	color: rgba(0, 0, 0, 0.9);
+}
+.mp-settings-mode-container {
+	display: flex;
+	margin: 20px 8px 0 0;
+}
+.mp-settings-mode-spacing {
+	margin-right: 12px;
+}
+.mp-settings-badge-align {
+	display:flex;
+	flex-direction:row;
+	justify-content:flex-start;
+}
+.mp-settings-badge-spacing {
+	display:flex;
+	justify-content:space-between;
+	margin: 0 0 16px;
+}
+.mp-icon-align{
 	display: flex;
 	align-items: center;
+
+}
+.mp-settings-block-align-top {
+	padding-top: 8px;
 }
