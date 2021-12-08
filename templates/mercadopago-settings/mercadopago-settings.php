@@ -153,6 +153,7 @@ if (!defined('ABSPATH')) {
 				<img src="<?php echo esc_url(plugins_url('../assets/images/mercadopago-settings/icon-open.png', plugin_dir_path(__FILE__))); ?>">
 			</div>
 		</div>
+		<div class="mp-settings-block-align-top ">
 		<p class="mp-settings-font-color mp-settings-subtitle-font-size mp-settings-title-color">Preencha as informações a seguir para ter uma melhor experiência e oferecer mais informações aos clientes</p>
 		<div class="mp-container">
 			<div class="mp-block mp-block-flex mp-settings-margin-right" style="flex-direction:column; justify-content:space-between">
@@ -225,10 +226,10 @@ if (!defined('ABSPATH')) {
 							<!-- Rounded switch -->
 							<div>
 
-								<legend class="mp-settings-switch">
-									<input type="checkbox">
+								<label class="mp-settings-switch">
+									<input type="checkbox" checked>
 									<span class="mp-settings-slider mp-settings-round"></span>
-								</legend>
+								</label>
 							</div>
 							<div class="mp-settings-margin-left">
 								<p class="mp-settings-subtitle-font-size mp-settings-debug">
@@ -241,6 +242,7 @@ if (!defined('ABSPATH')) {
 						</div>
 					</div>
 				</div>
+			</div>
 			</div>
 		</div>
 	</div>
@@ -337,7 +339,7 @@ if (!defined('ABSPATH')) {
 			</div>
 			<div class="mp-settings-mode-container">
 				<div class="mp-settings-mode-spacing">
-					<input type="radio" class="mp-settings-radio-button">
+					<input name="teste-prod"  type="radio" class="mp-settings-radio-button">
 				</div>
 				<div>
 					<span class="mp-settings-font-color mp-settings-subtitle-font-size mp-settings-font-color">Modo Teste</span><br>
@@ -347,7 +349,7 @@ if (!defined('ABSPATH')) {
 			</div>
 			<div class="mp-settings-mode-container">
 				<div class="mp-settings-mode-spacing">
-					<input type="radio" class="mp-settings-radio-button">
+					<input name="teste-prod" type="radio" class="mp-settings-radio-button">
 				</div>
 				<div>
 					<span class="mp-settings-font-color mp-settings-subtitle-font-size mp-settings-font-color">Modo Vendas (Produção)</span><br>
