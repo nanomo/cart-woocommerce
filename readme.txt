@@ -35,7 +35,7 @@ Boost your sales with Mercado Pago payments for WooCommerce!
 
 ### Sell more with the paid market
 
-[Leave your details](https://www.mercadopago.com.br/quero-usar/) to talk to our team of experts and understand how to sell more.
+[Leave your details](https://www.mercadopago.com.br/quero-usar/) to talk to our team of experts and understand how to sell more (for now only available for Brazil).
 
 == Screenshots ==
 
