@@ -48,7 +48,7 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 	public function load_admin_scripts() {
 		wp_enqueue_script(
 			'mercadopago_settings_javascript',
-			$this->get_url( '../../../assets/js/mercadopago-settings/base', '.js' ),
+			$this->get_url( '../../../assets/js/mercadopago-settings/mercadopago_settings', '.js' ),
 			array(),
 			WC_WooMercadoPago_Constants::VERSION,
 			true
