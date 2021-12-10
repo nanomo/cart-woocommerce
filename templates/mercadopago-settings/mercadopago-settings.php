@@ -33,7 +33,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 						<div class="mp-settings-icon-info"></div>
 					</div>
 					<div>
-						<div class="mp-settings-icon-success"></div>
+						<div id="mp-req-ssl" class="mp-settings-icon-success" style="filter: grayscale(1)"></div>
 					</div>
 				</div>
 				<hr>
@@ -43,7 +43,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 						<div class="mp-settings-icon-info"></div>
 					</div>
 					<div>
-						<div class="mp-settings-icon-success"></div>
+						<div id="mp-req-gd" class="mp-settings-icon-success" style="filter: grayscale(1)"></div>
 					</div>
 				</div>
 				<hr>
@@ -53,7 +53,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 						<div class="mp-settings-icon-info"></div>
 					</div>
 					<div>
-						<div class="mp-settings-icon-success"></div>
+						<div id="mp-req-curl" class="mp-settings-icon-success" style="filter: grayscale(1)"></div>
 					</div>
 				</div>
 			</div>

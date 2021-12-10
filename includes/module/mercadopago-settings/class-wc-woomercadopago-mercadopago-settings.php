@@ -10,6 +10,7 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 	public function init() {
 		$this->load_menu();
 		$this->load_scripts_and_styles();
+		$this->register_endpoints();
 	}
 
 	/**
@@ -74,6 +75,28 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 	 */
 	public function mercadopago_submenu_page_callback() {
 		include __DIR__ . '/../../../templates/mercadopago-settings/mercadopago-settings.php';
+	}
+
+	/**
+	 * Register Mercado Pago Endpoints
+	 */
+	public function register_endpoints() {
+		add_action( 'wp_ajax_mp_get_requirements' , array( $this, 'mercadopago_get_requirements' ));
+	}
+
+	/**
+	 * Requirements
+	 */
+	public function mercadopago_get_requirements() {
+		$hasCurl = in_array( 'curl', get_loaded_extensions(), true );
+		$hasGD = in_array( 'gd', get_loaded_extensions(), true );
+		$hasSSL = is_ssl();
+
+		wp_send_json_success([
+			'ssl' => $hasSSL,
+			'gd_ext' => $hasGD,
+			'curl_ext' => $hasCurl
+		]);
 	}
 
 	/**

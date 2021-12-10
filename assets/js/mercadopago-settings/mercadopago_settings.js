@@ -26,6 +26,27 @@ function mp_settings_accordion_start() {
 	console.log('MP Settings Accordion Started!');
 }
 
+function mp_get_requirements() {
+	wp.ajax.post( "mp_get_requirements", {} )
+	  .done(function(response) {
+		  const requirements = {
+			  ssl: document.getElementById('mp-req-ssl'),
+			  gd_ext: document.getElementById('mp-req-gd'),
+			  curl_ext: document.getElementById('mp-req-curl')
+		  };
+
+		  for (let i in requirements) {
+			  let requirement = requirements[i];
+			  requirement.style = '';
+			  if (!response[i]) {
+				  requirement.classList.remove('mp-settings-icon-success');
+				  requirement.classList.add('mp-settings-icon-warning');
+			  }
+		  }
+	  });
+}
+
 window.addEventListener('load', function () {
 	mp_settings_accordion_start();
+	mp_get_requirements();
 });
