@@ -47,11 +47,14 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 		$this->clientid_old_version = $this->get_client_id();
 		$this->field_forms_order    = $this->get_fields_sequence();
 		$this->ex_payments          = $this->get_ex_payments();
+
 		parent::__construct();
+
 		$this->form_fields         = $this->get_form_mp_fields( 'Basic' );
 		$this->hook                = new WC_WooMercadoPago_Hook_Basic( $this );
 		$this->notification        = new WC_WooMercadoPago_Notification_IPN( $this );
 		$this->currency_convertion = true;
+		$this->icon                = $this->get_checkout_icon();
 	}
 
 	/**
@@ -686,5 +689,14 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 	 */
 	public static function get_id() {
 		return self::ID;
+	}
+
+	/**
+	 * Get Mercado Pago Icon
+	 *
+	 * @return mixed
+	 */
+	public function get_checkout_icon() {
+		return apply_filters( 'woocommerce_mercadopago_icon', plugins_url( '../assets/images/icons/mercadopago.png', plugin_dir_path( __FILE__ ) ) );
 	}
 }

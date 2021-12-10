@@ -411,7 +411,6 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 		$this->commission           = $this->get_option_mp( 'commission', 0 );
 		$this->sandbox              = $this->is_test_user();
 		$this->supports             = array( 'products', 'refunds' );
-		$this->icon                 = $this->get_mp_icon();
 		$this->site_data            = WC_WooMercadoPago_Module::get_site_data();
 		$this->log                  = new WC_WooMercadoPago_Log( $this );
 		$this->mp                   = $this->get_mp_instance();
@@ -556,15 +555,6 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 	 */
 	public function get_mp_logo() {
 		return '<img width="200" height="52" src="' . plugins_url( '../assets/images/mplogo.png', plugin_dir_path( __FILE__ ) ) . '"><br><br>';
-	}
-
-	/**
-	 * Get Mercado Pago Icon
-	 *
-	 * @return mixed
-	 */
-	public function get_mp_icon() {
-		return apply_filters( 'woocommerce_mercadopago_icon', plugins_url( '../assets/images/mercadopago.png', plugin_dir_path( __FILE__ ) ) );
 	}
 
 	/**

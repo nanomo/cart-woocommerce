@@ -48,11 +48,14 @@ class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 		$this->coupon_mode        = $this->get_option_mp( 'coupon_mode', 'no' );
 		$this->wallet_button      = $this->get_option_mp( 'wallet_button', 'yes' );
 		$this->field_forms_order  = $this->get_fields_sequence();
+
 		parent::__construct();
+
 		$this->form_fields         = $this->get_form_mp_fields( 'Custom' );
 		$this->hook                = new WC_WooMercadoPago_Hook_Custom( $this );
 		$this->notification        = new WC_WooMercadoPago_Notification_Webhook( $this );
 		$this->currency_convertion = true;
+		$this->icon                = $this->get_checkout_icon();
 	}
 
 	/**
@@ -697,5 +700,14 @@ class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 	 */
 	public static function get_id() {
 		return self::ID;
+	}
+
+	/**
+	 * Get Mercado Pago Icon
+	 *
+	 * @return mixed
+	 */
+	public function get_checkout_icon() {
+		return apply_filters( 'woocommerce_mercadopago_icon', plugins_url( '../assets/images/icons/card.png', plugin_dir_path( __FILE__ ) ) );
 	}
 }

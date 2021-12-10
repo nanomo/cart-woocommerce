@@ -46,11 +46,14 @@ class WC_WooMercadoPago_Ticket_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 		$this->checkout_type      = 'custom';
 		$this->activated_payment  = $this->get_activated_payment();
 		$this->field_forms_order  = $this->get_fields_sequence();
+
 		parent::__construct();
+
 		$this->form_fields         = $this->get_form_mp_fields( 'Ticket' );
 		$this->hook                = new WC_WooMercadoPago_Hook_Ticket( $this );
 		$this->notification        = new WC_WooMercadoPago_Notification_Webhook( $this );
 		$this->currency_convertion = true;
+		$this->icon                = $this->get_checkout_icon();
 	}
 
 	/**
@@ -679,5 +682,14 @@ class WC_WooMercadoPago_Ticket_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 		$paycash_payments = implode (', ', $payments);
 
 		return implode( __(' and ', 'woocommerce-mercadopago') , array( $paycash_payments, $last_element ));
+	}
+
+	/**
+	 * Get Mercado Pago Icon
+	 *
+	 * @return mixed
+	 */
+	public function get_checkout_icon() {
+		return apply_filters( 'woocommerce_mercadopago_icon', plugins_url( '../assets/images/icons/ticket.png', plugin_dir_path( __FILE__ ) ) );
 	}
 }
