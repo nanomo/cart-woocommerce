@@ -170,24 +170,24 @@
 	padding-right: 16px !important;
 }
 .mp-settings-icon-mp {
-	background: url("../../images/mercadopago-settings/icon-mp.png") 98% 50%
+	background: url("../../images/mercadopago-settings/icon-mp.png") center center
 		no-repeat transparent;
 }
 .mp-settings-icon-card {
-	background: url("../../images/mercadopago-settings/icon-card.png") 98% 50%
-		no-repeat transparent;
+	background: url("../../images/mercadopago-settings/icon-card.png") center
+		center no-repeat transparent;
 }
 .mp-settings-icon-code {
-	background: url("../../images/mercadopago-settings/icon-code.png") 98% 50%
-		no-repeat transparent;
+	background: url("../../images/mercadopago-settings/icon-code.png") center
+		center no-repeat transparent;
 }
 .mp-settings-icon-pix {
-	background: url("../../images/mercadopago-settings/icon-pix.png") 98% 50%
-		no-repeat transparent;
+	background: url("../../images/mercadopago-settings/icon-pix.png") center
+		center no-repeat transparent;
 }
 .mp-settings-icon-config {
-	background: url("../../images/mercadopago-settings/icon-config.png") 98% 50%
-		no-repeat transparent;
+	background: url("../../images/mercadopago-settings/icon-config.png") center
+		center no-repeat transparent;
 	padding-right: 16px !important;
 }
 .mp-settings-hr {
@@ -319,13 +319,13 @@ input:checked + .mp-settings-slider:before {
 	justify-content: center;
 	align-items: center;
 	padding: 7px 8px 5px;
-	width: 57px;
+	width: 45px;
+	height: 15px;
 	left: calc(50% - 57px / 2);
 	background: rgba(0, 166, 80, 0.1);
 	border-radius: 12px;
 	font-size: 12px;
 	line-height: 12px;
-	align-items: center;
 	text-align: center;
 	color: #00a650;
 }
@@ -334,14 +334,14 @@ input:checked + .mp-settings-slider:before {
 	justify-content: center;
 	align-items: center;
 	padding: 7px 8px 5px;
-	width: 52px;
+	width: 45px;
+	height: 15px;
 	left: calc(50% - 52px / 2);
 	background: rgba(0, 0, 0, 0.07);
 	border-radius: 12px;
 	margin: 0px 0px;
 	font-size: 12px;
 	line-height: 12px;
-	align-items: center;
 	text-align: center;
 	color: rgba(0, 0, 0, 0.55);
 }
@@ -377,6 +377,8 @@ input:checked + .mp-settings-slider:before {
 }
 .mp-settings-align-div {
 	display: flex;
+	align-items: center;
+	justify-content: space-between;
 }
 .mp-settings-text-payment {
 	font-family: sans-serif;
@@ -462,7 +464,7 @@ input:checked + .mp-settings-slider:before {
 	background-size: 1rem;
 	padding-right: 30px !important;
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 780px) {
 	.mp-settings-header-img {
 		height: 100%;
 		width: 95%;
@@ -496,5 +498,10 @@ input:checked + .mp-settings-slider:before {
 	}
 	.mp-settings-title-blocks {
 		font-size: 1.25rem;
+	}
+	.mp-settings-icon {
+		width: 60px;
+		height: 40px;
+		min-width: 60px;
 	}
 }
