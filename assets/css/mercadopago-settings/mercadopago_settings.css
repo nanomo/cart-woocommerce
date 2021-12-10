@@ -444,6 +444,7 @@ input:checked + .mp-settings-slider:before {
 .mp-settings-title-align {
 	display: flex;
 	justify-content: space-between;
+	cursor: pointer;
 }
 .mp-icon-align {
 	display: flex;
