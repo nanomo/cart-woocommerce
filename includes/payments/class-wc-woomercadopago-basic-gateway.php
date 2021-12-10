@@ -553,45 +553,74 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 			WC_WooMercadoPago_Constants::VERSION
 		);
 
-		// validate active payments methods.
-		$debito       = 0;
-		$credito      = 0;
-		$efectivo     = 0;
-		$method       = $this->get_option_mp( 'method', 'redirect' );
-		$tarjetas     = get_option( '_checkout_payments_methods', '' );
-		$installments = $this->get_option_mp( 'installments' );
-		$cho_tarjetas = array();
+		wp_enqueue_style(
+			'woocommerce-mercadopago-narciso-styles',
+			plugins_url( '../assets/css/mp-plugins-components.css', plugin_dir_path( __FILE__ ) ),
+			array(),
+			WC_WooMercadoPago_Constants::VERSION
+		);
 
-		foreach ( $tarjetas as $tarjeta ) {
-			if ( 'yes' === $this->get_option_mp( $tarjeta['config'], '' ) ) {
-				$cho_tarjetas[] = $tarjeta;
-				if ( 'credit_card' === $tarjeta['type'] ) {
-					++$credito;
-				} elseif ( 'debit_card' === $tarjeta['type'] || 'prepaid_card' === $tarjeta['type'] ) {
-					++$debito;
+		// validate active payments methods.
+		$credit          = [];
+		$debit           = [];
+		$ticket          = [];
+		$method          = $this->get_option_mp( 'method', 'redirect' );
+		$payment_methods = get_option( '_checkout_payments_methods', '' );
+		$installments    = $this->get_option_mp( 'installments' );
+
+		foreach ( $payment_methods as $payment_method ) {
+			if ( 'yes' === $this->get_option_mp( $payment_method['config'], '' ) ) {
+				if ( 'credit_card' === $payment_method['type'] ) {
+					$credit[] = [
+						'src' => $payment_method['image'],
+						'alt' => $payment_method['id']
+					];
+				} else if ( 'debit_card' === $payment_method['type'] || 'prepaid_card' === $payment_method['type'] ) {
+					$debit[] = [
+						'src' => $payment_method['image'],
+						'alt' => $payment_method['id']
+					];
 				} else {
-					++$efectivo;
+					$ticket[] = [
+						'src' => $payment_method['image'],
+						'alt' => $payment_method['id']
+					];
 				}
 			}
 		}
 
-		$test_mode_rules_link = $this->get_mp_devsite_link($this->checkout_country);
-		$parameters           = array(
-			'checkout_alert_test_mode' => $this->is_production_mode()
-				? ''
-				: $this->checkout_alert_test_mode_template(
-					__( 'Checkout Pro in Test Mode', 'woocommerce-mercadopago' ),
-					__( "Use Mercado Pago's payment methods without real charges. See the", 'woocommerce-mercadopago' )
-					. "&nbsp;<a style='color: #74AFFC; text-decoration: none; outline: none;' target='_blank' href='" . $test_mode_rules_link . "'>" . __( 'rules for the test mode', 'woocommerce-mercadopago' ) . '</a>.</p>'
-				),
-			'debito'         => $debito,
-			'credito'        => $credito,
-			'efectivo'       => $efectivo,
-			'tarjetas'       => $cho_tarjetas,
-			'method'         => $method,
-			'installments'   => $installments,
-			'plugin_version' => WC_WooMercadoPago_Constants::VERSION,
-			'cho_image'      => plugins_url( '../assets/images/redirect_checkout.png', plugin_dir_path( __FILE__ ) ),
+		$checkout_payment_methods = [
+			[
+				'title' => 'Credit card',
+				'label' => 'In up to 24 installments',
+				'payment_methods' => $credit,
+			],
+			[
+				'title' => 'Debit card',
+				'payment_methods' => $debit,
+			],
+			[
+				'title' => 'Ticket',
+				'payment_methods' => $ticket,
+			]
+		];
+
+		$test_mode_title       = 'Checkout Pro em Modo Teste';
+		$test_mode_description = 'Utilize meios do Mercado Pago sem cobranças reais. ';
+		$test_mode_link_text   = 'Consulte as regras do modo teste.';
+		$test_mode_link_src    = $this->get_mp_devsite_link($this->checkout_country);
+
+		$parameters = array(
+			'test_mode'             => !$this->is_production_mode(),
+			'test_mode_title'       => $test_mode_title,
+			'test_mode_description' => $test_mode_description,
+			'test_mode_link_text'   => $test_mode_link_text,
+			'test_mode_link_src'    => $test_mode_link_src,
+			'method'                => $method,
+			'installments'          => $installments,
+			'plugin_version'        => WC_WooMercadoPago_Constants::VERSION,
+			'cho_image'             => plugins_url( '../assets/images/redirect_checkout.png', plugin_dir_path( __FILE__ ) ),
+			'payment_methods'       => json_encode($checkout_payment_methods)
 		);
 
 		$parameters = array_merge($parameters, WC_WooMercadoPago_Payment_Abstract::mp_define_terms_and_conditions());
