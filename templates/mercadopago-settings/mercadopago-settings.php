@@ -10,17 +10,17 @@
  * @package MercadoPago
  */
 
-if ( ! defined('ABSPATH') ) {
+if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 ?>
 
 <div class="mp-settings">
 	<div class="mp-settings-header">
-		<img class="mp-settings-header-img">
-		<img class="mp-settings-header-logo">
-		<hr class="mp-settings-header-hr" />
-		<p>Aceite <b>pagamentos no ato</b> com<br />
+		<div class="mp-settings-header-img"></div>
+		<div class="mp-settings-header-logo"></div>
+		<hr class="mp-settings-header-hr"/>
+		<p>Aceite <b>pagamentos no ato</b> com<br/>
 			toda a <b>segurança</b> Mercado Pago</p>
 	</div>
 	<div class="mp-settings-requirements">
@@ -35,7 +35,7 @@ if ( ! defined('ABSPATH') ) {
 						</label>
 					</div>
 					<div>
-						<img class="mp-settings-icon-success">
+						<div id="mp-req-ssl" class="mp-settings-icon-success" style="filter: grayscale(1)"></div>
 					</div>
 				</div>
 				<hr>
@@ -47,7 +47,7 @@ if ( ! defined('ABSPATH') ) {
 						</label>
 					</div>
 					<div>
-						<img class="mp-settings-icon-success">
+						<div id="mp-req-gd" class="mp-settings-icon-success" style="filter: grayscale(1)"></div>
 					</div>
 				</div>
 				<hr>
@@ -60,7 +60,7 @@ if ( ! defined('ABSPATH') ) {
 						</label>
 					</div>
 					<div>
-						<img class="mp-settings-icon-success">
+						<div id="mp-req-curl" class="mp-settings-icon-success" style="filter: grayscale(1)"></div>
 					</div>
 				</div>
 			</div>
@@ -68,13 +68,14 @@ if ( ! defined('ABSPATH') ) {
 				<div class="mp-inner-container-settings">
 					<div>
 						<p class="mp-settings-font-color mp-settings-title-font-size">Recebimentos e parcelamento</p>
-						<p class="mp-settings-font-color mp-settings-subtitle-font-size mp-settings-title-color">Escolha <b>quando quer receber o dinheiro</b> das vendas e se quer oferecer
+						<p class="mp-settings-font-color mp-settings-subtitle-font-size mp-settings-title-color">Escolha
+							<b>quando quer receber o dinheiro</b> das vendas e se quer oferecer
 							<b>parcelamento sem
 								juros</b> aos clientes.
 						</p>
 					</div>
 					<div>
-						<button class="mp-button">Ajustar prazos e taxas </button>
+						<button class="mp-button">Ajustar prazos e taxas</button>
 					</div>
 				</div>
 			</div>
@@ -82,18 +83,19 @@ if ( ! defined('ABSPATH') ) {
 				<div class="mp-inner-container-settings">
 					<div>
 						<p class="mp-settings-font-color mp-settings-title-font-size">Dúvidas?</p>
-						<p class="mp-settings-font-color mp-settings-subtitle-font-size mp-settings-title-color">Revise o passo a passo de <span>como integrar o Plugin do Mercado Pago</span> no nosso site de
+						<p class="mp-settings-font-color mp-settings-subtitle-font-size mp-settings-title-color">Revise
+							o passo a passo de <span>como integrar o Plugin do Mercado Pago</span> no nosso site de
 							desenvolvedores. </p>
 					</div>
 					<div>
-						<button class="mp-button mp-button-light-blue"> Manual do plugin </button>
+						<button class="mp-button mp-button-light-blue"> Manual do plugin</button>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 
-	<hr class="mp-settings-hr" />
+	<hr class="mp-settings-hr"/>
 	<div class="mp-settings-credentials">
 		<div class="mp-settings-title-align">
 			<div class="mp-settings-title-container">
@@ -106,15 +108,17 @@ if ( ! defined('ABSPATH') ) {
 		</div>
 		<div class="mp-settings-block-align-top">
 			<div>
-				<p class="mp-settings-subtitle-font-size mp-settings-title-color">Para habilitar e testar e vendas, você deve <b>copiar e colar suas credenciais abaixo.</b></p>
+				<p class="mp-settings-subtitle-font-size mp-settings-title-color">Para habilitar e testar e vendas, você
+					deve <b>copiar e colar suas credenciais abaixo.</b></p>
 			</div>
 			<div>
-				<button class="mp-button mp-button-light-blue"> Consultar credenciais </button>
+				<button class="mp-button mp-button-light-blue"> Consultar credenciais</button>
 			</div>
 			<div class="mp-container">
 				<div class="mp-block mp-block-flex mp-settings-margin-right">
 					<p class="mp-settings-title-font-size"><b>Credenciais de teste</b></p>
-					<p class="mp-settings-label mp-settings-title-color mp-settings-margin-bottom">Habilitam os checkouts Mercado Pago para testes de compras na loja.</p>
+					<p class="mp-settings-label mp-settings-title-color mp-settings-margin-bottom">Habilitam os
+						checkouts Mercado Pago para testes de compras na loja.</p>
 					<fieldset class="mp-settings-fieldset">
 						<legend clas="mp-settings-label mp-settings-font-color">Public Key</legend>
 						<input class="mp-settings-input mp-credential-feedback-positive" type="text" placeholder="Cole aqui sua Public Key">
@@ -126,7 +130,8 @@ if ( ! defined('ABSPATH') ) {
 				</div>
 				<div class="mp-block mp-block-flex mp-settings-margin-left">
 					<p class="mp-settings-title-font-size"><b>Credenciais de produção</b></p>
-					<p class="mp-settings-label mp-settings-title-color mp-settings-margin-bottom">Habilitam os checkouts Mercado Pago para receber pagamentos reais na loja.</p>
+					<p class="mp-settings-label mp-settings-title-color mp-settings-margin-bottom">Habilitam os
+						checkouts Mercado Pago para receber pagamentos reais na loja.</p>
 					<fieldset class="mp-settings-fieldset">
 						<legend clas="mp-settings-label">Public Key</legend>
 						<input class="mp-settings-input mp-credential-feedback-negative" type="text" placeholder="Cole aqui seu Access Token">
@@ -137,11 +142,11 @@ if ( ! defined('ABSPATH') ) {
 					</fieldset>
 				</div>
 			</div>
-			<button class="mp-button"> Salvar e continuar </button>
+			<button class="mp-button"> Salvar e continuar</button>
 		</div>
 	</div>
 
-	<hr class="mp-settings-hr" />
+	<hr class="mp-settings-hr"/>
 	<div class="mp-settings-credentials">
 		<div class="mp-settings-title-align">
 			<div class="mp-settings-title-container">
@@ -204,7 +209,6 @@ if ( ! defined('ABSPATH') ) {
 									<legend class="mp-settings-label">URL para IPN</legend>
 									<input type="text" class="mp-settings-input" placeholder="Ex.: https://examples.com/my-custom-ipn-url">
 									<span class="mp-settings-helper">Insira a URL para receber notificações de pagamento. Confira mais informções nos <span class="mp-settings-blue-text"> manuais.</span>
-
 								</fieldset>
 							</div>
 							<div class="mp-settings-standard-margin">
@@ -243,7 +247,7 @@ if ( ! defined('ABSPATH') ) {
 		</div>
 	</div>
 
-	<hr class="mp-settings-hr" />
+	<hr class="mp-settings-hr"/>
 	<div class="mp-settings-payment">
 		<div class="mp-settings-title-align">
 			<div class="mp-settings-title-container">
