@@ -567,6 +567,7 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 		$method          = $this->get_option_mp( 'method', 'redirect' );
 		$payment_methods = get_option( '_checkout_payments_methods', '' );
 		$installments    = $this->get_option_mp( 'installments' );
+		$test_mode_link  = $this->get_mp_devsite_link($this->checkout_country);
 
 		foreach ( $payment_methods as $payment_method ) {
 			if ( 'yes' === $this->get_option_mp( $payment_method['config'], '' ) ) {
@@ -592,7 +593,7 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 		$checkout_payment_methods = [
 			[
 				'title' => 'Credit card',
-				'label' => 'In up to 24 installments',
+				'label' => 'In up to ' . $installments . ' installments',
 				'payment_methods' => $credit,
 			],
 			[
@@ -605,23 +606,15 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 			]
 		];
 
-		$test_mode_title       = 'Checkout Pro em Modo Teste';
-		$test_mode_description = 'Utilize meios do Mercado Pago sem cobranças reais. ';
-		$test_mode_link_text   = 'Consulte as regras do modo teste.';
-		$test_mode_link_src    = $this->get_mp_devsite_link($this->checkout_country);
-
-		$parameters = array(
-			'test_mode'             => !$this->is_production_mode(),
-			'test_mode_title'       => $test_mode_title,
-			'test_mode_description' => $test_mode_description,
-			'test_mode_link_text'   => $test_mode_link_text,
-			'test_mode_link_src'    => $test_mode_link_src,
-			'method'                => $method,
-			'installments'          => $installments,
-			'plugin_version'        => WC_WooMercadoPago_Constants::VERSION,
-			'cho_image'             => plugins_url( '../assets/images/redirect_checkout.png', plugin_dir_path( __FILE__ ) ),
-			'payment_methods'       => json_encode($checkout_payment_methods)
-		);
+		$parameters = [
+			'method'              => $method,
+			'test_mode'           => !$this->is_production_mode(),
+			'test_mode_link'      => $test_mode_link,
+			'plugin_version'      => WC_WooMercadoPago_Constants::VERSION,
+			'redirect_image'      => plugins_url( '../assets/images/cho-pro-redirect.png', plugin_dir_path( __FILE__ ) ),
+			'list_style_type_src' => plugins_url( '../assets/images/blue-check.png', plugin_dir_path( __FILE__ ) ),
+			'payment_methods'     => json_encode($checkout_payment_methods),
+		];
 
 		$parameters = array_merge($parameters, WC_WooMercadoPago_Payment_Abstract::mp_define_terms_and_conditions());
 		wc_get_template( 'checkout/basic-checkout.php', $parameters, 'woo/mercado/pago/module/', WC_WooMercadoPago_Module::get_templates_path() );
