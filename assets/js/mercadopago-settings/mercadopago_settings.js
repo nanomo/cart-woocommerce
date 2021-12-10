@@ -16,7 +16,7 @@ window.addEventListener('load', function () {
 				}
 			}
 
-			accordionArrow.classList.toggle("arrow-up");
+			accordionArrow.childNodes[1].classList.toggle("mp-arrow-up");
 
 			var panel = this.nextElementSibling;
 			if (panel.style.display === "block") {

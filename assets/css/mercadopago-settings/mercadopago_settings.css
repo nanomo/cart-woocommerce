@@ -154,6 +154,11 @@
 	background: url("../../images/mercadopago-settings/icon-open.png") 98% 50%
 		no-repeat transparent;
 	padding-right: 16px !important;
+	transition: 1s;
+}
+.mp-settings-icon-open.mp-arrow-up {
+	transform: rotate(180deg);
+	transition: 1s;
 }
 .mp-settings-icon {
 	width: 40px;
