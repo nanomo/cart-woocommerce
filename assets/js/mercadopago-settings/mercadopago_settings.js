@@ -1,7 +1,7 @@
 window.addEventListener('load', function () {
 	console.log('Mercado Pago Settings');
 
-	var acc = document.getElementsByClassName("mp-settings-badge-spacing");
+	var acc = document.getElementsByClassName("mp-settings-title-align");
 	var i;
 	console.log(acc)
 	for (i = 0; i < acc.length; i++) {
