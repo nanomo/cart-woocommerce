@@ -22,6 +22,9 @@
 	position: relative;
 	background: url("../../images/mercadopago-settings/mercadopago-logo.png") 98%
 		50% no-repeat transparent;
+	width: 180px;
+	border: none;
+	height: 103px;
 	padding-right: 16px !important;
 	top: 60px;
 	line-height: 36px;
