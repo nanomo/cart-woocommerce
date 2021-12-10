@@ -10,7 +10,7 @@
 }
 .mp-settings-header-img {
 	position: absolute;
-	background-image: url("../../images/mercadopago-settings/header-settings.png");
+	background: url("../../images/mercadopago-settings/header-settings.png");
 	height: 100%;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -20,6 +20,9 @@
 }
 .mp-settings-header-logo {
 	position: relative;
+	background: url("../../images/mercadopago-settings/mercadopago-logo.png") 98%
+		50% no-repeat transparent;
+	padding-right: 16px !important;
 	top: 60px;
 	line-height: 36px;
 	flex: none;
@@ -156,6 +159,31 @@
 }
 .mp-settings-icon-info {
 	background: url("../../images/mercadopago-settings/icon-info.png") 98% 50%
+		no-repeat transparent;
+	padding-right: 16px !important;
+}
+.mp-settings-icon-mp {
+	background: url("../../images/mercadopago-settings/icon-mp.png") 98% 50%
+		no-repeat transparent;
+	padding-right: 30px !important;
+}
+.mp-settings-icon-card {
+	background: url("../../images/mercadopago-settings/icon-card.png") 98% 50%
+		no-repeat transparent;
+	padding-right: 16px !important;
+}
+.mp-settings-icon-code {
+	background: url("../../images/mercadopago-settings/icon-code.png") 98% 50%
+		no-repeat transparent;
+	padding-right: 16px !important;
+}
+.mp-settings-icon-pix {
+	background: url("../../images/mercadopago-settings/icon-pix.png") 98% 50%
+		no-repeat transparent;
+	padding-right: 16px !important;
+}
+.mp-settings-icon-config {
+	background: url("../../images/mercadopago-settings/icon-config.png") 98% 50%
 		no-repeat transparent;
 	padding-right: 16px !important;
 }
@@ -346,7 +374,6 @@ input:checked + .mp-settings-slider:before {
 }
 .mp-settings-align-div {
 	display: flex;
-	align-items: center;
 }
 .mp-settings-text-payment {
 	font-family: sans-serif;

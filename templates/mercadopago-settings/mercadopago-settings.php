@@ -18,7 +18,7 @@ if ( ! defined('ABSPATH') ) {
 <div class="mp-settings">
 	<div class="mp-settings-header">
 		<img class="mp-settings-header-img">
-		<img class="mp-settings-header-logo" src="<?php echo esc_url(plugins_url('../assets/images/mercadopago-settings/mercadopago-logo.png', plugin_dir_path(__FILE__))); ?>">
+		<img class="mp-settings-header-logo">
 		<hr class="mp-settings-header-hr" />
 		<p>Aceite <b>pagamentos no ato</b> com<br />
 			toda a <b>segurança</b> Mercado Pago</p>
@@ -30,7 +30,7 @@ if ( ! defined('ABSPATH') ) {
 				<div class="mp-inner-container">
 					<div>
 						<p class="mp-settings-font-color mp-settings-subtitle-font-size">SSL</p>
-						<img class="mp-icon" src="<?php echo esc_url(plugins_url('../assets/images/mercadopago-settings/icon-info.png', plugin_dir_path(__FILE__))); ?>">
+						<img class="mp-settings-icon-info">
 					</div>
 					<div>
 						<img class="mp-settings-icon-success">
@@ -40,7 +40,7 @@ if ( ! defined('ABSPATH') ) {
 				<div class="mp-inner-container">
 					<div>
 						<p class="mp-settings-font-color mp-settings-subtitle-font-size">Extensões GD</p>
-						<img class="mp-icon" src="<?php echo esc_url(plugins_url('../assets/images/mercadopago-settings/icon-info.png', plugin_dir_path(__FILE__))); ?>">
+						<img class="mp-settings-icon-info">
 					</div>
 					<div>
 						<img class="mp-settings-icon-success">
@@ -50,7 +50,7 @@ if ( ! defined('ABSPATH') ) {
 				<div class="mp-inner-container">
 					<div>
 						<p class="mp-settings-font-color mp-settings-subtitle-font-size">Curl</p>
-						<img class="mp-icon" src="<?php echo esc_url(plugins_url('../assets/images/mercadopago-settings/icon-info.png', plugin_dir_path(__FILE__))); ?>">
+						<img class="mp-settings-icon-info">
 					</div>
 					<div>
 						<img class="mp-settings-icon-success">
@@ -255,51 +255,51 @@ if ( ! defined('ABSPATH') ) {
 		<p class="mp-settings-subtitle-font-size">Selecione um meio de pagamento a seguir para ver mais opções</p>
 		<div class="mp-block mp-block-flex mp-settings-payment-block mp-settings-margin-right">
 			<div class="mp-settings-align-div mp-block-flex">
-				<img src="<?php echo esc_url(plugins_url('../assets/images/mercadopago-settings/icon-mp.png', plugin_dir_path(__FILE__))); ?>">
+				<img class="mp-settings-icon-mp">
 				<span class="mp-settings-subtitle-font-size mp-settings-margin-title-payment"><b>Checkout Pro</b> - Pix, débito, crédito e boleto, no ambiente do Mercado Pago</span>
 				<span class="mp-settings-badge-active">Ativado</span>
 			</div>
 			<div class="mp-settings-align-div">
 				<span class="mp-settings-text-payment">Configurar</span>
-				<img src="<?php echo esc_url(plugins_url('../assets/images/mercadopago-settings/icon-config.png', plugin_dir_path(__FILE__))); ?>">
+				<img class="mp-settings-icon-config">
 			</div>
 		</div>
 
 		<div class="mp-block mp-block-flex mp-settings-payment-block mp-settings-margin-right">
 			<div class="mp-settings-align-div mp-block-flex">
-				<img src="<?php echo esc_url(plugins_url('../assets/images/mercadopago-settings/icon-card.png', plugin_dir_path(__FILE__))); ?>">
+				<img class="mp-settings-icon-card">
 				<span class="mp-settings-subtitle-font-size mp-settings-margin-title-payment"><b>Débito e crédito</b> - Checkout Transparente, no ambiente da sua loja</span>
 				<span class="mp-settings-badge-active">Ativado</span>
 			</div>
 			<div class="mp-settings-align-div">
 				<span class="mp-settings-text-payment">Configurar</span>
-				<img src="<?php echo esc_url(plugins_url('../assets/images/mercadopago-settings/icon-config.png', plugin_dir_path(__FILE__))); ?>">
+				<img class="mp-settings-icon-config">
 			</div>
 		</div>
 		<div class="mp-block mp-block-flex mp-settings-payment-block mp-settings-margin-right">
 			<div class="mp-settings-align-div mp-block-flex">
-				<img src="<?php echo esc_url(plugins_url('../assets/images/mercadopago-settings/icon-code.png', plugin_dir_path(__FILE__))); ?>">
+				<img class="mp-settings-icon-code">
 				<span class="mp-settings-subtitle-font-size mp-settings-margin-title-payment"><b>Boleto e lotérica</b> - Checkout Transparente, no ambiente da sua loja</span>
 				<span class="mp-settings-badge-inactive">Inativo</span>
 			</div>
 			<div class="mp-settings-align-div">
 				<span class="mp-settings-text-payment">Configurar</span>
-				<img class="" src="<?php echo esc_url(plugins_url('../assets/images/mercadopago-settings/icon-config.png', plugin_dir_path(__FILE__))); ?>">
+				<img class="mp-settings-icon-config">
 			</div>
 		</div>
 		<div class="mp-block mp-block-flex mp-settings-payment-block mp-settings-margin-right mp-settings-border-bottom-payment">
 			<div class="mp-settings-align-div mp-block-flex">
-				<img src="<?php echo esc_url(plugins_url('../assets/images/mercadopago-settings/icon-pix.png', plugin_dir_path(__FILE__))); ?>">
+				<img class="mp-settings-icon-pix">
 				<span class="mp-settings-subtitle-font-size mp-settings-margin-title-payment"><b>Pix</b> - Checkout Transparente, no ambiente da sua loja</span>
 				<span class="mp-settings-badge-inactive">Inativo</span>
 			</div>
 			<div class="mp-settings-align-div">
 				<span class="mp-settings-text-payment">Configurar</span>
-				<img class="" src="<?php echo esc_url(plugins_url('../assets/images/mercadopago-settings/icon-config.png', plugin_dir_path(__FILE__))); ?>">
+				<img class="mp-settings-icon-config">
 			</div>
 		</div>
-		</div>
 		<button class="mp-button"> Continuar </button>
+		</div>
 	</div>
 	<hr class="mp-settings-hr" />
 	<div class="mp-settings-mode">
@@ -346,7 +346,7 @@ if ( ! defined('ABSPATH') ) {
 				<div class=" mp-settings-alert-payment-methods-gray">
 
 					<div style="width: 16px; height:16px; background:rgba(0, 0, 0, 0.04);" class="mp-settings-margin-right">
-						<img class="mp-icon" src="<?php echo esc_url(plugins_url('../assets/images/mercadopago-settings/icon-info.png', plugin_dir_path(__FILE__))); ?>">
+						<img class="mp-settings-icon-warning">
 
 					</div>
 					<div style="display:flex; flex-direction:column; justify-content:flex-start;">
@@ -366,8 +366,9 @@ if ( ! defined('ABSPATH') ) {
 			</div>
 		</div>
 		</div>
+		<button class="mp-button"> Salvar Mudanças </button>
 	</div>
-	<button class="mp-button"> Salvar Mudanças </button>
+
 
 </div>
 
