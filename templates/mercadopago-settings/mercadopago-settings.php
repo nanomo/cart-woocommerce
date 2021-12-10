@@ -114,13 +114,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 						checkouts Mercado Pago para testes de compras na loja.</p>
 					<fieldset class="mp-settings-fieldset">
 						<legend clas="mp-settings-label mp-settings-font-color">Public Key</legend>
-						<input class="mp-settings-input mp-credential-feedback-positive" type="text"
-							   placeholder="Cole aqui sua Public Key">
+						<input class="mp-settings-input mp-credential-feedback-positive" type="text" placeholder="Cole aqui sua Public Key">
 					</fieldset>
 					<fieldset>
 						<legend clas="mp-settings-label">Access token</legend>
-						<input class="mp-settings-input mp-credential-feedback-positive" type="text"
-							   placeholder="Cole aqui seu Access Token">
+						<input class="mp-settings-input mp-credential-feedback-positive" type="text" placeholder="Cole aqui seu Access Token">
 					</fieldset>
 				</div>
 				<div class="mp-block mp-block-flex mp-settings-margin-left">
@@ -129,13 +127,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 						checkouts Mercado Pago para receber pagamentos reais na loja.</p>
 					<fieldset class="mp-settings-fieldset">
 						<legend clas="mp-settings-label">Public Key</legend>
-						<input class="mp-settings-input mp-credential-feedback-negative" type="text"
-							   placeholder="Cole aqui seu Access Token">
+						<input class="mp-settings-input mp-credential-feedback-negative" type="text" placeholder="Cole aqui seu Access Token">
 					</fieldset>
 					<fieldset>
 						<legend clas="mp-settings-label">Access token</legend>
-						<input class="mp-settings-input mp-credential-feedback-negative" type="text"
-							   placeholder="Cole aqui seu Access Token">
+						<input class="mp-settings-input mp-credential-feedback-negative" type="text" placeholder="Cole aqui seu Access Token">
 					</fieldset>
 				</div>
 			</div>
@@ -158,8 +154,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<p class="mp-settings-font-color mp-settings-subtitle-font-size mp-settings-title-color">Preencha as
 				informações a seguir para ter uma melhor experiência e oferecer mais informações aos clientes</p>
 			<div class="mp-container">
-				<div class="mp-block mp-block-flex mp-settings-margin-right"
-					 style="flex-direction:column; justify-content:space-between">
+				<div class="mp-block mp-block-flex mp-settings-margin-right" style="flex-direction:column; justify-content:space-between">
 					<div>
 						<p class="mp-settings-title-font-size"><b>Informações sobre sua loja</b></p>
 					</div>
@@ -210,11 +205,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 								<fieldset>
 
 									<legend class="mp-settings-label">URL para IPN</legend>
-									<input type="text" class="mp-settings-input"
-										   placeholder="Ex.: https://examples.com/my-custom-ipn-url">
-									<span class="mp-settings-helper">Insira a URL para receber notificações de pagamento. Confira mais informções nos <span
-												class="mp-settings-blue-text"> manuais.</span>
-
+									<input type="text" class="mp-settings-input" placeholder="Ex.: https://examples.com/my-custom-ipn-url">
+									<span class="mp-settings-helper">Insira a URL para receber notificações de pagamento. Confira mais informções nos <span class="mp-settings-blue-text"> manuais.</span>
 								</fieldset>
 							</div>
 							<div class="mp-settings-standard-margin">
@@ -301,7 +293,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<div class="mp-settings-icon-config"></div>
 				</div>
 			</div>
-			<div class="mp-block mp-block-flex mp-settings-payment-block mp-settings-margin-right mp-settings-align-div">
+			<div class="mp-block mp-block-flex mp-settings-payment-block mp-settings-margin-right mp-settings-align-div mp-settings-border-bottom-payment">
 				<div class="mp-settings-align-div">
 					<div class="mp-settings-icon mp-settings-icon-pix"></div>
 					<span class="mp-settings-subtitle-font-size mp-settings-margin-title-payment"><b>Pix</b> - Checkout Transparente, no ambiente da sua loja</span>
@@ -362,10 +354,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 						<div class="mp-settings-alert-payment-methods-orange"></div>
 						<div class=" mp-settings-alert-payment-methods-gray">
 
-							<div style="width: 16px; height:16px; background:rgba(0, 0, 0, 0.04);"
-								 class="mp-settings-margin-right">
+							<div style="width: 16px; height:16px; background:rgba(0, 0, 0, 0.04);" class="mp-settings-margin-right">
 								<div class="mp-settings-icon-warning"></div>
-
 							</div>
 							<div style="display:flex; flex-direction:column; justify-content:flex-start;">
 								<div class="mp-settings-margin-left">
