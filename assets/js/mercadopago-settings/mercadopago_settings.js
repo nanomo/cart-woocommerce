@@ -1,14 +1,11 @@
-window.addEventListener('load', function () {
-	console.log('Mercado Pago Settings');
-
+function mp_settings_accordion_start() {
 	var acc = document.getElementsByClassName("mp-settings-title-align");
 	var i;
-	console.log(acc)
 	for (i = 0; i < acc.length; i++) {
 		acc[i].addEventListener("click", function() {
 			this.classList.toggle("active");
 			var accordionArrow = null;
-			console.log(this.childNodes)
+			console.log(this.childNodes);
 			for (var i = 0; i < this.childNodes.length; i++) {
 				if (this.childNodes[i]?.classList?.contains('mp-settings-margin-left')) {
 					accordionArrow = this.childNodes[i];
@@ -27,4 +24,9 @@ window.addEventListener('load', function () {
 			}
 		});
 	}
+	console.log('MP Settings Accordion Started!');
+}
+
+window.addEventListener('load', function () {
+	mp_settings_accordion_start();
 });
