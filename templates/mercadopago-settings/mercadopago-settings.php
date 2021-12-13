@@ -30,7 +30,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<div class="mp-inner-container">
 					<div>
 						<p class="mp-settings-font-color mp-settings-subtitle-font-size">SSL</p>
-						<div class="mp-settings-icon-info"></div>
+						<label class="mp-settings-icon-info mp-settings-tooltip">
+							<span class="mp-settings-tooltip-text">Implementação responsável pela transmissão de dados para o Mercado Pago de maneira segura e criptografada.</span>
+						</label>
 					</div>
 					<div>
 						<div id="mp-req-ssl" class="mp-settings-icon-success" style="filter: grayscale(1)"></div>
@@ -40,7 +42,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<div class="mp-inner-container">
 					<div>
 						<p class="mp-settings-font-color mp-settings-subtitle-font-size">Extensões GD</p>
-						<div class="mp-settings-icon-info"></div>
+						<label class="mp-settings-icon-info mp-settings-tooltip">
+							<span class="mp-settings-tooltip-text">São extensões responsáveis pela implementação e funcionamento do Pix na sua loja.</span>
+						</label>
 					</div>
 					<div>
 						<div id="mp-req-gd" class="mp-settings-icon-success" style="filter: grayscale(1)"></div>
@@ -50,7 +54,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<div class="mp-inner-container">
 					<div>
 						<p class="mp-settings-font-color mp-settings-subtitle-font-size">Curl</p>
-						<div class="mp-settings-icon-info"></div>
+						<label class="mp-settings-icon-info mp-settings-tooltip">
+							<span class="mp-settings-tooltip-text">É uma extensão responsável pela realização de pagamentos via requests do plugin ao Mercado Pago.</span>
+
+						</label>
 					</div>
 					<div>
 						<div id="mp-req-curl" class="mp-settings-icon-success" style="filter: grayscale(1)"></div>
@@ -93,13 +100,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="mp-settings-title-align">
 			<div class="mp-settings-title-container">
 				<span class="mp-settings-font-color mp-settings-title-blocks mp-settings-margin-right">1. Integre a loja com o Mercado Pago</span>
-				<div class="mp-settings-margin-left mp-settings-margin-right mp-settings-icon-success"></div>
+				<img class="mp-settings-margin-left mp-settings-margin-right mp-settings-icon-success">
 			</div>
 			<div class="mp-settings-title-container mp-settings-margin-left">
-				<div class="mp-settings-icon-open"></div>
+				<img class="mp-settings-icon-open">
 			</div>
 		</div>
-		<div class="mp-settings-block-align-top" style="display: none;">
+		<div class="mp-settings-block-align-top">
 			<div>
 				<p class="mp-settings-subtitle-font-size mp-settings-title-color">Para habilitar e testar e vendas, você
 					deve <b>copiar e colar suas credenciais abaixo.</b></p>
@@ -144,48 +151,43 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="mp-settings-title-align">
 			<div class="mp-settings-title-container">
 				<span class="mp-settings-font-color mp-settings-title-blocks mp-settings-margin-right">2. Personalize seu negócio</span>
-				<div class="mp-settings-margin-left mp-settings-margin-right mp-settings-icon-success"></div>
+				<img class="mp-settings-margin-left mp-settings-margin-right mp-settings-icon-success">
 			</div>
 			<div class="mp-settings-title-container mp-settings-margin-left">
-				<div class="mp-settings-icon-open"></div>
+				<img class="mp-settings-icon-open">
 			</div>
 		</div>
-		<div class="mp-settings-block-align-top" style="display: none;">
-			<p class="mp-settings-font-color mp-settings-subtitle-font-size mp-settings-title-color">Preencha as
-				informações a seguir para ter uma melhor experiência e oferecer mais informações aos clientes</p>
+		<div class="mp-settings-block-align-top">
+			<p class="mp-settings-font-color mp-settings-subtitle-font-size mp-settings-title-color">Preencha as informações a seguir para ter uma melhor experiência e oferecer mais informações aos clientes</p>
 			<div class="mp-container">
-				<div class="mp-block mp-block-flex mp-settings-margin-right" style="flex-direction:column; justify-content:space-between">
+				<div class="mp-block mp-block-flex mp-settings-margin-right mp-settings-choose-mode">
 					<div>
 						<p class="mp-settings-title-font-size"><b>Informações sobre sua loja</b></p>
 					</div>
 					<div class="mp-settings-standard-margin">
 						<fieldset>
-
 							<legend class="mp-settings-label">Nome da sua loja nas faturas do cliente</legend>
 							<input type="text" class="mp-settings-input" placeholder="Ex.:Loja da Maria">
-							<span class="mp-settings-helper">Se o campo estiver vazio, a compra do cliente será identificada como Mercado Pago.</span>
-
 						</fieldset>
+						<span class="mp-settings-helper">Se o campo estiver vazio, a compra do cliente será identificada como Mercado Pago.</span>
 					</div>
 					<div class="mp-settings-standard-margin">
 						<fieldset>
-
 							<legend class="mp-settings-label">Identificação em Atividades do Mercado Pago</legend>
 							<input type="text" class="mp-settings-input" placeholder="Ex.:Loja da Maria">
-							<span class="mp-settings-helper">Nas Ativades voce verá o termo inserido antes do númer o do pedido</span>
-
 						</fieldset>
+						<span class="mp-settings-helper">Nas Ativades voce verá o termo inserido antes do númer o do pedido</span>
 					</div>
 					<div class="mp-settings-standard-margin">
-						<fieldset>
 
-							<legend class="mp-settings-label">Nome da sua loja nas faturas do cliente</legend>
-							<select name="select" class="mp-settings-input">
-								<option value="valor1">Valor 1</option>
-								<option value="valor2" selected>Valor 2</option>
-								<option value="valor3">Valor 3</option>
-							</select>
-						</fieldset>
+						<label class="mp-settings-label mp-container">Categoria da loja</label>
+
+						<select name="select" class="mp-settings-select">
+							<option value="valor1">Valor 1</option>
+							<option value="valor2" selected>Valor 2</option>
+							<option value="valor3">Valor 3</option>
+						</select>
+						<span class="mp-settings-helper">Selecione ”Outro” caso não encontre uma categoria adequada.</span>
 					</div>
 				</div>
 
@@ -215,8 +217,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 									<legend class="mp-settings-label">integrator_id</legend>
 									<input type="text" class="mp-settings-input" placeholder="Ex.: 14987126498">
 									<span class="mp-settings-helper">Se você é Parceiro certificado do Mercado Pago, não esqueça de inserir seu integrator_id.</span><br>
-									<span class="mp-settings-helper">Se você não possui o código, <span
-												class="mp-settings-blue-text">solicite agora<span>.</span>
+									<span class="mp-settings-helper">Se você não possui o código, <span class="mp-settings-blue-text">solicite agora<span>.</span>
 
 								</fieldset>
 							</div>
@@ -242,6 +243,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					</div>
 				</div>
 			</div>
+			<button class="mp-button"> Salvar e continuar </button>
 		</div>
 	</div>
 
@@ -250,14 +252,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="mp-settings-title-align">
 			<div class="mp-settings-title-container">
 				<span class="mp-settings-font-color mp-settings-title-blocks mp-settings-margin-right">3. Configure os meios de pagamento</span>
-				<div class="mp-settings-margin-left mp-settings-margin-right mp-settings-icon-success"></div>
+				<img class="mp-settings-margin-left mp-settings-margin-right mp-settings-icon-success">
 			</div>
 
 			<div class="mp-settings-title-container mp-settings-margin-left">
-				<div class="mp-settings-icon-open"></div>
+				<img class="mp-settings-icon-open">
 			</div>
 		</div>
-		<div class="mp-settings-block-align-top" style="display: none;">
+		<div class="mp-settings-block-align-top">
 			<p class="mp-settings-subtitle-font-size">Selecione um meio de pagamento a seguir para ver mais opções</p>
 			<div class="mp-block mp-block-flex mp-settings-payment-block mp-settings-margin-right mp-settings-align-div">
 				<div class="mp-settings-align-div">
@@ -267,7 +269,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				</div>
 				<div class="mp-settings-title-align">
 					<span class="mp-settings-text-payment">Configurar</span>
-					<div class="mp-settings-icon-config"></div>
+					<img class="mp-settings-icon-config">
 				</div>
 			</div>
 
@@ -279,7 +281,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				</div>
 				<div class="mp-settings-title-align">
 					<span class="mp-settings-text-payment">Configurar</span>
-					<div class="mp-settings-icon-config"></div>
+					<img class="mp-settings-icon-config">
 				</div>
 			</div>
 			<div class="mp-block mp-block-flex mp-settings-payment-block mp-settings-margin-right mp-settings-align-div">
@@ -290,10 +292,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 				</div>
 				<div class="mp-settings-title-align">
 					<span class="mp-settings-text-payment">Configurar</span>
-					<div class="mp-settings-icon-config"></div>
+					<img class="mp-settings-icon-config">
 				</div>
 			</div>
-			<div class="mp-block mp-block-flex mp-settings-payment-block mp-settings-margin-right mp-settings-align-div mp-settings-border-bottom-payment">
+			<div class="mp-block mp-block-flex mp-settings-payment-block mp-settings-margin-right mp-settings-align-div">
 				<div class="mp-settings-align-div">
 					<div class="mp-settings-icon mp-settings-icon-pix"></div>
 					<span class="mp-settings-subtitle-font-size mp-settings-margin-title-payment"><b>Pix</b> - Checkout Transparente, no ambiente da sua loja</span>
@@ -301,30 +303,28 @@ if ( ! defined( 'ABSPATH' ) ) {
 				</div>
 				<div class="mp-settings-title-align">
 					<span class="mp-settings-text-payment">Configurar</span>
-					<div class="mp-settings-icon-config"></div>
+					<img class="mp-settings-icon-config">
 				</div>
 			</div>
-			<button class="mp-button"> Continuar</button>
+			<button class="mp-button"> Continuar </button>
 		</div>
 	</div>
-	<hr class="mp-settings-hr"/>
+	<hr class="mp-settings-hr" />
 	<div class="mp-settings-mode">
 		<div class="mp-settings-title-align">
 			<div class="mp-settings-title-container">
 				<span class="mp-settings-font-color mp-settings-title-blocks mp-settings-margin-right">4. Teste sua loja antes de vender</span>
-				<div class="mp-settings-test-mode-alert mp-settings-margin-left mp-settings-margin-right"><span>Loja em modo teste</span>
-				</div>
+				<div class="mp-settings-test-mode-alert mp-settings-margin-left mp-settings-margin-right"><span>Loja em modo teste</span></div>
 			</div>
 			<div class="mp-settings-title-container mp-settings-margin-left">
-				<div class="mp-settings-icon-open"></div>
+				<img class="mp-settings-icon-open">
 			</div>
 		</div>
-		<div class="mp-settings-block-align-top" style="display: none;">
-			<p class="mp-settings-subtitle-font-size mp-settings-title-color">Teste a experiência no Modo Teste. Depois
-				ative o Modo Vendas (Produção) para fazer vendas.</p>
+		<div class="mp-settings-block-align-top ">
+			<p class="mp-settings-subtitle-font-size mp-settings-title-color">Teste a experiência no Modo Teste. Depois ative o Modo Vendas (Produção) para fazer vendas.</p>
 
 			<div class="mp-container">
-				<div class="mp-block" style="flex-direction:column; justify-content:space-between">
+				<div class="mp-block mp-settings-choose-mode">
 					<div>
 						<p class="mp-settings-title-font-size"><b>Escolha como você quer operar sua loja:</b></p>
 					</div>
@@ -335,8 +335,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 						<div>
 							<span class="mp-settings-font-color mp-settings-subtitle-font-size mp-settings-font-color">Modo Teste</span><br>
 
-							<span class="mp-settings-font-color mp-settings-subtitle-font-size mp-settings-title-color">Checkouts Mercado Pago inativos para cobranças reais.<span
-										class="mp-settings-blue-text"> Regras do modo teste.<span></span>
+							<span class="mp-settings-font-color mp-settings-subtitle-font-size mp-settings-title-color">Checkouts Mercado Pago inativos para cobranças reais.<span class="mp-settings-blue-text"> Regras do modo teste.<span></span>
 						</div>
 					</div>
 					<div class="mp-settings-mode-container">
@@ -354,10 +353,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 						<div class="mp-settings-alert-payment-methods-orange"></div>
 						<div class=" mp-settings-alert-payment-methods-gray">
 
-							<div style="width: 16px; height:16px; background:rgba(0, 0, 0, 0.04);" class="mp-settings-margin-right">
-								<div class="mp-settings-icon-warning"></div>
+							<div class="mp-settings-margin-right mp-settings-mode-style">
+								<img class="mp-settings-icon-warning">
+
 							</div>
-							<div style="display:flex; flex-direction:column; justify-content:flex-start;">
+							<div class="mp-settings-mode-warning">
 								<div class="mp-settings-margin-left">
 									<div class="mp-settings-alert-mode-title">
 										<span>Meios de pagamento Mercado Pago em Modo Teste </span>
@@ -374,7 +374,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					</div>
 				</div>
 			</div>
-			<button class="mp-button"> Salvar Mudanças</button>
+			<button class="mp-button"> Salvar Mudanças </button>
 		</div>
 
 

@@ -327,6 +327,7 @@ input:checked + .mp-settings-slider:before {
 	border-radius: 12px;
 	font-size: 12px;
 	line-height: 12px;
+	align-items: center;
 	text-align: center;
 	color: #00a650;
 }
@@ -505,5 +506,117 @@ input:checked + .mp-settings-slider:before {
 		width: 60px;
 		height: 40px;
 		min-width: 60px;
+	}
+	.mp-settings-icon {
+		width: 60px;
+		height: 40px;
+		min-width: 60px;
+	}
+	.mp-settings-tooltip {
+		position: relative;
+		display: inline-block;
+	}
+
+	.mp-settings-tooltip .mp-settings-tooltip-text {
+		visibility: hidden;
+		width: 150px;
+		background-color:white;
+		border: 1px solid #2196f3;
+		color: black;
+		text-align: center;
+		border-radius: 6px;
+		padding: 5px 5px;
+		position: absolute;
+		z-index: 1;
+		top: 30px;
+		cursor: pointer;
+		left: -400%;
+	}
+	.mp-settings-tooltip .mp-settings-tooltip-text::after {
+		content: " ";
+		position: absolute;
+		bottom: 100%;  /* At the top of the tooltip */
+		left: 50%;
+		margin-left: -5px;
+		border-width: 5px;
+		border-style: solid;
+		border-color: transparent transparent black transparent;
+	}
+	.mp-settings-tooltip:hover .mp-settings-tooltip-text {
+		visibility: visible;
+	}
+	.mp-settings-tooltip {
+		position: relative;
+		display: inline-block;
+	}
+
+	.mp-settings-tooltip .mp-settings-tooltiptext {
+		visibility: hidden;
+		width: 120px;
+		background-color: black;
+		color: #fff;
+		text-align: center;
+		border-radius: 6px;
+		padding: 5px 0;
+		position: absolute;
+		z-index: 1;
+		top: 150%;
+		left: 50%;
+		margin-left: -60px;
+	}
+
+	.mp-settings-tooltip .mp-settings-tooltip-text::after {
+		content: "";
+		position: absolute;
+		bottom: 100%;
+		left: 50%;
+		margin-left: -13px;
+		border-width: 5px;
+		border-style: solid;
+		border-color: transparent transparent black transparent;
+	}
+
+	.mp-settings-tooltip:hover .mp-settings-tooltip-text {
+		visibility: visible;
+	}
+
+	.mp-settings-choose-mode {
+		flex-direction:column;
+		justify-content:space-between;
+	}
+
+	.mp-settings-mode-style {
+		width: 16px;
+		height:16px;
+		background:rgba(0, 0, 0, 0.04);
+	}
+	.mp-settings-mode-warning {
+		display:flex;
+		flex-direction:column;
+		justify-content:flex-start;
+	}
+	.mp-settings-select{
+		appearance: unset !important;
+		-webkit-appearance: unset !important;
+		-moz-appearance: unset !important;
+		max-width: none !important;
+		display: flex !important;
+		flex-direction: column !important;
+		justify-content: center !important;
+		align-items: flex-start !important;
+		padding: 12px 8px 12px 12px !important;
+		position: static !important;
+		height: 48px !important;
+		left: calc(50% - 544px/2) !important;
+		top: 22px !important;
+		background: url("../../images/mercadopago-settings/iconshape.png") no-repeat center right #FFF !important;
+		background-origin: content-box !important;
+		border: 1px solid rgba(0, 0, 0, 0.25) !important;
+		border-radius: 6px !important;
+		text-align: center !important;
+		text-align-last: center !important;
+		/* Inside Auto Layout */
+		margin: 4px 0px !important;
+		width: 100% !important;
 	}
 }
