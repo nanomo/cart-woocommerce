@@ -2033,14 +2033,11 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 	 * @return array
 	 */
 	public static function mp_define_terms_and_conditions() {
-
 		$links_mp       = self::get_country_link_mp_terms();
 		$link_prefix_mp = 'https://www.mercadopago.';
-	return array (
-		'text_prefix'                           => __( 'By continuing, you agree to our ', 'woocommerce-mercadopago' ),
-		'link_terms_and_conditions' => $link_prefix_mp . $links_mp['sufix_url'] . $links_mp['help'] . $links_mp['term_conditition'],
-		'text_suffix'                               => __( 'Terms and Conditions', 'woocommerce-mercadopago' ),
-	);
 
+		return array (
+			'link_terms_and_conditions' => $link_prefix_mp . $links_mp['sufix_url'] . $links_mp['help'] . $links_mp['term_conditition']
+		);
 	}
 }

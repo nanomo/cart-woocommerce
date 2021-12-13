@@ -21,8 +21,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<test-mode
 					title="<?php echo esc_html_e( 'Checkout Pro in Test Mode', 'woocommerce-mercadopago' ); ?>"
 					description="<?php echo esc_html_e( 'Use Mercado Pago\'s payment methods without real charges. ', 'woocommerce-mercadopago' ); ?>"
-					linkText="<?php echo esc_html_e( 'See the rules for the test mode.', 'woocommerce-mercadopago' ); ?>"
-					linkUrl="<?php echo esc_html( $test_mode_link )  ?>"
+					link-text="<?php echo esc_html_e( 'See the rules for the test mode.', 'woocommerce-mercadopago' ); ?>"
+					link-src="<?php echo esc_html( $test_mode_link )  ?>"
 				>
 				</test-mode>
 			</div>
@@ -60,8 +60,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- Terms and conditions link at checkout -->
 <div class="mp-checkout-pro-terms-and-conditions">
 	<terms-and-conditions
-		description="<?php echo esc_html_e( 'By continuing, you agree with our' ) ?>"
-		link-text="<?php echo esc_html_e( 'Terms and Conditions' ) ?>"
+		description="<?php echo esc_html_e( 'By continuing, you agree with our', 'woocommerce-mercadopago' ) ?>"
+		link-text="<?php echo esc_html_e( 'Terms and Conditions', 'woocommerce-mercadopago' ) ?>"
 		link-src="<?php echo esc_html( $link_terms_and_conditions ) ?>"
 	>
 	</terms-and-conditions>
