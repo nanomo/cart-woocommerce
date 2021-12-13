@@ -608,7 +608,7 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 
 		$parameters = [
 			'method'              => $method,
-			'test_mode'           => !$this->is_production_mode(),
+			'test_mode'           => ! $this->is_production_mode(),
 			'test_mode_link'      => $test_mode_link,
 			'plugin_version'      => WC_WooMercadoPago_Constants::VERSION,
 			'redirect_image'      => plugins_url( '../assets/images/cho-pro-redirect.png', plugin_dir_path( __FILE__ ) ),
