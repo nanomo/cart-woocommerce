@@ -592,16 +592,16 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 
 		$checkout_payment_methods = [
 			[
-				'title' => 'Credit card',
-				'label' => 'In up to ' . $installments . ' installments',
+				'title' => 'Credit cards',
+				'label' => 'Up to ' . $installments . ' installments',
 				'payment_methods' => $credit,
 			],
 			[
-				'title' => 'Debit card',
+				'title' => 'Debit cards',
 				'payment_methods' => $debit,
 			],
 			[
-				'title' => 'Ticket',
+				'title' => 'Payment by cash',
 				'payment_methods' => $ticket,
 			]
 		];
