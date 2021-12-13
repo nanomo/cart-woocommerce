@@ -576,7 +576,7 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 						'src' => $payment_method['image'],
 						'alt' => $payment_method['id']
 					];
-				} else if ( 'debit_card' === $payment_method['type'] || 'prepaid_card' === $payment_method['type'] ) {
+				} elseif ( 'debit_card' === $payment_method['type'] || 'prepaid_card' === $payment_method['type'] ) {
 					$debit[] = [
 						'src' => $payment_method['image'],
 						'alt' => $payment_method['id']
