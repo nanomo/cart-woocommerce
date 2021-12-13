@@ -229,6 +229,7 @@ class WC_WooMercadoPago_Module extends WC_WooMercadoPago_Configs {
 	public function load_helpers() {
 		include_once dirname( __FILE__ ) . '/../helpers/class-wc-woomercadopago-helpers-currencyconverter.php';
 		include_once dirname( __FILE__ ) . '/../helpers/class-wc-woomercadopago-composite-id-helper.php';
+		include_once dirname( __FILE__ ) . '/../helpers/class-wc-woomercadopago-helper-links.php';
 	}
 
 	/**
@@ -390,42 +391,50 @@ class WC_WooMercadoPago_Module extends WC_WooMercadoPago_Configs {
 				'sufix_url' => 'com.ar/',
 				'translate' => 'es',
 				'term_conditition' => '/terminos-y-politicas_194',
+				'site_id_mp' => 'mla',
+
 			),
 			'BR' => array( // Brazil.
 				'help'      => 'ajuda',
 				'sufix_url' => 'com.br/',
 				'translate' => 'pt',
 				'term_conditition' => '/termos-e-politicas_194',
+				'site_id_mp' => 'mlb',
 			),
 			'CL' => array( // Chile.
 				'help'      => 'ayuda',
 				'sufix_url' => 'cl/',
 				'translate' => 'es',
 				'term_conditition' => '/terminos-y-politicas_194',
+				'site_id_mp' => 'mlc',
 			),
 			'CO' => array( // Colombia.
 				'help'      => 'ayuda',
 				'sufix_url' => 'com.co/',
 				'translate' => 'es',
 				'term_conditition' => '/terminos-y-politicas_194',
+				'site_id_mp' => 'mco',
 			),
 			'MX' => array( // Mexico.
 				'help'      => 'ayuda',
 				'sufix_url' => 'com.mx/',
 				'translate' => 'es',
 				'term_conditition' => '/terminos-y-politicas_194',
+				'site_id_mp' => 'mlm',
 			),
 			'PE' => array( // Peru.
 				'help'      => 'ayuda',
 				'sufix_url' => 'com.pe/',
 				'translate' => 'es',
 				'term_conditition' => '/terminos-y-politicas_194',
+				'site_id_mp' => 'mpe',
 			),
 			'UY' => array( // Uruguay.
 				'help'      => 'ayuda',
 				'sufix_url' => 'com.uy/',
 				'translate' => 'es',
 				'term_conditition' => '/terminos-y-politicas_194',
+				'site_id_mp' => 'mlu',
 			),
 		);
 

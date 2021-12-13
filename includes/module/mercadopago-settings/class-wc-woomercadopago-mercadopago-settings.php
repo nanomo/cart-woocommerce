@@ -74,6 +74,7 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 	 * Mercado Pago Template Call
 	 */
 	public function mercadopago_submenu_page_callback() {
+		$links = WC_WooMercadoPago_Helper_Links::woomercadopago_settings_links();
 		include __DIR__ . '/../../../templates/mercadopago-settings/mercadopago-settings.php';
 	}
 
@@ -89,8 +90,8 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 	 */
 	public function mercadopago_get_requirements() {
 		$hasCurl = in_array( 'curl', get_loaded_extensions(), true );
-		$hasGD = in_array( 'gd', get_loaded_extensions(), true );
-		$hasSSL = is_ssl();
+		$hasGD   = in_array( 'gd', get_loaded_extensions(), true );
+		$hasSSL  = is_ssl();
 
 		wp_send_json_success([
 			'ssl' => $hasSSL,

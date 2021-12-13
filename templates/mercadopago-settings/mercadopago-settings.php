@@ -68,7 +68,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 						</p>
 					</div>
 					<div>
-						<button class="mp-button">Ajustar prazos e taxas</button>
+					<a target="_blank" href="<?php echo esc_html($links['link_costs']); ?>"><button class="mp-button">Ajustar prazos e taxas</button></a>
 					</div>
 				</div>
 			</div>
@@ -81,7 +81,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 							desenvolvedores. </p>
 					</div>
 					<div>
-						<button class="mp-button mp-button-light-blue"> Manual do plugin</button>
+					<a target="_blank" href="<?php echo esc_html($links['link_guides_plugin']); ?>"><button class="mp-button mp-button-light-blue"> Manual do plugin</button></a>
 					</div>
 				</div>
 			</div>
@@ -105,7 +105,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					deve <b>copiar e colar suas credenciais abaixo.</b></p>
 			</div>
 			<div>
-				<button class="mp-button mp-button-light-blue"> Consultar credenciais</button>
+			<a target="_blank" href="<?php echo esc_html($links['link_credentials']); ?>"><button class="mp-button mp-button-light-blue"> Consultar credenciais</button></a>
 			</div>
 			<div class="mp-container">
 				<div class="mp-block mp-block-flex mp-settings-margin-right">
