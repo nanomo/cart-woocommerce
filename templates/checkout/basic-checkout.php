@@ -35,7 +35,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				"<?php echo esc_html_e( 'No need to fill out details', 'woocommerce-mercadopago' ); ?>",
 				"<?php echo esc_html_e( 'Installments available', 'woocommerce-mercadopago' ); ?>"
 			]'
-			list-style-type-src="<?php echo esc_html( $list_style_type_src ) ?>"
+			list-style-type-src="<?php echo esc_html( $list_style_type_src ); ?>"
 			list-style-type-alt="<?php echo esc_html_e( 'List style type blue check', 'woocommerce-mercadopago' ); ?>"
 		>
 		</checkout-benefits>
@@ -60,9 +60,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- Terms and conditions link at checkout -->
 <div class="mp-checkout-pro-terms-and-conditions">
 	<terms-and-conditions
-		description="<?php echo esc_html_e( 'By continuing, you agree with our', 'woocommerce-mercadopago' ) ?>"
-		link-text="<?php echo esc_html_e( 'Terms and Conditions', 'woocommerce-mercadopago' ) ?>"
-		link-src="<?php echo esc_html( $link_terms_and_conditions ) ?>"
+		description="<?php echo esc_html_e( 'By continuing, you agree with our', 'woocommerce-mercadopago' ); ?>"
+		link-text="<?php echo esc_html_e( 'Terms and Conditions', 'woocommerce-mercadopago' ); ?>"
+		link-src="<?php echo esc_html( $link_terms_and_conditions ); ?>"
 	>
 	</terms-and-conditions>
 </div>
