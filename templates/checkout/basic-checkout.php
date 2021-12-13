@@ -59,5 +59,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <!-- Terms and conditions link at checkout -->
 <div class="mp-checkout-pro-terms-and-conditions">
-	<terms-and-conditions href="<?php echo esc_html( $link_terms_and_conditions ) ?>"></terms-and-conditions>
+	<terms-and-conditions
+		description="<?php echo esc_html_e( 'By continuing, you agree with our' ) ?>"
+		link-text="<?php echo esc_html_e( 'Terms and Conditions' ) ?>"
+		link-src="<?php echo esc_html( $link_terms_and_conditions ) ?>"
+	>
+	</terms-and-conditions>
 </div>
