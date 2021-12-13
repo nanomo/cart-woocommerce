@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					title="<?php echo esc_html_e( 'Checkout Pro in Test Mode', 'woocommerce-mercadopago' ); ?>"
 					description="<?php echo esc_html_e( 'Use Mercado Pago\'s payment methods without real charges. ', 'woocommerce-mercadopago' ); ?>"
 					link-text="<?php echo esc_html_e( 'See the rules for the test mode.', 'woocommerce-mercadopago' ); ?>"
-					link-src="<?php echo esc_html( $test_mode_link )  ?>"
+					link-src="<?php echo esc_html( $test_mode_link ); ?>"
 				>
 				</test-mode>
 			</div>
@@ -41,7 +41,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		</checkout-benefits>
 
 		<div class="mp-checkout-pro-payment-methods">
-			<payment-methods methods="<?php echo esc_html( $payment_methods );  ?>"></payment-methods>
+			<payment-methods methods="<?php echo esc_html( $payment_methods ); ?>"></payment-methods>
 		</div>
 	</div>
 
