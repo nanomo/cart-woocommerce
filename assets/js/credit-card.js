@@ -801,7 +801,7 @@
 
     // Process when submit the checkout form.
     $('form.checkout').on('checkout_place_order_woo-mercado-pago-custom', function () {
-		return mercadoPagoFormHandler();
+			return mercadoPagoFormHandler();
     });
 
     // If payment fail, retry on next checkout page
