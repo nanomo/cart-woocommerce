@@ -195,6 +195,7 @@ class WC_WooMercadoPago_Ticket_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 	 */
 	public static function get_activated_payment() {
 		$activated_payment          = array();
+		$treated_payments          = array();
 		$get_payment_methods_ticket = get_option( '_all_payment_methods_ticket', '' );
 
 		if ( ! empty( $get_payment_methods_ticket ) ) {
@@ -212,7 +213,29 @@ class WC_WooMercadoPago_Ticket_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 				}
 			}
 		}
-		return $activated_payment;
+
+		foreach ($activated_payment as $payment) {
+			$treated_payment = [];
+			if ( isset($payment['payment_places'])) {
+				foreach ($payment['payment_places'] as $place ) {
+					$payment_place_id = ( new WC_WooMercadoPago_Composite_Id_Helper() )->generateIdFromPlace($payment['id'], $place['payment_option_id']);
+					$treated_payment['id'] = $payment_place_id;
+					$treated_payment['value'] = $payment_place_id;
+					$treated_payment['rowText'] = $place['name'];
+					$treated_payment['img'] = $place['thumbnail'];
+					$treated_payment['alt'] = $place['name'];
+					array_push( $treated_payments, $treated_payment);
+				}
+			} else {
+				$treated_payment['id'] = $payment['id'];
+				$treated_payment['value'] = $payment['id'];
+				$treated_payment['rowText'] = $payment['name'];
+				$treated_payment['img'] = $payment['secure_thumbnail'];
+				$treated_payment['alt'] = $payment['name'];
+				array_push( $treated_payments, $treated_payment);
+			}
+		}
+		return $treated_payments;
 	}
 
 	/**
@@ -387,13 +410,6 @@ class WC_WooMercadoPago_Ticket_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 	public function payment_fields() {
 		// add css.
 		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
-
-		wp_enqueue_style(
-			'woocommerce-mercadopago-basic-checkout-styles',
-			plugins_url( '../assets/css/basic_checkout_mercadopago' . $suffix . '.css', plugin_dir_path( __FILE__ ) ),
-			array(),
-			WC_WooMercadoPago_Constants::VERSION
-		);
 
 		wp_enqueue_style(
 			'woocommerce-mercadopago-narciso-styles',
