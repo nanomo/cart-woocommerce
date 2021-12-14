@@ -15,8 +15,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 class WC_WooMercadoPago_Options {
 
-	const CREDENTIALS_PUBLIC_KEY_PROD = '_mp_public_key_prod';
-	const CREDENTIALS_PUBLIC_KEY_TEST = '_mp_public_key_test';
+	const CREDENTIALS_PUBLIC_KEY_PROD   = '_mp_public_key_prod';
+	const CREDENTIALS_PUBLIC_KEY_TEST   = '_mp_public_key_test';
 	const CREDENTIALS_ACCESS_TOKEN_PROD = '_mp_access_token_prod';
 	const CREDENTIALS_ACCESS_TOKEN_TEST = '_mp_access_token_test';
 
@@ -27,8 +27,8 @@ class WC_WooMercadoPago_Options {
 
 	public function __construct() {
 
-		$this->credentials_public_key_prod = get_option( self::CREDENTIALS_PUBLIC_KEY_PROD, '' );
-		$this->credentials_public_key_test = get_option( self::CREDENTIALS_PUBLIC_KEY_TEST, '' );
+		$this->credentials_public_key_prod   = get_option( self::CREDENTIALS_PUBLIC_KEY_PROD, '' );
+		$this->credentials_public_key_test   = get_option( self::CREDENTIALS_PUBLIC_KEY_TEST, '' );
 		$this->credentials_access_token_prod = get_option( self::CREDENTIALS_ACCESS_TOKEN_PROD, '' );
 		$this->credentials_access_token_test = get_option( self::CREDENTIALS_ACCESS_TOKEN_TEST, '' );
 	}

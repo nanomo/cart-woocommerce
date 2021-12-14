@@ -7,7 +7,7 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 
 	private $options;
 
-	public function __construct(WC_WooMercadoPago_Options $options){
+	public function __construct( WC_WooMercadoPago_Options $options ) {
 		$this->options = $options;
 	}
 
@@ -82,7 +82,7 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 	 * Mercado Pago Template Call
 	 */
 	public function mercadopago_submenu_page_callback() {
-		$links = WC_WooMercadoPago_Helper_Links::woomercadopago_settings_links();
+		$links               = WC_WooMercadoPago_Helper_Links::woomercadopago_settings_links();
 		$options_credentials = $this->options->get_access_token_and_public_key();
 		include __DIR__ . '/../../../templates/mercadopago-settings/mercadopago-settings.php';
 	}
