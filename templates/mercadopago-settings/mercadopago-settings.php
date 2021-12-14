@@ -120,12 +120,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<p class="mp-settings-label mp-settings-title-color mp-settings-margin-bottom">Habilitam os
 						checkouts Mercado Pago para testes de compras na loja.</p>
 					<fieldset class="mp-settings-fieldset">
-						<legend clas="mp-settings-label mp-settings-font-color">Public Key</legend>
-						<input class="mp-settings-input mp-credential-feedback-positive" type="text" placeholder="Cole aqui sua Public Key">
+						<legend class="mp-settings-label mp-settings-font-color">Public Key</legend>
+						<input class="mp-settings-input mp-credential-feedback-positive" type="text" value="<?php echo esc_html($options_credentials['credentials_public_key_test']); ?>" placeholder="Cole aqui sua Public Key">
 					</fieldset>
 					<fieldset>
-						<legend clas="mp-settings-label">Access token</legend>
-						<input class="mp-settings-input mp-credential-feedback-positive" type="text" placeholder="Cole aqui seu Access Token">
+						<legend class="mp-settings-label">Access token</legend>
+						<input class="mp-settings-input mp-credential-feedback-positive" type="text" value="<?php echo esc_html($options_credentials['credentials_access_token_test']); ?>" placeholder="Cole aqui seu Access Token" >
 					</fieldset>
 				</div>
 				<div class="mp-block mp-block-flex mp-settings-margin-left">
@@ -133,12 +133,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<p class="mp-settings-label mp-settings-title-color mp-settings-margin-bottom">Habilitam os
 						checkouts Mercado Pago para receber pagamentos reais na loja.</p>
 					<fieldset class="mp-settings-fieldset">
-						<legend clas="mp-settings-label">Public Key</legend>
-						<input class="mp-settings-input mp-credential-feedback-negative" type="text" placeholder="Cole aqui seu Access Token">
+						<legend class="mp-settings-label">Public Key</legend>
+						<input class="mp-settings-input mp-credential-feedback-negative" type="text" value="<?php echo esc_html($options_credentials['credentials_public_key_prod']); ?>" placeholder="Cole aqui seu Access Token">
 					</fieldset>
 					<fieldset>
-						<legend clas="mp-settings-label">Access token</legend>
-						<input class="mp-settings-input mp-credential-feedback-negative" type="text" placeholder="Cole aqui seu Access Token">
+						<legend class="mp-settings-label">Access token</legend>
+						<input class="mp-settings-input mp-credential-feedback-negative" type="text" value="<?php echo esc_html($options_credentials['credentials_public_key_test']); ?>" placeholder="Cole aqui seu Access Token">
 					</fieldset>
 				</div>
 			</div>
@@ -167,14 +167,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<div class="mp-settings-standard-margin">
 						<fieldset>
 							<legend class="mp-settings-label">Nome da sua loja nas faturas do cliente</legend>
-							<input type="text" class="mp-settings-input" placeholder= "Ex.:Loja da Maria" value="<?php echo esc_html($store_identificator);?>">
+							<input type="text" class="mp-settings-input" placeholder= "Ex.:Loja da Maria" value="<?php echo esc_html($store_identificator); ?>">
 						</fieldset>
 						<span class="mp-settings-helper">Se o campo estiver vazio, a compra do cliente será identificada como Mercado Pago.</span>
 					</div>
 					<div class="mp-settings-standard-margin">
 						<fieldset>
 							<legend class="mp-settings-label">Identificação em Atividades do Mercado Pago</legend>
-							<input type="text" class="mp-settings-input" placeholder="Ex.:Loja da Maria" value="<?php echo esc_html($category_id);?>">
+							<input type="text" class="mp-settings-input" placeholder="Ex.:Loja da Maria" value="<?php echo esc_html($category_id); ?>">
 						</fieldset>
 						<span class="mp-settings-helper">Nas Ativades voce verá o termo inserido antes do númer o do pedido</span>
 					</div>
@@ -184,10 +184,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 						<select name="select" class="mp-settings-select">
 
-						<?php for( $i = 0; $i < count($categories_store['store_categories_description']); $i++){
+						<?php
+						for ( $i = 0; $i < count($categories_store['store_categories_description']); $i++ ) {
 								echo "<option value='" . esc_html($categories_store['store_categories_id'][$i])
-								. "'".esc_html(($category_selected === $categories_store['store_categories_id'][$i])? 'selected' : '' )
-								. ">" . esc_html($categories_store['store_categories_description'][$i]) . "</option>";
+								. "'" . esc_html(( $category_selected === $categories_store['store_categories_id'][$i] ) ? 'selected' : '' )
+								. '>' . esc_html($categories_store['store_categories_description'][$i]) . '</option>';
 						}
 						?>
 						</select>

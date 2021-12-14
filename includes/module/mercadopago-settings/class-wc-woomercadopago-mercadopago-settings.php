@@ -2,11 +2,12 @@
 
 class WC_WooMercadoPago_MercadoPago_Settings {
 
+
 	const PRIORITY_ON_MENU = 90;
 
 	protected $options;
 
-	public function __construct( WC_WooMercadoPago_Options $options ){
+	public function __construct( WC_WooMercadoPago_Options $options ) {
 		$this->options = $options;
 	}
 
@@ -80,11 +81,13 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 	 * Mercado Pago Template Call
 	 */
 	public function mercadopago_submenu_page_callback() {
-		$categories_store       = WC_WooMercadoPago_Module::$categories;
-		$category_selected = 'art';
-		$category_id = $this->options->store_activity_identifier();
+		$categories_store    = WC_WooMercadoPago_Module::$categories;
+		$category_selected   =
+		$category_id         = $this->options->store_activity_identifier();
 		$store_identificator = $this->options->store_name_on_invoice();
-		$links = WC_WooMercadoPago_Helper_Links::woomercadopago_settings_links();
+		$links               = WC_WooMercadoPago_Helper_Links::woomercadopago_settings_links();
+		$links               = WC_WooMercadoPago_Helper_Links::woomercadopago_settings_links();
+		$options_credentials = $this->options->get_access_token_and_public_key();
 		include __DIR__ . '/../../../templates/mercadopago-settings/mercadopago-settings.php';
 	}
 
