@@ -425,25 +425,20 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 	 * Payment fields
 	 */
 	public function payment_fields() {
-		// add css.
 		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
+		// add css.
 		wp_enqueue_style(
-			'woocommerce-mercadopago-basic-checkout-styles',
-			plugins_url( '../assets/css/basic_checkout_mercadopago' . $suffix . '.css', plugin_dir_path( __FILE__ ) ),
+			'woocommerce-mercadopago-narciso-styles',
+			plugins_url( '../assets/css/mp-plugins-components.css', plugin_dir_path( __FILE__ ) ),
 			array(),
 			WC_WooMercadoPago_Constants::VERSION
 		);
 
-		$parameters = array(
-			'checkout_alert_test_mode' => $this->is_production_mode()
-			? ''
-			: $this->checkout_alert_test_mode_template(
-				'PIX em Modo Teste',
-				'É possível testar o fluxo até gerar o código, mas não é possível finalizar o pagamento.'
-			),
-			'image_pix' => plugins_url( '../assets/images/pix.png', plugin_dir_path( __FILE__ ) ),
-		);
+		$parameters = [
+			'test_mode' => ! $this->is_production_mode(),
+			'pix_image' => plugins_url( '../assets/images/pix.png', plugin_dir_path( __FILE__ ) ),
+		];
 
 		$parameters = array_merge($parameters, WC_WooMercadoPago_Payment_Abstract::mp_define_terms_and_conditions());
 		wc_get_template( 'checkout/pix-checkout.php', $parameters, 'woo/mercado/pago/module/', WC_WooMercadoPago_Module::get_templates_path() );
