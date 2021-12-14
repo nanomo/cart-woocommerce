@@ -2,7 +2,15 @@
 
 class WC_WooMercadoPago_MercadoPago_Settings {
 
+
 	const PRIORITY_ON_MENU = 90;
+
+	private $options;
+
+	public function __construct(WC_WooMercadoPago_Options $options){
+		$this->options = $options;
+	}
+
 
 	/**
 	 * Action to insert Mercado Pago in WooCommerce Menu and Load JavaScript and CSS
@@ -75,6 +83,7 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 	 */
 	public function mercadopago_submenu_page_callback() {
 		$links = WC_WooMercadoPago_Helper_Links::woomercadopago_settings_links();
+		$options_credentials = $this->options->get_access_token_and_public_key();
 		include __DIR__ . '/../../../templates/mercadopago-settings/mercadopago-settings.php';
 	}
 
