@@ -31,7 +31,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<div>
 						<p class="mp-settings-font-color mp-settings-subtitle-font-size">SSL</p>
 						<label class="mp-settings-icon-info mp-settings-tooltip">
-							<span class="mp-settings-tooltip-text">Implementação responsável pela transmissão de dados para o Mercado Pago de maneira segura e criptografada.</span>
+							<span class="mp-settings-tooltip-text"><p class="mp-settings-subtitle-font-size"><b>SSL</b><p></p></p>Implementação responsável pela transmissão de dados para o Mercado Pago de maneira segura e criptografada.</span>
 						</label>
 					</div>
 					<div>
@@ -43,7 +43,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<div>
 						<p class="mp-settings-font-color mp-settings-subtitle-font-size">Extensões GD</p>
 						<label class="mp-settings-icon-info mp-settings-tooltip">
-							<span class="mp-settings-tooltip-text">São extensões responsáveis pela implementação e funcionamento do Pix na sua loja.</span>
+							<span class="mp-settings-tooltip-text"><p class="mp-settings-subtitle-font-size"><b>Extensões GD</b></p>São extensões responsáveis pela implementação e funcionamento do Pix na sua loja.</span>
 						</label>
 					</div>
 					<div>
@@ -55,7 +55,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<div>
 						<p class="mp-settings-font-color mp-settings-subtitle-font-size">Curl</p>
 						<label class="mp-settings-icon-info mp-settings-tooltip">
-							<span class="mp-settings-tooltip-text">É uma extensão responsável pela realização de pagamentos via requests do plugin ao Mercado Pago.</span>
+							<span class="mp-settings-tooltip-text"><b>Extensões GD</b><p>É uma extensão responsável pela realização de pagamentos via requests do plugin ao Mercado Pago.</span>
 
 						</label>
 					</div>
@@ -167,14 +167,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<div class="mp-settings-standard-margin">
 						<fieldset>
 							<legend class="mp-settings-label">Nome da sua loja nas faturas do cliente</legend>
-							<input type="text" class="mp-settings-input" placeholder="Ex.:Loja da Maria">
+							<input type="text" class="mp-settings-input" placeholder= "Ex.:Loja da Maria" value="<?php echo esc_html($store_identificator);?>">
 						</fieldset>
 						<span class="mp-settings-helper">Se o campo estiver vazio, a compra do cliente será identificada como Mercado Pago.</span>
 					</div>
 					<div class="mp-settings-standard-margin">
 						<fieldset>
 							<legend class="mp-settings-label">Identificação em Atividades do Mercado Pago</legend>
-							<input type="text" class="mp-settings-input" placeholder="Ex.:Loja da Maria">
+							<input type="text" class="mp-settings-input" placeholder="Ex.:Loja da Maria" value="<?php echo esc_html($category_id);?>">
 						</fieldset>
 						<span class="mp-settings-helper">Nas Ativades voce verá o termo inserido antes do númer o do pedido</span>
 					</div>
@@ -183,9 +183,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 						<label class="mp-settings-label mp-container">Categoria da loja</label>
 
 						<select name="select" class="mp-settings-select">
-							<option value="valor1">Valor 1</option>
-							<option value="valor2" selected>Valor 2</option>
-							<option value="valor3">Valor 3</option>
+
+						<?php for( $i = 0; $i < count($categories_store['store_categories_description']); $i++){
+								echo "<option value='" . esc_html($categories_store['store_categories_id'][$i])
+								. "'".esc_html(($category_selected === $categories_store['store_categories_id'][$i])? 'selected' : '' )
+								. ">" . esc_html($categories_store['store_categories_description'][$i]) . "</option>";
+						}
+						?>
 						</select>
 						<span class="mp-settings-helper">Selecione ”Outro” caso não encontre uma categoria adequada.</span>
 					</div>
