@@ -547,13 +547,6 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 
 		// add css.
 		wp_enqueue_style(
-			'woocommerce-mercadopago-basic-checkout-styles',
-			plugins_url( '../assets/css/basic_checkout_mercadopago' . $suffix . '.css', plugin_dir_path( __FILE__ ) ),
-			array(),
-			WC_WooMercadoPago_Constants::VERSION
-		);
-
-		wp_enqueue_style(
 			'woocommerce-mercadopago-narciso-styles',
 			plugins_url( '../assets/css/mp-plugins-components.css', plugin_dir_path( __FILE__ ) ),
 			array(),
