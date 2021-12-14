@@ -15,27 +15,29 @@ if ( ! defined('ABSPATH') ) {
 }
 ?>
 
-<div class="mp-panel-checkout">
-	<?php
-	// @codingStandardsIgnoreLine
-	echo $checkout_alert_test_mode;
-	?>
-	<div class="mp-row-checkout">
-		<div class="mp-redirect-frame-pix">
-			<img src="<?php echo esc_html($image_pix); ?>" class="mp-img-fluid mp-img-redirect" alt="" />
-			<p>
-				<?php echo esc_html_e('Pay securely and instantly!', 'woocommerce-mercadopago'); ?>
-				<br>
-				<?php echo esc_html_e('When you finish the order, you will see the code to complete the payment.', 'woocommerce-mercadopago'); ?>
-			</p>
+<div class="mp-checkout-pix-container">
+    <div class="mp-checkout-pix-test-mode">
+        <test-mode
+            title="Pix in Test Mode"
+            description="You can test the flow to generate a code, but you cannot finalize the payment."
+        >
+        </test-mode>
+    </div>
 
-		</div>
-	</div>
+    <pix-template
+        title="Pay instantly."
+        subtitle="By confirming your purchase, we will show you a code to make the payment."
+        src="https://raw.githubusercontent.com/PluginAndPartners/mpmodules-narciso/develop/src/assets/images/pix-logo.png?token=ADYLYLZL7L34M4WQDXKIKDLBYHU3O"
+        alt="PIX logo"
+    >
+    </pix-template>
+
+    <div class="mp-checkout-pix-terms-and-conditions">
+        <terms-and-conditions
+            description="By continuing, you agree with our"
+            link-text="Terms and Conditions"
+            link-src="https://developers.mercadopago.com"
+        >
+        </terms-and-conditions>
+    </div>
 </div>
-	<!-- Terms and conditions link at checkout -->
-	<div>
-		<p class="mp-terms-and-conditions">
-			<?php echo esc_html($text_prefix); ?>
-			<a target="_blank" href="<?php echo esc_html($link_terms_and_conditions); ?>"> <?php echo esc_html($text_suffix); ?> </a>
-		</p>
-	</div>
