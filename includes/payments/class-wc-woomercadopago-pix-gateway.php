@@ -44,12 +44,16 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 		$this->checkout_type      = 'custom';
 		$this->activated_payment  = get_option( '_mp_payment_methods_pix', '' );
 		$this->field_forms_order  = $this->get_fields_sequence();
+
 		parent::__construct();
+
 		$this->update_pix_method();
 		$this->form_fields         = $this->get_form_mp_fields( 'Pix' );
 		$this->hook                = new WC_WooMercadoPago_Hook_Pix( $this );
 		$this->notification        = new WC_WooMercadoPago_Notification_Webhook( $this );
 		$this->currency_convertion = true;
+		$this->icon                = $this->get_checkout_icon();
+
 		add_action( 'woocommerce_email_before_order_table', array(__CLASS__,'get_pix_template'), 20, 4 );
 		add_action( 'woocommerce_order_details_after_order_table', array(__CLASS__,'get_pix_template_order_details') );
 	}
@@ -718,4 +722,12 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 
 	}
 
+	/**
+	 * Get Mercado Pago Icon
+	 *
+	 * @return mixed
+	 */
+	public function get_checkout_icon() {
+		return apply_filters( 'woocommerce_mercadopago_icon', plugins_url( '../assets/images/icons/pix.png', plugin_dir_path( __FILE__ ) ) );
+	}
 }

@@ -4,16 +4,16 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/woocommerce-"
 "mercadopago\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2021-12-01 09:45-0300\n"
+"PO-Revision-Date: 2021-12-13 16:40-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: es_AR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.0\n"
-"X-Domain: woocommerce-mercadopago\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.0.1\n"
+"X-Domain: woocommerce-mercadopago\n"
 
 #: ../../includes/helpers/class-wc-woomercadopago-helpers-currencyconverter.php:92,
 #: ../../includes/helpers/class-wc-woomercadopago-helpers-currencyconverter.php:92
@@ -30,26 +30,26 @@ msgid "Convert Currency"
 msgstr "Convertir moneda"
 
 #: ../../includes/helpers/class-wc-woomercadopago-helpers-currencyconverter.php:430,
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:533,
-#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:271,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:910,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1321,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1450,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1487,
-#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:305,
-#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:305
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:536,
+#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:274,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:900,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1311,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1440,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1477,
+#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:308,
+#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:308
 msgid "No"
 msgstr "No"
 
 #: ../../includes/helpers/class-wc-woomercadopago-helpers-currencyconverter.php:431,
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:532,
-#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:272,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:911,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1322,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1451,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1486,
-#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:306,
-#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:306
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:535,
+#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:275,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:901,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1312,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1441,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1476,
+#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:309,
+#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:309
 msgid "Yes"
 msgstr "Sí"
 
@@ -167,35 +167,23 @@ msgstr "Guías y documentación"
 msgid "Report Problem"
 msgstr "Informar problema"
 
-#: ../../includes/module/class-wc-woomercadopago-module.php:464,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:2050,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:2050
-msgid "By continuing, you agree to our "
-msgstr "Al continuar, aceptas nuestros "
-
-#: ../../includes/module/class-wc-woomercadopago-module.php:466,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:2052,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:2052
-msgid "Terms and Conditions"
-msgstr "Términos y Condiciones"
-
-#: ../../includes/module/class-wc-woomercadopago-module.php:482,
-#: ../../includes/module/class-wc-woomercadopago-module.php:482
+#: ../../includes/module/class-wc-woomercadopago-module.php:479,
+#: ../../includes/module/class-wc-woomercadopago-module.php:479
 msgid "By Mercado Pago"
 msgstr "Por Mercado Pago"
 
-#: ../../includes/module/class-wc-woomercadopago-module.php:515,
-#: ../../includes/module/class-wc-woomercadopago-module.php:515
+#: ../../includes/module/class-wc-woomercadopago-module.php:512,
+#: ../../includes/module/class-wc-woomercadopago-module.php:512
 msgid "The payment method is not valid or not available."
 msgstr "El medio de pago no es válido o no está disponible."
 
-#: ../../includes/module/class-wc-woomercadopago-module.php:518,
-#: ../../includes/module/class-wc-woomercadopago-module.php:518
+#: ../../includes/module/class-wc-woomercadopago-module.php:515,
+#: ../../includes/module/class-wc-woomercadopago-module.php:515
 msgid "The transaction amount cannot be processed by Mercado Pago."
 msgstr "El monto de transacción no puede ser procesado por Mercado Pago."
 
-#: ../../includes/module/class-wc-woomercadopago-module.php:519,
-#: ../../includes/module/class-wc-woomercadopago-module.php:519
+#: ../../includes/module/class-wc-woomercadopago-module.php:516,
+#: ../../includes/module/class-wc-woomercadopago-module.php:516
 msgid ""
 "Possible causes: Currency not supported; Amounts below the minimum or above "
 "the maximum allowed."
@@ -203,13 +191,13 @@ msgstr ""
 "Posibles causas: Moneda no soportada; Montos por debajo del mínimo o por "
 "encima del máximo permitido."
 
-#: ../../includes/module/class-wc-woomercadopago-module.php:522,
-#: ../../includes/module/class-wc-woomercadopago-module.php:522
+#: ../../includes/module/class-wc-woomercadopago-module.php:519,
+#: ../../includes/module/class-wc-woomercadopago-module.php:519
 msgid "The users are not valid."
 msgstr "Los usuários no son válidos."
 
-#: ../../includes/module/class-wc-woomercadopago-module.php:523,
-#: ../../includes/module/class-wc-woomercadopago-module.php:523
+#: ../../includes/module/class-wc-woomercadopago-module.php:520,
+#: ../../includes/module/class-wc-woomercadopago-module.php:520
 msgid ""
 "Possible causes: Buyer and seller have the same account in Mercado Pago; The "
 "transaction involving production and test users."
@@ -217,68 +205,68 @@ msgstr ""
 "Posibles causas: Comprador y vendedor tienen la misma cuenta en Mercado "
 "Pago; La transacción involucrando usuários de producción y de prueba."
 
-#: ../../includes/module/class-wc-woomercadopago-module.php:526,
-#: ../../includes/module/class-wc-woomercadopago-module.php:526
+#: ../../includes/module/class-wc-woomercadopago-module.php:523,
+#: ../../includes/module/class-wc-woomercadopago-module.php:523
 msgid "Unauthorized use of production credentials."
 msgstr "Uso no autorizado de credenciales de producción."
 
-#: ../../includes/module/class-wc-woomercadopago-module.php:527,
-#: ../../includes/module/class-wc-woomercadopago-module.php:527
+#: ../../includes/module/class-wc-woomercadopago-module.php:524,
+#: ../../includes/module/class-wc-woomercadopago-module.php:524
 msgid ""
 "Possible causes: Use permission in use for the credential of the seller."
 msgstr ""
 "Posibles causas: Pendencia de permiso de uso en producción para la "
 "credencial del vendedor."
 
-#: ../../includes/module/class-wc-woomercadopago-module.php:644,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:838,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:838
+#: ../../includes/module/class-wc-woomercadopago-module.php:641,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:828,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:828
 msgid "Colombia"
 msgstr "Colombia"
 
-#: ../../includes/module/class-wc-woomercadopago-module.php:646,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:835,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:835
+#: ../../includes/module/class-wc-woomercadopago-module.php:643,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:825,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:825
 msgid "Argentina"
 msgstr "Argentina"
 
-#: ../../includes/module/class-wc-woomercadopago-module.php:648,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:836,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:836
+#: ../../includes/module/class-wc-woomercadopago-module.php:645,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:826,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:826
 msgid "Brazil"
 msgstr "Brasil"
 
-#: ../../includes/module/class-wc-woomercadopago-module.php:650,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:837,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:837
+#: ../../includes/module/class-wc-woomercadopago-module.php:647,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:827,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:827
 msgid "Chile"
 msgstr "Chile"
 
-#: ../../includes/module/class-wc-woomercadopago-module.php:652,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:839,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:839
+#: ../../includes/module/class-wc-woomercadopago-module.php:649,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:829,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:829
 msgid "Mexico"
 msgstr "México"
 
-#: ../../includes/module/class-wc-woomercadopago-module.php:654,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:841,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:841
+#: ../../includes/module/class-wc-woomercadopago-module.php:651,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:831,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:831
 msgid "Uruguay"
 msgstr "Uruguay"
 
-#: ../../includes/module/class-wc-woomercadopago-module.php:656,
-#: ../../includes/module/class-wc-woomercadopago-module.php:656
+#: ../../includes/module/class-wc-woomercadopago-module.php:653,
+#: ../../includes/module/class-wc-woomercadopago-module.php:653
 msgid "Venezuela"
 msgstr "Venezuela"
 
-#: ../../includes/module/class-wc-woomercadopago-module.php:658,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:840,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:840
+#: ../../includes/module/class-wc-woomercadopago-module.php:655,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:830,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:830
 msgid "Peru"
 msgstr "Peru"
 
-#: ../../includes/module/class-wc-woomercadopago-module.php:690,
-#: ../../includes/module/class-wc-woomercadopago-module.php:690
+#: ../../includes/module/class-wc-woomercadopago-module.php:687,
+#: ../../includes/module/class-wc-woomercadopago-module.php:687
 msgid "Update the WooCommerce order to "
 msgstr "Actualizar la orden de WooCommerce para "
 
@@ -407,8 +395,8 @@ msgstr ""
 #: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:30,
 #: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:39,
 #: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:39
-msgid "Pay with the payment method you prefer"
-msgstr "Paga con el medio de pago que prefieras"
+msgid "Your saved cards or money in Mercado Pago"
+msgstr "Tus tarjetas guardadas o efectivo en Mercado Pago"
 
 #: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:37,
 #: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:37
@@ -418,18 +406,18 @@ msgstr "Mercado Pago - Checkout Pro"
 #. translators: %s checkout
 #. translators: %s checkout
 #. translators: %s checkout
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:274,
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:274
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:277,
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:277
 msgid "Checkout Pro %s"
 msgstr "Checkout Pro %s"
 
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:277,
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:277
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:280,
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:280
 msgid "Accept all method of payment and take your charges to another level"
 msgstr "Acepta todos los medios de pago y lleva tus cobros a otro nivel"
 
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:281,
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:281
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:284,
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:284
 msgid ""
 "Turn your online store into your customers preferred payment gateway. Choose "
 "if the final payment experience will be inside or outside your store."
@@ -438,15 +426,15 @@ msgstr ""
 "clientes. Elige si la experiencia de pago final será dentro o fuera de tu "
 "tienda."
 
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:298,
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:322,
-#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:248,
-#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:248
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:301,
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:326,
+#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:251,
+#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:251
 msgid "Configure Mercado Pago for WooCommerce"
 msgstr "Ingresá la información de tu negocio"
 
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:311,
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:311
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:314,
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:314
 msgid ""
 "Enable the experience of the Checkout Pro in your online store, select the "
 "means of payment available to your customers and<br> define the maximum fees "
@@ -456,23 +444,23 @@ msgstr ""
 "medios de pago disponibles para tus clientes y<br> define el máximo de "
 "cuotas en el que podrán pagarte."
 
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:324,
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:324
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:327,
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:327
 msgid "Set payment preferences in your store"
 msgstr "Configura las preferencias de pago en tu tienda"
 
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:337,
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:337
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:340,
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:340
 msgid "Advanced settings"
 msgstr "Configuración Avanzada"
 
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:350,
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:350
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:353,
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:353
 msgid "Payment experience"
 msgstr "Experiencia de pago"
 
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:352,
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:352
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:355,
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:355
 msgid ""
 "Define what payment experience your customers will have, whether inside or "
 "outside your store."
@@ -480,37 +468,37 @@ msgstr ""
 "Define qué experiencia de pago tendrán tus clientes, si dentro o fuera de tu "
 "tienda."
 
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:355,
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:355
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:358,
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:358
 msgid "Redirect"
 msgstr "Redirect"
 
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:356,
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:356
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:359,
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:359
 msgid "Modal"
 msgstr "Modal"
 
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:372,
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:372
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:375,
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:375
 msgid ""
 "Choose the URL that we will show your customers when they finish their "
 "purchase."
 msgstr "Elige la URL que mostraremos a tus clientes cuando terminen su compra."
 
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:370,
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:390,
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:411,
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:411
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:373,
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:393,
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:414,
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:414
 msgid "This seems to be an invalid URL."
 msgstr "Esto parece ser una URL no válida."
 
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:375,
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:375
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:378,
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:378
 msgid "Success URL"
 msgstr "URL de éxito"
 
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:392,
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:392
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:395,
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:395
 msgid ""
 "Choose the URL that we will show to your customers when we refuse their "
 "purchase. Make sure it includes a message appropriate to the situation and "
@@ -520,13 +508,13 @@ msgstr ""
 "Asegúrate de incluir un mensaje adecuado a la situación y dales información "
 "útil para que puedan solucionarlo."
 
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:395,
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:395
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:398,
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:398
 msgid "Payment URL rejected"
 msgstr "URL de pago rechazado"
 
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:413,
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:413
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:416,
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:416
 msgid ""
 "Choose the URL that we will show to your customers when they have a payment "
 "pending approval."
@@ -534,93 +522,104 @@ msgstr ""
 "Elige la URL que mostraremos a tus clientes cuando tengan un pago pendiente "
 "de aprobación."
 
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:416,
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:416
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:419,
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:419
 msgid "Payment URL pending"
 msgstr "URL de pago pendiente"
 
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:495,
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:495
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:498,
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:498
 msgid "Select offline payments"
 msgstr "Selecciona medios de pago presenciales"
 
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:484,
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:484
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:487,
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:487
 msgid "Select debit cards"
 msgstr "Selecciona tarjetas de débito"
 
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:473,
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:473
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:476,
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:476
 msgid "Select credit cards"
 msgstr "Selecciona tarjetas de crédito"
 
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:501,
-#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:357,
-#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:357
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:504,
+#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:360,
+#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:360
 msgid "Payment methods"
 msgstr "Medios de pagos"
 
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:502,
-#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:358,
-#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:358
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:505,
+#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:361,
+#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:361
 msgid "Choose the available payment methods in your store."
 msgstr "Selecciona los medios de pago disponibles en tu tienda."
 
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:508,
-#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:361,
-#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:361
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:511,
+#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:364,
+#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:364
 msgid "Activate the available payment methods to your clients."
 msgstr "Habilita los medios de pago disponibles para tus clientes."
 
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:527,
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:527
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:530,
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:530
 msgid "Return to the store"
 msgstr "Volver a la tienda"
 
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:530,
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:530
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:533,
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:533
 msgid ""
 "Do you want your customer to automatically return to the store after payment?"
 msgstr ""
 "¿Quieres que tu cliente vuelva automáticamente a la tienda después del pago?"
 
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:580,
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:580
-msgid "Checkout Pro in Test Mode"
-msgstr "Checkout Pro en Modo Test"
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:595,
+#: ../../templates/checkout/custom-checkout.php:64,
+#: ../../templates/checkout/custom-checkout.php:64
+msgid "Credit cards"
+msgstr "Tarjetas de crédito"
 
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:581,
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:581
-msgid "Use Mercado Pago's payment methods without real charges. See the"
-msgstr "Utiliza los medios de Mercado Pago sin cobros reales. Consulta las"
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:596,
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:596
+msgid "Up to "
+msgstr "Hasta "
 
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:582,
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:582
-msgid "rules for the test mode"
-msgstr "reglas del modo test"
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:596,
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:596
+msgid " installments"
+msgstr " cuotas"
 
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:627,
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:614,
-#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:580,
-#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:568,
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:481,
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:468,
-#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:490,
-#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:477,
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:600,
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:600
+msgid "Debit cards"
+msgstr "Tarjetas de débito"
+
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:604,
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:604
+msgid "Payment by cash"
+msgstr "Pagos en efectivo"
+
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:652,
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:639,
+#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:583,
+#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:571,
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:485,
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:472,
+#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:493,
+#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:480,
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:169,
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:167,
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:167
 msgid "discount of"
 msgstr "descuento de"
 
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:632,
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:619,
-#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:585,
-#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:573,
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:486,
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:473,
-#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:495,
-#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:482,
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:657,
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:644,
+#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:588,
+#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:576,
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:490,
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:477,
+#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:498,
+#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:485,
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:171,
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:171
 msgid "fee of"
@@ -653,18 +652,18 @@ msgstr "Mercado Pago - Checkout personalizado"
 #. translators: %s card
 #. translators: %s card
 #. translators: %s card
-#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:199,
-#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:199
+#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:202,
+#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:202
 msgid "Checkout of payments with debit and credit cards %s"
 msgstr "Checkout de pagos con tarjetas de débito y crédito %s"
 
-#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:202,
-#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:202
+#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:205,
+#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:205
 msgid "Accept payments instantly and maximize the conversion of your business"
 msgstr "Acepta pagos al instante y maximiza la conversión de tu negocio"
 
-#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:206,
-#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:206
+#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:209,
+#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:209
 msgid ""
 "Turn your online store into a secure and easy-to-use payment gateway for "
 "your customers. With personalized checkout your customers pay without "
@@ -674,28 +673,28 @@ msgstr ""
 "para tus clientes. Con el checkout personalizado tus clientes pagan ¡sin "
 "salir de tu tienda!"
 
-#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:224,
-#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:224
+#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:227,
+#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:227
 msgid "Set up the payment experience in your store"
 msgstr "Ingresá la información de tu negocio"
 
-#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:238,
-#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:238
+#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:241,
+#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:241
 msgid "Configure the personalized payment experience in your store"
 msgstr "Configura las preferencias de pago en tu tienda"
 
-#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:252,
-#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:252
+#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:255,
+#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:255
 msgid "Advanced configuration of the personalized payment experience\""
 msgstr "Configuración Avanzada"
 
-#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:266,
-#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:266
+#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:269,
+#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:269
 msgid "Payment with card stored in Mercado Pago"
 msgstr "Pago con tarjeta guardado en Mercado Pago"
 
-#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:269,
-#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:269
+#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:272,
+#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:272
 msgid ""
 "Activate this function so that your customers already using Mercado Pago can "
 "buy without having to fill in their card details at the store checkout."
@@ -704,13 +703,13 @@ msgstr ""
 "puedan comprar sin tener que rellenar los datos de su tarjeta en el checkout "
 "de tu tienda."
 
-#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:286,
-#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:286
+#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:289,
+#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:289
 msgid "That’s it, payment accepted!"
 msgstr "Listo, ¡aceptamos tu pago!"
 
-#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:288,
-#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:288
+#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:291,
+#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:291
 msgid ""
 "We are processing your payment. In less than an hour we will send you the "
 "result by email."
@@ -718,8 +717,8 @@ msgstr ""
 "Estamos procesando su pago. En menos de una hora le enviaremos el resultado "
 "por correo electrónico."
 
-#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:290,
-#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:290
+#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:293,
+#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:293
 msgid ""
 "We are processing your payment. In less than 2 days we will send you by "
 "email if the payment has been approved or if additional information is "
@@ -728,41 +727,41 @@ msgstr ""
 "Estamos procesando su pago. En menos de 2 días le enviaremos por correo "
 "electrónico si se ha aprobado el pago o si se necesita información adicional."
 
-#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:292,
-#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:292
+#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:295,
+#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:295
 msgid "Check the card number."
 msgstr "Compruebe el número de tarjeta."
 
-#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:294,
-#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:294
+#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:297,
+#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:297
 msgid "Check the expiration date."
 msgstr "Compruebe la fecha de expiración."
 
-#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:296,
-#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:296
+#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:299,
+#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:299
 msgid "Check the information provided."
 msgstr "Compruebe la información informada."
 
-#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:298,
+#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:301,
 #: ../../templates/checkout/custom-checkout.php:142,
 #: ../../templates/checkout/custom-checkout.php:143,
 #: ../../templates/checkout/custom-checkout.php:143
 msgid "Check the informed security code."
 msgstr "Compruebe el código de seguridad informado."
 
-#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:300,
-#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:306,
-#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:306
+#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:303,
+#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:309,
+#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:309
 msgid "Your payment cannot be processed."
 msgstr "No se puede procesar su pago."
 
-#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:302,
-#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:302
+#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:305,
+#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:305
 msgid "You must authorize payments for your orders."
 msgstr "Usted debe autorizar los pagos de sus órdenes."
 
-#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:304,
-#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:304
+#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:307,
+#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:307
 msgid ""
 "Contact your card issuer to activate it. The phone is on the back of your "
 "card."
@@ -770,8 +769,8 @@ msgstr ""
 "Póngase en contacto con el emisor de su tarjeta para activarla. El teléfono "
 "se encuentra en la parte posterior de su tarjeta."
 
-#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:308,
-#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:308
+#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:311,
+#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:311
 msgid ""
 "You have already made a payment of this amount. If you have to pay again, "
 "use another card or other method of payment."
@@ -779,8 +778,8 @@ msgstr ""
 "Usted ya realizó un pago de este importe. Si tiene que pagar de nuevo, "
 "utilizar otra tarjeta u otro medio de pago."
 
-#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:310,
-#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:310
+#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:313,
+#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:313
 msgid ""
 "Your payment was declined. Please select another payment method. It is "
 "recommended in cash."
@@ -788,18 +787,18 @@ msgstr ""
 "Su pago fue rechazado. Por favor seleccione otro medio de pago. Se "
 "recomienda en efectivo."
 
-#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:312,
-#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:312
+#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:315,
+#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:315
 msgid "Your payment does not have sufficient funds."
 msgstr "Su metodo de pago no tiene fondos suficientes."
 
-#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:314,
-#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:314
+#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:317,
+#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:317
 msgid "Payment cannot process the selected fee."
 msgstr "El pago no puede procesar la cuota seleccionada."
 
-#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:316,
-#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:316
+#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:319,
+#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:319
 msgid ""
 "You have reached the limit of allowed attempts. Choose another card or other "
 "payment method."
@@ -807,57 +806,57 @@ msgstr ""
 "Has alcanzado el límite de intentos permitidos. Elija otra tarjeta u otro "
 "medio de pago."
 
-#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:318,
-#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:320,
+#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:321,
+#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:323,
 #: ../../includes/module/preference/class-wc-woomercadopago-preference-abstract.php:189,
 #: ../../includes/module/preference/class-wc-woomercadopago-preference-abstract.php:189
 msgid "This payment method cannot process your payment."
 msgstr "Este medio de pago no puede procesar su pago."
 
-#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:371,
-#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:371
+#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:374,
+#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:374
 msgid "Cards in Test Mode"
 msgstr "Tarjetas de crédito en Modo Test"
 
-#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:372,
-#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:372
+#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:375,
+#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:375
 msgid "Use the test-specific cards that are in the"
 msgstr "Utiliza las tarjetas específicas para testear que estén bajo las"
 
-#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:374,
-#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:374
+#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:377,
+#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:377
 msgid "test mode rules"
 msgstr "reglas del Modo Test"
 
-#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:411,
-#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:412,
-#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:436,
-#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:437,
-#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:437
+#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:414,
+#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:415,
+#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:439,
+#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:440,
+#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:440
 msgid "A problem was occurred when processing your payment. Please, try again."
 msgstr ""
 "El problemas ocurrió cuando se procesaba su pago. Por favor, intente otra "
 "vez."
 
-#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:507,
-#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:507
+#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:510,
+#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:510
 msgid "See your order form"
 msgstr "Ver su hoja de pedido"
 
-#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:518,
-#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:518
+#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:521,
+#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:521
 msgid "Your payment was declined. You can try again."
 msgstr "Su pago fue rechazado. Puede intentarlo de nuevo."
 
-#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:525,
+#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:528,
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-basic.php:94,
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-basic.php:94
 msgid "Click to try again"
 msgstr "Haga clic para intentarlo de nuevo"
 
-#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:547,
-#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:548,
-#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:548
+#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:550,
+#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:551,
+#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:551
 msgid ""
 "A problem was occurred when processing your payment. Are you sure you have "
 "correctly filled all information in the checkout form?"
@@ -865,8 +864,8 @@ msgstr ""
 "El problemas ocurrió cuando se procesaba su pago. Está seguro de haber "
 "cargado la información en el formulario?"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:580,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:580
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:570,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:570
 msgid "Configure your credentials to enable Mercado Pago payment methods."
 msgstr ""
 "Completa tus credenciales para habilitar los medios de pago Mercado Pago."
@@ -874,93 +873,93 @@ msgstr ""
 #. translators: %s url
 #. translators: %s url
 #. translators: %s url
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:600,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:600
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:590,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:590
 msgid "%s, it only takes a few minutes"
 msgstr "%s, solo te llevará unos minutos"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:600,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:748,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:748
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:590,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:738,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:738
 msgid "Approve your account"
 msgstr "Homologa tu cuenta"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:689,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:689
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:679,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:679
 msgid "Title"
 msgstr "Título"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:691,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:691
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:681,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:681
 msgid "Change the display text in Checkout, maximum characters: 85"
 msgstr "Cambiar el texto de la pantalla Checkout, caracteres máximos: 85"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:693,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:693
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:683,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:683
 msgid "If you change the display text, no translatation will be available"
 msgstr ""
 "Si cambia el texto de la pantalla Checkout, no habrá traducción disponible"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:707,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:707
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:697,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:697
 msgid "Description"
 msgstr "Descripción"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:745,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:745
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:735,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:735
 msgid "Follow these steps to activate Mercado Pago in your store:"
 msgstr "Sigue estos pasos para activar Mercado Pago en tu tienda:"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:746,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:746
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:736,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:736
 msgid "Upload your credentials"
 msgstr "Carga tus credenciales"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:747,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:747
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:737,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:737
 msgid "depending on the country in which you are registered."
 msgstr "depending on the country in which you are registered."
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:749,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:749
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:739,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:739
 msgid "to be able to charge."
 msgstr "para poder cobrar."
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:750,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:750
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:740,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:740
 msgid "Add the basic information of your business"
 msgstr "Añade la información básica de tu negocio"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:751,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:751
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:741,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:741
 msgid "in the plugin configuration."
 msgstr "en la configuración del plugin."
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:752,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:752
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:742,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:742
 msgid "Configure the payment preferences"
 msgstr "Configura las preferencias de pago"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:753,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:753
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:743,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:743
 msgid "for your customers."
 msgstr "para tus clientes."
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:754,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:754
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:744,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:744
 msgid "Go to advanced settings"
 msgstr "Ve a configuraciones avanzadas"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:755,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:755
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:745,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:745
 msgid "only when you want to change the presets."
 msgstr "sólo cuando quieras modificar los ajustes preestablecidos."
 
 #. translators: %s link
 #. translators: %s link
 #. translators: %s link
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:780,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:780
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:770,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:770
 msgid ""
 "Credentials are the keys we provide you to integrate quickly <br>and "
 "securely. You must have a %s in Mercado Pago to obtain and collect them "
@@ -972,86 +971,86 @@ msgstr ""
 "obtenerlas y cobrar <br>en tu sitio web. No necesitas saber diseñar o "
 "programar para hacerlo"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:781,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:781
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:771,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:771
 msgid "approved account"
 msgstr "cuenta homologada"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:798,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:798
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:788,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:788
 msgid "In which country does your Mercado Pago account operate?"
 msgstr "¿En qué país opera tu cuenta de Mercado Pago?"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:830,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:830
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:820,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:820
 msgid "Select your country"
 msgstr "Selecciona tu país"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:832,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:832
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:822,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:822
 msgid "Select the country in which you operate with Mercado Pago"
 msgstr "Selecciona el país en el que operas con Mercado Pago"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:878,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:882,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:882
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:868,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:872,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:872
 msgid "Save Changes"
 msgstr "Guardar cambios"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:899,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:899
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:889,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:889
 msgid "Activate checkout"
 msgstr "Activar checkout"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:901,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:901
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:891,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:891
 msgid "Activate Pix in the checkout"
 msgstr "Activar Pix en el checkout"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:908,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:908
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:898,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:898
 msgid "Activate the Mercado Pago experience at the checkout of your store."
 msgstr "Activa la experiencia de Mercado Pago en el checkout de tu tienda."
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:923,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:923
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:913,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:913
 msgid "Add credentials to &quot;Test Mode&quot; or &quot;Production Mode&quot;"
 msgstr ""
 "Ingresa las credenciales para el &quot;Modo Test&quot; o el &quot;Modo "
 "Producción&quot;"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:936,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:936
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:926,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:926
 msgid "Set up store payments for Test or Production Mode"
 msgstr "Configura los pagos de la tienda para el modo Test o Producción"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:973,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:973
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:963,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:963
 msgid "How would you like to handle your store checkouts?"
 msgstr "¿Como quieres operar los checkouts de tu tienda?"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:990,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:990
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:980,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:980
 msgid "Activate Production Mode for Mercado Pago checkouts"
 msgstr "Activar Modo Producción para checkouts Mercado Pago"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:993,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:993
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:983,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:983
 msgid "Mercado Pago checkouts are active for real payments."
 msgstr "Checkouts Mercado Pago está activado para cobros reales."
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1014,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1014
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1004,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1004
 msgid "test mode guidelines."
 msgstr "reglas del Modo Test."
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1019,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1019
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1009,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1009
 msgid "Activate Test Mode for Mercado Pago checkouts"
 msgstr "Activar Modo Test para checkouts Mercado Pago"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1022,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1022
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1012,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1012
 msgid ""
 "Mercado Pago checkouts are inactive for real payments in the Test Mode. "
 "Please check the"
@@ -1059,23 +1058,23 @@ msgstr ""
 "Checkouts Mercado Pago están inactivos para cobros reales en el Modo de "
 "Prueba. Consulta las"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1043,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1043
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1033,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1033
 msgid "Load credentials"
 msgstr "Cargar credenciales"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1045,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1045
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1035,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1035
 msgid "Search my credentials"
 msgstr "Buscar mis credenciales"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1064,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1064
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1054,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1054
 msgid "Test credentials"
 msgstr "Credenciales de Testeos"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1076,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1076
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1066,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1066
 msgid ""
 "With these credentials, you enable payment simulations in your Mercado Pago "
 "checkouts."
@@ -1083,25 +1082,25 @@ msgstr ""
 "Con estas credenciales habilitas que tus checkouts Mercado Pago puedan "
 "simular pagos."
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1089,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1146,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1146
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1079,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1136,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1136
 msgid "Public key"
 msgstr "Public key"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1105,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1162,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1162
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1095,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1152,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1152
 msgid "Access token"
 msgstr "Access token"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1121,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1121
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1111,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1111
 msgid "Production Credentials"
 msgstr "Credenciales de Producción"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1133,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1133
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1123,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1123
 msgid ""
 "With these credentials, you enable your Mercado Pago checkouts to receive "
 "real payments."
@@ -1109,13 +1108,13 @@ msgstr ""
 "Con estas credenciales habilitas que tus checkouts Mercado Pago puedan "
 "recibir pagos reales."
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1178,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1178
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1168,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1168
 msgid "Approve your account, it will only take a few minutes"
 msgstr "Homologa tu cuenta, solo te llevará unos minutos"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1191,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1191
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1181,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1181
 msgid ""
 "Complete this process to secure your customers data and comply with the "
 "regulations<br> and legal provisions of each country."
@@ -1123,33 +1122,33 @@ msgstr ""
 "Completa este proceso para asegurar los datos de tus clientes y cumplir con "
 "las normas<br> o disposiciones legales de cada país."
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1208,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1208
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1198,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1198
 msgid "Homologate account in Mercado Pago"
 msgstr "Homologar cuenta en Mercado Pago"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1222,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1222
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1212,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1212
 msgid "Store name"
 msgstr "Nombre de la tienda"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1224,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1224
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1214,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1214
 msgid "This name will appear on your customers invoice."
 msgstr "Este nombre aparecerá en la factura de tus clientes."
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1225,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1225
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1215,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1215
 msgid "Mercado Pago"
 msgstr "Mercado Pago"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1240,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1240
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1230,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1230
 msgid "Store Category"
 msgstr "Categoría de la tienda"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1242,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1242
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1232,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1232
 msgid ""
 "What category do your products belong to? Choose the one that best "
 "characterizes them (choose \"other\" if your product is too specific)."
@@ -1157,33 +1156,33 @@ msgstr ""
 "¿A qué categoría pertenecen tus productos? Elige la que mejor los "
 "caracteriza (elige “otro” si tu producto es demasiado específico)."
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1243,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1243
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1233,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1233
 msgid "Categories"
 msgstr "Categrorías"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1267,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1267
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1257,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1257
 msgid "Store ID"
 msgstr "ID de la tienda"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1269,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1269
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1259,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1259
 msgid "Use a number or prefix to identify orders and payments from this store."
 msgstr ""
 "Usa un número o prefijo para identificar pedidos y pagos provenientes de "
 "esta tienda."
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1283,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1283
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1273,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1273
 msgid "Integrator ID"
 msgstr "Integrator ID"
 
 #. translators: %s developers guide
 #. translators: %s developers guide
 #. translators: %s developers guide
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1287,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1287
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1277,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1277
 msgid ""
 "Do not forget to enter your integrator_id as a certified Mercado Pago "
 "Partner. If you don`t have it, you can %s"
@@ -1191,23 +1190,23 @@ msgstr ""
 "No olvides ingresar tu integrator_id como Partner certificado de Mercado "
 "Pago. Si no lo tienes, puedes %s"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1288,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1288
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1278,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1278
 msgid "request it now."
 msgstr "solicitarlo ahora."
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1302,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1302
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1292,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1292
 msgid "Advanced adjustment"
 msgstr "Ajustes avanzados"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1315,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1315
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1305,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1305
 msgid "Debug and Log mode"
 msgstr "Modo Debug y Log"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1318,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1318
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1308,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1308
 msgid ""
 "Record your store actions in our changes file to have more support "
 "information."
@@ -1215,91 +1214,91 @@ msgstr ""
 "Graba las acciones de tu tienda en nuestro archivo de cambios para tener más "
 "información de soporte."
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1319,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1319
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1309,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1309
 msgid "We debug the information in our change file."
 msgstr "Depuramos la información de nuestro archivo de cambios."
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1334,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1334
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1324,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1324
 msgid "Basic Configuration"
 msgstr "Configuración Básica"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1347,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1347
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1337,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1337
 msgid "Max of installments"
 msgstr "Máximo de cuotas"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1349,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1349
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1339,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1339
 msgid "What is the maximum quota with which a customer can buy?"
 msgstr "¿Cuál es el máximo de cuotas con las que un cliente puede comprar?"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1352,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1352
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1342,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1342
 msgid "1x installment"
 msgstr "1x cuota"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1353,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1353
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1343,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1343
 msgid "2x installments"
 msgstr "2x cuotas"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1354,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1354
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1344,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1344
 msgid "3x installments"
 msgstr "3x cuotas"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1355,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1355
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1345,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1345
 msgid "4x installments"
 msgstr "4x cuotas"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1356,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1356
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1346,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1346
 msgid "5x installments"
 msgstr "5x cuotas"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1357,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1357
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1347,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1347
 msgid "6x installments"
 msgstr "6x cuotas"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1358,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1358
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1348,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1348
 msgid "10x installments"
 msgstr "10x cuotas"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1359,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1359
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1349,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1349
 msgid "12x installments"
 msgstr "12x cuotas"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1360,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1360
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1350,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1350
 msgid "15x installments"
 msgstr "15x cuotas"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1361,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1361
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1351,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1351
 msgid "18x installments"
 msgstr "18x cuotas"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1362,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1362
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1352,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1352
 msgid "24x installments"
 msgstr "24x cuotas"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1412,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1412
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1402,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1402
 msgid "URL for IPN"
 msgstr "URL para IPN"
 
 #. translators: %s link
 #. translators: %s link
 #. translators: %s link
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1416,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1416
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1406,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1406
 msgid ""
 "Enter a URL to receive payment notifications. In %s you can check more "
 "information."
@@ -1307,13 +1306,13 @@ msgstr ""
 "Ingresa una URL para recibir notificaciones de pagos. En %s puedes consultar "
 "más información."
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1417,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1417
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1407,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1407
 msgid "our guides"
 msgstr "nuestras guías"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1421,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1421
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1411,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1411
 msgid ""
 "IPN (Instant Payment Notification) is a notification of events that take "
 "place on your platform and that is sent from one server to another through "
@@ -1323,21 +1322,21 @@ msgstr ""
 "lugar en su plataforma y que se envía de un servidor a otro a través de una "
 "llamada HTTP POST. Vea más información en nuestras guías."
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1432,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1432
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1422,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1422
 msgid ""
 "Edit these advanced fields only when you want to modify the preset values."
 msgstr ""
 "Edita estos campos avanzados solo cuando quieras modificar los valores "
 "preestablecidos."
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1445,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1445
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1435,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1435
 msgid "Discount coupons"
 msgstr "Cupones de descuento"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1448,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1448
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1438,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1438
 msgid "Will you offer discount coupons to customers who buy with Mercado Pago?"
 msgstr ""
 "¿Ofrecerás cupones de descuento a los clientes que compren con Mercado Pago?"
@@ -1345,8 +1344,8 @@ msgstr ""
 #. translators: %s link
 #. translators: %s link
 #. translators: %s link
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1465,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1465
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1455,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1455
 msgid ""
 "It appears that your credentials are not properly configured.<br/>Please, go "
 "to %s and configure it."
@@ -1354,24 +1353,24 @@ msgstr ""
 "Parece que sus credenciales no están configuradas correctamente.<br/> Por "
 "favor, vaya a %s y configúrelo."
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1466,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1466
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1456,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1456
 msgid "Market Payment Configuration"
 msgstr "Mercado Pago Configuración"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1480,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1480
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1470,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1470
 msgid "Binary mode"
 msgstr "Modo binario"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1483,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1483
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1473,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1473
 msgid ""
 "Accept and reject payments automatically. Do you want us to activate it?"
 msgstr "Acepta y rechaza pagos de forma automática. ¿Quieres que lo activemos?"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1484,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1484
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1474,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1474
 msgid ""
 "If you activate binary mode you will not be able to leave pending payments. "
 "This can affect fraud prevention. Leave it idle to be backed by our own tool."
@@ -1380,13 +1379,13 @@ msgstr ""
 "afectar la prevención del fraude. Déjelo inactivo para que sea respaldado "
 "por nuestra propia herramienta."
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1499,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1499
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1489,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1489
 msgid "Discounts per purchase with Mercado Pago"
 msgstr "Descuentos por compra con Mercado Pago"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1501,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1501
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1491,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1491
 msgid ""
 "Choose a percentage value that you want to discount your customers for "
 "paying with Mercado Pago."
@@ -1394,13 +1393,13 @@ msgstr ""
 "Elige un valor porcentual que quieras descontar a tus clientes por pagar con "
 "Mercado Pago."
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1518,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1518
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1508,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1508
 msgid "Commission for purchase with Mercado Pago"
 msgstr "Comisión por compra con Mercado Pago"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1520,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1520
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1510,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1510
 msgid ""
 "Choose an additional percentage value that you want to charge as commission "
 "to your customers for paying with Mercado Pago."
@@ -1408,13 +1407,13 @@ msgstr ""
 "Elige un valor porcentual adicional que quieras cobrar como comisión a tus "
 "clientes por pagar con Mercado Pago."
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1546,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1546
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1536,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1536
 msgid "Questions?"
 msgstr "¿Tienes alguna duda?"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1561,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1561
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1551,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1551
 msgid ""
 "Check out the step-by-step of how to integrate the Mercado Pago Plugin for "
 "WooCommerce in our developer website."
@@ -1422,43 +1421,43 @@ msgstr ""
 "Revisa el paso a paso de cómo integrar el Plugin de Mercado Pago para "
 "WooCommerce en nuestro sitio de desarrolladores."
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1576,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1576
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1566,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1566
 msgid "Review documentation"
 msgstr "Revisar documentación"
 
 #. translators: %s link
 #. translators: %s link
 #. translators: %s link
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1596,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1596
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1586,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1586
 msgid "Still having problems? Contact our support team through their %s"
 msgstr ""
 "¿Sigues con problemas? Comunícate con nuestro equipo de soporte a través de "
 "su %s"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1597,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1597
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1587,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1587
 msgid "contact form."
 msgstr "formulario de contacto."
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1617,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1617
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1607,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1607
 msgid "Set up your interest payments"
 msgstr "Configura pagos"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1615,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1615
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1605,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1605
 msgid "Set up your installment and interest payments"
 msgstr "Configura meses sin intereses"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1636,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1636
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1626,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1626
 msgid "At Mercado Pago you can choose the fee you pay for each purchase"
 msgstr "En Mercado Pago puedes elegir la tarifa que pagas en cada venta"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1634,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1634
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1624,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1624
 msgid ""
 "At Mercado Pago you can choose the fee you pay for each purchase and also "
 "offer interest-free installments to your customer."
@@ -1466,31 +1465,31 @@ msgstr ""
 "En Mercado Pago puedes elegir la tarifa que pagas en cada compra y también "
 "ofrecer meses sin intereses a tu cliente."
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1656,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1656
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1646,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1646
 msgid "Set up interest payments"
 msgstr "Configurar tasas y plazos"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1654,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1654
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1644,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1644
 msgid "Set up installment and interest"
 msgstr "Configurar cuotas e intereses"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1676,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1676
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1666,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1666
 msgid ""
 "Test Mode Activated? Now visit your store and test the Mercado Pago checkouts"
 msgstr ""
 "¿Modo Test activado? Ahora visita tu tienda y testea los checkouts Mercado "
 "Pago"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1674,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1674
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1664,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1664
 msgid "Everything ready for the takeoff of your sales?"
 msgstr "¿Todo listo para el despegue de tus ventas?"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1695,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1695
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1685,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1685
 msgid ""
 "Visit your store as usual and simulate a payment in our checkouts to make "
 "sure everything is working correctly."
@@ -1498,8 +1497,8 @@ msgstr ""
 "Visita tu tienda normalmente y simula un pago en nuestros checkouts para "
 "verificar que todo esté funcionando correctamente."
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1693,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1693
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1683,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1683
 msgid ""
 "Visit your store as if you were one of your customers and check that "
 "everything is fine. If you already went to Production,<br> bring your "
@@ -1509,38 +1508,38 @@ msgstr ""
 "bien. Si ya saliste a Producción,<br> trae a tus clientes y aumenta tus "
 "ventas con la mejor experiencia de compra online."
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1714,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1714
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1704,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1704
 msgid "Test payment via Mercado Pago"
 msgstr "Testear pago vía Mercado Pago"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1712,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1712
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1702,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1702
 msgid "Visit my store"
 msgstr "Visitar mi tienda"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1720,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1720
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1710,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1710
 msgid "%s"
 msgstr "%s"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1877,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1877
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1867,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1867
 msgid "All Mercado Pago payment methods are in Production Mode"
 msgstr "Todos los medios de pago Mercado Pago están en Modo Producción"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1878,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1878
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1868,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1868
 msgid "All Mercado Pago payment methods are in Test Mode"
 msgstr "Todos los medios de pago Mercado Pago están en Modo Test"
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1880,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1880
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1870,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1870
 msgid "Your store is ready to receive payments from customers."
 msgstr "Tu tienda está lista para recibir pagos de clientes."
 
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1881,
-#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1881
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1871,
+#: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:1871
 msgid "Your customers will not be able to make purchases while in Test Mode."
 msgstr "Los clientes no podrán hacer compras en Modo Test."
 
@@ -1560,38 +1559,38 @@ msgstr ""
 msgid "Pay with PIX "
 msgstr "Paga vía Pix "
 
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:263,
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:263
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:267,
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:267
 msgid "To activate Pix, you must have a key registered in Mercado Pago."
 msgstr "Para activar el Pix, debes tener una clave registrada en Mercado Pago."
 
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:264,
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:264
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:268,
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:268
 msgid "Download the Mercado Pago app on your cell phone."
 msgstr "Descarga la app de Mercado Pago en tu móvil."
 
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:265,
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:265
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:269,
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:269
 msgid "Go to the "
 msgstr "Ve al área "
 
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:266,
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:266
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:270,
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:270
 msgid "area and choose the "
 msgstr "y elige la sección "
 
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:267,
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:267
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:271,
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:271
 msgid "Your Profile "
 msgstr "Tu Perfil "
 
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:268,
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:268
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:272,
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:272
 msgid "Your Pix Keys section."
 msgstr "Tus claves Pix."
 
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:269,
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:269
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:273,
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:273
 msgid ""
 "Choose which data to register as PIX keys. After registering, you can set up "
 "PIX in your checkout."
@@ -1599,8 +1598,8 @@ msgstr ""
 "Elige qué datos registrar como claves PIX. Luego de registrarte, podrás "
 "configurar el PIX en tu checkout."
 
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:270,
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:270
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:274,
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:274
 msgid ""
 "Remember that, for the time being, the Central Bank of Brazil is open Monday "
 "through Friday, from 9am to 6pm."
@@ -1608,8 +1607,8 @@ msgstr ""
 "Recuerda que, por el momento, el Banco Central de Brasil está abierto de "
 "lunes a viernes, de 9 a 18 horas."
 
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:271,
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:271
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:275,
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:275
 msgid ""
 "If you requested your registration outside these hours, we will confirm it "
 "within the next business day."
@@ -1617,14 +1616,14 @@ msgstr ""
 "Si has solicitado tu registro fuera de este horario, te lo confirmaremos en "
 "el siguiente día hábil."
 
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:272,
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:408,
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:408
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:276,
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:412,
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:412
 msgid "Learn more about PIX"
 msgstr "Más información sobre PIX"
 
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:273,
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:273
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:277,
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:277
 msgid ""
 "If you have already registered a Pix key at Mercado Pago and cannot activate "
 "Pix in the checkout, "
@@ -1632,33 +1631,33 @@ msgstr ""
 "Si ya has registrado una clave Pix en Mercado Pago y no puedes activar Pix "
 "en el checkout, "
 
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:274,
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:274
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:278,
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:278
 msgid "click here."
 msgstr "haz clic aquí."
 
 #. translators: %s checkout
 #. translators: %s checkout
 #. translators: %s checkout
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:298,
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:298
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:302,
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:302
 msgid "Checkout of payments via PIX %s"
 msgstr "Paga con dinero en PIX %s"
 
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:301,
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:301
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:305,
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:305
 msgid ""
 "Accept payments at any time of the day and expand your purchase options!"
 msgstr ""
 "¡Acepte pagos en cualquier momento del día y amplíe sus opciones de compra!"
 
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:305,
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:305
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:309,
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:309
 msgid "Offer this new payment option to your customers."
 msgstr "Ofrezca esta nueva opción de pago a sus clientes."
 
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:335,
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:335
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:339,
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:339
 msgid ""
 "Enable and set up Pix as a payment method for your customers in the Mercado "
 "Pago checkout."
@@ -1666,88 +1665,88 @@ msgstr ""
 "Habilita y configura Pix como método de pago para tus clientes en el "
 "checkout de Mercado Pago."
 
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:348,
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:348
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:352,
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:352
 msgid "Set up the payment via Pix experience"
 msgstr "Configura la experiencia de pago a través de Pix"
 
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:361,
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:361
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:365,
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:365
 msgid "Advanced configuration of the PIX experience"
 msgstr "Configuración avanzada de la experiencia PIX"
 
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:374,
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:374
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:378,
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:378
 msgid "15 minutes"
 msgstr "15 minutos"
 
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:375,
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:375
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:379,
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:379
 msgid "30 minutes (recommended)"
 msgstr "30 minutos (recomendado)"
 
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:376,
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:376
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:380,
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:380
 msgid "60 minutes"
 msgstr "60 minutes"
 
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:377,
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:377
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:381,
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:381
 msgid "12 hours"
 msgstr "12 horas"
 
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:378,
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:378
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:382,
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:382
 msgid "24 hours"
 msgstr "24 horas"
 
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:379,
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:379
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:383,
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:383
 msgid "2 days"
 msgstr "2 días"
 
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:380,
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:380
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:384,
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:384
 msgid "3 days"
 msgstr "3 días"
 
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:381,
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:381
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:385,
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:385
 msgid "4 days"
 msgstr "4 días"
 
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:382,
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:382
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:386,
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:386
 msgid "5 days"
 msgstr "5 días"
 
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:383,
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:383
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:387,
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:387
 msgid "6 days"
 msgstr "6 días"
 
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:384,
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:384
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:388,
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:388
 msgid "7 days"
 msgstr "7 días"
 
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:388,
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:388
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:392,
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:392
 msgid "Pix Expiration"
 msgstr "Vencimiento del Pix"
 
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:390,
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:390
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:394,
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:394
 msgid "Set the time limit in which your customers can pay."
 msgstr "Establezca el límite de tiempo en el que sus clientes pueden pagar."
 
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:405,
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:405
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:409,
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:409
 msgid "Want to learn how Pix works?"
 msgstr "¿Quieres saber cómo funciona el Pix?"
 
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:406,
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:406
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:410,
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:410
 msgid ""
 "We have created a page to explain how this new payment method works and its "
 "advantages."
@@ -1755,16 +1754,16 @@ msgstr ""
 "Creamos una página para explicar cómo funciona este nuevo medio de pago y "
 "sus ventajas."
 
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:550,
-#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:594,
-#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:594
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:554,
+#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:597,
+#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:597
 msgid "A problem occurred when processing your payment. Please try again."
 msgstr ""
 "Un problema se produjo al procesar su pago. Por favor, inténtelo de nuevo."
 
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:536,
-#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:580,
-#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:580
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:540,
+#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:583,
+#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:583
 msgid ""
 "A problem occurred when processing your payment. Are you sure you have "
 "correctly filled in all the information on the checkout form?"
@@ -1772,19 +1771,19 @@ msgstr ""
 "Un problema se produjo al procesar su pago. ¿Esta seguro que ha rellenado "
 "correctamente toda la información en el formulario de checkout?"
 
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:515,
-#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:555,
-#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:555
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:519,
+#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:558,
+#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:558
 msgid "The customer has not paid yet."
 msgstr "El cliente no ha pagado todavía."
 
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:519,
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:519
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:523,
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:523
 msgid "Now you just need to pay with PIX to finalize your purchase."
 msgstr "Ahora sólo tiene que pagar con PIX para finalizar su compra."
 
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:520,
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:520
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:524,
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:524
 msgid ""
 "Scan the QR code below or copy and paste the code into your bank's "
 "application."
@@ -1792,8 +1791,8 @@ msgstr ""
 "Escanee el código QR a continuación o copie y pegue el código en la "
 "aplicación de su banco."
 
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:627,
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:627
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:631,
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:631
 msgid ""
 "Please note that to receive payments via Pix at our checkout, you must have "
 "a Pix key registered in your Mercado Pago account."
@@ -1802,12 +1801,12 @@ msgstr ""
 "debes tener una clave Pix registrada en tu cuenta de Mercado Pago. Registra "
 "tu clave Pix en Mercado Pago."
 
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:628,
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:628
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:632,
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:632
 msgid "Register your Pix key at Mercado Pago."
 msgstr "Registra tu clave Pix en Mercado Pago."
 
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:682,
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:686,
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:129,
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:129
 msgid "Code valid for "
@@ -1831,23 +1830,23 @@ msgstr "Paga con dinero en efectivo"
 #. translators: %s checkout
 #. translators: %s checkout
 #. translators: %s checkout
-#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:224,
-#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:224
+#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:227,
+#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:227
 msgid "Checkout of payments with cash %s"
 msgstr "Paga con dinero en efectivo"
 
-#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:227,
-#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:227
+#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:230,
+#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:230
 msgid "Accept face-to-face payments, do not leave anyone out!"
 msgstr "Acepta pagos presenciales ¡no dejes a nadie afuera!"
 
-#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:231,
-#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:231
+#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:234,
+#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:234
 msgid "Include this preferred purchase option by some customers."
 msgstr "Incluye esta opción de compra preferida por algunos clientes."
 
-#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:261,
-#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:261
+#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:264,
+#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:264
 msgid ""
 "Enable Mercado Pago for cash payments in your store and <br> select the "
 "options available to your customers."
@@ -1855,23 +1854,23 @@ msgstr ""
 "Habilita Mercado Pago para pagos en efectivo en tu tienda y <br> selecciona "
 "las opciones disponibles para tus clientes."
 
-#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:274,
-#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:274
+#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:277,
+#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:277
 msgid "Set payment preferences with cash"
 msgstr "Configura las preferencias de pago con dinero en efectivo"
 
-#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:287,
-#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:287
+#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:290,
+#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:290
 msgid "Advanced configuration of the cash payment experience"
 msgstr "Configuración avanzada de la experiencia de pago en efectivo"
 
-#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:300,
-#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:300
+#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:303,
+#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:303
 msgid "Reduce inventory"
 msgstr "Reducir inventario"
 
-#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:303,
-#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:303
+#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:306,
+#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:306
 msgid ""
 "Activates inventory reduction during the creation of an order, whether or "
 "not the final payment is credited. Disable this option to reduce it only "
@@ -1881,28 +1880,28 @@ msgstr ""
 "acredite o no el pago final. Desactiva esta opción para reducirlo solo "
 "cuando los pagos estén aprobados."
 
-#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:318,
-#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:318
+#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:321,
+#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:321
 msgid "Payment Due"
 msgstr "Vencimiento del pago"
 
-#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:320,
-#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:320
+#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:323,
+#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:323
 msgid "In how many days will cash payments expire."
 msgstr "En cuántos días caducarán los pagos en efectivo."
 
-#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:350,
-#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:350
+#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:353,
+#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:353
 msgid "All payment methods"
 msgstr "Todos los medios de pago"
 
-#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:417,
-#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:417
+#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:420,
+#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:420
 msgid "Offline Methods in Test Mode"
 msgstr "Facturas en Modo Test"
 
-#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:418,
-#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:418
+#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:421,
+#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:421
 msgid ""
 "You can test the flow to generate an invoice, but you cannot finalize the "
 "payment."
@@ -1910,9 +1909,9 @@ msgstr ""
 "Es posible testear el flujo para generar una factura, pero no es posible "
 "finalizar el pago."
 
-#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:505,
-#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:523,
-#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:523
+#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:508,
+#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:526,
+#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:526
 msgid ""
 "There was a problem processing your payment. Are you sure you have correctly "
 "filled out all the information on the payment form?"
@@ -1920,18 +1919,18 @@ msgstr ""
 "Se produjo un problema al procesar su pago. ¿Está seguro de que ha llenado "
 "correctamente toda la información en el formulario de pago?"
 
-#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:560,
-#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:560
+#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:563,
+#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:563
 msgid "To print the ticket again click"
 msgstr "Para imprimir nuevamente el ticket hace clic"
 
-#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:563,
-#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:563
+#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:566,
+#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:566
 msgid "here"
 msgstr "aquí"
 
-#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:681,
-#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:681
+#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:684,
+#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:684
 msgid " and "
 msgstr " y "
 
@@ -2540,7 +2539,7 @@ msgstr "Pagar con Mercado Pago"
 msgid "Cancel &amp; Clear Cart"
 msgstr "Cancelar &amp; Limpiar carrito"
 
-#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:83,
+#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:85,
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:64,
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:73,
 #: ../../templates/checkout/custom-checkout.php:92,
@@ -2549,70 +2548,70 @@ msgstr "Cancelar &amp; Limpiar carrito"
 msgid "Apply"
 msgstr "Aplicar"
 
-#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:84,
+#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:86,
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:65,
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:74,
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:74
 msgid "Remove"
 msgstr "Retirar"
 
-#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:85,
+#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:87,
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:66,
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:75,
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:75
 msgid "Please, inform your coupon code"
 msgstr "Por favor, informe su código de cupón"
 
-#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:86,
+#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:88,
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:67,
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:76,
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:76
 msgid "To choose"
 msgstr "Elegir"
 
-#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:87,
+#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:89,
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:68,
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:77,
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:77
 msgid "Other bank"
 msgstr "Otro banco"
 
-#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:88,
+#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:90,
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:69,
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:78,
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:78
 msgid "You will save"
 msgstr "Salvarás"
 
-#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:89,
+#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:91,
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:70,
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:79,
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:79
 msgid "with discount of"
 msgstr "con descuento de"
 
-#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:90,
+#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:92,
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:71,
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:80,
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:80
 msgid "Total of your purchase:"
 msgstr "Total de su compra:"
 
-#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:91,
+#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:93,
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:72,
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:81,
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:81
 msgid "Total of your purchase with discount:"
 msgstr "Total de su compra con descuento:"
 
-#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:92,
+#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:94,
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:73,
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:82,
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:82
 msgid "*After payment approval"
 msgstr "*Tras la aprobación del pago"
 
-#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:93,
+#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:95,
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:74,
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:83,
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:83
@@ -2683,42 +2682,69 @@ msgstr "Respuesta de la caché"
 msgid "Took %1$s seconds to transfer a request to %2$s"
 msgstr "Se han tardado %1$s segundos para transferir una solicitud a %2$s"
 
-#: ../../templates/checkout/basic-checkout.php:26,
-#: ../../templates/checkout/custom-checkout.php:64,
-#: ../../templates/checkout/custom-checkout.php:64
-msgid "Credit cards"
-msgstr "Tarjetas de crédito"
+#: ../../templates/checkout/basic-checkout.php:22,
+#: ../../templates/checkout/basic-checkout.php:22
+msgid "Checkout Pro in Test Mode"
+msgstr "Checkout Pro en Modo Test"
 
-#: ../../templates/checkout/basic-checkout.php:27,
-#: ../../templates/checkout/basic-checkout.php:27
-msgid "Until"
-msgstr "Hasta"
+#: ../../templates/checkout/basic-checkout.php:23,
+#: ../../templates/checkout/basic-checkout.php:23
+msgid "Use Mercado Pago's payment methods without real charges. "
+msgstr "Utiliza los medios de Mercado Pago sin cobros reales. "
 
-#: ../../templates/checkout/basic-checkout.php:31,
-#: ../../templates/checkout/basic-checkout.php:31
-msgid "installments"
-msgstr "cuotas"
+#: ../../templates/checkout/basic-checkout.php:24,
+#: ../../templates/checkout/basic-checkout.php:24
+msgid "See the rules for the test mode."
+msgstr "Consulta las reglas del modo test."
 
-#: ../../templates/checkout/basic-checkout.php:29,
-#: ../../templates/checkout/basic-checkout.php:29
-msgid "installment"
-msgstr "cuota"
+#: ../../templates/checkout/basic-checkout.php:32,
+#: ../../templates/checkout/basic-checkout.php:32
+msgid "Pay faster with Mercado Pago"
+msgstr "Paga más rápido con Mercado Pago"
 
-#: ../../templates/checkout/basic-checkout.php:46,
-#: ../../templates/checkout/custom-checkout.php:71,
-#: ../../templates/checkout/custom-checkout.php:71
-msgid "Debit card"
-msgstr "Tarjetas de débito"
+#: ../../templates/checkout/basic-checkout.php:34,
+#: ../../templates/checkout/basic-checkout.php:34
+msgid "Secure payment"
+msgstr "Pago seguro"
 
-#: ../../templates/checkout/basic-checkout.php:60,
-#: ../../templates/checkout/basic-checkout.php:60
-msgid "Payments in cash"
-msgstr "Pagos en efectivo"
+#: ../../templates/checkout/basic-checkout.php:35,
+#: ../../templates/checkout/basic-checkout.php:35
+msgid "No need to fill out details"
+msgstr "Sin cargar datos"
 
-#: ../../templates/checkout/basic-checkout.php:75,
-#: ../../templates/checkout/basic-checkout.php:75
-msgid "We take you to our site to complete the payment"
-msgstr "Te llevamos a nuestro sitio para completar el pago"
+#: ../../templates/checkout/basic-checkout.php:36,
+#: ../../templates/checkout/basic-checkout.php:36
+msgid "Installments available"
+msgstr "Cuotas disponibles"
+
+#: ../../templates/checkout/basic-checkout.php:39,
+#: ../../templates/checkout/basic-checkout.php:39
+msgid "List style type blue check"
+msgstr "Marcador de lista en formato azul marcado"
+
+#: ../../templates/checkout/basic-checkout.php:51,
+#: ../../templates/checkout/basic-checkout.php:51
+msgid ""
+"By confirming your purchase, you will be redirected to your Mercado Pago "
+"account"
+msgstr "Al confirmar tu compra, te redirigiremos a tu cuenta de Mercado Pago"
+
+#: ../../templates/checkout/basic-checkout.php:52,
+#: ../../templates/checkout/basic-checkout.php:52
+#, fuzzy
+#| msgid "Checkout Pro in Test Mode"
+msgid "Checkout Pro redirect info image"
+msgstr "Checkout Pro en Modo Test"
+
+#: ../../templates/checkout/basic-checkout.php:63,
+#: ../../templates/checkout/basic-checkout.php:63
+msgid "By continuing, you agree with our"
+msgstr "Al continuar, aceptas nuestros"
+
+#: ../../templates/checkout/basic-checkout.php:64,
+#: ../../templates/checkout/basic-checkout.php:64
+msgid "Terms and Conditions"
+msgstr "Términos y Condiciones"
 
 #: ../../templates/checkout/custom-checkout.php:33,
 #: ../../templates/checkout/custom-checkout.php:33
@@ -2744,6 +2770,11 @@ msgstr "Con qué Tarjetas puedo pagar"
 #: ../../templates/checkout/custom-checkout.php:54
 msgid "See current promotions"
 msgstr "Ver promociones vigentes"
+
+#: ../../templates/checkout/custom-checkout.php:71,
+#: ../../templates/checkout/custom-checkout.php:71
+msgid "Debit card"
+msgstr "Tarjetas de débito"
 
 #: ../../templates/checkout/custom-checkout.php:84,
 #: ../../templates/checkout/ticket-checkout.php:27,
@@ -2857,8 +2888,8 @@ msgstr "Sólo números"
 #: ../../templates/checkout/custom-checkout.php:212,
 #: ../../templates/checkout/custom-checkout.php:213,
 #: ../../templates/checkout/ticket-checkout.php:62,
-#: ../../templates/checkout/ticket-checkout.php:122,
-#: ../../templates/checkout/ticket-checkout.php:122
+#: ../../templates/checkout/ticket-checkout.php:125,
+#: ../../templates/checkout/ticket-checkout.php:125
 msgid "Invalid Document Number"
 msgstr "Número de documento no válido"
 
@@ -2884,8 +2915,8 @@ msgid "CI"
 msgstr "CI"
 
 #: ../../templates/checkout/ticket-checkout.php:61,
-#: ../../templates/checkout/ticket-checkout.php:121,
-#: ../../templates/checkout/ticket-checkout.php:121
+#: ../../templates/checkout/ticket-checkout.php:124,
+#: ../../templates/checkout/ticket-checkout.php:124
 msgid "You must provide your document number"
 msgstr "Debe informar su número de documento"
 
@@ -2899,13 +2930,13 @@ msgstr "Complete todos los campos, son obligatorios."
 msgid "Select the issuer with whom you want to process the payment"
 msgstr "Selecciona el emisor con el que quieras procesar el pago"
 
-#: ../../templates/checkout/ticket-checkout.php:106,
-#: ../../templates/checkout/ticket-checkout.php:106
+#: ../../templates/checkout/ticket-checkout.php:109,
+#: ../../templates/checkout/ticket-checkout.php:109
 msgid "Lottery"
 msgstr "Lotéricas"
 
-#: ../../templates/checkout/ticket-checkout.php:119,
-#: ../../templates/checkout/ticket-checkout.php:119
+#: ../../templates/checkout/ticket-checkout.php:122,
+#: ../../templates/checkout/ticket-checkout.php:122
 msgid "CPF/CNPJ"
 msgstr "CPF/CNPJ"
 
@@ -2931,6 +2962,18 @@ msgstr ""
 #: ../../templates/order-received/show-ticket.php:23
 msgid "Print ticket"
 msgstr "Imprimir ticket"
+
+#~ msgid "Pay with the payment method you prefer"
+#~ msgstr "Paga con el medio de pago que prefieras"
+
+#~ msgid "Until"
+#~ msgstr "Hasta"
+
+#~ msgid "installment"
+#~ msgstr "cuota"
+
+#~ msgid "We take you to our site to complete the payment"
+#~ msgstr "Te llevamos a nuestro sitio para completar el pago"
 
 #~ msgid "Enter your credentials and choose how to operate"
 #~ msgstr "Ingresa tus credenciales y elige cómo operar"
