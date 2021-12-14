@@ -16,27 +16,29 @@ if ( ! defined('ABSPATH') ) {
 ?>
 
 <div class="mp-checkout-pix-container">
-    <div class="mp-checkout-pix-test-mode">
-        <test-mode
-            title="Pix in Test Mode"
-            description="You can test the flow to generate a code, but you cannot finalize the payment."
-        >
-        </test-mode>
-    </div>
+	<?php if ( true === $test_mode ) : ?>
+		<div class="mp-checkout-pix-test-mode">
+			<test-mode
+				title="<?php echo esc_html_e( 'Pix in Test Mode', 'woocommerce-mercadopago' ); ?>"
+				description="<?php echo esc_html_e( 'You can test the flow to generate a code, but you cannot finalize the payment.', 'woocommerce-mercadopago' ); ?>"
+			>
+			</test-mode>
+		</div>
+	<?php endif; ?>
 
     <pix-template
-        title="Pay instantly."
-        subtitle="By confirming your purchase, we will show you a code to make the payment."
-        src="https://raw.githubusercontent.com/PluginAndPartners/mpmodules-narciso/develop/src/assets/images/pix-logo.png?token=ADYLYLZL7L34M4WQDXKIKDLBYHU3O"
-        alt="PIX logo"
+        title="<?php echo esc_html_e( 'Pay instantly.', 'woocommerce-mercadopago' ); ?>"
+        subtitle="<?php echo esc_html_e( 'By confirming your purchase, we will show you a code to make the payment.', 'woocommerce-mercadopago' ); ?>"
+        alt="<?php echo esc_html_e( 'PIX logo', 'woocommerce-mercadopago' ); ?>"
+        src="<?php echo esc_html( $pix_image ); ?>"
     >
     </pix-template>
 
     <div class="mp-checkout-pix-terms-and-conditions">
         <terms-and-conditions
-            description="By continuing, you agree with our"
-            link-text="Terms and Conditions"
-            link-src="https://developers.mercadopago.com"
+            description="<?php echo esc_html_e( 'By continuing, you agree with our', 'woocommerce-mercadopago' ); ?>"
+            link-text="<?php echo esc_html_e( 'Terms and Conditions', 'woocommerce-mercadopago' ); ?>"
+            link-src="<?php echo esc_html( $link_terms_and_conditions ); ?>"
         >
         </terms-and-conditions>
     </div>
