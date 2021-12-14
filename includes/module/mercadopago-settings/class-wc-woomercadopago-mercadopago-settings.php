@@ -82,7 +82,7 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 	 */
 	public function mercadopago_submenu_page_callback() {
 		$categories_store    = WC_WooMercadoPago_Module::$categories;
-		$category_selected   =
+		$category_selected   = $this->options->store_category();
 		$category_id         = $this->options->store_activity_identifier();
 		$store_identificator = $this->options->store_name_on_invoice();
 		$links               = WC_WooMercadoPago_Helper_Links::woomercadopago_settings_links();
