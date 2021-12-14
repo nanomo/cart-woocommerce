@@ -26,20 +26,20 @@ if ( ! defined('ABSPATH') ) {
 		</div>
 	<?php endif; ?>
 
-    <pix-template
-        title="<?php echo esc_html_e( 'Pay instantly.', 'woocommerce-mercadopago' ); ?>"
-        subtitle="<?php echo esc_html_e( 'By confirming your purchase, we will show you a code to make the payment.', 'woocommerce-mercadopago' ); ?>"
-        alt="<?php echo esc_html_e( 'PIX logo', 'woocommerce-mercadopago' ); ?>"
-        src="<?php echo esc_html( $pix_image ); ?>"
-    >
-    </pix-template>
+	<pix-template
+		title="<?php echo esc_html_e( 'Pay instantly.', 'woocommerce-mercadopago' ); ?>"
+		subtitle="<?php echo esc_html_e( 'By confirming your purchase, we will show you a code to make the payment.', 'woocommerce-mercadopago' ); ?>"
+		alt="<?php echo esc_html_e( 'PIX logo', 'woocommerce-mercadopago' ); ?>"
+		src="<?php echo esc_html( $pix_image ); ?>"
+	>
+	</pix-template>
 
-    <div class="mp-checkout-pix-terms-and-conditions">
-        <terms-and-conditions
-            description="<?php echo esc_html_e( 'By continuing, you agree with our', 'woocommerce-mercadopago' ); ?>"
-            link-text="<?php echo esc_html_e( 'Terms and Conditions', 'woocommerce-mercadopago' ); ?>"
-            link-src="<?php echo esc_html( $link_terms_and_conditions ); ?>"
-        >
-        </terms-and-conditions>
-    </div>
+	<div class="mp-checkout-pix-terms-and-conditions">
+		<terms-and-conditions
+			description="<?php echo esc_html_e( 'By continuing, you agree with our', 'woocommerce-mercadopago' ); ?>"
+			link-text="<?php echo esc_html_e( 'Terms and Conditions', 'woocommerce-mercadopago' ); ?>"
+			link-src="<?php echo esc_html( $link_terms_and_conditions ); ?>"
+		>
+		</terms-and-conditions>
+	</div>
 </div>
