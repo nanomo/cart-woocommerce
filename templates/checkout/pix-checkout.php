@@ -15,27 +15,31 @@ if ( ! defined('ABSPATH') ) {
 }
 ?>
 
-<div class="mp-panel-checkout">
-	<?php
-	// @codingStandardsIgnoreLine
-	echo $checkout_alert_test_mode;
-	?>
-	<div class="mp-row-checkout">
-		<div class="mp-redirect-frame-pix">
-			<img src="<?php echo esc_html($image_pix); ?>" class="mp-img-fluid mp-img-redirect" alt="" />
-			<p>
-				<?php echo esc_html_e('Pay securely and instantly!', 'woocommerce-mercadopago'); ?>
-				<br>
-				<?php echo esc_html_e('When you finish the order, you will see the code to complete the payment.', 'woocommerce-mercadopago'); ?>
-			</p>
-
+<div class="mp-checkout-pix-container">
+	<?php if ( true === $test_mode ) : ?>
+		<div class="mp-checkout-pix-test-mode">
+			<test-mode
+				title="<?php echo esc_html_e( 'Pix in Test Mode', 'woocommerce-mercadopago' ); ?>"
+				description="<?php echo esc_html_e( 'You can test the flow to generate a code, but you cannot finalize the payment.', 'woocommerce-mercadopago' ); ?>"
+			>
+			</test-mode>
 		</div>
+	<?php endif; ?>
+
+	<pix-template
+		title="<?php echo esc_html_e( 'Pay instantly.', 'woocommerce-mercadopago' ); ?>"
+		subtitle="<?php echo esc_html_e( 'By confirming your purchase, we will show you a code to make the payment.', 'woocommerce-mercadopago' ); ?>"
+		alt="<?php echo esc_html_e( 'PIX logo', 'woocommerce-mercadopago' ); ?>"
+		src="<?php echo esc_html( $pix_image ); ?>"
+	>
+	</pix-template>
+
+	<div class="mp-checkout-pix-terms-and-conditions">
+		<terms-and-conditions
+			description="<?php echo esc_html_e( 'By continuing, you agree with our', 'woocommerce-mercadopago' ); ?>"
+			link-text="<?php echo esc_html_e( 'Terms and Conditions', 'woocommerce-mercadopago' ); ?>"
+			link-src="<?php echo esc_html( $link_terms_and_conditions ); ?>"
+		>
+		</terms-and-conditions>
 	</div>
 </div>
-	<!-- Terms and conditions link at checkout -->
-	<div>
-		<p class="mp-terms-and-conditions">
-			<?php echo esc_html($text_prefix); ?>
-			<a target="_blank" href="<?php echo esc_html($link_terms_and_conditions); ?>"> <?php echo esc_html($text_suffix); ?> </a>
-		</p>
-	</div>

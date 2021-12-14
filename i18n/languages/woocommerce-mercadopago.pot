@@ -365,31 +365,31 @@ msgstr ""
 msgid "Do you want your customer to automatically return to the store after payment?"
 msgstr ""
 
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:595, ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:595, ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:595, ../../templates/checkout/custom-checkout.php:64, ../../templates/checkout/custom-checkout.php:64, ../../templates/checkout/custom-checkout.php:64
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:588, ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:588, ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:588, ../../templates/checkout/custom-checkout.php:64, ../../templates/checkout/custom-checkout.php:64, ../../templates/checkout/custom-checkout.php:64
 msgid "Credit cards"
 msgstr ""
 
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:596, ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:596, ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:596
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:589, ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:589, ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:589
 msgid "Up to "
 msgstr ""
 
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:596, ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:596, ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:596
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:589, ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:589, ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:589
 msgid " installments"
 msgstr ""
 
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:600, ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:600, ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:600
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:593, ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:593, ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:593
 msgid "Debit cards"
 msgstr ""
 
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:604, ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:604, ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:604
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:597, ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:597, ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:597
 msgid "Payment by cash"
 msgstr ""
 
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:652, ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:652, ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:639, ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:639, ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:652, ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:652, ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:639, ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:639, ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:652, ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:652, ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:639, ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:639, ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:583, ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:583, ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:571, ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:571, ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:583, ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:583, ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:571, ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:571, ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:583, ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:583, ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:571, ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:571, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:485, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:485, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:472, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:472, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:485, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:485, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:472, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:472, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:485, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:485, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:472, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:472, ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:493, ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:493, ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:480, ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:480, ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:493, ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:493, ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:480, ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:480, ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:493, ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:493, ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:480, ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:480, ../../includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:169, ../../includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:167, ../../includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:169, ../../includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:167, ../../includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:169, ../../includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:167
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:645, ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:645, ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:632, ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:632, ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:645, ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:645, ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:632, ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:632, ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:645, ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:645, ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:632, ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:632, ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:583, ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:583, ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:571, ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:571, ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:583, ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:583, ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:571, ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:571, ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:583, ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:583, ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:571, ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:571, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:480, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:480, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:467, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:467, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:480, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:480, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:467, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:467, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:480, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:480, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:467, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:467, ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:493, ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:493, ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:480, ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:480, ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:493, ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:493, ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:480, ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:480, ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:493, ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:493, ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:480, ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:480, ../../includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:169, ../../includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:167, ../../includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:169, ../../includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:167, ../../includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:169, ../../includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:167
 msgid "discount of"
 msgstr ""
 
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:657, ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:657, ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:644, ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:644, ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:657, ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:657, ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:644, ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:644, ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:657, ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:657, ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:644, ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:644, ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:588, ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:588, ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:576, ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:576, ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:588, ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:588, ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:576, ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:576, ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:588, ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:588, ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:576, ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:576, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:490, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:490, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:477, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:477, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:490, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:490, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:477, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:477, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:490, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:490, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:477, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:477, ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:498, ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:498, ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:485, ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:485, ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:498, ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:498, ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:485, ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:485, ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:498, ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:498, ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:485, ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:485, ../../includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:171, ../../includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:171, ../../includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:171
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:650, ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:650, ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:637, ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:637, ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:650, ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:650, ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:637, ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:637, ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:650, ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:650, ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:637, ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:637, ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:588, ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:588, ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:576, ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:576, ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:588, ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:588, ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:576, ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:576, ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:588, ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:588, ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:576, ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:576, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:485, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:485, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:472, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:472, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:485, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:485, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:472, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:472, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:485, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:485, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:472, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:472, ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:498, ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:498, ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:485, ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:485, ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:498, ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:498, ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:485, ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:485, ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:498, ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:498, ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:485, ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:485, ../../includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:171, ../../includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:171, ../../includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:171
 msgid "fee of"
 msgstr ""
 
@@ -1007,7 +1007,7 @@ msgid "Accept payments via Pix Transfer and receive the funds instantly. Your cu
 msgstr ""
 
 #: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:31, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:39, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:31, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:39, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:31, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:39
-msgid "Pay with PIX "
+msgid "PIX"
 msgstr ""
 
 #: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:267, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:267, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:267
@@ -1145,35 +1145,35 @@ msgstr ""
 msgid "We have created a page to explain how this new payment method works and its advantages."
 msgstr ""
 
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:554, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:554, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:554, ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:597, ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:597, ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:597
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:549, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:549, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:549, ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:597, ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:597, ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:597
 msgid "A problem occurred when processing your payment. Please try again."
 msgstr ""
 
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:540, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:540, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:540, ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:583, ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:583, ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:583
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:535, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:535, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:535, ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:583, ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:583, ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:583
 msgid "A problem occurred when processing your payment. Are you sure you have correctly filled in all the information on the checkout form?"
 msgstr ""
 
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:519, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:519, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:519, ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:558, ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:558, ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:558
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:514, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:514, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:514, ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:558, ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:558, ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:558
 msgid "The customer has not paid yet."
 msgstr ""
 
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:523, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:523, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:523
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:518, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:518, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:518
 msgid "Now you just need to pay with PIX to finalize your purchase."
 msgstr ""
 
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:524, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:524, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:524
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:519, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:519, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:519
 msgid "Scan the QR code below or copy and paste the code into your bank's application."
 msgstr ""
 
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:631, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:631, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:631
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:626, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:626, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:626
 msgid "Please note that to receive payments via Pix at our checkout, you must have a Pix key registered in your Mercado Pago account."
 msgstr ""
 
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:632, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:632, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:632
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:627, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:627, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:627
 msgid "Register your Pix key at Mercado Pago."
 msgstr ""
 
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:686, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:686, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:686, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:129, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:129, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:129
+#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:681, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:681, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:681, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:151, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:151, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:151
 msgid "Code valid for "
 msgstr ""
 
@@ -1571,87 +1571,87 @@ msgstr ""
 msgid "Cancel &amp; Clear Cart"
 msgstr ""
 
-#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:85, ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:85, ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:85, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:64, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:64, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:64, ../../includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:73, ../../includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:73, ../../includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:73, ../../templates/checkout/custom-checkout.php:92, ../../templates/checkout/custom-checkout.php:92, ../../templates/checkout/custom-checkout.php:92, ../../templates/checkout/ticket-checkout.php:34, ../../templates/checkout/ticket-checkout.php:34, ../../templates/checkout/ticket-checkout.php:34
+#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:85, ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:85, ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:85, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:75, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:75, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:75, ../../includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:73, ../../includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:73, ../../includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:73, ../../templates/checkout/custom-checkout.php:92, ../../templates/checkout/custom-checkout.php:92, ../../templates/checkout/custom-checkout.php:92, ../../templates/checkout/ticket-checkout.php:34, ../../templates/checkout/ticket-checkout.php:34, ../../templates/checkout/ticket-checkout.php:34
 msgid "Apply"
 msgstr ""
 
-#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:86, ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:86, ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:86, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:65, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:65, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:65, ../../includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:74, ../../includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:74, ../../includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:74
+#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:86, ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:86, ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:86, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:76, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:76, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:76, ../../includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:74, ../../includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:74, ../../includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:74
 msgid "Remove"
 msgstr ""
 
-#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:87, ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:87, ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:87, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:66, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:66, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:66, ../../includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:75, ../../includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:75, ../../includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:75
+#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:87, ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:87, ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:87, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:77, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:77, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:77, ../../includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:75, ../../includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:75, ../../includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:75
 msgid "Please, inform your coupon code"
 msgstr ""
 
-#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:88, ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:88, ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:88, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:67, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:67, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:67, ../../includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:76, ../../includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:76, ../../includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:76
+#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:88, ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:88, ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:88, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:78, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:78, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:78, ../../includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:76, ../../includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:76, ../../includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:76
 msgid "To choose"
 msgstr ""
 
-#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:89, ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:89, ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:89, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:68, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:68, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:68, ../../includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:77, ../../includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:77, ../../includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:77
+#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:89, ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:89, ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:89, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:79, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:79, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:79, ../../includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:77, ../../includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:77, ../../includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:77
 msgid "Other bank"
 msgstr ""
 
-#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:90, ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:90, ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:90, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:69, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:69, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:69, ../../includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:78, ../../includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:78, ../../includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:78
+#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:90, ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:90, ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:90, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:80, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:80, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:80, ../../includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:78, ../../includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:78, ../../includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:78
 msgid "You will save"
 msgstr ""
 
-#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:91, ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:91, ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:91, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:70, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:70, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:70, ../../includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:79, ../../includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:79, ../../includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:79
+#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:91, ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:91, ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:91, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:81, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:81, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:81, ../../includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:79, ../../includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:79, ../../includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:79
 msgid "with discount of"
 msgstr ""
 
-#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:92, ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:92, ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:92, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:71, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:71, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:71, ../../includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:80, ../../includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:80, ../../includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:80
+#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:92, ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:92, ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:92, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:82, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:82, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:82, ../../includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:80, ../../includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:80, ../../includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:80
 msgid "Total of your purchase:"
 msgstr ""
 
-#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:93, ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:93, ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:93, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:72, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:72, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:72, ../../includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:81, ../../includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:81, ../../includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:81
+#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:93, ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:93, ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:93, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:83, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:83, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:83, ../../includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:81, ../../includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:81, ../../includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:81
 msgid "Total of your purchase with discount:"
 msgstr ""
 
-#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:94, ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:94, ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:94, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:73, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:73, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:73, ../../includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:82, ../../includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:82, ../../includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:82
+#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:94, ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:94, ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:94, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:84, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:84, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:84, ../../includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:82, ../../includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:82, ../../includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:82
 msgid "*After payment approval"
 msgstr ""
 
-#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:95, ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:95, ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:95, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:74, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:74, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:74, ../../includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:83, ../../includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:83, ../../includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:83
+#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:95, ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:95, ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:95, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:85, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:85, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:85, ../../includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:83, ../../includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:83, ../../includes/payments/hooks/class-wc-woomercadopago-hook-ticket.php:83
 msgid "Terms and conditions of use"
 msgstr ""
 
-#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:120, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:120, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:120
+#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:142, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:142, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:142
 msgid "Now you just need to pay with PIX to finalize your purchase"
 msgstr ""
 
-#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:121, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:121, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:121
+#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:143, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:143, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:143
 msgid "How to pay with PIX:"
 msgstr ""
 
-#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:122, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:122, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:122
+#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:144, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:144, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:144
 msgid "Go to your bank's app or website"
 msgstr ""
 
-#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:123, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:123, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:123
+#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:145, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:145, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:145
 msgid "Search for the option to pay with PIX"
 msgstr ""
 
-#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:124, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:124, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:124
+#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:146, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:146, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:146
 msgid "Scan the QR code or PIX code"
 msgstr ""
 
-#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:125, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:125, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:125
+#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:147, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:147, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:147
 msgid "Done! You will see the payment confirmation"
 msgstr ""
 
-#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:126, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:126, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:126
+#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:148, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:148, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:148
 msgid "Value: "
 msgstr ""
 
-#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:128, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:128, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:128
+#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:150, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:150, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:150
 msgid "Scan the QR code:"
 msgstr ""
 
-#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:131, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:131, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:131
+#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:153, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:153, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:153
 msgid "If you prefer, you can pay by copying and pasting the following code"
 msgstr ""
 
-#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:133, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:133, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:133
+#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:155, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:155, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:155
 msgid "Copy code"
 msgstr ""
 
@@ -1706,11 +1706,11 @@ msgstr ""
 msgid "Checkout Pro redirect info image"
 msgstr ""
 
-#: ../../templates/checkout/basic-checkout.php:63, ../../templates/checkout/basic-checkout.php:63, ../../templates/checkout/basic-checkout.php:63
+#: ../../templates/checkout/basic-checkout.php:63, ../../templates/checkout/basic-checkout.php:63, ../../templates/checkout/basic-checkout.php:63, ../../templates/checkout/pix-checkout.php:39, ../../templates/checkout/pix-checkout.php:39, ../../templates/checkout/pix-checkout.php:39
 msgid "By continuing, you agree with our"
 msgstr ""
 
-#: ../../templates/checkout/basic-checkout.php:64, ../../templates/checkout/basic-checkout.php:64, ../../templates/checkout/basic-checkout.php:64
+#: ../../templates/checkout/basic-checkout.php:64, ../../templates/checkout/basic-checkout.php:64, ../../templates/checkout/basic-checkout.php:64, ../../templates/checkout/pix-checkout.php:40, ../../templates/checkout/pix-checkout.php:40, ../../templates/checkout/pix-checkout.php:40
 msgid "Terms and Conditions"
 msgstr ""
 
@@ -1826,12 +1826,24 @@ msgstr ""
 msgid "Obligatory field"
 msgstr ""
 
-#: ../../templates/checkout/pix-checkout.php:27, ../../templates/checkout/pix-checkout.php:27, ../../templates/checkout/pix-checkout.php:27
-msgid "Pay securely and instantly!"
+#: ../../templates/checkout/pix-checkout.php:22, ../../templates/checkout/pix-checkout.php:22, ../../templates/checkout/pix-checkout.php:22
+msgid "Pix in Test Mode"
 msgstr ""
 
-#: ../../templates/checkout/pix-checkout.php:29, ../../templates/checkout/pix-checkout.php:29, ../../templates/checkout/pix-checkout.php:29
-msgid "When you finish the order, you will see the code to complete the payment."
+#: ../../templates/checkout/pix-checkout.php:23, ../../templates/checkout/pix-checkout.php:23, ../../templates/checkout/pix-checkout.php:23
+msgid "You can test the flow to generate a code, but you cannot finalize the payment."
+msgstr ""
+
+#: ../../templates/checkout/pix-checkout.php:30, ../../templates/checkout/pix-checkout.php:30, ../../templates/checkout/pix-checkout.php:30
+msgid "Pay instantly."
+msgstr ""
+
+#: ../../templates/checkout/pix-checkout.php:31, ../../templates/checkout/pix-checkout.php:31, ../../templates/checkout/pix-checkout.php:31
+msgid "By confirming your purchase, we will show you a code to make the payment."
+msgstr ""
+
+#: ../../templates/checkout/pix-checkout.php:32, ../../templates/checkout/pix-checkout.php:32, ../../templates/checkout/pix-checkout.php:32
+msgid "PIX logo"
 msgstr ""
 
 #: ../../templates/checkout/ticket-checkout.php:55, ../../templates/checkout/ticket-checkout.php:55, ../../templates/checkout/ticket-checkout.php:55
