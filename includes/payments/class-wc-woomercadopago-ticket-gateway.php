@@ -395,6 +395,13 @@ class WC_WooMercadoPago_Ticket_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 			WC_WooMercadoPago_Constants::VERSION
 		);
 
+		wp_enqueue_style(
+			'woocommerce-mercadopago-narciso-styles',
+			plugins_url( '../assets/css/mp-plugins-components.css', plugin_dir_path( __FILE__ ) ),
+			array(),
+			WC_WooMercadoPago_Constants::VERSION
+		);
+
 		$amount    = $this->get_order_total();
 		$discount  = $amount * ( $this->gateway_discount / 100 );
 		$comission = $amount * ( $this->commission / 100 );
@@ -406,6 +413,7 @@ class WC_WooMercadoPago_Ticket_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 		$address          .= ( ! empty( $address_2 ) ? ' - ' . $address_2 : '' );
 		$country           = get_user_meta( wp_get_current_user()->ID, 'billing_country', true );
 		$address          .= ( ! empty( $country ) ? ' - ' . $country : '' );
+		$test_mode_link  = $this->get_mp_devsite_link($this->checkout_country);
 
 		try {
 			$currency_ratio = WC_WooMercadoPago_Helpers_CurrencyConverter::get_instance()->ratio( $this );
@@ -414,12 +422,8 @@ class WC_WooMercadoPago_Ticket_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 		}
 
 		$parameters = array(
-			'checkout_alert_test_mode' => $this->is_production_mode()
-			? ''
-			: $this->checkout_alert_test_mode_template(
-				__( 'Offline Methods in Test Mode', 'woocommerce-mercadopago' ),
-				__( 'You can test the flow to generate an invoice, but you cannot finalize the payment.', 'woocommerce-mercadopago' )
-			),
+			'test_mode'           => ! $this->is_production_mode(),
+			'test_mode_link'      => $test_mode_link,
 			'amount'               => $amount,
 			'payment_methods'      => $this->activated_payment,
 			'site_id'              => $this->get_option_mp( '_site_id_v1' ),
