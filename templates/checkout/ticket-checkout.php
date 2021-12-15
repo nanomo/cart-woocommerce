@@ -30,6 +30,8 @@ if ( ! defined('ABSPATH') ) {
 		<?php if ( 'MLU' === $site_id ) : ?>
 			<div class="mp-checkout-ticket-input-document">
 			<input-document
+				input-name = 'mercadopago_ticket[docNumber]'
+				select-name = 'mercadopago_ticket[docType]'
 				documents='[
 					{"name":"CI"},
 					{"name":"Outro"}]'
@@ -40,6 +42,8 @@ if ( ! defined('ABSPATH') ) {
 		<?php if ( 'MLB' === $site_id ) : ?>
 			<div class="mp-checkout-ticket-input-document">
 			<input-document
+				input-name = 'mercadopago_ticket[docNumber]'
+				select-name = 'mercadopago_ticket[docType]'
 				documents='[
 					{"name":"CPF"},
 					{"name":"CNPJ"}]'
@@ -49,7 +53,7 @@ if ( ! defined('ABSPATH') ) {
 		<?php endif; ?>
 		<p class="mp-checkout-ticket-text">Select where you want to pay</p>
 
-		<input-table name="payment-options" columns='<?php echo esc_attr(wp_json_encode($payment_methods)); ?>'>
+		<input-table name="mercadopago_ticket[paymentMethodId]" columns='<?php echo esc_attr(wp_json_encode($payment_methods)); ?>'>
 		</input-table>
 
 		<!-- NOT DELETE LOADING-->
