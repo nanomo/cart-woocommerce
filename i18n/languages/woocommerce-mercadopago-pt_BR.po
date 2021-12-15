@@ -585,11 +585,10 @@ msgstr "Cartões de crédito"
 msgid "Up to "
 msgstr "Até "
 
-# parcelas
 #: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:589,
 #: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:589
 msgid " installments"
-msgstr " Parcelas"
+msgstr "x"
 
 #: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:593,
 #: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:593
