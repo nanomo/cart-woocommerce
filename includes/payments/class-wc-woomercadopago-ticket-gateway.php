@@ -521,14 +521,23 @@ class WC_WooMercadoPago_Ticket_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 
 		// Check for brazilian FEBRABAN rules.
 		if ( 'MLB' === $this->get_option_mp( '_site_id_v1' ) ) {
-			if ( ! isset( $ticket_checkout['docNumber'] ) || empty( $ticket_checkout['docNumber'] ) ||
-				( 14 !== strlen( $ticket_checkout['docNumber'] ) && 18 !== strlen( $ticket_checkout['docNumber'] ) ) ) {
-				wc_add_notice(
-					'<p>' .
-					__( 'There was a problem processing your payment. Are you sure you have correctly filled out all the information on the payment form?', 'woocommerce-mercadopago' ) .
-					'</p>',
-					'error'
-				);
+			if ( ! isset( $ticket_checkout['docNumber'] ) || empty( $ticket_checkout['docNumber'] ) ) {
+
+				if ( isset( $ticket_checkout['docNumberError'] ) || ! empty( $ticket_checkout['docNumberError'] ) ) {
+					wc_add_notice(
+						'<p>' .
+						__( 'Your document data is invalid', 'woocommerce-mercadopago' ) .
+						'</p>',
+						'error'
+					);
+				} else {
+					wc_add_notice(
+						'<p>' .
+						__( 'There was a problem processing your payment. Are you sure you have correctly filled out all the information on the payment form?', 'woocommerce-mercadopago' ) .
+						'</p>',
+						'error'
+					);
+				}
 				return array(
 					'result'   => 'fail',
 					'redirect' => '',
@@ -541,12 +550,21 @@ class WC_WooMercadoPago_Ticket_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 				! isset( $ticket_checkout['docNumber'] ) || empty( $ticket_checkout['docNumber'] ) ||
 				! isset( $ticket_checkout['docType'] ) || empty( $ticket_checkout['docType'] )
 			) {
-				wc_add_notice(
-					'<p>' .
-					__( 'There was a problem processing your payment. Are you sure you have correctly filled out all the information on the payment form?', 'woocommerce-mercadopago' ) .
-					'</p>',
-					'error'
-				);
+				if ( isset( $ticket_checkout['docNumberError'] ) || ! empty( $ticket_checkout['docNumberError'] ) ) {
+					wc_add_notice(
+						'<p>' .
+						__( 'Your document data is invalid', 'woocommerce-mercadopago' ) .
+						'</p>',
+						'error'
+					);
+				} else {
+					wc_add_notice(
+						'<p>' .
+						__( 'There was a problem processing your payment. Are you sure you have correctly filled out all the information on the payment form?', 'woocommerce-mercadopago' ) .
+						'</p>',
+						'error'
+					);
+				}
 				return array(
 					'result'   => 'fail',
 					'redirect' => '',

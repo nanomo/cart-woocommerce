@@ -32,6 +32,7 @@ if ( ! defined('ABSPATH') ) {
 			<input-document
 				input-name = 'mercadopago_ticket[docNumber]'
 				select-name = 'mercadopago_ticket[docType]'
+				flag-error = 'mercadopago_ticket[docNumberError]'
 				documents='[
 					{"name":"CI"},
 					{"name":"Outro"}]'
@@ -44,6 +45,7 @@ if ( ! defined('ABSPATH') ) {
 			<input-document
 				input-name = 'mercadopago_ticket[docNumber]'
 				select-name = 'mercadopago_ticket[docType]'
+				flag-error = 'mercadopago_ticket[docNumberError]'
 				documents='[
 					{"name":"CPF"},
 					{"name":"CNPJ"}]'
@@ -51,7 +53,7 @@ if ( ! defined('ABSPATH') ) {
 			</input-document>
 		</div>
 		<?php endif; ?>
-		<p class="mp-checkout-ticket-text">Select where you want to pay</p>
+		<p class="mp-checkout-ticket-text"><?php echo esc_html_e('Select where you want to pay', 'woocommerce-mercadopago'); ?></p>
 
 		<input-table name="mercadopago_ticket[paymentMethodId]" columns='<?php echo esc_attr(wp_json_encode($payment_methods)); ?>'>
 		</input-table>
