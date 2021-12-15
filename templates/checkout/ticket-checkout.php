@@ -10,14 +10,14 @@
  * @package MercadoPago
  */
 
-if (!defined('ABSPATH')) {
+if ( ! defined('ABSPATH') ) {
 	exit;
 }
 ?>
 
 <div class="mp-checkout-ticket-container">
 	<div class="mp-checkout-ticket-content">
-		<?php if (true === $test_mode) : ?>
+		<?php if ( true === $test_mode ) : ?>
 			<div class="mp-checkout-ticket-test-mode">
 				<test-mode
 					title="<?php echo esc_html_e('Offline Methods in Test Mode', 'woocommerce-mercadopago'); ?>"
@@ -31,8 +31,8 @@ if (!defined('ABSPATH')) {
 			<div class="mp-checkout-ticket-input-document">
 			<input-document
 				documents='[
-                    {"name":"CI"},
-                    {"name":"Outro"}]'
+					{"name":"CI"},
+					{"name":"Outro"}]'
 				validate=true>
 			</input-document>
 		</div>
@@ -41,13 +41,13 @@ if (!defined('ABSPATH')) {
 			<div class="mp-checkout-ticket-input-document">
 			<input-document
 				documents='[
-                    {"name":"CPF"},
-                    {"name":"CNPJ"}]'
+					{"name":"CPF"},
+					{"name":"CNPJ"}]'
 				validate=true>
 			</input-document>
 		</div>
 		<?php endif; ?>
-        <p class="mp-checkout-ticket-text">Select where you want to pay</p>
+		<p class="mp-checkout-ticket-text">Select where you want to pay</p>
 
 		<input-table name="payment-options" columns='<?php echo esc_attr(wp_json_encode($payment_methods)); ?>'>
 		</input-table>

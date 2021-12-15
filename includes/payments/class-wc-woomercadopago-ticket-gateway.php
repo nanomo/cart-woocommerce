@@ -195,7 +195,7 @@ class WC_WooMercadoPago_Ticket_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 	 */
 	public static function get_activated_payment() {
 		$activated_payment          = array();
-		$treated_payments          = array();
+		$treated_payments           = array();
 		$get_payment_methods_ticket = get_option( '_all_payment_methods_ticket', '' );
 
 		if ( ! empty( $get_payment_methods_ticket ) ) {
@@ -214,24 +214,24 @@ class WC_WooMercadoPago_Ticket_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 			}
 		}
 
-		foreach ($activated_payment as $payment) {
+		foreach ( $activated_payment as $payment ) {
 			$treated_payment = [];
-			if ( isset($payment['payment_places'])) {
-				foreach ($payment['payment_places'] as $place ) {
-					$payment_place_id = ( new WC_WooMercadoPago_Composite_Id_Helper() )->generateIdFromPlace($payment['id'], $place['payment_option_id']);
-					$treated_payment['id'] = $payment_place_id;
-					$treated_payment['value'] = $payment_place_id;
+			if ( isset($payment['payment_places']) ) {
+				foreach ( $payment['payment_places'] as $place ) {
+					$payment_place_id           = ( new WC_WooMercadoPago_Composite_Id_Helper() )->generateIdFromPlace($payment['id'], $place['payment_option_id']);
+					$treated_payment['id']      = $payment_place_id;
+					$treated_payment['value']   = $payment_place_id;
 					$treated_payment['rowText'] = $place['name'];
-					$treated_payment['img'] = $place['thumbnail'];
-					$treated_payment['alt'] = $place['name'];
+					$treated_payment['img']     = $place['thumbnail'];
+					$treated_payment['alt']     = $place['name'];
 					array_push( $treated_payments, $treated_payment);
 				}
 			} else {
-				$treated_payment['id'] = $payment['id'];
-				$treated_payment['value'] = $payment['id'];
+				$treated_payment['id']      = $payment['id'];
+				$treated_payment['value']   = $payment['id'];
 				$treated_payment['rowText'] = $payment['name'];
-				$treated_payment['img'] = $payment['secure_thumbnail'];
-				$treated_payment['alt'] = $payment['name'];
+				$treated_payment['img']     = $payment['secure_thumbnail'];
+				$treated_payment['alt']     = $payment['name'];
 				array_push( $treated_payments, $treated_payment);
 			}
 		}
@@ -429,7 +429,7 @@ class WC_WooMercadoPago_Ticket_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 		$address          .= ( ! empty( $address_2 ) ? ' - ' . $address_2 : '' );
 		$country           = get_user_meta( wp_get_current_user()->ID, 'billing_country', true );
 		$address          .= ( ! empty( $country ) ? ' - ' . $country : '' );
-		$test_mode_link  = $this->get_mp_devsite_link($this->checkout_country);
+		$test_mode_link    = $this->get_mp_devsite_link($this->checkout_country);
 
 		try {
 			$currency_ratio = WC_WooMercadoPago_Helpers_CurrencyConverter::get_instance()->ratio( $this );
