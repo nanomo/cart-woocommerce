@@ -28,7 +28,7 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 	public function __construct() {
 		$this->id          = self::ID;
 		$this->description = __( 'Accept payments via Pix Transfer and receive the funds instantly. Your customers can pay at any time, without date or time restrictions.', 'woocommerce-mercadopago' );
-		$this->title       = __( 'Pay with PIX ', 'woocommerce-mercadopago' );
+		$this->title       = __( 'PIX', 'woocommerce-mercadopago' );
 
 		if ( ! $this->validate_section() ) {
 			return;
@@ -36,7 +36,7 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 
 		$this->form_fields        = array();
 		$this->method_title       = __( 'Mercado Pago - Custom Checkout', 'woocommerce-mercadopago' );
-		$this->title              = $this->get_option_mp( 'title', __( 'Pay with PIX ', 'woocommerce-mercadopago' ) );
+		$this->title              = $this->get_option_mp( 'title', __( 'PIX', 'woocommerce-mercadopago' ) );
 		$this->method_description = $this->description;
 		$this->date_expiration    = (int) $this->get_option_mp( 'checkout_pix_date_expiration', '1' );
 		$this->type_payments      = $this->get_option_mp( 'type_payments', 'no' );
@@ -425,25 +425,20 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 	 * Payment fields
 	 */
 	public function payment_fields() {
-		// add css.
 		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
+		// add css.
 		wp_enqueue_style(
-			'woocommerce-mercadopago-basic-checkout-styles',
-			plugins_url( '../assets/css/basic_checkout_mercadopago' . $suffix . '.css', plugin_dir_path( __FILE__ ) ),
+			'woocommerce-mercadopago-narciso-styles',
+			plugins_url( '../assets/css/mp-plugins-components.css', plugin_dir_path( __FILE__ ) ),
 			array(),
 			WC_WooMercadoPago_Constants::VERSION
 		);
 
-		$parameters = array(
-			'checkout_alert_test_mode' => $this->is_production_mode()
-			? ''
-			: $this->checkout_alert_test_mode_template(
-				'PIX em Modo Teste',
-				'É possível testar o fluxo até gerar o código, mas não é possível finalizar o pagamento.'
-			),
-			'image_pix' => plugins_url( '../assets/images/pix.png', plugin_dir_path( __FILE__ ) ),
-		);
+		$parameters = [
+			'test_mode' => ! $this->is_production_mode(),
+			'pix_image' => plugins_url( '../assets/images/pix.png', plugin_dir_path( __FILE__ ) ),
+		];
 
 		$parameters = array_merge($parameters, WC_WooMercadoPago_Payment_Abstract::mp_define_terms_and_conditions());
 		wc_get_template( 'checkout/pix-checkout.php', $parameters, 'woo/mercado/pago/module/', WC_WooMercadoPago_Module::get_templates_path() );
