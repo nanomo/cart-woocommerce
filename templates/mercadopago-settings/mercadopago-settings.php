@@ -185,7 +185,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 						<select name="select" class="mp-settings-select">
 
 						<?php
-						for ( $i = 0; $i < count($categories_store['store_categories_description']); $i++ ) {
+						for ( $i = 0; $i < count($categories_store['store_categories_description']); $i++ ) { // phpcs:ignore
 								echo "<option value='" . esc_html($categories_store['store_categories_id'][$i])
 								. "'" . esc_html(( $category_selected === $categories_store['store_categories_id'][$i] ) ? 'selected' : '' )
 								. '>' . esc_html($categories_store['store_categories_description'][$i]) . '</option>';
