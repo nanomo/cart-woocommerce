@@ -128,7 +128,7 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 				if ( ! $validate_access_token ) {
 					wp_send_json_error( 'error'  );
 				}
-				wp_send_json_success( 'ok');
+				wp_send_json_success( 'sucess');
 			}
 
 			if ( $public_key ) {
@@ -136,7 +136,7 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 				if ( ! $validate_public_key ) {
 					wp_send_json_error( 'error' );
 				}
-				wp_send_json_success( 'ok');
+				wp_send_json_success( 'sucess');
 			}
 
 				throw new Exception( 'error');
