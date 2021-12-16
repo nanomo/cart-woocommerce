@@ -522,6 +522,7 @@
 }
 .mp-input-table-link {
 	color: #7f54b3;
+	cursor: pointer;
 	font-family: Helvetica;
 	font-size: 16px;
 	font-style: normal;
@@ -667,6 +668,7 @@
 }
 .mp-terms-and-conditions-text {
 	color: rgba(0, 0, 0, 0.55);
+	padding-right: 4px;
 }
 .mp-terms-and-conditions-link,
 .mp-terms-and-conditions-text {
@@ -678,7 +680,6 @@
 }
 .mp-terms-and-conditions-link {
 	color: #7f54b3;
-	padding-left: 4px;
 	text-decoration: none;
 }
 .mp-terms-and-conditions-link:hover {
