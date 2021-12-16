@@ -1702,11 +1702,11 @@ msgstr ""
 msgid "Checkout Pro redirect info image"
 msgstr ""
 
-#: ../../templates/checkout/basic-checkout.php:63, ../../templates/checkout/basic-checkout.php:63, ../../templates/checkout/basic-checkout.php:63, ../../templates/checkout/pix-checkout.php:39, ../../templates/checkout/pix-checkout.php:39, ../../templates/checkout/pix-checkout.php:39, ../../templates/checkout/ticket-checkout.php:77, ../../templates/checkout/ticket-checkout.php:77, ../../templates/checkout/ticket-checkout.php:77
+#: ../../templates/checkout/basic-checkout.php:63, ../../templates/checkout/basic-checkout.php:63, ../../templates/checkout/basic-checkout.php:63, ../../templates/checkout/pix-checkout.php:39, ../../templates/checkout/pix-checkout.php:39, ../../templates/checkout/pix-checkout.php:39, ../../templates/checkout/ticket-checkout.php:80, ../../templates/checkout/ticket-checkout.php:80, ../../templates/checkout/ticket-checkout.php:80
 msgid "By continuing, you agree with our"
 msgstr ""
 
-#: ../../templates/checkout/basic-checkout.php:64, ../../templates/checkout/basic-checkout.php:64, ../../templates/checkout/basic-checkout.php:64, ../../templates/checkout/pix-checkout.php:40, ../../templates/checkout/pix-checkout.php:40, ../../templates/checkout/pix-checkout.php:40, ../../templates/checkout/ticket-checkout.php:78, ../../templates/checkout/ticket-checkout.php:78, ../../templates/checkout/ticket-checkout.php:78
+#: ../../templates/checkout/basic-checkout.php:64, ../../templates/checkout/basic-checkout.php:64, ../../templates/checkout/basic-checkout.php:64, ../../templates/checkout/pix-checkout.php:40, ../../templates/checkout/pix-checkout.php:40, ../../templates/checkout/pix-checkout.php:40, ../../templates/checkout/ticket-checkout.php:81, ../../templates/checkout/ticket-checkout.php:81, ../../templates/checkout/ticket-checkout.php:81
 msgid "Terms and Conditions"
 msgstr ""
 
@@ -1852,6 +1852,10 @@ msgstr ""
 
 #: ../../templates/checkout/ticket-checkout.php:56, ../../templates/checkout/ticket-checkout.php:56, ../../templates/checkout/ticket-checkout.php:56
 msgid "Select where you want to pay"
+msgstr ""
+
+#: ../../templates/checkout/ticket-checkout.php:60, ../../templates/checkout/ticket-checkout.php:60, ../../templates/checkout/ticket-checkout.php:60
+msgid "more options"
 msgstr ""
 
 #: ../../templates/order/payment-status-metabox-content.php:20, ../../templates/order/payment-status-metabox-content.php:20, ../../templates/order/payment-status-metabox-content.php:20

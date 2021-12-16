@@ -55,7 +55,10 @@ if ( ! defined('ABSPATH') ) {
 		<?php endif; ?>
 		<p class="mp-checkout-ticket-text"><?php echo esc_html_e('Select where you want to pay', 'woocommerce-mercadopago'); ?></p>
 
-		<input-table name="mercadopago_ticket[paymentMethodId]" columns='<?php echo esc_attr(wp_json_encode($payment_methods)); ?>'>
+		<input-table
+			name="mercadopago_ticket[paymentMethodId]"
+			button-name=<?php echo esc_html_e('more options', 'woocommerce-mercadopago'); ?>
+			columns='<?php echo esc_attr(wp_json_encode($payment_methods)); ?>'>
 		</input-table>
 
 		<!-- NOT DELETE LOADING-->
