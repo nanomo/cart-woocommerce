@@ -121,11 +121,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 						checkouts Mercado Pago para testes de compras na loja.</p>
 					<fieldset class="mp-settings-fieldset">
 						<legend class="mp-settings-label mp-settings-font-color">Public Key</legend>
-						<input class="mp-settings-input mp-credential-feedback-positive" type="text" value="<?php echo esc_html($options_credentials['credentials_public_key_test']); ?>" placeholder="Cole aqui sua Public Key">
+						<input class="mp-settings-input mp-credential-feedback-positive" id="mp-public-key-test" type="text" value="<?php echo esc_html($options_credentials['credentials_public_key_test']); ?>" placeholder="Cole aqui sua Public Key">
 					</fieldset>
 					<fieldset>
 						<legend class="mp-settings-label">Access token</legend>
-						<input class="mp-settings-input mp-credential-feedback-positive" type="text" value="<?php echo esc_html($options_credentials['credentials_access_token_test']); ?>" placeholder="Cole aqui seu Access Token" >
+						<input class="mp-settings-input mp-credential-feedback-positive" id="mp-access-token-test" type="text" value="<?php echo esc_html($options_credentials['credentials_access_token_test']); ?>" placeholder="Cole aqui seu Access Token" >
 					</fieldset>
 				</div>
 				<div class="mp-block mp-block-flex mp-settings-margin-left">
@@ -134,11 +134,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 						checkouts Mercado Pago para receber pagamentos reais na loja.</p>
 					<fieldset class="mp-settings-fieldset">
 						<legend class="mp-settings-label">Public Key</legend>
-						<input class="mp-settings-input mp-credential-feedback-negative" type="text" value="<?php echo esc_html($options_credentials['credentials_public_key_prod']); ?>" placeholder="Cole aqui seu Access Token">
+						<input class="mp-settings-input mp-credential-feedback-positive" id="mp-public-key-prod" type="text" value="<?php echo esc_html($options_credentials['credentials_public_key_prod']); ?>" placeholder="Cole aqui seu Access Token">
 					</fieldset>
 					<fieldset>
 						<legend class="mp-settings-label">Access token</legend>
-						<input class="mp-settings-input mp-credential-feedback-negative" type="text" value="<?php echo esc_html($options_credentials['credentials_public_key_test']); ?>" placeholder="Cole aqui seu Access Token">
+						<input class="mp-settings-input mp-credential-feedback-positive" id="mp-access-token-prod" type="text" value="<?php echo esc_html($options_credentials['credentials_access_token_prod']); ?>" placeholder="Cole aqui seu Access Token">
 					</fieldset>
 				</div>
 			</div>
