@@ -18,6 +18,14 @@ class WC_WooMercadoPago_Options {
 		$this->credentials_public_key_test   = get_option( self::CREDENTIALS_PUBLIC_KEY_TEST, '' );
 		$this->credentials_access_token_prod = get_option( self::CREDENTIALS_ACCESS_TOKEN_PROD, '' );
 		$this->credentials_access_token_test = get_option( self::CREDENTIALS_ACCESS_TOKEN_TEST, '' );
+		$this->register_endpoints_options();
+	}
+
+	/**
+	 * Register Mercado Pago Endpoints options
+	 */
+	public function register_endpoints_options() {
+			add_action( 'wp_ajax_update_option_credentials' , array( $this, 'update_option_credentials' ));
 	}
 
 	/**
@@ -50,5 +58,44 @@ class WC_WooMercadoPago_Options {
 	public function store_category() {
 		$category_store = get_option( '_mp_category_id', 'other');
 		return $category_store;
+	}
+
+	/**
+	 *  Update option Credentials
+	 */
+	public function update_option_credentials() {
+
+		$public_key_test   = WC_WooMercadoPago_Credentials::get_sanitize_text_from_post('public_key_test');
+		$access_token_test = WC_WooMercadoPago_Credentials::get_sanitize_text_from_post('access_token_test');
+		$public_key_prod   = WC_WooMercadoPago_Credentials::get_sanitize_text_from_post('public_key_prod');
+		$access_token_prod = WC_WooMercadoPago_Credentials::get_sanitize_text_from_post('access_token_prod');
+
+		$mp                         = WC_WooMercadoPago_Module::get_mp_instance_singleton();
+		$validate_public_key_test   = $mp->get_credentials_wrapper( $public_key_test  );
+		$validate_access_token_test = $mp->get_credentials_wrapper( $access_token_test );
+		$validate_public_key_prod   = $mp->get_credentials_wrapper( $public_key_prod);
+		$validate_access_token_prod = $mp->get_credentials_wrapper( $access_token_prod );
+
+		try {
+			if ( ! $validate_public_key_test || ! $validate_access_token_test ) {
+				wp_send_json_error( 'error' );
+			}
+			update_option( 'public_key_test', true );
+			update_option( 'access_token_test', true );
+
+			if ( $validate_public_key_prod || $validate_access_token_prod ) {
+				wp_send_json_error( 'error' );
+			}
+			update_option( 'public_key_prod', true );
+			update_option( 'access_token_prod', true );
+
+			throw new Exception( 'error');
+		} catch ( Exception $e ) {
+			$response = [
+				'message' => $e->getMessage()
+			];
+
+			wp_send_json_error( $response );
+		}
 	}
 }

@@ -94,6 +94,7 @@ function mp_validate_credentials() {
 		});
 	}
 }
+function update_option_credentials() {}
 
 window.addEventListener("load", function () {
 	mp_settings_accordion_start();
