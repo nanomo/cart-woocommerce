@@ -85,7 +85,7 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 		$category_selected   = $this->options->get_store_category();
 		$category_id         = $this->options->get_store_activity_identifier();
 		$store_identificator = $this->options->get_store_name_on_invoice();
-		$integrator_id 		 = $this->options->get_integrator_id();
+		$integrator_id       = $this->options->get_integrator_id();
 		$devsite_links       = $this->options->get_mp_devsite_links();
 		$debug_mode          = $this->options->get_debug_mode();
 		$links               = WC_WooMercadoPago_Helper_Links::woomercadopago_settings_links();
@@ -98,6 +98,7 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 	 */
 	public function register_endpoints() {
 		add_action( 'wp_ajax_mp_get_requirements' , array( $this, 'mercadopago_get_requirements' ));
+		add_action( 'wp_ajax_mp_validate_credentials', array($this, 'mp_validate_credentials'));
 	}
 
 	/**
@@ -113,6 +114,43 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 			'gd_ext' => $hasGD,
 			'curl_ext' => $hasCurl
 		]);
+	}
+
+	/**
+	 * Validate credentials Ajax
+	 */
+	public function mp_validate_credentials() {
+		try {
+			$access_token = WC_WooMercadoPago_Credentials::get_sanitize_text_from_post('access_token');
+			$public_key   = WC_WooMercadoPago_Credentials::get_sanitize_text_from_post('public_key');
+
+			$mp = WC_WooMercadoPago_Module::get_mp_instance_singleton();
+
+			if ( $access_token ) {
+				$validate_access_token = $mp->get_credentials_wrapper( $access_token );
+				if ( ! $validate_access_token ) {
+					wp_send_json_error( 'error'  );
+				}
+				wp_send_json_success( 'sucess');
+			}
+
+			if ( $public_key ) {
+				$validate_public_key = $mp->get_credentials_wrapper( null, $public_key );
+				if ( ! $validate_public_key ) {
+					wp_send_json_error( 'error' );
+				}
+				wp_send_json_success( 'sucess');
+			}
+
+				throw new Exception( 'error');
+
+		} catch ( Exception $e ) {
+			$response = [
+				'message' => $e->getMessage()
+			];
+
+			wp_send_json_error( $response );
+		}
 	}
 
 	/**

@@ -120,11 +120,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 						checkouts Mercado Pago para testes de compras na loja.</p>
 					<fieldset class="mp-settings-fieldset">
 						<legend class="mp-settings-label mp-settings-font-color">Public Key</legend>
-						<input class="mp-settings-input mp-credential-feedback-positive" type="text" value="<?php echo esc_html($options_credentials['credentials_public_key_test']); ?>" placeholder="Cole aqui sua Public Key">
+						<input class="mp-settings-input mp-credential-feedback-positive" id="mp-public-key-test" type="text" value="<?php echo esc_html($options_credentials['credentials_public_key_test']); ?>" placeholder="Cole aqui sua Public Key">
 					</fieldset>
 					<fieldset>
 						<legend class="mp-settings-label">Access token</legend>
-						<input class="mp-settings-input mp-credential-feedback-positive" type="text" value="<?php echo esc_html($options_credentials['credentials_access_token_test']); ?>" placeholder="Cole aqui seu Access Token" >
+						<input class="mp-settings-input mp-credential-feedback-positive" id="mp-access-token-test" type="text" value="<?php echo esc_html($options_credentials['credentials_access_token_test']); ?>" placeholder="Cole aqui seu Access Token" >
 					</fieldset>
 				</div>
 				<div class="mp-block mp-block-flex mp-settings-margin-left">
@@ -133,11 +133,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 						checkouts Mercado Pago para receber pagamentos reais na loja.</p>
 					<fieldset class="mp-settings-fieldset">
 						<legend class="mp-settings-label">Public Key</legend>
-						<input class="mp-settings-input mp-credential-feedback-negative" type="text" value="<?php echo esc_html($options_credentials['credentials_public_key_prod']); ?>" placeholder="Cole aqui seu Access Token">
+						<input class="mp-settings-input mp-credential-feedback-positive" id="mp-public-key-prod" type="text" value="<?php echo esc_html($options_credentials['credentials_public_key_prod']); ?>" placeholder="Cole aqui seu Access Token">
 					</fieldset>
 					<fieldset>
 						<legend class="mp-settings-label">Access token</legend>
-						<input class="mp-settings-input mp-credential-feedback-negative" type="text" value="<?php echo esc_html($options_credentials['credentials_public_key_test']); ?>" placeholder="Cole aqui seu Access Token">
+						<input class="mp-settings-input mp-credential-feedback-positive" id="mp-access-token-prod" type="text" value="<?php echo esc_html($options_credentials['credentials_access_token_prod']); ?>" placeholder="Cole aqui seu Access Token">
 					</fieldset>
 				</div>
 			</div>
@@ -184,7 +184,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 						<select name="select" class="mp-settings-select">
 
 						<?php
-						for ( $i = 0; $i < count($categories_store['store_categories_description']); $i++ ) {
+						for ( $i = 0; $i < count($categories_store['store_categories_description']); $i++ ) { // phpcs:ignore
 								echo "<option value='" . esc_html($categories_store['store_categories_id'][$i])
 								. "'" . esc_html(( $category_selected === $categories_store['store_categories_id'][$i] ) ? 'selected' : '' )
 								. '>' . esc_html($categories_store['store_categories_description'][$i]) . '</option>';
@@ -212,16 +212,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 									<legend class="mp-settings-label">URL para IPN</legend>
 									<input type="text" class="mp-settings-input" placeholder="Ex.: https://examples.com/my-custom-ipn-url">
-									<span class="mp-settings-helper">Insira a URL para receber notificações de pagamento. Confira mais informções nos <span class="mp-settings-blue-text"><a target="_blank" href="<?php echo esc_html($devsite_links["notifications_ipn"])?>" >manuais.</a></span>
+									<span class="mp-settings-helper">Insira a URL para receber notificações de pagamento. Confira mais informções nos <span class="mp-settings-blue-text"><a target="_blank" href="<?php echo esc_html($devsite_links['notifications_ipn']); ?>" >manuais.</a></span>
 								</fieldset>
 							</div>
 							<div class="mp-settings-standard-margin">
 								<fieldset>
 
 									<legend class="mp-settings-label">integrator_id</legend>
-									<input type="text" class="mp-settings-input" placeholder="Ex.: 14987126498" value="<?php echo esc_html( $integrator_id )?>">
+									<input type="text" class="mp-settings-input" placeholder="Ex.: 14987126498" value="<?php echo esc_html( $integrator_id ); ?>">
 									<span class="mp-settings-helper">Se você é Parceiro certificado do Mercado Pago, não esqueça de inserir seu integrator_id.</span><br>
-									<span class="mp-settings-helper">Se você não possui o código, <span class="mp-settings-blue-text"><a target="_blank" href="<?php echo esc_html($devsite_links["dev_program"])?>"> solicite agora<span>.</a></span>
+									<span class="mp-settings-helper">Se você não possui o código, <span class="mp-settings-blue-text"><a target="_blank" href="<?php echo esc_html($devsite_links['dev_program']); ?>"> solicite agora<span>.</a></span>
 
 								</fieldset>
 							</div>
@@ -230,7 +230,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 								<div>
 
 									<label class="mp-settings-switch">
-										<input type="checkbox"  id="debug-switcher" <?php esc_html(($debug_mode === 'yes') ? "checked" : "") ?>>
+										<input type="checkbox"  id="debug-switcher" <?php esc_html(( 'yes' === $debug_mode ) ? 'checked' : ''); ?>>
 										<span class="mp-settings-slider mp-settings-round"></span>
 									</label>
 								</div>
