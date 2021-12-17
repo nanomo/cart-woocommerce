@@ -82,10 +82,12 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 	 */
 	public function mercadopago_submenu_page_callback() {
 		$categories_store    = WC_WooMercadoPago_Module::$categories;
-		$category_selected   = $this->options->store_category();
-		$category_id         = $this->options->store_activity_identifier();
-		$store_identificator = $this->options->store_name_on_invoice();
-		$links               = WC_WooMercadoPago_Helper_Links::woomercadopago_settings_links();
+		$category_selected   = $this->options->get_store_category();
+		$category_id         = $this->options->get_store_activity_identifier();
+		$store_identificator = $this->options->get_store_name_on_invoice();
+		$integrator_id 		 = $this->options->get_integrator_id();
+		$devsite_links       = $this->options->get_mp_devsite_links();
+		$debug_mode          = $this->options->get_debug_mode();
 		$links               = WC_WooMercadoPago_Helper_Links::woomercadopago_settings_links();
 		$options_credentials = $this->options->get_access_token_and_public_key();
 		include __DIR__ . '/../../../templates/mercadopago-settings/mercadopago-settings.php';

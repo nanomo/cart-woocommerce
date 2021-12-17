@@ -31,7 +31,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<div>
 						<p class="mp-settings-font-color mp-settings-subtitle-font-size">SSL</p>
 						<label class="mp-settings-icon-info mp-settings-tooltip">
-							<span class="mp-settings-tooltip-text"><p class="mp-settings-subtitle-font-size"><b>SSL</b><p></p></p>Implementação responsável pela transmissão de dados para o Mercado Pago de maneira segura e criptografada.</span>
+							<span class="mp-settings-tooltip-text"><p class="mp-settings-subtitle-font-size"><b>SSL</b></p>Implementação responsável pela transmissão de dados para o Mercado Pago de maneira segura e criptografada.</span>
 						</label>
 					</div>
 					<div>
@@ -55,8 +55,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<div>
 						<p class="mp-settings-font-color mp-settings-subtitle-font-size">Curl</p>
 						<label class="mp-settings-icon-info mp-settings-tooltip">
-							<span class="mp-settings-tooltip-text"><b>Extensões GD</b><p>É uma extensão responsável pela realização de pagamentos via requests do plugin ao Mercado Pago.</span>
-
+							<span class="mp-settings-tooltip-text"><p class="mp-settings-subtitle-font-size"><b>Curl</b></p>É uma extensão responsável pela realização de pagamentos via requests do plugin ao Mercado Pago.</span>
 						</label>
 					</div>
 					<div>
@@ -159,7 +158,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		</div>
 		<div class="mp-settings-block-align-top">
 			<p class="mp-settings-font-color mp-settings-subtitle-font-size mp-settings-title-color">Preencha as informações a seguir para ter uma melhor experiência e oferecer mais informações aos clientes</p>
-			<div class="mp-container">
+			<div class="mp-container mp-settings-flex-start" id="block-two">
 				<div class="mp-block mp-block-flex mp-settings-margin-right mp-settings-choose-mode">
 					<div>
 						<p class="mp-settings-title-font-size"><b>Informações sobre sua loja</b></p>
@@ -204,25 +203,25 @@ if ( ! defined( 'ABSPATH' ) ) {
 						Para mais integração da sua loja com o Mercado Pago (IPN, Parceiros Certificados, Modo Debug)
 					</p>
 					<div>
-						<p class="mp-settings-blue-text">
+						<p class="mp-settings-blue-text" id="options">
 							Ver opções avançadas
 						</p>
-						<div>
+						<div class="mp-settings-advanced-options" style="display:none">
 							<div class="mp-settings-standard-margin">
 								<fieldset>
 
 									<legend class="mp-settings-label">URL para IPN</legend>
 									<input type="text" class="mp-settings-input" placeholder="Ex.: https://examples.com/my-custom-ipn-url">
-									<span class="mp-settings-helper">Insira a URL para receber notificações de pagamento. Confira mais informções nos <span class="mp-settings-blue-text"> manuais.</span>
+									<span class="mp-settings-helper">Insira a URL para receber notificações de pagamento. Confira mais informções nos <span class="mp-settings-blue-text"><a target="_blank" href="<?php echo esc_html($devsite_links["notifications_ipn"])?>" >manuais.</a></span>
 								</fieldset>
 							</div>
 							<div class="mp-settings-standard-margin">
 								<fieldset>
 
 									<legend class="mp-settings-label">integrator_id</legend>
-									<input type="text" class="mp-settings-input" placeholder="Ex.: 14987126498">
+									<input type="text" class="mp-settings-input" placeholder="Ex.: 14987126498" value="<?php echo esc_html( $integrator_id )?>">
 									<span class="mp-settings-helper">Se você é Parceiro certificado do Mercado Pago, não esqueça de inserir seu integrator_id.</span><br>
-									<span class="mp-settings-helper">Se você não possui o código, <span class="mp-settings-blue-text">solicite agora<span>.</span>
+									<span class="mp-settings-helper">Se você não possui o código, <span class="mp-settings-blue-text"><a target="_blank" href="<?php echo esc_html($devsite_links["dev_program"])?>"> solicite agora<span>.</a></span>
 
 								</fieldset>
 							</div>
@@ -231,7 +230,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 								<div>
 
 									<label class="mp-settings-switch">
-										<input type="checkbox" checked>
+										<input type="checkbox"  id="debug-switcher" <?php esc_html(($debug_mode === 'yes') ? "checked" : "") ?>>
 										<span class="mp-settings-slider mp-settings-round"></span>
 									</label>
 								</div>

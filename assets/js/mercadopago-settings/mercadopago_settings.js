@@ -1,20 +1,20 @@
-function mp_settings_accordion_start() {
-	var acc = document.getElementsByClassName("mp-settings-title-align");
+function mp_settings_accordion_start( className , subclassName, iconClass) {
+
+	var acc = document.getElementsByClassName( "mp-settings-title-align" );
 	var i;
 	for (i = 0; i < acc.length; i++) {
 		acc[i].addEventListener("click", function() {
 			this.classList.toggle("active");
-			var accordionArrow = null;
-			console.log(this.childNodes);
-			for (var i = 0; i < this.childNodes.length; i++) {
-				if (this.childNodes[i]?.classList?.contains('mp-settings-margin-left')) {
-					accordionArrow = this.childNodes[i];
-					break;
+			if( "mp-settings-margin-left" && "mp-arrow-up" ){
+				var accordionArrow = null;
+					for (var i = 0; i < this.childNodes.length; i++) {
+						if (this.childNodes[i]?.classList?.contains( "mp-settings-margin-left" )) {
+							accordionArrow = this.childNodes[i];
+							break;
+						}
 				}
+				accordionArrow.childNodes[1].classList.toggle(iconClass);
 			}
-
-			accordionArrow.childNodes[1].classList.toggle("mp-arrow-up");
-
 			var panel = this.nextElementSibling;
 			if (panel.style.display === "block") {
 				panel.style.display = "none";
@@ -47,6 +47,38 @@ function mp_get_requirements() {
 }
 
 window.addEventListener('load', function () {
+	mp_get_requirements();
 	mp_settings_accordion_start();
+	mp_settings_accordion_options();
 	mp_get_requirements();
 });
+
+
+function mp_settings_accordion_options( ) {
+
+	var element = document.getElementById( 'options');
+	var elementBlock = document.getElementById('block-two');
+
+		element.addEventListener("click", function() {
+			this.classList.toggle("active");
+			var panel = this.nextElementSibling;
+			if (panel.style.display === "block") {
+				panel.style.display = "none";
+			} else {
+				panel.style.display = "block";
+			}
+
+			/* Altera o alinhamento vertical */
+			if( !element.classList.contains("active") && !elementBlock.classList.contains("mp-settings-flex-start") ){
+				elementBlock.classList.toggle("mp-settings-flex-start");
+				element.textContent="Ver opções avançadas";
+
+			} else {
+				element.textContent="Ocultar opções avançadas";
+				elementBlock.classList.remove("mp-settings-flex-start");
+			}
+
+		});
+
+	console.log('MP Settings Accordion Started 2!');
+}
