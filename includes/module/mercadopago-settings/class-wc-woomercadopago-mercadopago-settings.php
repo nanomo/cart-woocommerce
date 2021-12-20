@@ -88,6 +88,7 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 		$integrator_id       = $this->options->get_integrator_id();
 		$devsite_links       = $this->options->get_mp_devsite_links();
 		$debug_mode          = $this->options->get_debug_mode();
+		$url_ipn             = $this->options->get_url_ipn();
 		$links               = WC_WooMercadoPago_Helper_Links::woomercadopago_settings_links();
 		$options_credentials = $this->options->get_access_token_and_public_key();
 		include __DIR__ . '/../../../templates/mercadopago-settings/mercadopago-settings.php';
@@ -99,6 +100,7 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 	public function register_endpoints() {
 		add_action( 'wp_ajax_mp_get_requirements' , array( $this, 'mercadopago_get_requirements' ));
 		add_action( 'wp_ajax_mp_validate_credentials', array($this, 'mp_validate_credentials'));
+		add_action( 'wp_ajax_mp_validate_store_information', array($this, 'mp_validate_store_info'));
 	}
 
 	/**
@@ -178,5 +180,34 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 	 */
 	public function get_suffix() {
 		return defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
+	}
+
+	/**
+	 * Validate store info Ajax
+	 */
+	public function mp_validate_store_info() {
+		try {
+			$store_info = array(
+				'mp_statement_descriptor'           => WC_WooMercadoPago_Credentials::get_sanitize_text_from_post('store_identificator'),
+				'_mp_category_id'   => WC_WooMercadoPago_Credentials::get_sanitize_text_from_post('store_categories'),
+				'_mp_store_identificator'       => WC_WooMercadoPago_Credentials::get_sanitize_text_from_post('store_category_id'),
+				'_mp_custom_domain'         => WC_WooMercadoPago_Credentials::get_sanitize_text_from_post('store_url_ipn'),
+				'_mp_integrator_id' => WC_WooMercadoPago_Credentials::get_sanitize_text_from_post('store_integrator_id'),
+				'_mp_debug_mode'        => WC_WooMercadoPago_Credentials::get_sanitize_text_from_post('store_debug_mode'),
+			);
+
+			foreach ( $store_info as $key => $value ) {
+				update_option( $key , $value, true );
+			}
+
+			wp_send_json_success( 'success' );
+
+		} catch ( Exception $e ) {
+			$response = [
+				'message' => $e->getMessage()
+			];
+
+			wp_send_json_error( $response );
+		}
 	}
 }

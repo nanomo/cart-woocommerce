@@ -166,14 +166,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<div class="mp-settings-standard-margin">
 						<fieldset>
 							<legend class="mp-settings-label">Nome da sua loja nas faturas do cliente</legend>
-							<input type="text" class="mp-settings-input" placeholder= "Ex.:Loja da Maria" value="<?php echo esc_html($store_identificator); ?>">
+							<input type="text" class="mp-settings-input" id="mp-store-identificator" placeholder= "Ex.:Loja da Maria" value="<?php echo esc_html($store_identificator); ?>">
 						</fieldset>
 						<span class="mp-settings-helper">Se o campo estiver vazio, a compra do cliente será identificada como Mercado Pago.</span>
 					</div>
 					<div class="mp-settings-standard-margin">
 						<fieldset>
 							<legend class="mp-settings-label">Identificação em Atividades do Mercado Pago</legend>
-							<input type="text" class="mp-settings-input" placeholder="Ex.:Loja da Maria" value="<?php echo esc_html($category_id); ?>">
+							<input type="text" class="mp-settings-input" id="mp-store-category-id" placeholder="Ex.:Loja da Maria" value="<?php echo esc_html($category_id); ?>">
 						</fieldset>
 						<span class="mp-settings-helper">Nas Ativades voce verá o termo inserido antes do númer o do pedido</span>
 					</div>
@@ -181,7 +181,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 						<label class="mp-settings-label mp-container">Categoria da loja</label>
 
-						<select name="select" class="mp-settings-select">
+						<select name="select" class="mp-settings-select" id="mp-store-categories">
 
 						<?php
 						for ( $i = 0; $i < count($categories_store['store_categories_description']); $i++ ) { // phpcs:ignore
@@ -211,7 +211,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 								<fieldset>
 
 									<legend class="mp-settings-label">URL para IPN</legend>
-									<input type="text" class="mp-settings-input" placeholder="Ex.: https://examples.com/my-custom-ipn-url">
+									<input type="text" class="mp-settings-input" id="mp-store-url-ipn" placeholder="Ex.: https://examples.com/my-custom-ipn-url" value="<?php echo esc_html($url_ipn); ?>">
 									<span class="mp-settings-helper">Insira a URL para receber notificações de pagamento. Confira mais informções nos <span class="mp-settings-blue-text"><a target="_blank" href="<?php echo esc_html($devsite_links['notifications_ipn']); ?>" >manuais.</a></span>
 								</fieldset>
 							</div>
@@ -219,7 +219,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 								<fieldset>
 
 									<legend class="mp-settings-label">integrator_id</legend>
-									<input type="text" class="mp-settings-input" placeholder="Ex.: 14987126498" value="<?php echo esc_html( $integrator_id ); ?>">
+									<input type="text" class="mp-settings-input" id="mp-store-integrator-id" placeholder="Ex.: 14987126498" value="<?php echo esc_html( $integrator_id ); ?>">
 									<span class="mp-settings-helper">Se você é Parceiro certificado do Mercado Pago, não esqueça de inserir seu integrator_id.</span><br>
 									<span class="mp-settings-helper">Se você não possui o código, <span class="mp-settings-blue-text"><a target="_blank" href="<?php echo esc_html($devsite_links['dev_program']); ?>"> solicite agora<span>.</a></span>
 
@@ -230,7 +230,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 								<div>
 
 									<label class="mp-settings-switch">
-										<input type="checkbox"  id="debug-switcher" <?php esc_html(( 'yes' === $debug_mode ) ? 'checked' : ''); ?>>
+										<input type="checkbox" value="yes" id="mp-store-debug-mode" <?php echo esc_html(( 'yes' === $debug_mode ) ? 'checked' : ''); ?>>
 										<span class="mp-settings-slider mp-settings-round"></span>
 									</label>
 								</div>
@@ -247,7 +247,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					</div>
 				</div>
 			</div>
-			<button class="mp-button"> Salvar e continuar </button>
+			<button class="mp-button" id="mp-store-info-save"> Salvar e continuar </button>
 		</div>
 	</div>
 

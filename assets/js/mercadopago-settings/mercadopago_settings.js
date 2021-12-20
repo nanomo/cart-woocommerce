@@ -1,17 +1,17 @@
-function mp_settings_accordion_start( className , subclassName, iconClass) {
+function mp_settings_accordion_start(className, subclassName, iconClass) {
 
-	var acc = document.getElementsByClassName( "mp-settings-title-align" );
+	var acc = document.getElementsByClassName("mp-settings-title-align");
 	var i;
 	for (i = 0; i < acc.length; i++) {
 		acc[i].addEventListener("click", function () {
 			this.classList.toggle("active");
-			if( "mp-settings-margin-left" && "mp-arrow-up" ){
+			if ("mp-settings-margin-left" && "mp-arrow-up") {
 				var accordionArrow = null;
-					for (var i = 0; i < this.childNodes.length; i++) {
-						if (this.childNodes[i]?.classList?.contains( "mp-settings-margin-left" )) {
-							accordionArrow = this.childNodes[i];
-							break;
-						}
+				for (var i = 0; i < this.childNodes.length; i++) {
+					if (this.childNodes[i]?.classList?.contains("mp-settings-margin-left")) {
+						accordionArrow = this.childNodes[i];
+						break;
+					}
 				}
 				accordionArrow.childNodes[1].classList.toggle(iconClass);
 			}
@@ -92,41 +92,80 @@ function mp_validate_credentials() {
 		});
 	}
 }
-function update_option_credentials() {}
+
+
+function mp_validate_store_information() {
+
+	console.log("chegando aqui");
+
+	button = document.getElementById("mp-store-info-save");
+	button.addEventListener("click", function () {
+		const store_information = {
+			store_identificator: document.getElementById("mp-store-identificator").value,
+			store_category_id: document.getElementById("mp-store-category-id").value,
+			store_categories: document.getElementById("mp-store-categories").value,
+			store_url_ipn: document.querySelector("#mp-store-url-ipn").value,
+			store_integrator_id: document.getElementById("mp-store-integrator-id").value,
+			store_debug_mode : document.querySelector("#mp-store-debug-mode:checked")?.value,
+		};
+		wp.ajax
+			.post("mp_validate_store_information", store_information)
+			.done(function (response) {
+				console.log(response)
+			})
+			.fail(function (error) {
+				console.log(error)
+			});
+	});
+
+}
+
+function update_option_credentials() { }
 
 window.addEventListener("load", function () {
 	mp_settings_accordion_start();
 	mp_settings_accordion_options();
 	mp_get_requirements();
 	mp_validate_credentials();
+	mp_validate_store_information();
+
 });
 
 
-function mp_settings_accordion_options( ) {
+function mp_settings_accordion_options() {
 
-	var element = document.getElementById( 'options');
+	var element = document.getElementById('options');
 	var elementBlock = document.getElementById('block-two');
 
-		element.addEventListener("click", function() {
-			this.classList.toggle("active");
-			var panel = this.nextElementSibling;
-			if (panel.style.display === "block") {
-				panel.style.display = "none";
-			} else {
-				panel.style.display = "block";
-			}
+	element.addEventListener("click", function () {
+		this.classList.toggle("active");
+		var panel = this.nextElementSibling;
+		if (panel.style.display === "block") {
+			panel.style.display = "none";
+		} else {
+			panel.style.display = "block";
+		}
 
-			/* Altera o alinhamento vertical */
-			if( !element.classList.contains("active") && !elementBlock.classList.contains("mp-settings-flex-start") ){
-				elementBlock.classList.toggle("mp-settings-flex-start");
-				element.textContent="Ver opções avançadas";
+		/* Altera o alinhamento vertical */
+		if (!element.classList.contains("active") && !elementBlock.classList.contains("mp-settings-flex-start")) {
+			elementBlock.classList.toggle("mp-settings-flex-start");
+			element.textContent = "Ver opções avançadas";
 
-			} else {
-				element.textContent="Ocultar opções avançadas";
-				elementBlock.classList.remove("mp-settings-flex-start");
-			}
+		} else {
+			element.textContent = "Ocultar opções avançadas";
+			elementBlock.classList.remove("mp-settings-flex-start");
+		}
 
-		});
+	});
 
 	console.log('MP Settings Accordion Started 2!');
+}
+
+function mp_save_store_info() {
+	var element = document.getElementById('mp-store-info-save');
+
+	element.addEventListener("onclick", function () {
+		mp_validate_store_information();
+		alert('info sent');
+	})
 }
