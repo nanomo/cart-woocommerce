@@ -43,21 +43,41 @@ class WC_WooMercadoPago_Options {
 		);
 
 	}
-	public function store_name_on_invoice() {
+	public function get_store_activity_identifier() {
 		$store_identificator = get_option( '_mp_store_identificator', 'WC-' );
-
 		return $store_identificator;
 	}
 
-	public function store_activity_identifier() {
-		$store_identificator = get_option( '_mp_category_id', 'other' );
-
+	public function get_store_name_on_invoice() {
+		$store_identificator = get_option( 'mp_statement_descriptor', 'Mercado Pago' );
 		return $store_identificator;
 	}
 
-	public function store_category() {
+	public function get_store_category() {
 		$category_store = get_option( '_mp_category_id', 'other');
 		return $category_store;
+	}
+
+	public function get_integrator_id() {
+		$integrator_id = get_option( '_mp_integrator_id', '' );
+		return $integrator_id;
+	}
+
+	public function get_debug_mode() {
+		$debug_mode = get_option( '_mp_debug_mode', 'no' );
+		return $debug_mode;
+	}
+	public function get_url_ipn() {
+		$url_ipn = get_option('_mp_custom_domain', '' );
+		return $url_ipn;
+	}
+
+	public function get_mp_devsite_links() {
+		$link          = WC_WooMercadoPago_Module::define_link_country();
+		$base_link     = 'https://www.mercadopago.' . $link['sufix_url'] . 'developers/' . $link['translate'];
+		$devsite_links = array( 'dev_program' => $base_link . '/developer-program',
+								'notifications_ipn' => $base_link . '/guides/notifications/ipn',);
+		return $devsite_links;
 	}
 
 	/**
@@ -98,4 +118,5 @@ class WC_WooMercadoPago_Options {
 			wp_send_json_error( $response );
 		}
 	}
+
 }

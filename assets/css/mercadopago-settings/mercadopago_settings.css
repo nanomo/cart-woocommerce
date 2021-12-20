@@ -245,7 +245,12 @@
 	margin: 0px 0px 24px;
 }
 .mp-settings-blue-text {
-	color: rgba(0, 158, 227, 1);
+
+	cursor: pointer;
+	color: rgba(0, 158, 227, 1) !important;
+}
+.mp-settings-blue-text a {
+	text-decoration: none;
 }
 .mp-settings-switch {
 	position: relative;
@@ -492,8 +497,9 @@ input:checked + .mp-settings-slider:before {
 	font-family: sans-serif;
 	font-size: 16px;
 	line-height: 20px;
-
-
+}
+.mp-settings-tooltip .mp-settings-tooltip-text p {
+	padding-bottom: 10px;
 }
 .mp-settings-tooltip .mp-settings-tooltip-text::after {
 	content: " ";
@@ -512,7 +518,6 @@ input:checked + .mp-settings-slider:before {
 	position: relative;
 	display: inline-block;
 }
-
 .mp-settings-tooltip .mp-settings-tooltiptext {
 	visibility: hidden;
 	width: 120px;
@@ -528,7 +533,6 @@ input:checked + .mp-settings-slider:before {
 	margin-left: -60px;
 	padding: 16px;
 }
-
 .mp-settings-tooltip .mp-settings-tooltip-text::after {
 	content: "";
 	position: absolute;
@@ -539,16 +543,13 @@ input:checked + .mp-settings-slider:before {
 	border-style: solid;
 	border-color: transparent transparent #fff transparent;
 }
-
 .mp-settings-tooltip:hover .mp-settings-tooltip-text {
 	visibility: visible;
 }
-
 .mp-settings-choose-mode {
 	flex-direction:column;
 	justify-content:space-between;
 }
-
 .mp-settings-mode-style {
 	width: 16px;
 	height:16px;
@@ -582,6 +583,9 @@ input:checked + .mp-settings-slider:before {
 	/* Inside Auto Layout */
 	margin: 4px 0px !important;
 	width: 100% !important;
+}
+.mp-settings-flex-start{
+	align-items: flex-start;
 }
 
 @media screen and (max-width: 780px) {
