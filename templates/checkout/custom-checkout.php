@@ -58,6 +58,47 @@ if ( ! defined( 'ABSPATH' ) ) {
 			</div>
 		</div>
 
+		<div class='mp-card-form'>
+			<div class='mp-card-form-title'>
+			<?php echo esc_html__( 'Enter your card details', 'woocommerce-mercadopago' ); ?>
+			</div>
+			<input-label isOptinal=false message="<?php echo esc_html__( 'Card number', 'woocommerce-mercadopago' ); ?>" for='mp-card-number'></input-label>
+			<input type="text" class="mp-card-input" id="mp-card-number" autocomplete="off" maxlength="19"
+				placeholder="1234 1234 1234 1234" onkeyup="mpCreditMaskDate(this, mpMcc);"/>
+			<input-helper isVisible=false message="Número incompleto" for='mp-card-number'></input-helper>
+
+			<input-label message="<?php echo esc_html__( 'Name and surname of the cardholder', 'woocommerce-mercadopago' ); ?>" isOptinal=false></input-label>
+			<input type="text" class="mp-card-input" id="mp-card-holder-name" placeholder="Ex.: María López" />
+			<input-helper isVisible=false message="Dado obrigatório"></input-helper>
+
+			<div class='mp-card-row'>
+				<div class='mp-card-colunm'>
+					<input-label message="<?php echo esc_html__( 'Expiration date', 'woocommerce-mercadopago' ); ?>" isOptinal=false></input-label>
+					<input type="text" class="mp-card-input mp-card-half-input" id="mp-card-expiration-date"
+						maxlength="5" placeholder="mm/aa" />
+					<input-helper isVisible=false message="Dado obrigatório"></input-helper>
+				</div>
+				<div class='mp-card-colunm'>
+					<input-label message="<?php echo esc_html__( 'Security code', 'woocommerce-mercadopago' ); ?>" isOptinal=false></input-label>
+					<input type="text" class="mp-card-input mp-card-half-input" id="mp-security-code" maxlength="4"
+						placeholder="123" />
+					<input-helper isVisible=false message="Dado obrigatório"></input-helper>
+				</div>
+			</div>
+
+			<input-document label='' documents='[
+					{"name":"CPF"},
+					{"name":"CNPJ"}]' validate=true>
+			</input-document>
+
+			<div name='mp-installments'>
+				
+			</div>
+
+			
+
+		</div>
+
 		<div class="mp-col-md-12">
 			<div class="frame-tarjetas">
 				<!-- Title enter your card details -->
