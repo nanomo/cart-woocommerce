@@ -48,23 +48,16 @@ function mp_get_requirements() {
 }
 
 function mp_validate_credentials() {
-	const credentials_access_token = {
-		access_token_prod: document.getElementById("mp-access-token-prod"),
-		access_token_test: document.getElementById("mp-access-token-test"),
-	};
-	const credentials_public_key = {
-		public_key_prod: document.getElementById("mp-public-key-prod"),
-		public_key_test: document.getElementById("mp-public-key-test"),
-	};
-
-	for (let i in credentials_access_token) {
-		let credential = credentials_access_token[i];
-
-		credential.addEventListener("change", function () {
+	document
+		.getElementById("mp-access-token-prod")
+		.addEventListener("change", function () {
 			var self = this;
 
 			wp.ajax
-				.post("mp_validate_credentials", { access_token: this.value })
+				.post("mp_validate_credentials", {
+					access_token: this.value,
+					is_test: false,
+				})
 				.done(function (response) {
 					self.classList.add("mp-credential-feedback-positive");
 					self.classList.remove("mp-credential-feedback-negative");
@@ -74,15 +67,16 @@ function mp_validate_credentials() {
 					self.classList.add("mp-credential-feedback-negative");
 				});
 		});
-	}
-	for (let i in credentials_public_key) {
-		let credential = credentials_public_key[i];
-
-		credential.addEventListener("change", function () {
+	document
+		.getElementById("mp-access-token-test")
+		.addEventListener("change", function () {
 			var self = this;
 
 			wp.ajax
-				.post("mp_validate_credentials", { public_key: this.value })
+				.post("mp_validate_credentials", {
+					access_token: this.value,
+					is_test: true,
+				})
 				.done(function (response) {
 					self.classList.add("mp-credential-feedback-positive");
 					self.classList.remove("mp-credential-feedback-negative");
@@ -92,12 +86,75 @@ function mp_validate_credentials() {
 					self.classList.add("mp-credential-feedback-negative");
 				});
 		});
-	}
+
+	document
+		.getElementById("mp-public-key-test")
+		.addEventListener("change", function () {
+			var self = this;
+
+			wp.ajax
+				.post("mp_validate_credentials", {
+					public_key: this.value,
+					is_test: true,
+				})
+				.done(function (response) {
+					self.classList.add("mp-credential-feedback-positive");
+					self.classList.remove("mp-credential-feedback-negative");
+				})
+				.fail(function (error) {
+					self.classList.remove("mp-credential-feedback-positive");
+					self.classList.add("mp-credential-feedback-negative");
+				});
+		});
+
+	document
+		.getElementById("mp-public-key-prod")
+		.addEventListener("change", function () {
+			var self = this;
+
+			wp.ajax
+				.post("mp_validate_credentials", {
+					public_key: this.value,
+					is_test: false,
+				})
+				.done(function (response) {
+					self.classList.add("mp-credential-feedback-positive");
+					self.classList.remove("mp-credential-feedback-negative");
+				})
+				.fail(function (error) {
+					self.classList.remove("mp-credential-feedback-positive");
+					self.classList.add("mp-credential-feedback-negative");
+				});
+		});
 }
-function update_option_credentials() {}
+
+function update_option_credentials() {
+	const btn_credentials = document.getElementById("mp-btn-credentials");
+
+	btn_credentials.addEventListener("click", function () {
+		const credentials = {
+			access_token_prod: document.getElementById("mp-access-token-prod").value,
+			access_token_test: document.getElementById("mp-access-token-test").value,
+			public_key_prod: document.getElementById("mp-public-key-prod").value,
+			public_key_test: document.getElementById("mp-public-key-test").value,
+		};
+
+		wp.ajax
+			.post("update_option_credentials", credentials)
+			.done(function (response) {
+				console.log("ok");
+			})
+			.fail(function (error) {
+				console.log("error");
+			});
+	});
+
+	console.log("MP option update!");
+}
 
 window.addEventListener("load", function () {
 	mp_settings_accordion_start();
 	mp_get_requirements();
 	mp_validate_credentials();
+	update_option_credentials();
 });

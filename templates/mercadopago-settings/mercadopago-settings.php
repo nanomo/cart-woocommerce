@@ -142,7 +142,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					</fieldset>
 				</div>
 			</div>
-			<button class="mp-button"> Salvar e continuar</button>
+			<button class="mp-button" id="mp-btn-credentials" > Salvar e continuar</button>
 		</div>
 	</div>
 

@@ -120,22 +120,24 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 		try {
 			$access_token = WC_WooMercadoPago_Credentials::get_sanitize_text_from_post('access_token');
 			$public_key   = WC_WooMercadoPago_Credentials::get_sanitize_text_from_post('public_key');
+			$is_test      = ( WC_WooMercadoPago_Credentials::get_sanitize_text_from_post('is_test') === 'true' );
 
 			$mp = WC_WooMercadoPago_Module::get_mp_instance_singleton();
 
 			if ( $access_token ) {
 				$validate_access_token = $mp->get_credentials_wrapper( $access_token );
-				if ( ! $validate_access_token ) {
-					wp_send_json_error( 'error'  );
+				if ( ! $validate_access_token || $validate_access_token['is_test'] !== $is_test ) {
+					wp_send_json_error( 'error' );
 				}
 				wp_send_json_success( 'sucess');
 			}
 
 			if ( $public_key ) {
 				$validate_public_key = $mp->get_credentials_wrapper( null, $public_key );
-				if ( ! $validate_public_key ) {
+				if ( ! $validate_public_key || $validate_public_key['is_test'] !== $is_test ) {
 					wp_send_json_error( 'error' );
 				}
+
 				wp_send_json_success( 'sucess');
 			}
 

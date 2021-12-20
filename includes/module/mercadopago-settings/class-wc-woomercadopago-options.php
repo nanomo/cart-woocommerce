@@ -64,32 +64,32 @@ class WC_WooMercadoPago_Options {
 	 *  Update option Credentials
 	 */
 	public function update_option_credentials() {
+		try {
 
 		$public_key_test   = WC_WooMercadoPago_Credentials::get_sanitize_text_from_post('public_key_test');
 		$access_token_test = WC_WooMercadoPago_Credentials::get_sanitize_text_from_post('access_token_test');
 		$public_key_prod   = WC_WooMercadoPago_Credentials::get_sanitize_text_from_post('public_key_prod');
 		$access_token_prod = WC_WooMercadoPago_Credentials::get_sanitize_text_from_post('access_token_prod');
 
-		$mp                         = WC_WooMercadoPago_Module::get_mp_instance_singleton();
-		$validate_public_key_test   = $mp->get_credentials_wrapper( $public_key_test  );
+		$mp = WC_WooMercadoPago_Module::get_mp_instance_singleton();
+
+		$validate_public_key_test   = $mp->get_credentials_wrapper( null, $public_key_test);
 		$validate_access_token_test = $mp->get_credentials_wrapper( $access_token_test );
-		$validate_public_key_prod   = $mp->get_credentials_wrapper( $public_key_prod);
+		$validate_public_key_prod   = $mp->get_credentials_wrapper( null, $public_key_prod);
 		$validate_access_token_prod = $mp->get_credentials_wrapper( $access_token_prod );
 
-		try {
-			if ( ! $validate_public_key_test || ! $validate_access_token_test ) {
-				wp_send_json_error( 'error' );
+			if ( $validate_public_key_test && $validate_access_token_test && $validate_public_key_prod && $validate_access_token_prod ) {
+				if ( true === $validate_public_key_test['is_test'] && true === $validate_access_token_test['is_test'] && false === $validate_public_key_prod['is_test'] && false === $validate_access_token_prod['is_test'] ) {
+					update_option( self::CREDENTIALS_PUBLIC_KEY_TEST, $public_key_test, true );
+					update_option( self::CREDENTIALS_ACCESS_TOKEN_TEST, $access_token_test, true );
+					update_option( self::CREDENTIALS_PUBLIC_KEY_PROD, $public_key_prod, true );
+					update_option( self::CREDENTIALS_ACCESS_TOKEN_PROD, $access_token_prod, true );
+					wp_send_json_success( 'sucess');
+				}
 			}
-			update_option( 'public_key_test', true );
-			update_option( 'access_token_test', true );
-
-			if ( $validate_public_key_prod || $validate_access_token_prod ) {
-				wp_send_json_error( 'error' );
-			}
-			update_option( 'public_key_prod', true );
-			update_option( 'access_token_prod', true );
 
 			throw new Exception( 'error');
+
 		} catch ( Exception $e ) {
 			$response = [
 				'message' => $e->getMessage()
