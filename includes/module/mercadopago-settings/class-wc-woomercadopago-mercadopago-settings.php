@@ -90,6 +90,7 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 		$debug_mode          = $this->options->get_debug_mode();
 		$url_ipn             = $this->options->get_url_ipn();
 		$links               = WC_WooMercadoPago_Helper_Links::woomercadopago_settings_links();
+		$checkbox_test_mode  = $this->options->get_checkbox_test_mode();
 		$options_credentials = $this->options->get_access_token_and_public_key();
 		include __DIR__ . '/../../../templates/mercadopago-settings/mercadopago-settings.php';
 	}
@@ -101,6 +102,7 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 		add_action( 'wp_ajax_mp_get_requirements' , array( $this, 'mercadopago_get_requirements' ));
 		add_action( 'wp_ajax_mp_validate_credentials', array($this, 'mp_validate_credentials'));
 		add_action( 'wp_ajax_mp_validate_store_information', array($this, 'mp_validate_store_info'));
+		add_action( 'wp_ajax_mp_store_mode', array($this, 'mp_set_mode'));
 	}
 
 	/**
@@ -201,6 +203,26 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 			foreach ( $store_info as $key => $value ) {
 				update_option( $key , $value, true );
 			}
+
+			wp_send_json_success( 'success' );
+
+		} catch ( Exception $e ) {
+			$response = [
+				'message' => $e->getMessage()
+			];
+
+			wp_send_json_error( $response );
+		}
+	}
+
+	/**
+	 * Validate store info Ajax
+	 */
+	public function mp_set_mode() {
+		try {
+			$checkout_test_mode = WC_WooMercadoPago_Credentials::get_sanitize_text_from_post('input_value');
+
+			update_option( 'checkbox_checkout_test_mode'  , $checkout_test_mode, true );
 
 			wp_send_json_success( 'success' );
 

@@ -334,7 +334,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					</div>
 					<div class="mp-settings-mode-container">
 						<div class="mp-settings-mode-spacing">
-							<input name="teste-prod" type="radio" class="mp-settings-radio-button">
+							<input name="mp-test-prod" type="radio" class="mp-settings-radio-button" value='yes' <?php echo esc_html(( 'yes' === $checkbox_test_mode ) ? 'checked' : ''); ?> >
 						</div>
 						<div>
 							<span class="mp-settings-font-color mp-settings-subtitle-font-size mp-settings-font-color">Modo Teste</span><br>
@@ -344,7 +344,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					</div>
 					<div class="mp-settings-mode-container">
 						<div class="mp-settings-mode-spacing">
-							<input name="teste-prod" type="radio" class="mp-settings-radio-button">
+							<input name="mp-test-prod" type="radio" class="mp-settings-radio-button" value='no' <?php echo esc_html(( 'no' === $checkbox_test_mode ) ? 'checked' : ''); ?>>
 						</div>
 						<div>
 							<span class="mp-settings-font-color mp-settings-subtitle-font-size mp-settings-font-color">Modo Vendas (Produção)</span><br>
@@ -378,7 +378,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					</div>
 				</div>
 			</div>
-			<button class="mp-button"> Salvar Mudanças </button>
+			<button class="mp-button" id="mp-store-mode-save"> Salvar Mudanças </button>
 		</div>
 
 

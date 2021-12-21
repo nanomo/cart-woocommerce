@@ -43,6 +43,10 @@ class WC_WooMercadoPago_Options {
 		);
 
 	}
+
+	/**
+	 * Block 3
+	 */
 	public function get_store_activity_identifier() {
 		$store_identificator = get_option( '_mp_store_identificator', 'WC-' );
 		return $store_identificator;
@@ -78,6 +82,14 @@ class WC_WooMercadoPago_Options {
 		$devsite_links = array( 'dev_program' => $base_link . '/developer-program',
 								'notifications_ipn' => $base_link . '/guides/notifications/ipn',);
 		return $devsite_links;
+	}
+
+	/**
+	 * Block 4
+	 */
+	public function get_checkbox_test_mode() {
+		$checkbox_test_mode = get_option('checkbox_checkout_test_mode', 'no' );
+		return $checkbox_test_mode;
 	}
 
 	/**

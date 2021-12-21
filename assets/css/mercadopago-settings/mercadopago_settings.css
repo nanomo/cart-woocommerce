@@ -497,6 +497,7 @@ input:checked + .mp-settings-slider:before {
 	font-family: sans-serif;
 	font-size: 16px;
 	line-height: 20px;
+	word-wrap: break-word;
 }
 .mp-settings-tooltip .mp-settings-tooltip-text p {
 	padding-bottom: 10px;
@@ -530,7 +531,7 @@ input:checked + .mp-settings-slider:before {
 	z-index: 1;
 	top: 150%;
 	left: 50%;
-	margin-left: -60px;
+	margin-left: 0px;
 	padding: 16px;
 }
 .mp-settings-tooltip .mp-settings-tooltip-text::after {

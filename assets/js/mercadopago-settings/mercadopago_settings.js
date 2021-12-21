@@ -157,15 +157,12 @@ function mp_validate_store_information() {
 	button = document.getElementById("mp-store-info-save");
 	button.addEventListener("click", function () {
 		const store_information = {
-			store_identificator: document.getElementById("mp-store-identificator")
-				.value,
+			store_identificator: document.getElementById("mp-store-identificator").value,
 			store_category_id: document.getElementById("mp-store-category-id").value,
 			store_categories: document.getElementById("mp-store-categories").value,
 			store_url_ipn: document.querySelector("#mp-store-url-ipn").value,
-			store_integrator_id: document.getElementById("mp-store-integrator-id")
-				.value,
-			store_debug_mode: document.querySelector("#mp-store-debug-mode:checked")
-				?.value,
+			store_integrator_id: document.getElementById("mp-store-integrator-id").value,
+			store_debug_mode: document.querySelector("#mp-store-debug-mode:checked")?.value,
 		};
 		wp.ajax
 			.post("mp_validate_store_information", store_information)
@@ -178,7 +175,7 @@ function mp_validate_store_information() {
 	});
 }
 
-function update_option_credentials() {}
+function update_option_credentials() { }
 
 window.addEventListener("load", function () {
 	mp_settings_accordion_start();
@@ -218,11 +215,22 @@ function mp_settings_accordion_options() {
 	console.log("MP Settings Accordion Started 2!");
 }
 
-function mp_save_store_info() {
-	var element = document.getElementById("mp-store-info-save");
+function mp_store_mode() {
 
-	element.addEventListener("onclick", function () {
-		mp_validate_store_information();
-		alert("info sent");
+	var button = document.getElementById("mp-store-mode-save");
+
+	button.addEventListener("click", function () {
+		var input_mode_id = document.querySelector('input[name="mp-test-prod"]:checked').value;
+		input_value = ( input_mode_id === 'yes' )? 'yes' : 'no';
+		console.log(input_value);
+		wp.ajax
+			.post("mp_store_mode", input_value)
+			.done(function (response) {
+				console.log(response);
+			})
+			.fail(function (error) {
+				console.log(error);
+			});
 	});
+
 }
