@@ -35,7 +35,7 @@ Boost your sales with Mercado Pago payments for WooCommerce!
 
 ### Sell more with the paid market
 
-[Leave your details](https://www.mercadopago.com.br/quero-usar/) to talk to our team of experts and understand how to sell more (for now only available for Brazil).
+[Leave your details](https://www.mercadopago.com.br/quero-usar/?utm_campaign=%5BMP%20OP%5D%20Core%20Checkouts%202021&utm_source=plugin-woocommerce&utm_medium=plugin&utm_term=plugin-woocommerce&utm_content=plugin-woocommerce) to talk to our team of experts and understand how to sell more (for now only available for Brazil).
 
 == Screenshots ==
 
