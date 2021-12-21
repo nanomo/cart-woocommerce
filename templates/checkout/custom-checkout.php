@@ -21,82 +21,83 @@ if ( ! defined( 'ABSPATH' ) ) {
 	?>
 	<div class="mp-row-checkout">
 		<?php if ( 'yes' === $wallet_button ) : ?>
-			<div class="mp-wallet-button">
-				<div class="mp-wallet-button-header">
-					<div class="mp-wallet-button-logo">
-						<div class="mp-wallet-button-circle">
-							<img src="<?php echo esc_url( plugins_url( '../assets/images/minilogo.png', plugin_dir_path( __FILE__ ) ) ); ?>">
-						</div>
-					</div>
-					<div class="mp-wallet-button-info">
-						<div class="mp-wallet-button-info-header">
-							<b><?php echo esc_html__( 'Use your Mercado Pago', 'woocommerce-mercadopago' ); ?></b>
-						</div>
-						<div class="mp-wallet-button-info-description">
-							<?php echo esc_html__( 'Buy with a stored card without filling in more data.', 'woocommerce-mercadopago' ); ?>
-						</div>
-					</div>
+			<div class='mp-wallet-button-container'>
+				<div class='mp-title'>
+					<img src='<?php echo esc_url( plugins_url( '../assets/images/mp_logo.png', plugin_dir_path( __FILE__ ) ) ); ?>'>
+					Paga con Mercado Pago
 				</div>
-				<div class="mp-wallet-button-pay">
-					<button id="mp-wallet-button" onclick="submitWalletButton(event)"><?php echo esc_html__( 'Pay with a saved card', 'woocommerce-mercadopago' ); ?></button>
+				<div class='mp-description'>
+					Paga más rápido con tus tarjetas guardadas y sin completar datos.
+				</div>
+				<div class='mp-button'>
+					<button id="mp-wallet-button" onclick="submitWalletButton(event)">
+						Pagar con Mercado Pago
+					</button>
 				</div>
 			</div>
 		<?php endif; ?>
 
-		<!-- Links cards can pay | current promotions only Argentina -->
-		<div class="mp-frame-links">
-			<a class="mp-checkout-link mp-pr-10" id="button-show-payments">
-				<?php echo esc_html__( 'With what cards can I pay', 'woocommerce-mercadopago' ); ?> ⌵
-			</a>
-			<?php if ( 'MLA' === $site_id ) : ?>
-				<span id="mp_promotion_link"> | </span>
-				<a href="https://www.mercadopago.com.ar/cuotas" id="mp_checkout_link" class="mp-checkout-link mp-pl-10" target="_blank">
-					<?php echo esc_html__( 'See current promotions', 'woocommerce-mercadopago' ); ?>
-				</a>
-			<?php endif; ?>
-		</div>
-
-		<!-- Frame with cards accepted -->
-		<div class="mp-frame-payments" id="mp-frame-payments">
-			<div class="mp-col-md-12">
-				<div class="frame-tarjetas">
-					<?php if ( 0 !== count( $credit_card ) ) : ?>
-						<p class="submp-title-checkout-custom"><?php echo esc_html__( 'Credit cards', 'woocommerce-mercadopago' ); ?></p>
-						<?php foreach ( $credit_card as $credit_image ) : ?>
-							<img src="<?php echo esc_attr( $credit_image ); ?>" class="mp-img-fluid mp-img-tarjetas" alt="" />
-						<?php endforeach; ?>
-					<?php endif; ?>
-
-					<?php if ( 0 !== count( $credit_card ) ) : ?>
-						<p class="submp-title-checkout-custom mp-pt-10"><?php echo esc_html__( 'Debit card', 'woocommerce-mercadopago' ); ?></p>
-						<?php foreach ( $debit_card as $debit_image ) : ?>
-							<img src="<?php echo esc_attr( $debit_image ); ?>" class="mp-img-fluid mp-img-tarjetas" alt="" />
-						<?php endforeach; ?>
-					<?php endif; ?>
+		<div class='mp-avaiable-payments'>
+			<div class='mp-header'>
+				<div class="mp-title">
+					<img src="<?php echo esc_url( plugins_url( '../assets/images/purple_card.png', plugin_dir_path( __FILE__ ) ) ); ?>" class='mp-icon'>
+					<p><?php echo esc_html__( 'With what cards can I pay', 'woocommerce-mercadopago' ); ?></p>
 				</div>
+				<img src="<?php echo esc_url( plugins_url( '../assets/images/chefron-up.png', plugin_dir_path( __FILE__ ) ) ); ?>" class='mp-collapsible'>
+			</div>
+			<div class='mp-content'>
+				<payment-methods methods='<?php echo wp_json_encode($payment_methods); ?>'>
+				</payment-methods>
+				<hr>
+				<?php if ( 'MLA' === $site_id ) : ?>
+					<span id="mp_promotion_link"> | </span>
+					<a href="https://www.mercadopago.com.ar/cuotas" id="mp_checkout_link" class="mp-checkout-link mp-pl-10" target="_blank">
+						<?php echo esc_html__( 'See current promotions', 'woocommerce-mercadopago' ); ?>
+					</a>
+				<?php endif; ?>
 			</div>
 		</div>
 
-		<!-- Cupom mode, creat a campaign on mercado pago -->
-		<?php if ( 'yes' === $coupon_mode ) : ?>
-			<div class="mp-col-md-12" id="mercadopago-form-coupon">
-				<div class="frame-tarjetas mp-text-justify">
-					<p class="mp-subtitle-custom-checkout"><?php echo esc_html__( 'Enter your discount coupon', 'woocommerce-mercadopago' ); ?></p>
+		<div class='mp-card-form'>
+			<div class='mp-card-form-title'>
+			<?php echo esc_html__( 'Enter your card details', 'woocommerce-mercadopago' ); ?>
+			</div>
+			<input-label isOptinal=false message="<?php echo esc_html__( 'Card number', 'woocommerce-mercadopago' ); ?>" for='mp-card-number'></input-label>
+			<input type="text" class="mp-card-input" id="mp-card-number" autocomplete="off" maxlength="19"
+				placeholder="1234 1234 1234 1234" onkeyup="mpCreditMaskDate(this, mpMcc);"/>
+			<input-helper isVisible=false message="Número incompleto" for='mp-card-number'></input-helper>
 
-					<div class="mp-row-checkout mp-pt-10">
-						<div class="mp-col-md-9 mp-pr-15">
-							<input type="text" class="mp-form-control" id="couponCode" name="mercadopago_custom[coupon_code]" autocomplete="off" maxlength="24" placeholder="<?php echo esc_html__( 'Enter your coupon', 'woocommerce-mercadopago' ); ?>" />
-						</div>
+			<input-label message="<?php echo esc_html__( 'Name and surname of the cardholder', 'woocommerce-mercadopago' ); ?>" isOptinal=false></input-label>
+			<input type="text" class="mp-card-input" id="mp-card-holder-name" placeholder="Ex.: María López" />
+			<input-helper isVisible=false message="Dado obrigatório"></input-helper>
 
-						<div class="mp-col-md-3">
-							<input type="button" class="mp-button mp-pointer" id="applyCoupon" value="<?php echo esc_html__( 'Apply', 'woocommerce-mercadopago' ); ?>">
-						</div>
-						<div class="mp-discount mp-col-md-9 mp-pr-15" id="mpCouponApplyed"></div>
-						<span class="mp-error" id="mpCouponError"><?php echo esc_html__( 'The code you entered is incorrect', 'woocommerce-mercadopago' ); ?></span>
-					</div>
+			<div class='mp-card-row'>
+				<div class='mp-card-colunm'>
+					<input-label message="<?php echo esc_html__( 'Expiration date', 'woocommerce-mercadopago' ); ?>" isOptinal=false></input-label>
+					<input type="text" class="mp-card-input mp-card-half-input" id="mp-card-expiration-date"
+						maxlength="5" placeholder="mm/aa" />
+					<input-helper isVisible=false message="Dado obrigatório"></input-helper>
+				</div>
+				<div class='mp-card-colunm'>
+					<input-label message="<?php echo esc_html__( 'Security code', 'woocommerce-mercadopago' ); ?>" isOptinal=false></input-label>
+					<input type="text" class="mp-card-input mp-card-half-input" id="mp-security-code" maxlength="4"
+						placeholder="123" />
+					<input-helper isVisible=false message="Dado obrigatório"></input-helper>
 				</div>
 			</div>
-		<?php endif; ?>
+
+			<input-document label='' documents='[
+					{"name":"CPF"},
+					{"name":"CNPJ"}]' validate=true>
+			</input-document>
+
+			<div name='mp-installments'>
+				
+			</div>
+
+			
+
+		</div>
 
 		<div class="mp-col-md-12">
 			<div class="frame-tarjetas">
@@ -309,4 +310,24 @@ if ( ! defined( 'ABSPATH' ) ) {
 		jQuery('#mp_checkout_type').val('wallet_button');
 		jQuery('form.checkout, form#order_review').submit();
 	}
+
+</script>
+
+<script>
+
+	avaiablePayment = document.getElementsByClassName('mp-avaiable-payments')[0];
+	collapsible = avaiablePayment.getElementsByClassName('mp-header')[0];
+
+	collapsible.addEventListener("click", function () {
+		icon = collapsible.getElementsByClassName('mp-collapsible')[0];
+		content = avaiablePayment.getElementsByClassName('mp-content')[0];
+
+		if (content.style.maxHeight) {
+			content.style.maxHeight = null;
+			icon.src = "<?php echo esc_url( plugins_url( '../assets/images/chefron-up.png', plugin_dir_path( __FILE__ ) ) ); ?>";
+		} else {
+			content.style.maxHeight = content.scrollHeight + "px";
+			icon.src = "<?php echo esc_url( plugins_url( '../assets/images/chefron-down.png', plugin_dir_path( __FILE__ ) ) ); ?>";
+		}
+	});
 </script>

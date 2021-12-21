@@ -332,8 +332,8 @@ class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
 		wp_enqueue_style(
-			'woocommerce-mercadopago-basic-checkout-styles',
-			plugins_url( '../assets/css/basic_checkout_mercadopago' . $suffix . '.css', plugin_dir_path( __FILE__ ) ),
+			'woocommerce-mercadopago-narciso-styles',
+			plugins_url( '../assets/css/mp-plugins-components.css', plugin_dir_path( __FILE__ ) ),
 			array(),
 			WC_WooMercadoPago_Constants::VERSION
 		);
@@ -348,16 +348,39 @@ class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 		}
 
 		// credit or debit card.
-		$debit_card  = array();
-		$credit_card = array();
-		$tarjetas    = get_option( '_checkout_payments_methods', '' );
+		$debit_card  	 = array();
+		$credit_card 	 = array();
+		$tarjetas    	 = get_option( '_checkout_payments_methods', '' );
 
 		foreach ( $tarjetas as $tarjeta ) {
 			if ( 'credit_card' === $tarjeta['type'] ) {
-				$credit_card[] = $tarjeta['image'];
+				$credit_card[] = array(
+					'src' => $tarjeta['image'],
+					'alt' => $tarjeta['name']
+				);
 			} elseif ( 'debit_card' === $tarjeta['type'] || 'prepaid_card' === $tarjeta['type'] ) {
-				$debit_card[] = $tarjeta['image'];
+				$debit_card[] = array(
+					'src' => $tarjeta['image'],
+					'alt' => $tarjeta['name']
+				);
 			}
+		}
+
+		$payment_methods = array();
+
+		if ( 0 !== count( $credit_card ) ) {
+			$payment_methods[] = array(
+				'title' => __( 'Credit cards', 'woocommerce-mercadopago' ),
+				'label' => "Em 24 parcelas",
+				'payment_methods' => $credit_card,
+			);
+		}
+
+		if ( 0 !== count( $debit_card ) ) {
+			$payment_methods[] = array(
+				'title' => __( 'Debit cards', 'woocommerce-mercadopago' ),
+				'payment_methods' => $debit_card,
+			);
 		}
 
 		try {
@@ -386,8 +409,7 @@ class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 			'currency_ratio'       => $currency_ratio,
 			'woocommerce_currency' => get_woocommerce_currency(),
 			'account_currency'     => $this->site_data['currency'],
-			'debit_card'           => $debit_card,
-			'credit_card'          => $credit_card,
+			'payment_methods'      => $payment_methods,
 			'wallet_button'        => $this->wallet_button,
 		);
 
