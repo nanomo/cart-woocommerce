@@ -122,7 +122,7 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 	public function get_fields_sequence() {
 		return array(
 			// Necessary to run.
-
+			'description',
 			// Checkout Básico. Acepta todos los medios de pago y lleva tus cobros a otro nivel.
 			'checkout_header',
 			'checkout_steps',
