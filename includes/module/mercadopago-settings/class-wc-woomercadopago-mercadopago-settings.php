@@ -212,4 +212,26 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 			wp_send_json_error( $response );
 		}
 	}
+
+	/**
+	 * Get payment class properties
+	 */
+	public function mp_get_payment_class_properties() {
+
+			$payments_gateways          = WC_WooMercadoPago_Constants::PAYMENT_GATEWAYS;
+			$payment_gateway_properties = array();
+		foreach ( $payments_gateways as $payment_gateway ) {
+			$gateway = new $payment_gateway();
+
+			$payment_gateway_properties[] = array(
+
+			'id'     => $gateway->id,
+			'description'   => $gateway->description,
+			'title'   => $gateway->title,
+			'enabled' => $gateway->settings['enabled'],
+			);
+		}
+			return $payment_gateway_properties;
+	}
+
 }
