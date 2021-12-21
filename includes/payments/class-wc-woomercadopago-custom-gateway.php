@@ -98,9 +98,6 @@ class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 			$form_fields['checkout_custom_payments_advanced_title'] = $this->field_checkout_custom_payments_advanced_title();
 			$form_fields['coupon_mode']                             = $this->field_coupon_mode();
 			$form_fields['wallet_button']                           = $this->field_checkout_custom_wallet_button();
-			$form_fields['mp_psj_title']                            = $this->field_mp_psj_title( $this->checkout_country );
-			$form_fields['mp_psj_description']                      = $this->field_mp_psj_description( $this->checkout_country );
-			$form_fields['mp_psj_description_link']                 = $this->field_mp_psj_description_link( $this->checkout_country );
 		}
 		$form_fields_abs = parent::get_form_mp_fields( $label );
 		if ( 1 === count( $form_fields_abs ) ) {

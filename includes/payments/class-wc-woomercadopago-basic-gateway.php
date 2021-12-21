@@ -89,18 +89,12 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 
 		$form_fields = array();
 
-		$form_fields['checkout_header'] = $this->field_checkout_header();
-
 		if ( ! empty( $this->checkout_country ) && ! empty( $this->get_access_token() ) && ! empty( $this->get_public_key() ) ) {
-			$form_fields['checkout_options_title']           = $this->field_checkout_options_title();
 			$form_fields['checkout_payments_title']          = $this->field_checkout_payments_title();
 			$form_fields['checkout_payments_subtitle']       = $this->field_checkout_payments_subtitle();
 			$form_fields['checkout_payments_description']    = $this->field_checkout_options_description();
 			$form_fields['binary_mode']                      = $this->field_binary_mode();
 			$form_fields['installments']                     = $this->field_installments();
-			$form_fields['mp_psj_title']                     = $this->field_mp_psj_title( $this->checkout_country );
-			$form_fields['mp_psj_description']               = $this->field_mp_psj_description( $this->checkout_country );
-			$form_fields['mp_psj_description_link']          = $this->field_mp_psj_description_link( $this->checkout_country );
 			$form_fields['checkout_payments_advanced_title'] = $this->field_checkout_payments_advanced_title();
 			$form_fields['method']                           = $this->field_method();
 			$form_fields['success_url']                      = $this->field_success_url();
@@ -128,7 +122,7 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 	public function get_fields_sequence() {
 		return array(
 			// Necessary to run.
-			'description',
+
 			// Checkout Básico. Acepta todos los medios de pago y lleva tus cobros a otro nivel.
 			'checkout_header',
 			'checkout_steps',

@@ -16,8 +16,8 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 	 */
 	public function init() {
 		$this->load_menu();
-		$this->load_scripts_and_styles();
 		$this->register_endpoints();
+		$this->load_scripts_and_styles();
 	}
 
 	/**
