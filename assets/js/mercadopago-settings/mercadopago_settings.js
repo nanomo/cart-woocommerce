@@ -175,62 +175,62 @@ function mp_validate_store_information() {
 	});
 }
 
-function update_option_credentials() { }
+function mp_settings_accordion_options() {
+  var element = document.getElementById("options");
+  var elementBlock = document.getElementById("block-two");
 
-window.addEventListener("load", function () {
+  element.addEventListener("click", function () {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.display === "block") {
+      panel.style.display = "none";
+    } else {
+      panel.style.display = "block";
+    }
+
+    /* Altera o alinhamento vertical */
+    if (
+      !element.classList.contains("active") &&
+      !elementBlock.classList.contains("mp-settings-flex-start")
+    ) {
+      elementBlock.classList.toggle("mp-settings-flex-start");
+      element.textContent = "Ver opções avançadas";
+    } else {
+      element.textContent = "Ocultar opções avançadas";
+      elementBlock.classList.remove("mp-settings-flex-start");
+    }
+  });
+
+  console.log("MP Settings Accordion Started 2!");
+}
+
+function mp_store_mode() {
+
+  var button = document.getElementById("mp-store-mode-save");
+
+  button.addEventListener("click", function () {
+    var input_mode_id = document.querySelector('input[name="mp-test-prod"]:checked').value;
+    input_value = ( input_mode_id === 'yes' )? 'yes' : 'no';
+    console.log(input_value);
+    wp.ajax
+      .post("mp_store_mode", input_value)
+      .done(function (response) {
+        console.log(response);
+      })
+      .fail(function (error) {
+        console.log(error);
+      });
+  });
+
+}
+
+function mp_settings_screen_load() {
 	mp_settings_accordion_start();
 	mp_settings_accordion_options();
 	mp_get_requirements();
 	mp_validate_credentials();
 	update_option_credentials();
 	mp_validate_store_information();
-});
+};
 
-function mp_settings_accordion_options() {
-	var element = document.getElementById("options");
-	var elementBlock = document.getElementById("block-two");
 
-	element.addEventListener("click", function () {
-		this.classList.toggle("active");
-		var panel = this.nextElementSibling;
-		if (panel.style.display === "block") {
-			panel.style.display = "none";
-		} else {
-			panel.style.display = "block";
-		}
-
-		/* Altera o alinhamento vertical */
-		if (
-			!element.classList.contains("active") &&
-			!elementBlock.classList.contains("mp-settings-flex-start")
-		) {
-			elementBlock.classList.toggle("mp-settings-flex-start");
-			element.textContent = "Ver opções avançadas";
-		} else {
-			element.textContent = "Ocultar opções avançadas";
-			elementBlock.classList.remove("mp-settings-flex-start");
-		}
-	});
-
-	console.log("MP Settings Accordion Started 2!");
-}
-
-function mp_store_mode() {
-
-	var button = document.getElementById("mp-store-mode-save");
-
-	button.addEventListener("click", function () {
-		var input_mode_id = document.querySelector('input[name="mp-test-prod"]:checked').value;
-		input_value = ( input_mode_id === 'yes' )? 'yes' : 'no';
-		console.log(input_value);
-		wp.ajax
-			.post("mp_store_mode", input_value)
-			.done(function (response) {
-				console.log(response);
-			})
-			.fail(function (error) {
-				console.log(error);
-			});
-	});
-
-}

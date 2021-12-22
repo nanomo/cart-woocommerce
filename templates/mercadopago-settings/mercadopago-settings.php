@@ -14,7 +14,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 ?>
-
+<script>
+	window.addEventListener("load", function () {
+		mp_settings_screen_load();
+	});
+</script>
 <div class="mp-settings">
 	<div class="mp-settings-header">
 		<div class="mp-settings-header-img"></div>
