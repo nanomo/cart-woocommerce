@@ -99,7 +99,6 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 					add_action( 'admin_notices', array( $this, 'enable_pix_payment_notice' ) );
 				}
 			}
-				$form_fields['checkout_pix_options_title']           = $this->field_checkout_pix_options_title();
 				$form_fields['checkout_pix_payments_title']          = $this->field_checkout_pix_payments_title();
 				$form_fields['checkout_pix_payments_description']    = $this->field_checkout_pix_options_description();
 				$form_fields['checkout_pix_payments_advanced_title'] = $this->field_checkout_pix_payments_advanced_title();
