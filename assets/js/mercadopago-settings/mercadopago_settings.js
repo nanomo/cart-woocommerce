@@ -1,4 +1,4 @@
-function mp_settings_accordion_start(className, subclassName, iconClass) {
+function mp_settings_accordion_start() {
 	var acc = document.getElementsByClassName("mp-settings-title-align");
 	var i;
 	for (i = 0; i < acc.length; i++) {
@@ -7,14 +7,12 @@ function mp_settings_accordion_start(className, subclassName, iconClass) {
 			if ("mp-settings-margin-left" && "mp-arrow-up") {
 				var accordionArrow = null;
 				for (var i = 0; i < this.childNodes.length; i++) {
-					if (
-						this.childNodes[i]?.classList?.contains("mp-settings-margin-left")
-					) {
+					if (this.childNodes[i]?.classList?.contains("mp-settings-margin-left")) {
 						accordionArrow = this.childNodes[i];
 						break;
 					}
 				}
-				accordionArrow.childNodes[1].classList.toggle(iconClass);
+				accordionArrow.childNodes[1].classList.toggle("mp-arrow-up");
 			}
 			var panel = this.nextElementSibling;
 			if (panel.style.display === "block") {
@@ -147,13 +145,9 @@ function update_option_credentials() {
 				console.log("error");
 			});
 	});
-
-	console.log("MP option update!");
 }
 
 function mp_validate_store_information() {
-	console.log("chegando aqui");
-
 	button = document.getElementById("mp-store-info-save");
 	button.addEventListener("click", function () {
 		const store_information = {

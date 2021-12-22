@@ -78,9 +78,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 						</p>
 					</div>
 					<div>
-						<a target="_blank" href="<?php echo esc_html( $links['link_costs'] ); ?>">
-							<button class="mp-button">Ajustar prazos e taxas</button>
-						</a>
+					<a target="_blank" href="<?php echo esc_html($links['link_costs']); ?>"><button class="mp-button">Ajustar prazos e taxas</button></a>
 					</div>
 				</div>
 			</div>
@@ -93,9 +91,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 							desenvolvedores. </p>
 					</div>
 					<div>
-						<a target="_blank" href="<?php echo esc_html( $links['link_guides_plugin'] ); ?>">
-							<button class="mp-button mp-button-light-blue"> Manual do plugin</button>
-						</a>
+					<a target="_blank" href="<?php echo esc_html($links['link_guides_plugin']); ?>"><button class="mp-button mp-button-light-blue"> Manual do plugin</button></a>
 					</div>
 				</div>
 			</div>
@@ -119,9 +115,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					deve <b>copiar e colar suas credenciais abaixo.</b></p>
 			</div>
 			<div>
-				<a target="_blank" href="<?php echo esc_html( $links['link_credentials'] ); ?>">
-					<button class="mp-button mp-button-light-blue"> Consultar credenciais</button>
-				</a>
+			<a target="_blank" href="<?php echo esc_html($links['link_credentials']); ?>"><button class="mp-button mp-button-light-blue"> Consultar credenciais</button></a>
 			</div>
 			<div class="mp-container">
 				<div class="mp-block mp-block-flex mp-settings-margin-right">
@@ -130,17 +124,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 						checkouts Mercado Pago para testes de compras na loja.</p>
 					<fieldset class="mp-settings-fieldset">
 						<legend class="mp-settings-label mp-settings-font-color">Public Key</legend>
-						<input class="mp-settings-input mp-credential-feedback-positive" id="mp-public-key-test"
-							   type="text"
-							   value="<?php echo esc_html( $options_credentials['credentials_public_key_test'] ); ?>"
-							   placeholder="Cole aqui sua Public Key">
+						<input class="mp-settings-input mp-credential-feedback-positive" id="mp-public-key-test" type="text" value="<?php echo esc_html($options_credentials['credentials_public_key_test']); ?>" placeholder="Cole aqui sua Public Key">
 					</fieldset>
 					<fieldset>
 						<legend class="mp-settings-label">Access token</legend>
-						<input class="mp-settings-input mp-credential-feedback-positive" id="mp-access-token-test"
-							   type="text"
-							   value="<?php echo esc_html( $options_credentials['credentials_access_token_test'] ); ?>"
-							   placeholder="Cole aqui seu Access Token">
+						<input class="mp-settings-input mp-credential-feedback-positive" id="mp-access-token-test" type="text" value="<?php echo esc_html($options_credentials['credentials_access_token_test']); ?>" placeholder="Cole aqui seu Access Token" >
 					</fieldset>
 				</div>
 				<div class="mp-block mp-block-flex mp-settings-margin-left">
@@ -149,21 +137,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 						checkouts Mercado Pago para receber pagamentos reais na loja.</p>
 					<fieldset class="mp-settings-fieldset">
 						<legend class="mp-settings-label">Public Key</legend>
-						<input class="mp-settings-input mp-credential-feedback-positive" id="mp-public-key-prod"
-							   type="text"
-							   value="<?php echo esc_html( $options_credentials['credentials_public_key_prod'] ); ?>"
-							   placeholder="Cole aqui seu Access Token">
+						<input class="mp-settings-input mp-credential-feedback-positive" id="mp-public-key-prod" type="text" value="<?php echo esc_html($options_credentials['credentials_public_key_prod']); ?>" placeholder="Cole aqui seu Access Token">
 					</fieldset>
 					<fieldset>
 						<legend class="mp-settings-label">Access token</legend>
-						<input class="mp-settings-input mp-credential-feedback-positive" id="mp-access-token-prod"
-							   type="text"
-							   value="<?php echo esc_html( $options_credentials['credentials_access_token_prod'] ); ?>"
-							   placeholder="Cole aqui seu Access Token">
+						<input class="mp-settings-input mp-credential-feedback-positive" id="mp-access-token-prod" type="text" value="<?php echo esc_html($options_credentials['credentials_access_token_prod']); ?>" placeholder="Cole aqui seu Access Token">
 					</fieldset>
 				</div>
 			</div>
-			<button class="mp-button" id="mp-btn-credentials"> Salvar e continuar</button>
+			<button class="mp-button" id="mp-btn-credentials" > Salvar e continuar</button>
 		</div>
 	</div>
 
@@ -179,8 +161,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			</div>
 		</div>
 		<div class="mp-settings-block-align-top" style="display: none;">
-			<p class="mp-settings-font-color mp-settings-subtitle-font-size mp-settings-title-color">Preencha as
-				informações a seguir para ter uma melhor experiência e oferecer mais informações aos clientes</p>
+			<p class="mp-settings-font-color mp-settings-subtitle-font-size mp-settings-title-color">Preencha as informações a seguir para ter uma melhor experiência e oferecer mais informações aos clientes</p>
 			<div class="mp-container mp-settings-flex-start" id="block-two">
 				<div class="mp-block mp-block-flex mp-settings-margin-right mp-settings-choose-mode">
 					<div>
@@ -189,17 +170,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<div class="mp-settings-standard-margin">
 						<fieldset>
 							<legend class="mp-settings-label">Nome da sua loja nas faturas do cliente</legend>
-							<input type="text" class="mp-settings-input" id="mp-store-identificator"
-								   placeholder="Ex.:Loja da Maria"
-								   value="<?php echo esc_html( $store_identificator ); ?>">
+							<input type="text" class="mp-settings-input" id="mp-store-identificator" placeholder= "Ex.:Loja da Maria" value="<?php echo esc_html($store_identificator); ?>">
 						</fieldset>
 						<span class="mp-settings-helper">Se o campo estiver vazio, a compra do cliente será identificada como Mercado Pago.</span>
 					</div>
 					<div class="mp-settings-standard-margin">
 						<fieldset>
 							<legend class="mp-settings-label">Identificação em Atividades do Mercado Pago</legend>
-							<input type="text" class="mp-settings-input" id="mp-store-category-id"
-								   placeholder="Ex.:Loja da Maria" value="<?php echo esc_html( $category_id ); ?>">
+							<input type="text" class="mp-settings-input" id="mp-store-category-id" placeholder="Ex.:Loja da Maria" value="<?php echo esc_html($category_id); ?>">
 						</fieldset>
 						<span class="mp-settings-helper">Nas Ativades voce verá o termo inserido antes do númer o do pedido</span>
 					</div>
@@ -209,13 +187,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 						<select name="select" class="mp-settings-select" id="mp-store-categories">
 
-							<?php
-							for ( $i = 0; $i < count( $categories_store['store_categories_description'] ); $i ++ ) { // phpcs:ignore
-								echo "<option value='" . esc_html( $categories_store['store_categories_id'][ $i ] )
-									 . "'" . esc_html( ( $category_selected === $categories_store['store_categories_id'][ $i ] ) ? 'selected' : '' )
-									 . '>' . esc_html( $categories_store['store_categories_description'][ $i ] ) . '</option>';
-							}
-							?>
+						<?php
+						for ( $i = 0; $i < count($categories_store['store_categories_description']); $i++ ) { // phpcs:ignore
+								echo "<option value='" . esc_html($categories_store['store_categories_id'][$i])
+								. "'" . esc_html(( $category_selected === $categories_store['store_categories_id'][$i] ) ? 'selected' : '' )
+								. '>' . esc_html($categories_store['store_categories_description'][$i]) . '</option>';
+						}
+						?>
 						</select>
 						<span class="mp-settings-helper">Selecione ”Outro” caso não encontre uma categoria adequada.</span>
 					</div>
@@ -237,25 +215,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 								<fieldset>
 
 									<legend class="mp-settings-label">URL para IPN</legend>
-									<input type="text" class="mp-settings-input" id="mp-store-url-ipn"
-										   placeholder="Ex.: https://examples.com/my-custom-ipn-url"
-										   value="<?php echo esc_html( $url_ipn ); ?>">
-									<span class="mp-settings-helper">Insira a URL para receber notificações de pagamento. Confira mais informções nos <span
-												class="mp-settings-blue-text"><a target="_blank"
-																				 href="<?php echo esc_html( $devsite_links['notifications_ipn'] ); ?>">manuais.</a></span>
+									<input type="text" class="mp-settings-input" id="mp-store-url-ipn" placeholder="Ex.: https://examples.com/my-custom-ipn-url" value="<?php echo esc_html($url_ipn); ?>">
+									<span class="mp-settings-helper">Insira a URL para receber notificações de pagamento. Confira mais informções nos <span class="mp-settings-blue-text"><a target="_blank" href="<?php echo esc_html($devsite_links['notifications_ipn']); ?>" >manuais.</a></span>
 								</fieldset>
 							</div>
 							<div class="mp-settings-standard-margin">
 								<fieldset>
 
 									<legend class="mp-settings-label">integrator_id</legend>
-									<input type="text" class="mp-settings-input" id="mp-store-integrator-id"
-										   placeholder="Ex.: 14987126498"
-										   value="<?php echo esc_html( $integrator_id ); ?>">
+									<input type="text" class="mp-settings-input" id="mp-store-integrator-id" placeholder="Ex.: 14987126498" value="<?php echo esc_html( $integrator_id ); ?>">
 									<span class="mp-settings-helper">Se você é Parceiro certificado do Mercado Pago, não esqueça de inserir seu integrator_id.</span><br>
-									<span class="mp-settings-helper">Se você não possui o código, <span
-												class="mp-settings-blue-text"><a target="_blank"
-																				 href="<?php echo esc_html( $devsite_links['dev_program'] ); ?>"> solicite agora<span>.</a></span>
+									<span class="mp-settings-helper">Se você não possui o código, <span class="mp-settings-blue-text"><a target="_blank" href="<?php echo esc_html($devsite_links['dev_program']); ?>"> solicite agora<span>.</a></span>
 
 								</fieldset>
 							</div>
@@ -264,8 +234,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 								<div>
 
 									<label class="mp-settings-switch">
-										<input type="checkbox" value="yes"
-											   id="mp-store-debug-mode" <?php echo esc_html( ( 'yes' === $debug_mode ) ? 'checked' : '' ); ?>>
+										<input type="checkbox" value="yes" id="mp-store-debug-mode" <?php echo esc_html(( 'yes' === $debug_mode ) ? 'checked' : ''); ?>>
 										<span class="mp-settings-slider mp-settings-round"></span>
 									</label>
 								</div>
@@ -282,7 +251,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					</div>
 				</div>
 			</div>
-			<button class="mp-button" id="mp-store-info-save"> Salvar e continuar</button>
+			<button class="mp-button" id="mp-store-info-save"> Salvar e continuar </button>
 		</div>
 	</div>
 
@@ -345,24 +314,22 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<img class="mp-settings-icon-config">
 				</div>
 			</div>
-			<button class="mp-button"> Continuar</button>
+			<button class="mp-button"> Continuar </button>
 		</div>
 	</div>
-	<hr class="mp-settings-hr"/>
+	<hr class="mp-settings-hr" />
 	<div class="mp-settings-mode">
 		<div class="mp-settings-title-align">
 			<div class="mp-settings-title-container">
 				<span class="mp-settings-font-color mp-settings-title-blocks mp-settings-margin-right">4. Teste sua loja antes de vender</span>
-				<div class="mp-settings-test-mode-alert mp-settings-margin-left mp-settings-margin-right"><span>Loja em modo teste</span>
-				</div>
+				<div class="mp-settings-test-mode-alert mp-settings-margin-left mp-settings-margin-right"><span>Loja em modo teste</span></div>
 			</div>
 			<div class="mp-settings-title-container mp-settings-margin-left">
 				<img class="mp-settings-icon-open">
 			</div>
 		</div>
 		<div class="mp-settings-block-align-top" style="display: none;">
-			<p class="mp-settings-subtitle-font-size mp-settings-title-color">Teste a experiência no Modo Teste. Depois
-				ative o Modo Vendas (Produção) para fazer vendas.</p>
+			<p class="mp-settings-subtitle-font-size mp-settings-title-color">Teste a experiência no Modo Teste. Depois ative o Modo Vendas (Produção) para fazer vendas.</p>
 
 			<div class="mp-container">
 				<div class="mp-block mp-settings-choose-mode">
@@ -371,20 +338,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 					</div>
 					<div class="mp-settings-mode-container">
 						<div class="mp-settings-mode-spacing">
-							<input name="mp-test-prod" type="radio" class="mp-settings-radio-button"
-								   value='yes' <?php echo esc_html( ( 'yes' === $checkbox_test_mode ) ? 'checked' : '' ); ?> >
+							<input name="mp-test-prod" type="radio" class="mp-settings-radio-button" value='yes' <?php echo esc_html(( 'yes' === $checkbox_test_mode ) ? 'checked' : ''); ?> >
 						</div>
 						<div>
 							<span class="mp-settings-font-color mp-settings-subtitle-font-size mp-settings-font-color">Modo Teste</span><br>
 
-							<span class="mp-settings-font-color mp-settings-subtitle-font-size mp-settings-title-color">Checkouts Mercado Pago inativos para cobranças reais.<span
-										class="mp-settings-blue-text"> Regras do modo teste.<span></span>
+							<span class="mp-settings-font-color mp-settings-subtitle-font-size mp-settings-title-color">Checkouts Mercado Pago inativos para cobranças reais.<span class="mp-settings-blue-text"> Regras do modo teste.<span></span>
 						</div>
 					</div>
 					<div class="mp-settings-mode-container">
 						<div class="mp-settings-mode-spacing">
-							<input name="mp-test-prod" type="radio" class="mp-settings-radio-button"
-								   value='no' <?php echo esc_html( ( 'no' === $checkbox_test_mode ) ? 'checked' : '' ); ?>>
+							<input name="mp-test-prod" type="radio" class="mp-settings-radio-button" value='no' <?php echo esc_html(( 'no' === $checkbox_test_mode ) ? 'checked' : ''); ?>>
 						</div>
 						<div>
 							<span class="mp-settings-font-color mp-settings-subtitle-font-size mp-settings-font-color">Modo Vendas (Produção)</span><br>
@@ -418,7 +382,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					</div>
 				</div>
 			</div>
-			<button class="mp-button" id="mp-store-mode-save"> Salvar Mudanças</button>
+			<button class="mp-button" id="mp-store-mode-save"> Salvar Mudanças </button>
 		</div>
 
 
