@@ -30,6 +30,38 @@ window.addEventListener('load', function () {
     }
   );
 
+  var makeCollapsibleOptions = function (id_plus, id_less) {
+    return '<span class="mp-btn-collapsible" id="' + id_plus + '" style="display:block">+</span>\
+      <span class="mp-btn-collapsible" id="' + id_less + '" style="display:none">-</span>';
+  };
+
+  //collpase Configuración Avanzada
+  var collapse_title_2 = document.querySelector('#woocommerce_woo-mercado-pago-basic_checkout_payments_advanced_title');
+  var collapse_table_2 = document.querySelector('#woocommerce_woo-mercado-pago-basic_checkout_payments_advanced_description').nextElementSibling;
+  var collapse_description_2 = document.querySelector('#woocommerce_woo-mercado-pago-basic_checkout_payments_advanced_description');
+  collapse_table_2.style.display = 'none';
+  collapse_description_2.style.display = 'none';
+  collapse_title_2.style.cursor = 'pointer';
+
+  collapse_title_2.innerHTML += makeCollapsibleOptions('header_plus_2', 'header_less_2');
+
+  var header_plus_2 = document.querySelector('#header_plus_2');
+  var header_less_2 = document.querySelector('#header_less_2');
+
+  collapse_title_2.onclick = function () {
+    if (collapse_table_2.style.display === 'none') {
+      collapse_table_2.style.display = 'block';
+      collapse_description_2.style.display = 'block';
+      header_less_2.style.display = 'block';
+      header_plus_2.style.display = 'none';
+    } else {
+      collapse_table_2.style.display = 'none';
+      collapse_description_2.style.display = 'none';
+      header_less_2.style.display = 'none';
+      header_plus_2.style.display = 'block';
+    }
+  };
+
   //payment methods
   var tablePayments = document.querySelector('#woocommerce_woo-mercado-pago-basic_checkout_payments_description').nextElementSibling.getAttribute('class');
   var mp_input_payments = document.querySelectorAll('.' + tablePayments + ' td.forminp label');

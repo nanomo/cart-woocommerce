@@ -632,6 +632,7 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 				$form_fields['description']                            = $this->field_description();
 				$form_fields['gateway_discount']                       = $this->field_gateway_discount();
 				$form_fields['commission']                             = $this->field_commission();
+				$form_fields['checkout_payments_advanced_description'] = $this->field_checkout_payments_advanced_description();
 				$form_fields[ WC_WooMercadoPago_Helpers_CurrencyConverter::CONFIG_KEY ] = $this->field_currency_conversion( $this );
 			}
 		}
@@ -1152,6 +1153,19 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 				update_option( $key, apply_filters( 'woocommerce_settings_api_sanitized_fields_' . $gateway::get_id(), $options ) );
 			}
 		}
+	}
+
+	/**
+	 * Field Checkout Payments Advanced Description
+	 *
+	 * @return array
+	 */
+	public function field_checkout_payments_advanced_description() {
+		return array(
+			'title' => __( 'Edit these advanced fields only when you want to modify the preset values.', 'woocommerce-mercadopago' ),
+			'type'  => 'title',
+			'class' => 'mp_small_text mp-mt--12 mp-mb-18',
+		);
 	}
 
 	/**

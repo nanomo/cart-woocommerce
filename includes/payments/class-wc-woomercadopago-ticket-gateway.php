@@ -89,7 +89,6 @@ class WC_WooMercadoPago_Ticket_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 		$form_fields                           = array();
 		$form_fields['checkout_ticket_header'] = $this->field_checkout_ticket_header();
 		if ( ! empty( $this->checkout_country ) && ! empty( $this->get_access_token() ) && ! empty( $this->get_public_key() ) ) {
-			$form_fields['checkout_ticket_options_title']           = $this->field_checkout_ticket_options_title();
 			$form_fields['checkout_ticket_payments_title']          = $this->field_checkout_ticket_payments_title();
 			$form_fields['checkout_ticket_payments_description']    = $this->field_checkout_ticket_options_description();
 			$form_fields['checkout_ticket_payments_advanced_title'] = $this->field_checkout_ticket_payments_advanced_title();
@@ -235,19 +234,6 @@ class WC_WooMercadoPago_Ticket_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 			),
 			'type'  => 'title',
 			'class' => 'mp_title_header',
-		);
-	}
-
-	/**
-	 * Field checkout ticket options title
-	 *
-	 * @return array
-	 */
-	public function field_checkout_ticket_options_title() {
-		return array(
-			'title' => __( 'Configure Mercado Pago for WooCommerce', 'woocommerce-mercadopago' ),
-			'type'  => 'title',
-			'class' => 'mp_title_bd',
 		);
 	}
 
