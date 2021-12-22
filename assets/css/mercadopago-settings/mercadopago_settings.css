@@ -2,6 +2,7 @@
 	margin: 0 55px 0 23px;
 	font-size: 16px;
 	min-width: 550px;
+	font-family: "Proxima Nova",-apple-system,"Helvetica Neue",Helvetica,"Roboto",Arial,sans-serif;
 }
 .mp-settings-header {
 	height: 340px;
@@ -132,13 +133,53 @@
 	color: #ffffff;
 	border: none;
 	padding: 9px 12px 7px;
-	background: #009ee3;
+	background: #009EE3;
 	border-radius: 5px;
 	margin: 15px 0px 15px 0px;
 	cursor: pointer;
+	transition: box-shadow .25s ease-out,background-color .2s ease-out;
+	box-shadow: 0 0 0 0 #fff;
+}
+.mp-button:hover {
+	border-color: transparent;
+	background-color: #007eb5;
+	color: #fff;
+	-webkit-transition: background-color .2s ease-in;
+	transition: background-color .2s ease-in;
+}
+.mp-button:focus {
+	outline: 0;
+	box-shadow: 0 0 0 0.1875em rgb(27 135 201 / 30%);
+	-webkit-transition: box-shadow .25s ease-in;
+	transition: box-shadow .25s ease-in;
+}
+.mp-button:active {
+	border-color: transparent;
+	background-color: #005e88;
+	color: #fff;
 }
 .mp-button-light-blue {
+	border-color: transparent;
 	background: rgba(71, 154, 209, 0.15);
+	color: #009EE3;
+;
+}
+.mp-button-light-blue:hover {
+	border-color: transparent;
+	background-color: rgba(65,137,230,.2);
+	color: #009ee3;
+	-webkit-transition: background-color .2s ease-in;
+	transition: background-color .2s
+}
+.mp-button-light-blue:focus {
+	outline: 0;
+	box-shadow: 0 0 0 0.1875em rgb(27 135 201 / 30%);
+	-webkit-transition: box-shadow .25s ease-in;
+	transition: box-shadow .25s ease-in;
+}
+.mp-button-light-blue:active {
+	border-color: transparent;
+	background-color: rgba(65,137,230,.3);
 	color: #009ee3;
 }
 .mp-settings-icon-success {
