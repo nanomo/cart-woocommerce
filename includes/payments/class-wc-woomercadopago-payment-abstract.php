@@ -610,7 +610,7 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 	public function get_form_mp_fields( $label ) {
 		$this->init_form_fields();
 		$this->init_settings();
-		$form_fields                           = array();
+		$form_fields = array();
 
 		if ( ! empty( $this->checkout_country ) ) {
 			$this->load_custom_js_for_checkbox();

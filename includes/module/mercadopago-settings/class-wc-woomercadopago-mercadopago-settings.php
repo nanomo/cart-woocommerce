@@ -235,7 +235,7 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 		}
 	}
 
-	/** 
+	/**
 	 * Get payment class properties
 	 */
 	public function mp_get_payment_class_properties() {

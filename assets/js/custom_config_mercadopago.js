@@ -78,7 +78,7 @@ window.addEventListener('load', function () {
     if (collapse_table_2.style.display === 'none') {
       collapse_table_2.style.display = 'block';
       header_less_2.style.display = 'block';
-      collapse_table_2.style.display = 'block';
+      collapse_description_2.style.display = 'block';
       header_plus_2.style.display = 'none';
     } else {
       collapse_table_2.style.display = 'none';
