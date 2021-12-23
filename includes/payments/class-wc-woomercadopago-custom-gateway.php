@@ -88,9 +88,9 @@ class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 			$this->field_forms_order = array_slice( $this->field_forms_order, 0, 22 );
 		}
 
-		$form_fields                           = array();
+		$form_fields = array();
 		if ( ! empty( $this->checkout_country ) && ! empty( $this->get_access_token() ) && ! empty( $this->get_public_key() ) ) {
-			$form_fields['checkout_custom_header'] = $this->field_checkout_custom_header();
+			$form_fields['checkout_custom_header']                  = $this->field_checkout_custom_header();
 			$form_fields['checkout_custom_payments_title']          = $this->field_checkout_custom_payments_title();
 			$form_fields['checkout_payments_subtitle']              = $this->field_checkout_payments_subtitle();
 			$form_fields['binary_mode']                             = $this->field_binary_mode();
