@@ -2,11 +2,11 @@
 
 class WC_WooMercadoPago_Options {
 
-	const CREDENTIALS_PUBLIC_KEY_PROD = '_mp_public_key_prod';
-	const CREDENTIALS_PUBLIC_KEY_TEST = '_mp_public_key_test';
+	const CREDENTIALS_PUBLIC_KEY_PROD   = '_mp_public_key_prod';
+	const CREDENTIALS_PUBLIC_KEY_TEST   = '_mp_public_key_test';
 	const CREDENTIALS_ACCESS_TOKEN_PROD = '_mp_access_token_prod';
 	const CREDENTIALS_ACCESS_TOKEN_TEST = '_mp_access_token_test';
-	const CHECKOUT_COUNTRY = 'checkout_country';
+	const CHECKOUT_COUNTRY              = 'checkout_country';
 
 	private $credentials_public_key_prod;
 	private $credentials_public_key_test;
