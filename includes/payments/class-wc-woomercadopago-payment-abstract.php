@@ -395,10 +395,10 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 	 * @throws WC_WooMercadoPago_Exception Load payment exception.
 	 */
 	public function __construct() {
-		$this->mp_public_key_test   = $this->get_option_mp( '_mp_public_key_test' );
-		$this->mp_access_token_test = $this->get_option_mp( '_mp_access_token_test' );
-		$this->mp_public_key_prod   = $this->get_option_mp( '_mp_public_key_prod' );
-		$this->mp_access_token_prod = $this->get_option_mp( '_mp_access_token_prod' );
+		$this->mp_public_key_test   = get_option( '_mp_public_key_test' );
+		$this->mp_access_token_test = get_option( '_mp_access_token_test' );
+		$this->mp_public_key_prod   = get_option( '_mp_public_key_prod' );
+		$this->mp_access_token_prod = get_option( '_mp_access_token_prod' );
 		$this->checkout_country     = get_option( 'checkout_country', '' );
 		$this->wc_country           = get_option( 'woocommerce_default_country', '' );
 		$this->mp_category_id       = $this->get_option_mp( '_mp_category_id', 0 );

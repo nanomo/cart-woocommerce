@@ -45,7 +45,7 @@ const payment_mercado_pago_basic = {
   },
   setInputMaxLength: function () {
     // Add max length to title input
-    let titleInput = this.document.querySelectorAll('.limit-title-max-length');
+    let titleInput = document.querySelectorAll('.limit-title-max-length');
     titleInput.forEach(
       (element) => {
         element.setAttribute('maxlength', '65');
