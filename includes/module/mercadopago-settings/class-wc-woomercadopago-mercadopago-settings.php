@@ -240,40 +240,39 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 	 * Get payment class properties
 	 */
 	public function mp_get_payment_class_properties() {
-		try{
+		try {
 			$payments_gateways          = WC_WooMercadoPago_Constants::PAYMENT_GATEWAYS;
 			$payment_gateway_properties = array();
 
+			foreach ( $payments_gateways as $payment_gateway ) {
+				$gateway = new $payment_gateway();
 
-		foreach ( $payments_gateways as $payment_gateway ) {
-			$gateway = new $payment_gateway();
+				$additional_info = [
+				'woo-mercado-pago-basic' => ['icon' => 'mp-settings-icon-mp'],
+				'woo-mercado-pago-custom' => ['icon' => 'mp-settings-icon-card'],
+				'woo-mercado-pago-ticket' => ['icon' => 'mp-settings-icon-code'],
+				'woo-mercado-pago-pix' => ['icon' => 'mp-settings-icon-pix']
+				];
 
-			$additional_info = [
-				'woo-mercado-pago-basic' => ['icon' => "mp-settings-icon-mp"],
-				'woo-mercado-pago-custom' => ['icon' => "mp-settings-icon-card"],
-				'woo-mercado-pago-ticket' => ['icon' => "mp-settings-icon-code"],
-				'woo-mercado-pago-pix' => ['icon' => "mp-settings-icon-pix"]
-			];
+				$payment_gateway_properties[] = array(
 
-			$payment_gateway_properties[] = array(
-
-			'id'     => $gateway->id,
-			'description'   => $gateway->description,
-			'title'   => $gateway->title,
-			'enabled' => $gateway->settings['enabled'],
-			'icon' => $additional_info[$gateway->id]['icon'],
-			'link' => admin_url( 'admin.php?page=wc-settings&tab=checkout&section=' ) . $gateway->id,
-			);
-		}
+				'id'     => $gateway->id,
+				'description'   => $gateway->description,
+				'title'   => $gateway->title,
+				'enabled' => $gateway->settings['enabled'],
+				'icon' => $additional_info[$gateway->id]['icon'],
+				'link' => admin_url( 'admin.php?page=wc-settings&tab=checkout&section=' ) . $gateway->id,
+				);
+			}
 		wp_send_json_success($payment_gateway_properties);
 
-		} catch ( Exception $e ){
+		} catch ( Exception $e ) {
 			$response = [
 				'message' => $e->getMessage()
 			];
 
 			wp_send_json_error( $response );
-	}
+		}
 
 	}
 }
