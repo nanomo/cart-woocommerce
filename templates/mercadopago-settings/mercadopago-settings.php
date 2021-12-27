@@ -268,52 +268,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			</div>
 		</div>
 		<div class="mp-settings-block-align-top" style="display: none;">
-			<p class="mp-settings-subtitle-font-size">Selecione um meio de pagamento a seguir para ver mais opções</p>
-			<div class="mp-block mp-block-flex mp-settings-payment-block mp-settings-margin-right mp-settings-align-div">
-				<div class="mp-settings-align-div">
-					<div class="mp-settings-icon mp-settings-icon-mp"></div>
-					<span class="mp-settings-subtitle-font-size mp-settings-margin-title-payment"><b>Checkout Pro</b> - Pix, débito, crédito e boleto, no ambiente do Mercado Pago</span>
-					<span class="mp-settings-badge-active">Ativado</span>
-				</div>
-				<div class="mp-settings-title-align">
-					<span class="mp-settings-text-payment">Configurar</span>
-					<img class="mp-settings-icon-config">
-				</div>
-			</div>
-
-			<div class="mp-block mp-block-flex mp-settings-payment-block mp-settings-margin-right mp-settings-align-div">
-				<div class="mp-settings-align-div">
-					<div class="mp-settings-icon mp-settings-icon-card"></div>
-					<span class="mp-settings-subtitle-font-size mp-settings-margin-title-payment"><b>Débito e crédito</b> - Checkout Transparente, no ambiente da sua loja</span>
-					<span class="mp-settings-badge-active">Ativado</span>
-				</div>
-				<div class="mp-settings-title-align">
-					<span class="mp-settings-text-payment">Configurar</span>
-					<img class="mp-settings-icon-config">
-				</div>
-			</div>
-			<div class="mp-block mp-block-flex mp-settings-payment-block mp-settings-margin-right mp-settings-align-div">
-				<div class="mp-settings-align-div">
-					<div class="mp-settings-icon mp-settings-icon-code"></div>
-					<span class="mp-settings-subtitle-font-size mp-settings-margin-title-payment"><b>Boleto e lotérica</b> - Checkout Transparente, no ambiente da sua loja</span>
-					<span class="mp-settings-badge-inactive">Inativo</span>
-				</div>
-				<div class="mp-settings-title-align">
-					<span class="mp-settings-text-payment">Configurar</span>
-					<img class="mp-settings-icon-config">
-				</div>
-			</div>
-			<div class="mp-block mp-block-flex mp-settings-payment-block mp-settings-margin-right mp-settings-align-div">
-				<div class="mp-settings-align-div">
-					<div class="mp-settings-icon mp-settings-icon-pix"></div>
-					<span class="mp-settings-subtitle-font-size mp-settings-margin-title-payment"><b>Pix</b> - Checkout Transparente, no ambiente da sua loja</span>
-					<span class="mp-settings-badge-inactive">Inativo</span>
-				</div>
-				<div class="mp-settings-title-align">
-					<span class="mp-settings-text-payment">Configurar</span>
-					<img class="mp-settings-icon-config">
-				</div>
-			</div>
+			<p id="mp-payment" class="mp-settings-subtitle-font-size">Selecione um meio de pagamento a seguir para ver mais opções</p>
 			<button class="mp-button"> Continuar </button>
 		</div>
 	</div>

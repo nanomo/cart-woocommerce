@@ -103,6 +103,7 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 		add_action( 'wp_ajax_mp_validate_credentials', array($this, 'mp_validate_credentials'));
 		add_action( 'wp_ajax_mp_validate_store_information', array($this, 'mp_validate_store_info'));
 		add_action( 'wp_ajax_mp_store_mode', array($this, 'mp_set_mode'));
+		add_action( 'wp_ajax_mp_get_payment_properties', array($this, 'mp_get_payment_class_properties'));
 	}
 
 	/**
@@ -239,11 +240,20 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 	 * Get payment class properties
 	 */
 	public function mp_get_payment_class_properties() {
-
+		try{
 			$payments_gateways          = WC_WooMercadoPago_Constants::PAYMENT_GATEWAYS;
 			$payment_gateway_properties = array();
+
+
 		foreach ( $payments_gateways as $payment_gateway ) {
 			$gateway = new $payment_gateway();
+
+			$additional_info = [
+				'woo-mercado-pago-basic' => ['icon' => "mp-settings-icon-mp"],
+				'woo-mercado-pago-custom' => ['icon' => "mp-settings-icon-card"],
+				'woo-mercado-pago-ticket' => ['icon' => "mp-settings-icon-code"],
+				'woo-mercado-pago-pix' => ['icon' => "mp-settings-icon-pix"]
+			];
 
 			$payment_gateway_properties[] = array(
 
@@ -251,9 +261,19 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 			'description'   => $gateway->description,
 			'title'   => $gateway->title,
 			'enabled' => $gateway->settings['enabled'],
+			'icon' => $additional_info[$gateway->id]['icon'],
+			'link' => admin_url( 'admin.php?page=wc-settings&tab=checkout&section=' ) . $gateway->id,
 			);
 		}
-			return $payment_gateway_properties;
+		wp_send_json_success($payment_gateway_properties);
+
+		} catch ( Exception $e ){
+			$response = [
+				'message' => $e->getMessage()
+			];
+
+			wp_send_json_error( $response );
 	}
 
+	}
 }
