@@ -159,7 +159,7 @@ function mp_validate_store_information() {
 			store_debug_mode: document.querySelector("#mp-store-debug-mode:checked")?.value,
 		};
 		wp.ajax
-			.post("mp_validate_store_information", store_information)
+			.post(" ", store_information)
 			.done(function (response) {
 				console.log(response);
 			})
@@ -198,24 +198,59 @@ function mp_settings_accordion_options() {
   console.log("MP Settings Accordion Started 2!");
 }
 
-function mp_store_mode() {
-
+function mp_set_mode() {
   var button = document.getElementById("mp-store-mode-save");
-
   button.addEventListener("click", function () {
-    var input_mode_id = document.querySelector('input[name="mp-test-prod"]:checked').value;
-    input_value = ( input_mode_id === 'yes' )? 'yes' : 'no';
-    console.log(input_value);
+    var mode_value = document.querySelector('input[name="mp-test-prod"]:checked').value;
     wp.ajax
-      .post("mp_store_mode", input_value)
+      .post("mp_store_mode", {input_mode_value: mode_value})
       .done(function (response) {
+        
+      var badge = document.getElementById("mp-mode-badge");
+      var color_badge = document.getElementById("mp-orange-badge");
+      var icon_badge = document.getElementById("mp-icon-badge");
+      var text_badge = document.getElementById("mp-text-badge");
+      var helper_badge = document.getElementById("mp-helper-badge");
+      var helper_test = document.getElementById('mp-helper-test')
+      var helper_prod = document.getElementById('mp-helper-prod')
+
+      if (mode_value === 'yes'){
+        badge.classList.remove("mp-settings-prod-mode-alert");
+				badge.classList.add("mp-settings-test-mode-alert");
+
+        color_badge.classList.remove("mp-settings-alert-payment-methods-green");
+				color_badge.classList.add("mp-settings-alert-payment-methods-orange");
+
+        icon_badge.classList.remove("mp-settings-icon-success");
+				icon_badge.classList.add("mp-settings-icon-warning");
+
+        badge.textContent = "Loja em modo teste";
+
+        text_badge.textContent = "Meios de pagamento Mercado Pago em Modo Teste";
+        helper_test.style.display = "block";
+        helper_prod.style.display = "none";
+
+      } else {
+        badge.classList.remove("mp-settings-test-mode-alert");
+				badge.classList.add("mp-settings-prod-mode-alert");
+        badge.textContent = "Loja em modo vendas (Produção)";
+
+        color_badge.classList.remove("mp-settings-alert-payment-methods-orange");
+				color_badge.classList.add("mp-settings-alert-payment-methods-green");
+
+        icon_badge.classList.remove("mp-settings-icon-warning");
+        icon_badge.classList.add("mp-settings-icon-success");
+
+        text_badge.textContent = "Meios de pagamento Mercado Pago em Modo Produção";
+        helper_test.style.display = "none";
+        helper_prod.style.display = "block";
+      }
         console.log(response);
       })
       .fail(function (error) {
         console.log(error);
       });
   });
-
 }
 
 function mp_settings_screen_load() {
@@ -225,6 +260,7 @@ function mp_settings_screen_load() {
 	mp_validate_credentials();
 	update_option_credentials();
 	mp_validate_store_information();
+  mp_set_mode();
 };
 
 

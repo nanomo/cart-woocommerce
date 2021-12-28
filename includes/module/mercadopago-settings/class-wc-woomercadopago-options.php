@@ -90,6 +90,7 @@ class WC_WooMercadoPago_Options {
 		$devsite_links = array(
 			'dev_program'       => $base_link . '/developer-program',
 			'notifications_ipn' => $base_link . '/guides/notifications/ipn',
+			'shopping_testing'  => $base_link . '/guides/plugins/woocommerce/testing'
 		);
 
 		return $devsite_links;
@@ -99,7 +100,7 @@ class WC_WooMercadoPago_Options {
 	 * Block 4
 	 */
 	public function get_checkbox_test_mode() {
-		$checkbox_test_mode = get_option( 'checkbox_checkout_test_mode', 'no' );
+		$checkbox_test_mode = get_option( 'checkbox_checkout_test_mode', 'yes' );
 
 		return $checkbox_test_mode;
 	}

@@ -216,13 +216,13 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 	}
 
 	/**
-	 * Validate store info Ajax
+	 * Switch store mode
 	 */
 	public function mp_set_mode() {
 		try {
-			$checkout_test_mode = WC_WooMercadoPago_Credentials::get_sanitize_text_from_post('input_value');
+			$checkout_test_mode = WC_WooMercadoPago_Credentials::get_sanitize_text_from_post('input_mode_value');
 
-			update_option( 'checkbox_checkout_test_mode'  , $checkout_test_mode, true );
+			update_option( 'checkbox_checkout_test_mode' , $checkout_test_mode, true );
 
 			wp_send_json_success( 'success' );
 
@@ -255,5 +255,4 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 		}
 			return $payment_gateway_properties;
 	}
-
 }

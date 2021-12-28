@@ -322,7 +322,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="mp-settings-title-align">
 			<div class="mp-settings-title-container">
 				<span class="mp-settings-font-color mp-settings-title-blocks mp-settings-margin-right">4. Teste sua loja antes de vender</span>
-				<div class="mp-settings-test-mode-alert mp-settings-margin-left mp-settings-margin-right"><span>Loja em modo teste</span></div>
+				<div id="mp-mode-badge" class="mp-settings-margin-left mp-settings-margin-right <?php  echo esc_html('yes'=== ($checkbox_test_mode)? "mp-settings-test-mode-alert":"mp-settings-prod-mode-alert")?>  ">
+				<span><?php echo esc_html('yes'=== ($checkbox_test_mode)? "Loja em modo teste": "Loja em modo vendas (Produção)")?></span></div>
 			</div>
 			<div class="mp-settings-title-container mp-settings-margin-left">
 				<img class="mp-settings-icon-open">
@@ -343,7 +344,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 						<div>
 							<span class="mp-settings-font-color mp-settings-subtitle-font-size mp-settings-font-color">Modo Teste</span><br>
 
-							<span class="mp-settings-font-color mp-settings-subtitle-font-size mp-settings-title-color">Checkouts Mercado Pago inativos para cobranças reais.<span class="mp-settings-blue-text"> Regras do modo teste.<span></span>
+							<span class="mp-settings-font-color mp-settings-subtitle-font-size mp-settings-title-color">Checkouts Mercado Pago inativos para cobranças reais.<span class="mp-settings-blue-text"><a target="_blank" href="<?php echo esc_html($devsite_links['shopping_testing']);?>"> Regras do modo teste.</a><span></span>
 						</div>
 					</div>
 					<div class="mp-settings-mode-container">
@@ -358,27 +359,27 @@ if ( ! defined( 'ABSPATH' ) ) {
 					</div>
 					<div class="mp-settings-alert-payment-methods">
 
-						<div class="mp-settings-alert-payment-methods-orange"></div>
+						<div id="mp-orange-badge" class="<?php echo esc_html('yes'=== ($checkbox_test_mode)? "mp-settings-alert-payment-methods-orange":"mp-settings-alert-payment-methods-green")?>"></div>
 						<div class=" mp-settings-alert-payment-methods-gray">
 
 							<div class="mp-settings-margin-right mp-settings-mode-style">
-								<img class="mp-settings-icon-warning">
+								<label id="mp-icon-badge" class="<?php echo esc_html('yes'=== ($checkbox_test_mode)? "mp-settings-icon-warning":"mp-settings-icon-success")?>  "></label>
 
 							</div>
 							<div class="mp-settings-mode-warning">
 								<div class="mp-settings-margin-left">
 									<div class="mp-settings-alert-mode-title">
-										<span>Meios de pagamento Mercado Pago em Modo Teste </span>
+										<span id="mp-text-badge"> <?php echo esc_html('yes'=== ($checkbox_test_mode)? "Meios de pagamento Mercado Pago em Modo Teste": "Meios de pagamento Mercado Pago em Modo Produção")?></span> </span>
 									</div>
-									<div class="mp-settings-alert-mode-body">
-										<span class="mp-settings-blue-text">Visite sua loja</span> para testar compras
+									<div id="mp-helper-badge-div" class="mp-settings-alert-mode-body">
+										<span id="mp-helper-test"  style="display: <?php echo esc_html('yes'=== ($checkbox_test_mode)? "block;":"none;") ?>">
+										<a class="mp-settings-blue-text" id="mp-test-link" target="_blank" href="<?php echo esc_html(get_permalink( wc_get_page_id( 'shop' ) )); ?>"> Visite sua loja</a> para testar compras </span>
+										<span id="mp-helper-prod"  style="display: <?php echo esc_html('yes'=== ($checkbox_test_mode)? "none;":"block;") ?>"> Estamos no modo de produção</span>
 									</div>
 								</div>
 
 							</div>
 						</div>
-
-
 					</div>
 				</div>
 			</div>

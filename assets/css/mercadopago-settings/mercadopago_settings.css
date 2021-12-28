@@ -289,8 +289,6 @@
 
 	cursor: pointer;
 	color: rgba(0, 158, 227, 1) !important;
-}
-.mp-settings-blue-text a {
 	text-decoration: none;
 }
 .mp-settings-switch {
@@ -394,10 +392,10 @@ input:checked + .mp-settings-slider:before {
 	color: rgba(0, 0, 0, 0.55);
 }
 .mp-settings-test-mode-alert {
+	display: flex;
 	justify-content: center;
 	align-items: center;
 	padding: 7px 8px 5px;
-	width: 128px;
 	height: 24px;
 
 	position: static;
@@ -410,16 +408,59 @@ input:checked + .mp-settings-slider:before {
 
 	background: rgba(255, 119, 51, 0.1);
 	border-radius: 12px;
+
+	/* identical to box height, or 100% */
 	font-family: sans-serif;
 	font-size: 12px;
 	line-height: 12px;
-	/* identical to box height, or 100% */
-
-	display: flex;
-	align-items: center;
 	text-align: center;
 	color: #ff7733;
 }
+
+.mp-settings-prod-mode-alert {
+display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 7px 8px 5px;
+	width: 196px;
+	height: 24px;padding: 7px 8px 5px;
+
+	position: static;
+	width: 196px;
+	left: calc(50% - 196px/2);
+	top: 0%;
+	bottom: 0%;
+
+/* Extended palette/andes-green-100 */
+
+
+left: 4.08%;
+right: 4.08%;
+top: 29.17%;
+bottom: 20.83%;
+
+font-family: sans-serif;
+font-size: 12px;
+line-height: 12px;
+/* identical to box height, or 100% */
+
+text-align: center;
+
+/* Feedback/andes-green-500 */
+
+color: #00A650;
+
+
+/* Inside Auto Layout */
+
+
+
+background: rgba(0, 166, 80, 0.1);
+border-radius: 12px;
+
+
+}
+
 .mp-settings-fieldset {
 	margin: 0px 0px 24px 0px;
 }
@@ -457,6 +498,12 @@ input:checked + .mp-settings-slider:before {
 .mp-settings-alert-payment-methods-orange {
 	width: 6px;
 	background-color: #ff7733;
+	height: 72px;
+	border-radius: 6px 0 0 6px;
+}
+.mp-settings-alert-payment-methods-green {
+	width: 6px;
+	background-color: #00A650;;
 	height: 72px;
 	border-radius: 6px 0 0 6px;
 }
