@@ -247,9 +247,9 @@ function mp_payment_properties(gateway) {
       : "mp-settings-badge-inactive";
   var text_payment_active = gateway.enabled == "yes" ? "Ativado" : "Inativo";
   return (
-    '<a href="' +
+    ' <a href="' +
     gateway.link +
-    '" style="text-decoration: none;"> <div class="mp-block mp-block-flex mp-settings-payment-block mp-settings-margin-right mp-settings-align-div">\
+    '" class="mp-settings-link mp-settings-font-color"><div class="mp-block mp-block-flex mp-settings-payment-block mp-settings-margin-right mp-settings-align-div">\
       <div class="mp-settings-align-div">\
         <div class="mp-settings-icon ' +
     gateway.icon +
@@ -264,7 +264,7 @@ function mp_payment_properties(gateway) {
     '</span>\
       </div>\
       <div class="mp-settings-title-align">\
-        <span class="mp-settings-text-payment">Configurar</span>\
+      <span class="mp-settings-text-payment">Configurar</span>\
         <img class="mp-settings-icon-config">\
       </div>\
       </div></a>'
