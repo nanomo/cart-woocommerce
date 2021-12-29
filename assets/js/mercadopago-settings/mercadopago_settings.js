@@ -142,6 +142,7 @@ function update_option_credentials() {
       .post("update_option_credentials", credentials)
       .done(function (response) {
         console.log("ok");
+        mp_validate_fields();
       })
       .fail(function (error) {
         console.log("error");
@@ -166,6 +167,7 @@ function mp_validate_store_information() {
     wp.ajax
       .post("mp_validate_store_information", store_information)
       .done(function (response) {
+        mp_validate_fields();
         console.log(response);
       })
       .fail(function (error) {
@@ -271,6 +273,52 @@ function mp_payment_properties(gateway) {
   );
 }
 
+function mp_validate_fields() {
+  wp.ajax
+    .post("mp_validate_fields", {})
+    .done(function (response) {
+      const icon_credentials = document.getElementById(
+        "mp-settings-icon-credentials"
+      );
+      icon_credentials.classList.remove("mp-settings-icon-credentials");
+      icon_credentials.classList.add("mp-settings-icon-success");
+      console.log("ok validate credentials");
+    })
+    .fail(function (error) {
+      icon_credentials.classList.remove("mp-settings-icon-success");
+      console.log("error validate");
+    });
+
+  wp.ajax
+    .post("mp_validate_fields", {})
+    .done(function (response) {
+      const icon_store = document.getElementById("mp-settings-icon-store");
+      icon_store.classList.remove("mp-settings-icon-store");
+      icon_store.classList.add("mp-settings-icon-success");
+      console.log("ok validate store");
+    })
+    .fail(function (error) {
+      icon_store.classList.remove("mp-settings-icon-success");
+      console.log("error validate");
+    });
+}
+
+function mp_validate_field_payment() {
+  const icon_payment = document.getElementById("mp-settings-icon-payment");
+  wp.ajax
+    .post("mp_validate_field_payment", {})
+    .done(function (response) {
+      icon_payment.classList.remove("mp-settings-icon-payment");
+      icon_payment.classList.add("mp-settings-icon-success");
+      console.log("ok validate payment");
+    })
+    .fail(function (error) {
+      console.log(error);
+      icon_payment.classList.remove("mp-settings-icon-success");
+      console.log("error validate");
+    });
+}
+
 function mp_settings_screen_load() {
   mp_settings_accordion_start();
   mp_settings_accordion_options();
@@ -279,4 +327,6 @@ function mp_settings_screen_load() {
   update_option_credentials();
   mp_validate_store_information();
   mp_get_payment_properties();
+  mp_validate_fields();
+  mp_validate_field_payment();
 }

@@ -103,7 +103,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="mp-settings-title-align">
 			<div class="mp-settings-title-container">
 				<span class="mp-settings-font-color mp-settings-title-blocks mp-settings-margin-right">1. Integre a loja com o Mercado Pago</span>
-				<img class="mp-settings-margin-left mp-settings-margin-right mp-settings-icon-success">
+				<img class="mp-settings-margin-left mp-settings-margin-right" id="mp-settings-icon-credentials">
 			</div>
 			<div class="mp-settings-title-container mp-settings-margin-left">
 				<img class="mp-settings-icon-open">
@@ -154,7 +154,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="mp-settings-title-align">
 			<div class="mp-settings-title-container">
 				<span class="mp-settings-font-color mp-settings-title-blocks mp-settings-margin-right">2. Personalize seu negócio</span>
-				<img class="mp-settings-margin-left mp-settings-margin-right mp-settings-icon-success">
+				<img class="mp-settings-margin-left mp-settings-margin-right" id="mp-settings-icon-store">
 			</div>
 			<div class="mp-settings-title-container mp-settings-margin-left">
 				<img class="mp-settings-icon-open">
@@ -225,7 +225,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 									<legend class="mp-settings-label">integrator_id</legend>
 									<input type="text" class="mp-settings-input" id="mp-store-integrator-id" placeholder="Ex.: 14987126498" value="<?php echo esc_html( $integrator_id ); ?>">
 									<span class="mp-settings-helper">Se você é Parceiro certificado do Mercado Pago, não esqueça de inserir seu integrator_id.</span><br>
-									<span class="mp-settings-helper">Se você não possui o código, <span class="mp-settings-blue-text"><a target="_blank" href="<?php echo esc_html($devsite_links['dev_program']); ?>"> solicite agora<span>.</a></span>
+									<span class="mp-settings-helper">Se você não possui o código, <span class="mp-settings-blue-text"><a target="_blank" href="<?php echo esc_html($devsite_links['dev_program']); ?>"> solicite agora<span></a></span>
 
 								</fieldset>
 							</div>
@@ -260,7 +260,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="mp-settings-title-align">
 			<div class="mp-settings-title-container">
 				<span class="mp-settings-font-color mp-settings-title-blocks mp-settings-margin-right">3. Configure os meios de pagamento</span>
-				<img class="mp-settings-margin-left mp-settings-margin-right mp-settings-icon-success">
+				<img class="mp-settings-margin-left mp-settings-margin-right" id="mp-settings-icon-payment">
 			</div>
 
 			<div class="mp-settings-title-container mp-settings-margin-left">

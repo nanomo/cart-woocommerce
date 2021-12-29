@@ -104,6 +104,9 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 		add_action( 'wp_ajax_mp_validate_store_information', array($this, 'mp_validate_store_info'));
 		add_action( 'wp_ajax_mp_store_mode', array($this, 'mp_set_mode'));
 		add_action( 'wp_ajax_mp_get_payment_properties', array($this, 'mp_get_payment_class_properties'));
+		add_action( 'wp_ajax_mp_validate_fields', array($this, 'mp_validate_fields'));
+		add_action( 'wp_ajax_mp_validate_field_payment', array($this, 'mp_validate_field_payment'));
+
 	}
 
 	/**
@@ -273,6 +276,65 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 
 			wp_send_json_error( $response );
 		}
-
 	}
+	/**
+	 * Validate fields
+	 */
+	public function mp_validate_fields() {
+		try {
+			$public_key_test   = get_option( WC_WooMercadoPago_Options::CREDENTIALS_PUBLIC_KEY_TEST, '' );
+			$access_token_test = get_option( WC_WooMercadoPago_Options::CREDENTIALS_ACCESS_TOKEN_TEST, '' );
+			$public_key_prod   = get_option( WC_WooMercadoPago_Options::CREDENTIALS_PUBLIC_KEY_PROD, '' );
+			$access_token_prod = get_option( WC_WooMercadoPago_Options::CREDENTIALS_ACCESS_TOKEN_PROD, '' );
+
+			$statement_descriptor = get_option( 'mp_statement_descriptor', 'Mercado Pago' );
+			$category_id = get_option( '_mp_category_id', 'other' );
+			$identificator = get_option( '_mp_store_identificator', 'WC-' );
+
+			if ( $public_key_test &&  $access_token_test && $public_key_prod && $access_token_prod ) {
+				wp_send_json_success( 'sucess');
+			}
+
+			if($statement_descriptor && $category_id && $identificator){
+				wp_send_json_success( 'success' );
+			}
+
+				throw new Exception( 'error');
+
+		} catch ( Exception $e ) {
+			$response = [
+				'message' => $e->getMessage()
+			];
+
+			wp_send_json_error( $response );
+		}
+	}
+
+	/**
+	 * Validate field payment
+	 */
+	public function mp_validate_field_payment() {
+		try {
+		$payments_gateways          = WC_WooMercadoPago_Constants::PAYMENT_GATEWAYS;
+		$payment_gateway_properties = array();
+
+		foreach ( $payments_gateways as $payment_gateway ) {
+			$gateway = new $payment_gateway();
+
+			if($gateway->settings['enabled'] === 'yes'){
+				wp_send_json_success( 'sucess');
+			}
+
+			}
+		throw new Exception( 'error');
+
+	} catch ( Exception $e ) {
+			$response = [
+			'message' => $e->getMessage()
+			];
+
+		wp_send_json_error( $response );
+		}
+
+}
 }
