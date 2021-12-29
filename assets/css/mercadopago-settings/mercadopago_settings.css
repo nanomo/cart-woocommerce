@@ -417,47 +417,42 @@ input:checked + .mp-settings-slider:before {
 }
 
 .mp-settings-prod-mode-alert {
-display: flex;
+	display: flex;
 	justify-content: center;
 	align-items: center;
 	padding: 7px 8px 5px;
 	width: 196px;
-	height: 24px;padding: 7px 8px 5px;
+	height: 24px;
+	padding: 7px 8px 5px;
 
 	position: static;
 	width: 196px;
-	left: calc(50% - 196px/2);
+	left: calc(50% - 196px / 2);
 	top: 0%;
 	bottom: 0%;
 
-/* Extended palette/andes-green-100 */
+	/* Extended palette/andes-green-100 */
 
+	left: 4.08%;
+	right: 4.08%;
+	top: 29.17%;
+	bottom: 20.83%;
 
-left: 4.08%;
-right: 4.08%;
-top: 29.17%;
-bottom: 20.83%;
+	font-family: sans-serif;
+	font-size: 12px;
+	line-height: 12px;
+	/* identical to box height, or 100% */
 
-font-family: sans-serif;
-font-size: 12px;
-line-height: 12px;
-/* identical to box height, or 100% */
+	text-align: center;
 
-text-align: center;
+	/* Feedback/andes-green-500 */
 
-/* Feedback/andes-green-500 */
+	color: #00a650;
 
-color: #00A650;
+	/* Inside Auto Layout */
 
-
-/* Inside Auto Layout */
-
-
-
-background: rgba(0, 166, 80, 0.1);
-border-radius: 12px;
-
-
+	background: rgba(0, 166, 80, 0.1);
+	border-radius: 12px;
 }
 
 .mp-settings-fieldset {
@@ -502,7 +497,7 @@ border-radius: 12px;
 }
 .mp-settings-alert-payment-methods-green {
 	width: 6px;
-	background-color: #00A650;;
+	background-color: #00a650;
 	height: 72px;
 	border-radius: 6px 0 0 6px;
 }
@@ -677,6 +672,31 @@ border-radius: 12px;
 }
 .mp-settings-link {
 	text-decoration: none;
+}
+.alert-danger {
+	color: #842029;
+	background-color: #f8d7da;
+	border-color: #f5c2c7;
+}
+.alert-success {
+	color: #0f5132;
+	background-color: #d1e7dd;
+	border-color: #badbcc;
+}
+.alert {
+	position: relative;
+	padding: 1rem 1rem;
+	margin-bottom: 1rem;
+	border: 1px solid transparent;
+	border-radius: 0.25rem;
+}
+
+.text-center {
+	text-align: center !important;
+}
+.card-body {
+	flex: 1 1 auto;
+	padding: 1rem 1rem;
 }
 
 @media screen and (max-width: 780px) {

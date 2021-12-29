@@ -114,8 +114,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<p class="mp-settings-subtitle-font-size mp-settings-title-color">Para habilitar e testar e vendas, você
 					deve <b>copiar e colar suas credenciais abaixo.</b></p>
 			</div>
-			<div>
-			<a target="_blank" href="<?php echo esc_html($links['link_credentials']); ?>"><button class="mp-button mp-button-light-blue"> Consultar credenciais</button></a>
+			<div class="message-credentials">
+			<a class="heading-credentials" target="_blank" href="<?php echo esc_html($links['link_credentials']); ?>"><button class="mp-button mp-button-light-blue"> Consultar credenciais</button></a>
 			</div>
 			<div class="mp-container">
 				<div class="mp-block mp-block-flex mp-settings-margin-right">
@@ -160,9 +160,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<img class="mp-settings-icon-open">
 			</div>
 		</div>
-		<div class="mp-settings-block-align-top" style="display: none;">
+		<div class="message-store mp-settings-block-align-top" style="display: none;">
 			<p class="mp-settings-font-color mp-settings-subtitle-font-size mp-settings-title-color">Preencha as informações a seguir para ter uma melhor experiência e oferecer mais informações aos clientes</p>
-			<div class="mp-container mp-settings-flex-start" id="block-two">
+			<div class="heading-store mp-container mp-settings-flex-start" id="block-two">
 				<div class="mp-block mp-block-flex mp-settings-margin-right mp-settings-choose-mode">
 					<div>
 						<p class="mp-settings-title-font-size"><b>Informações sobre sua loja</b></p>
@@ -284,8 +284,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<img class="mp-settings-icon-open">
 			</div>
 		</div>
-		<div class="mp-settings-block-align-top" style="display: none;">
-			<p class="mp-settings-subtitle-font-size mp-settings-title-color">Teste a experiência no Modo Teste. Depois ative o Modo Vendas (Produção) para fazer vendas.</p>
+		<div class="message-test-mode mp-settings-block-align-top" style="display: none;">
+			<p class="heading-test-mode mp-settings-subtitle-font-size mp-settings-title-color">Teste a experiência no Modo Teste. Depois ative o Modo Vendas (Produção) para fazer vendas.</p>
 
 			<div class="mp-container">
 				<div class="mp-block mp-settings-choose-mode">

@@ -141,11 +141,15 @@ function update_option_credentials() {
     wp.ajax
       .post("update_option_credentials", credentials)
       .done(function (response) {
-        console.log("ok");
+        showMessage(
+          "Credenciais salvas com sucesso!",
+          "success",
+          "credentials"
+        );
         mp_validate_fields();
       })
       .fail(function (error) {
-        console.log("error");
+        showMessage("Credenciais inválidas!", "error", "credentials");
       });
   });
 }
@@ -167,10 +171,10 @@ function mp_validate_store_information() {
     wp.ajax
       .post("mp_validate_store_information", store_information)
       .done(function (response) {
-        console.log(response);
+        showMessage("Informações salvas!", "success", "store");
       })
       .fail(function (error) {
-        console.log(error);
+        showMessage(error, "error", "store");
       });
   });
 }
@@ -239,6 +243,8 @@ function mp_set_mode() {
             "Meios de pagamento Mercado Pago em Modo Teste";
           helper_test.style.display = "block";
           helper_prod.style.display = "none";
+
+          showMessage("Loja em modo teste!", "error", "test_mode");
         } else {
           badge.classList.remove("mp-settings-test-mode-alert");
           badge.classList.add("mp-settings-prod-mode-alert");
@@ -256,11 +262,12 @@ function mp_set_mode() {
             "Meios de pagamento Mercado Pago em Modo Produção";
           helper_test.style.display = "none";
           helper_prod.style.display = "block";
+          showMessage("Loja em modo Produção!", "success", "test_mode");
         }
         console.log(response);
       })
       .fail(function (error) {
-        console.log(error);
+        showMessage(error, "error", "test_mode");
       });
   });
 }
@@ -350,13 +357,56 @@ function mp_validate_field_payment() {
     .done(function (response) {
       icon_payment.classList.remove("mp-settings-icon-payment");
       icon_payment.classList.add("mp-settings-icon-success");
-      console.log("ok validate payment");
     })
     .fail(function (error) {
       console.log(error);
       icon_payment.classList.remove("mp-settings-icon-success");
-      console.log("error validate");
     });
+}
+
+function showMessage(message, type, block) {
+  const messageDiv = document.createElement("div");
+  var card = "";
+  var heading = "";
+
+  switch (block) {
+    case "credentials":
+      card = document.querySelector(".message-credentials");
+      heading = document.querySelector(".heading-credentials");
+      break;
+    case "store":
+      card = document.querySelector(".message-store");
+      heading = document.querySelector(".heading-store");
+      break;
+    case "payment":
+      card = document.querySelector(".message-payment");
+      heading = document.querySelector(".heading-payment");
+      break;
+    case "test_mode":
+      card = document.querySelector(".message-test-mode");
+      heading = document.querySelector(".heading-test-mode");
+      break;
+    default:
+      card = "";
+      heading = "";
+  }
+
+  type === "error"
+    ? (messageDiv.className = "alert alert-danger text-center card card-body")
+    : (messageDiv.className = "alert alert-success text-center card card-body");
+
+  messageDiv.appendChild(document.createTextNode(message));
+  card.insertBefore(messageDiv, heading);
+
+  setTimeout(clearMessage, 5000);
+}
+
+function clearMessage() {
+  document.querySelector(".alert").remove();
+}
+
+function reloadPage() {
+  location.reload();
 }
 
 function mp_settings_screen_load() {
