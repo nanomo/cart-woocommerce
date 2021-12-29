@@ -165,7 +165,7 @@ function mp_validate_store_information() {
         ?.value,
     };
     wp.ajax
-      .post(" ", store_information)
+      .post("mp_validate_store_information", store_information)
       .done(function (response) {
         console.log(response);
       })

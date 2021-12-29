@@ -299,7 +299,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 						<div>
 							<span class="mp-settings-font-color mp-settings-subtitle-font-size mp-settings-font-color">Modo Teste</span><br>
 
-							<span class="mp-settings-font-color mp-settings-subtitle-font-size mp-settings-title-color">Checkouts Mercado Pago inativos para cobranças reais.<span class="mp-settings-blue-text"><a target="_blank" href="<?php echo esc_html($devsite_links['shopping_testing']); ?>"> Regras do modo teste.</a><span></span>
+							<span class="mp-settings-font-color mp-settings-subtitle-font-size mp-settings-title-color">Checkouts Mercado Pago inativos para cobranças reais.<span><a class="mp-settings-blue-text" target="_blank" href="<?php echo esc_html($devsite_links['shopping_testing']); ?>"> Regras do modo teste.</a><span></span>
 						</div>
 					</div>
 					<div class="mp-settings-mode-container">

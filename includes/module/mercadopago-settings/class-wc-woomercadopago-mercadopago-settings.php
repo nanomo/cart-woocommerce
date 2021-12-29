@@ -315,8 +315,7 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 	 */
 	public function mp_validate_field_payment() {
 		try {
-		$payments_gateways          = WC_WooMercadoPago_Constants::PAYMENT_GATEWAYS;
-		$payment_gateway_properties = array();
+		$payments_gateways = WC_WooMercadoPago_Constants::PAYMENT_GATEWAYS;
 
 			foreach ( $payments_gateways as $payment_gateway ) {
 				$gateway = new $payment_gateway();
