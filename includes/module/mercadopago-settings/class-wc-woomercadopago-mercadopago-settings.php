@@ -220,13 +220,13 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 	}
 
 	/**
-	 * Validate store info Ajax
+	 * Switch store mode
 	 */
 	public function mp_set_mode() {
 		try {
-			$checkout_test_mode = WC_WooMercadoPago_Credentials::get_sanitize_text_from_post('input_value');
+			$checkout_test_mode = WC_WooMercadoPago_Credentials::get_sanitize_text_from_post('input_mode_value');
 
-			update_option( 'checkbox_checkout_test_mode'  , $checkout_test_mode, true );
+			update_option( 'checkbox_checkout_test_mode' , $checkout_test_mode, true );
 
 			wp_send_json_success( 'success' );
 
@@ -288,14 +288,14 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 			$access_token_prod = get_option( WC_WooMercadoPago_Options::CREDENTIALS_ACCESS_TOKEN_PROD, '' );
 
 			$statement_descriptor = get_option( 'mp_statement_descriptor', 'Mercado Pago' );
-			$category_id = get_option( '_mp_category_id', 'other' );
-			$identificator = get_option( '_mp_store_identificator', 'WC-' );
+			$category_id          = get_option( '_mp_category_id', 'other' );
+			$identificator        = get_option( '_mp_store_identificator', 'WC-' );
 
-			if ( $public_key_test &&  $access_token_test && $public_key_prod && $access_token_prod ) {
+			if ( $public_key_test && $access_token_test && $public_key_prod && $access_token_prod ) {
 				wp_send_json_success( 'sucess');
 			}
 
-			if($statement_descriptor && $category_id && $identificator){
+			if ( $statement_descriptor && $category_id && $identificator ) {
 				wp_send_json_success( 'success' );
 			}
 
@@ -318,23 +318,22 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 		$payments_gateways          = WC_WooMercadoPago_Constants::PAYMENT_GATEWAYS;
 		$payment_gateway_properties = array();
 
-		foreach ( $payments_gateways as $payment_gateway ) {
-			$gateway = new $payment_gateway();
+			foreach ( $payments_gateways as $payment_gateway ) {
+				$gateway = new $payment_gateway();
 
-			if($gateway->settings['enabled'] === 'yes'){
-				wp_send_json_success( 'sucess');
-			}
-
+				if ( 'yes' === $gateway->settings['enabled'] ) {
+					wp_send_json_success( 'sucess');
+				}
 			}
 		throw new Exception( 'error');
 
-	} catch ( Exception $e ) {
+		} catch ( Exception $e ) {
 			$response = [
 			'message' => $e->getMessage()
 			];
 
-		wp_send_json_error( $response );
+			wp_send_json_error( $response );
 		}
 
-}
+	}
 }
