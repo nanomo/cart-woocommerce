@@ -263,7 +263,6 @@ function mp_set_mode() {
           helper_prod.style.display = "block";
           showMessage("Loja em modo Produção!", "success", "test_mode");
         }
-        console.log(response);
       })
       .fail(function (error) {
         showMessage(error, "error", "test_mode");
@@ -277,7 +276,6 @@ function mp_get_payment_properties() {
     .done(function (response) {
       const payment = document.getElementById("mp-payment");
       response.forEach((gateway) => {
-        console.log(gateway);
         payment.insertAdjacentHTML("afterend", mp_payment_properties(gateway));
         mp_payment_properties(gateway);
       });
@@ -328,11 +326,9 @@ function mp_validate_fields() {
       );
       icon_credentials.classList.remove("mp-settings-icon-credentials");
       icon_credentials.classList.add("mp-settings-icon-success");
-      console.log("ok validate credentials");
     })
     .fail(function (error) {
       icon_credentials.classList.remove("mp-settings-icon-success");
-      console.log("error validate");
     });
 
   wp.ajax
@@ -341,11 +337,9 @@ function mp_validate_fields() {
       const icon_store = document.getElementById("mp-settings-icon-store");
       icon_store.classList.remove("mp-settings-icon-store");
       icon_store.classList.add("mp-settings-icon-success");
-      console.log("ok validate store");
     })
     .fail(function (error) {
       icon_store.classList.remove("mp-settings-icon-success");
-      console.log("error validate");
     });
 }
 
@@ -358,7 +352,6 @@ function mp_validate_field_payment() {
       icon_payment.classList.add("mp-settings-icon-success");
     })
     .fail(function (error) {
-      console.log(error);
       icon_payment.classList.remove("mp-settings-icon-success");
     });
 }

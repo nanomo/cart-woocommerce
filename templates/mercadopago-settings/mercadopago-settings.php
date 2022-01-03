@@ -24,18 +24,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="mp-settings-header-img"></div>
 		<div class="mp-settings-header-logo"></div>
 		<hr class="mp-settings-header-hr"/>
-		<p>Aceite <b>pagamentos no ato</b> com<br/>
-			toda a <b>segurança</b> Mercado Pago</p>
+		<p><?php echo esc_html($admin_header['title_head_part_one']); ?><b><?php echo esc_html($admin_header['title_head_part_two']); ?></b> <?php echo esc_html($admin_header['title_head_part_three']); ?> </br> <?php echo esc_html($admin_header['title_head_part_four']); ?> <b> <?php echo esc_html($admin_header['title_head_part_six']); ?></b><?php echo esc_html($admin_header['title_head_part_seven']); ?></p>
 	</div>
 	<div class="mp-settings-requirements">
 		<div class="mp-container">
 			<div class="mp-block mp-block-requirements mp-settings-margin-right">
-				<p class="mp-settings-font-color mp-settings-title-requirements-font-size">Requisitos técnicos</p>
+				<p class="mp-settings-font-color mp-settings-title-requirements-font-size"><?php echo esc_html($admin_header['title_requirements']); ?></p>
 				<div class="mp-inner-container">
 					<div>
-						<p class="mp-settings-font-color mp-settings-subtitle-font-size">SSL</p>
-						<label class="mp-settings-icon-info mp-settings-tooltip">
-							<span class="mp-settings-tooltip-text"><p class="mp-settings-subtitle-font-size"><b>SSL</b></p>Implementação responsável pela transmissão de dados para o Mercado Pago de maneira segura e criptografada.</span>
+						<p class="mp-settings-font-color mp-settings-subtitle-font-size"><?php echo esc_html($admin_header['ssl']); ?></p>
+						<label class="mp-settings-icon-info mp-settings-tooltip"><span class="mp-settings-tooltip-text"><p class="mp-settings-subtitle-font-size"><b><?php echo esc_html($admin_header['ssl']); ?></b></p><?php echo esc_html($admin_header['description_ssl']); ?></span>
 						</label>
 					</div>
 					<div>
@@ -44,10 +42,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 				</div>
 				<hr>
 				<div class="mp-inner-container">
-					<div>
-						<p class="mp-settings-font-color mp-settings-subtitle-font-size">Extensões GD</p>
+					<div><?php echo esc_html($admin_header['gd_extensions']); ?></p>
 						<label class="mp-settings-icon-info mp-settings-tooltip">
-							<span class="mp-settings-tooltip-text"><p class="mp-settings-subtitle-font-size"><b>Extensões GD</b></p>São extensões responsáveis pela implementação e funcionamento do Pix na sua loja.</span>
+							<span class="mp-settings-tooltip-text"><p class="mp-settings-subtitle-font-size"><b><?php echo esc_html($admin_header['gd_extensions']); ?></b></p><?php echo esc_html($admin_header['description_gd_extensions']); ?></span>
 						</label>
 					</div>
 					<div>
@@ -57,9 +54,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<hr>
 				<div class="mp-inner-container">
 					<div>
-						<p class="mp-settings-font-color mp-settings-subtitle-font-size">Curl</p>
-						<label class="mp-settings-icon-info mp-settings-tooltip">
-							<span class="mp-settings-tooltip-text"><p class="mp-settings-subtitle-font-size"><b>Curl</b></p>É uma extensão responsável pela realização de pagamentos via requests do plugin ao Mercado Pago.</span>
+						<p class="mp-settings-font-color mp-settings-subtitle-font-size"><?php echo esc_html($admin_header['curl']); ?></p><label class="mp-settings-icon-info mp-settings-tooltip">
+							<span class="mp-settings-tooltip-text"><p class="mp-settings-subtitle-font-size"><b><?php echo esc_html($admin_header['curl']); ?></b></p><?php echo esc_html($admin_header['description_curl']); ?></span>
 						</label>
 					</div>
 					<div>
@@ -70,28 +66,25 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<div class="mp-block mp-block-flex mp-settings-margin-left mp-settings-margin-right">
 				<div class="mp-inner-container-settings">
 					<div>
-						<p class="mp-settings-font-color mp-settings-title-font-size">Recebimentos e parcelamento</p>
-						<p class="mp-settings-font-color mp-settings-subtitle-font-size mp-settings-title-color">Escolha
-							<b>quando quer receber o dinheiro</b> das vendas e se quer oferecer
-							<b>parcelamento sem
-								juros</b> aos clientes.
+						<p class="mp-settings-font-color mp-settings-title-font-size"><?php echo esc_html($admin_header['title_installments']); ?></p>
+						<p class="mp-settings-font-color mp-settings-subtitle-font-size mp-settings-title-color"><?php echo esc_html($admin_header['descripition_installments']); ?>
+							<b><?php echo esc_html($admin_header['descripition_installments_one']); ?></b> <?php echo esc_html($admin_header['descripition_installments_two']); ?>
+							<b><?php echo esc_html($admin_header['descripition_installments_three']); ?></b> <?php echo esc_html($admin_header['descripition_installments_four']); ?>
 						</p>
 					</div>
 					<div>
-					<a target="_blank" href="<?php echo esc_html($links['link_costs']); ?>"><button class="mp-button">Ajustar prazos e taxas</button></a>
+					<a target="_blank" href="<?php echo esc_html($links['link_costs']); ?>"><button class="mp-button"><?php echo esc_html($admin_header['button_installments']); ?></button></a>
 					</div>
 				</div>
 			</div>
 			<div class="mp-block mp-block-flex mp-block-manual mp-settings-margin-left">
 				<div class="mp-inner-container-settings">
 					<div>
-						<p class="mp-settings-font-color mp-settings-title-font-size">Dúvidas?</p>
-						<p class="mp-settings-font-color mp-settings-subtitle-font-size mp-settings-title-color">Revise
-							o passo a passo de <span>como integrar o Plugin do Mercado Pago</span> no nosso site de
-							desenvolvedores. </p>
+						<p class="mp-settings-font-color mp-settings-title-font-size"><?php echo esc_html($admin_header['title_questions']); ?></p>
+						<p class="mp-settings-font-color mp-settings-subtitle-font-size mp-settings-title-color"><?php echo esc_html($admin_header['descripition_questions_one']); ?> <span><?php echo esc_html($admin_header['descripition_questions_two']); ?> </span> <?php echo esc_html($admin_header['descripition_questions_three']); ?> </p>
 					</div>
 					<div>
-					<a target="_blank" href="<?php echo esc_html($links['link_guides_plugin']); ?>"><button class="mp-button mp-button-light-blue"> Manual do plugin</button></a>
+					<a target="_blank" href="<?php echo esc_html($links['link_guides_plugin']); ?>"><button class="mp-button mp-button-light-blue"> <?php echo esc_html($admin_header['button_questions']); ?></button></a>
 					</div>
 				</div>
 			</div>
@@ -102,7 +95,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<div class="mp-settings-credentials">
 		<div class="mp-settings-title-align">
 			<div class="mp-settings-title-container">
-				<span class="mp-settings-font-color mp-settings-title-blocks mp-settings-margin-right">1. Integre a loja com o Mercado Pago</span>
+				<span class="mp-settings-font-color mp-settings-title-blocks mp-settings-margin-right"><?php echo esc_html($admin_credential['title_credentials']); ?></span>
 				<img class="mp-settings-margin-left mp-settings-margin-right" id="mp-settings-icon-credentials">
 			</div>
 			<div class="mp-settings-title-container mp-settings-margin-left">
@@ -111,41 +104,38 @@ if ( ! defined( 'ABSPATH' ) ) {
 		</div>
 		<div id="step-1" class="mp-settings-block-align-top" style="display: none;">
 			<div>
-				<p class="mp-settings-subtitle-font-size mp-settings-title-color">Para habilitar e testar e vendas, você
-					deve <b>copiar e colar suas credenciais abaixo.</b></p>
+				<p class="mp-settings-subtitle-font-size mp-settings-title-color"><?php echo esc_html($admin_credential['subtitle_credentials_one']); ?> <b><?php echo esc_html($admin_credential['subtitle_credentials_two']); ?></b></p>
 			</div>
 			<div class="message-credentials">
-			<a class="heading-credentials" target="_blank" href="<?php echo esc_html($links['link_credentials']); ?>"><button class="mp-button mp-button-light-blue"> Consultar credenciais</button></a>
+			<a class="heading-credentials" target="_blank" href="<?php echo esc_html($links['link_credentials']); ?>"><button class="mp-button mp-button-light-blue"> <?php echo esc_html($admin_credential['button_link_credentials']); ?></button></a>
 			</div>
 			<div class="mp-container">
 				<div class="mp-block mp-block-flex mp-settings-margin-right">
-					<p class="mp-settings-title-font-size"><b>Credenciais de teste</b></p>
-					<p class="mp-settings-label mp-settings-title-color mp-settings-margin-bottom">Habilitam os
-						checkouts Mercado Pago para testes de compras na loja.</p>
+					<p class="mp-settings-title-font-size"><b> <?php echo esc_html($admin_credential['title_credential_test']); ?> </b> </p>
+					<p class="mp-settings-label mp-settings-title-color mp-settings-margin-bottom"><?php echo esc_html($admin_credential['subtitle_credential_test']); ?></p>
 					<fieldset class="mp-settings-fieldset">
-						<legend class="mp-settings-label mp-settings-font-color">Public Key</legend>
-						<input class="mp-settings-input mp-credential-feedback-positive" id="mp-public-key-test" type="text" value="<?php echo esc_html($options_credentials['credentials_public_key_test']); ?>" placeholder="Cole aqui sua Public Key">
+						<legend class="mp-settings-label mp-settings-font-color"><?php echo esc_html($admin_credential['public_key']); ?></legend>
+						<input class="mp-settings-input mp-credential-feedback-positive" id="mp-public-key-test" type="text" value="<?php echo esc_html($options_credentials['credentials_public_key_test']); ?>" placeholder="<?php echo esc_html($admin_credential['placeholder_public_key']); ?>">
 					</fieldset>
 					<fieldset>
-						<legend class="mp-settings-label">Access token</legend>
-						<input class="mp-settings-input mp-credential-feedback-positive" id="mp-access-token-test" type="text" value="<?php echo esc_html($options_credentials['credentials_access_token_test']); ?>" placeholder="Cole aqui seu Access Token" >
+						<legend class="mp-settings-label"><?php echo esc_html($admin_credential['access_token']); ?></legend>
+						<input class="mp-settings-input mp-credential-feedback-positive" id="mp-access-token-test" type="text" value="<?php echo esc_html($options_credentials['credentials_access_token_test']); ?>" placeholder="<?php echo esc_html($admin_credential['placeholder_access_token']); ?>" >
 					</fieldset>
 				</div>
 				<div class="mp-block mp-block-flex mp-settings-margin-left">
-					<p class="mp-settings-title-font-size"><b>Credenciais de produção</b></p>
-					<p class="mp-settings-label mp-settings-title-color mp-settings-margin-bottom">Habilitam os
-						checkouts Mercado Pago para receber pagamentos reais na loja.</p>
+					<p class="mp-settings-title-font-size"><b><?php echo esc_html($admin_credential['title_credential_prod']); ?></b></p>
+					<p class="mp-settings-label mp-settings-title-color mp-settings-margin-bottom"><?php echo esc_html($admin_credential['subtitle_credential_prod']); ?></p>
 					<fieldset class="mp-settings-fieldset">
-						<legend class="mp-settings-label">Public Key</legend>
-						<input class="mp-settings-input mp-credential-feedback-positive" id="mp-public-key-prod" type="text" value="<?php echo esc_html($options_credentials['credentials_public_key_prod']); ?>" placeholder="Cole aqui seu Access Token">
+						<legend class="mp-settings-label"><?php echo esc_html($admin_credential['public_key']); ?></legend>
+						<input class="mp-settings-input mp-credential-feedback-positive" id="mp-public-key-prod" type="text" value="<?php echo esc_html($options_credentials['credentials_public_key_prod']); ?>" placeholder="<?php echo esc_html($admin_credential['placeholder_public_key']); ?>">
 					</fieldset>
 					<fieldset>
-						<legend class="mp-settings-label">Access token</legend>
-						<input class="mp-settings-input mp-credential-feedback-positive" id="mp-access-token-prod" type="text" value="<?php echo esc_html($options_credentials['credentials_access_token_prod']); ?>" placeholder="Cole aqui seu Access Token">
+						<legend class="mp-settings-label"><?php echo esc_html($admin_credential['access_token']); ?></legend>
+						<input class="mp-settings-input mp-credential-feedback-positive" id="mp-access-token-prod" type="text" value="<?php echo esc_html($options_credentials['credentials_access_token_prod']); ?>" placeholder="<?php echo esc_html($admin_credential['placeholder_access_token']); ?>">
 					</fieldset>
 				</div>
 			</div>
-			<button class="mp-button" id="mp-btn-credentials" > Salvar e continuar</button>
+			<button class="mp-button" id="mp-btn-credentials" > <?php echo esc_html($admin_credential['button_credentials']); ?></button>
 		</div>
 	</div>
 
@@ -153,39 +143,39 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<div class="mp-settings-credentials">
 		<div class="mp-settings-title-align">
 			<div class="mp-settings-title-container">
-				<span class="mp-settings-font-color mp-settings-title-blocks mp-settings-margin-right">2. Personalize seu negócio</span>
+				<span class="mp-settings-font-color mp-settings-title-blocks mp-settings-margin-right"><?php echo esc_html($admin_store['title_store']); ?></span>
 				<img class="mp-settings-margin-left mp-settings-margin-right" id="mp-settings-icon-store">
 			</div>
 			<div class="mp-settings-title-container mp-settings-margin-left">
 				<img class="mp-settings-icon-open">
 			</div>
 		</div>
-		<div id="step-2" class="message-store mp-settings-block-align-top" style="display: none;">
-			<p class="mp-settings-font-color mp-settings-subtitle-font-size mp-settings-title-color">Preencha as informações a seguir para ter uma melhor experiência e oferecer mais informações aos clientes</p>
+			<div id="step-2" class="message-store mp-settings-block-align-top" style="display: none;">
+			<p class="mp-settings-font-color mp-settings-subtitle-font-size mp-settings-title-color"><?php echo esc_html($admin_store['subtitle_store']); ?></p>
 			<div class="heading-store mp-container mp-settings-flex-start" id="block-two">
 				<div class="mp-block mp-block-flex mp-settings-margin-right mp-settings-choose-mode">
 					<div>
-						<p class="mp-settings-title-font-size"><b>Informações sobre sua loja</b></p>
+						<p class="mp-settings-title-font-size"><b><?php echo esc_html($admin_store['title_info_store']); ?></b></p>
 					</div>
 					<div class="mp-settings-standard-margin">
 						<fieldset>
-							<legend class="mp-settings-label">Nome da sua loja nas faturas do cliente</legend>
-							<input type="text" class="mp-settings-input" id="mp-store-identificator" placeholder= "Ex.:Loja da Maria" value="<?php echo esc_html($store_identificator); ?>">
+							<legend class="mp-settings-label"><?php echo esc_html($admin_store['subtitle_name_store']); ?></legend>
+							<input type="text" class="mp-settings-input" id="mp-store-identificator" placeholder= "<?php echo esc_html($admin_store['placeholder_name_store']); ?>" value="<?php echo esc_html($store_identificator); ?>">
 						</fieldset>
-						<span class="mp-settings-helper">Se o campo estiver vazio, a compra do cliente será identificada como Mercado Pago.</span>
+						<span class="mp-settings-helper"><?php echo esc_html($admin_store['helper_name_store']); ?></span>
 					</div>
 					<div class="mp-settings-standard-margin">
 						<fieldset>
-							<legend class="mp-settings-label">Identificação em Atividades do Mercado Pago</legend>
-							<input type="text" class="mp-settings-input" id="mp-store-category-id" placeholder="Ex.:Loja da Maria" value="<?php echo esc_html($category_id); ?>">
+							<legend class="mp-settings-label"><?php echo esc_html($admin_store['subtitle_activities_store']); ?></legend>
+							<input type="text" class="mp-settings-input" id="mp-store-category-id" placeholder="<?php echo esc_html($admin_store['placeholder_activities_store']); ?>" value="<?php echo esc_html($category_id); ?>">
 						</fieldset>
-						<span class="mp-settings-helper">Nas Ativades voce verá o termo inserido antes do númer o do pedido</span>
+						<span class="mp-settings-helper"><?php echo esc_html($admin_store['helper_activities_store']); ?></span>
 					</div>
 					<div class="mp-settings-standard-margin">
 
-						<label class="mp-settings-label mp-container">Categoria da loja</label>
+						<label class="mp-settings-label mp-container"><?php echo esc_html($admin_store['subtitle_category_store']); ?></label>
 
-						<select name="select" class="mp-settings-select" id="mp-store-categories">
+						<select name="<?php echo esc_html($admin_store['placeholder_category_store']); ?>" class="mp-settings-select" id="mp-store-categories">
 
 						<?php
 						for ( $i = 0; $i < count($categories_store['store_categories_description']); $i++ ) { // phpcs:ignore
@@ -195,37 +185,37 @@ if ( ! defined( 'ABSPATH' ) ) {
 						}
 						?>
 						</select>
-						<span class="mp-settings-helper">Selecione ”Outro” caso não encontre uma categoria adequada.</span>
+						<span class="mp-settings-helper"><?php echo esc_html($admin_store['helper_category_store']); ?></span>
 					</div>
 				</div>
 
 				<div class="mp-block mp-block-flex mp-block-manual mp-settings-margin-left">
 					<div>
-						<p class="mp-settings-title-font-size"><b>Opções avançadas de integração (opcional)</b></p>
+						<p class="mp-settings-title-font-size"><b><?php echo esc_html($admin_store['title_advanced_store']); ?></b></p>
 					</div>
 					<p class="mp-settings-font-color mp-settings-subtitle-font-size mp-settings-title-color">
-						Para mais integração da sua loja com o Mercado Pago (IPN, Parceiros Certificados, Modo Debug)
+					<?php echo esc_html($admin_store['subtitle_advanced_store']); ?>
 					</p>
 					<div>
 						<p class="mp-settings-blue-text" id="options">
-							Ver opções avançadas
+						<?php echo esc_html($admin_store['accordion_advanced_store']); ?>
 						</p>
 						<div class="mp-settings-advanced-options" style="display:none">
 							<div class="mp-settings-standard-margin">
 								<fieldset>
 
-									<legend class="mp-settings-label">URL para IPN</legend>
-									<input type="text" class="mp-settings-input" id="mp-store-url-ipn" placeholder="Ex.: https://examples.com/my-custom-ipn-url" value="<?php echo esc_html($url_ipn); ?>">
-									<span class="mp-settings-helper">Insira a URL para receber notificações de pagamento. Confira mais informções nos <span class="mp-settings-blue-text"><a target="_blank" href="<?php echo esc_html($devsite_links['notifications_ipn']); ?>" >manuais.</a></span>
+									<legend class="mp-settings-label"><?php echo esc_html($admin_store['subtitle_url']); ?></legend>
+									<input type="text" class="mp-settings-input" id="mp-store-url-ipn" placeholder="<?php echo esc_html($admin_store['placeholder_url']); ?>" value="<?php echo esc_html($url_ipn); ?>">
+									<span class="mp-settings-helper"><?php echo esc_html($admin_store['helper_url']); ?> <span class="mp-settings-blue-text"><a target="_blank" href="<?php echo esc_html($devsite_links['notifications_ipn']); ?>" ><?php echo esc_html($admin_store['helper_url_link']); ?></a></span>
 								</fieldset>
 							</div>
 							<div class="mp-settings-standard-margin">
 								<fieldset>
 
-									<legend class="mp-settings-label">integrator_id</legend>
-									<input type="text" class="mp-settings-input" id="mp-store-integrator-id" placeholder="Ex.: 14987126498" value="<?php echo esc_html( $integrator_id ); ?>">
-									<span class="mp-settings-helper">Se você é Parceiro certificado do Mercado Pago, não esqueça de inserir seu integrator_id.</span><br>
-									<span class="mp-settings-helper">Se você não possui o código, <span class="mp-settings-blue-text"><a target="_blank" href="<?php echo esc_html($devsite_links['dev_program']); ?>"> solicite agora<span></a></span>
+									<legend class="mp-settings-label"><?php echo esc_html($admin_store['subtitle_integrator']); ?></legend>
+									<input type="text" class="mp-settings-input" id="mp-store-integrator-id" placeholder="<?php echo esc_html($admin_store['placeholder_integrator']); ?>" value="<?php echo esc_html( $integrator_id ); ?>">
+									<span class="mp-settings-helper"><?php echo esc_html($admin_store['helper_integrator']); ?></span><br>
+									<span class="mp-settings-helper"><span class="mp-settings-blue-text"><a target="_blank" href="<?php echo esc_html($devsite_links['dev_program']); ?>"> <?php echo esc_html($admin_store['helper_integrator_link']); ?><span></a></span>
 
 								</fieldset>
 							</div>
@@ -240,10 +230,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 								</div>
 								<div class="mp-settings-margin-left">
 									<p class="mp-settings-subtitle-font-size mp-settings-debug">
-										Modo debug e log
+									<?php echo esc_html($admin_store['title_debug']); ?>
 									</p>
 									<p class="mp-settings-font-color mp-settings-subtitle-font-size mp-settings-title-color mp-settings-debug">
-										Gravamos ações da sua loja para proporcionar melhor suporte.
+									<?php echo esc_html($admin_store['subtitle_debug']); ?>
 									</p>
 								</div>
 							</div>
@@ -251,7 +241,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					</div>
 				</div>
 			</div>
-			<button class="mp-button" id="mp-store-info-save"> Salvar e continuar </button>
+			<button class="mp-button" id="mp-store-info-save"> <?php echo esc_html($admin_store['button_store']); ?> </button>
 		</div>
 	</div>
 
@@ -259,7 +249,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<div class="mp-settings-payment">
 		<div class="mp-settings-title-align">
 			<div class="mp-settings-title-container">
-				<span class="mp-settings-font-color mp-settings-title-blocks mp-settings-margin-right">3. Configure os meios de pagamento</span>
+				<span class="mp-settings-font-color mp-settings-title-blocks mp-settings-margin-right"><?php echo esc_html($admin_payment['title_payments']); ?></span>
 				<img class="mp-settings-margin-left mp-settings-margin-right" id="mp-settings-icon-payment">
 			</div>
 
@@ -268,8 +258,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 			</div>
 		</div>
 		<div id="step-3" class="mp-settings-block-align-top" style="display: none;">
-			<p id="mp-payment" class="mp-settings-subtitle-font-size">Selecione um meio de pagamento a seguir para ver mais opções</p>
-			<button class="mp-button"> Continuar </button>
+			<p id="mp-payment" class="mp-settings-subtitle-font-size"><?php echo esc_html($admin_payment['subtitle_payments']); ?></p>
+			<button class="mp-button"> <?php echo esc_html($admin_payment['button_payment']); ?></button>
 		</div>
 	</div>
 	<hr class="mp-settings-hr" />
