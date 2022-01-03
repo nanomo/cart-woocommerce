@@ -147,9 +147,11 @@ function update_option_credentials() {
           "credentials"
         );
         mp_validate_fields();
+        saveStep("step-1", "step-2");
       })
       .fail(function (error) {
         showMessage("Credenciais inválidas!", "error", "credentials");
+        saveStep("step-1", "step-2");
       });
   });
 }
@@ -158,20 +160,18 @@ function mp_validate_store_information() {
   button = document.getElementById("mp-store-info-save");
   button.addEventListener("click", function () {
     const store_information = {
-      store_identificator: document.getElementById("mp-store-identificator")
-        .value,
+      store_identificator: document.getElementById("mp-store-identificator").value,
       store_category_id: document.getElementById("mp-store-category-id").value,
       store_categories: document.getElementById("mp-store-categories").value,
       store_url_ipn: document.querySelector("#mp-store-url-ipn").value,
-      store_integrator_id: document.getElementById("mp-store-integrator-id")
-        .value,
-      store_debug_mode: document.querySelector("#mp-store-debug-mode:checked")
-        ?.value,
+      store_integrator_id: document.getElementById("mp-store-integrator-id").value,
+      store_debug_mode: document.querySelector("#mp-store-debug-mode:checked")?.value,
     };
     wp.ajax
       .post("mp_validate_store_information", store_information)
       .done(function (response) {
         showMessage("Informações salvas!", "success", "store");
+        saveStep("step-2", "step-3");
       })
       .fail(function (error) {
         showMessage(error, "error", "store");
@@ -221,7 +221,6 @@ function mp_set_mode() {
         var color_badge = document.getElementById("mp-orange-badge");
         var icon_badge = document.getElementById("mp-icon-badge");
         var text_badge = document.getElementById("mp-text-badge");
-        var helper_badge = document.getElementById("mp-helper-badge");
         var helper_test = document.getElementById("mp-helper-test");
         var helper_prod = document.getElementById("mp-helper-prod");
 
@@ -403,6 +402,17 @@ function showMessage(message, type, block) {
 
 function clearMessage() {
   document.querySelector(".alert").remove();
+}
+
+function saveStep(actualStep, nextStep){
+  var actual = document.getElementById(actualStep);
+  var next = document.getElementById(nextStep);
+      if (actual.style.display === "block" && next.style.display === "none") {
+
+        console.log("chegando aqui")
+        actual.style.display = "none" ;
+        next.style.display = "block";
+      }
 }
 
 function reloadPage() {

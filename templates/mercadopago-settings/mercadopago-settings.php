@@ -109,7 +109,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<img class="mp-settings-icon-open">
 			</div>
 		</div>
-		<div class="mp-settings-block-align-top" style="display: none;">
+		<div id="step-1" class="mp-settings-block-align-top" style="display: none;">
 			<div>
 				<p class="mp-settings-subtitle-font-size mp-settings-title-color">Para habilitar e testar e vendas, você
 					deve <b>copiar e colar suas credenciais abaixo.</b></p>
@@ -160,7 +160,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<img class="mp-settings-icon-open">
 			</div>
 		</div>
-		<div class="message-store mp-settings-block-align-top" style="display: none;">
+		<div id="step-2" class="message-store mp-settings-block-align-top" style="display: none;">
 			<p class="mp-settings-font-color mp-settings-subtitle-font-size mp-settings-title-color">Preencha as informações a seguir para ter uma melhor experiência e oferecer mais informações aos clientes</p>
 			<div class="heading-store mp-container mp-settings-flex-start" id="block-two">
 				<div class="mp-block mp-block-flex mp-settings-margin-right mp-settings-choose-mode">
@@ -267,7 +267,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<img class="mp-settings-icon-open">
 			</div>
 		</div>
-		<div class="mp-settings-block-align-top" style="display: none;">
+		<div id="step-3" class="mp-settings-block-align-top" style="display: none;">
 			<p id="mp-payment" class="mp-settings-subtitle-font-size">Selecione um meio de pagamento a seguir para ver mais opções</p>
 			<button class="mp-button"> Continuar </button>
 		</div>
@@ -284,7 +284,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<img class="mp-settings-icon-open">
 			</div>
 		</div>
-		<div class="message-test-mode mp-settings-block-align-top" style="display: none;">
+		<div id="step-4" class="message-test-mode mp-settings-block-align-top" style="display: none;">
 			<p class="heading-test-mode mp-settings-subtitle-font-size mp-settings-title-color">Teste a experiência no Modo Teste. Depois ative o Modo Vendas (Produção) para fazer vendas.</p>
 
 			<div class="mp-container">
