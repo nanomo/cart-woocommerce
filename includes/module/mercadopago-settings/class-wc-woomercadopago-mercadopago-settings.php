@@ -396,10 +396,10 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 		try {
 			$payments_gateways          = WC_WooMercadoPago_Constants::PAYMENT_GATEWAYS;
 			$payment_gateway_properties = array();
-			$wc_country = WC_WooMercadoPago_Module::get_woocommerce_default_country();
+			$wc_country                 = WC_WooMercadoPago_Module::get_woocommerce_default_country();
 
 			foreach ( $payments_gateways as $payment_gateway ) {
-				if($payment_gateway === 'WC_WooMercadoPago_Pix_Gateway' && $wc_country !== 'BR' ){
+				if ( 'WC_WooMercadoPago_Pix_Gateway' === $payment_gateway && 'BR' !== $wc_country ) {
 					continue;
 				}
 				$gateway = new $payment_gateway();

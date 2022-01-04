@@ -291,7 +291,6 @@ function mp_get_payment_properties() {
   wp.ajax
     .post("mp_get_payment_properties", {})
     .done(function (response) {
-      console.log(response);
       const payment = document.getElementById("mp-payment");
       response.forEach((gateway) => {
         payment.insertAdjacentHTML("afterend", mp_payment_properties(gateway));
