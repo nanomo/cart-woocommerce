@@ -160,7 +160,7 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 
 		$field_credential = array(
 
-		'title_credentials'             => __('1. Integrate your store with Mercado Pago  ', 'woocommerce-mercadopago'),
+			'title_credentials'             => __('1. Integrate your store with Mercado Pago  ', 'woocommerce-mercadopago'),
 			'subtitle_credentials_one'          => __('To enable and test sales, you must copy and paste your ', 'woocommerce-mercadopago'),
 			'subtitle_credentials_two'          => __('credentials below.', 'woocommerce-mercadopago'),
 			'button_link_credentials'     => __('Check credentials', 'woocommerce-mercadopago'),
@@ -257,6 +257,8 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 			'subtitle_link_test'  => __('Visit your store ', 'woocommerce-mercadopago'),
 			'subtitle_message_test'  => __('to test purchases', 'woocommerce-mercadopago'),
 			'button_mode' => __('Save changes', 'woocommerce-mercadopago'),
+			'badge_test' => __('Store under test', 'woocommerce-mercadopago'),
+			'badge_mode' => __('Store in sale mode (Production)', 'woocommerce-mercadopago'),
 		);
 		return $field_test_mode;
 	}

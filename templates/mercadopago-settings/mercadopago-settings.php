@@ -266,30 +266,30 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<div class="mp-settings-mode">
 		<div class="mp-settings-title-align">
 			<div class="mp-settings-title-container">
-				<span class="mp-settings-font-color mp-settings-title-blocks mp-settings-margin-right">4. Teste sua loja antes de vender</span>
+				<span class="mp-settings-font-color mp-settings-title-blocks mp-settings-margin-right"><?php echo esc_html($admin_test_mode['title_test_mode']); ?></span>
 				<div id="mp-mode-badge" class="mp-settings-margin-left mp-settings-margin-right <?php echo esc_html('yes' === ( $checkbox_test_mode ) ? 'mp-settings-test-mode-alert' : 'mp-settings-prod-mode-alert'); ?>  ">
-				<span><?php echo esc_html('yes' === ( $checkbox_test_mode ) ? 'Loja em modo teste' : 'Loja em modo vendas (Produção)'); ?></span></div>
+				<span><?php echo esc_html('yes' === ( $checkbox_test_mode ) ? $admin_test_mode['badge_test'] : $admin_test_mode['badge_mode']); ?></span></div>
 			</div>
 			<div class="mp-settings-title-container mp-settings-margin-left">
 				<img class="mp-settings-icon-open">
 			</div>
 		</div>
 		<div id="step-4" class="message-test-mode mp-settings-block-align-top" style="display: none;">
-			<p class="heading-test-mode mp-settings-subtitle-font-size mp-settings-title-color">Teste a experiência no Modo Teste. Depois ative o Modo Vendas (Produção) para fazer vendas.</p>
+			<p class="heading-test-mode mp-settings-subtitle-font-size mp-settings-title-color"><?php echo esc_html($admin_test_mode['subtitle_test_mode']); ?></p>
 
 			<div class="mp-container">
 				<div class="mp-block mp-settings-choose-mode">
 					<div>
-						<p class="mp-settings-title-font-size"><b>Escolha como você quer operar sua loja:</b></p>
+						<p class="mp-settings-title-font-size"><b><?php echo esc_html($admin_test_mode['title_mode']); ?></b></p>
 					</div>
 					<div class="mp-settings-mode-container">
 						<div class="mp-settings-mode-spacing">
 							<input name="mp-test-prod" type="radio" class="mp-settings-radio-button" value='yes' <?php echo esc_html(( 'yes' === $checkbox_test_mode ) ? 'checked' : ''); ?> >
 						</div>
 						<div>
-							<span class="mp-settings-font-color mp-settings-subtitle-font-size mp-settings-font-color">Modo Teste</span><br>
+							<span class="mp-settings-font-color mp-settings-subtitle-font-size mp-settings-font-color"><?php echo esc_html($admin_test_mode['title_test']); ?></span><br>
 
-							<span class="mp-settings-font-color mp-settings-subtitle-font-size mp-settings-title-color">Checkouts Mercado Pago inativos para cobranças reais.<span><a class="mp-settings-blue-text" target="_blank" href="<?php echo esc_html($devsite_links['shopping_testing']); ?>"> Regras do modo teste.</a><span></span>
+							<span class="mp-settings-font-color mp-settings-subtitle-font-size mp-settings-title-color"><?php echo esc_html( $admin_test_mode['subtitle_test'] ); ?><span><a class="mp-settings-blue-text" target="_blank" href="<?php echo esc_html($devsite_links['shopping_testing']); ?>"><?php echo esc_html($admin_test_mode['subtitle_test_link']); ?></a><span></span>
 						</div>
 					</div>
 					<div class="mp-settings-mode-container">
@@ -297,9 +297,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 							<input name="mp-test-prod" type="radio" class="mp-settings-radio-button" value='no' <?php echo esc_html(( 'no' === $checkbox_test_mode ) ? 'checked' : ''); ?>>
 						</div>
 						<div>
-							<span class="mp-settings-font-color mp-settings-subtitle-font-size mp-settings-font-color">Modo Vendas (Produção)</span><br>
+							<span class="mp-settings-font-color mp-settings-subtitle-font-size mp-settings-font-color"><?php echo esc_html( $admin_test_mode['title_prod'] ); ?></span><br>
 
-							<span class="mp-settings-font-color mp-settings-subtitle-font-size mp-settings-title-color">Mercado Pago ativos para cobranças reais.</span>
+							<span class="mp-settings-font-color mp-settings-subtitle-font-size mp-settings-title-color"><?php echo esc_html( $admin_test_mode['subtitle_prod'] ); ?></span>
 						</div>
 					</div>
 					<div class="mp-settings-alert-payment-methods">
@@ -309,17 +309,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 							<div class="mp-settings-margin-right mp-settings-mode-style">
 								<label id="mp-icon-badge" class="<?php echo esc_html('yes' === ( $checkbox_test_mode ) ? 'mp-settings-icon-warning' : 'mp-settings-icon-success'); ?>  "></label>
-
 							</div>
 							<div class="mp-settings-mode-warning">
 								<div class="mp-settings-margin-left">
 									<div class="mp-settings-alert-mode-title">
-										<span id="mp-text-badge"> <?php echo esc_html('yes' === ( $checkbox_test_mode ) ? 'Meios de pagamento Mercado Pago em Modo Teste' : 'Meios de pagamento Mercado Pago em Modo Produção'); ?></span> </span>
+										<span id="mp-text-badge"> <?php echo esc_html('yes' === ( $checkbox_test_mode ) ? $admin_test_mode['title_message_test'] : $admin_test_mode['title_message_prod'] ); ?></span> </span>
 									</div>
 									<div id="mp-helper-badge-div" class="mp-settings-alert-mode-body">
 										<span id="mp-helper-test"  style="display: <?php echo esc_html('yes' === ( $checkbox_test_mode ) ? 'block;' : 'none;'); ?>">
-										<a class="mp-settings-blue-text" id="mp-test-link" target="_blank" href="<?php echo esc_html(get_permalink( wc_get_page_id( 'shop' ) )); ?>"> Visite sua loja</a> para testar compras </span>
-										<span id="mp-helper-prod"  style="display: <?php echo esc_html('yes' === ( $checkbox_test_mode ) ? 'none;' : 'block;'); ?>"> Estamos no modo de produção</span>
+										<a class="mp-settings-blue-text" id="mp-test-link" target="_blank" href="<?php echo esc_html(get_permalink( wc_get_page_id( 'shop' ) )); ?>"> <?php echo esc_html( $admin_test_mode['subtitle_link_test'] ); ?></a><?php echo esc_html( $admin_test_mode['subtitle_message_test'] ); ?></span>
+										<span id="mp-helper-prod"  style="display: <?php echo esc_html('yes' === ( $checkbox_test_mode ) ? 'none;' : 'block;'); ?>"><?php echo esc_html( $admin_test_mode['subtitle_message_prod'] ); ?></span>
 									</div>
 								</div>
 
@@ -328,7 +327,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					</div>
 				</div>
 			</div>
-			<button class="mp-button" id="mp-store-mode-save"> Salvar Mudanças </button>
+			<button class="mp-button" id="mp-store-mode-save"><?php echo esc_html( $admin_test_mode['button_mode'] ); ?> </button>
 		</div>
 
 
