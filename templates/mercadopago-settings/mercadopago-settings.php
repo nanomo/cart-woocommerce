@@ -99,7 +99,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<img class="mp-settings-margin-left mp-settings-margin-right" id="mp-settings-icon-credentials">
 			</div>
 			<div class="mp-settings-title-container mp-settings-margin-left">
-				<img class="mp-settings-icon-open">
+				<img class="mp-settings-icon-open" id="mp-credentials-arrow-up">
 			</div>
 		</div>
 		<div id="step-1" class="mp-settings-block-align-top" style="display: none;">
@@ -146,8 +146,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<span class="mp-settings-font-color mp-settings-title-blocks mp-settings-margin-right"><?php echo esc_html($admin_store['title_store']); ?></span>
 				<img class="mp-settings-margin-left mp-settings-margin-right" id="mp-settings-icon-store">
 			</div>
-			<div class="mp-settings-title-container mp-settings-margin-left">
-				<img class="mp-settings-icon-open">
+			<div class="mp-settings-title-container mp-settings-margin-left" >
+				<img class="mp-settings-icon-open" id="mp-store-info-arrow-up">
 			</div>
 		</div>
 			<div id="step-2" class="message-store mp-settings-block-align-top" style="display: none;">
@@ -254,7 +254,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			</div>
 
 			<div class="mp-settings-title-container mp-settings-margin-left">
-				<img class="mp-settings-icon-open">
+				<img class="mp-settings-icon-open" id="mp-payments-arrow-up">
 			</div>
 		</div>
 		<div id="step-3" class="mp-settings-block-align-top" style="display: none;">
@@ -271,12 +271,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<span><?php echo esc_html('yes' === ( $checkbox_test_mode ) ? $admin_test_mode['badge_test'] : $admin_test_mode['badge_mode']); ?></span></div>
 			</div>
 			<div class="mp-settings-title-container mp-settings-margin-left">
-				<img class="mp-settings-icon-open">
+				<img class="mp-settings-icon-open" id="mp-modes-arrow-up">
 			</div>
 		</div>
 		<div id="step-4" class="message-test-mode mp-settings-block-align-top" style="display: none;">
 			<p class="heading-test-mode mp-settings-subtitle-font-size mp-settings-title-color"><?php echo esc_html($admin_test_mode['subtitle_test_mode']); ?></p>
-
 			<div class="mp-container">
 				<div class="mp-block mp-settings-choose-mode">
 					<div>
