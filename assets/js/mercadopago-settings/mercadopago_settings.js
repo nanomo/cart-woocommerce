@@ -147,11 +147,11 @@ function update_option_credentials() {
           "credentials"
         );
         mp_validate_fields();
-        saveStep("step-1", "step-2");
+        mp_go_to_next_step("step-1", "step-2");
       })
       .fail(function (error) {
         showMessage("Credenciais inválidas!", "error", "credentials");
-        saveStep("step-1", "step-2");
+        mp_go_to_next_step("step-1", "step-2");
       });
   });
 }
@@ -171,7 +171,7 @@ function mp_validate_store_information() {
       .post("mp_validate_store_information", store_information)
       .done(function (response) {
         showMessage("Informações salvas!", "success", "store");
-        saveStep("step-2", "step-3");
+        mp_go_to_next_step("step-2", "step-3");
       })
       .fail(function (error) {
         showMessage(error, "error", "store");
@@ -397,7 +397,7 @@ function clearMessage() {
   document.querySelector(".alert").remove();
 }
 
-function saveStep(actualStep, nextStep){
+function mp_go_to_next_step(actualStep, nextStep){
   var actual = document.getElementById(actualStep);
   var next = document.getElementById(nextStep);
       if (actual.style.display === "block" && next.style.display === "none") {
@@ -405,7 +405,17 @@ function saveStep(actualStep, nextStep){
         console.log("chegando aqui")
         actual.style.display = "none" ;
         next.style.display = "block";
+      } else {
+        actual.style.display = "none" ;
+        next.style.display = "block";
       }
+}
+
+function mp_continue_to_next_step(){
+  var continueButton = document.getElementById("mp-payment-method-continue");
+  continueButton.addEventListener("click", function () {
+    mp_go_to_next_step("step-3", "step-4");
+  });
 }
 
 function reloadPage() {
@@ -423,4 +433,5 @@ function mp_settings_screen_load() {
   mp_get_payment_properties();
   mp_validate_fields();
   mp_validate_field_payment();
+  mp_continue_to_next_step()
 }

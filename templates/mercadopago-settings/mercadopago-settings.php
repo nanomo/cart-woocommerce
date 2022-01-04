@@ -259,7 +259,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		</div>
 		<div id="step-3" class="mp-settings-block-align-top" style="display: none;">
 			<p id="mp-payment" class="mp-settings-subtitle-font-size"><?php echo esc_html($admin_payment['subtitle_payments']); ?></p>
-			<button class="mp-button"> <?php echo esc_html($admin_payment['button_payment']); ?></button>
+			<button id="mp-payment-method-continue" class="mp-button"> <?php echo esc_html($admin_payment['button_payment']); ?></button>
 		</div>
 	</div>
 	<hr class="mp-settings-hr" />
@@ -329,8 +329,5 @@ if ( ! defined( 'ABSPATH' ) ) {
 			</div>
 			<button class="mp-button" id="mp-store-mode-save"><?php echo esc_html( $admin_test_mode['button_mode'] ); ?> </button>
 		</div>
-
-
 	</div>
-
 </div>
