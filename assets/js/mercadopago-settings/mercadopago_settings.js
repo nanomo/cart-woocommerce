@@ -147,11 +147,12 @@ function update_option_credentials() {
           "credentials"
         );
         mp_validate_fields();
-        mp_go_to_next_step("step-1", "step-2");
+        setTimeout(() => {
+          mp_go_to_next_step("step-1", "step-2");
+        }, 3000);
       })
       .fail(function (error) {
         showMessage("Credenciais inválidas!", "error", "credentials");
-        mp_go_to_next_step("step-1", "step-2");
       });
   });
 }
@@ -174,7 +175,9 @@ function mp_validate_store_information() {
       .post("mp_validate_store_information", store_information)
       .done(function (response) {
         showMessage("Informações salvas!", "success", "store");
-        mp_go_to_next_step("step-2", "step-3");
+        setTimeout(() => {
+          mp_go_to_next_step("step-2", "step-3");
+        }, 3000);
       })
       .fail(function (error) {
         showMessage(error, "error", "store");
@@ -246,7 +249,7 @@ function mp_set_mode() {
           helper_test.style.display = "block";
           helper_prod.style.display = "none";
 
-          showMessage("Loja em modo teste!", "error", "test_mode");
+          showMessage("Loja em modo teste!", "success", "test_mode");
         } else {
           badge.classList.remove("mp-settings-test-mode-alert");
           badge.classList.add("mp-settings-prod-mode-alert");
@@ -277,6 +280,7 @@ function mp_get_payment_properties() {
   wp.ajax
     .post("mp_get_payment_properties", {})
     .done(function (response) {
+      console.log(response);
       const payment = document.getElementById("mp-payment");
       response.forEach((gateway) => {
         payment.insertAdjacentHTML("afterend", mp_payment_properties(gateway));
@@ -294,7 +298,10 @@ function mp_payment_properties(gateway) {
     gateway.enabled == "yes"
       ? "mp-settings-badge-active"
       : "mp-settings-badge-inactive";
-  var text_payment_active = gateway.enabled == "yes" ? "Ativado" : "Inativo";
+  var text_payment_active =
+    gateway.enabled == "yes"
+      ? gateway.badge_translator.yes
+      : gateway.badge_translator.no;
   return (
     ' <a href="' +
     gateway.link +
@@ -395,7 +402,7 @@ function showMessage(message, type, block) {
   messageDiv.appendChild(document.createTextNode(message));
   card.insertBefore(messageDiv, heading);
 
-  setTimeout(clearMessage, 5000);
+  setTimeout(clearMessage, 3000);
 }
 
 function clearMessage() {
@@ -418,12 +425,10 @@ function mp_go_to_next_step(actualStep, nextStep) {
 function mp_continue_to_next_step() {
   var continueButton = document.getElementById("mp-payment-method-continue");
   continueButton.addEventListener("click", function () {
-    mp_go_to_next_step("step-3", "step-4");
+    setTimeout(() => {
+      mp_go_to_next_step("step-3", "step-4");
+    }, 3000);
   });
-}
-
-function reloadPage() {
-  location.reload();
 }
 
 function mp_settings_screen_load() {

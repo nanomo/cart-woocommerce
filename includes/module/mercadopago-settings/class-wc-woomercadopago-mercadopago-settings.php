@@ -227,8 +227,6 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 		$field_payment = array(
 			'title_payments'  => __('3. Set payment methods', 'woocommerce-mercadopago'),
 			'subtitle_payments'  => __('To view more options, please select a payment method below', 'woocommerce-mercadopago'),
-			'badge-active' => __('Enabled', 'woocommerce-mercadopago'),
-			'badge-inactive' => __('Disabled', 'woocommerce-mercadopago'),
 			'settings_payment' => __('Settings', 'woocommerce-mercadopago'),
 			'button_payment' => __('Continue', 'woocommerce-mercadopago'),
 		);
@@ -398,8 +396,12 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 		try {
 			$payments_gateways          = WC_WooMercadoPago_Constants::PAYMENT_GATEWAYS;
 			$payment_gateway_properties = array();
+			$wc_country = WC_WooMercadoPago_Module::get_woocommerce_default_country();
 
 			foreach ( $payments_gateways as $payment_gateway ) {
+				if($payment_gateway === 'WC_WooMercadoPago_Pix_Gateway' && $wc_country !== 'BR' ){
+					continue;
+				}
 				$gateway = new $payment_gateway();
 
 				$additional_info = [
@@ -417,6 +419,7 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 					'enabled' => $gateway->settings['enabled'],
 					'icon' => $additional_info[$gateway->id]['icon'],
 					'link' => admin_url('admin.php?page=wc-settings&tab=checkout&section=') . $gateway->id,
+					'badge_translator' => [ 'yes' => __('Enabled', 'woocommerce-mercadopago'), 'no' => __('Disabled', 'woocommerce-mercadopago')],
 				);
 			}
 			wp_send_json_success($payment_gateway_properties);
