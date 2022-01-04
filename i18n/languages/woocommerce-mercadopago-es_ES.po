@@ -407,8 +407,8 @@ msgstr ""
 #: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:30,
 #: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:39,
 #: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:39
-msgid "Pay with the payment method you prefer"
-msgstr "Paga con el medio de pago que prefieras"
+msgid "Checkout Pro"
+msgstr "Checkout Pro"
 
 #: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:37,
 #: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:37

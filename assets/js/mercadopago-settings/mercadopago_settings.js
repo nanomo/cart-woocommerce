@@ -160,12 +160,15 @@ function mp_validate_store_information() {
   button = document.getElementById("mp-store-info-save");
   button.addEventListener("click", function () {
     const store_information = {
-      store_identificator: document.getElementById("mp-store-identificator").value,
+      store_identificator: document.getElementById("mp-store-identificator")
+        .value,
       store_category_id: document.getElementById("mp-store-category-id").value,
       store_categories: document.getElementById("mp-store-categories").value,
       store_url_ipn: document.querySelector("#mp-store-url-ipn").value,
-      store_integrator_id: document.getElementById("mp-store-integrator-id").value,
-      store_debug_mode: document.querySelector("#mp-store-debug-mode:checked")?.value,
+      store_integrator_id: document.getElementById("mp-store-integrator-id")
+        .value,
+      store_debug_mode: document.querySelector("#mp-store-debug-mode:checked")
+        ?.value,
     };
     wp.ajax
       .post("mp_validate_store_information", store_information)
@@ -300,8 +303,10 @@ function mp_payment_properties(gateway) {
         <div class="mp-settings-icon ' +
     gateway.icon +
     '"></div>\
-        <span class="mp-settings-subtitle-font-size mp-settings-margin-title-payment"> ' +
+        <span class="mp-settings-subtitle-font-size mp-settings-margin-title-payment"> <b>' +
     gateway.title +
+    "</b> - " +
+    gateway.description +
     ' </span>\
         <span class="' +
     payment_active +
@@ -397,15 +402,14 @@ function clearMessage() {
   document.querySelector(".alert").remove();
 }
 
-function saveStep(actualStep, nextStep){
+function saveStep(actualStep, nextStep) {
   var actual = document.getElementById(actualStep);
   var next = document.getElementById(nextStep);
-      if (actual.style.display === "block" && next.style.display === "none") {
-
-        console.log("chegando aqui")
-        actual.style.display = "none" ;
-        next.style.display = "block";
-      }
+  if (actual.style.display === "block" && next.style.display === "none") {
+    console.log("chegando aqui");
+    actual.style.display = "none";
+    next.style.display = "block";
+  }
 }
 
 function reloadPage() {

@@ -255,11 +255,11 @@ msgid "Please enter your email address at the billing address to use this servic
 msgstr ""
 
 #: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:29, ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:29, ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:29
-msgid "It offers all means of payment: credit and debit cards, cash and account money. Your customers choose whether they pay as guests or from their Mercado Pago account."
+msgid "Pix, Debit, Credit and invoice in Mercado Pago environment"
 msgstr ""
 
 #: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:30, ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:39, ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:30, ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:39, ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:30, ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:39
-msgid "Pay with the payment method you prefer"
+msgid "Checkout Pro"
 msgstr ""
 
 #: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:37, ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:37, ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:37
@@ -393,12 +393,12 @@ msgstr ""
 msgid "fee of"
 msgstr ""
 
-#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:37, ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:37, ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:37
-msgid "Accept card payments on your website with the best possible financing and maximize the conversion of your business. With personalized checkout your customers pay without leaving your store!"
+#: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:37, ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:37, ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:37, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:30, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:30, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:30, ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:30, ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:30, ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:30
+msgid "Transparent Checkout in your store environment"
 msgstr ""
 
 #: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:38, ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:46, ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:38, ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:46, ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:38, ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:46
-msgid "Pay with debit and credit cards"
+msgid "Debit and Credit"
 msgstr ""
 
 #: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:45, ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:45, ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:45, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:38, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:38, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:38, ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:38, ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:38, ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:38
@@ -706,12 +706,8 @@ msgstr ""
 msgid "Edit these advanced fields only when you want to modify the preset values."
 msgstr ""
 
-#: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:30, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:30, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:30
-msgid "Accept payments via Pix Transfer and receive the funds instantly. Your customers can pay at any time, without date or time restrictions."
-msgstr ""
-
 #: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:31, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:39, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:31, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:39, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:31, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:39
-msgid "Pay with PIX "
+msgid "Pix "
 msgstr ""
 
 #: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:262, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:262, ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:262
@@ -881,12 +877,8 @@ msgstr ""
 msgid "Code valid for "
 msgstr ""
 
-#: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:30, ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:30, ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:30
-msgid "Accept cash payments within the custom checkout and expand your customers purchase options."
-msgstr ""
-
 #: ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:31, ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:39, ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:31, ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:39, ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:31, ../../includes/payments/class-wc-woomercadopago-ticket-gateway.php:39
-msgid "Pay with cash"
+msgid "Invoice and Loterica"
 msgstr ""
 
 #. translators: %s checkout
