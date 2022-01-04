@@ -147,11 +147,11 @@ function update_option_credentials() {
           "credentials"
         );
         mp_validate_fields();
-        mp_go_to_next_step("step-1", "step-2");
+        mp_go_to_next_step("step-1", "step-2", "mp-settings-icon-credentials");
       })
       .fail(function (error) {
         showMessage("Credenciais inválidas!", "error", "credentials");
-        mp_go_to_next_step("step-1", "step-2");
+        mp_go_to_next_step("step-1", "step-2", "mp-credentials-arrow-up", "mp-store-info-arrow-up");
       });
   });
 }
@@ -171,7 +171,7 @@ function mp_validate_store_information() {
       .post("mp_validate_store_information", store_information)
       .done(function (response) {
         showMessage("Informações salvas!", "success", "store");
-        mp_go_to_next_step("step-2", "step-3");
+        mp_go_to_next_step("step-2", "step-3", "mp-store-info-arrow-up", "mp-payments-arrow-up");
       })
       .fail(function (error) {
         showMessage(error, "error", "store");
@@ -397,24 +397,30 @@ function clearMessage() {
   document.querySelector(".alert").remove();
 }
 
-function mp_go_to_next_step(actualStep, nextStep){
+function mp_go_to_next_step(actualStep, nextStep, actualArrowId, nextArrowId){
   var actual = document.getElementById(actualStep);
   var next = document.getElementById(nextStep);
+  var actualArrow = document.getElementById(actualArrowId);
+  var nextArrow = document.getElementById(nextArrowId);
       if (actual.style.display === "block" && next.style.display === "none") {
-
         console.log("chegando aqui")
-        actual.style.display = "none" ;
-        next.style.display = "block";
+        actual.style.display = "none";
+        next.style.display = "block"
+        actualArrow.classList.remove("mp-arrow-up")
+        nextArrow.classList.add("mp-arrow-up")
+
       } else {
         actual.style.display = "none" ;
         next.style.display = "block";
+        actualArrow.classList.remove("mp-arrow-up")
+        nextArrow.classList.add("mp-arrow-up")
       }
 }
 
 function mp_continue_to_next_step(){
   var continueButton = document.getElementById("mp-payment-method-continue");
   continueButton.addEventListener("click", function () {
-    mp_go_to_next_step("step-3", "step-4");
+    mp_go_to_next_step("step-3", "step-4", "mp-payments-arrow-up", "mp-modes-arrow-up");
   });
 }
 
