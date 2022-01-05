@@ -107,11 +107,12 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 	public function register_endpoints() {
 		add_action('wp_ajax_mp_get_requirements', array($this, 'mercadopago_get_requirements'));
 		add_action('wp_ajax_mp_validate_credentials', array($this, 'mp_validate_credentials'));
-		add_action('wp_ajax_mp_validate_store_information', array($this, 'mp_validate_store_info'));
+		add_action('wp_ajax_mp_update_store_information', array($this, 'mp_update_store_info'));
 		add_action('wp_ajax_mp_store_mode', array($this, 'mp_set_mode'));
 		add_action('wp_ajax_mp_get_payment_properties', array($this, 'mp_get_payment_class_properties'));
-		add_action('wp_ajax_mp_validate_fields', array($this, 'mp_validate_fields'));
-		add_action('wp_ajax_mp_validate_field_payment', array($this, 'mp_validate_field_payment'));
+		add_action('wp_ajax_mp_validate_store_tips', array($this, 'mp_validate_store_tips'));
+		add_action('wp_ajax_mp_validate_credentials_tips', array($this, 'mp_validate_credentials_tips'));
+		add_action('wp_ajax_mp_validate_payment_tips', array($this, 'mp_validate_field_payment_tips'));
 	}
 
 	/**
@@ -291,21 +292,20 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 			if ( $access_token ) {
 				$validate_access_token = $mp->get_credentials_wrapper($access_token);
 				if ( ! $validate_access_token || $validate_access_token['is_test'] !== $is_test ) {
-					wp_send_json_error('error');
+					wp_send_json_error( __( 'Invalid Access Token', 'woocommerce-mercadopago') );
 				}
-				wp_send_json_success('sucess');
+				wp_send_json_success( __( 'Valid Access Token', 'woocommerce-mercadopago') );
 			}
 
 			if ( $public_key ) {
 				$validate_public_key = $mp->get_credentials_wrapper(null, $public_key);
 				if ( ! $validate_public_key || $validate_public_key['is_test'] !== $is_test ) {
-					wp_send_json_error('error');
+					wp_send_json_error( __( 'Invalid Public Key', 'woocommerce-mercadopago') );
 				}
-
-				wp_send_json_success('sucess');
+				wp_send_json_success( __( 'Valid Public Key', 'woocommerce-mercadopago') );
 			}
 
-			throw new Exception('error');
+			throw new Exception( __( 'Credentials must be valid', 'woocommerce-mercadopago') );
 		} catch ( Exception $e ) {
 			$response = [
 			'message' => $e->getMessage()
@@ -345,7 +345,7 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 	/**
 	 * Validate store info Ajax
 	 */
-	public function mp_validate_store_info() {
+	public function mp_update_store_info() {
 		try {
 			$store_info = array(
 				'mp_statement_descriptor'           => WC_WooMercadoPago_Credentials::get_sanitize_text_from_post('store_identificator'),
@@ -360,7 +360,8 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 				update_option($key, $value, true);
 			}
 
-			wp_send_json_success('success');
+			wp_send_json_success( __( 'Store information is valid', 'woocommerce-mercadopago') );
+
 		} catch ( Exception $e ) {
 			$response = [
 			'message' => $e->getMessage()
@@ -376,10 +377,9 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 	public function mp_set_mode() {
 		try {
 			$checkout_test_mode = WC_WooMercadoPago_Credentials::get_sanitize_text_from_post('input_mode_value');
-
 			update_option('checkbox_checkout_test_mode', $checkout_test_mode, true);
+			wp_send_json_success( __( 'Store mode was updated', 'woocommerce-mercadopago') );
 
-			wp_send_json_success('success');
 		} catch ( Exception $e ) {
 			$response = [
 			'message' => $e->getMessage()
@@ -431,29 +431,48 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 			wp_send_json_error($response);
 		}
 	}
+
 	/**
-	 * Validate fields
+	 * Validate credentials tips
 	 */
-	public function mp_validate_fields() {
+	public function mp_validate_credentials_tips() {
 		try {
 			$public_key_test   = get_option(WC_WooMercadoPago_Options::CREDENTIALS_PUBLIC_KEY_TEST, '');
 			$access_token_test = get_option(WC_WooMercadoPago_Options::CREDENTIALS_ACCESS_TOKEN_TEST, '');
 			$public_key_prod   = get_option(WC_WooMercadoPago_Options::CREDENTIALS_PUBLIC_KEY_PROD, '');
 			$access_token_prod = get_option(WC_WooMercadoPago_Options::CREDENTIALS_ACCESS_TOKEN_PROD, '');
 
-			$statement_descriptor = get_option('mp_statement_descriptor', 'Mercado Pago');
-			$category_id          = get_option('_mp_category_id', 'other');
-			$identificator        = get_option('_mp_store_identificator', 'WC-');
-
 			if ( $public_key_test && $access_token_test && $public_key_prod && $access_token_prod ) {
-				wp_send_json_success('sucess');
+				wp_send_json_success( __( 'Valid Credentials', 'woocommerce-mercadopago') );
 			}
+
+			throw new Exception( __( 'Credentials couldn\'t be validated', 'woocommerce-mercadopago') );
+
+		} catch ( Exception $e ) {
+		$response = [
+			'message' => $e->getMessage()
+		];
+
+		wp_send_json_error($response);
+		}
+	}
+
+
+		/**
+	 * Validate store tips
+	 */
+	public function mp_validate_store_tips() {
+		try {
+			$statement_descriptor = get_option('mp_statement_descriptor');
+			$category_id          = get_option('_mp_category_id');
+			$identificator        = get_option('_mp_store_identificator');
 
 			if ( $statement_descriptor && $category_id && $identificator ) {
-				wp_send_json_success('success');
+				wp_send_json_success( __( 'Store business fields are valid', 'woocommerce-mercadopago') );
 			}
 
-			throw new Exception('error');
+			throw new Exception( __( 'Store business fields couldn\'t be validated', 'woocommerce-mercadopago') );
+
 		} catch ( Exception $e ) {
 		$response = [
 			'message' => $e->getMessage()
@@ -466,7 +485,7 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 	/**
 	 * Validate field payment
 	 */
-	public function mp_validate_field_payment() {
+	public function mp_validate_payment_tips() {
 		try {
 			$payments_gateways = WC_WooMercadoPago_Constants::PAYMENT_GATEWAYS;
 
@@ -474,10 +493,10 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 				$gateway = new $payment_gateway();
 
 				if ( 'yes' === $gateway->settings['enabled'] ) {
-					wp_send_json_success('sucess');
+					wp_send_json_success( __( 'At least one paymet method is enabled', 'woocommerce-mercadopago') );
 				}
 			}
-			throw new Exception('error');
+			throw new Exception( __( 'Couldn\'t find a valid payment method', 'woocommerce-mercadopago') );
 		} catch ( Exception $e ) {
 			$response = [
 			'message' => $e->getMessage()

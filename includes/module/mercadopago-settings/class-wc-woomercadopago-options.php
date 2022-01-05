@@ -136,7 +136,7 @@ class WC_WooMercadoPago_Options {
 				}
 			}
 
-			throw new Exception( 'error' );
+			throw new Exception( __( 'Update failed, invalid Credentials: ', 'woocommerce-mercadopago' ) );
 
 		} catch ( Exception $e ) {
 			$response = [

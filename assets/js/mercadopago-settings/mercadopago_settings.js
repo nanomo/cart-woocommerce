@@ -162,7 +162,7 @@ function update_option_credentials() {
   });
 }
 
-function mp_validate_store_information() {
+function mp_update_store_information() {
   button = document.getElementById("mp-store-info-save");
   button.addEventListener("click", function () {
     const store_information = {
@@ -177,7 +177,7 @@ function mp_validate_store_information() {
         ?.value,
     };
     wp.ajax
-      .post("mp_validate_store_information", store_information)
+      .post("mp_update_store_information", store_information)
       .done(function (response) {
         showMessage("Informações salvas!", "success", "store");
         setTimeout(() => {
@@ -338,22 +338,24 @@ function mp_payment_properties(gateway) {
   );
 }
 
-function mp_validate_fields() {
+function mp_validate_credentials_tips() {
+  var icon_credentials = document.getElementById(
+    "mp-settings-icon-credentials"
+  );
   wp.ajax
-    .post("mp_validate_fields", {})
+    .post("mp_validate_credentials_tips", {})
     .done(function (response) {
-      const icon_credentials = document.getElementById(
-        "mp-settings-icon-credentials"
-      );
       icon_credentials.classList.remove("mp-settings-icon-credentials");
       icon_credentials.classList.add("mp-settings-icon-success");
     })
     .fail(function (error) {
       icon_credentials.classList.remove("mp-settings-icon-success");
     });
+}
 
+function mp_validate_store_tips() {
   wp.ajax
-    .post("mp_validate_fields", {})
+    .post("mp_validate_store_tips", {})
     .done(function (response) {
       const icon_store = document.getElementById("mp-settings-icon-store");
       icon_store.classList.remove("mp-settings-icon-store");
@@ -364,10 +366,10 @@ function mp_validate_fields() {
     });
 }
 
-function mp_validate_field_payment() {
-  const icon_payment = document.getElementById("mp-settings-icon-payment");
+function mp_validate_payment_tips() {
+  var icon_payment = document.getElementById("mp-settings-icon-payment");
   wp.ajax
-    .post("mp_validate_field_payment", {})
+    .post("mp_validate_payment_tips", {})
     .done(function (response) {
       icon_payment.classList.remove("mp-settings-icon-payment");
       icon_payment.classList.add("mp-settings-icon-success");
@@ -423,18 +425,11 @@ function mp_go_to_next_step(actualStep, nextStep, actualArrowId, nextArrowId) {
   var next = document.getElementById(nextStep);
   var actualArrow = document.getElementById(actualArrowId);
   var nextArrow = document.getElementById(nextArrowId);
-  if (actual.style.display === "block" && next.style.display === "none") {
-    console.log("chegando aqui");
-    actual.style.display = "none";
-    next.style.display = "block";
-    actualArrow.classList.remove("mp-arrow-up");
-    nextArrow.classList.add("mp-arrow-up");
-  } else {
-    actual.style.display = "none";
-    next.style.display = "block";
-    actualArrow.classList.remove("mp-arrow-up");
-    nextArrow.classList.add("mp-arrow-up");
-  }
+
+  actual.style.display = "none";
+  next.style.display = "block";
+  actualArrow.classList.remove("mp-arrow-up");
+  nextArrow.classList.add("mp-arrow-up");
 }
 
 function mp_continue_to_next_step() {
@@ -455,10 +450,11 @@ function mp_settings_screen_load() {
   mp_get_requirements();
   mp_validate_credentials();
   update_option_credentials();
-  mp_validate_store_information();
+  mp_update_store_information();
   mp_set_mode();
   mp_get_payment_properties();
-  mp_validate_fields();
-  mp_validate_field_payment();
+  mp_validate_credentials_tips();
+  mp_validate_store_tips();
+  mp_validate_payment_tips();
   mp_continue_to_next_step();
 }
