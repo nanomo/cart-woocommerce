@@ -4,7 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/woocommerce-"
 "mercadopago\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2022-01-05 14:58-0300\n"
+"PO-Revision-Date: 2022-01-05 15:25-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: pt_BR\n"
@@ -2039,15 +2039,11 @@ msgstr ""
 
 #: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:136,
 #: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:136
-#, fuzzy
-#| msgid ""
-#| "It is an extension responsible for making payments via requests from the "
-#| "plugin to Mercado Pago"
 msgid ""
 "It is an extension responsible for making payments via requests from the "
 "plugin to Mercado Pago."
 msgstr ""
-"É uma extensão responsável pela realização de pagamentos via requests do "
+"É uma extensão responsável pela realização de pagamentos via solicitações do "
 "plugin ao Mercado Pago."
 
 #: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:137,
