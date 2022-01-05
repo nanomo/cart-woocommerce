@@ -24,7 +24,6 @@ function mp_settings_accordion_start() {
       }
     });
   }
-  console.log("MP Settings Accordion Started!");
 }
 
 function mp_get_requirements() {
@@ -141,11 +140,7 @@ function update_option_credentials() {
     wp.ajax
       .post("update_option_credentials", credentials)
       .done(function (response) {
-        showMessage(
-          "Credenciais salvas com sucesso!",
-          "success",
-          "credentials"
-        );
+        showMessage(response, "success", "credentials");
         mp_validate_fields();
         setTimeout(() => {
           mp_go_to_next_step(
@@ -157,7 +152,7 @@ function update_option_credentials() {
         }, 3000);
       })
       .fail(function (error) {
-        showMessage("Credenciais inválidas!", "error", "credentials");
+        showMessage(error, "error", "credentials");
       });
   });
 }
@@ -179,7 +174,7 @@ function mp_update_store_information() {
     wp.ajax
       .post("mp_update_store_information", store_information)
       .done(function (response) {
-        showMessage("Informações salvas!", "success", "store");
+        showMessage(response, "success", "store");
         setTimeout(() => {
           mp_go_to_next_step(
             "step-2",
@@ -220,8 +215,6 @@ function mp_settings_accordion_options() {
       elementBlock.classList.remove("mp-settings-flex-start");
     }
   });
-
-  console.log("MP Settings Accordion Started 2!");
 }
 
 function mp_set_mode() {
@@ -259,7 +252,7 @@ function mp_set_mode() {
           helper_test.style.display = "block";
           helper_prod.style.display = "none";
 
-          showMessage("Loja em modo teste!", "success", "test_mode");
+          showMessage(response, "success", "test_mode");
         } else {
           badge.classList.remove("mp-settings-test-mode-alert");
           badge.classList.add("mp-settings-prod-mode-alert");
@@ -277,7 +270,7 @@ function mp_set_mode() {
             "Meios de pagamento Mercado Pago em Modo Produção";
           helper_test.style.display = "none";
           helper_prod.style.display = "block";
-          showMessage("Loja em modo Produção!", "success", "test_mode");
+          showMessage(response, "success", "test_mode");
         }
       })
       .fail(function (error) {
@@ -287,19 +280,13 @@ function mp_set_mode() {
 }
 
 function mp_get_payment_properties() {
-  wp.ajax
-    .post("mp_get_payment_properties", {})
-    .done(function (response) {
-      const payment = document.getElementById("mp-payment");
-      response.reverse().forEach((gateway) => {
-        payment.insertAdjacentHTML("afterend", mp_payment_properties(gateway));
-        mp_payment_properties(gateway);
-      });
-    })
-    .fail(function (error) {
-      console.log("error properties");
+  wp.ajax.post("mp_get_payment_properties", {}).done(function (response) {
+    const payment = document.getElementById("mp-payment");
+    response.reverse().forEach((gateway) => {
+      payment.insertAdjacentHTML("afterend", mp_payment_properties(gateway));
+      mp_payment_properties(gateway);
     });
-  console.log("MP Properties!");
+    });
 }
 
 function mp_payment_properties(gateway) {

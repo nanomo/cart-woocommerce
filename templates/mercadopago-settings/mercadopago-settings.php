@@ -81,7 +81,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<div class="mp-inner-container-settings">
 					<div>
 						<p class="mp-settings-font-color mp-settings-title-font-size"><?php echo esc_html($admin_header['title_questions']); ?></p>
-						<p class="mp-settings-font-color mp-settings-subtitle-font-size mp-settings-title-color"><?php echo esc_html($admin_header['descripition_questions_one']);?> <b><span><?php echo esc_html($admin_header['descripition_questions_two']); ?></b></span><?php echo esc_html($admin_header['descripition_questions_three']); ?></p>
+						<p class="mp-settings-font-color mp-settings-subtitle-font-size mp-settings-title-color"><?php echo esc_html($admin_header['descripition_questions_one']); ?> <b><span><?php echo esc_html($admin_header['descripition_questions_two']); ?></b></span><?php echo esc_html($admin_header['descripition_questions_three']); ?></p>
 					</div>
 					<div>
 					<a target="_blank" href="<?php echo esc_html($links['link_guides_plugin']); ?>"><button class="mp-button mp-button-light-blue"> <?php echo esc_html($admin_header['button_questions']); ?></button></a>
