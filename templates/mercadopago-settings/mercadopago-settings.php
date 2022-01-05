@@ -81,7 +81,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<div class="mp-inner-container-settings">
 					<div>
 						<p class="mp-settings-font-color mp-settings-title-font-size"><?php echo esc_html($admin_header['title_questions']); ?></p>
-						<p class="mp-settings-font-color mp-settings-subtitle-font-size mp-settings-title-color"><?php echo esc_html($admin_header['descripition_questions_one']); ?> <span><?php echo esc_html($admin_header['descripition_questions_two']); ?> </span> <?php echo esc_html($admin_header['descripition_questions_three']); ?> </p>
+						<p class="mp-settings-font-color mp-settings-subtitle-font-size mp-settings-title-color"><?php echo esc_html($admin_header['descripition_questions_one']);?> <b><span><?php echo esc_html($admin_header['descripition_questions_two']); ?></b></span><?php echo esc_html($admin_header['descripition_questions_three']); ?></p>
 					</div>
 					<div>
 					<a target="_blank" href="<?php echo esc_html($links['link_guides_plugin']); ?>"><button class="mp-button mp-button-light-blue"> <?php echo esc_html($admin_header['button_questions']); ?></button></a>
@@ -118,7 +118,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 						<input class="mp-settings-input mp-credential-feedback-positive" id="mp-public-key-test" type="text" value="<?php echo esc_html($options_credentials['credentials_public_key_test']); ?>" placeholder="<?php echo esc_html($admin_credential['placeholder_public_key']); ?>">
 					</fieldset>
 					<fieldset>
-						<legend class="mp-settings-label"><?php echo esc_html($admin_credential['access_token']); ?></legend>
+						<legend class="mp-settings-label mp-settings-font-color"><?php echo esc_html($admin_credential['access_token']); ?></legend>
 						<input class="mp-settings-input mp-credential-feedback-positive" id="mp-access-token-test" type="text" value="<?php echo esc_html($options_credentials['credentials_access_token_test']); ?>" placeholder="<?php echo esc_html($admin_credential['placeholder_access_token']); ?>" >
 					</fieldset>
 				</div>
@@ -126,11 +126,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<p class="mp-settings-title-font-size"><b><?php echo esc_html($admin_credential['title_credential_prod']); ?></b></p>
 					<p class="mp-settings-label mp-settings-title-color mp-settings-margin-bottom"><?php echo esc_html($admin_credential['subtitle_credential_prod']); ?></p>
 					<fieldset class="mp-settings-fieldset">
-						<legend class="mp-settings-label"><?php echo esc_html($admin_credential['public_key']); ?></legend>
+						<legend class="mp-settings-label mp-settings-font-color"><?php echo esc_html($admin_credential['public_key']); ?></legend>
 						<input class="mp-settings-input mp-credential-feedback-positive" id="mp-public-key-prod" type="text" value="<?php echo esc_html($options_credentials['credentials_public_key_prod']); ?>" placeholder="<?php echo esc_html($admin_credential['placeholder_public_key']); ?>">
 					</fieldset>
 					<fieldset>
-						<legend class="mp-settings-label"><?php echo esc_html($admin_credential['access_token']); ?></legend>
+						<legend class="mp-settings-label mp-settings-font-color"><?php echo esc_html($admin_credential['access_token']); ?></legend>
 						<input class="mp-settings-input mp-credential-feedback-positive" id="mp-access-token-prod" type="text" value="<?php echo esc_html($options_credentials['credentials_access_token_prod']); ?>" placeholder="<?php echo esc_html($admin_credential['placeholder_access_token']); ?>">
 					</fieldset>
 				</div>
@@ -159,21 +159,21 @@ if ( ! defined( 'ABSPATH' ) ) {
 					</div>
 					<div class="mp-settings-standard-margin">
 						<fieldset>
-							<legend class="mp-settings-label"><?php echo esc_html($admin_store['subtitle_name_store']); ?></legend>
+							<legend class="mp-settings-label mp-settings-font-color"><?php echo esc_html($admin_store['subtitle_name_store']); ?></legend>
 							<input type="text" class="mp-settings-input" id="mp-store-identificator" placeholder= "<?php echo esc_html($admin_store['placeholder_name_store']); ?>" value="<?php echo esc_html($store_identificator); ?>">
 						</fieldset>
 						<span class="mp-settings-helper"><?php echo esc_html($admin_store['helper_name_store']); ?></span>
 					</div>
 					<div class="mp-settings-standard-margin">
 						<fieldset>
-							<legend class="mp-settings-label"><?php echo esc_html($admin_store['subtitle_activities_store']); ?></legend>
+							<legend class="mp-settings-label mp-settings-font-color"><?php echo esc_html($admin_store['subtitle_activities_store']); ?></legend>
 							<input type="text" class="mp-settings-input" id="mp-store-category-id" placeholder="<?php echo esc_html($admin_store['placeholder_activities_store']); ?>" value="<?php echo esc_html($category_id); ?>">
 						</fieldset>
 						<span class="mp-settings-helper"><?php echo esc_html($admin_store['helper_activities_store']); ?></span>
 					</div>
 					<div class="mp-settings-standard-margin">
 
-						<label class="mp-settings-label mp-container"><?php echo esc_html($admin_store['subtitle_category_store']); ?></label>
+						<label class="mp-settings-label mp-container mp-settings-font-color"><?php echo esc_html($admin_store['subtitle_category_store']); ?></label>
 
 						<select name="<?php echo esc_html($admin_store['placeholder_category_store']); ?>" class="mp-settings-select" id="mp-store-categories">
 
@@ -193,7 +193,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<div>
 						<p class="mp-settings-title-font-size"><b><?php echo esc_html($admin_store['title_advanced_store']); ?></b></p>
 					</div>
-					<p class="mp-settings-font-color mp-settings-subtitle-font-size mp-settings-title-color">
+					<p class="mp-settings-subtitle-font-size mp-settings-title-color">
 					<?php echo esc_html($admin_store['subtitle_advanced_store']); ?>
 					</p>
 					<div>
@@ -203,33 +203,29 @@ if ( ! defined( 'ABSPATH' ) ) {
 						<div class="mp-settings-advanced-options" style="display:none">
 							<div class="mp-settings-standard-margin">
 								<fieldset>
-
-									<legend class="mp-settings-label"><?php echo esc_html($admin_store['subtitle_url']); ?></legend>
+									<legend class="mp-settings-label mp-settings-font-color"><?php echo esc_html($admin_store['subtitle_url']); ?></legend>
 									<input type="text" class="mp-settings-input" id="mp-store-url-ipn" placeholder="<?php echo esc_html($admin_store['placeholder_url']); ?>" value="<?php echo esc_html($url_ipn); ?>">
-									<span class="mp-settings-helper"><?php echo esc_html($admin_store['helper_url']); ?> <span class="mp-settings-blue-text"><a target="_blank" href="<?php echo esc_html($devsite_links['notifications_ipn']); ?>" ><?php echo esc_html($admin_store['helper_url_link']); ?></a></span>
+									<span class="mp-settings-helper"><?php echo esc_html($admin_store['helper_url']); ?> <span><a  class="mp-settings-blue-text" target="_blank" href="<?php echo esc_html($devsite_links['notifications_ipn']); ?>" ><?php echo esc_html($admin_store['helper_url_link']); ?></a></span>
 								</fieldset>
 							</div>
 							<div class="mp-settings-standard-margin">
 								<fieldset>
-
-									<legend class="mp-settings-label"><?php echo esc_html($admin_store['subtitle_integrator']); ?></legend>
+									<legend class="mp-settings-label mp-settings-font-color"><?php echo esc_html($admin_store['subtitle_integrator']); ?></legend>
 									<input type="text" class="mp-settings-input" id="mp-store-integrator-id" placeholder="<?php echo esc_html($admin_store['placeholder_integrator']); ?>" value="<?php echo esc_html( $integrator_id ); ?>">
 									<span class="mp-settings-helper"><?php echo esc_html($admin_store['helper_integrator']); ?></span><br>
-									<span class="mp-settings-helper"><span class="mp-settings-blue-text"><a target="_blank" href="<?php echo esc_html($devsite_links['dev_program']); ?>"> <?php echo esc_html($admin_store['helper_integrator_link']); ?><span></a></span>
-
+									<span class="mp-settings-helper"><span><a class="mp-settings-blue-text" target="_blank" href="<?php echo esc_html($devsite_links['dev_program']); ?>"> <?php echo esc_html($admin_store['helper_integrator_link']); ?><span></a></span>
 								</fieldset>
 							</div>
 							<div class="mp-container">
 								<!-- Rounded switch -->
 								<div>
-
 									<label class="mp-settings-switch">
 										<input type="checkbox" value="yes" id="mp-store-debug-mode" <?php echo esc_html(( 'yes' === $debug_mode ) ? 'checked' : ''); ?>>
 										<span class="mp-settings-slider mp-settings-round"></span>
 									</label>
 								</div>
 								<div class="mp-settings-margin-left">
-									<p class="mp-settings-subtitle-font-size mp-settings-debug">
+									<p class="mp-settings-subtitle-font-size mp-settings-debug mp-settings-font-color">
 									<?php echo esc_html($admin_store['title_debug']); ?>
 									</p>
 									<p class="mp-settings-font-color mp-settings-subtitle-font-size mp-settings-title-color mp-settings-debug">
@@ -258,7 +254,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			</div>
 		</div>
 		<div id="step-3" class="mp-settings-block-align-top" style="display: none;">
-			<p id="mp-payment" class="mp-settings-subtitle-font-size"><?php echo esc_html($admin_payment['subtitle_payments']); ?></p>
+			<p id="mp-payment" class="mp-settings-subtitle-font-size mp-settings-title-color"><?php echo esc_html($admin_payment['subtitle_payments']); ?></p>
 			<button id="mp-payment-method-continue" class="mp-button"> <?php echo esc_html($admin_payment['button_payment']); ?></button>
 		</div>
 	</div>
@@ -286,9 +282,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 							<input name="mp-test-prod" type="radio" class="mp-settings-radio-button" value='yes' <?php echo esc_html(( 'yes' === $checkbox_test_mode ) ? 'checked' : ''); ?> >
 						</div>
 						<div>
-							<span class="mp-settings-font-color mp-settings-subtitle-font-size mp-settings-font-color"><?php echo esc_html($admin_test_mode['title_test']); ?></span><br>
+							<span class="mp-settings-subtitle-font-size mp-settings-font-color"><?php echo esc_html($admin_test_mode['title_test']); ?></span><br>
 
-							<span class="mp-settings-font-color mp-settings-subtitle-font-size mp-settings-title-color"><?php echo esc_html( $admin_test_mode['subtitle_test'] ); ?><span><a class="mp-settings-blue-text" target="_blank" href="<?php echo esc_html($devsite_links['shopping_testing']); ?>"><?php echo esc_html($admin_test_mode['subtitle_test_link']); ?></a><span></span>
+							<span class="mp-settings-subtitle-font-size mp-settings-title-color"><?php echo esc_html( $admin_test_mode['subtitle_test'] ); ?><span> <a class="mp-settings-blue-text" target="_blank" href="<?php echo esc_html($devsite_links['shopping_testing']); ?>"><?php echo esc_html($admin_test_mode['subtitle_test_link']); ?></a><span></span>
 						</div>
 					</div>
 					<div class="mp-settings-mode-container">
@@ -296,9 +292,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 							<input name="mp-test-prod" type="radio" class="mp-settings-radio-button" value='no' <?php echo esc_html(( 'no' === $checkbox_test_mode ) ? 'checked' : ''); ?>>
 						</div>
 						<div>
-							<span class="mp-settings-font-color mp-settings-subtitle-font-size mp-settings-font-color"><?php echo esc_html( $admin_test_mode['title_prod'] ); ?></span><br>
+							<span class="mp-settings-subtitle-font-size mp-settings-font-color"><?php echo esc_html( $admin_test_mode['title_prod'] ); ?></span><br>
 
-							<span class="mp-settings-font-color mp-settings-subtitle-font-size mp-settings-title-color"><?php echo esc_html( $admin_test_mode['subtitle_prod'] ); ?></span>
+							<span class="mp-settings-subtitle-font-size mp-settings-title-color"><?php echo esc_html( $admin_test_mode['subtitle_prod'] ); ?></span>
 						</div>
 					</div>
 					<div class="mp-settings-alert-payment-methods">
@@ -314,9 +310,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 									<div class="mp-settings-alert-mode-title">
 										<span id="mp-text-badge"> <?php echo esc_html('yes' === ( $checkbox_test_mode ) ? $admin_test_mode['title_message_test'] : $admin_test_mode['title_message_prod'] ); ?></span> </span>
 									</div>
-									<div id="mp-helper-badge-div" class="mp-settings-alert-mode-body">
+									<div id="mp-helper-badge-div" class="mp-settings-alert-mode-body mp-settings-font-color">
 										<span id="mp-helper-test"  style="display: <?php echo esc_html('yes' === ( $checkbox_test_mode ) ? 'block;' : 'none;'); ?>">
-										<a class="mp-settings-blue-text" id="mp-test-link" target="_blank" href="<?php echo esc_html(get_permalink( wc_get_page_id( 'shop' ) )); ?>"> <?php echo esc_html( $admin_test_mode['subtitle_link_test'] ); ?></a><?php echo esc_html( $admin_test_mode['subtitle_message_test'] ); ?></span>
+										<a class="mp-settings-blue-text" id="mp-test-link" target="_blank" href="<?php echo esc_html(get_permalink( wc_get_page_id( 'shop' ) )); ?>"> <?php echo esc_html( $admin_test_mode['subtitle_link_test'] ); ?> </a><?php echo esc_html( $admin_test_mode['subtitle_message_test'] ); ?></span>
 										<span id="mp-helper-prod"  style="display: <?php echo esc_html('yes' === ( $checkbox_test_mode ) ? 'none;' : 'block;'); ?>"><?php echo esc_html( $admin_test_mode['subtitle_message_prod'] ); ?></span>
 									</div>
 								</div>
