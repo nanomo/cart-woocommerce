@@ -148,17 +148,16 @@ function update_option_credentials() {
         );
         mp_validate_fields();
         setTimeout(() => {
-          mp_go_to_next_step("step-1", "step-2");
+          mp_go_to_next_step(
+            "step-1",
+            "step-2",
+            "mp-store-info-arrow-up",
+            "mp-payments-arrow-up"
+          );
         }, 3000);
       })
       .fail(function (error) {
         showMessage("Credenciais inválidas!", "error", "credentials");
-        mp_go_to_next_step(
-          "step-1",
-          "step-2",
-          "mp-credentials-arrow-up",
-          "mp-store-info-arrow-up"
-        );
       });
   });
 }
@@ -292,7 +291,7 @@ function mp_get_payment_properties() {
     .post("mp_get_payment_properties", {})
     .done(function (response) {
       const payment = document.getElementById("mp-payment");
-      response.forEach((gateway) => {
+      response.reverse().forEach((gateway) => {
         payment.insertAdjacentHTML("afterend", mp_payment_properties(gateway));
         mp_payment_properties(gateway);
       });
