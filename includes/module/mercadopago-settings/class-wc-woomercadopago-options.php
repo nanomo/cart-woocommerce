@@ -132,11 +132,11 @@ class WC_WooMercadoPago_Options {
 					update_option( self::CREDENTIALS_ACCESS_TOKEN_PROD, $access_token_prod, true );
 					update_option( self::CHECKOUT_COUNTRY, $me['site_id'], true );
 
-					wp_send_json_success( 'sucess' );
+					wp_send_json_success( __( 'Credentials were updated', 'woocommerce-mercadopago' ) );
 				}
 			}
 
-			throw new Exception( __( 'Update failed, invalid Credentials: ', 'woocommerce-mercadopago' ) );
+			throw new Exception( __( 'Update failed, invalid Credentials', 'woocommerce-mercadopago' ) );
 
 		} catch ( Exception $e ) {
 			$response = [
