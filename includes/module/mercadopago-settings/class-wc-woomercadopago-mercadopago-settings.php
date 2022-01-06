@@ -112,7 +112,7 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 		add_action('wp_ajax_mp_get_payment_properties', array($this, 'mp_get_payment_class_properties'));
 		add_action('wp_ajax_mp_validate_store_tips', array($this, 'mp_validate_store_tips'));
 		add_action('wp_ajax_mp_validate_credentials_tips', array($this, 'mp_validate_credentials_tips'));
-		add_action('wp_ajax_mp_validate_payment_tips', array($this, 'mp_validate_field_payment_tips'));
+	 	add_action('wp_ajax_mp_validate_payment_tips', array($this, 'mp_validate_payment_tips'));
 	}
 
 	/**
