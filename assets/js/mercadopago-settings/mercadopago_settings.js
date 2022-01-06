@@ -286,7 +286,7 @@ function mp_get_payment_properties() {
       payment.insertAdjacentHTML("afterend", mp_payment_properties(gateway));
       mp_payment_properties(gateway);
     });
-    });
+  });
 }
 
 function mp_payment_properties(gateway) {
@@ -341,10 +341,10 @@ function mp_validate_credentials_tips() {
 }
 
 function mp_validate_store_tips() {
+  var icon_store = document.getElementById("mp-settings-icon-store");
   wp.ajax
     .post("mp_validate_store_tips", {})
     .done(function (response) {
-      const icon_store = document.getElementById("mp-settings-icon-store");
       icon_store.classList.remove("mp-settings-icon-store");
       icon_store.classList.add("mp-settings-icon-success");
     })
