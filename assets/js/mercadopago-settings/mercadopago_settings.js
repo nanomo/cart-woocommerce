@@ -141,7 +141,7 @@ function update_option_credentials() {
       .post("update_option_credentials", credentials)
       .done(function (response) {
         showMessage(response, "success", "credentials");
-        mp_validate_fields();
+        mp_validate_credentials_tips();
         setTimeout(() => {
           mp_go_to_next_step(
             "step-1",
@@ -174,6 +174,7 @@ function mp_update_store_information() {
     wp.ajax
       .post("mp_update_store_information", store_information)
       .done(function (response) {
+        mp_validate_store_tips();
         showMessage(response, "success", "store");
         setTimeout(() => {
           mp_go_to_next_step(
@@ -280,13 +281,16 @@ function mp_set_mode() {
 }
 
 function mp_get_payment_properties() {
-  wp.ajax.post("mp_get_payment_properties", {}).done(function (response) {
-    const payment = document.getElementById("mp-payment");
-    response.reverse().forEach((gateway) => {
-      payment.insertAdjacentHTML("afterend", mp_payment_properties(gateway));
-      mp_payment_properties(gateway);
-    });
-  });
+  wp.ajax
+    .post("mp_get_payment_properties", {})
+    .done(function (response) {
+      const payment = document.getElementById("mp-payment");
+      response.reverse().forEach((gateway) => {
+        payment.insertAdjacentHTML("afterend", mp_payment_properties(gateway));
+        mp_payment_properties(gateway);
+      });
+    })
+    .fail(function (error) {});
 }
 
 function mp_payment_properties(gateway) {
