@@ -496,7 +496,7 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 					wp_send_json_success( __( 'At least one paymet method is enabled', 'woocommerce-mercadopago') );
 				}
 			}
-			throw new Exception( __( 'Couldn\'t find a valid payment method', 'woocommerce-mercadopago') );
+			throw new Exception( __( 'No payment method enabled', 'woocommerce-mercadopago') );
 		} catch ( Exception $e ) {
 			$response = [
 			'message' => $e->getMessage()
