@@ -10,8 +10,8 @@ class WC_WooMercadoPago_Options {
 	const STORE_IDENTIFICATOR           = '_mp_store_identificator';
 	const STORE_NAME                    = 'mp_statement_descriptor';
 	const STORE_CATEGORY                = '_mp_category_id';
-	const INTEGRATOR_ID               	= '_mp_integrator_id';
-	const DEBUG_MODE               			= '_mp_debug_mode';
+	const INTEGRATOR_ID                 = '_mp_integrator_id';
+	const DEBUG_MODE                    = '_mp_debug_mode';
 	const CUSTOM_DOMAIN                 = '_mp_custom_domain';
 	const CHECKBOX_TEST_MODE            = 'checkbox_checkout_test_mode';
 
@@ -41,7 +41,7 @@ class WC_WooMercadoPago_Options {
 		$this->credentials_access_token_test = get_option( self::CREDENTIALS_ACCESS_TOKEN_TEST, '' );
 		$this->checkout_country              = get_option( self::CHECKOUT_COUNTRY, '' );
 		$this->store_identificator           = get_option( self::STORE_IDENTIFICATOR, 'WC-' );
-		$this->store_name             			 = get_option( self::STORE_NAME, 'Mercado Pago' );
+		$this->store_name                    = get_option( self::STORE_NAME, 'Mercado Pago' );
 		$this->store_category                = get_option( self::STORE_CATEGORY, 'other' );
 		$this->integrator_id                 = get_option( self::INTEGRATOR_ID, '' );
 		$this->debug_mode                    = get_option( self::DEBUG_MODE, 'no' );

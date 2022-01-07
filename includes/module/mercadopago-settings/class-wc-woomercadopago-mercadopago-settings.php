@@ -81,22 +81,22 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 	 * Mercado Pago Template Call
 	 */
 	public function mercadopago_submenu_page_callback() {
-		$categories_store    = WC_WooMercadoPago_Module::$categories;
-		$category_selected   = $this->options->get_store_category();
-		$category_id         = $this->options->get_store_activity_identifier();
-		$store_identificator = $this->options->get_store_name_on_invoice();
-		$integrator_id       = $this->options->get_integrator_id();
-		$devsite_links       = WC_WooMercadoPago_Helper_Links::get_mp_devsite_links();
-		$debug_mode          = $this->options->get_debug_mode();
-		$url_ipn             = $this->options->get_custom_domain();
-		$links               = WC_WooMercadoPago_Helper_Links::woomercadopago_settings_links();
-		$checkbox_test_mode  = $this->options->get_checkbox_test_mode();
-		$options_credentials = $this->options->get_access_token_and_public_key();
-		$translation_header        = self::mp_translation_admin_header();
-		$translation_credential    = self::mp_translation_admin_credential();
-		$translation_store         = self::mp_translation_admin_store();
-		$translation_payment       = self::mp_translation_admin_payment();
-		$translation_test_mode     = self::mp_translation_admin_test_mode();
+		$categories_store       = WC_WooMercadoPago_Module::$categories;
+		$category_selected      = $this->options->get_store_category();
+		$category_id            = $this->options->get_store_activity_identifier();
+		$store_identificator    = $this->options->get_store_name_on_invoice();
+		$integrator_id          = $this->options->get_integrator_id();
+		$devsite_links          = WC_WooMercadoPago_Helper_Links::get_mp_devsite_links();
+		$debug_mode             = $this->options->get_debug_mode();
+		$url_ipn                = $this->options->get_custom_domain();
+		$links                  = WC_WooMercadoPago_Helper_Links::woomercadopago_settings_links();
+		$checkbox_test_mode     = $this->options->get_checkbox_test_mode();
+		$options_credentials    = $this->options->get_access_token_and_public_key();
+		$translation_header     = self::mp_translation_admin_header();
+		$translation_credential = self::mp_translation_admin_credential();
+		$translation_store      = self::mp_translation_admin_store();
+		$translation_payment    = self::mp_translation_admin_payment();
+		$translation_test_mode  = self::mp_translation_admin_test_mode();
 		include __DIR__ . '/../../../templates/mercadopago-settings/mercadopago-settings.php';
 	}
 
@@ -193,7 +193,7 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 			'title_info_store'  => __('Your store information', 'woocommerce-mercadopago'),
 			'subtitle_name_store'  => __("Name of your store in your client's invoice", 'woocommerce-mercadopago'),
 			'placeholder_name_store'  => __("Eg: Mary's store", 'woocommerce-mercadopago'),
-			'helper_name_store'  => __('If this translation is empty, the purchase will be identified as Mercado Pago.', 'woocommerce-mercadopago'),
+			'helper_name_store'  => __('If this field is empty, the purchase will be identified as Mercado Pago.', 'woocommerce-mercadopago'),
 			'subtitle_activities_store'  => __('Identification in Activities of Mercad Pago', 'woocommerce-mercadopago'),
 			'placeholder_activities_store'  => __('Eg: Marystore', 'woocommerce-mercadopago'),
 			'helper_activities_store'  => __('In Activities, you will view this term before the order number', 'woocommerce-mercadopago'),
