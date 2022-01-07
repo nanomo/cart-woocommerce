@@ -36,4 +36,17 @@ class WC_WooMercadoPago_Helper_Links {
 			'link_credentials' => $link_prefix_mp . $link_settings ['sufix_url'] . $link_developers . $link_credentials,
 		);
 	}
+
+
+	public static function get_mp_devsite_links() {
+		$link          = WC_WooMercadoPago_Module::define_link_country();
+		$base_link     = 'https://www.mercadopago.' . $link['sufix_url'] . 'developers/' . $link['translate'];
+		$devsite_links = array(
+			'dev_program'       => $base_link . '/developer-program',
+			'notifications_ipn' => $base_link . '/guides/notifications/ipn',
+			'shopping_testing'  => $base_link . '/guides/plugins/woocommerce/testing'
+		);
+
+		return $devsite_links;
+	}
 }

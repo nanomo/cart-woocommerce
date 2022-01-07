@@ -87,17 +87,17 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 		$category_id         = $this->options->get_store_activity_identifier();
 		$store_identificator = $this->options->get_store_name_on_invoice();
 		$integrator_id       = $this->options->get_integrator_id();
-		$devsite_links       = $this->options->get_mp_devsite_links();
+		$devsite_links       = WC_WooMercadoPago_Helper_Links::get_mp_devsite_links();
 		$debug_mode          = $this->options->get_debug_mode();
-		$url_ipn             = $this->options->get_url_ipn();
+		$url_ipn             = $this->options->get_custom_domain();
 		$links               = WC_WooMercadoPago_Helper_Links::woomercadopago_settings_links();
 		$checkbox_test_mode  = $this->options->get_checkbox_test_mode();
 		$options_credentials = $this->options->get_access_token_and_public_key();
-		$admin_header        = self::field_admin_header();
-		$admin_credential    = self::field_admin_credential();
-		$admin_store         = self::field_admin_store();
-		$admin_payment       = self::field_admin_payment();
-		$admin_test_mode     = self::field_admin_test_mode();
+		$translation_header        = self::mp_translation_admin_header();
+		$translation_credential    = self::mp_translation_admin_credential();
+		$translation_store         = self::mp_translation_admin_store();
+		$translation_payment       = self::mp_translation_admin_payment();
+		$translation_test_mode     = self::mp_translation_admin_test_mode();
 		include __DIR__ . '/../../../templates/mercadopago-settings/mercadopago-settings.php';
 	}
 
@@ -113,15 +113,16 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 		add_action('wp_ajax_mp_validate_store_tips', array($this, 'mp_validate_store_tips'));
 		add_action('wp_ajax_mp_validate_credentials_tips', array($this, 'mp_validate_credentials_tips'));
 		add_action('wp_ajax_mp_validate_payment_tips', array($this, 'mp_validate_payment_tips'));
+		add_action('wp_ajax_mp_update_option_credentials', array( $this, 'mp_update_option_credentials' ));
 	}
 
 	/**
-	 * Admin field header
+	 * Admin translation header
 	 *
 	 * @return array
 	 */
-	public function field_admin_header() {
-		$field_header = array(
+	public function mp_translation_admin_header() {
+		$translation_header = array(
 			'title_head_part_one'         => __('Accept ', 'woocommerce-mercadopago'),
 			'title_head_part_two'           => __('payments on the spot ', 'woocommerce-mercadopago'),
 			'title_head_part_three'         => __('with', 'woocommerce-mercadopago'),
@@ -149,17 +150,17 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 			'button_questions'                  => __('Plugin manual', 'woocommerce-mercadopago'),
 		);
 
-		return $field_header;
+		return $translation_header;
 	}
 
 	/**
-	 * Admin field credential
+	 * Admin translation credential
 	 *
 	 * @return array
 	 */
-	public function field_admin_credential() {
+	public function mp_translation_admin_credential() {
 
-		$field_credential = array(
+		$translation_credential = array(
 
 			'title_credentials'             => __('1. Integrate your store with Mercado Pago  ', 'woocommerce-mercadopago'),
 			'subtitle_credentials_one'          => __('To enable and test sales, you must copy and paste your ', 'woocommerce-mercadopago'),
@@ -176,24 +177,24 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 			'button_credentials' => __('Save and continue', 'woocommerce-mercadopago'),
 
 		);
-		return $field_credential;
+		return $translation_credential;
 	}
 
 	/**
-	 * Admin field store
+	 * Admin translation store
 	 *
 	 * @return array
 	 */
-	public function field_admin_store() {
+	public function mp_translation_admin_store() {
 
-		$field_store = array(
+		$translation_store = array(
 
 			'title_store'     => __('2. Customize your business', 'woocommerce-mercadopago'),
 			'subtitle_store'     => __('Fill out the following information to have a better experience and offer more information to your clients', 'woocommerce-mercadopago'),
 			'title_info_store'  => __('Your store information', 'woocommerce-mercadopago'),
 			'subtitle_name_store'  => __("Name of your store in your client's invoice", 'woocommerce-mercadopago'),
 			'placeholder_name_store'  => __("Eg: Mary's store", 'woocommerce-mercadopago'),
-			'helper_name_store'  => __('If this field is empty, the purchase will be identified as Mercado Pago.', 'woocommerce-mercadopago'),
+			'helper_name_store'  => __('If this translation is empty, the purchase will be identified as Mercado Pago.', 'woocommerce-mercadopago'),
 			'subtitle_activities_store'  => __('Identification in Activities of Mercad Pago', 'woocommerce-mercadopago'),
 			'placeholder_activities_store'  => __('Eg: Marystore', 'woocommerce-mercadopago'),
 			'helper_activities_store'  => __('In Activities, you will view this term before the order number', 'woocommerce-mercadopago'),
@@ -215,33 +216,33 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 			'subtitle_debug'  => __("We record your store's actions in order to provide a better assistance.", 'woocommerce-mercadopago'),
 			'button_store' => __('Save and continue', 'woocommerce-mercadopago'),
 		);
-		return $field_store;
+		return $translation_store;
 
 	}
 
 	/**
-	 * Admin field payment
+	 * Admin translation payment
 	 *
 	 * @return array
 	 */
-	public function field_admin_payment() {
-		$field_payment = array(
+	public function mp_translation_admin_payment() {
+		$translation_payment = array(
 			'title_payments'  => __('3. Set payment methods', 'woocommerce-mercadopago'),
 			'subtitle_payments'  => __('To view more options, please select a payment method below', 'woocommerce-mercadopago'),
 			'settings_payment' => __('Settings', 'woocommerce-mercadopago'),
 			'button_payment' => __('Continue', 'woocommerce-mercadopago'),
 		);
-		return $field_payment;
+		return $translation_payment;
 
 	}
 
 	/**
-	 * Admin field test mode
+	 * Admin translation test mode
 	 *
 	 * @return array
 	 */
-	public function field_admin_test_mode() {
-		$field_test_mode = array(
+	public function mp_translation_admin_test_mode() {
+		$translation_test_mode = array(
 			'title_test_mode'  => __('4. Test your store before you sell', 'woocommerce-mercadopago'),
 			'subtitle_test_mode'  => __('Test the experience in Test Mode and then enable the Sale Mode (Production) to sell.', 'woocommerce-mercadopago'),
 			'title_mode'  => __('Choose how you want to operate your store:', 'woocommerce-mercadopago'),
@@ -259,7 +260,7 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 			'badge_test' => __('Store under test', 'woocommerce-mercadopago'),
 			'badge_mode' => __('Store in sale mode (Production)', 'woocommerce-mercadopago'),
 		);
-		return $field_test_mode;
+		return $translation_test_mode;
 	}
 
 
@@ -312,6 +313,47 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 			];
 
 			wp_send_json_error($response);
+		}
+	}
+
+	/**
+	 *  Update option Credentials
+	 */
+	public function mp_update_option_credentials() {
+		try {
+
+			$public_key_test   = WC_WooMercadoPago_Credentials::get_sanitize_text_from_post( 'public_key_test' );
+			$access_token_test = WC_WooMercadoPago_Credentials::get_sanitize_text_from_post( 'access_token_test' );
+			$public_key_prod   = WC_WooMercadoPago_Credentials::get_sanitize_text_from_post( 'public_key_prod' );
+			$access_token_prod = WC_WooMercadoPago_Credentials::get_sanitize_text_from_post( 'access_token_prod' );
+
+			$mp = WC_WooMercadoPago_Module::get_mp_instance_singleton();
+
+			$validate_public_key_test   = $mp->get_credentials_wrapper( null, $public_key_test );
+			$validate_access_token_test = $mp->get_credentials_wrapper( $access_token_test );
+			$validate_public_key_prod   = $mp->get_credentials_wrapper( null, $public_key_prod );
+			$validate_access_token_prod = $mp->get_credentials_wrapper( $access_token_prod );
+			$me                         = $mp->get_me( $access_token_prod );
+
+			if ( $validate_public_key_test && $validate_access_token_test && $validate_public_key_prod && $validate_access_token_prod ) {
+				if ( true === $validate_public_key_test['is_test'] && true === $validate_access_token_test['is_test'] && false === $validate_public_key_prod['is_test'] && false === $validate_access_token_prod['is_test'] ) {
+					update_option( WC_WooMercadoPago_Options::CREDENTIALS_PUBLIC_KEY_TEST, $public_key_test, true );
+					update_option( WC_WooMercadoPago_Options::CREDENTIALS_PUBLIC_KEY_PROD, $public_key_prod, true );
+					update_option( WC_WooMercadoPago_Options::CREDENTIALS_ACCESS_TOKEN_PROD, $access_token_prod, true );
+					update_option( WC_WooMercadoPago_Options::CREDENTIALS_ACCESS_TOKEN_TEST, $access_token_test, true );
+					update_option( WC_WooMercadoPago_Options::CHECKOUT_COUNTRY, $me['site_id'], true );
+
+					wp_send_json_success( __( 'Credentials were updated', 'woocommerce-mercadopago' ) );
+				}
+			}
+
+			throw new Exception( __( 'Update failed, invalid Credentials', 'woocommerce-mercadopago' ) );
+
+		} catch ( Exception $e ) {
+
+			$response = $e->getMessage();
+
+			wp_send_json_error( $response );
 		}
 	}
 

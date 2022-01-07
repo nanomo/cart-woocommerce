@@ -188,7 +188,7 @@ class WC_WooMercadoPago_Init {
 			require_once dirname( __FILE__ ) . '/class-wc-woomercadopago-credentials.php';
 			require_once dirname( __FILE__ ) . '../../admin/notices/class-wc-woomercadopago-review-notice.php';
 			require_once dirname( __FILE__ ) . '../../pix/class-wc-woomercadopago-image-generator.php';
-			require_once dirname( __FILE__ ) . '/mercadopago-settings/class-wc-woomercadopago-options.php';
+			require_once dirname( __FILE__ ) . '/class-wc-woomercadopago-options.php';
 			require_once dirname( __FILE__ ) . '/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php';
 
 			WC_WooMercadoPago_Module::init_mercado_pago_class();
