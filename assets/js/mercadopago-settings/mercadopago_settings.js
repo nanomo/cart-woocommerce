@@ -146,8 +146,8 @@ function mp_update_option_credentials() {
           mp_go_to_next_step(
             "mp-step-1",
             "mp-step-2",
-            "mp-store-info-arrow-up",
-            "mp-payments-arrow-up"
+            "mp-credentials-arrow-up",
+            "mp-store-info-arrow-up"
           );
         }, 3000);
       })
