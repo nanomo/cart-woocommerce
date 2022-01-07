@@ -382,7 +382,7 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 			$checkout_test_mode = WC_WooMercadoPago_Credentials::get_sanitize_text_from_post( 'input_mode_value' );
 			update_option( 'checkbox_checkout_test_mode', $checkout_test_mode, true );
 
-			$response = "yes" === $checkout_test_mode ?
+			$response = 'yes' === $checkout_test_mode ?
 				__( 'Mercado Pago\'s Payment Methods in Test Mode', 'woocommerce-mercadopago' ) :
 				__( 'Mercado Pago\'s Payment Methods in Production Mode', 'woocommerce-mercadopago' );
 
