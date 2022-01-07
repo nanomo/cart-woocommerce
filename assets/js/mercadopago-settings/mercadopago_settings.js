@@ -146,8 +146,8 @@ function mp_update_option_credentials() {
           mp_go_to_next_step(
             "mp-step-1",
             "mp-step-2",
-            "mp-store-info-arrow-up",
-            "mp-payments-arrow-up"
+            "mp-credentials-arrow-up",
+            "mp-store-info-arrow-up"
           );
         }, 3000);
       })
@@ -233,6 +233,7 @@ function mp_set_mode() {
         var text_badge = document.getElementById("mp-text-badge");
         var helper_test = document.getElementById("mp-helper-test");
         var helper_prod = document.getElementById("mp-helper-prod");
+        text_badge.textContent = response;
 
         if (mode_value === "yes") {
           badge.classList.remove("mp-settings-prod-mode-alert");
@@ -248,8 +249,6 @@ function mp_set_mode() {
 
           badge.textContent = "Loja em modo teste";
 
-          text_badge.textContent =
-            "Meios de pagamento Mercado Pago em Modo Teste";
           helper_test.style.display = "block";
           helper_prod.style.display = "none";
 
@@ -267,10 +266,9 @@ function mp_set_mode() {
           icon_badge.classList.remove("mp-settings-icon-warning");
           icon_badge.classList.add("mp-settings-icon-success");
 
-          text_badge.textContent =
-            "Meios de pagamento Mercado Pago em Modo Produção";
           helper_test.style.display = "none";
           helper_prod.style.display = "block";
+
           mp_show_message(response, "success", "test_mode");
         }
       })
