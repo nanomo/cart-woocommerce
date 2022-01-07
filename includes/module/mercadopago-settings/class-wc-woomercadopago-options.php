@@ -26,7 +26,7 @@ class WC_WooMercadoPago_Options {
 	 * Register Mercado Pago Endpoints options
 	 */
 	public function register_endpoints_options() {
-		add_action( 'wp_ajax_update_option_credentials', array( $this, 'update_option_credentials' ) );
+		add_action( 'wp_ajax_mp_update_option_credentials', array( $this, 'mp_update_option_credentials' ) );
 	}
 
 	/**
@@ -108,7 +108,7 @@ class WC_WooMercadoPago_Options {
 	/**
 	 *  Update option Credentials
 	 */
-	public function update_option_credentials() {
+	public function mp_update_option_credentials() {
 		try {
 
 			$public_key_test   = WC_WooMercadoPago_Credentials::get_sanitize_text_from_post( 'public_key_test' );

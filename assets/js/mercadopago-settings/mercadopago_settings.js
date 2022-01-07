@@ -126,7 +126,7 @@ function mp_validate_credentials() {
     });
 }
 
-function update_option_credentials() {
+function mp_update_option_credentials() {
   const btn_credentials = document.getElementById("mp-btn-credentials");
 
   btn_credentials.addEventListener("click", function () {
@@ -138,21 +138,21 @@ function update_option_credentials() {
     };
 
     wp.ajax
-      .post("update_option_credentials", credentials)
+      .post("mp_update_option_credentials", credentials)
       .done(function (response) {
-        showMessage(response, "success", "credentials");
+        mp_show_message(response, "success", "credentials");
         mp_validate_credentials_tips();
         setTimeout(() => {
           mp_go_to_next_step(
-            "step-1",
-            "step-2",
+            "mp-step-1",
+            "mp-step-2",
             "mp-store-info-arrow-up",
             "mp-payments-arrow-up"
           );
         }, 3000);
       })
       .fail(function (error) {
-        showMessage(error, "error", "credentials");
+        mp_show_message(error, "error", "credentials");
       });
   });
 }
@@ -175,18 +175,18 @@ function mp_update_store_information() {
       .post("mp_update_store_information", store_information)
       .done(function (response) {
         mp_validate_store_tips();
-        showMessage(response, "success", "store");
+        mp_show_message(response, "success", "store");
         setTimeout(() => {
           mp_go_to_next_step(
-            "step-2",
-            "step-3",
+            "mp-step-2",
+            "mp-step-3",
             "mp-store-info-arrow-up",
             "mp-payments-arrow-up"
           );
         }, 3000);
       })
       .fail(function (error) {
-        showMessage(error, "error", "store");
+        mp_show_message(error, "error", "store");
       });
   });
 }
@@ -253,7 +253,7 @@ function mp_set_mode() {
           helper_test.style.display = "block";
           helper_prod.style.display = "none";
 
-          showMessage(response, "success", "test_mode");
+          mp_show_message(response, "success", "test_mode");
         } else {
           badge.classList.remove("mp-settings-test-mode-alert");
           badge.classList.add("mp-settings-prod-mode-alert");
@@ -271,11 +271,11 @@ function mp_set_mode() {
             "Meios de pagamento Mercado Pago em Modo Produção";
           helper_test.style.display = "none";
           helper_prod.style.display = "block";
-          showMessage(response, "success", "test_mode");
+          mp_show_message(response, "success", "test_mode");
         }
       })
       .fail(function (error) {
-        showMessage(error, "error", "test_mode");
+        mp_show_message(error, "error", "test_mode");
       });
   });
 }
@@ -370,27 +370,27 @@ function mp_validate_payment_tips() {
     });
 }
 
-function showMessage(message, type, block) {
+function mp_show_message(message, type, block) {
   const messageDiv = document.createElement("div");
   var card = "";
   var heading = "";
 
   switch (block) {
     case "credentials":
-      card = document.querySelector(".message-credentials");
-      heading = document.querySelector(".heading-credentials");
+      card = document.querySelector(".mp-message-credentials");
+      heading = document.querySelector(".mp-heading-credentials");
       break;
     case "store":
-      card = document.querySelector(".message-store");
-      heading = document.querySelector(".heading-store");
+      card = document.querySelector(".mp-message-store");
+      heading = document.querySelector(".mp-heading-store");
       break;
     case "payment":
-      card = document.querySelector(".message-payment");
-      heading = document.querySelector(".heading-payment");
+      card = document.querySelector(".mp-message-payment");
+      heading = document.querySelector(".mp-heading-payment");
       break;
     case "test_mode":
-      card = document.querySelector(".message-test-mode");
-      heading = document.querySelector(".heading-test-mode");
+      card = document.querySelector(".mp-message-test-mode");
+      heading = document.querySelector(".mp-heading-test-mode");
       break;
     default:
       card = "";
@@ -398,8 +398,10 @@ function showMessage(message, type, block) {
   }
 
   type === "error"
-    ? (messageDiv.className = "alert alert-danger text-center card card-body")
-    : (messageDiv.className = "alert alert-success text-center card card-body");
+    ? (messageDiv.className =
+        "mp-alert mp-alert-danger mp-text-center mp-card-body")
+    : (messageDiv.className =
+        "mp-alert mp-alert-success mp-text-center mp-card-body");
 
   messageDiv.appendChild(document.createTextNode(message));
   card.insertBefore(messageDiv, heading);
@@ -408,7 +410,7 @@ function showMessage(message, type, block) {
 }
 
 function clearMessage() {
-  document.querySelector(".alert").remove();
+  document.querySelector(".mp-alert").remove();
 }
 
 function mp_go_to_next_step(actualStep, nextStep, actualArrowId, nextArrowId) {
@@ -427,8 +429,8 @@ function mp_continue_to_next_step() {
   var continueButton = document.getElementById("mp-payment-method-continue");
   continueButton.addEventListener("click", function () {
     mp_go_to_next_step(
-      "step-3",
-      "step-4",
+      "mp-step-3",
+      "mp-step-4",
       "mp-payments-arrow-up",
       "mp-modes-arrow-up"
     );
@@ -440,7 +442,7 @@ function mp_settings_screen_load() {
   mp_settings_accordion_options();
   mp_get_requirements();
   mp_validate_credentials();
-  update_option_credentials();
+  mp_update_option_credentials();
   mp_update_store_information();
   mp_set_mode();
   mp_get_payment_properties();

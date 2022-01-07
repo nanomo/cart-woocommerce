@@ -190,7 +190,6 @@ class WC_WooMercadoPago_Init {
 			require_once dirname( __FILE__ ) . '../../pix/class-wc-woomercadopago-image-generator.php';
 			require_once dirname( __FILE__ ) . '/mercadopago-settings/class-wc-woomercadopago-options.php';
 			require_once dirname( __FILE__ ) . '/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php';
-			require_once dirname( __FILE__ ) . '/mercadopago-settings/class-wc-woomercadopago-options.php';
 
 			WC_WooMercadoPago_Module::init_mercado_pago_class();
 			WC_WooMercadoPago_Review_Notice::init_mercadopago_review_notice();

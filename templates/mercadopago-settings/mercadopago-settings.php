@@ -102,12 +102,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<img class="mp-settings-icon-open" id="mp-credentials-arrow-up">
 			</div>
 		</div>
-		<div id="step-1" class="mp-settings-block-align-top" style="display: none;">
+		<div id="mp-step-1" class="mp-settings-block-align-top" style="display: none;">
 			<div>
 				<p class="mp-settings-subtitle-font-size mp-settings-title-color"><?php echo esc_html($admin_credential['subtitle_credentials_one']); ?> <b><?php echo esc_html($admin_credential['subtitle_credentials_two']); ?></b></p>
 			</div>
-			<div class="message-credentials">
-			<a class="heading-credentials" target="_blank" href="<?php echo esc_html($links['link_credentials']); ?>"><button class="mp-button mp-button-light-blue"> <?php echo esc_html($admin_credential['button_link_credentials']); ?></button></a>
+			<div class="mp-message-credentials">
+			<a class="mp-heading-credentials" target="_blank" href="<?php echo esc_html($links['link_credentials']); ?>"><button class="mp-button mp-button-light-blue"> <?php echo esc_html($admin_credential['button_link_credentials']); ?></button></a>
 			</div>
 			<div class="mp-container">
 				<div class="mp-block mp-block-flex mp-settings-margin-right">
@@ -115,11 +115,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<p class="mp-settings-label mp-settings-title-color mp-settings-margin-bottom"><?php echo esc_html($admin_credential['subtitle_credential_test']); ?></p>
 					<fieldset class="mp-settings-fieldset">
 						<legend class="mp-settings-label mp-settings-font-color"><?php echo esc_html($admin_credential['public_key']); ?></legend>
-						<input class="mp-settings-input mp-credential-feedback-positive" id="mp-public-key-test" type="text" value="<?php echo esc_html($options_credentials['credentials_public_key_test']); ?>" placeholder="<?php echo esc_html($admin_credential['placeholder_public_key']); ?>">
+						<input class="mp-settings-input " id="mp-public-key-test" type="text" value="<?php echo esc_html($options_credentials['credentials_public_key_test']); ?>" placeholder="<?php echo esc_html($admin_credential['placeholder_public_key']); ?>">
 					</fieldset>
 					<fieldset>
 						<legend class="mp-settings-label mp-settings-font-color"><?php echo esc_html($admin_credential['access_token']); ?></legend>
-						<input class="mp-settings-input mp-credential-feedback-positive" id="mp-access-token-test" type="text" value="<?php echo esc_html($options_credentials['credentials_access_token_test']); ?>" placeholder="<?php echo esc_html($admin_credential['placeholder_access_token']); ?>" >
+						<input class="mp-settings-input " id="mp-access-token-test" type="text" value="<?php echo esc_html($options_credentials['credentials_access_token_test']); ?>" placeholder="<?php echo esc_html($admin_credential['placeholder_access_token']); ?>" >
 					</fieldset>
 				</div>
 				<div class="mp-block mp-block-flex mp-settings-margin-left">
@@ -127,11 +127,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<p class="mp-settings-label mp-settings-title-color mp-settings-margin-bottom"><?php echo esc_html($admin_credential['subtitle_credential_prod']); ?></p>
 					<fieldset class="mp-settings-fieldset">
 						<legend class="mp-settings-label mp-settings-font-color"><?php echo esc_html($admin_credential['public_key']); ?></legend>
-						<input class="mp-settings-input mp-credential-feedback-positive" id="mp-public-key-prod" type="text" value="<?php echo esc_html($options_credentials['credentials_public_key_prod']); ?>" placeholder="<?php echo esc_html($admin_credential['placeholder_public_key']); ?>">
+						<input class="mp-settings-input " id="mp-public-key-prod" type="text" value="<?php echo esc_html($options_credentials['credentials_public_key_prod']); ?>" placeholder="<?php echo esc_html($admin_credential['placeholder_public_key']); ?>">
 					</fieldset>
 					<fieldset>
 						<legend class="mp-settings-label mp-settings-font-color"><?php echo esc_html($admin_credential['access_token']); ?></legend>
-						<input class="mp-settings-input mp-credential-feedback-positive" id="mp-access-token-prod" type="text" value="<?php echo esc_html($options_credentials['credentials_access_token_prod']); ?>" placeholder="<?php echo esc_html($admin_credential['placeholder_access_token']); ?>">
+						<input class="mp-settings-input " id="mp-access-token-prod" type="text" value="<?php echo esc_html($options_credentials['credentials_access_token_prod']); ?>" placeholder="<?php echo esc_html($admin_credential['placeholder_access_token']); ?>">
 					</fieldset>
 				</div>
 			</div>
@@ -150,9 +150,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<img class="mp-settings-icon-open" id="mp-store-info-arrow-up">
 			</div>
 		</div>
-			<div id="step-2" class="message-store mp-settings-block-align-top" style="display: none;">
+			<div id="mp-step-2" class="mp-message-store mp-settings-block-align-top" style="display: none;">
 			<p class="mp-settings-font-color mp-settings-subtitle-font-size mp-settings-title-color"><?php echo esc_html($admin_store['subtitle_store']); ?></p>
-			<div class="heading-store mp-container mp-settings-flex-start" id="block-two">
+			<div class="mp-heading-store mp-container mp-settings-flex-start" id="block-two">
 				<div class="mp-block mp-block-flex mp-settings-margin-right mp-settings-choose-mode">
 					<div>
 						<p class="mp-settings-title-font-size"><b><?php echo esc_html($admin_store['title_info_store']); ?></b></p>
@@ -253,7 +253,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<img class="mp-settings-icon-open" id="mp-payments-arrow-up">
 			</div>
 		</div>
-		<div id="step-3" class="mp-settings-block-align-top" style="display: none;">
+		<div id="mp-step-3" class="mp-settings-block-align-top" style="display: none;">
 			<p id="mp-payment" class="mp-settings-subtitle-font-size mp-settings-title-color"><?php echo esc_html($admin_payment['subtitle_payments']); ?></p>
 			<button id="mp-payment-method-continue" class="mp-button"> <?php echo esc_html($admin_payment['button_payment']); ?></button>
 		</div>
@@ -270,8 +270,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<img class="mp-settings-icon-open" id="mp-modes-arrow-up">
 			</div>
 		</div>
-		<div id="step-4" class="message-test-mode mp-settings-block-align-top" style="display: none;">
-			<p class="heading-test-mode mp-settings-subtitle-font-size mp-settings-title-color"><?php echo esc_html($admin_test_mode['subtitle_test_mode']); ?></p>
+		<div id="mp-step-4" class="mp-message-test-mode mp-settings-block-align-top" style="display: none;">
+			<p class="mp-heading-test-mode mp-settings-subtitle-font-size mp-settings-title-color"><?php echo esc_html($admin_test_mode['subtitle_test_mode']); ?></p>
 			<div class="mp-container">
 				<div class="mp-block mp-settings-choose-mode">
 					<div>
