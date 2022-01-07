@@ -11,15 +11,12 @@ fi
 if [[ $staged_files == *".js"* ]]; then
   npm run lint && clear && echo "Verificando sintaxe do JS 🔍" && sleep 1 && echo "Verificando sintaxe do JS ✅"
   npm run build:js && clear && echo "Minificando JS 🔍" && sleep 1 && echo "Minificando JS (Se houver) ✅"
-  git add .
 fi
 
 if [[ $staged_files == *".css"* ]]; then
   npm run build:css && clear && echo "Minificando CSS 🔍" && sleep 1 && echo "Minificando CSS ✅"
-  git add .
 fi
 
 if [[ $staged_files == *".po"* ]]; then
   npm run pot && clear && echo "Atualizando arquivo .pot 🔍" && sleep 1 && echo "Atualizando arquivo .pot ✅"
-  git add .
 fi
