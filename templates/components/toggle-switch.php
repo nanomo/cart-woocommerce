@@ -17,7 +17,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?><tr valign="top">
 	<th scope="row" class="titledesc">
 		<label for="<?php echo esc_attr( $field_key ); ?>"><?php echo esc_attr( $settings['title'] ); ?></label>
-		<?php echo $tooltip_html; ?>
 	</th>
 	<td class="forminp">
 		<div>

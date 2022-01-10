@@ -425,6 +425,7 @@
 	cursor: pointer;
 	display: inline-block;
 }
+
 .mp-toggle-switch {
 	display: inline-block;
 	background: #ccc;
@@ -435,9 +436,11 @@
 	vertical-align: middle;
 	transition: background 0.25s;
 }
+
 .mp-toggle-switch:before, .mp-toggle-switch:after {
 	content: "";
 }
+
 .mp-toggle-switch:before {
 	display: block;
 	background: linear-gradient(to bottom, #fff 0%, #eee 100%);
@@ -450,20 +453,25 @@
 	left: 4px;
 	transition: left 0.25s;
 }
+
 .mp-toggle:hover .mp-toggle-switch:before {
 	background: linear-gradient(to bottom, #fff 0%, #fff 100%);
 	box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.5);
 }
+
 .mp-toggle-checkbox:checked + .mp-toggle-switch {
 	background: #009ee3;
 }
+
 .mp-toggle-checkbox:checked + .mp-toggle-switch:before {
 	left: 30px;
 }
+
 .mp-toggle-checkbox {
 	position: absolute;
 	visibility: hidden;
 }
+
 .mp-toggle-label {
 	margin-left: 5px;
 	position: relative;

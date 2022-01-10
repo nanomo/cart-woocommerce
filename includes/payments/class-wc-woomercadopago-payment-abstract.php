@@ -809,7 +809,7 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 		);
 	}
 
-	function generate_mp_toggle_switch_html( $key, $settings ) {
+	public function generate_mp_toggle_switch_html( $key, $settings ) {
 		return wc_get_template_html(
 			'components/toggle-switch.php',
 			array (
