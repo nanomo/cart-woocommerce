@@ -673,17 +673,17 @@ input:checked + .mp-settings-slider:before {
 .mp-settings-link {
 	text-decoration: none;
 }
-.alert-danger {
+.mp-alert-danger {
 	color: #842029;
 	background-color: #f8d7da;
 	border-color: #f5c2c7;
 }
-.alert-success {
+.mp-alert-success {
 	color: #0f5132;
 	background-color: #d1e7dd;
 	border-color: #badbcc;
 }
-.alert {
+.mp-alert {
 	position: relative;
 	padding: 1rem 1rem;
 	margin-bottom: 1rem;
@@ -691,10 +691,10 @@ input:checked + .mp-settings-slider:before {
 	border-radius: 0.25rem;
 }
 
-.text-center {
+.mp-text-center {
 	text-align: center !important;
 }
-.card-body {
+.mp-card-body {
 	flex: 1 1 auto;
 	padding: 1rem 1rem;
 }

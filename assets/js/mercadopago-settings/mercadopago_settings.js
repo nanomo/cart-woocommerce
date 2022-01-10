@@ -24,7 +24,6 @@ function mp_settings_accordion_start() {
       }
     });
   }
-  console.log("MP Settings Accordion Started!");
 }
 
 function mp_get_requirements() {
@@ -127,7 +126,7 @@ function mp_validate_credentials() {
     });
 }
 
-function update_option_credentials() {
+function mp_update_option_credentials() {
   const btn_credentials = document.getElementById("mp-btn-credentials");
 
   btn_credentials.addEventListener("click", function () {
@@ -139,30 +138,26 @@ function update_option_credentials() {
     };
 
     wp.ajax
-      .post("update_option_credentials", credentials)
+      .post("mp_update_option_credentials", credentials)
       .done(function (response) {
-        showMessage(
-          "Credenciais salvas com sucesso!",
-          "success",
-          "credentials"
-        );
-        mp_validate_fields();
+        mp_show_message(response, "success", "credentials");
+        mp_validate_credentials_tips();
         setTimeout(() => {
           mp_go_to_next_step(
-            "step-1",
-            "step-2",
-            "mp-store-info-arrow-up",
-            "mp-payments-arrow-up"
+            "mp-step-1",
+            "mp-step-2",
+            "mp-credentials-arrow-up",
+            "mp-store-info-arrow-up"
           );
         }, 3000);
       })
       .fail(function (error) {
-        showMessage("Credenciais inválidas!", "error", "credentials");
+        mp_show_message(error, "error", "credentials");
       });
   });
 }
 
-function mp_validate_store_information() {
+function mp_update_store_information() {
   button = document.getElementById("mp-store-info-save");
   button.addEventListener("click", function () {
     const store_information = {
@@ -177,20 +172,21 @@ function mp_validate_store_information() {
         ?.value,
     };
     wp.ajax
-      .post("mp_validate_store_information", store_information)
+      .post("mp_update_store_information", store_information)
       .done(function (response) {
-        showMessage("Informações salvas!", "success", "store");
+        mp_validate_store_tips();
+        mp_show_message(response, "success", "store");
         setTimeout(() => {
           mp_go_to_next_step(
-            "step-2",
-            "step-3",
+            "mp-step-2",
+            "mp-step-3",
             "mp-store-info-arrow-up",
             "mp-payments-arrow-up"
           );
         }, 3000);
       })
       .fail(function (error) {
-        showMessage(error, "error", "store");
+        mp_show_message(error, "error", "store");
       });
   });
 }
@@ -220,8 +216,6 @@ function mp_settings_accordion_options() {
       elementBlock.classList.remove("mp-settings-flex-start");
     }
   });
-
-  console.log("MP Settings Accordion Started 2!");
 }
 
 function mp_set_mode() {
@@ -239,6 +233,7 @@ function mp_set_mode() {
         var text_badge = document.getElementById("mp-text-badge");
         var helper_test = document.getElementById("mp-helper-test");
         var helper_prod = document.getElementById("mp-helper-prod");
+        text_badge.textContent = response;
 
         if (mode_value === "yes") {
           badge.classList.remove("mp-settings-prod-mode-alert");
@@ -254,12 +249,10 @@ function mp_set_mode() {
 
           badge.textContent = "Loja em modo teste";
 
-          text_badge.textContent =
-            "Meios de pagamento Mercado Pago em Modo Teste";
           helper_test.style.display = "block";
           helper_prod.style.display = "none";
 
-          showMessage("Loja em modo teste!", "success", "test_mode");
+          mp_show_message(response, "success", "test_mode");
         } else {
           badge.classList.remove("mp-settings-test-mode-alert");
           badge.classList.add("mp-settings-prod-mode-alert");
@@ -273,15 +266,14 @@ function mp_set_mode() {
           icon_badge.classList.remove("mp-settings-icon-warning");
           icon_badge.classList.add("mp-settings-icon-success");
 
-          text_badge.textContent =
-            "Meios de pagamento Mercado Pago em Modo Produção";
           helper_test.style.display = "none";
           helper_prod.style.display = "block";
-          showMessage("Loja em modo Produção!", "success", "test_mode");
+
+          mp_show_message(response, "success", "test_mode");
         }
       })
       .fail(function (error) {
-        showMessage(error, "error", "test_mode");
+        mp_show_message(error, "error", "test_mode");
       });
   });
 }
@@ -296,10 +288,7 @@ function mp_get_payment_properties() {
         mp_payment_properties(gateway);
       });
     })
-    .fail(function (error) {
-      console.log("error properties");
-    });
-  console.log("MP Properties!");
+    .fail(function (error) {});
 }
 
 function mp_payment_properties(gateway) {
@@ -338,24 +327,26 @@ function mp_payment_properties(gateway) {
   );
 }
 
-function mp_validate_fields() {
+function mp_validate_credentials_tips() {
+  var icon_credentials = document.getElementById(
+    "mp-settings-icon-credentials"
+  );
   wp.ajax
-    .post("mp_validate_fields", {})
+    .post("mp_validate_credentials_tips", {})
     .done(function (response) {
-      const icon_credentials = document.getElementById(
-        "mp-settings-icon-credentials"
-      );
       icon_credentials.classList.remove("mp-settings-icon-credentials");
       icon_credentials.classList.add("mp-settings-icon-success");
     })
     .fail(function (error) {
       icon_credentials.classList.remove("mp-settings-icon-success");
     });
+}
 
+function mp_validate_store_tips() {
+  var icon_store = document.getElementById("mp-settings-icon-store");
   wp.ajax
-    .post("mp_validate_fields", {})
+    .post("mp_validate_store_tips", {})
     .done(function (response) {
-      const icon_store = document.getElementById("mp-settings-icon-store");
       icon_store.classList.remove("mp-settings-icon-store");
       icon_store.classList.add("mp-settings-icon-success");
     })
@@ -364,10 +355,10 @@ function mp_validate_fields() {
     });
 }
 
-function mp_validate_field_payment() {
-  const icon_payment = document.getElementById("mp-settings-icon-payment");
+function mp_validate_payment_tips() {
+  var icon_payment = document.getElementById("mp-settings-icon-payment");
   wp.ajax
-    .post("mp_validate_field_payment", {})
+    .post("mp_validate_payment_tips", {})
     .done(function (response) {
       icon_payment.classList.remove("mp-settings-icon-payment");
       icon_payment.classList.add("mp-settings-icon-success");
@@ -377,27 +368,27 @@ function mp_validate_field_payment() {
     });
 }
 
-function showMessage(message, type, block) {
+function mp_show_message(message, type, block) {
   const messageDiv = document.createElement("div");
   var card = "";
   var heading = "";
 
   switch (block) {
     case "credentials":
-      card = document.querySelector(".message-credentials");
-      heading = document.querySelector(".heading-credentials");
+      card = document.querySelector(".mp-message-credentials");
+      heading = document.querySelector(".mp-heading-credentials");
       break;
     case "store":
-      card = document.querySelector(".message-store");
-      heading = document.querySelector(".heading-store");
+      card = document.querySelector(".mp-message-store");
+      heading = document.querySelector(".mp-heading-store");
       break;
     case "payment":
-      card = document.querySelector(".message-payment");
-      heading = document.querySelector(".heading-payment");
+      card = document.querySelector(".mp-message-payment");
+      heading = document.querySelector(".mp-heading-payment");
       break;
     case "test_mode":
-      card = document.querySelector(".message-test-mode");
-      heading = document.querySelector(".heading-test-mode");
+      card = document.querySelector(".mp-message-test-mode");
+      heading = document.querySelector(".mp-heading-test-mode");
       break;
     default:
       card = "";
@@ -405,8 +396,10 @@ function showMessage(message, type, block) {
   }
 
   type === "error"
-    ? (messageDiv.className = "alert alert-danger text-center card card-body")
-    : (messageDiv.className = "alert alert-success text-center card card-body");
+    ? (messageDiv.className =
+        "mp-alert mp-alert-danger mp-text-center mp-card-body")
+    : (messageDiv.className =
+        "mp-alert mp-alert-success mp-text-center mp-card-body");
 
   messageDiv.appendChild(document.createTextNode(message));
   card.insertBefore(messageDiv, heading);
@@ -415,7 +408,7 @@ function showMessage(message, type, block) {
 }
 
 function clearMessage() {
-  document.querySelector(".alert").remove();
+  document.querySelector(".mp-alert").remove();
 }
 
 function mp_go_to_next_step(actualStep, nextStep, actualArrowId, nextArrowId) {
@@ -423,26 +416,19 @@ function mp_go_to_next_step(actualStep, nextStep, actualArrowId, nextArrowId) {
   var next = document.getElementById(nextStep);
   var actualArrow = document.getElementById(actualArrowId);
   var nextArrow = document.getElementById(nextArrowId);
-  if (actual.style.display === "block" && next.style.display === "none") {
-    console.log("chegando aqui");
-    actual.style.display = "none";
-    next.style.display = "block";
-    actualArrow.classList.remove("mp-arrow-up");
-    nextArrow.classList.add("mp-arrow-up");
-  } else {
-    actual.style.display = "none";
-    next.style.display = "block";
-    actualArrow.classList.remove("mp-arrow-up");
-    nextArrow.classList.add("mp-arrow-up");
-  }
+
+  actual.style.display = "none";
+  next.style.display = "block";
+  actualArrow.classList.remove("mp-arrow-up");
+  nextArrow.classList.add("mp-arrow-up");
 }
 
 function mp_continue_to_next_step() {
   var continueButton = document.getElementById("mp-payment-method-continue");
   continueButton.addEventListener("click", function () {
     mp_go_to_next_step(
-      "step-3",
-      "step-4",
+      "mp-step-3",
+      "mp-step-4",
       "mp-payments-arrow-up",
       "mp-modes-arrow-up"
     );
@@ -454,11 +440,12 @@ function mp_settings_screen_load() {
   mp_settings_accordion_options();
   mp_get_requirements();
   mp_validate_credentials();
-  update_option_credentials();
-  mp_validate_store_information();
+  mp_update_option_credentials();
+  mp_update_store_information();
   mp_set_mode();
   mp_get_payment_properties();
-  mp_validate_fields();
-  mp_validate_field_payment();
+  mp_validate_credentials_tips();
+  mp_validate_store_tips();
+  mp_validate_payment_tips();
   mp_continue_to_next_step();
 }

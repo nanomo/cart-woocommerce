@@ -4,7 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/woocommerce-"
 "mercadopago\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2022-01-05 15:25-0300\n"
+"PO-Revision-Date: 2022-01-06 10:20-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: pt_BR\n"
@@ -884,8 +884,6 @@ msgstr "Altere o texto que aparece no Checkout, máximo de caracteres: 85"
 
 #: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:658,
 #: ../../includes/payments/class-wc-woomercadopago-payment-abstract.php:658
-#, fuzzy
-#| msgid "If you change the display text, no translatation will be available"
 msgid "If you change the display text, no translation will be available"
 msgstr "Se você trocar o texto, nenhuma tradução estará disponível"
 
@@ -1969,58 +1967,58 @@ msgstr "Descartar"
 msgid "Mercado Pago Settings"
 msgstr "Configurações do Mercado Pago"
 
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:124,
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:124
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:125,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:125
 msgid "Accept "
 msgstr "Aceite "
 
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:125,
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:125
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:126,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:126
 msgid "payments on the spot "
 msgstr "pagamentos no ato "
 
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:126,
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:126
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:127,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:127
 msgid "with"
 msgstr "com"
 
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:127,
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:127
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:128,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:128
 msgid "the "
 msgstr "toda a "
 
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:128,
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:128
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:129,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:129
 msgid "security "
 msgstr "segurança "
 
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:129,
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:129
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:130,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:130
 msgid "from Mercado Pago"
 msgstr "do Mercado Pago"
 
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:130,
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:130
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:131,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:131
 msgid "Technical requirements"
 msgstr "Requisitos técnicos"
 
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:131,
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:131
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:132,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:132
 msgid "SSL"
 msgstr "SSL"
 
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:132,
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:132
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:133,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:133
 msgid "GD Extensions"
 msgstr "Extensões GD"
 
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:133,
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:133
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:134,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:134
 msgid "Curl"
 msgstr "Curl"
 
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:134,
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:134
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:135,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:135
 msgid ""
 "Implementation responsible for transmitting data to Mercado Pago in a secure "
 "and encrypted way."
@@ -2028,8 +2026,8 @@ msgstr ""
 "Implementção responsável pela transmissão de dados para o Mercado Pago de "
 "maneira segura e criptografada."
 
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:135,
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:135
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:136,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:136
 msgid ""
 "These extensions are responsible for the implementation and operation of Pix "
 "in your store."
@@ -2037,8 +2035,8 @@ msgstr ""
 "São extensões responsáveis pela implementação e funcionamento do Pix na sua "
 "loja."
 
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:136,
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:136
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:137,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:137
 msgid ""
 "It is an extension responsible for making payments via requests from the "
 "plugin to Mercado Pago."
@@ -2046,140 +2044,140 @@ msgstr ""
 "É uma extensão responsável pela realização de pagamentos via solicitações do "
 "plugin ao Mercado Pago."
 
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:137,
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:137
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:138,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:138
 msgid "Collections and installments"
 msgstr "Recebimentos e parcelamento"
 
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:138,
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:138
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:139,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:139
 msgid "Choose "
 msgstr "Escolha "
 
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:139,
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:139
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:140,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:140
 msgid "when you want to receive the money "
 msgstr "quando quer receber o dinheiro "
 
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:140,
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:140
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:141,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:141
 msgid "from your sales and if you want to offer "
 msgstr "das vendas e se quer oferecer "
 
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:141,
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:141
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:142,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:142
 msgid "interest-free installments "
 msgstr "parcelamento sem juros "
 
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:142,
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:142
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:143,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:143
 msgid "to your clients."
 msgstr "aos clientes."
 
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:143,
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:143
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:144,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:144
 msgid "Set deadlines and fees"
 msgstr "Ajustar prazos e taxas"
 
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:144,
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:144
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:145,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:145
 msgid "Questions? "
 msgstr "Dúvidas? "
 
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:145,
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:145
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:146,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:146
 msgid "Review the step-by-step of "
 msgstr "Revise o passo a passo de "
 
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:146,
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:146
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:147,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:147
 msgid "how to integrate the Mercado Pago Plugin "
 msgstr "como integrar o Plugin do Mercado Pago "
 
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:147,
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:147
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:148,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:148
 msgid "on our webiste for developers."
 msgstr "no nosso site de desenvolvedores."
 
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:148,
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:148
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:149,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:149
 msgid "Plugin manual"
 msgstr "Manual do plugin"
 
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:163,
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:163
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:164,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:164
 msgid "1. Integrate your store with Mercado Pago  "
 msgstr "1. Integre a loja com o Mercado Pago  "
 
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:164,
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:164
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:165,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:165
 msgid "To enable and test sales, you must copy and paste your "
 msgstr "Para habilitar e testar e vendas, você deve copiar e colar suas "
 
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:165,
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:165
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:166,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:166
 msgid "credentials below."
 msgstr "credenciais abaixo."
 
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:166,
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:166
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:167,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:167
 msgid "Check credentials"
 msgstr "Consultar credenciais"
 
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:167,
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:167
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:168,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:168
 msgid "Test credentials "
 msgstr "Credenciais de teste "
 
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:168,
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:168
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:169,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:169
 msgid "Enable Mercado Pago checkouts for test purchases in the store."
 msgstr "Habilitam os checkouts Mercado Pago para testes de compras na loja."
 
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:169,
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:169
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:170,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:170
 msgid "Public key"
 msgstr "Public key"
 
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:170,
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:170
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:171,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:171
 msgid "Access Token"
 msgstr "Access token"
 
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:171,
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:171
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:172,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:172
 msgid "Production credentials"
 msgstr "Credenciais de Produção"
 
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:172,
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:172
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:173,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:173
 msgid "Enable Mercado Pago checkouts to receive real payments in the store."
 msgstr ""
 "Habilitam os checkouts Mercado Pago para receber pagamentos reais na loja."
 
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:173,
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:173
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:174,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:174
 msgid "Paste your Public Key here"
 msgstr "Cole aqui sua Public Key"
 
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:174,
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:174
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:175,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:175
 msgid "Paste your Access Token here"
 msgstr "Cole aqui seu Access Token"
 
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:175,
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:215,
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:215
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:176,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:216,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:216
 msgid "Save and continue"
 msgstr "Salvar e continuar"
 
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:190,
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:190
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:191,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:191
 msgid "2. Customize your business"
 msgstr "2. Personalize seu negócio"
 
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:191,
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:191
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:192,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:192
 msgid ""
 "Fill out the following information to have a better experience and offer "
 "more information to your clients"
@@ -2187,66 +2185,66 @@ msgstr ""
 "Preencha as informações a seguir para ter uma melhor experiência e oferecer "
 "mais informações aos clientes"
 
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:192,
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:192
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:193,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:193
 msgid "Your store information"
 msgstr "Informações sobre sua loja"
 
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:193,
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:193
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:194,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:194
 msgid "Name of your store in your client's invoice"
 msgstr "Nome da sua loja na fatura dos clientes"
 
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:194,
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:194
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:195,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:195
 msgid "Eg: Mary's store"
 msgstr "Ex.: Loja da Maria"
 
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:195,
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:195
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:196,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:196
 msgid ""
 "If this field is empty, the purchase will be identified as Mercado Pago."
 msgstr ""
 "Se o campo estiver vazio, a compra do cliente será identificada como Mercado "
 "Pago."
 
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:196,
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:196
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:197,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:197
 msgid "Identification in Activities of Mercad Pago"
 msgstr "Identificação em Atividades do Mercado Pago"
 
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:197,
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:197
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:198,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:198
 msgid "Eg: Marystore"
 msgstr "Ex.: LojaMaria"
 
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:198,
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:198
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:199,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:199
 msgid "In Activities, you will view this term before the order number"
 msgstr "Nas Ativades você verá o termo inserido antes do número do pedido"
 
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:199,
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:199
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:200,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:200
 msgid "Store category"
 msgstr "Categoria da loja"
 
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:200,
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:200
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:201,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:201
 msgid "Select"
 msgstr "Selecionar"
 
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:201,
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:201
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:202,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:202
 msgid "Select ”Other” if you do not find the appropriate category."
 msgstr "Selecione ”Outro” caso não encontre uma categoria adequada."
 
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:202,
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:202
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:203,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:203
 msgid "Advanced integration options (optional)"
 msgstr "Opções avançadas de integração (opcional)"
 
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:203,
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:203
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:204,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:204
 msgid ""
 "For further integration of your store with Mercado Pago (IPN, Certified "
 "Partners, Debug Mode)"
@@ -2254,23 +2252,23 @@ msgstr ""
 "Para mais integração da sua loja com o Mercado Pago  (IPN, Parceiros "
 "Certificados, Modo Debug)"
 
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:204,
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:204
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:205,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:205
 msgid "View advanced options"
 msgstr "Ver opções avançadas"
 
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:205,
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:205
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:206,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:206
 msgid "URL for IPN "
 msgstr "URL para IPN "
 
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:206,
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:206
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:207,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:207
 msgid "Eg: https://examples.com/my-custom-ipn-url"
 msgstr "Ex.: https://examples.com/my-custom-ipn-url"
 
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:207,
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:207
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:208,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:208
 msgid ""
 "Add the URL to receive payments notifications. Find out more information in "
 "the "
@@ -2278,23 +2276,23 @@ msgstr ""
 "Insira a URL para receber notificações de pagamento. Confira mais "
 "informações nos "
 
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:208,
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:208
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:209,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:209
 msgid "guides."
 msgstr "manuais."
 
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:209,
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:209
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:210,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:210
 msgid "integrator_id"
 msgstr "integrator_id"
 
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:210,
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:210
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:211,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:211
 msgid "Eg: 14987126498"
 msgstr "Ex.: 14987126498"
 
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:211,
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:211
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:212,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:212
 msgid ""
 "If you are a Mercado Pago Certified Partner, make sure to add your "
 "integrator_id. If you do not have the code, please "
@@ -2302,48 +2300,48 @@ msgstr ""
 "Se você é Parceiro certificado do Mercado Pago, não esqueça de inserir seu "
 "integrator_id. Se você não possui o código, "
 
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:212,
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:212
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:213,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:213
 msgid "request it now. "
 msgstr "solicite agora. "
 
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:213,
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:213
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:214,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:214
 msgid "Debug and Log Mode"
 msgstr "Modo debug e log"
 
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:214,
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:214
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:215,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:215
 msgid "We record your store's actions in order to provide a better assistance."
 msgstr "Gravamos ações da sua loja para proporcionar melhor suporte."
 
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:228,
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:228
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:229,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:229
 msgid "3. Set payment methods"
 msgstr "3. Configure os meios de pagamento"
 
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:229,
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:229
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:230,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:230
 msgid "To view more options, please select a payment method below"
 msgstr "Selecione um meio de pagamento a seguir para ver mais opções"
 
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:230,
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:230
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:231,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:231
 msgid "Settings"
 msgstr "Configurar"
 
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:231,
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:231
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:232,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:232
 msgid "Continue"
 msgstr "Continuar"
 
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:244,
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:244
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:245,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:245
 msgid "4. Test your store before you sell"
 msgstr "4. Teste sua loja antes de vender"
 
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:245,
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:245
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:246,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:246
 msgid ""
 "Test the experience in Test Mode and then enable the Sale Mode (Production) "
 "to sell."
@@ -2351,75 +2349,110 @@ msgstr ""
 "Teste a experiência no Modo Teste. Depois ative o Modo Vendas (Produção) "
 "para fazer vendas."
 
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:246,
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:246
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:247,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:247
 msgid "Choose how you want to operate your store:"
 msgstr "Escolha como você quer operar sua loja:"
 
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:247,
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:247
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:248,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:248
 msgid "Test Mode"
 msgstr "Modo Teste"
 
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:248,
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:248
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:249,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:249
 msgid "Mercado Pago Checkouts disabled for real collections. "
 msgstr "Checkouts Mercado Pago inativos para cobranças reais. "
 
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:249,
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:249
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:250,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:250
 msgid "Test Mode rules."
 msgstr "Regras do modo teste."
 
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:250,
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:250
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:251,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:251
 msgid "Sale Mode (Production)"
 msgstr "Modo Vendas (Produção)"
 
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:251,
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:251
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:252,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:252
 msgid "Mercado Pago Checkouts enabled for real collections."
 msgstr "Checkouts Mercado Pago ativos para cobranças reais."
 
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:252,
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:252
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:253,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:253
 msgid "Mercado Pago payment methods in Production Mode"
 msgstr "Meios de pagamento Mercado Pago em Modo Produção"
 
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:253,
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:253
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:254,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:254
 msgid "The clients can make real purchases in your store."
 msgstr "Clientes podem fazer compras reais na sua loja."
 
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:254,
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:254
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:255,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:255
 msgid "Mercado Pago payment methods in Test Mode"
 msgstr "Meios de pagamento Mercado Pago em Modo Teste"
 
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:255,
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:255
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:256,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:256
 msgid "Visit your store "
 msgstr "Visite sua loja "
 
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:256,
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:256
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:257,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:257
 msgid "to test purchases"
 msgstr "para testar compras"
 
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:257,
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:257
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:258,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:258
 msgid "Save changes"
 msgstr "Salvar mudanças"
 
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:258,
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:258
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:259,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:259
 msgid "Store under test"
 msgstr "Loja em Modo Teste"
 
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:259,
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:259
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:260,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:260
 msgid "Store in sale mode (Production)"
 msgstr "Loja em Modo Vendas (Produção)"
+
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:295,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:295
+msgid "Invalid Access Token"
+msgstr "Access token inválido"
+
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:297,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:297
+msgid "Valid Access Token"
+msgstr "Access token válido"
+
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:303,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:303
+msgid "Invalid Public Key"
+msgstr "Public key inválida"
+
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:305,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:305
+msgid "Valid Public Key"
+msgstr "Public key válida"
+
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:308,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:308
+msgid "Credentials must be valid"
+msgstr "As credenciais devem ser válidas"
+
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:363,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:363
+msgid "Store information is valid"
+msgstr "As informações sobre a loja são válidas"
+
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:381,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:381
+msgid "Store mode was updated"
+msgstr "O modo da loja foi atualizado"
 
 #: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:422,
 #: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:422
@@ -2430,6 +2463,46 @@ msgstr "Ativado"
 #: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:422
 msgid "Disabled"
 msgstr "Inativo"
+
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:446,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:446
+msgid "Valid Credentials"
+msgstr "Credenciais válidas"
+
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:449,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:449
+msgid "Credentials couldn't be validated"
+msgstr "As credenciais não puderam ser validadas"
+
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:471,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:471
+msgid "Store business fields are valid"
+msgstr "Os campos de negócio são válidos"
+
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:474,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:474
+msgid "Store business fields couldn't be validated"
+msgstr "Os campos de negócio não puderam ser validados"
+
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:496,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:496
+msgid "At least one paymet method is enabled"
+msgstr "Pelo menos um meio de pagamento está ativado"
+
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:499,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:499
+msgid "No payment method enabled"
+msgstr "Nenhum meio de pagamento ativo"
+
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-options.php:135,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-options.php:135
+msgid "Credentials were updated"
+msgstr "As credenciais foram atualizadas"
+
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-options.php:139,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-options.php:139
+msgid "Update failed, invalid Credentials"
+msgstr "Atualização falhou, credenciais inválidas"
 
 #: ../../includes/module/preference/class-wc-woomercadopago-preference-abstract.php:362,
 #: ../../includes/module/preference/class-wc-woomercadopago-preference-abstract.php:362
@@ -2941,6 +3014,9 @@ msgstr ""
 #: ../../templates/order-received/show-ticket.php:23
 msgid "Print ticket"
 msgstr "Imprimir boleto"
+
+#~ msgid "Couldn't find a valid payment method"
+#~ msgstr "Não foi possível encontrar uma forma de pagamento válida"
 
 #~ msgid ""
 #~ "It offers all means of payment: credit and debit cards, cash and account "
