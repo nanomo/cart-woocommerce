@@ -200,8 +200,11 @@ class WC_WooMercadoPago_Init {
 			new WC_WooMercadoPago_Hook_Order_Details();
 			add_action( 'woocommerce_order_actions', array( __CLASS__, 'add_mp_order_meta_box_actions' ) );
 
+			// Init Get Option
+			$option = WC_WooMercadoPago_Options::get_instance();
+
 			// Load Mercado Pago Settings Screen
-			( new WC_WooMercadoPago_MercadoPago_Settings(new WC_WooMercadoPago_Options()) )->init();
+			( new WC_WooMercadoPago_MercadoPago_Settings($option) )->init();
 		} else {
 			add_action( 'admin_notices', array( __CLASS__, 'notify_woocommerce_miss' ) );
 		}

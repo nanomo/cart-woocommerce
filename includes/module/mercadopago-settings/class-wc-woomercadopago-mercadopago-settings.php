@@ -82,15 +82,15 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 	 */
 	public function mercadopago_submenu_page_callback() {
 		$categories_store       = WC_WooMercadoPago_Module::$categories;
-		$category_selected      = $this->options->get_store_category();
-		$category_id            = $this->options->get_store_activity_identifier();
-		$store_identificator    = $this->options->get_store_name_on_invoice();
+		$category_selected      = false === $this->options->get_store_category() ? 'others' : $this->options->get_store_category();
+		$category_id            = false === $this->options->get_store_id() ? 'WC-' : $this->options->get_store_id();
+		$store_identificator    = false === $this->options->get_store_name_on_invoice() ? 'Mercado Pago' : $this->options->get_store_name_on_invoice();
 		$integrator_id          = $this->options->get_integrator_id();
 		$devsite_links          = WC_WooMercadoPago_Helper_Links::get_mp_devsite_links();
-		$debug_mode             = $this->options->get_debug_mode();
+		$debug_mode             = false === $this->options->get_debug_mode() ? 'no' : $this->options->get_debug_mode();
 		$url_ipn                = $this->options->get_custom_domain();
 		$links                  = WC_WooMercadoPago_Helper_Links::woomercadopago_settings_links();
-		$checkbox_test_mode     = $this->options->get_checkbox_test_mode();
+		$checkbox_test_mode     = false === $this->options->get_checkbox_test_mode() ? 'yes' : $this->options->get_checkbox_test_mode();
 		$options_credentials    = $this->options->get_access_token_and_public_key();
 		$translation_header     = self::mp_translation_admin_header();
 		$translation_credential = self::mp_translation_admin_credential();
@@ -486,10 +486,10 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 	 */
 	public function mp_validate_credentials_tips() {
 		try {
-			$public_key_test   = get_option( WC_WooMercadoPago_Options::CREDENTIALS_PUBLIC_KEY_TEST, '' );
-			$access_token_test = get_option( WC_WooMercadoPago_Options::CREDENTIALS_ACCESS_TOKEN_TEST, '' );
-			$public_key_prod   = get_option( WC_WooMercadoPago_Options::CREDENTIALS_PUBLIC_KEY_PROD, '' );
-			$access_token_prod = get_option( WC_WooMercadoPago_Options::CREDENTIALS_ACCESS_TOKEN_PROD, '' );
+			$public_key_test   = $this->options->get_public_key_test();
+			$access_token_test = $this->options->get_access_token_test();
+			$public_key_prod   = $this->options->get_public_key_prod();
+			$access_token_prod = $this->options->get_access_token_prod();
 
 			if ( $public_key_test && $access_token_test && $public_key_prod && $access_token_prod ) {
 				wp_send_json_success( __( 'Valid Credentials', 'woocommerce-mercadopago' ) );
@@ -512,9 +512,9 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 	 */
 	public function mp_validate_store_tips() {
 		try {
-			$statement_descriptor = get_option( 'mp_statement_descriptor' );
-			$category_id          = get_option( '_mp_category_id' );
-			$identificator        = get_option( '_mp_store_identificator' );
+			$statement_descriptor = $this->options->get_store_name_on_invoice();
+			$category_id          = $this->options->get_store_category();
+			$identificator        = $this->options->get_store_id();
 
 			if ( $statement_descriptor && $category_id && $identificator ) {
 				wp_send_json_success( __( 'Store business fields are valid', 'woocommerce-mercadopago' ) );
