@@ -39,7 +39,7 @@ class WC_WooMercadoPago_Options {
 		$this->credentials_access_token_prod = get_option( self::CREDENTIALS_ACCESS_TOKEN_PROD );
 		$this->credentials_access_token_test = get_option( self::CREDENTIALS_ACCESS_TOKEN_TEST );
 		$this->checkout_country              = get_option( self::CHECKOUT_COUNTRY);
-		$this->store_id           					 = get_option( self::STORE_ID );
+		$this->store_id                      = get_option( self::STORE_ID );
 		$this->store_name                    = get_option( self::STORE_NAME);
 		$this->store_category                = get_option( self::STORE_CATEGORY);
 		$this->integrator_id                 = get_option( self::INTEGRATOR_ID );

@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<td class="forminp">
 		<div>
 			<label class="mp-toggle">
-				<input class="mp-toggle-checkbox" type="checkbox" name="<? echo esc_attr( $field_key ); ?>" value='yes' id="<?php echo esc_attr( $field_key ); ?>" <?php checked( $field_value, 'yes' ); ?>/>
+				<input class="mp-toggle-checkbox" type="checkbox" name="<?php echo esc_attr( $field_key ); ?>" value='yes' id="<?php echo esc_attr( $field_key ); ?>" <?php checked( $field_value, 'yes' ); ?>/>
 				<div class="mp-toggle-switch"></div>
 				<span class="mp-toggle-label"><?php echo esc_attr( $settings['description'] ); ?></span>
 			</label>
