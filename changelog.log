@@ -1,5 +1,11 @@
 CHANGELOG:
 == Changelog ==
+
+= v5.6.1 (11/01/2022) =
+* Bug fixes
+- Set important to Mercado Pago inputs, to prevent ghost input type
+- Updated Mercado Pago's logo images
+
 = v5.6.0 (01/12/2021) =
 * Features
 - Support to PayCash in Mexico
