@@ -803,13 +803,22 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 
 		return array(
 			'title'       => $title_enable,
-			'type'        => 'select',
+			'type'        => 'mp_toggle_switch',
 			'default'     => 'no',
 			'description' => __( 'Activate the Mercado Pago experience at the checkout of your store.', 'woocommerce-mercadopago' ),
-			'options'     => array(
-				'no'  => __( 'No', 'woocommerce-mercadopago' ),
-				'yes' => __( 'Yes', 'woocommerce-mercadopago' ),
+		);
+	}
+
+	public function generate_mp_toggle_switch_html( $key, $settings ) {
+		return wc_get_template_html(
+			'components/toggle-switch.php',
+			array (
+				'field_key' => $this->get_field_key( $key ),
+				'field_value' => $this->get_option( $key, $settings['default'] ),
+				'settings' => $settings,
 			),
+			'',
+			WC_WooMercadoPago_Module::get_templates_path()
 		);
 	}
 
