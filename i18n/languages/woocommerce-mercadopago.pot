@@ -1,4 +1,4 @@
-# Copyright (C) 2021 woocommerce-mercadopago
+# Copyright (C) 2022 woocommerce-mercadopago
 # This file is distributed under the same license as the woocommerce-mercadopago package.
 msgid ""
 msgstr ""
@@ -1794,7 +1794,7 @@ msgstr ""
 msgid "Only numbers"
 msgstr ""
 
-#: ../../templates/checkout/custom-checkout.php:212, ../../templates/checkout/custom-checkout.php:213, ../../templates/checkout/custom-checkout.php:212, ../../templates/checkout/custom-checkout.php:213, ../../templates/checkout/custom-checkout.php:212, ../../templates/checkout/custom-checkout.php:213, ../../templates/checkout/ticket-checkout.php:62, ../../templates/checkout/ticket-checkout.php:122, ../../templates/checkout/ticket-checkout.php:62, ../../templates/checkout/ticket-checkout.php:122, ../../templates/checkout/ticket-checkout.php:62, ../../templates/checkout/ticket-checkout.php:122
+#: ../../templates/checkout/custom-checkout.php:212, ../../templates/checkout/custom-checkout.php:213, ../../templates/checkout/custom-checkout.php:212, ../../templates/checkout/custom-checkout.php:213, ../../templates/checkout/custom-checkout.php:212, ../../templates/checkout/custom-checkout.php:213, ../../templates/checkout/ticket-checkout.php:62, ../../templates/checkout/ticket-checkout.php:125, ../../templates/checkout/ticket-checkout.php:62, ../../templates/checkout/ticket-checkout.php:125, ../../templates/checkout/ticket-checkout.php:62, ../../templates/checkout/ticket-checkout.php:125
 msgid "Invalid Document Number"
 msgstr ""
 
@@ -1814,7 +1814,7 @@ msgstr ""
 msgid "CI"
 msgstr ""
 
-#: ../../templates/checkout/ticket-checkout.php:61, ../../templates/checkout/ticket-checkout.php:121, ../../templates/checkout/ticket-checkout.php:61, ../../templates/checkout/ticket-checkout.php:121, ../../templates/checkout/ticket-checkout.php:61, ../../templates/checkout/ticket-checkout.php:121
+#: ../../templates/checkout/ticket-checkout.php:61, ../../templates/checkout/ticket-checkout.php:124, ../../templates/checkout/ticket-checkout.php:61, ../../templates/checkout/ticket-checkout.php:124, ../../templates/checkout/ticket-checkout.php:61, ../../templates/checkout/ticket-checkout.php:124
 msgid "You must provide your document number"
 msgstr ""
 
@@ -1826,11 +1826,11 @@ msgstr ""
 msgid "Select the issuer with whom you want to process the payment"
 msgstr ""
 
-#: ../../templates/checkout/ticket-checkout.php:106, ../../templates/checkout/ticket-checkout.php:106, ../../templates/checkout/ticket-checkout.php:106
+#: ../../templates/checkout/ticket-checkout.php:109, ../../templates/checkout/ticket-checkout.php:109, ../../templates/checkout/ticket-checkout.php:109
 msgid "Lottery"
 msgstr ""
 
-#: ../../templates/checkout/ticket-checkout.php:119, ../../templates/checkout/ticket-checkout.php:119, ../../templates/checkout/ticket-checkout.php:119
+#: ../../templates/checkout/ticket-checkout.php:122, ../../templates/checkout/ticket-checkout.php:122, ../../templates/checkout/ticket-checkout.php:122
 msgid "CPF/CNPJ"
 msgstr ""
 
