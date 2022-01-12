@@ -16,15 +16,21 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 ?><tr valign="top">
 	<th scope="row" class="titledesc">
-		<label for="<?php echo esc_attr( $field_key ); ?>"><?php echo esc_attr( $settings['title'] ); ?></label>
+		<label for="<?php echo esc_attr( $field_key ); ?>"><?php echo esc_html( $settings['title'] ); ?></label>
 	</th>
 	<td class="forminp">
 		<div>
 			<label class="mp-toggle">
 				<input class="mp-toggle-checkbox" type="checkbox" name="<?php echo esc_attr( $field_key ); ?>" value='yes' id="<?php echo esc_attr( $field_key ); ?>" <?php checked( $field_value, 'yes' ); ?>/>
 				<div class="mp-toggle-switch"></div>
-				<span class="mp-toggle-label"><?php echo esc_attr( $settings['description'] ); ?></span>
+				<div class="mp-toggle-label">
+					<span class="mp-toggle-label-enabled"><?php echo $settings['descriptions']['enabled']; ?></span>
+					<span class="mp-toggle-label-disabled"><?php echo $settings['descriptions']['disabled']; ?></span>
+				</div>
 			</label>
 		</div>
 	</td>
 </tr>
+<script>
+	
+</script>
