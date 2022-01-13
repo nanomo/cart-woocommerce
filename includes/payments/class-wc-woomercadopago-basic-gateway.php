@@ -28,6 +28,7 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 		$this->id          = self::ID;
 		$this->description = __( 'Debit, Credit and invoice in Mercado Pago environment', 'woocommerce-mercadopago' );
 		$this->title       = __( 'Checkout Pro', 'woocommerce-mercadopago' );
+		$this->mp_options  = $this->get_mp_options();
 
 		if ( ! $this->validate_section() ) {
 			return;
@@ -229,7 +230,7 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 	 * @return string
 	 */
 	public function get_client_id() {
-		$client_id = get_option( '_mp_client_id', '' );
+		$client_id = $this->mp_options->get_client_id();
 		if ( ! empty( $client_id ) ) {
 			return true;
 		}
@@ -612,7 +613,7 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 		$amount = $this->get_order_total();
 
 		if ( method_exists( $order, 'update_meta_data' ) ) {
-			$order->update_meta_data( 'is_production_mode', $this->get_option_mp( 'checkbox_checkout_production_mode' ) );
+			$order->update_meta_data( 'is_production_mode', $this->mp_options->get_checkbox_checkout_production_mode() );
 			$order->update_meta_data( '_used_gateway', get_class( $this ) );
 
 			if ( ! empty( $this->gateway_discount ) ) {

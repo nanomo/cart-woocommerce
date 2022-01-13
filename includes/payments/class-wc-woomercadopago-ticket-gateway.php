@@ -29,6 +29,7 @@ class WC_WooMercadoPago_Ticket_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 		$this->id          = self::ID;
 		$this->description = __( 'Transparent Checkout in your store environment', 'woocommerce-mercadopago' );
 		$this->title       = __( 'Invoice', 'woocommerce-mercadopago' );
+		$this->mp_options  = $this->get_mp_options();
 
 		if ( ! $this->validate_section() ) {
 			return;
@@ -405,7 +406,7 @@ class WC_WooMercadoPago_Ticket_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 			),
 			'amount'               => $amount,
 			'payment_methods'      => $this->activated_payment,
-			'site_id'              => $this->get_option_mp( '_site_id_v1' ),
+			'site_id'              => $this->mp_options->get_site_id(),
 			'coupon_mode'          => isset( $logged_user_email ) ? $this->coupon_mode : 'no',
 			'discount_action_url'  => $this->discount_action_url,
 			'payer_email'          => esc_js( $logged_user_email ),
@@ -455,7 +456,7 @@ class WC_WooMercadoPago_Ticket_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 		$order  = wc_get_order( $order_id );
 		$amount = $this->get_order_total();
 		if ( method_exists( $order, 'update_meta_data' ) ) {
-			$order->update_meta_data( 'is_production_mode', $this->get_option_mp( 'checkbox_checkout_production_mode' ) );
+			$order->update_meta_data( 'is_production_mode', $this->mp_options->get_checkbox_checkout_production_mode() );
 			$order->update_meta_data( '_used_gateway', get_class( $this ) );
 
 			if ( ! empty( $this->gateway_discount ) ) {
@@ -483,7 +484,7 @@ class WC_WooMercadoPago_Ticket_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 		}
 
 		// Check for brazilian FEBRABAN rules.
-		if ( 'MLB' === $this->get_option_mp( '_site_id_v1' ) ) {
+		if ( 'MLB' === $this->mp_options->get_site_id() ) {
 			if ( ! isset( $ticket_checkout['docNumber'] ) || empty( $ticket_checkout['docNumber'] ) ||
 				( 14 !== strlen( $ticket_checkout['docNumber'] ) && 18 !== strlen( $ticket_checkout['docNumber'] ) ) ) {
 				wc_add_notice(
@@ -499,7 +500,7 @@ class WC_WooMercadoPago_Ticket_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 			}
 		}
 
-		if ( 'MLU' === $this->get_option_mp( '_site_id_v1' ) ) {
+		if ( 'MLU' === $this->mp_options->get_site_id() ) {
 			if (
 				! isset( $ticket_checkout['docNumber'] ) || empty( $ticket_checkout['docNumber'] ) ||
 				! isset( $ticket_checkout['docType'] ) || empty( $ticket_checkout['docType'] )

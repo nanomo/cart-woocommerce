@@ -2,23 +2,24 @@
 
 class WC_WooMercadoPago_Options {
 
-	const CREDENTIALS_PUBLIC_KEY_PROD   = '_mp_public_key_prod';
-	const CREDENTIALS_PUBLIC_KEY_TEST   = '_mp_public_key_test';
-	const CREDENTIALS_ACCESS_TOKEN_PROD = '_mp_access_token_prod';
-	const CREDENTIALS_ACCESS_TOKEN_TEST = '_mp_access_token_test';
-	const CHECKOUT_COUNTRY              = 'checkout_country';
-	const STORE_ID                      = '_mp_store_identificator';
-	const STORE_NAME                    = 'mp_statement_descriptor';
-	const STORE_CATEGORY                = '_mp_category_id';
-	const INTEGRATOR_ID                 = '_mp_integrator_id';
-	const DEBUG_MODE                    = '_mp_debug_mode';
-	const CUSTOM_DOMAIN                 = '_mp_custom_domain';
-	const CHECKBOX_CHECKOUT_TEST_MODE   = 'checkbox_checkout_test_mode';
-	const WOOCOMMERCE_COUNTRY           = 'woocommerce_default_country';
-	const HOMOLOG_VALIDATE              = 'homolog_validate';
-	const APPLICATION_ID                = 'mp_application_id';
-	const SITE_ID                       = '_site_id_v1';
-	const CLIENT_ID                     = '_mp_client_id';
+	const CREDENTIALS_PUBLIC_KEY_PROD       = '_mp_public_key_prod';
+	const CREDENTIALS_PUBLIC_KEY_TEST       = '_mp_public_key_test';
+	const CREDENTIALS_ACCESS_TOKEN_PROD     = '_mp_access_token_prod';
+	const CREDENTIALS_ACCESS_TOKEN_TEST     = '_mp_access_token_test';
+	const CHECKOUT_COUNTRY                  = 'checkout_country';
+	const STORE_ID                          = '_mp_store_identificator';
+	const STORE_NAME                        = 'mp_statement_descriptor';
+	const STORE_CATEGORY                    = '_mp_category_id';
+	const INTEGRATOR_ID                     = '_mp_integrator_id';
+	const DEBUG_MODE                        = '_mp_debug_mode';
+	const CUSTOM_DOMAIN                     = '_mp_custom_domain';
+	const CHECKBOX_CHECKOUT_TEST_MODE       = 'checkbox_checkout_test_mode';
+	const CHECKBOX_CHECKOUT_PRODUCTION_MODE = 'checkbox_checkout_production_mode';
+	const WOOCOMMERCE_COUNTRY               = 'woocommerce_default_country';
+	const HOMOLOG_VALIDATE                  = 'homolog_validate';
+	const APPLICATION_ID                    = 'mp_application_id';
+	const SITE_ID                           = '_site_id_v1';
+	const CLIENT_ID                         = '_mp_client_id';
 
 
 
@@ -35,6 +36,7 @@ class WC_WooMercadoPago_Options {
 	private $debug_mode;
 	private $custom_domain;
 	private $checkbox_checkout_test_mode;
+	private $checkbox_checkout_production_mode;
 	private $woocommerce_country;
 	private $homolog_validate;
 	private $application_id;
@@ -46,23 +48,24 @@ class WC_WooMercadoPago_Options {
 
 
 	public function __construct() {
-		$this->credentials_public_key_prod   = get_option( self::CREDENTIALS_PUBLIC_KEY_PROD );
-		$this->credentials_public_key_test   = get_option( self::CREDENTIALS_PUBLIC_KEY_TEST );
-		$this->credentials_access_token_prod = get_option( self::CREDENTIALS_ACCESS_TOKEN_PROD );
-		$this->credentials_access_token_test = get_option( self::CREDENTIALS_ACCESS_TOKEN_TEST );
-		$this->checkout_country              = get_option( self::CHECKOUT_COUNTRY);
-		$this->store_id                      = get_option( self::STORE_ID );
-		$this->store_name                    = get_option( self::STORE_NAME);
-		$this->store_category                = get_option( self::STORE_CATEGORY);
-		$this->integrator_id                 = get_option( self::INTEGRATOR_ID );
-		$this->debug_mode                    = get_option( self::DEBUG_MODE );
-		$this->custom_domain                 = get_option( self::CUSTOM_DOMAIN );
-		$this->checkbox_checkout_test_mode   = get_option( self::CHECKBOX_CHECKOUT_TEST_MODE );
-		$this->woocommerce_country           = get_option( self::WOOCOMMERCE_COUNTRY );
-		$this->homolog_validate              = get_option( self::HOMOLOG_VALIDATE );
-		$this->application_id                = get_option( self::APPLICATION_ID );
-		$this->site_id                       = get_option( self::SITE_ID );
-		$this->client_id                     = get_option( self::CLIENT_ID );
+		$this->credentials_public_key_prod       = get_option( self::CREDENTIALS_PUBLIC_KEY_PROD );
+		$this->credentials_public_key_test       = get_option( self::CREDENTIALS_PUBLIC_KEY_TEST );
+		$this->credentials_access_token_prod     = get_option( self::CREDENTIALS_ACCESS_TOKEN_PROD );
+		$this->credentials_access_token_test     = get_option( self::CREDENTIALS_ACCESS_TOKEN_TEST );
+		$this->checkout_country                  = get_option( self::CHECKOUT_COUNTRY);
+		$this->store_id                          = get_option( self::STORE_ID );
+		$this->store_name                        = get_option( self::STORE_NAME);
+		$this->store_category                    = get_option( self::STORE_CATEGORY);
+		$this->integrator_id                     = get_option( self::INTEGRATOR_ID );
+		$this->debug_mode                        = get_option( self::DEBUG_MODE );
+		$this->custom_domain                     = get_option( self::CUSTOM_DOMAIN );
+		$this->checkbox_checkout_test_mode       = get_option( self::CHECKBOX_CHECKOUT_TEST_MODE );
+		$this->checkbox_checkout_production_mode = get_option( self::CHECKBOX_CHECKOUT_PRODUCTION_MODE );
+		$this->woocommerce_country               = get_option( self::WOOCOMMERCE_COUNTRY );
+		$this->homolog_validate                  = get_option( self::HOMOLOG_VALIDATE );
+		$this->application_id                    = get_option( self::APPLICATION_ID );
+		$this->site_id                           = get_option( self::SITE_ID );
+		$this->client_id                         = get_option( self::CLIENT_ID );
 	}
 
 	/**
@@ -198,6 +201,15 @@ class WC_WooMercadoPago_Options {
 		$checkbox_checkout_test_mode = $this->checkbox_checkout_test_mode;
 
 		return $checkbox_checkout_test_mode;
+	}
+
+	/**
+	 *  Get option Checkbox Production Mode
+	 */
+	public function get_checkbox_checkout_production_mode() {
+		$checkbox_checkout_production_mode = $this->checkbox_checkout_production_mode;
+
+		return $checkbox_checkout_production_mode;
 	}
 
 	/**

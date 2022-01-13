@@ -29,6 +29,7 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 		$this->id          = self::ID;
 		$this->description = __( 'Transparent Checkout in your store environment', 'woocommerce-mercadopago' );
 		$this->title       = __( 'Pix ', 'woocommerce-mercadopago' );
+		$this->mp_options  = $this->get_mp_options();
 
 		if ( ! $this->validate_section() ) {
 			return;
@@ -128,7 +129,7 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 	 */
 	public function update_pix_method() {
 		$wc_country       = WC_WooMercadoPago_Module::get_woocommerce_default_country();
-		$site_id          = get_option( '_site_id_v1', '' );
+		$site_id          = $this->mp_options->get_site_id();
 		$_mp_access_token = $this->get_access_token();
 		if ( ( 'BR' === $wc_country && '' === $site_id ) || ( 'MLB' === $site_id ) ) {
 			WC_WooMercadoPago_Credentials::update_pix_method( $this->mp, $_mp_access_token );
@@ -459,7 +460,7 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 
 		$amount = $this->get_order_total();
 		if ( method_exists( $order, 'update_meta_data' ) ) {
-			$order->update_meta_data( 'is_production_mode', $this->get_option_mp( 'checkbox_checkout_production_mode' ) );
+			$order->update_meta_data( 'is_production_mode', $this->mp_options->get_checkbox_checkout_production_mode() );
 			$order->update_meta_data( '_used_gateway', get_class( $this ) );
 
 			if ( ! empty( $this->gateway_discount ) ) {
@@ -602,7 +603,7 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 			return false;
 		}
 
-		$_mp_access_token    = get_option( '_mp_access_token_prod' );
+		$_mp_access_token    = $this->mp_options->get_access_token_prod();
 		$is_prod_credentials = false === WC_WooMercadoPago_Credentials::validate_credentials_test( $this->mp, $_mp_access_token, null );
 
 		if ( ( empty( $_SERVER['HTTPS'] ) || 'off' === $_SERVER['HTTPS'] ) && $is_prod_credentials ) {

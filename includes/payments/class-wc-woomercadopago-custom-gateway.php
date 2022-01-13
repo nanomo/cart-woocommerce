@@ -36,6 +36,7 @@ class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 		$this->id          = self::ID;
 		$this->description = __( 'Transparent Checkout in your store environment', 'woocommerce-mercadopago' );
 		$this->title       = __( 'Debit and Credit', 'woocommerce-mercadopago' );
+		$this->mp_options  = $this->get_mp_options();
 
 		if ( ! $this->validate_section() ) {
 			return;
@@ -370,7 +371,7 @@ class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 				. __( 'test mode rules', 'woocommerce-mercadopago' ) . '</a>.</p>'
 			),
 			'amount'               => $amount,
-			'site_id'              => $this->get_option_mp( '_site_id_v1' ),
+			'site_id'              => $this->mp_options->get_site_id(),
 			'public_key'           => $this->get_public_key(),
 			'coupon_mode'          => isset( $this->logged_user_email ) ? $this->coupon_mode : 'no',
 			'discount_action_url'  => $this->discount_action_url,
@@ -556,7 +557,7 @@ class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 	protected function process_discount_and_commission( $order_id, $order ) {
 		$amount = $this->get_order_total();
 		if ( method_exists( $order, 'update_meta_data' ) ) {
-			$order->update_meta_data( 'is_production_mode', $this->get_option_mp( 'checkbox_checkout_production_mode' ) );
+			$order->update_meta_data( 'is_production_mode', $this->mp_options->get_checkbox_checkout_production_mode() );
 			$order->update_meta_data( '_used_gateway', get_class( $this ) );
 
 			if ( ! empty( $this->gateway_discount ) ) {
@@ -675,7 +676,7 @@ class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 			return false;
 		}
 
-		$_mp_access_token    = get_option( '_mp_access_token_prod' );
+		$_mp_access_token    = $this->mp_options->get_access_token_prod();
 		$is_prod_credentials = false === WC_WooMercadoPago_Credentials::validate_credentials_test( $this->mp, $_mp_access_token, null );
 
 		if ( ( empty( $_SERVER['HTTPS'] ) || 'off' === $_SERVER['HTTPS'] ) && $is_prod_credentials ) {
