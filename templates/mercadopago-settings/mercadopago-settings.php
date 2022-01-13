@@ -263,8 +263,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="mp-settings-title-align">
 			<div class="mp-settings-title-container">
 				<span class="mp-settings-font-color mp-settings-title-blocks mp-settings-margin-right"><?php echo esc_html($translation_test_mode['title_test_mode']); ?></span>
-				<div id="mp-mode-badge" class="mp-settings-margin-left mp-settings-margin-right <?php echo esc_html('yes' === ( $checkbox_test_mode ) ? 'mp-settings-test-mode-alert' : 'mp-settings-prod-mode-alert'); ?>  ">
-				<span><?php echo esc_html('yes' === ( $checkbox_test_mode ) ? $translation_test_mode['badge_test'] : $translation_test_mode['badge_mode']); ?></span></div>
+				<div id="mp-mode-badge" class="mp-settings-margin-left mp-settings-margin-right <?php echo esc_html('yes' === ( $checkbox_checkout_test_mode ) ? 'mp-settings-test-mode-alert' : 'mp-settings-prod-mode-alert'); ?>  ">
+				<span><?php echo esc_html('yes' === ( $checkbox_checkout_test_mode ) ? $translation_test_mode['badge_test'] : $translation_test_mode['badge_mode']); ?></span></div>
 			</div>
 			<div class="mp-settings-title-container mp-settings-margin-left">
 				<img class="mp-settings-icon-open" id="mp-modes-arrow-up">
@@ -279,7 +279,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					</div>
 					<div class="mp-settings-mode-container">
 						<div class="mp-settings-mode-spacing">
-							<input name="mp-test-prod" type="radio" class="mp-settings-radio-button" value='yes' <?php echo esc_html(( 'yes' === $checkbox_test_mode ) ? 'checked' : ''); ?> >
+							<input name="mp-test-prod" type="radio" class="mp-settings-radio-button" value='yes' <?php echo esc_html(( 'yes' === $checkbox_checkout_test_mode ) ? 'checked' : ''); ?> >
 						</div>
 						<div>
 							<span class="mp-settings-subtitle-font-size mp-settings-font-color"><?php echo esc_html($translation_test_mode['title_test']); ?></span><br>
@@ -289,7 +289,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					</div>
 					<div class="mp-settings-mode-container">
 						<div class="mp-settings-mode-spacing">
-							<input name="mp-test-prod" type="radio" class="mp-settings-radio-button" value='no' <?php echo esc_html(( 'no' === $checkbox_test_mode ) ? 'checked' : ''); ?>>
+							<input name="mp-test-prod" type="radio" class="mp-settings-radio-button" value='no' <?php echo esc_html(( 'no' === $checkbox_checkout_test_mode ) ? 'checked' : ''); ?>>
 						</div>
 						<div>
 							<span class="mp-settings-subtitle-font-size mp-settings-font-color"><?php echo esc_html( $translation_test_mode['title_prod'] ); ?></span><br>
@@ -299,21 +299,21 @@ if ( ! defined( 'ABSPATH' ) ) {
 					</div>
 					<div class="mp-settings-alert-payment-methods">
 
-						<div id="mp-orange-badge" class="<?php echo esc_html('yes' === ( $checkbox_test_mode ) ? 'mp-settings-alert-payment-methods-orange' : 'mp-settings-alert-payment-methods-green'); ?>"></div>
+						<div id="mp-orange-badge" class="<?php echo esc_html('yes' === ( $checkbox_checkout_test_mode ) ? 'mp-settings-alert-payment-methods-orange' : 'mp-settings-alert-payment-methods-green'); ?>"></div>
 						<div class=" mp-settings-alert-payment-methods-gray">
 
 							<div class="mp-settings-margin-right mp-settings-mode-style">
-								<label id="mp-icon-badge" class="<?php echo esc_html('yes' === ( $checkbox_test_mode ) ? 'mp-settings-icon-warning' : 'mp-settings-icon-success'); ?>  "></label>
+								<label id="mp-icon-badge" class="<?php echo esc_html('yes' === ( $checkbox_checkout_test_mode ) ? 'mp-settings-icon-warning' : 'mp-settings-icon-success'); ?>  "></label>
 							</div>
 							<div class="mp-settings-mode-warning">
 								<div class="mp-settings-margin-left">
 									<div class="mp-settings-alert-mode-title">
-										<span id="mp-text-badge"> <?php echo esc_html('yes' === ( $checkbox_test_mode ) ? $translation_test_mode['title_message_test'] : $translation_test_mode['title_message_prod'] ); ?></span> </span>
+										<span id="mp-text-badge"> <?php echo esc_html('yes' === ( $checkbox_checkout_test_mode ) ? $translation_test_mode['title_message_test'] : $translation_test_mode['title_message_prod'] ); ?></span> </span>
 									</div>
 									<div id="mp-helper-badge-div" class="mp-settings-alert-mode-body mp-settings-font-color">
-										<span id="mp-helper-test"  style="display: <?php echo esc_html('yes' === ( $checkbox_test_mode ) ? 'block;' : 'none;'); ?>">
+										<span id="mp-helper-test"  style="display: <?php echo esc_html('yes' === ( $checkbox_checkout_test_mode ) ? 'block;' : 'none;'); ?>">
 										<a class="mp-settings-blue-text" id="mp-test-link" target="_blank" href="<?php echo esc_html(get_permalink( wc_get_page_id( 'shop' ) )); ?>"> <?php echo esc_html( $translation_test_mode['subtitle_link_test'] ); ?> </a><?php echo esc_html( $translation_test_mode['subtitle_message_test'] ); ?></span>
-										<span id="mp-helper-prod"  style="display: <?php echo esc_html('yes' === ( $checkbox_test_mode ) ? 'none;' : 'block;'); ?>"><?php echo esc_html( $translation_test_mode['subtitle_message_prod'] ); ?></span>
+										<span id="mp-helper-prod"  style="display: <?php echo esc_html('yes' === ( $checkbox_checkout_test_mode ) ? 'none;' : 'block;'); ?>"><?php echo esc_html( $translation_test_mode['subtitle_message_prod'] ); ?></span>
 									</div>
 								</div>
 

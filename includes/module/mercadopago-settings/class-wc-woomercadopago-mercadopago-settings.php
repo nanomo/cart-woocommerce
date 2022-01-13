@@ -81,22 +81,22 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 	 * Mercado Pago Template Call
 	 */
 	public function mercadopago_submenu_page_callback() {
-		$categories_store       = WC_WooMercadoPago_Module::$categories;
-		$category_selected      = false === $this->options->get_store_category() ? 'others' : $this->options->get_store_category();
-		$category_id            = false === $this->options->get_store_id() ? 'WC-' : $this->options->get_store_id();
-		$store_identificator    = false === $this->options->get_store_name_on_invoice() ? 'Mercado Pago' : $this->options->get_store_name_on_invoice();
-		$integrator_id          = $this->options->get_integrator_id();
-		$devsite_links          = WC_WooMercadoPago_Helper_Links::get_mp_devsite_links();
-		$debug_mode             = false === $this->options->get_debug_mode() ? 'no' : $this->options->get_debug_mode();
-		$url_ipn                = $this->options->get_custom_domain();
-		$links                  = WC_WooMercadoPago_Helper_Links::woomercadopago_settings_links();
-		$checkbox_test_mode     = false === $this->options->get_checkbox_test_mode() ? 'yes' : $this->options->get_checkbox_test_mode();
-		$options_credentials    = $this->options->get_access_token_and_public_key();
-		$translation_header     = self::mp_translation_admin_header();
-		$translation_credential = self::mp_translation_admin_credential();
-		$translation_store      = self::mp_translation_admin_store();
-		$translation_payment    = self::mp_translation_admin_payment();
-		$translation_test_mode  = self::mp_translation_admin_test_mode();
+		$categories_store            = WC_WooMercadoPago_Module::$categories;
+		$category_selected           = false === $this->options->get_store_category() ? 'others' : $this->options->get_store_category();
+		$category_id                 = false === $this->options->get_store_id() ? 'WC-' : $this->options->get_store_id();
+		$store_identificator         = false === $this->options->get_store_name_on_invoice() ? 'Mercado Pago' : $this->options->get_store_name_on_invoice();
+		$integrator_id               = $this->options->get_integrator_id();
+		$devsite_links               = WC_WooMercadoPago_Helper_Links::get_mp_devsite_links();
+		$debug_mode                  = false === $this->options->get_debug_mode() ? 'no' : $this->options->get_debug_mode();
+		$url_ipn                     = $this->options->get_custom_domain();
+		$links                       = WC_WooMercadoPago_Helper_Links::woomercadopago_settings_links();
+		$checkbox_checkout_test_mode = false === $this->options->get_checkbox_checkout_test_mode() ? 'yes' : $this->options->get_checkbox_checkout_test_mode();
+		$options_credentials         = $this->options->get_access_token_and_public_key();
+		$translation_header          = self::mp_translation_admin_header();
+		$translation_credential      = self::mp_translation_admin_credential();
+		$translation_store           = self::mp_translation_admin_store();
+		$translation_payment         = self::mp_translation_admin_payment();
+		$translation_test_mode       = self::mp_translation_admin_test_mode();
 		include __DIR__ . '/../../../templates/mercadopago-settings/mercadopago-settings.php';
 	}
 

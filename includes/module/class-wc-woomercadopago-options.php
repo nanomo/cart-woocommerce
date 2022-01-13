@@ -13,7 +13,14 @@ class WC_WooMercadoPago_Options {
 	const INTEGRATOR_ID                 = '_mp_integrator_id';
 	const DEBUG_MODE                    = '_mp_debug_mode';
 	const CUSTOM_DOMAIN                 = '_mp_custom_domain';
-	const CHECKBOX_TEST_MODE            = 'checkbox_checkout_test_mode';
+	const CHECKBOX_CHECKOUT_TEST_MODE   = 'checkbox_checkout_test_mode';
+	const WOOCOMMERCE_COUNTRY           = 'woocommerce_default_country';
+	const HOMOLOG_VALIDATE              = 'homolog_validate';
+	const APPLICATION_ID                = 'mp_application_id';
+	const SITE_ID                       = '_site_id_v1';
+	const CLIENT_ID                     = '_mp_client_id';
+
+
 
 
 	private $credentials_public_key_prod;
@@ -27,7 +34,12 @@ class WC_WooMercadoPago_Options {
 	private $integrator_id;
 	private $debug_mode;
 	private $custom_domain;
-	private $checkbox_test_mode;
+	private $checkbox_checkout_test_mode;
+	private $woocommerce_country;
+	private $homolog_validate;
+	private $application_id;
+	private $site_id;
+	private $client_id;
 
 
 	public static $instance;
@@ -45,8 +57,12 @@ class WC_WooMercadoPago_Options {
 		$this->integrator_id                 = get_option( self::INTEGRATOR_ID );
 		$this->debug_mode                    = get_option( self::DEBUG_MODE );
 		$this->custom_domain                 = get_option( self::CUSTOM_DOMAIN );
-		$this->checkbox_test_mode            = get_option( self::CHECKBOX_TEST_MODE );
-
+		$this->checkbox_checkout_test_mode   = get_option( self::CHECKBOX_CHECKOUT_TEST_MODE );
+		$this->woocommerce_country           = get_option( self::WOOCOMMERCE_COUNTRY );
+		$this->homolog_validate              = get_option( self::HOMOLOG_VALIDATE );
+		$this->application_id                = get_option( self::APPLICATION_ID );
+		$this->site_id                       = get_option( self::SITE_ID );
+		$this->client_id                     = get_option( self::CLIENT_ID );
 	}
 
 	/**
@@ -113,6 +129,15 @@ class WC_WooMercadoPago_Options {
 	}
 
 	/**
+	 *  Get option checkout country
+	 */
+	public function get_checkout_country() {
+		$checkout_country = $this->checkout_country;
+
+		return $checkout_country;
+	}
+
+	/**
 	 *  Get option Store Identificator
 	 */
 	public function get_store_id() {
@@ -169,9 +194,54 @@ class WC_WooMercadoPago_Options {
 	/**
 	 *  Get option Checkbox Test Mode
 	 */
-	public function get_checkbox_test_mode() {
-		$checkbox_test_mode = $this->checkbox_test_mode;
+	public function get_checkbox_checkout_test_mode() {
+		$checkbox_checkout_test_mode = $this->checkbox_checkout_test_mode;
 
-		return $checkbox_test_mode;
+		return $checkbox_checkout_test_mode;
+	}
+
+	/**
+	 *  Get option woocommerce country
+	 */
+	public function get_woocommerce_country() {
+		$woocommerce_country = $this->woocommerce_country;
+
+		return $woocommerce_country;
+	}
+
+	/**
+	 *  Get option homolog validate
+	 */
+	public function get_homolog_validate() {
+		$homolog_validate = $this->homolog_validate;
+
+		return $homolog_validate;
+	}
+
+	/**
+	 *  Get option application id
+	 */
+	public function get_application_id() {
+		$application_id = $this->application_id;
+
+		return $application_id;
+	}
+
+	/**
+	 *  Get option site id
+	 */
+	public function get_site_id() {
+		$site_id = $this->site_id;
+
+		return $site_id;
+	}
+
+	/**
+	 *  Get option client id
+	 */
+	public function get_client_id() {
+		$client_id = $this->client_id;
+
+		return $client_id;
 	}
 }

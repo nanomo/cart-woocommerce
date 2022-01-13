@@ -390,22 +390,30 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 	public $currency_convertion;
 
 	/**
+	 * Options
+	 *
+	 * @var WC_WooMercadoPago_Options
+	 */
+	public $mp_options;
+
+	/**
 	 * WC_WooMercadoPago_PaymentAbstract constructor.
 	 *
 	 * @throws WC_WooMercadoPago_Exception Load payment exception.
 	 */
 	public function __construct() {
-		$this->mp_public_key_test   = get_option( '_mp_public_key_test' );
-		$this->mp_access_token_test = get_option( '_mp_access_token_test' );
-		$this->mp_public_key_prod   = get_option( '_mp_public_key_prod' );
-		$this->mp_access_token_prod = get_option( '_mp_access_token_prod' );
-		$this->checkout_country     = get_option( 'checkout_country', '' );
-		$this->wc_country           = get_option( 'woocommerce_default_country', '' );
-		$this->mp_category_id       = $this->get_option_mp( '_mp_category_id', 0 );
-		$this->store_identificator  = $this->get_option_mp( '_mp_store_identificator', 'WC-' );
-		$this->integrator_id        = $this->get_option_mp( '_mp_integrator_id', '' );
-		$this->debug_mode           = $this->get_option_mp( '_mp_debug_mode', 'no' );
-		$this->custom_domain        = $this->get_option_mp( '_mp_custom_domain', '' );
+		$this->mp_options           = $this->get_mp_options();
+		$this->mp_public_key_test   = $this->mp_options->get_public_key_test();
+		$this->mp_access_token_test = $this->mp_options->get_access_token_test();
+		$this->mp_public_key_prod   = $this->mp_options->get_public_key_prod();
+		$this->mp_access_token_prod = $this->mp_options->get_access_token_prod();
+		$this->checkout_country     = $this->mp_options->get_checkout_country();
+		$this->wc_country           = $this->mp_options->get_woocommerce_country();
+		$this->mp_category_id       = false === $this->mp_options->get_store_category() ? 'others' : $this->mp_options->get_store_category();
+		$this->store_identificator  = false === $this->mp_options->get_store_id() ? 'WC-' : $this->mp_options->get_store_id();
+		$this->integrator_id        = $this->mp_options->get_integrator_id();
+		$this->debug_mode           = false === $this->mp_options->get_debug_mode() ? 'no' : $this->mp_options->get_debug_mode();
+		$this->custom_domain        = $this->mp_options->get_custom_domain();
 		$this->binary_mode          = $this->get_option_mp( 'binary_mode', 'no' );
 		$this->gateway_discount     = $this->get_option_mp( 'gateway_discount', 0 );
 		$this->commission           = $this->get_option_mp( 'commission', 0 );
@@ -419,6 +427,18 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 		$this->application_id       = $this->get_application_id( $this->mp_access_token_prod );
 		$this->logged_user_email    = ( 0 !== wp_get_current_user()->ID ) ? wp_get_current_user()->user_email : null;
 		$this->discount_action_url  = get_site_url() . '/index.php/woocommerce-mercadopago/?wc-api=' . get_class( $this );
+	}
+
+	/**
+	 * Get Options
+	 *
+	 * @return mixed
+	 */
+	public function get_mp_options() {
+		if ( null === $this->mp_options ) {
+			$this->mp_options = WC_WooMercadoPago_Options::get_instance();
+		}
+		return $this->mp_options;
 	}
 
 	/**
@@ -466,6 +486,31 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 	}
 
 	/**
+	 * Configs
+	 *
+	 * @return array
+	 */
+	public function get_common_config() {
+
+		$configs = array(
+
+			'_mp_public_key_test'      => $this->mp_options->get_public_key_test(),
+			'_mp_access_token_test'    => $this->mp_options->get_access_token_test(),
+			'_mp_public_key_prod'      => $this->mp_options->get_public_key_prod(),
+			'_mp_access_token_prod'    => $this->mp_options->get_access_token_prod(),
+			'checkout_country'         => $this->mp_options->get_checkout_country(),
+			'mp_statement_descriptor'  => $this->mp_options->get_store_name_on_invoice(),
+			'_mp_category_id'          => $this->mp_options->get_store_category(),
+			'_mp_store_identificator'  => $this->mp_options->get_store_id(),
+			'_mp_integrator_id'        => $this->mp_options->get_integrator_id(),
+			'_mp_custom_domain'        => $this->mp_options->get_custom_domain(),
+			'installments'             => $this->get_option('installments'),
+			'auto_return'              => $this->get_option('auto_return'),
+		);
+		return $configs;
+	}
+
+	/**
 	 * Get options Mercado Pago
 	 *
 	 * @param string $key key.
@@ -498,8 +543,8 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 		}
 
 		$changed = false;
-		foreach ( self::COMMON_CONFIGS as $config ) {
-			$common_option = get_option( $config );
+		$options = self::get_common_config();
+		foreach ( $options as $config => $common_option ) {
 			if ( isset( $this->settings[ $config ] ) && $this->settings[ $config ] !== $common_option ) {
 				$changed                   = true;
 				$this->settings[ $config ] = $common_option;
@@ -776,7 +821,7 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 		if ( empty( $mp_access_token_prod ) ) {
 			return '';
 		} else {
-			$application_id = get_option('mp_application_id', '');
+			$application_id = $this->mp_options->get_application_id();
 			if ( $application_id && '' !== $application_id ) {
 				return $application_id;
 			}
@@ -1086,7 +1131,7 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 
 		$_mp_public_key   = $this->get_public_key();
 		$_mp_access_token = $this->get_access_token();
-		$_site_id_v1      = $this->get_option_mp( '_site_id_v1' );
+		$_site_id_v1      = $this->mp_options->get_site_id();
 
 		if ( ! isset( $this->settings['enabled'] ) ) {
 			return false;
@@ -1350,7 +1395,8 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 			],
 		];
 
-		$checkout_country = strtolower(get_option( 'checkout_country', '' ));
+		$option_country   = WC_WooMercadoPago_Options::get_instance();
+		$checkout_country = strtolower($option_country->get_checkout_country());
 		return $country_link[ $checkout_country ];
 	}
 
