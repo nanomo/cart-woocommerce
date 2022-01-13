@@ -848,12 +848,31 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 
 		return array(
 			'title'       => $title_enable,
+			'subtitle'    => __( 'If disabled, you will disable every payment method attached to this checkout.', 'woocommerce-mercadopago' ),
 			'type'        => 'mp_toggle_switch',
 			'default'     => 'no',
-			'description' => __( 'Activate the Mercado Pago experience at the checkout of your store.', 'woocommerce-mercadopago' ),
+			'descriptions' => $this->get_enabled_field_descriptions(),
 		);
 	}
 
+	/**
+	 * Enabled Field descripion. Contains the description that will appear when the checkout is enabled and disabled.
+	 *
+	 * @return array
+	 */
+	public function get_enabled_field_descriptions() {
+		return array(
+			'enabled' => __( 'This checkout is <b>enabled</b>.', 'woocommerce-mercadopago' ),
+			'disabled' => __( 'This checkout is <b>disabled</b>.', 'woocommerce-mercadopago' ),
+		);
+	}
+
+	/**
+	 * Generates the toggle switch template
+	 *
+	 * @param string $key key, $settings settings array
+	 * @return string html toggle switch template
+	 */
 	public function generate_mp_toggle_switch_html( $key, $settings ) {
 		return wc_get_template_html(
 			'components/toggle-switch.php',

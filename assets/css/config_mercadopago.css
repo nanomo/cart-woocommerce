@@ -476,4 +476,17 @@
 	margin-left: 5px;
 	position: relative;
 	top: 2px;
+	display: inline;
+}
+
+.mp-toggle-label-enabled {
+	display: none;
+}
+
+.mp-toggle-checkbox:checked + .mp-toggle-switch + .mp-toggle-label > span.mp-toggle-label-disabled {
+	display: none;
+}
+
+.mp-toggle-checkbox:checked + .mp-toggle-switch + .mp-toggle-label > span.mp-toggle-label-enabled {
+	display: inline;
 }
