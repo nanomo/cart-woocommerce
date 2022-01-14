@@ -448,7 +448,7 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 	 * @throws WC_WooMercadoPago_Exception Homolog validate exception.
 	 */
 	public function get_homolog_validate() {
-		$homolog_validate = (int) get_option( 'homolog_validate', 0 );
+		$homolog_validate = (int) get_option( WC_WooMercadoPago_Options::HOMOLOG_VALIDATE, 0 );
 		if ( ( $this->is_production_mode() && ! empty( $this->mp_access_token_prod ) ) && 0 === $homolog_validate ) {
 			if ( $this->mp instanceof MP ) {
 				$homolog_validate = $this->mp->get_credentials_wrapper( $this->mp_access_token_prod );
@@ -1257,14 +1257,14 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 	 */
 	public function is_production_mode() {
 		$this->update_credential_production();
-		return $this->get_option_mp( 'checkbox_checkout_test_mode', get_option( 'checkbox_checkout_test_mode', 'yes' ) ) === 'no';
+		return 'no' === get_option( WC_WooMercadoPago_Options::CHECKBOX_CHECKOUT_TEST_MODE, 'yes' );
 	}
 
 	/**
 	 * Update Credentials for production
 	 */
 	public function update_credential_production() {
-		if ( ! empty( $this->get_option_mp( 'checkbox_checkout_test_mode', null ) ) ) {
+		if ( ! empty( get_option( WC_WooMercadoPago_Options::CHECKBOX_CHECKOUT_TEST_MODE, null ) ) ) {
 			return;
 		}
 
