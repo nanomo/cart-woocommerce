@@ -142,14 +142,6 @@
 	margin-bottom: 37px !important;
 }
 
-/* Remove after implementing checkbox list */
-#mp_input_payments_mt {
-	border: 1px solid #ccc;
-	padding: 15px;
-	width: 390px;
-	margin-top: -39px !important;
-}
-
 .mp_text {
 	font-family: sans-serif;
 	font-size: 14px !important;

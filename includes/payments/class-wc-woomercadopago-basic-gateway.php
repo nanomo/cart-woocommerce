@@ -177,11 +177,11 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 			'enabled',
 			'title',
 			WC_WooMercadoPago_Helpers_CurrencyConverter::CONFIG_KEY,
+			'ex_payments',
 			'installments',
 			'mp_psj_title',
 			'mp_psj_description',
 			'mp_psj_description_link',
-			'ex_payments',
 			// Advanced settings.
 			'checkout_payments_advanced_title',
 			'checkout_payments_advanced_description',

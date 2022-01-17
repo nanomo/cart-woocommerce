@@ -289,7 +289,7 @@ abstract class WC_WooMercadoPago_Hook_Abstract {
 	 * @return array
 	 */
 	public function separate_ex_payments( $ex_payments ) {
-		return  $this->separate_ex_payments_list($ex_payments['credit_card_payments']['list'])
+		return $this->separate_ex_payments_list($ex_payments['credit_card_payments']['list'])
 		+ $this->separate_ex_payments_list($ex_payments['debit_card_payments']['list'])
 		+ $this->separate_ex_payments_list($ex_payments['other_payments']['list']);
 	}
