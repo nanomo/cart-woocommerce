@@ -142,13 +142,6 @@
 	margin-bottom: 37px !important;
 }
 
-#mp_input_payments_mt {
-	border: 1px solid #ccc;
-	padding: 15px;
-	width: 390px;
-	margin-top: -39px !important;
-}
-
 .mp_text {
 	font-family: sans-serif;
 	font-size: 14px !important;
@@ -417,76 +410,4 @@
 .mp_credential_input_warning {
 	background: url("../images/icon-warning.png") 98% 50% no-repeat transparent;
 	padding-right: 30px !important;
-}
-
-/* Toggle Switch Button */
-
-.mp-toggle {
-	cursor: pointer;
-	display: inline-block;
-}
-
-.mp-toggle-switch {
-	display: inline-block;
-	background: #ccc;
-	border-radius: 16px;
-	width: 58px;
-	height: 32px;
-	position: relative;
-	vertical-align: middle;
-	transition: background 0.25s;
-}
-
-.mp-toggle-switch:before, .mp-toggle-switch:after {
-	content: "";
-}
-
-.mp-toggle-switch:before {
-	display: block;
-	background: linear-gradient(to bottom, #fff 0%, #eee 100%);
-	border-radius: 50%;
-	box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25);
-	width: 24px;
-	height: 24px;
-	position: absolute;
-	top: 4px;
-	left: 4px;
-	transition: left 0.25s;
-}
-
-.mp-toggle:hover .mp-toggle-switch:before {
-	background: linear-gradient(to bottom, #fff 0%, #fff 100%);
-	box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.5);
-}
-
-.mp-toggle-checkbox:checked + .mp-toggle-switch {
-	background: #009ee3;
-}
-
-.mp-toggle-checkbox:checked + .mp-toggle-switch:before {
-	left: 30px;
-}
-
-.mp-toggle-checkbox {
-	position: absolute;
-	visibility: hidden;
-}
-
-.mp-toggle-label {
-	margin-left: 5px;
-	position: relative;
-	top: 2px;
-	display: inline;
-}
-
-.mp-toggle-label-enabled {
-	display: none;
-}
-
-.mp-toggle-checkbox:checked + .mp-toggle-switch + .mp-toggle-label > span.mp-toggle-label-disabled {
-	display: none;
-}
-
-.mp-toggle-checkbox:checked + .mp-toggle-switch + .mp-toggle-label > span.mp-toggle-label-enabled {
-	display: inline;
 }

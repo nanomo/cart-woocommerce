@@ -78,6 +78,13 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 				WC_WooMercadoPago_Constants::VERSION,
 				true
 			);
+			wp_enqueue_script(
+				'woocommerce-mercadopago-components',
+				plugins_url( '../assets/js/components_mercadopago' . $suffix . '.js', plugin_dir_path( __FILE__ ) ),
+				array(),
+				WC_WooMercadoPago_Constants::VERSION,
+				true
+			);
 		}
 
 		if ( empty( $this->checkout_country ) ) {
@@ -102,9 +109,7 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 			$form_fields['failure_url']                      = $this->field_failure_url();
 			$form_fields['pending_url']                      = $this->field_pending_url();
 			$form_fields['auto_return']                      = $this->field_auto_return();
-			foreach ( $this->field_ex_payments() as $key => $value ) {
-				$form_fields[ $key ] = $value;
-			}
+			$form_fields['ex_payments']                      = $this->field_ex_payments();
 		}
 
 		$form_fields_abs = parent::get_form_mp_fields( $label );
@@ -172,6 +177,7 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 			'enabled',
 			'title',
 			WC_WooMercadoPago_Helpers_CurrencyConverter::CONFIG_KEY,
+			'ex_payments',
 			'installments',
 			'mp_psj_title',
 			'mp_psj_description',
@@ -433,95 +439,76 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 	 * @return array
 	 */
 	public function field_ex_payments() {
-		$ex_payments      = array();
-		$ex_payments_sort = array();
+		$payment_list = array(
+			'description'          => __( 'Enable the payment methods available to your customers', 'woocommerce-mercadopago' ),
+			'title'                => __( 'Payment Methods', 'woocommerce-mercadopago' ),
+			'type'                 => 'mp_checkbox_list',
+			'credit_card_payments' => array(
+				'label'            => __('Credit Cards', 'woocommerce-mercadopago'),
+				'list'             => array(),
+			),
+			'debit_card_payments'  => array(
+				'label'            => __('Debit Cards', 'woocommerce-mercadopago'),
+				'list'             => array(),
+			),
+			'other_payments'       => array(
+				'label'            => __('Other Payment Methods', 'woocommerce-mercadopago'),
+				'list'             => array(),
+			),
+		);
 
 		$all_payments = get_option( '_checkout_payments_methods', '' );
 
 		if ( empty( $all_payments ) ) {
-			return $ex_payments;
+			return $payment_list;
 		}
-
-		$get_payment_methods = get_option( '_all_payment_methods_v0', '' );
-
-		if ( ! empty( $get_payment_methods ) ) {
-			$get_payment_methods = explode( ',', $get_payment_methods );
-		}
-
-		// change type atm to ticket.
-		foreach ( $all_payments as $key => $value ) {
-			if ( 'atm' === $value['type'] || 'bank_transfer' === $value['type'] || 'account_money' === $value['type'] ) {
-				$all_payments[ $key ]['type'] = 'ticket';
-			}
-		}
-
-		// sort array by type asc.
-		usort(
-			$all_payments,
-			function( $a, $b ) {
-				if ( $a['type'] === $b['type'] ) {
-					return 0;
-				}
-				return $b['type'] < $a['type'] ? 1 : -1;
-			}
-		);
-
-		$count_payment = 0;
 
 		foreach ( $all_payments as $payment_method ) {
 			if ( 'credit_card' === $payment_method['type'] ) {
-				$element = array(
-					'label'             => $payment_method['name'],
-					'id'                => 'woocommerce_mercadopago_' . $payment_method['id'],
-					'default'           => 'yes',
-					'type'              => 'checkbox',
-					'class'             => 'online_payment_method',
-					'custom_attributes' => array(
-						'data-translate' => __( 'Select credit cards', 'woocommerce-mercadopago' ),
-					),
+				$payment_list['credit_card_payments']['list'][] = array(
+					'id'        => 'ex_payments_' . $payment_method['id'],
+					'field_key' => $this->get_field_key('ex_payments_' . $payment_method['id']),
+					'label'     => $payment_method['name'],
+					'value'     => $this->get_option_mp('ex_payments_' . $payment_method['id'], ''),
+					'type'      => 'checkbox',
 				);
 			} elseif ( 'debit_card' === $payment_method['type'] || 'prepaid_card' === $payment_method['type'] ) {
-				$element = array(
-					'label'             => $payment_method['name'],
-					'id'                => 'woocommerce_mercadopago_' . $payment_method['id'],
-					'default'           => 'yes',
-					'type'              => 'checkbox',
-					'class'             => 'debit_payment_method',
-					'custom_attributes' => array(
-						'data-translate' => __( 'Select debit cards', 'woocommerce-mercadopago' ),
-					),
+				$payment_list['debit_card_payments']['list'][] = array(
+					'id'        => 'ex_payments_' . $payment_method['id'],
+					'field_key' => $this->get_field_key('ex_payments_' . $payment_method['id']),
+					'label'     => $payment_method['name'],
+					'value'     => $this->get_option_mp('ex_payments_' . $payment_method['id'], ''),
+					'type'      => 'checkbox',
 				);
 			} else {
-				$element = array(
-					'label'             => $payment_method['name'],
-					'id'                => 'woocommerce_mercadopago_' . $payment_method['id'],
-					'default'           => 'yes',
-					'type'              => 'checkbox',
-					'class'             => 'offline_payment_method',
-					'custom_attributes' => array(
-						'data-translate' => __( 'Select offline payments', 'woocommerce-mercadopago' ),
-					),
+				$payment_list['other_payments']['list'][] = array(
+					'id'        => 'ex_payments_' . $payment_method['id'],
+					'field_key' => $this->get_field_key('ex_payments_' . $payment_method['id']),
+					'label'     => $payment_method['name'],
+					'value'     => $this->get_option_mp('ex_payments_' . $payment_method['id'], ''),
+					'type'      => 'checkbox',
 				);
 			}
-
-			if ( 0 === $count_payment ) {
-				$element['title']    = __( 'Payment methods', 'woocommerce-mercadopago' );
-				$element['desc_tip'] = __( 'Choose the available payment methods in your store.', 'woocommerce-mercadopago' );
-			}
-
-			$count_payment++;
-
-			if ( count( $get_payment_methods ) === $count_payment ) {
-				$element['description'] = __( 'Activate the available payment methods to your clients.', 'woocommerce-mercadopago' );
-			}
-
-			$ex_payments[ 'ex_payments_' . $payment_method['id'] ] = $element;
-			$ex_payments_sort[]                                    = 'ex_payments_' . $payment_method['id'];
 		}
 
-		array_splice( $this->field_forms_order, 39, 0, $ex_payments_sort );
+		return $payment_list;
+	}
 
-		return $ex_payments;
+	/**
+	 * Generates the toggle switch template
+	 *
+	 * @param string $key key, $settings settings array
+	 * @return string html toggle switch template
+	 */
+	public function generate_mp_checkbox_list_html( $key, $settings ) {
+		return wc_get_template_html(
+			'components/checkbox-list.php',
+			array (
+				'settings' => $settings,
+			),
+			'',
+			WC_WooMercadoPago_Module::get_templates_path()
+		);
 	}
 
 	/**

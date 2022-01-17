@@ -8,7 +8,7 @@ function getCheckboxTableString() {
     while (testLabelParent.nodeName !== 'TABLE') {
         testLabelParent = testLabelParent.parentElement;
     }
-    
+
     return testLabelParent.id;
 }
 
@@ -95,7 +95,7 @@ window.addEventListener("load", () => {
     if (checkboxTableString) {
         const testCheckbox = document.querySelector('[id*="test_mode"]');
         const productionCheckbox = document.querySelector('[id*="production_mode"]');
-    
+
         hideColumnEmptyFromCheckbox(checkboxTableString);
         customizeCheckboxContainer(checkboxTableString);
         customizeCheckboxLabel(checkboxTableString);
