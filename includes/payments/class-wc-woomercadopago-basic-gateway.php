@@ -109,7 +109,7 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 			$form_fields['failure_url']                      = $this->field_failure_url();
 			$form_fields['pending_url']                      = $this->field_pending_url();
 			$form_fields['auto_return']                      = $this->field_auto_return();
-			$form_fields['ex_payments']                      = $this->field_ex_payments();			
+			$form_fields['ex_payments']                      = $this->field_ex_payments();
 		}
 
 		$form_fields_abs = parent::get_form_mp_fields( $label );
@@ -466,27 +466,27 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 		foreach ( $all_payments as $payment_method ) {
 			if ( 'credit_card' === $payment_method['type'] ) {
 				$payment_list['credit_card_payments']['list'][] = array(
-					'id'    => 'ex_payments_' . $payment_method['id'],
-					'field_key'    => $this->get_field_key('ex_payments_' . $payment_method['id']),
-					'label' => $payment_method['name'],
-					'value' => $this->get_option_mp('ex_payments_' . $payment_method['id'], ''),
-					'type' => 'checkbox',
+					'id'        => 'ex_payments_' . $payment_method['id'],
+					'field_key' => $this->get_field_key('ex_payments_' . $payment_method['id']),
+					'label'     => $payment_method['name'],
+					'value'     => $this->get_option_mp('ex_payments_' . $payment_method['id'], ''),
+					'type'      => 'checkbox',
 				);
 			} elseif ( 'debit_card' === $payment_method['type'] || 'prepaid_card' === $payment_method['type'] ) {
 				$payment_list['debit_card_payments']['list'][] = array(
-					'id'    => 'ex_payments_' . $payment_method['id'],
-					'field_key'    => $this->get_field_key('ex_payments_' . $payment_method['id']),
-					'label' => $payment_method['name'],
-					'value' => $this->get_option_mp('ex_payments_' . $payment_method['id'], ''),
-					'type' => 'checkbox',
+					'id'        => 'ex_payments_' . $payment_method['id'],
+					'field_key' => $this->get_field_key('ex_payments_' . $payment_method['id']),
+					'label'     => $payment_method['name'],
+					'value'     => $this->get_option_mp('ex_payments_' . $payment_method['id'], ''),
+					'type'      => 'checkbox',
 				);
 			} else {
 				$payment_list['other_payments']['list'][] = array(
-					'id'    => 'ex_payments_' . $payment_method['id'],
-					'field_key'    => $this->get_field_key('ex_payments_' . $payment_method['id']),
-					'label' => $payment_method['name'],
-					'value' => $this->get_option_mp('ex_payments_' . $payment_method['id'], ''),
-					'type' => 'checkbox',
+					'id'        => 'ex_payments_' . $payment_method['id'],
+					'field_key' => $this->get_field_key('ex_payments_' . $payment_method['id']),
+					'label'     => $payment_method['name'],
+					'value'     => $this->get_option_mp('ex_payments_' . $payment_method['id'], ''),
+					'type'      => 'checkbox',
 				);
 			}
 		}

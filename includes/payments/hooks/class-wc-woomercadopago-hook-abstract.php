@@ -285,18 +285,18 @@ abstract class WC_WooMercadoPago_Hook_Abstract {
 	 * Separates multiple ex_payments checkbox into an array
 	 *
 	 * @param array $ex_payments ex_payments form field
-	 * 
+	 *
 	 * @return array
 	 */
 	public function separate_ex_payments( $ex_payments ) {
-		return  $this->separate_ex_payments_list($ex_payments['credit_card_payments']['list']) +
-				$this->separate_ex_payments_list($ex_payments['debit_card_payments']['list']) +
-				$this->separate_ex_payments_list($ex_payments['other_payments']['list']);
+		return  $this->separate_ex_payments_list($ex_payments['credit_card_payments']['list'])
+		+ $this->separate_ex_payments_list($ex_payments['debit_card_payments']['list'])
+		+ $this->separate_ex_payments_list($ex_payments['other_payments']['list']);
 	}
 
 	/**
 	 * Separates multiple ex_payments checkbox into an array
-	 * 
+	 *
 	 * @param array $ex_payments list of payment_methods
 	 *
 	 * @return array
