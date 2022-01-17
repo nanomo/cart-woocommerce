@@ -307,6 +307,13 @@ class WC_WooMercadoPago_Module extends WC_WooMercadoPago_Configs {
 				array(),
 				WC_WooMercadoPago_Constants::VERSION
 			);
+
+			wp_enqueue_style(
+				'woocommerce-mercadopago-components',
+				plugins_url( '../assets/css/components_mercadopago' . $suffix . '.css', plugin_dir_path( __FILE__ ) ),
+				array(),
+				WC_WooMercadoPago_Constants::VERSION
+			);
 		}
 	}
 

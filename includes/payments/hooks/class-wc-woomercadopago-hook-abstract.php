@@ -241,7 +241,14 @@ abstract class WC_WooMercadoPago_Hook_Abstract {
 		$value_credential_production = null;
 		$this->payment->init_settings();
 		$post_data          = $this->payment->get_post_data();
-		$sorted_form_fields = $this->sort_by_checkout_mode_first( $this->payment->get_form_fields() );
+		$form_fields        = $this->payment->get_form_fields();
+
+		if ( isset($form_fields['ex_payments']) ) {
+			$form_fields += $this->separate_ex_payments($form_fields['ex_payments']);
+			unset($form_fields['ex_payments']);
+		}
+
+		$sorted_form_fields = $this->sort_by_checkout_mode_first( $form_fields );
 
 		foreach ( $sorted_form_fields as $key => $field ) {
 			if ( 'title' !== $this->payment->get_field_type( $field ) ) {
@@ -272,6 +279,34 @@ abstract class WC_WooMercadoPago_Hook_Abstract {
 		);
 
 		return update_option( $this->payment->get_option_key(), apply_filters( 'woocommerce_settings_api_sanitized_fields_' . $this->payment->id, $this->payment->settings ) );
+	}
+
+	/**
+	 * Separates multiple ex_payments checkbox into an array
+	 *
+	 * @param array $ex_payments ex_payments form field
+	 * 
+	 * @return array
+	 */
+	public function separate_ex_payments( $ex_payments ) {
+		return  $this->separate_ex_payments_list($ex_payments['credit_card_payments']['list']) +
+				$this->separate_ex_payments_list($ex_payments['debit_card_payments']['list']) +
+				$this->separate_ex_payments_list($ex_payments['other_payments']['list']);
+	}
+
+	/**
+	 * Separates multiple ex_payments checkbox into an array
+	 * 
+	 * @param array $ex_payments list of payment_methods
+	 *
+	 * @return array
+	 */
+	public function separate_ex_payments_list( $ex_payments_list ) {
+		$payment_methods = array();
+		foreach ( $ex_payments_list as $payment ) {
+			$payment_methods[$payment['id']] = $payment;
+		}
+		return $payment_methods;
 	}
 
 	/**

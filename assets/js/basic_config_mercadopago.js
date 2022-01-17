@@ -11,7 +11,6 @@ const payment_mercado_pago_basic = {
     this.setTitleDescriptionStyle();
     this.setHide();
     this.makeCollapsibleAdvancedConfig();
-    this.setPaymentMethodsId();
     this.createOnlinePaymentsCheckAll();
     this.createDebitAndPrepaidPaymentsCheckAll();
     this.createOfflinePaymentsCheckAll();
@@ -59,14 +58,6 @@ const payment_mercado_pago_basic = {
       }
     );
   },
-  setPaymentMethodsId: function () {
-    //payment methods
-    var tablePayments = document.querySelector('#woocommerce_woo-mercado-pago-basic_checkout_payments_description').nextElementSibling.getAttribute('class');
-    var mp_input_payments = document.querySelectorAll('.' + tablePayments + ' td.forminp label');
-    for (i = 0; i < mp_input_payments.length; i++) {
-      mp_input_payments[i].id = 'mp_input_payments_mt';
-    }
-  },
   createOnlinePaymentsCheckAll: function () {
     //online payments
     var online_payment_translate = '';
@@ -98,6 +89,7 @@ const payment_mercado_pago_basic = {
     }
   },
   createDebitAndPrepaidPaymentsCheckAll: function () {
+    // TODO remove after implementing new checkbox
     //debit and prepaid payments
     var debit_payment_translate = '';
     var debitChecked = '';
@@ -201,6 +193,7 @@ const payment_mercado_pago_basic = {
     }
   },
   completeDebitCheckbox: function () {
+    //TODO remove after implementing checkbox-list
     var debitCheck = document.getElementById('checkmedeb').checked;
     var debitInputs = document.querySelectorAll('.debit_payment_method');
     for (var i = 0; i < debitInputs.length; i++) {
