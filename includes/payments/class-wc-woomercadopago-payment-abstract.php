@@ -887,6 +887,23 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 	}
 
 	/**
+	 * Generates tip information template
+	 *
+	 * @param string $key key, $settings settings array
+	 * @return string html toggle switch template
+	 */
+	public function generate_mp_card_info( $key, $settings ) {
+		return wc_get_template_html(
+			'components/card-info.php',
+			array (
+
+			),
+			'',
+			WC_WooMercadoPago_Module::get_templates_path()
+		);
+	}
+
+	/**
 	 * Get sufix to static files
 	 *
 	 * @return String
