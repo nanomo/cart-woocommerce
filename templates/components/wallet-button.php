@@ -34,9 +34,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<?php } ?>
 				<?php endforeach; ?>
 			</select>
-            <?php if ( $settings['description'] ) { ?>
+			<?php if ( $settings['description'] ) { ?>
 			<p class="description"><?php echo wp_kses_post( $settings['description'] ); ?></p>
-            <?php } ?>
+			<?php } ?>
 		</fieldset>
 		<div class="mp-wallet-button-preview">
 			<p class="description"><?php echo esc_html( $settings['img-wallet-button-description'] ); ?></p>

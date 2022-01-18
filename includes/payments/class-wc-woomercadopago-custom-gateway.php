@@ -270,7 +270,7 @@ class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 				'yes' => __( 'Yes', 'woocommerce-mercadopago' ),
 			),
 			'img-wallet-button-uri'         => $this->get_wallet_button_example_uri(),
-			'img-wallet-button-description' => __('Below is what the functionality looks like in the store checkout:', 'woocommerce-mercadopago'),
+			'img-wallet-button-description' => __( 'Below is what the functionality looks like in the store checkout:', 'woocommerce-mercadopago' ),
 		);
 	}
 
@@ -289,7 +289,7 @@ class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 	public function get_wallet_button_example_uri() {
 		$locale = substr( strtolower(get_locale()), 0, 2 );
 
-		if ( $locale !== 'pt' && $locale !== 'es' ) {
+		if ( 'pt' !== $locale && 'es' !== $locale ) {
 			$locale = 'en';
 		}
 
