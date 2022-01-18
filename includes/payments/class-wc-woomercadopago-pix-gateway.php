@@ -105,6 +105,7 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 				$form_fields['checkout_pix_payments_advanced_title'] = $this->field_checkout_pix_payments_advanced_title();
 				$form_fields['checkout_pix_date_expiration']         = $this->field_pix_date_expiration();
 				$form_fields['checkout_about_pix']                   = $this->field_checkout_about_pix();
+				$form_fields['checkout_pix_card_info']               = $this->field_checkout_pix_card_info();
 		}
 
 		$form_fields_abs = parent::get_form_mp_fields( $label );
@@ -191,6 +192,7 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 			// Configure the personalized payment experience in your store.
 			'checkout_pix_payments_title',
 			'checkout_payments_subtitle',
+			'checkout_card_validate',
 			'checkout_pix_payments_description',
 			'enabled',
 			'title',
@@ -198,6 +200,7 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 			WC_WooMercadoPago_Helpers_CurrencyConverter::CONFIG_KEY,
 			// About PIX.
 			'checkout_about_pix',
+			'checkout_pix_card_info',
 			// Advanced configuration of the personalized payment experience.
 			'checkout_pix_payments_advanced_title',
 			'checkout_payments_advanced_description',
@@ -414,6 +417,27 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 		return array(
 			'title' => $link_content,
 			'type'  => 'title',
+		);
+	}
+
+	/**
+	 * Field checkout card info
+	 *
+	 * @return array
+	 */
+	public function field_checkout_pix_card_info() {
+		$value = array(
+			'title'                 => __('Would you like to know how Pix works?', 'woocommerce-mercadopago'), __('Important! Do not forget to add the credentials and details of your store.' , 'woocommerce-mercadopago'),
+			'subtitle'          => __('We have a dedicated page where we explain how it works and its advantages.', 'woocommerce-mercadopago'),
+			'button_text'       => __('Find out more about Pix', 'woocommerce-mercadopago'),
+			'button_url'        => 'https://www.mercadopago.com.br/pix/',
+			'icon'                  => 'mp-icon-badge-info',
+			'color_card'        => 'mp-alert-color-sucess',
+			'size_card'         => 'mp-card-body-size'
+		);
+		return array(
+			'type'                  => 'mp_card_info',
+			'value'                 => $value,
 		);
 	}
 

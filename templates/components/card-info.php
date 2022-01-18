@@ -17,16 +17,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 
 <div class="mp-card-info">
-	<div class="mp-alert-color">
+	<div class="<?php echo esc_html($settings['value']['color_card']); ?>">
 	</div>
-	<div class="mp-card-body">
-	<div class="mp-badge">
-		<label class="mp-icon-badge"></label>
-	</div>
+	<div class="mp-card-body-payments <?php echo esc_html($settings['value']['size_card']); ?>">
+		<div class="<?php echo esc_html($settings['value']['icon']); ?>"></div>
 	<div>
-		<span class="mp-text-title"><b>Configurações gerais do plugin do Mercado Pago</b></span>
-		<span class="mp-text-subtitle">Ajuste taxas e prazos, teste sua loja ou acesso o manual do plugin.</span>
-		<button class="mp-button">Ir para Configurações</button>
+		<span class="mp-text-title"><b><?php echo esc_html($settings['value']['title']); ?></b></span>
+		<span class="mp-text-subtitle"><?php echo esc_html($settings['value']['subtitle']); ?></span>
+		<a class="mp-button-payments-link" target="_blank" href="<?php echo esc_html( $settings['value']['button_url'] ); ?>"><button class="mp-button-payments"><?php echo esc_html($settings['value']['button_text']); ?></button></a>
 	</div>
 	</div>
 </div>

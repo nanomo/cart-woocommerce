@@ -174,6 +174,7 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 			'checkout_payments_title',
 			'checkout_payments_subtitle',
 			'checkout_payments_description',
+			'checkout_card_validate',
 			'enabled',
 			'title',
 			WC_WooMercadoPago_Helpers_CurrencyConverter::CONFIG_KEY,
@@ -242,7 +243,6 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 		}
 		return false;
 	}
-
 
 	/**
 	 * Get Payments

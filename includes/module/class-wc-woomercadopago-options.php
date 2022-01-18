@@ -99,7 +99,7 @@ class WC_WooMercadoPago_Options {
 	 * Get access token prod
 	 */
 	public function get_access_token_prod() {
-		$access_token_prod = $this->credentials_public_key_prod;
+		$access_token_prod = $this->credentials_access_token_prod;
 
 		return $access_token_prod;
 	}
@@ -108,7 +108,7 @@ class WC_WooMercadoPago_Options {
 	 * Get access token test
 	 */
 	public function get_access_token_test() {
-		$access_token_test = $this->credentials_public_key_test;
+		$access_token_test = $this->credentials_access_token_test;
 
 		return $access_token_test;
 	}
@@ -117,7 +117,7 @@ class WC_WooMercadoPago_Options {
 	 * Get public key prod
 	 */
 	public function get_public_key_prod() {
-		$public_key_prod = $this->credentials_access_token_prod;
+		$public_key_prod = $this->credentials_public_key_prod;
 
 		return $public_key_prod;
 	}
@@ -126,7 +126,7 @@ class WC_WooMercadoPago_Options {
 	 * Get public key test
 	 */
 	public function get_public_key_test() {
-		$public_key_test = $this->credentials_access_token_test;
+		$public_key_test = $this->credentials_public_key_test;
 
 		return $public_key_test;
 	}

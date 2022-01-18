@@ -165,6 +165,7 @@ class WC_WooMercadoPago_Ticket_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 			'checkout_ticket_payments_title',
 			'checkout_payments_subtitle',
 			'checkout_ticket_payments_description',
+			'checkout_card_validate',
 			'enabled',
 			'title',
 			WC_WooMercadoPago_Helpers_CurrencyConverter::CONFIG_KEY,

@@ -162,6 +162,7 @@ class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 			// Configure the personalized payment experience in your store.
 			'checkout_custom_payments_title',
 			'checkout_payments_subtitle',
+			'checkout_card_validate',
 			'enabled',
 			'title',
 			WC_WooMercadoPago_Helpers_CurrencyConverter::CONFIG_KEY,
