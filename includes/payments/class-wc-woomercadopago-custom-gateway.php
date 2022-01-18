@@ -274,11 +274,11 @@ class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 		);
 	}
 
-	public function generate_mp_wallet_button_html($key, $settings) {
+	public function generate_mp_wallet_button_html( $key, $settings ) {
 		return wc_get_template_html(
 			'components/wallet-button.php',
 			array (
-				'field_key' => $this->get_field_key($key),
+				'field_key' => $this->get_field_key( $key ),
 				'settings'  => $settings,
 			),
 			'',
