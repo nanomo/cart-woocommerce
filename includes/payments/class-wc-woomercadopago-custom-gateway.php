@@ -262,14 +262,38 @@ class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 	public function field_checkout_custom_wallet_button() {
 		return array(
 			'title'       => __( 'Payment with card stored in Mercado Pago', 'woocommerce-mercadopago' ),
-			'type'        => 'select',
+			'type'        => 'mp_wallet_button',
 			'default'     => 'yes',
 			'description' => __( 'Activate this function so that your customers already using Mercado Pago can buy without having to fill in their card details at the store checkout.', 'woocommerce-mercadopago' ),
 			'options'     => array(
 				'no'  => __( 'No', 'woocommerce-mercadopago' ),
 				'yes' => __( 'Yes', 'woocommerce-mercadopago' ),
 			),
+			'img-wallet-button-uri'         => $this->get_wallet_button_example_uri(),
+			'img-wallet-button-description' => __('Below is what the functionality looks like in the store checkout:', 'woocommerce-mercadopago'),
 		);
+	}
+
+	public function generate_mp_wallet_button_html($key, $settings) {
+		return wc_get_template_html(
+			'components/wallet-button.php',
+			array (
+				'field_key' => $this->get_field_key($key),
+				'settings'  => $settings,
+			),
+			'',
+			WC_WooMercadoPago_Module::get_templates_path()
+		);
+	}
+
+	public function get_wallet_button_example_uri() {
+		$locale = substr( strtolower(get_locale()), 0, 2 );
+
+		if ( $locale !== 'pt' && $locale !== 'es' ) {
+			$locale = 'en';
+		}
+
+		return plugins_url( '../assets/images/pix-admin/example-' . $locale . '.png', plugin_dir_path( __FILE__ ) );
 	}
 
 	/**
