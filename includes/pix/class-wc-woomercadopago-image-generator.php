@@ -9,7 +9,7 @@
  *
  * @package MercadoPago
  */
-require_once dirname(__FILE__) . '/../module/sdk/lib/rest-client/class-rest-client-abstract.php';
+require_once dirname(__FILE__) . '/../module/sdk/lib/rest-client/class-mp-rest-client-abstract.php';
 require_once dirname(__FILE__) . '/../module/sdk/lib/rest-client/class-mp-rest-client.php';
 
 if ( ! defined('ABSPATH') ) {
