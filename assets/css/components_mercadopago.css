@@ -203,9 +203,6 @@
 	flex-direction: row;
 	justify-content: center;
 	align-items: center;
-	padding: 9px 12px 7px;
-}
-
-.mp-button-payments-link {
+	width: 160px;
 	text-decoration: none;
 }

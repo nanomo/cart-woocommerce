@@ -685,7 +685,7 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 		if ( is_admin() ) {
 			$this->normalize_common_admin_fields();
 		}
-		$form_fields['checkout_card_validate']                 = $this->field_checkout_card_validate();
+		$form_fields['checkout_card_validate'] = $this->field_checkout_card_validate();
 		return $form_fields;
 	}
 
@@ -765,7 +765,7 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 				'title'             => __('Mercado Pago Plugin general settings', 'woocommerce-mercadopago'), __('Important! Do not forget to add the credentials and details of your store.' , 'woocommerce-mercadopago'),
 				'subtitle'          => __('Set the deadlines and fees, test your store or access the Plugin manual.', 'woocommerce-mercadopago'),
 				'button_text'       => __('Go to Settings', 'woocommerce-mercadopago'),
-				'button_url'        => $this->admin_url(),
+				'button_url'        => admin_url( 'admin.php?page=mercadopago-settings' ),
 				'icon'              => 'mp-icon-badge-info',
 				'color_card'        => 'mp-alert-color-sucess',
 			);
