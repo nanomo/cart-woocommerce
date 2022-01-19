@@ -414,9 +414,9 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 		$this->integrator_id        = $this->mp_options->get_integrator_id();
 		$this->debug_mode           = false === $this->mp_options->get_debug_mode() ? 'no' : $this->mp_options->get_debug_mode();
 		$this->custom_domain        = $this->mp_options->get_custom_domain();
-		$this->binary_mode          = $this->get_option_mp( 'binary_mode', 'no' );
-		$this->gateway_discount     = $this->get_option_mp( 'gateway_discount', 0 );
-		$this->commission           = $this->get_option_mp( 'commission', 0 );
+		$this->binary_mode          = $this->get_option( 'binary_mode', 'no' );
+		$this->gateway_discount     = $this->get_option( 'gateway_discount', 0 );
+		$this->commission           = $this->get_option( 'commission', 0 );
 		$this->sandbox              = $this->is_test_user();
 		$this->supports             = array( 'products', 'refunds' );
 		$this->icon                 = $this->get_mp_icon();

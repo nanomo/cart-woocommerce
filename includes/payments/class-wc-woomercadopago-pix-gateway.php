@@ -37,10 +37,10 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 
 		$this->form_fields        = array();
 		$this->method_title       = __( 'Mercado Pago - Custom Checkout', 'woocommerce-mercadopago' );
-		$this->title              = $this->get_option_mp( 'title', __( 'Pix ', 'woocommerce-mercadopago' ) );
+		$this->title              = $this->get_option( 'title', __( 'Pix ', 'woocommerce-mercadopago' ) );
 		$this->method_description = $this->description;
-		$this->date_expiration    = (int) $this->get_option_mp( 'checkout_pix_date_expiration', '1' );
-		$this->type_payments      = $this->get_option_mp( 'type_payments', 'no' );
+		$this->date_expiration    = (int) $this->get_option( 'checkout_pix_date_expiration', '1' );
+		$this->type_payments      = $this->get_option( 'type_payments', 'no' );
 		$this->payment_type       = 'pix';
 		$this->checkout_type      = 'custom';
 		$this->activated_payment  = get_option( '_mp_payment_methods_pix', '' );
@@ -523,14 +523,14 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 							$order->update_meta_data( 'mp_transaction_amount', $response['transaction_amount'] );
 							$order->update_meta_data( 'mp_pix_qr_base64', $response['point_of_interaction']['transaction_data']['qr_code_base64'] );
 							$order->update_meta_data( 'mp_pix_qr_code', $response['point_of_interaction']['transaction_data']['qr_code'] );
-							$order->update_meta_data( 'checkout_pix_date_expiration', __( $this->get_option_mp( 'checkout_pix_date_expiration', '30 minutes' ), 'woocommerce-mercadopago' ) );
+							$order->update_meta_data( 'checkout_pix_date_expiration', __( $this->get_option( 'checkout_pix_date_expiration', '30 minutes' ), 'woocommerce-mercadopago' ) );
 							$order->update_meta_data( 'pix_on', 1 );
 							$order->save();
 						} else {
 							update_post_meta( $order->get_id(), 'mp_transaction_amount', $response['transaction_amount'] );
 							update_post_meta( $order->get_id(), 'mp_pix_qr_base64', $response['point_of_interaction']['transaction_data']['qr_code_base64'] );
 							update_post_meta( $order->get_id(), 'mp_pix_qr_code', $response['point_of_interaction']['transaction_data']['qr_code'] );
-							update_post_meta( $order->get_id(), 'checkout_pix_date_expiration', __( $this->get_option_mp( 'checkout_pix_date_expiration', '30 minutes' ), 'woocommerce-mercadopago' ) );
+							update_post_meta( $order->get_id(), 'checkout_pix_date_expiration', __( $this->get_option( 'checkout_pix_date_expiration', '30 minutes' ), 'woocommerce-mercadopago' ) );
 							update_post_meta( $order->get_id(), 'pix_on', 1 );
 						}
 						// Shows some info in checkout page.
