@@ -255,7 +255,7 @@ class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 	}
 
 	/**
-	 * Field Gateway Discount
+	 * Field Wallet Button
 	 *
 	 * @return array
 	 */
@@ -274,11 +274,21 @@ class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 		);
 	}
 
+	/**
+	 * Generate Wallet Button HTML
+	 *
+	 * @param $key field key
+	 * @param $settings settings array
+	 * 
+	 * @return array
+	 */
 	public function generate_mp_wallet_button_html( $key, $settings ) {
 		return wc_get_template_html(
 			'components/wallet-button.php',
 			array (
+				'id'        => $key,
 				'field_key' => $this->get_field_key( $key ),
+				'value'     => $this->get_option( $key ),
 				'settings'  => $settings,
 			),
 			'',
@@ -286,6 +296,11 @@ class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 		);
 	}
 
+	/**
+	 * Returns wallet button URI based on current store locale
+	 *
+	 * @return string
+	 */
 	public function get_wallet_button_example_uri() {
 		$locale = substr( strtolower(get_locale()), 0, 2 );
 

@@ -1141,8 +1141,10 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 	public function field_gateway_discount() {
 		return array(
 			'title'             => __( 'Discounts per purchase with Mercado Pago', 'woocommerce-mercadopago' ),
-			'type'              => 'number',
+			'type'              => 'mp_activable_input',
+			'input_type'        => 'number',
 			'description'       => __( 'Choose a percentage value that you want to discount your customers for paying with Mercado Pago.', 'woocommerce-mercadopago' ),
+			'checkbox_label'    => __( 'Show this information on the Mercado Pago Checkout', 'woocommerce-mercadopago' ),
 			'default'           => '0',
 			'custom_attributes' => array(
 				'step' => '0.01',
@@ -1160,14 +1162,32 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 	public function field_commission() {
 		return array(
 			'title'             => __( 'Commission for purchase with Mercado Pago', 'woocommerce-mercadopago' ),
-			'type'              => 'number',
+			'type'              => 'mp_activable_input',
+			'input_type'        => 'number',
 			'description'       => __( 'Choose an additional percentage value that you want to charge as commission to your customers for paying with Mercado Pago.', 'woocommerce-mercadopago' ),
+			'checkbox_label'    => __( 'Show this information on the Mercado Pago Checkout', 'woocommerce-mercadopago' ),
 			'default'           => '0',
 			'custom_attributes' => array(
 				'step' => '0.01',
 				'min'  => '0',
 				'max'  => '99',
 			),
+		);
+	}
+
+	public function generate_mp_activable_input_html( $key, $settings ) {
+		return wc_get_template_html(
+			'components/activable-input.php',
+			array (
+				'field_key'          => $this->get_field_key( $key ),
+				'field_key_checkbox' => $this->get_field_key( $key . '_checkbox' ),
+				'value'              => $this->get_option( $key ),
+				'enabled'            => $this->get_option( $key . '_checkbox' ),
+				'custom_attributes'  => $this->get_custom_attribute_html( $settings ),
+				'settings'           => $settings,
+			),
+			'',
+			WC_WooMercadoPago_Module::get_templates_path()
 		);
 	}
 

@@ -248,6 +248,8 @@ abstract class WC_WooMercadoPago_Hook_Abstract {
 			unset($form_fields['ex_payments']);
 		}
 
+		$form_fields = $this->separate_multiple_fields($form_fields);
+
 		$sorted_form_fields = $this->sort_by_checkout_mode_first( $form_fields );
 
 		foreach ( $sorted_form_fields as $key => $field ) {
@@ -279,6 +281,26 @@ abstract class WC_WooMercadoPago_Hook_Abstract {
 		);
 
 		return update_option( $this->payment->get_option_key(), apply_filters( 'woocommerce_settings_api_sanitized_fields_' . $this->payment->id, $this->payment->settings ) );
+	}
+
+	/**
+	 * Separates fields that contain more than one input
+	 *
+	 * @param array $form_fields all the form fields
+	 *
+	 * @return array
+	 */
+	public function separate_multiple_fields ( $form_fields ) {
+
+		foreach ( $form_fields as $key => $form_field ) {
+			if ( 'mp_activable_input' == $form_field['type'] && !isset( $form_fields[$key . '_checkbox'] ) ) {
+				$form_fields[$key . '_checkbox'] = array(
+					'type'      => 'checkbox',
+				);
+			}
+		}
+
+		return $form_fields;
 	}
 
 	/**
