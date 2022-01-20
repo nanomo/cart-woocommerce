@@ -290,10 +290,10 @@ abstract class WC_WooMercadoPago_Hook_Abstract {
 	 *
 	 * @return array
 	 */
-	public function separate_multiple_fields ( $form_fields ) {
+	public function separate_multiple_fields( $form_fields ) {
 
 		foreach ( $form_fields as $key => $form_field ) {
-			if ( 'mp_activable_input' == $form_field['type'] && !isset( $form_fields[$key . '_checkbox'] ) ) {
+			if ( 'mp_activable_input' === $form_field['type'] && ! isset( $form_fields[$key . '_checkbox'] ) ) {
 				$form_fields[$key . '_checkbox'] = array(
 					'type'      => 'checkbox',
 				);

@@ -279,7 +279,7 @@ class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 	 *
 	 * @param $key field key
 	 * @param $settings settings array
-	 * 
+	 *
 	 * @return array
 	 */
 	public function generate_mp_wallet_button_html( $key, $settings ) {
