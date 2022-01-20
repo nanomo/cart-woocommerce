@@ -44,10 +44,10 @@ class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 
 		$this->form_fields        = array();
 		$this->method_title       = __( 'Mercado Pago - Custom Checkout', 'woocommerce-mercadopago' );
-		$this->title              = $this->get_option_mp( 'title', __( 'Debit and Credit', 'woocommerce-mercadopago' ) );
+		$this->title              = $this->get_option( 'title', __( 'Debit and Credit', 'woocommerce-mercadopago' ) );
 		$this->method_description = $this->description;
-		$this->coupon_mode        = $this->get_option_mp( 'coupon_mode', 'no' );
-		$this->wallet_button      = $this->get_option_mp( 'wallet_button', 'yes' );
+		$this->coupon_mode        = $this->get_option( 'coupon_mode', 'no' );
+		$this->wallet_button      = $this->get_option( 'wallet_button', 'yes' );
 		$this->field_forms_order  = $this->get_fields_sequence();
 		parent::__construct();
 		$this->form_fields         = $this->get_form_mp_fields( 'Custom' );
@@ -376,7 +376,7 @@ class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 		$discount   = $amount * ( $this->gateway_discount / 100 );
 		$comission  = $amount * ( $this->commission / 100 );
 		$amount     = $amount - $discount + $comission;
-		$banner_url = $this->get_option_mp( '_mp_custom_banner' );
+		$banner_url = $this->get_option( '_mp_custom_banner' );
 		if ( ! isset( $banner_url ) || empty( $banner_url ) ) {
 			$banner_url = $this->site_data['checkout_banner_custom'];
 		}

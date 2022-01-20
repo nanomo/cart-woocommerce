@@ -37,12 +37,12 @@ class WC_WooMercadoPago_Ticket_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 
 		$this->form_fields        = array();
 		$this->method_title       = __( 'Mercado Pago - Custom Checkout', 'woocommerce-mercadopago' );
-		$this->title              = $this->get_option_mp( 'title', __( 'Invoice', 'woocommerce-mercadopago' ) );
+		$this->title              = $this->get_option( 'title', __( 'Invoice', 'woocommerce-mercadopago' ) );
 		$this->method_description = $this->description;
-		$this->coupon_mode        = $this->get_option_mp( 'coupon_mode', 'no' );
-		$this->stock_reduce_mode  = $this->get_option_mp( 'stock_reduce_mode', 'no' );
-		$this->date_expiration    = (int) $this->get_option_mp( 'date_expiration', 3 );
-		$this->type_payments      = $this->get_option_mp( 'type_payments', 'no' );
+		$this->coupon_mode        = $this->get_option( 'coupon_mode', 'no' );
+		$this->stock_reduce_mode  = $this->get_option( 'stock_reduce_mode', 'no' );
+		$this->date_expiration    = (int) $this->get_option( 'date_expiration', 3 );
+		$this->type_payments      = $this->get_option( 'type_payments', 'no' );
 		$this->payment_type       = 'ticket';
 		$this->checkout_type      = 'custom';
 		$this->activated_payment  = $this->get_activated_payment();
