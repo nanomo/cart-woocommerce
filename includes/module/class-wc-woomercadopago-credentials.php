@@ -276,9 +276,9 @@ class WC_WooMercadoPago_Credentials {
 	 * @return mixed
 	 * @throws WC_WooMercadoPago_Exception Homolog validate exception.
 	 */
-	public static function get_homolog_validate($production_mode, $mp_access_token_prod) {
+	public static function get_homolog_validate( $production_mode, $mp_access_token_prod ) {
 		$homolog_validate = (int) get_option( WC_WooMercadoPago_Options::HOMOLOG_VALIDATE, 0 );
-		$mp 							= WC_WooMercadoPago_Module::get_mp_instance_singleton();
+		$mp               = WC_WooMercadoPago_Module::get_mp_instance_singleton();
 		if ( ( $production_mode && ! empty( $mp_access_token_prod ) ) && 0 === $homolog_validate ) {
 			if ( $mp instanceof MP ) {
 				$homolog_validate = $mp->get_credentials_wrapper( $mp_access_token_prod );
