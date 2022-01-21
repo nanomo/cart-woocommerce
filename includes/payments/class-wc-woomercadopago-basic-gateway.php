@@ -203,6 +203,33 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 	}
 
 	/**
+	 * Field Installments
+	 *
+	 * @return array
+	 */
+	public function field_installments() {
+		return array(
+			'title'       => __( 'Max of installments', 'woocommerce-mercadopago' ),
+			'type'        => 'select',
+			'description' => __( 'What is the maximum quota with which a customer can buy?', 'woocommerce-mercadopago' ),
+			'default'     => '24',
+			'options'     => array(
+				'1'  => __( '1x installment', 'woocommerce-mercadopago' ),
+				'2'  => __( '2x installments', 'woocommerce-mercadopago' ),
+				'3'  => __( '3x installments', 'woocommerce-mercadopago' ),
+				'4'  => __( '4x installments', 'woocommerce-mercadopago' ),
+				'5'  => __( '5x installments', 'woocommerce-mercadopago' ),
+				'6'  => __( '6x installments', 'woocommerce-mercadopago' ),
+				'10' => __( '10x installments', 'woocommerce-mercadopago' ),
+				'12' => __( '12x installments', 'woocommerce-mercadopago' ),
+				'15' => __( '15x installments', 'woocommerce-mercadopago' ),
+				'18' => __( '18x installments', 'woocommerce-mercadopago' ),
+				'24' => __( '24x installments', 'woocommerce-mercadopago' ),
+			),
+		);
+	}
+
+	/**
 	 * Is available?
 	 *
 	 * @return bool
@@ -566,7 +593,7 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 			}
 		}
 
-		$test_mode_rules_link = $this->get_mp_devsite_link($this->checkout_country);
+		$test_mode_rules_link = WC_WooMercadoPago_Helper_Links::get_mp_devsite_link($this->checkout_country);
 		$parameters           = array(
 			'checkout_alert_test_mode' => $this->is_production_mode()
 				? ''
@@ -585,7 +612,7 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 			'cho_image'      => plugins_url( '../assets/images/redirect_checkout.png', plugin_dir_path( __FILE__ ) ),
 		);
 
-		$parameters = array_merge($parameters, WC_WooMercadoPago_Payment_Abstract::mp_define_terms_and_conditions());
+		$parameters = array_merge($parameters, WC_WooMercadoPago_Helper_Links::mp_define_terms_and_conditions());
 		wc_get_template( 'checkout/basic-checkout.php', $parameters, 'woo/mercado/pago/module/', WC_WooMercadoPago_Module::get_templates_path() );
 	}
 
