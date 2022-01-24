@@ -96,11 +96,7 @@ class WC_WooMercadoPago_Ticket_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 			$form_fields['coupon_mode']                             = $this->field_coupon_mode();
 			$form_fields['stock_reduce_mode']                       = $this->field_stock_reduce_mode();
 			$form_fields['date_expiration']                         = $this->field_date_expiration();
-
-			// TODO remove this
-			foreach ( $this->field_ticket_payments() as $key => $value ) {
-				$form_fields[ $key ] = $value;
-			}
+			$form_fields['field_ticket_payments']                   = $this->field_ticket_payments();
 		}
 
 		$form_fields_abs = parent::get_form_mp_fields( $label );
@@ -288,12 +284,12 @@ class WC_WooMercadoPago_Ticket_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 	public function field_stock_reduce_mode() {
 		return array(
 			'title'       => __( 'Reduce inventory', 'woocommerce-mercadopago' ),
-			'type'        => 'select',
+			'type'        => 'mp_toggle_switch',
 			'default'     => 'no',
-			'description' => __( 'Activates inventory reduction during the creation of an order, whether or not the final payment is credited. Disable this option to reduce it only when payments are approved.', 'woocommerce-mercadopago' ),
-			'options'     => array(
-				'no'  => __( 'No', 'woocommerce-mercadopago' ),
-				'yes' => __( 'Yes', 'woocommerce-mercadopago' ),
+			'subtitle' => __( 'Activates inventory reduction during the creation of an order, whether or not the final payment is credited. Disable this option to reduce it only when payments are approved.', 'woocommerce-mercadopago' ),
+			'descriptions' => array(
+				'enabled' => __( 'Reduce inventory is <b>enabled</b>.', 'woocommerce-mercadopago' ),
+				'disabled' => __( 'Reduce inventory is <b>disabled</b>.', 'woocommerce-mercadopago' ),
 			),
 		);
 	}
@@ -313,14 +309,11 @@ class WC_WooMercadoPago_Ticket_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 	}
 
 	/**
-	 * Fielf ticket payments
+	 * Field ticket payments
 	 *
 	 * @return array
 	 */
 	public function field_ticket_payments() {
-		$ticket_payments      = array();
-		$ticket_payments_sort = array();
-
 		$get_payment_methods_ticket = get_option( '_all_payment_methods_ticket', '[]' );
 
 		$count_payment = 0;
@@ -329,43 +322,30 @@ class WC_WooMercadoPago_Ticket_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 			$get_payment_methods_ticket = json_decode( $get_payment_methods_ticket, true );
 		}
 
-		foreach ( $get_payment_methods_ticket as $payment_method_ticket ) {
-			$element = array(
-				'label'             => array_key_exists('payment_places', $payment_method_ticket) ? $payment_method_ticket['name'] . ' (' . $this->build_paycash_payments_string() . ')' : $payment_method_ticket['name'] ,
-				'id'                => 'woocommerce_mercadopago_' . $payment_method_ticket['id'],
-				'default'           => 'yes',
-				'type'              => 'checkbox',
-				'class'             => 'ticket_payment_method_select',
-				'custom_attributes' => array(
-					'data-translate' => __( 'All payment methods', 'woocommerce-mercadopago' ),
+		$payment_list = array(
+			'description'          => __( 'Enable the available payment methods', 'woocommerce-mercadopago' ),
+			'title'                => __( 'Payment methods', 'woocommerce-mercadopago' ),
+			'desc_tip'             => __( 'Choose the available payment methods in your store.', 'woocommerce-mercadopago' ),
+			'type'                 => 'mp_checkbox_list',
+			'payment_method_types' => array(
+				'ticket'           => array(
+					'label'        => __('All payment methods', 'woocommerce-mercadopago'),
+					'list'         => array(),
 				),
+			),
+		);
+
+		foreach ( $get_payment_methods_ticket as $payment_method_ticket ) {
+			$payment_list['payment_method_types']['ticket']['list'][] = array(
+				'id'        => $payment_method_ticket['id'],
+				'field_key' => $this->get_field_key($payment_method_ticket['id']),
+				'label'     => array_key_exists('payment_places', $payment_method_ticket) ? $payment_method_ticket['name'] . ' (' . $this->build_paycash_payments_string() . ')' : $payment_method_ticket['name'],
+				'value'     => $this->get_option($payment_method_ticket['id'], 'yes'),
+				'type'      => 'checkbox',
 			);
-
-			$count_payment++;
-
-			if ( 1 === $count_payment ) {
-				$element['title']    = __( 'Payment methods', 'woocommerce-mercadopago' );
-				$element['desc_tip'] = __( 'Choose the available payment methods in your store.', 'woocommerce-mercadopago' );
-			}
-			if ( count( $get_payment_methods_ticket ) === $count_payment ) {
-				$element['description'] = __( 'Activate the available payment methods to your clients.', 'woocommerce-mercadopago' );
-			}
-
-			$ticket_payments[ 'ticket_payment_' . $payment_method_ticket['id'] ] = $element;
-			$ticket_payments_sort[] = 'ticket_payment_' . $payment_method_ticket['id'];
 		}
 
-		$index = 0;
-		foreach ( $this->field_forms_order as $k => $field ) {
-			$index++;
-			if ( 'field_ticket_payments' === $field ) {
-				unset( $this->field_forms_order[ $k ] );
-				array_splice( $this->field_forms_order, $index, 0, $ticket_payments_sort );
-				break;
-			}
-		}
-
-		return $ticket_payments;
+		return $payment_list;
 	}
 
 	/**

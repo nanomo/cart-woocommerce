@@ -857,6 +857,23 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 	}
 
 	/**
+	 * Generates the toggle switch template
+	 *
+	 * @param string $key key, $settings settings array
+	 * @return string html toggle switch template
+	 */
+	public function generate_mp_checkbox_list_html( $key, $settings ) {
+		return wc_get_template_html(
+			'components/checkbox-list.php',
+			array (
+				'settings' => $settings,
+			),
+			'',
+			WC_WooMercadoPago_Module::get_templates_path()
+		);
+	}
+
+	/**
 	 * Get sufix to static files
 	 *
 	 * @return String
@@ -872,8 +889,8 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 	 */
 	private function load_custom_js_for_checkbox() {
 		wp_enqueue_script(
-			'custom_checkbox_checkout_mode',
-			plugins_url( '../assets/js/custom_checkbox_checkout_mode' . $this->get_suffix() . '.js', plugin_dir_path( __FILE__ ) ),
+			'woocommerce-mercadopago-components',
+			plugins_url( '../assets/js/components_mercadopago' . $suffix . '.js', plugin_dir_path( __FILE__ ) ),
 			array(),
 			WC_WooMercadoPago_Constants::VERSION,
 			true

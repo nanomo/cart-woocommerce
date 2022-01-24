@@ -213,7 +213,6 @@ class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 		);
 	}
 
-
 	/**
 	 * Generate Wallet Button HTML
 	 *

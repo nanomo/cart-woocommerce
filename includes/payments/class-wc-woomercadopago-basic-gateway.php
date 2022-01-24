@@ -78,13 +78,6 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 				WC_WooMercadoPago_Constants::VERSION,
 				true
 			);
-			wp_enqueue_script(
-				'woocommerce-mercadopago-components',
-				plugins_url( '../assets/js/components_mercadopago' . $suffix . '.js', plugin_dir_path( __FILE__ ) ),
-				array(),
-				WC_WooMercadoPago_Constants::VERSION,
-				true
-			);
 		}
 
 		if ( empty( $this->checkout_country ) ) {
@@ -467,8 +460,8 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 	 */
 	public function field_ex_payments() {
 		$payment_list = array(
-			'description'          => __( 'Enable the payment methods available to your customers', 'woocommerce-mercadopago' ),
-			'title'                => __( 'Payment Methods', 'woocommerce-mercadopago' ),
+			'description'          => __( 'Enable the payment methods available to your clients.', 'woocommerce-mercadopago' ),
+			'title'                => __( 'Payment methods', 'woocommerce-mercadopago' ),
 			'type'                 => 'mp_checkbox_list',
 			'payment_method_types' => array(
 				'credit_card'      => array(
@@ -498,7 +491,7 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 					'id'        => 'ex_payments_' . $payment_method['id'],
 					'field_key' => $this->get_field_key('ex_payments_' . $payment_method['id']),
 					'label'     => $payment_method['name'],
-					'value'     => $this->get_option('ex_payments_' . $payment_method['id'], ''),
+					'value'     => $this->get_option('ex_payments_' . $payment_method['id'], 'yes'),
 					'type'      => 'checkbox',
 				);
 			} elseif ( 'debit_card' === $payment_method['type'] || 'prepaid_card' === $payment_method['type'] ) {
@@ -506,7 +499,7 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 					'id'        => 'ex_payments_' . $payment_method['id'],
 					'field_key' => $this->get_field_key('ex_payments_' . $payment_method['id']),
 					'label'     => $payment_method['name'],
-					'value'     => $this->get_option('ex_payments_' . $payment_method['id'], ''),
+					'value'     => $this->get_option('ex_payments_' . $payment_method['id'], 'yes'),
 					'type'      => 'checkbox',
 				);
 			} else {
@@ -514,30 +507,13 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 					'id'        => 'ex_payments_' . $payment_method['id'],
 					'field_key' => $this->get_field_key('ex_payments_' . $payment_method['id']),
 					'label'     => $payment_method['name'],
-					'value'     => $this->get_option('ex_payments_' . $payment_method['id'], ''),
+					'value'     => $this->get_option('ex_payments_' . $payment_method['id'], 'yes'),
 					'type'      => 'checkbox',
 				);
 			}
 		}
 
 		return $payment_list;
-	}
-
-	/**
-	 * Generates the toggle switch template
-	 *
-	 * @param string $key key, $settings settings array
-	 * @return string html toggle switch template
-	 */
-	public function generate_mp_checkbox_list_html( $key, $settings ) {
-		return wc_get_template_html(
-			'components/checkbox-list.php',
-			array (
-				'settings' => $settings,
-			),
-			'',
-			WC_WooMercadoPago_Module::get_templates_path()
-		);
 	}
 
 	/**
