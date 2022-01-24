@@ -96,7 +96,7 @@ class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 			$form_fields['checkout_custom_payments_advanced_title'] = $this->field_checkout_custom_payments_advanced_title();
 			$form_fields['coupon_mode']                             = $this->field_coupon_mode();
 			$form_fields['wallet_button']                           = $this->field_checkout_custom_wallet_button();
-			$form_fields['checkout_custom_wallet_button_toggle']		= $this->field_checkout_custom_wallet_button_title();
+			$form_fields['checkout_custom_wallet_button_toggle']    = $this->field_checkout_custom_wallet_button_title();
 		}
 		$form_fields_abs = parent::get_form_mp_fields( $label );
 		if ( 1 === count( $form_fields_abs ) ) {
@@ -190,7 +190,7 @@ class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 	public function field_checkout_custom_wallet_button_title() {
 		return array(
 			'title'       => __( 'Purchases with saved cards or money in Mercado Pago', 'woocommerce-mercadopago' ),
-			'subtitle'		=> __( 'Feature for those who have a saved card or money in Mercado Pago to buy without having to fill in details.', 'woocommerce-mercadopago' ),
+			'subtitle'      => __( 'Feature for those who have a saved card or money in Mercado Pago to buy without having to fill in details.', 'woocommerce-mercadopago' ),
 			'type'        => 'mp_toggle_switch',
 			'default'     => 'no',
 			'descriptions' => array(
