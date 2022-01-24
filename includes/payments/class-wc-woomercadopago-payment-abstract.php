@@ -968,8 +968,8 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 			'type'        => 'mp_toggle_switch',
 			'default'     => 'no',
 			'descriptions' => array(
-				'enabled' => __( 'Binary mode is <b>enabled</b>.', 'woocommerce-mercadopago' ),
-				'disabled' => __( 'Binary mode is <b>disabled</b>.', 'woocommerce-mercadopago' ),
+				'enabled' => __( 'Pending payments <b>will be automatically declined</b>.', 'woocommerce-mercadopago' ),
+				'disabled' => __( 'Pending payments <b>will not be automatically declined</b>.', 'woocommerce-mercadopago' ),
 			),
 		);
 	}
@@ -985,7 +985,7 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 			'type'              => 'mp_activable_input',
 			'input_type'        => 'number',
 			'description'       => __( 'Choose a percentage value that you want to discount your customers for paying with Mercado Pago.', 'woocommerce-mercadopago' ),
-			'checkbox_label'    => __( 'Show this information on the Mercado Pago Checkout', 'woocommerce-mercadopago' ),
+			'checkbox_label'    => __( 'Show this information on Mercado Pago Checkout', 'woocommerce-mercadopago' ),
 			'default'           => '0',
 			'custom_attributes' => array(
 				'step' => '0.01',
@@ -1006,7 +1006,7 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 			'type'              => 'mp_activable_input',
 			'input_type'        => 'number',
 			'description'       => __( 'Choose an additional percentage value that you want to charge as commission to your customers for paying with Mercado Pago.', 'woocommerce-mercadopago' ),
-			'checkbox_label'    => __( 'Show this information on the Mercado Pago Checkout', 'woocommerce-mercadopago' ),
+			'checkbox_label'    => __( 'Show this information on Mercado Pago Checkout', 'woocommerce-mercadopago' ),
 			'default'           => '0',
 			'custom_attributes' => array(
 				'step' => '0.01',

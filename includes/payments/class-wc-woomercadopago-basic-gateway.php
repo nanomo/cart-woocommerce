@@ -470,17 +470,19 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 			'description'          => __( 'Enable the payment methods available to your customers', 'woocommerce-mercadopago' ),
 			'title'                => __( 'Payment Methods', 'woocommerce-mercadopago' ),
 			'type'                 => 'mp_checkbox_list',
-			'credit_card_payments' => array(
-				'label'            => __('Credit Cards', 'woocommerce-mercadopago'),
-				'list'             => array(),
-			),
-			'debit_card_payments'  => array(
-				'label'            => __('Debit Cards', 'woocommerce-mercadopago'),
-				'list'             => array(),
-			),
-			'other_payments'       => array(
-				'label'            => __('Other Payment Methods', 'woocommerce-mercadopago'),
-				'list'             => array(),
+			'payment_method_types' => array(
+				'credit_card'      => array(
+					'label'        => __('Credit Cards', 'woocommerce-mercadopago'),
+					'list'         => array(),
+				),
+				'debit_card'       => array(
+					'label'        => __('Debit Cards', 'woocommerce-mercadopago'),
+					'list'         => array(),
+				),
+				'other'            => array(
+					'label'        => __('Other Payment Methods', 'woocommerce-mercadopago'),
+					'list'         => array(),
+				),
 			),
 		);
 
@@ -492,7 +494,7 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 
 		foreach ( $all_payments as $payment_method ) {
 			if ( 'credit_card' === $payment_method['type'] ) {
-				$payment_list['credit_card_payments']['list'][] = array(
+				$payment_list['payment_method_types']['credit_card']['list'][] = array(
 					'id'        => 'ex_payments_' . $payment_method['id'],
 					'field_key' => $this->get_field_key('ex_payments_' . $payment_method['id']),
 					'label'     => $payment_method['name'],
@@ -500,7 +502,7 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 					'type'      => 'checkbox',
 				);
 			} elseif ( 'debit_card' === $payment_method['type'] || 'prepaid_card' === $payment_method['type'] ) {
-				$payment_list['debit_card_payments']['list'][] = array(
+				$payment_list['payment_method_types']['debit_card']['list'][] = array(
 					'id'        => 'ex_payments_' . $payment_method['id'],
 					'field_key' => $this->get_field_key('ex_payments_' . $payment_method['id']),
 					'label'     => $payment_method['name'],
@@ -508,7 +510,7 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 					'type'      => 'checkbox',
 				);
 			} else {
-				$payment_list['other_payments']['list'][] = array(
+				$payment_list['payment_method_types']['other']['list'][] = array(
 					'id'        => 'ex_payments_' . $payment_method['id'],
 					'field_key' => $this->get_field_key('ex_payments_' . $payment_method['id']),
 					'label'     => $payment_method['name'],
@@ -550,8 +552,8 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 			'type'        => 'mp_toggle_switch',
 			'default'     => 'yes',
 			'descriptions' => array(
-				'enabled' => __( 'Automatically return to the store is <b>enabled</b>.', 'woocommerce-mercadopago' ),
-				'disabled' => __( 'Automatically return to the store is <b>disabled</b>.', 'woocommerce-mercadopago' ),
+				'enabled' => __( 'The buyer <b>will be automatically redirected to the store</b>.', 'woocommerce-mercadopago' ),
+				'disabled' => __( 'The buyer <b>will not be automatically redirected to the store</b>.', 'woocommerce-mercadopago' ),
 			),
 		);
 	}

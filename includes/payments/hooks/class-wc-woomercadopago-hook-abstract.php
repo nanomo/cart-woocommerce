@@ -243,11 +243,6 @@ abstract class WC_WooMercadoPago_Hook_Abstract {
 		$post_data   = $this->payment->get_post_data();
 		$form_fields = $this->payment->get_form_fields();
 
-		if ( isset($form_fields['ex_payments']) ) {
-			$form_fields += $this->separate_ex_payments($form_fields['ex_payments']);
-			unset($form_fields['ex_payments']);
-		}
-
 		$form_fields = $this->handle_mp_components($form_fields);
 
 		$sorted_form_fields = $this->sort_by_checkout_mode_first( $form_fields );
@@ -292,7 +287,13 @@ abstract class WC_WooMercadoPago_Hook_Abstract {
 	 */
 	public function handle_mp_components( $form_fields ) {
 		foreach ( $form_fields as $key => $form_field ) {
-			//separating multiple fields
+			//separating payment methods
+			if ( 'mp_checkbox_list' === $form_field['type'] ) {
+				$form_fields += $this->separate_checkboxes($form_fields[$key]);
+				unset($form_fields[$key]);
+			}
+
+			//separating checkboxes from activable inputs
 			if ( 'mp_activable_input' === $form_field['type'] && ! isset( $form_fields[$key . '_checkbox'] ) ) {
 				$form_fields[$key . '_checkbox'] = array(
 					'type'      => 'checkbox',
@@ -315,10 +316,12 @@ abstract class WC_WooMercadoPago_Hook_Abstract {
 	 *
 	 * @return array
 	 */
-	public function separate_ex_payments( $ex_payments ) {
-		return $this->separate_ex_payments_list($ex_payments['credit_card_payments']['list'])
-		+ $this->separate_ex_payments_list($ex_payments['debit_card_payments']['list'])
-		+ $this->separate_ex_payments_list($ex_payments['other_payments']['list']);
+	public function separate_checkboxes( $ex_payments ) {
+		$payment_methods = array();
+		foreach( $ex_payments['payment_method_types'] as $payment_method_type ) {
+			$payment_methods += $this->separate_checkboxes_list($payment_method_type['list']);
+		}
+		return $payment_methods;
 	}
 
 	/**
@@ -328,7 +331,7 @@ abstract class WC_WooMercadoPago_Hook_Abstract {
 	 *
 	 * @return array
 	 */
-	public function separate_ex_payments_list( $ex_payments_list ) {
+	public function separate_checkboxes_list( $ex_payments_list ) {
 		$payment_methods = array();
 		foreach ( $ex_payments_list as $payment ) {
 			$payment_methods[$payment['id']] = $payment;
