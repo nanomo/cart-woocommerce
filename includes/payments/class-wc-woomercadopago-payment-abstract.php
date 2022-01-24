@@ -667,7 +667,7 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 	 */
 	public function field_title() {
 		$field_title = array(
-			'title'       => __( 'Title', 'woocommerce-mercadopago' ),
+			'title'       => __( 'Title in the store Checkout', 'woocommerce-mercadopago' ),
 			'type'        => 'text',
 			'description' => __('Change the display text in Checkout, maximum characters: 85', 'woocommerce-mercadopago'),
 			'maxlength'   => 100,
@@ -945,12 +945,12 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 	public function field_coupon_mode() {
 		return array(
 			'title'       => __( 'Discount coupons', 'woocommerce-mercadopago' ),
-			'type'        => 'select',
+			'type'        => 'mp_toggle_switch',
 			'default'     => 'no',
-			'description' => __( 'Will you offer discount coupons to customers who buy with Mercado Pago?', 'woocommerce-mercadopago' ),
-			'options'     => array(
-				'no'  => __( 'No', 'woocommerce-mercadopago' ),
-				'yes' => __( 'Yes', 'woocommerce-mercadopago' ),
+			'subtitle' => __( 'Will you offer discount coupons to customers who buy with Mercado Pago?', 'woocommerce-mercadopago' ),
+			'descriptions' => array(
+				'enabled' => __( 'Discount coupons is <b>active</b>.', 'woocommerce-mercadopago' ),
+				'disabled' => __( 'Discount coupons is <b>disabled</b>.', 'woocommerce-mercadopago' ),
 			),
 		);
 	}
@@ -962,14 +962,13 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 	 */
 	public function field_binary_mode() {
 		return array(
-			'title'       => __( 'Binary mode', 'woocommerce-mercadopago' ),
-			'desc_tip'    => __( 'If you activate binary mode you will not be able to leave pending payments. This can affect fraud prevention. Leave it idle to be backed by our own tool.', 'woocommerce-mercadopago' ),
+			'title'       => __( 'Automatic decline of payments without instant approval', 'woocommerce-mercadopago' ),
 			'subtitle'    => __( 'Enable it if you want to automatically decline payments that are not instantly approved by banks or other institutions. ', 'woocommerce-mercadopago' ),
 			'type'        => 'mp_toggle_switch',
 			'default'     => 'no',
 			'descriptions' => array(
-				'enabled' => __( 'Binary mode is <b>enabled</b>.', 'woocommerce-mercadopago' ),
-				'disabled' => __( 'Binary mode is <b>disabled</b>.', 'woocommerce-mercadopago' ),
+				'enabled' => __( 'Pending payments <b>will not be automatically declined</b>.', 'woocommerce-mercadopago' ),
+				'disabled' => __( 'Pending payments <b>will be automatically declined</b>', 'woocommerce-mercadopago' ),
 			),
 		);
 	}
@@ -981,7 +980,7 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 	 */
 	public function field_gateway_discount() {
 		return array(
-			'title'             => __( 'Discounts per purchase with Mercado Pago', 'woocommerce-mercadopago' ),
+			'title'             => __( 'Discount in Mercado Pago Checkouts', 'woocommerce-mercadopago' ),
 			'type'              => 'mp_activable_input',
 			'input_type'        => 'number',
 			'description'       => __( 'Choose a percentage value that you want to discount your customers for paying with Mercado Pago.', 'woocommerce-mercadopago' ),
@@ -1002,7 +1001,7 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 	 */
 	public function field_commission() {
 		return array(
-			'title'             => __( 'Commission for purchase with Mercado Pago', 'woocommerce-mercadopago' ),
+			'title'             => __( 'Commission in Mercado Pago Checkouts', 'woocommerce-mercadopago' ),
 			'type'              => 'mp_activable_input',
 			'input_type'        => 'number',
 			'description'       => __( 'Choose an additional percentage value that you want to charge as commission to your customers for paying with Mercado Pago.', 'woocommerce-mercadopago' ),
