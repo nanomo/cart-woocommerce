@@ -298,13 +298,13 @@ abstract class WC_WooMercadoPago_Hook_Abstract {
 					'type'      => 'checkbox',
 				);
 			}
-			
+
 			//setting toggle as checkbox
-			if ('mp_toggle_switch' === $form_field['type']) {
+			if ( 'mp_toggle_switch' === $form_field['type'] ) {
 				$form_fields[$key]['type'] = 'checkbox';
 			}
 		}
-		
+
 		return $form_fields;
 	}
 
