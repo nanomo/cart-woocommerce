@@ -1048,7 +1048,18 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 	 * @return array
 	 */
 	public function field_currency_conversion( WC_WooMercadoPago_Payment_Abstract $method ) {
-		return WC_WooMercadoPago_Helpers_CurrencyConverter::get_instance()->get_field( $method );
+		$description = WC_WooMercadoPago_Helpers_CurrencyConverter::get_instance()->get_description( $method );
+
+		return array(
+			'title'       => __( 'Convert Currency', 'woocommerce-mercadopago' ),
+			'subtitle'    => $description,
+			'type'        => 'mp_toggle_switch',
+			'default'     => 'no',
+			'descriptions' => array(
+				'enabled' => __( 'Currency convertion is <b>enabled</b>.', 'woocommerce-mercadopago' ),
+				'disabled' => __( 'Currency convertion is <b>disabled</b>.', 'woocommerce-mercadopago' ),
+			),
+		);
 	}
 
 	/**

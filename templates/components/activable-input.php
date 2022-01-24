@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<td class="forminp">
 		<div>
 			<fieldset>
-				<input class="input-text regular-input" type="<?php echo esc_attr( $settings['input_type'] ); ?>" name="<?php echo esc_attr( $field_key ); ?>" id="<?php echo esc_attr( $field_key ); ?>" style="<?php echo esc_attr( $settings['css'] ); ?>" value="<?php echo esc_attr( $value ); ?>" placeholder="<?php echo esc_attr( $settings['placeholder'] ); ?>" <?php echo esc_attr( $custom_attributes ); ?> />
+				<input class="input-text regular-input" type="<?php echo esc_attr( $settings['input_type'] ); ?>" name="<?php echo esc_attr( $field_key ); ?>" id="<?php echo esc_attr( $field_key ); ?>" style="<?php echo esc_attr( $settings['css'] ); ?>" value="<?php echo esc_attr( $value ); ?>" placeholder="<?php echo esc_attr( $settings['placeholder'] ); ?>" <?php echo ( $custom_attributes ); // WPCS: XSS ok. ?> />
 				<br/>
 
 				<label for="<?php echo esc_attr( $field_key_checkbox ); ?>">

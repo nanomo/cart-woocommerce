@@ -4,7 +4,7 @@
  * Part of Woo Mercado Pago Module
  * Author - Mercado Pago
  * Developer
- * Copyright - Copyright(c) MercadoPago [https://www.mercadopago.com]
+ * Copyright - Copyright(c) MercadoPago [http://www.mercadopago.com]
  * License - https://www.gnu.org/licenses/gpl.html GPL version 2 or higher
  *
  * @package MercadoPago
@@ -27,6 +27,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<span class="mp-toggle-label-enabled"><?php echo wp_kses( $settings['descriptions']['enabled'], 'b' ); ?></span>
 					<span class="mp-toggle-label-disabled"><?php echo wp_kses( $settings['descriptions']['disabled'], 'b' ); ?></span>
 				</div>
+				<?php if ( $settings['subtitle'] ) { ?>
+				<p class="description"><?php echo wp_kses_post( $settings['subtitle'] ); ?></p>
+				<?php } ?>
 			</label>
 		</div>
 	</td>

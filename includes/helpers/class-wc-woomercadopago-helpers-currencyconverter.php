@@ -414,27 +414,6 @@ class WC_WooMercadoPago_Helpers_CurrencyConverter {
 
 	/**
 	 *
-	 * Get Field
-	 *
-	 * @param WC_WooMercadoPago_Payment_Abstract $method method.
-	 *
-	 * @return array
-	 */
-	public function get_field( WC_WooMercadoPago_Payment_Abstract $method ) {
-		return array(
-			'title'       => __( 'Convert Currency', 'woocommerce-mercadopago' ),
-			'type'        => 'select',
-			'default'     => 'no',
-			'description' => $this->msg_description,
-			'options'     => array(
-				'no'  => __( 'No', 'woocommerce-mercadopago' ),
-				'yes' => __( 'Yes', 'woocommerce-mercadopago' ),
-			),
-		);
-	}
-
-	/**
-	 *
 	 * Schedule Notice
 	 *
 	 * @param WC_WooMercadoPago_Payment_Abstract $method methos.
