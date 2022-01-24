@@ -19,9 +19,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<label for="<?php echo esc_attr( $field_key ); ?>"><?php echo wp_kses_post( $settings['title'] ); ?> <?php echo esc_html($settings['desc_tip']); ?></label>
 	</th>
 	<td class="forminp">
-		<fieldset>
-			<legend class="screen-reader-text"><span><?php echo wp_kses_post( $settings['title'] ); ?></span></legend>
-			<select class="select <?php echo esc_attr( $settings['class'] ); ?>" name="<?php echo esc_attr( $field_key ); ?>" id="<?php echo esc_attr( $field_key ); ?>" style="<?php echo esc_attr( $settings['css'] ); ?>" <?php disabled( $settings['disabled'], true ); ?>>
 				<?php foreach ( (array) $settings['options'] as $option_key => $option_value ) : ?>
 					<?php if ( is_array( $option_value ) ) { ?>
 						<optgroup label="<?php echo esc_attr( $option_key ); ?>">
@@ -37,7 +34,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<?php if ( $settings['description'] ) { ?>
 			<p class="description"><?php echo wp_kses_post( $settings['description'] ); ?></p>
 			<?php } ?>
-		</fieldset>
 		<div class="mp-wallet-button-preview">
 			<p class="description"><?php echo esc_html( $settings['img-wallet-button-description'] ); ?></p>
 			<br>
