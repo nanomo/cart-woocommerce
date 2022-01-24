@@ -427,6 +427,45 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 		$this->application_id       = $this->get_application_id( $this->mp_access_token_prod );
 		$this->logged_user_email    = ( 0 !== wp_get_current_user()->ID ) ? wp_get_current_user()->user_email : null;
 		$this->discount_action_url  = get_site_url() . '/index.php/woocommerce-mercadopago/?wc-api=' . get_class( $this );
+		add_action( 'woocommerce_after_settings_checkout', array($this, 'mercadopago_after_form') );
+	}
+
+	public function mercadopago_after_form() {
+		wc_get_template(
+			'components/research-fields.php',
+			array (
+				'field_key' => 'mp-public-key-prod',
+				'field_value' => $this->get_public_key(),
+			),
+			'',
+			WC_WooMercadoPago_Module::get_templates_path()
+		);
+
+		$page = [
+			'woo-mercado-pago-basic'  => 'checkout-pro',
+			'woo-mercado-pago-custom' => 'checkout-custom',
+			'woo-mercado-pago-ticket' => 'checkout-ticket',
+			'woo-mercado-pago-pix'    => 'checkout-pix'
+		];
+
+		wc_get_template(
+			'components/research-fields.php',
+			array (
+				'field_key' => 'reference',
+				'field_value' => '{"mp-screen-name":"' . $page[$this->get_id()] . '"}',
+			),
+			'',
+			WC_WooMercadoPago_Module::get_templates_path()
+		);
+	}
+
+	/**
+	 * Get Id
+	 *
+	 * @return string
+	 */
+	public static function get_id() {
+		return 'abstract';
 	}
 
 	/**
