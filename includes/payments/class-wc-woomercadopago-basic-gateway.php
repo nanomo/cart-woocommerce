@@ -544,17 +544,16 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 	 * @return array
 	 */
 	public function field_auto_return() {
-		$auto_return = array(
+		return array(
 			'title'       => __( 'Return to the store', 'woocommerce-mercadopago' ),
-			'type'        => 'select',
+			'subtitle'    => __( 'Do you want your customer to automatically return to the store after payment?', 'woocommerce-mercadopago' ),
+			'type'        => 'mp_toggle_switch',
 			'default'     => 'yes',
-			'description' => __( 'Do you want your customer to automatically return to the store after payment?', 'woocommerce-mercadopago' ),
-			'options'     => array(
-				'yes' => __( 'Yes', 'woocommerce-mercadopago' ),
-				'no'  => __( 'No', 'woocommerce-mercadopago' ),
+			'descriptions' => array(
+				'enabled' => __( 'Automatically return to the store is <b>enabled</b>.', 'woocommerce-mercadopago' ),
+				'disabled' => __( 'Automatically return to the store is <b>disabled</b>.', 'woocommerce-mercadopago' ),
 			),
 		);
-		return $auto_return;
 	}
 
 	/**

@@ -813,19 +813,10 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 			'subtitle'    => __( 'If disabled, you will disable every payment method attached to this checkout.', 'woocommerce-mercadopago' ),
 			'type'        => 'mp_toggle_switch',
 			'default'     => 'no',
-			'descriptions' => $this->get_enabled_field_descriptions(),
-		);
-	}
-
-	/**
-	 * Enabled Field descripion. Contains the description that will appear when the checkout is enabled and disabled.
-	 *
-	 * @return array
-	 */
-	public function get_enabled_field_descriptions() {
-		return array(
-			'enabled' => __( 'This checkout is <b>enabled</b>.', 'woocommerce-mercadopago' ),
-			'disabled' => __( 'This checkout is <b>disabled</b>.', 'woocommerce-mercadopago' ),
+			'descriptions' => array(
+				'enabled' => __( 'This checkout is <b>enabled</b>.', 'woocommerce-mercadopago' ),
+				'disabled' => __( 'This checkout is <b>disabled</b>.', 'woocommerce-mercadopago' ),
+			),
 		);
 	}
 
@@ -972,13 +963,13 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 	public function field_binary_mode() {
 		return array(
 			'title'       => __( 'Binary mode', 'woocommerce-mercadopago' ),
-			'type'        => 'select',
-			'default'     => 'no',
-			'description' => __( 'Accept and reject payments automatically. Do you want us to activate it?', 'woocommerce-mercadopago' ),
 			'desc_tip'    => __( 'If you activate binary mode you will not be able to leave pending payments. This can affect fraud prevention. Leave it idle to be backed by our own tool.', 'woocommerce-mercadopago' ),
-			'options'     => array(
-				'yes' => __( 'Yes', 'woocommerce-mercadopago' ),
-				'no'  => __( 'No', 'woocommerce-mercadopago' ),
+			'subtitle'    => __( 'Enable it if you want to automatically decline payments that are not instantly approved by banks or other institutions. ', 'woocommerce-mercadopago' ),
+			'type'        => 'mp_toggle_switch',
+			'default'     => 'no',
+			'descriptions' => array(
+				'enabled' => __( 'Binary mode is <b>enabled</b>.', 'woocommerce-mercadopago' ),
+				'disabled' => __( 'Binary mode is <b>disabled</b>.', 'woocommerce-mercadopago' ),
 			),
 		);
 	}

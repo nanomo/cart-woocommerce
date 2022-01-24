@@ -248,7 +248,7 @@ abstract class WC_WooMercadoPago_Hook_Abstract {
 			unset($form_fields['ex_payments']);
 		}
 
-		$form_fields = $this->separate_multiple_fields($form_fields);
+		$form_fields = $this->handle_mp_components($form_fields);
 
 		$sorted_form_fields = $this->sort_by_checkout_mode_first( $form_fields );
 
@@ -284,22 +284,27 @@ abstract class WC_WooMercadoPago_Hook_Abstract {
 	}
 
 	/**
-	 * Separates fields that contain more than one input
+	 * Handles custom components for better integration with native hooks
 	 *
 	 * @param array $form_fields all the form fields
 	 *
 	 * @return array
 	 */
-	public function separate_multiple_fields( $form_fields ) {
-
+	public function handle_mp_components( $form_fields ) {
 		foreach ( $form_fields as $key => $form_field ) {
+			//separating multiple fields
 			if ( 'mp_activable_input' === $form_field['type'] && ! isset( $form_fields[$key . '_checkbox'] ) ) {
 				$form_fields[$key . '_checkbox'] = array(
 					'type'      => 'checkbox',
 				);
 			}
+			
+			//setting toggle as checkbox
+			if ('mp_toggle_switch' === $form_field['type']) {
+				$form_fields[$key]['type'] = 'checkbox';
+			}
 		}
-
+		
 		return $form_fields;
 	}
 
