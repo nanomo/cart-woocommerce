@@ -318,7 +318,7 @@ abstract class WC_WooMercadoPago_Hook_Abstract {
 	 */
 	public function separate_checkboxes( $ex_payments ) {
 		$payment_methods = array();
-		foreach( $ex_payments['payment_method_types'] as $payment_method_type ) {
+		foreach ( $ex_payments['payment_method_types'] as $payment_method_type ) {
 			$payment_methods += $this->separate_checkboxes_list($payment_method_type['list']);
 		}
 		return $payment_methods;
