@@ -27,8 +27,8 @@ class WC_WooMercadoPago_Ticket_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 	 */
 	public function __construct() {
 		$this->id          = self::ID;
-		$this->description = __( "Offer boleto and lotérica payments within your store's website.", 'woocommerce-mercadopago' );
-		$this->title       = __( 'Payments via invoice', 'woocommerce-mercadopago' );
+		$this->description = __( "Transparent Checkout in your store environment", 'woocommerce-mercadopago' );
+		$this->title       = __( 'Invoice', 'woocommerce-mercadopago' );
 		$this->mp_options  = $this->get_mp_options();
 
 		if ( ! $this->validate_section() ) {
@@ -37,7 +37,7 @@ class WC_WooMercadoPago_Ticket_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 
 		$this->form_fields        = array();
 		$this->method_title       = __( 'Mercado pago - Customized Checkout', 'woocommerce-mercadopago' );
-		$this->title              = $this->get_option( 'title', __( 'Payments via invoice', 'woocommerce-mercadopago' ) );
+		$this->title              = $this->get_option( 'title', __( 'Invoice', 'woocommerce-mercadopago' ) );
 		$this->method_description = $this->description;
 		$this->coupon_mode        = $this->get_option( 'coupon_mode', 'no' );
 		$this->stock_reduce_mode  = $this->get_option( 'stock_reduce_mode', 'no' );

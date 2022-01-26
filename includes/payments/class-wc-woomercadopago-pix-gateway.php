@@ -27,8 +27,8 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 	 */
 	public function __construct() {
 		$this->id          = self::ID;
-		$this->description = __( "Offer payments within your store's website instantly. ", 'woocommerce-mercadopago' );
-		$this->title       = __( 'Payments via Pix', 'woocommerce-mercadopago' );
+		$this->description = __( "Transparent Checkout in your store environment", 'woocommerce-mercadopago' );
+		$this->title       = __( 'Pix', 'woocommerce-mercadopago' );
 		$this->mp_options  = $this->get_mp_options();
 
 		if ( ! $this->validate_section() ) {
@@ -37,7 +37,7 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 
 		$this->form_fields        = array();
 		$this->method_title       = __( 'Mercado pago - Customized Checkout', 'woocommerce-mercadopago' );
-		$this->title              = $this->get_option( 'title', __( 'Payments via Pix', 'woocommerce-mercadopago' ) );
+		$this->title              = $this->get_option( 'title', __( 'Pix', 'woocommerce-mercadopago' ) );
 		$this->method_description = $this->description;
 		$this->date_expiration    = (int) $this->get_option( 'checkout_pix_date_expiration', '1' );
 		$this->type_payments      = $this->get_option( 'type_payments', 'no' );
