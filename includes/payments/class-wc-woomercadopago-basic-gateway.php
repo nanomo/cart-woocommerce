@@ -26,7 +26,7 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 	 */
 	public function __construct() {
 		$this->id          = self::ID;
-		$this->description = __( "Debit, Credit and invoice in Mercado Pago environment", 'woocommerce-mercadopago' );
+		$this->description = __( 'Debit, Credit and invoice in Mercado Pago environment', 'woocommerce-mercadopago' );
 		$this->title       = __( 'Checkout Pro', 'woocommerce-mercadopago' );
 		$this->mp_options  = $this->get_mp_options();
 
@@ -91,7 +91,7 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 		$form_fields = array();
 
 		if ( ! empty( $this->checkout_country ) && ! empty( $this->get_access_token() ) && ! empty( $this->get_public_key() ) ) {
-			$form_fields['checkout_header']          				 = $this->field_checkout_header();
+			$form_fields['checkout_header']                  = $this->field_checkout_header();
 			$form_fields['binary_mode']                      = $this->field_binary_mode();
 			$form_fields['installments']                     = $this->field_installments();
 			$form_fields['checkout_payments_advanced_title'] = $this->field_checkout_payments_advanced_title();

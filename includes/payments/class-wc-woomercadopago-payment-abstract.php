@@ -638,7 +638,7 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 					if ( isset( $_GET['section'] ) && $_GET['section'] == $this->id && ! has_action( 'woocommerce_update_options_payment_gateways_' . $this->id ) ) {
 						add_action( 'admin_notices', array( $this, 'notice_homolog_validate' ) );
 					}
-					$form_fields['checkout_card_homolog']      					 = $this->field_checkout_card_homolog();
+					$form_fields['checkout_card_homolog'] = $this->field_checkout_card_homolog();
 				}
 				$form_fields['enabled']                                = $this->field_enabled( $label );
 				$form_fields['title']                                  = $this->field_title();
@@ -751,13 +751,13 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 	 * @return array
 	 */
 	public function field_checkout_card_homolog() {
-		$country_link = $this->checkout_country;
+		$country_link    = $this->checkout_country;
 		$appliocation_id = $this->application_id;
-		$value = array(
+		$value           = array(
 			'title'             => __( 'Approve your account, it will only take a few minutes', 'woocommerce-mercadopago' ),
 			'subtitle'          => __( 'Complete this process to secure your customers data and comply with the regulations and legal provisions of each country.', 'woocommerce-mercadopago' ),
-			'button_text'				=>  __( 'Homologate account in Mercado Pago', 'woocommerce-mercadopago' ),
-			'button_url'        => 'https://www.mercadopago.com/' . $country_link  . '/account/credentials/appliance?application_id=' . $appliocation_id,
+			'button_text'               => __( 'Homologate account in Mercado Pago', 'woocommerce-mercadopago' ),
+			'button_url'        => 'https://www.mercadopago.com/' . $country_link . '/account/credentials/appliance?application_id=' . $appliocation_id,
 			'icon'              => 'mp-icon-badge-warning',
 			'color_card'        => 'mp-alert-color-alert',
 			'size_card'         => 'mp-card-body-size-homolog',

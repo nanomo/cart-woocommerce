@@ -34,7 +34,7 @@ class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 	 */
 	public function __construct() {
 		$this->id          = self::ID;
-		$this->description = __( "Transparent Checkout in your store environment", 'woocommerce-mercadopago' );
+		$this->description = __( 'Transparent Checkout in your store environment', 'woocommerce-mercadopago' );
 		$this->title       = __( 'Debit and Credit', 'woocommerce-mercadopago' );
 		$this->mp_options  = $this->get_mp_options();
 

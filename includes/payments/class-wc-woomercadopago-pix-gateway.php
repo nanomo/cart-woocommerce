@@ -27,7 +27,7 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 	 */
 	public function __construct() {
 		$this->id          = self::ID;
-		$this->description = __( "Transparent Checkout in your store environment", 'woocommerce-mercadopago' );
+		$this->description = __( 'Transparent Checkout in your store environment', 'woocommerce-mercadopago' );
 		$this->title       = __( 'Pix', 'woocommerce-mercadopago' );
 		$this->mp_options  = $this->get_mp_options();
 
@@ -98,7 +98,7 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 			  	// @codingStandardsIgnoreLine
 			  	if ( isset( $_GET['section'] ) && $_GET['section'] == $this->id ) {
 					add_action( 'admin_notices', array( $this, 'enable_pix_payment_notice' ) );
-					}
+				}
 			}
 				$form_fields['checkout_pix_payments_advanced_title'] = $this->field_checkout_pix_payments_advanced_title();
 				$form_fields['checkout_pix_date_expiration']         = $this->field_pix_date_expiration();
