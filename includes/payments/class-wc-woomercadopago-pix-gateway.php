@@ -27,8 +27,8 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 	 */
 	public function __construct() {
 		$this->id          = self::ID;
-		$this->description = __( 'Transparent Checkout in your store environment', 'woocommerce-mercadopago' );
-		$this->title       = __( 'Pix ', 'woocommerce-mercadopago' );
+		$this->description = __( "Offer payments within your store's website instantly. ", 'woocommerce-mercadopago' );
+		$this->title       = __( 'Payments via Pix', 'woocommerce-mercadopago' );
 		$this->mp_options  = $this->get_mp_options();
 
 		if ( ! $this->validate_section() ) {
@@ -36,8 +36,8 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 		}
 
 		$this->form_fields        = array();
-		$this->method_title       = __( 'Mercado Pago - Custom Checkout', 'woocommerce-mercadopago' );
-		$this->title              = $this->get_option( 'title', __( 'Pix ', 'woocommerce-mercadopago' ) );
+		$this->method_title       = __( 'Mercado pago - Customized Checkout', 'woocommerce-mercadopago' );
+		$this->title              = $this->get_option( 'title', __( 'Payments via Pix', 'woocommerce-mercadopago' ) );
 		$this->method_description = $this->description;
 		$this->date_expiration    = (int) $this->get_option( 'checkout_pix_date_expiration', '1' );
 		$this->type_payments      = $this->get_option( 'type_payments', 'no' );
@@ -98,10 +98,8 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 			  	// @codingStandardsIgnoreLine
 			  	if ( isset( $_GET['section'] ) && $_GET['section'] == $this->id ) {
 					add_action( 'admin_notices', array( $this, 'enable_pix_payment_notice' ) );
-				}
+					}
 			}
-				$form_fields['checkout_pix_payments_title']          = $this->field_checkout_pix_payments_title();
-				$form_fields['checkout_pix_payments_description']    = $this->field_checkout_pix_options_description();
 				$form_fields['checkout_pix_payments_advanced_title'] = $this->field_checkout_pix_payments_advanced_title();
 				$form_fields['checkout_pix_date_expiration']         = $this->field_pix_date_expiration();
 				$form_fields['checkout_about_pix']                   = $this->field_checkout_about_pix();
@@ -148,52 +146,13 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 			'description',
 			// Checkout de pagos con dinero en efectivo<br> Aceptá pagos al instante y maximizá la conversión de tu negocio.
 			'checkout_pix_header',
-			'checkout_steps',
-			// ¿En qué país vas a activar tu tienda?
-			'checkout_country_title',
-			'checkout_country',
-			'checkout_btn_save',
-			// Carga tus credenciales.
-			'checkout_credential_title',
-			'checkout_credential_link',
-			'checkout_credential_title_prod',
-			'checkout_credential_description_prod',
-			'_mp_public_key_prod',
-			'_mp_access_token_prod',
-			'checkout_credential_title_test',
-			'checkout_credential_description_test',
-			'_mp_public_key_test',
-			'_mp_access_token_test',
-			'checkout_mode_title',
-			'checkout_subtitle_checkout_mode',
-			'checkbox_checkout_test_mode',
-			'checkbox_checkout_production_mode',
-			'checkout_mode_alert',
-			// Everything ready for the takeoff of your sales?
-			'checkout_ready_title',
-			'checkout_ready_description',
-			'checkout_ready_description_link',
 			// No olvides de homologar tu cuenta.
-			'checkout_homolog_title',
-			'checkout_homolog_subtitle',
-			'checkout_homolog_link',
+			'checkout_card_homolog',
 			// Steps configuration pix.
 			'checkout_steps_pix',
-			// Set up the payment experience in your store.
-			'checkout_pix_options_title',
-			'mp_statement_descriptor',
-			'_mp_category_id',
-			'_mp_store_identificator',
-			'_mp_integrator_id',
-			// Advanced settings.
-			'checkout_advanced_settings',
-			'_mp_debug_mode',
-			'_mp_custom_domain',
 			// Configure the personalized payment experience in your store.
-			'checkout_pix_payments_title',
 			'checkout_payments_subtitle',
 			'checkout_card_validate',
-			'checkout_pix_payments_description',
 			'enabled',
 			'title',
 			'checkout_pix_date_expiration',
@@ -206,11 +165,6 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 			'checkout_payments_advanced_description',
 			'gateway_discount',
 			'commission',
-			// Support session.
-			'checkout_support_title',
-			'checkout_support_description',
-			'checkout_support_description_link',
-			'checkout_support_problem',
 		);
 	}
 
@@ -221,35 +175,20 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 	 */
 	public function get_fields_not_show() {
 		return array(
-			// Set up the payment experience in your store.
-			'checkout_pix_options_title',
-			'mp_statement_descriptor',
-			'_mp_category_id',
-			'_mp_store_identificator',
-			'_mp_integrator_id',
-			// Advanced settings.
-			'checkout_advanced_settings',
-			'_mp_debug_mode',
-			'_mp_custom_domain',
 			// Configure the personalized payment experience in your store.
-			'checkout_pix_payments_title',
 			'checkout_payments_subtitle',
-			'checkout_pix_payments_description',
 			'enabled',
 			'title',
 			'checkout_pix_date_expiration',
 			WC_WooMercadoPago_Helpers_CurrencyConverter::CONFIG_KEY,
 			// About PIX.
 			'checkout_about_pix',
+			'checkout_pix_card_info',
 			// Advanced configuration of the personalized payment experience.
 			'checkout_pix_payments_advanced_title',
 			'checkout_payments_advanced_description',
 			'gateway_discount',
 			'commission',
-			// Everything ready for the takeoff of your sales?
-			'checkout_ready_title',
-			'checkout_ready_description',
-			'checkout_ready_description_link',
 		);
 	}
 
@@ -297,60 +236,19 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 	public function field_checkout_pix_header() {
 		return array(
 			'title' => sprintf(
-				/* translators: %s checkout */
-				__( 'Checkout of payments via Pix %s', 'woocommerce-mercadopago' ),
 				'<div class="mp-row">
                 <div class="mp-col-md-12 mp_subtitle_header">
-                ' . __( 'Accept payments at any time of the day and expand your purchase options!', 'woocommerce-mercadopago' ) . '
+                ' . __( 'Transparent Checkout | Pix', 'woocommerce-mercadopago' ) . '
                  </div>
               <div class="mp-col-md-12">
                 <p class="mp-text-checkout-body mp-mb-0">
-                  ' . __( 'Offer this new payment option to your customers.', 'woocommerce-mercadopago' ) . '
+                  ' . __( 'With the Transparent Checkout, you can sell inside your store environment, without redirection and all the safety from Mercado Pago. ', 'woocommerce-mercadopago' ) . '
                 </p>
               </div>
             </div>'
 			),
 			'type'  => 'title',
 			'class' => 'mp_title_header',
-		);
-	}
-
-	/**
-	 * Field checkout pix options title
-	 *
-	 * @return array
-	 */
-	public function field_checkout_pix_options_title() {
-		return array(
-			'title' => __( 'Configure Mercado Pago for WooCommerce', 'woocommerce-mercadopago' ),
-			'type'  => 'title',
-			'class' => 'mp_title_bd',
-		);
-	}
-
-	/**
-	 * Field checkout pix options description
-	 *
-	 * @return array
-	 */
-	public function field_checkout_pix_options_description() {
-		return array(
-			'title' => __( 'Enable and set up Pix as a payment method for your customers in the Mercado Pago checkout.', 'woocommerce-mercadopago' ),
-			'type'  => 'title',
-			'class' => 'mp_small_text',
-		);
-	}
-
-	/**
-	 * Field checkout pix payments
-	 *
-	 * @return array
-	 */
-	public function field_checkout_pix_payments_title() {
-		return array(
-			'title' => __( 'Set up the payment via Pix experience', 'woocommerce-mercadopago' ),
-			'type'  => 'title',
-			'class' => 'mp_title_bd',
 		);
 	}
 
@@ -388,9 +286,9 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 		);
 
 		return array(
-			'title'       => __( 'Pix Expiration', 'woocommerce-mercadopago' ),
+			'title'       => __( 'Expiration for payments via Pix', 'woocommerce-mercadopago' ),
 			'type'        => 'select',
-			'description' => __( 'Set the time limit in which your customers can pay.', 'woocommerce-mercadopago' ),
+			'description' => __( 'Set the limit in minutes for your clients to pay via Pix.', 'woocommerce-mercadopago' ),
 			'default'     => '30 minutes',
 			'options'     => $pix_expiration_values,
 		);

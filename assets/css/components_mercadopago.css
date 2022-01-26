@@ -139,7 +139,6 @@
 }
 .mp-alert-color-alert {
 	width: 6px;
-	height: 121px;
 	background: #ff7733;
 	border-radius: 6px 0 0 6px;
 }
@@ -153,6 +152,9 @@
 }
 .mp-card-body-size {
 	width: 600px;
+}
+.mp-card-body-size-homolog {
+	width: 700px;
 }
 .mp-icon-badge-info {
 	background: url(../images/icon-tip.png) 98% 50% no-repeat transparent;
