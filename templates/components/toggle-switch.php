@@ -36,9 +36,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<?php } ?>
 			</label>
 		</div>
-		<?php 
-		if ($settings['execute_action']) {
+		<?php
+		if ( $settings['execute_action'] ) {
 			do_action( 'mp_after_toggle_switch' );
-		} ?>
+		}
+		?>
 	</td>
 </tr>

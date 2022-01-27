@@ -298,11 +298,11 @@ class WC_WooMercadoPago_Module extends WC_WooMercadoPago_Configs {
 	 * @return void
 	 */
 	public function load_admin_css() {
-		
-		$current_page = isset( $_GET['page'] ) ? $_GET['page'] : '';
-		$current_section = isset( $_GET['section'] ) ? $_GET['section'] : '';
 
-		if ( is_admin() && ($current_page === 'mercadopago-settings' || strpos($current_section, 'woo-mercado') !== false ) ) {
+		$current_page = isset( $_GET['page'] ) ? strval( $_GET['page'] ) : '';
+		$current_section = isset( $_GET['section'] ) ? strval( $_GET['section'] ) : '';
+
+		if ( is_admin() && ( 'mercadopago-settings' === $current_page || strpos($current_section, 'woo-mercado' ) !== false ) ) {
 			$suffix = $this->get_suffix();
 
 			wp_enqueue_style(

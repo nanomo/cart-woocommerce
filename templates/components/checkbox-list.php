@@ -42,7 +42,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 						</fieldset>
 					</div>
 				</li>
-				<?php } ?>				
+				<?php } ?>
 			</ul>
 			<?php } ?>
 		</div>
