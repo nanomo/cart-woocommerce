@@ -634,7 +634,7 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 			'plugin_version'      => WC_WooMercadoPago_Constants::VERSION,
 			'redirect_image'      => plugins_url( '../assets/images/cho-pro-redirect.png', plugin_dir_path( __FILE__ ) ),
 			'list_style_type_src' => plugins_url( '../assets/images/blue-check.png', plugin_dir_path( __FILE__ ) ),
-			'payment_methods'     => wp_json_encode($checkout_payment_methods),
+			'payment_methods'     => wp_json_encode($cho_pro_display_payments),
 		];
 
 		$parameters = array_merge($parameters, WC_WooMercadoPago_Payment_Abstract::mp_define_terms_and_conditions());
