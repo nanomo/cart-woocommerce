@@ -608,16 +608,6 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 	}
 
 	/**
-	 *  ADMIN NOTICE HOMOLOG
-	 */
-	public function notice_homolog_validate() {
-		$type = 'notice-warning';
-		/* translators: %s url */
-		$message = sprintf( __( '%s, it only takes a few minutes', 'woocommerce-mercadopago' ), '<a class="mp-mouse_pointer" href="https://www.mercadopago.com/' . $this->checkout_country . '/account/credentials/appliance?application_id=' . $this->application_id . '" target="_blank"><b><u>' . __( 'Approve your account', 'woocommerce-mercadopago' ) . '</u></b></a>' );
-		WC_WooMercadoPago_Notices::get_alert_frame( $message, $type );
-	}
-
-	/**
 	 * Get Mercado Pago form fields
 	 *
 	 * @param string $label label.
@@ -633,9 +623,6 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 				if ( 0 === $this->homolog_validate ) {
 					// @todo needs processing form data without nonce verification.
 					// @codingStandardsIgnoreLine
-					if ( isset( $_GET['section'] ) && $_GET['section'] == $this->id && ! has_action( 'woocommerce_update_options_payment_gateways_' . $this->id ) ) {
-						add_action( 'admin_notices', array( $this, 'notice_homolog_validate' ) );
-					}
 					$form_fields['checkout_card_homolog'] = $this->field_checkout_card_homolog();
 				}
 				$form_fields['enabled']                                = $this->field_enabled( $label );
