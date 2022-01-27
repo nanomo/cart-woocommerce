@@ -379,10 +379,9 @@ class WC_WooMercadoPago_Module extends WC_WooMercadoPago_Configs {
 	public function woomercadopago_settings_link( $links ) {
 		$links_mp       = self::define_link_country();
 		$plugin_links   = array();
-		$plugin_links[] = '<a href="' . admin_url( 'admin.php?page=wc-settings&tab=checkout' ) . '">' . __( 'Set up', 'woocommerce-mercadopago' ) . '</a>';
-		$plugin_links[] = '<a target="_blank" href="https://wordpress.org/support/plugin/woocommerce-mercadopago/reviews/?rate=5#new-post">' . __( 'Your opinion helps us get better', 'woocommerce-mercadopago' ) . '</a>';
-		$plugin_links[] = '<br><a target="_blank" href="https://www.mercadopago.' . $links_mp['sufix_url'] . 'developers/' . $links_mp['translate'] . '/guides/plugins/woocommerce/introduction/">' . __( 'Guides and Documentation', 'woocommerce-mercadopago' ) . '</a>';
-		$plugin_links[] = '<a target="_blank" href="https://www.mercadopago.' . $links_mp['sufix_url'] . $links_mp['help'] . '">' . __( 'Report Problem', 'woocommerce-mercadopago' ) . '</a>';
+		$plugin_links[] = '<a href="' . admin_url( 'admin.php?page=mercadopago-settings' ) . '">' . __( 'Set plugin', 'woocommerce-mercadopago' ) . '</a>';
+		$plugin_links[] = '<a target="_blank" href="' . admin_url( 'admin.php?page=wc-settings&tab=checkout' ) . '">' . __( 'Payment methods', 'woocommerce-mercadopago' ) . '</a>';
+		$plugin_links[] = '<br><a target="_blank" href="https://www.mercadopago.' . $links_mp['sufix_url'] . 'developers/' . $links_mp['translate'] . '/guides/plugins/woocommerce/introduction/">' . __( 'Plugin manual', 'woocommerce-mercadopago' ) . '</a>';
 		return array_merge( $plugin_links, $links );
 	}
 
