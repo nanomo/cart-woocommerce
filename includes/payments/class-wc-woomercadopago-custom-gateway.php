@@ -212,10 +212,6 @@ class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 		wc_get_template(
 			'components/wallet-button.php',
 			array (
-				'id'                            => $key,
-				'field_key'                     => $this->get_field_key( $key ),
-				'value'                         => $this->get_option( $key ),
-				'type'                          => 'mp_wallet_button',
 				'img_wallet_button_uri'         => $this->get_wallet_button_example_uri(),
 				'img_wallet_button_description' => __( 'You can see how the feature is in your store Checkout below:', 'woocommerce-mercadopago' ),
 			),

@@ -21,6 +21,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<span class="woocommerce-help-tip" data-tip="<?php echo esc_html( $settings['desc_tip'] ); ?>"></span>
 		<?php } ?>
 		</label>
+		<?php if ( $settings['subtitle'] ) { ?>
+		<p class="description mp-toggle-subtitle"><?php echo wp_kses_post( $settings['subtitle'] ); ?></p>
+		<?php } ?>
 	</th>
 	<td class="forminp">
 		<div class="mp-component-card">
@@ -31,13 +34,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<span class="mp-toggle-label-enabled"><?php echo wp_kses( $settings['descriptions']['enabled'], 'b' ); ?></span>
 					<span class="mp-toggle-label-disabled"><?php echo wp_kses( $settings['descriptions']['disabled'], 'b' ); ?></span>
 				</div>
-				<?php if ( $settings['subtitle'] ) { ?>
-				<p class="description"><?php echo wp_kses_post( $settings['subtitle'] ); ?></p>
-				<?php } ?>
 			</label>
 		</div>
 		<?php
-		if ( $settings['execute_action'] ) {
+		if ( isset( $settings['execute_action'] ) && $settings['execute_action'] ) {
 			do_action( 'mp_after_toggle_switch' );
 		}
 		?>

@@ -77,6 +77,11 @@
 	display: inline;
 }
 
+.mp-toggle-subtitle {
+	font-weight: normal !important;
+	font-size: 14px !important;
+}
+
 /* Checkbox List Component */
 
 .mp-checkbox-list-description {
