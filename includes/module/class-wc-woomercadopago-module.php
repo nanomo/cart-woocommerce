@@ -299,8 +299,11 @@ class WC_WooMercadoPago_Module extends WC_WooMercadoPago_Configs {
 	 */
 	public function load_admin_css() {
 
-		$current_page = isset( $_GET['page'] ) ? sanitize_text_field( strval( $_GET['page'] ) ) : '';
-		$current_section = isset( $_GET['section'] ) ? sanitize_text_field( strval( $_GET['section'] ) ) : '';
+		$current_page = sanitize_text_field( strval( $_GET['page'] ) );
+		$current_section = sanitize_text_field( strval( $_GET['section'] ) );
+
+		$current_page = isset( $current_page ) ? $current_page : '';
+		$current_section = isset( $current_section ) ? $current_section : '';
 
 		if ( is_admin() && ( 'mercadopago-settings' === $current_page || strpos($current_section, 'woo-mercado' ) !== false ) ) {
 			$suffix = $this->get_suffix();
