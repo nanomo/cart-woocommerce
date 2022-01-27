@@ -884,7 +884,7 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 	 */
 	private function load_custom_js_for_checkbox() {
 		$suffix = $this->get_suffix();
-		
+
 		wp_enqueue_script(
 			'woocommerce-mercadopago-components',
 			plugins_url( '../assets/js/components_mercadopago' . $suffix . '.js', plugin_dir_path( __FILE__ ) ),
