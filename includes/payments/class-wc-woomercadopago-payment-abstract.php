@@ -536,10 +536,10 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 		}
 	}
 
-	public function get_activable_value($option_key, $default) {
+	public function get_activable_value( $option_key, $default ) {
 		$active = $this->get_option( $option_key . '_checkbox', false );
 
-		if( $active && $active === 'yes' ) {
+		if ( $active && 'yes' === $active ) {
 			return $this->get_option( $option_key, $default );
 		}
 
