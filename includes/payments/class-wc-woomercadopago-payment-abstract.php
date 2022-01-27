@@ -648,7 +648,7 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 			}
 		}
 
-		if ( is_admin() ) {
+		if ( is_admin() && ( WC_WooMercadoPago_Helper_Current_Url::validate_page('mercadopago-settings') || WC_WooMercadoPago_Helper_Current_Url::validate_section('woo-mercado') ) ) {
 			$this->load_custom_js_for_checkbox();
 			$this->normalize_common_admin_fields();
 		}

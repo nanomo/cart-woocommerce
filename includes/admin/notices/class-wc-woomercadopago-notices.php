@@ -57,7 +57,7 @@ class WC_WooMercadoPago_Notices {
 	 * Load admin notices CSS
 	 */
 	public function load_admin_notice_css() {
-		if ( is_admin() ) {
+		if ( is_admin() && ( WC_WooMercadoPago_Helper_Current_Url::validate_page('mercadopago-settings') || WC_WooMercadoPago_Helper_Current_Url::validate_section('woo-mercado') ) ) {
 			$suffix = $this->get_suffix();
 
 			wp_enqueue_style(
