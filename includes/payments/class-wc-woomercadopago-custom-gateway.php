@@ -332,17 +332,19 @@ class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
 		wp_enqueue_style(
-			'woocommerce-mercadopago-basic-checkout-styles',
-			plugins_url( '../assets/css/basic_checkout_mercadopago' . $suffix . '.css', plugin_dir_path( __FILE__ ) ),
+			'woocommerce-mercadopago-narciso-styles',
+			plugins_url( '../assets/css/mp-plugins-components.css', plugin_dir_path( __FILE__ ) ),
 			array(),
 			WC_WooMercadoPago_Constants::VERSION
 		);
 
-		$amount     = $this->get_order_total();
-		$discount   = $amount * ( $this->gateway_discount / 100 );
-		$comission  = $amount * ( $this->commission / 100 );
-		$amount     = $amount - $discount + $comission;
-		$banner_url = $this->get_option_mp( '_mp_custom_banner' );
+		$amount         = $this->get_order_total();
+		$discount       = $amount * ( $this->gateway_discount / 100 );
+		$comission      = $amount * ( $this->commission / 100 );
+		$amount         = $amount - $discount + $comission;
+		$test_mode_link = $this->get_mp_devsite_link($this->checkout_country);
+		$banner_url     = $this->get_option_mp( '_mp_custom_banner' );
+
 		if ( ! isset( $banner_url ) || empty( $banner_url ) ) {
 			$banner_url = $this->site_data['checkout_banner_custom'];
 		}
@@ -354,10 +356,33 @@ class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 
 		foreach ( $tarjetas as $tarjeta ) {
 			if ( 'credit_card' === $tarjeta['type'] ) {
-				$credit_card[] = $tarjeta['image'];
+				$credit_card[] = array(
+					'src' => $tarjeta['image'],
+					'alt' => $tarjeta['name']
+				);
 			} elseif ( 'debit_card' === $tarjeta['type'] || 'prepaid_card' === $tarjeta['type'] ) {
-				$debit_card[] = $tarjeta['image'];
+				$debit_card[] = array(
+					'src' => $tarjeta['image'],
+					'alt' => $tarjeta['name']
+				);
 			}
+		}
+
+		$payment_methods = array();
+
+		if ( 0 !== count( $credit_card ) ) {
+			$payment_methods[] = array(
+				'title'           => __( 'Credit cards', 'woocommerce-mercadopago' ),
+				'label'           => 'Em 24 parcelas',
+				'payment_methods' => $credit_card,
+			);
+		}
+
+		if ( 0 !== count( $debit_card ) ) {
+			$payment_methods[] = array(
+				'title' => __( 'Debit cards', 'woocommerce-mercadopago' ),
+				'payment_methods' => $debit_card,
+			);
 		}
 
 		try {
@@ -366,16 +391,9 @@ class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 			$currency_ratio = WC_WooMercadoPago_Helpers_CurrencyConverter::DEFAULT_RATIO;
 		}
 
-		$test_mode_rules_link = $this->get_mp_devsite_link($this->checkout_country);
-		$parameters           = array(
-			'checkout_alert_test_mode' => $this->is_production_mode()
-			? ''
-			: $this->checkout_alert_test_mode_template(
-				__( 'Cards in Test Mode', 'woocommerce-mercadopago' ),
-				__( 'Use the test-specific cards that are in the', 'woocommerce-mercadopago' )
-				. "<a style='color: #74AFFC; text-decoration: none; outline: none;' target='_blank' href='$test_mode_rules_link'> "
-				. __( 'test mode rules', 'woocommerce-mercadopago' ) . '</a>.</p>'
-			),
+		$parameters = array(
+			'test_mode'            => ! $this->is_production_mode(),
+			'test_mode_link'       => $test_mode_link,
 			'amount'               => $amount,
 			'site_id'              => $this->get_option_mp( '_site_id_v1' ),
 			'public_key'           => $this->get_public_key(),
@@ -386,8 +404,7 @@ class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 			'currency_ratio'       => $currency_ratio,
 			'woocommerce_currency' => get_woocommerce_currency(),
 			'account_currency'     => $this->site_data['currency'],
-			'debit_card'           => $debit_card,
-			'credit_card'          => $credit_card,
+			'payment_methods'      => $payment_methods,
 			'wallet_button'        => $this->wallet_button,
 		);
 
