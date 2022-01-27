@@ -89,14 +89,6 @@ class WC_WooMercadoPago_Hook_Custom extends WC_WooMercadoPago_Hook_Abstract {
 				true
 			);
 
-			wp_enqueue_script(
-				'woocommerce-mercadopago-narciso-components',
-				plugins_url( '../../assets/js/mp-plugins-components.js', plugin_dir_path( __FILE__ ) ),
-				array(),
-				WC_WooMercadoPago_Constants::VERSION,
-				true
-			);
-
 			wp_localize_script(
 				'woocommerce-mercadopago-checkout',
 				'wc_mercadopago_params',
