@@ -6,7 +6,6 @@ const payment_mercado_pago_custom = {
       this.removeElements();
       return;
     }
-    this.setDescriptionInputWidth();
     this.setInputMaxLength();
     this.setTitleDescriptionStyle();
     this.setHide();
@@ -55,12 +54,6 @@ const payment_mercado_pago_custom = {
         element.setAttribute('maxlength', '85');
       }
     );
-  },
-  setDescriptionInputWidth: function () {
-    var descriptionInput = document.querySelectorAll('p.description');
-    for (var i = 0; i < descriptionInput.length; i++) {
-      descriptionInput[i].style.width = '420px';
-    }
   },
   setTitleDescriptionStyle: function () {
     //update form_fields label

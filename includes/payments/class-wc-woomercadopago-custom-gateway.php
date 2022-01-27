@@ -95,7 +95,6 @@ class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 			$form_fields['binary_mode']                             = $this->field_binary_mode();
 			$form_fields['checkout_custom_payments_advanced_title'] = $this->field_checkout_custom_payments_advanced_title();
 			$form_fields['coupon_mode']                             = $this->field_coupon_mode();
-			$form_fields['wallet_button']                           = $this->field_checkout_custom_wallet_button();
 			$form_fields['checkout_custom_wallet_button_toggle']    = $this->field_checkout_custom_wallet_button_title();
 		}
 		$form_fields_abs = parent::get_form_mp_fields( $label );
@@ -186,28 +185,17 @@ class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 	 * @return array
 	 */
 	public function field_checkout_custom_wallet_button_title() {
+		add_action( 'mp_after_toggle_switch', array($this, 'wallet_button_preview') );
 		return array(
-			'title'       => __( 'Purchases with saved cards or money in Mercado Pago', 'woocommerce-mercadopago' ),
-			'subtitle'      => __( 'Feature for those who have a saved card or money in Mercado Pago to buy without having to fill in details.', 'woocommerce-mercadopago' ),
-			'type'        => 'mp_toggle_switch',
-			'default'     => 'no',
-			'descriptions' => array(
-				'enabled' => __( 'The feature for payments with <b>saved cards</b> is <b>active</b>.', 'woocommerce-mercadopago' ),
-				'disabled' => __( 'The feature for payments with <b>saved cards</b> is <b>inactive</b>.', 'woocommerce-mercadopago' ),
+			'title'          => __( 'Purchases with saved cards or money in Mercado Pago', 'woocommerce-mercadopago' ),
+			'subtitle'       => __( 'Feature for those who have a saved card or money in Mercado Pago to buy without having to fill in details.', 'woocommerce-mercadopago' ),
+			'type'           => 'mp_toggle_switch',
+			'default'        => 'no',
+			'descriptions'   => array(
+				'enabled'    => __( 'The feature for payments with <b>saved cards</b> is <b>active</b>.', 'woocommerce-mercadopago' ),
+				'disabled'   => __( 'The feature for payments with <b>saved cards</b> is <b>inactive</b>.', 'woocommerce-mercadopago' ),
 			),
-		);
-	}
-
-	/**
-	 * Field Wallet Button
-	 *
-	 * @return array
-	 */
-	public function field_checkout_custom_wallet_button() {
-		return array(
-			'type'        => 'mp_wallet_button',
-			'img-wallet-button-uri'         => $this->get_wallet_button_example_uri(),
-			'img-wallet-button-description' => __( 'You can see how the feature is in your store Checkout below:', 'woocommerce-mercadopago' ),
+			'execute_action' => true,
 		);
 	}
 
@@ -219,14 +207,17 @@ class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 	 *
 	 * @return array
 	 */
-	public function generate_mp_wallet_button_html( $key, $settings ) {
-		return wc_get_template_html(
+	public function wallet_button_preview() {
+		remove_action( 'mp_after_toggle_switch', 'wallet_button_preview' );
+		wc_get_template(
 			'components/wallet-button.php',
 			array (
-				'id'        => $key,
-				'field_key' => $this->get_field_key( $key ),
-				'value'     => $this->get_option( $key ),
-				'settings'  => $settings,
+				'id'                            => $key,
+				'field_key'                     => $this->get_field_key( $key ),
+				'value'                         => $this->get_option( $key ),
+				'type'                          => 'mp_wallet_button',
+				'img_wallet_button_uri'         => $this->get_wallet_button_example_uri(),
+				'img_wallet_button_description' => __( 'You can see how the feature is in your store Checkout below:', 'woocommerce-mercadopago' ),
 			),
 			'',
 			WC_WooMercadoPago_Module::get_templates_path()

@@ -23,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		</label>
 	</th>
 	<td class="forminp">
-		<div>
+		<div class="mp-component-card">
 			<label class="mp-toggle">
 				<input class="mp-toggle-checkbox" type="checkbox" name="<?php echo esc_attr( $field_key ); ?>" value='yes' id="<?php echo esc_attr( $field_key ); ?>" <?php checked( $field_value, 'yes' ); ?>/>
 				<div class="mp-toggle-switch"></div>
@@ -36,5 +36,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<?php } ?>
 			</label>
 		</div>
+		<?php
+		if ( $settings['execute_action'] ) {
+			do_action( 'mp_after_toggle_switch' );
+		}
+		?>
 	</td>
 </tr>

@@ -83,15 +83,11 @@
 	margin: 10px;
 }
 
-.mp-round-border {
-	border: 1px solid rgba(0, 0, 0, 0.125);
-	border-radius: 6px;
-}
-
 .mp-list-group {
 	list-style: none;
 	padding: 10px;
-	width: 30%;
+	width: fit-content;
+	min-width: 30%;
 	display: -moz-inline-grid;
 	display: -ms-inline-grid;
 	display: inline-grid;
@@ -123,6 +119,23 @@
 	vertical-align: middle;
 	cursor: pointer;
 	font-size: 14px;
+}
+
+@media screen and (max-width: 1200px) {
+
+	.mp-list-group {
+		display: block;
+		min-width: 50%;
+	}
+
+}
+
+@media screen and (max-width: 680px) {
+
+	.mp-list-group {
+		width: 100%;
+	}
+
 }
 
 /* Card info Component */
@@ -207,4 +220,26 @@
 	align-items: center;
 	width: 160px;
 	text-decoration: none;
+}
+
+/* Shared component styles */
+
+.mp-mw-100 {
+	max-width: 100% !important;
+}
+
+.mp-component-card {
+	max-width: 50%;
+	padding: 24px;
+	background-color: #ffffff;
+	box-shadow: 0px 6px 16px rgb(0 0 0 / 10%);
+	border-radius: 6px;
+}
+
+@media screen and (max-width: 900px) {
+
+	.mp-component-card {
+		max-width: 100%;
+	}
+
 }
