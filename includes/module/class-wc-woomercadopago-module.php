@@ -299,8 +299,8 @@ class WC_WooMercadoPago_Module extends WC_WooMercadoPago_Configs {
 	 */
 	public function load_admin_css() {
 
-		$current_page = isset( $_GET['page'] ) ? strval( $_GET['page'] ) : '';
-		$current_section = isset( $_GET['section'] ) ? strval( $_GET['section'] ) : '';
+		$current_page = isset( $_GET['page'] ) ? sanitize_text_field( strval( $_GET['page'] ) ) : '';
+		$current_section = isset( $_GET['section'] ) ? sanitize_text_field( strval( $_GET['section'] ) ) : '';
 
 		if ( is_admin() && ( 'mercadopago-settings' === $current_page || strpos($current_section, 'woo-mercado' ) !== false ) ) {
 			$suffix = $this->get_suffix();
@@ -481,9 +481,9 @@ class WC_WooMercadoPago_Module extends WC_WooMercadoPago_Configs {
 		$link_prefix_mp = 'https://www.mercadopago.';
 
 	return array (
-		'text_prefix'                           => __( 'By continuing, you agree to our ', 'woocommerce-mercadopago' ),
+		'text_prefix'               => __( 'By continuing, you agree to our ', 'woocommerce-mercadopago' ),
 		'link_terms_and_conditions' => $link_prefix_mp . $links_mp['sufix_url'] . $links_mp['help'] . $links_mp['term_conditition'],
-		'text_suffix'                               => __( 'Terms and Conditions', 'woocommerce-mercadopago' ),
+		'text_suffix'               => __( 'Terms and Conditions', 'woocommerce-mercadopago' ),
 	);
 
 	}
