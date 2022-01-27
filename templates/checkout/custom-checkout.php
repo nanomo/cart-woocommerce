@@ -91,11 +91,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					{"name":"CNPJ"}]' validate=true>
 			</input-document>
 
-			<div name='mp-installments'>
-				
-			</div>
-
-			
+			<div name='mp-installments'></div>
 
 		</div>
 
@@ -248,11 +244,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 	</div>
 </div>
 <!-- Terms and conditions link at checkout -->
-<div>       
-	<p class="mp-terms-and-conditions"> 
-		<?php echo esc_html($text_prefix); ?> 		
+<div>
+	<p class="mp-terms-and-conditions">
+		<?php echo esc_html($text_prefix); ?>
 		<a target="_blank" href="<?php echo esc_html($link_terms_and_conditions); ?>">  <?php echo esc_html($text_suffix); ?> </a>
-	</p> 		
+	</p>
 </div>
 
 <script type="text/javascript">
