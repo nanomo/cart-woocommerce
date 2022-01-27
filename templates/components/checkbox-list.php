@@ -23,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		</label>
 	</th>
 	<td class="forminp">
-		<div class="mp-round-border">
+		<div class="mp-mw-100 mp-component-card">
 			<p class="mp-checkbox-list-description"><?php echo esc_html($settings['description']); ?></p>
 			<?php foreach ( $settings['payment_method_types'] as $key => $payment_method_type ) { ?>
 			<ul class="mp-list-group">

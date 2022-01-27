@@ -629,8 +629,6 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 		$form_fields = array();
 
 		if ( ! empty( $this->checkout_country ) ) {
-			$this->load_custom_js_for_checkbox();
-
 			if ( ! empty( $this->get_access_token() ) && ! empty( $this->get_public_key() ) ) {
 				if ( 0 === $this->homolog_validate ) {
 					// @todo needs processing form data without nonce verification.
@@ -654,6 +652,7 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 		}
 
 		if ( is_admin() ) {
+			$this->load_custom_js_for_checkbox();
 			$this->normalize_common_admin_fields();
 		}
 		$form_fields['checkout_card_validate'] = $this->field_checkout_card_validate();
