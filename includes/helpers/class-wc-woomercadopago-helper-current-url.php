@@ -37,20 +37,20 @@ class WC_WooMercadoPago_Helper_Current_Url {
 			$current_page = self::get_current_page();
 		}
 
-		return self::compare_strings( $expected_page, $current_page );
+		return self::compare_strings( $expected_page, $current_page, $allow_partial_match );
 	}
 
-	public static function validate_session( $expected_section, $current_section = null, $allow_partial_match = true ) {
-		if ( ! $expected_section ) {
+	public static function validate_section( $expected_section, $current_section = null, $allow_partial_match = true ) {
+		if ( ! $current_section ) {
 			$current_section = self::get_current_section();
 		}
 
-		return self::compare_strings( $expected_section, $current_section );
+		return self::compare_strings( $expected_section, $current_section, $allow_partial_match );
 	}
 
 	public static function compare_strings( $expected, $current, $allow_partial_match ) {
 		if ( $allow_partial_match ) {
-			return strpos($expected, $current) !== false;
+			return strpos($current, $expected) !== false;
 		}
 
 		return $expected === $current;

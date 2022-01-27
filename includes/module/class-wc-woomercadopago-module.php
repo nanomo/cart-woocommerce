@@ -227,6 +227,7 @@ class WC_WooMercadoPago_Module extends WC_WooMercadoPago_Configs {
 	 * @return void
 	 */
 	public function load_helpers() {
+		include_once dirname( __FILE__ ) . '/../helpers/class-wc-woomercadopago-helper-current-url.php';
 		include_once dirname( __FILE__ ) . '/../helpers/class-wc-woomercadopago-helpers-currencyconverter.php';
 		include_once dirname( __FILE__ ) . '/../helpers/class-wc-woomercadopago-composite-id-helper.php';
 		include_once dirname( __FILE__ ) . '/../helpers/class-wc-woomercadopago-helper-links.php';
@@ -298,7 +299,7 @@ class WC_WooMercadoPago_Module extends WC_WooMercadoPago_Configs {
 	 * @return void
 	 */
 	public function load_admin_css() {
-		if ( is_admin() && ( WC_WooMercadoPago_Helper_Current_Url::validate_page('mercadopago-settings') || WC_WooMercadoPago_Helper_Current_Url::validate_section('woo-mercado') ) ) {
+		if ( is_admin() && ( WC_WooMercadoPago_Helper_Current_Url::validate_page('mercadopago-settings') || WC_WooMercadoPago_Helper_Current_Url::validate_section('woo-mercado-pago') ) ) {
 			$suffix = $this->get_suffix();
 
 			wp_enqueue_style(
@@ -323,7 +324,7 @@ class WC_WooMercadoPago_Module extends WC_WooMercadoPago_Configs {
 	 * @return void
 	 */
 	public function load_global_css() {
-		if ( WC_WooMercadoPago_Helper_Current_Url::validate_page('mercadopago-settings') || WC_WooMercadoPago_Helper_Current_Url::validate_section('woo-mercado') ) {
+		if ( is_checkout() ||  WC_WooMercadoPago_Helper_Current_Url::validate_page('mercadopago-settings') || WC_WooMercadoPago_Helper_Current_Url::validate_section('woo-mercado') ) {
 			$suffix = $this->get_suffix();
 
 			wp_enqueue_style(

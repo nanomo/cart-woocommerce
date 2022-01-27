@@ -415,8 +415,8 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 		$this->debug_mode           = false === $this->mp_options->get_debug_mode() ? 'no' : $this->mp_options->get_debug_mode();
 		$this->custom_domain        = $this->mp_options->get_custom_domain();
 		$this->binary_mode          = $this->get_option( 'binary_mode', 'no' );
-		$this->gateway_discount     = $this->get_option( 'gateway_discount', 0 );
-		$this->commission           = $this->get_option( 'commission', 0 );
+		$this->gateway_discount     = $this->get_activable_value('gateway_discount', 0);
+		$this->commission           = $this->get_activable_value('commission', 0);
 		$this->sandbox              = $this->is_test_user();
 		$this->supports             = array( 'products', 'refunds' );
 		$this->icon                 = $this->get_mp_icon();
@@ -536,6 +536,16 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 		}
 	}
 
+	public function get_activable_value($option_key, $default) {
+		$active = $this->get_option( $option_key . '_checkbox', false );
+
+		if( $active && $active === 'yes' ) {
+			return $this->get_option( $option_key, $default );
+		}
+
+		return $default;
+	}
+
 	/**
 	 * Validate section
 	 *
@@ -635,7 +645,7 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 			}
 		}
 
-		if ( is_admin() && ( WC_WooMercadoPago_Helper_Current_Url::validate_page('mercadopago-settings') || WC_WooMercadoPago_Helper_Current_Url::validate_section('woo-mercado') ) ) {
+		if ( is_admin() && ( WC_WooMercadoPago_Helper_Current_Url::validate_page('mercadopago-settings') || WC_WooMercadoPago_Helper_Current_Url::validate_section('woo-mercado-pago') ) ) {
 			$this->load_custom_js_for_checkbox();
 			$this->normalize_common_admin_fields();
 		}

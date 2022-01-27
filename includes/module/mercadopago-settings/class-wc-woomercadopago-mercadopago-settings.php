@@ -41,7 +41,7 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 	 * Load CSS
 	 */
 	public function load_admin_style() {
-		if ( is_admin() && ( WC_WooMercadoPago_Helper_Current_Url::validate_page('mercadopago-settings') || WC_WooMercadoPago_Helper_Current_Url::validate_section('woo-mercado') ) ) {
+		if ( is_admin() && ( WC_WooMercadoPago_Helper_Current_Url::validate_page('mercadopago-settings') || WC_WooMercadoPago_Helper_Current_Url::validate_section('woo-mercado-pago') ) ) {
 			wp_register_style(
 				'mercadopago_settings_admin_css',
 				$this->get_url( '../../../assets/css/mercadopago-settings/mercadopago_settings', '.css' ),
@@ -56,7 +56,7 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 	 * Load JavaScripts
 	 */
 	public function load_admin_scripts() {
-		if ( is_admin() && ( WC_WooMercadoPago_Helper_Current_Url::validate_page('mercadopago-settings') || WC_WooMercadoPago_Helper_Current_Url::validate_section('woo-mercado') ) ) {
+		if ( is_admin() && ( WC_WooMercadoPago_Helper_Current_Url::validate_page('mercadopago-settings') || WC_WooMercadoPago_Helper_Current_Url::validate_section('woo-mercado-pago') ) ) {
 			wp_enqueue_script(
 				'mercadopago_settings_javascript',
 				$this->get_url( '../../../assets/js/mercadopago-settings/mercadopago_settings', '.js' ),

@@ -377,7 +377,7 @@ class WC_WooMercadoPago_Hook_Order_Details {
 	public function payment_status_metabox_script() {
 		$suffix = $this->get_suffix();
 
-		if ( is_admin() && ( WC_WooMercadoPago_Helper_Current_Url::validate_page('mercadopago-settings') || WC_WooMercadoPago_Helper_Current_Url::validate_section('woo-mercado') ) ) {
+		if ( is_admin() && ( WC_WooMercadoPago_Helper_Current_Url::validate_page('mercadopago-settings') || WC_WooMercadoPago_Helper_Current_Url::validate_section('woo-mercado-pago') ) ) {
 			wp_enqueue_script(
 				'mp_payment_status_metabox',
 				plugins_url( '../../assets/js/payment_status_metabox' . $suffix . '.js', plugin_dir_path( __FILE__ ) ),
