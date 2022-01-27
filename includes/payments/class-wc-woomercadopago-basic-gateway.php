@@ -35,7 +35,7 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 		}
 
 		$this->form_fields          = array();
-		$this->method_title         = __( 'Mercado Pago - Checkout Pro', 'woocommerce-mercadopago' );
+		$this->method_title         = __( 'Mercado pago - Checkout Pro', 'woocommerce-mercadopago' );
 		$this->method               = $this->get_option( 'method', 'redirect' );
 		$this->title                = $this->get_option( 'title', __( 'Checkout Pro', 'woocommerce-mercadopago' ) );
 		$this->method_description   = $this->description;
@@ -91,9 +91,7 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 		$form_fields = array();
 
 		if ( ! empty( $this->checkout_country ) && ! empty( $this->get_access_token() ) && ! empty( $this->get_public_key() ) ) {
-			$form_fields['checkout_payments_title']          = $this->field_checkout_payments_title();
-			$form_fields['checkout_payments_subtitle']       = $this->field_checkout_payments_subtitle();
-			$form_fields['checkout_payments_description']    = $this->field_checkout_options_description();
+			$form_fields['checkout_header']                  = $this->field_checkout_header();
 			$form_fields['binary_mode']                      = $this->field_binary_mode();
 			$form_fields['installments']                     = $this->field_installments();
 			$form_fields['checkout_payments_advanced_title'] = $this->field_checkout_payments_advanced_title();
@@ -124,58 +122,15 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 			'description',
 			// Checkout Básico. Acepta todos los medios de pago y lleva tus cobros a otro nivel.
 			'checkout_header',
-			'checkout_steps',
-			// ¿En qué país vas a activar tu tienda?
-			'checkout_country_title',
-			'checkout_country',
-			'checkout_btn_save',
-			// Carga tus credenciales.
-			'checkout_credential_title',
-			'checkout_credential_link',
-			'checkout_credential_title_prod',
-			'checkout_credential_description_prod',
-			'_mp_public_key_prod',
-			'_mp_access_token_prod',
-			'checkout_credential_title_test',
-			'checkout_credential_description_test',
-			'_mp_public_key_test',
-			'_mp_access_token_test',
-			'checkout_mode_title',
-			'checkout_subtitle_checkout_mode',
-			'checkbox_checkout_test_mode',
-			'checkbox_checkout_production_mode',
-			'checkout_mode_alert',
-			// Everything ready for the takeoff of your sales?
-			'checkout_ready_title',
-			'checkout_ready_description',
-			'checkout_ready_description_link',
 			// No olvides de homologar tu cuenta.
-			'checkout_homolog_title',
-			'checkout_homolog_subtitle',
-			'checkout_homolog_link',
-			// Configure Mercado Pago for WooCommerce.
-			'checkout_options_title',
-			'mp_statement_descriptor',
-			'_mp_category_id',
-			'_mp_store_identificator',
-			'_mp_integrator_id',
-			// Advanced settings.
-			'checkout_advanced_settings',
-			'_mp_debug_mode',
-			'_mp_custom_domain',
+			'checkout_card_homolog',
 			// Set up the payment experience in your store.
-			'checkout_payments_title',
-			'checkout_payments_subtitle',
-			'checkout_payments_description',
 			'checkout_card_validate',
 			'enabled',
 			'title',
 			WC_WooMercadoPago_Helpers_CurrencyConverter::CONFIG_KEY,
 			'ex_payments',
 			'installments',
-			'mp_psj_title',
-			'mp_psj_description',
-			'mp_psj_description_link',
 			// Advanced settings.
 			'checkout_payments_advanced_title',
 			'checkout_payments_advanced_description',
@@ -187,11 +142,6 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 			'binary_mode',
 			'gateway_discount',
 			'commission',
-			// Support session.
-			'checkout_support_title',
-			'checkout_support_description',
-			'checkout_support_description_link',
-			'checkout_support_problem',
 		);
 	}
 
@@ -202,7 +152,7 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 	 */
 	public function field_installments() {
 		return array(
-			'title'       => __( 'Max of installments', 'woocommerce-mercadopago' ),
+			'title'       => __( 'Maximum number of installments', 'woocommerce-mercadopago' ),
 			'type'        => 'select',
 			'description' => __( 'What is the maximum quota with which a customer can buy?', 'woocommerce-mercadopago' ),
 			'default'     => '24',
@@ -303,60 +253,19 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 	public function field_checkout_header() {
 		return array(
 			'title' => sprintf(
-				/* translators: %s checkout */
-				__( 'Checkout Pro %s', 'woocommerce-mercadopago' ),
 				'<div class="row">
                 <div class="mp-col-md-12 mp_subtitle_header">
-                ' . __( 'Accept all method of payment and take your charges to another level', 'woocommerce-mercadopago' ) . '
+                ' . __( 'Checkout Pro', 'woocommerce-mercadopago' ) . '
                  </div>
               <div class="mp-col-md-12">
                 <p class="mp-text-checkout-body mp-mb-0">
-                  ' . __( 'Turn your online store into your customers preferred payment gateway. Choose if the final payment experience will be inside or outside your store.', 'woocommerce-mercadopago' ) . '
+                  ' . __( 'With Checkout Pro you sell with all the safety inside Mercado Pago environment.', 'woocommerce-mercadopago' ) . '
                 </p>
               </div>
             </div>'
 			),
 			'type'  => 'title',
 			'class' => 'mp_title_header',
-		);
-	}
-
-	/**
-	 * Field checkout options title
-	 *
-	 * @return array
-	 */
-	public function field_checkout_options_title() {
-		return array(
-			'title' => __( 'Configure Mercado Pago for WooCommerce', 'woocommerce-mercadopago' ),
-			'type'  => 'title',
-			'class' => 'mp_title_bd',
-		);
-	}
-
-	/**
-	 * Field checkout options description
-	 *
-	 * @return array
-	 */
-	public function field_checkout_options_description() {
-		return array(
-			'title' => __( 'Enable the experience of the Checkout Pro in your online store, select the means of payment available to your customers and<br> define the maximum fees in which they can pay you.', 'woocommerce-mercadopago' ),
-			'type'  => 'title',
-			'class' => 'mp_small_text',
-		);
-	}
-
-	/**
-	 * Field checkout payments title
-	 *
-	 * @return array
-	 */
-	public function field_checkout_payments_title() {
-		return array(
-			'title' => __( 'Set payment preferences in your store', 'woocommerce-mercadopago' ),
-			'type'  => 'title',
-			'class' => 'mp_title_bd',
 		);
 	}
 
@@ -461,7 +370,7 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 	public function field_ex_payments() {
 		$payment_list = array(
 			'description'          => __( 'Enable the payment methods available to your clients.', 'woocommerce-mercadopago' ),
-			'title'                => __( 'Payment methods', 'woocommerce-mercadopago' ),
+			'title'                => __( 'Choose the payment methods you accept in your store', 'woocommerce-mercadopago' ),
 			'type'                 => 'mp_checkbox_list',
 			'payment_method_types' => array(
 				'credit_card'      => array(

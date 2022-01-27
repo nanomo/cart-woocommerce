@@ -636,10 +636,7 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 					if ( isset( $_GET['section'] ) && $_GET['section'] == $this->id && ! has_action( 'woocommerce_update_options_payment_gateways_' . $this->id ) ) {
 						add_action( 'admin_notices', array( $this, 'notice_homolog_validate' ) );
 					}
-					$form_fields['checkout_steps_link_homolog'] = $this->field_checkout_steps_link_homolog( $this->checkout_country, $this->application_id );
-					$form_fields['checkout_homolog_title']      = $this->field_checkout_homolog_title();
-					$form_fields['checkout_homolog_subtitle']   = $this->field_checkout_homolog_subtitle();
-					$form_fields['checkout_homolog_link']       = $this->field_checkout_homolog_link( $this->checkout_country, $this->application_id );
+					$form_fields['checkout_card_homolog'] = $this->field_checkout_card_homolog();
 				}
 				$form_fields['enabled']                                = $this->field_enabled( $label );
 				$form_fields['title']                                  = $this->field_title();
@@ -748,27 +745,29 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 	}
 
 	/**
-	 * Field checkout steps link homolog
-	 *
-	 * @param string $country_link country link.
-	 * @param string $appliocation_id application id.
+	 * Field checkout card homolog
 	 *
 	 * @return array
 	 */
-	public function field_checkout_steps_link_homolog( $country_link, $appliocation_id ) {
-		$checkout_steps_link_homolog = array(
-			'title' => sprintf(
-				/* translators: %s link  */
-				__( 'Credentials are the keys we provide you to integrate quickly <br>and securely. You must have a %s in Mercado Pago to obtain and collect them <br>on your website. You do not need to know how to design or program to do it', 'woocommerce-mercadopago' ),
-				'<a href="https://www.mercadopago.com/' . $country_link . '/account/credentials/appliance?application_id=' . $appliocation_id . '" target="_blank">' . __( 'approved account', 'woocommerce-mercadopago' ) . '</a>'
-			),
-			'type'  => 'title',
-			'class' => 'mp_homolog_text',
+	public function field_checkout_card_homolog() {
+		$country_link    = $this->checkout_country;
+		$appliocation_id = $this->application_id;
+		$value           = array(
+			'title'             => __( 'Approve your account, it will only take a few minutes', 'woocommerce-mercadopago' ),
+			'subtitle'          => __( 'Complete this process to secure your customers data and comply with the regulations and legal provisions of each country.', 'woocommerce-mercadopago' ),
+			'button_text'               => __( 'Homologate account in Mercado Pago', 'woocommerce-mercadopago' ),
+			'button_url'        => 'https://www.mercadopago.com/' . $country_link . '/account/credentials/appliance?application_id=' . $appliocation_id,
+			'icon'              => 'mp-icon-badge-warning',
+			'color_card'        => 'mp-alert-color-alert',
+			'size_card'         => 'mp-card-body-size-homolog',
 		);
 
-		array_splice( $this->field_forms_order, 4, 0, 'checkout_steps_link_homolog' );
-		return $checkout_steps_link_homolog;
+		return array(
+			'type'               => 'mp_card_info',
+			'value'              => $value,
+		);
 	}
+
 
 	/**
 	 * Get Application Id
@@ -804,7 +803,7 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 	public function field_enabled( $label ) {
 		$title_enable = __( 'Activate checkout', 'woocommerce-mercadopago' );
 		if ( 'Pix' === $label ) {
-			$title_enable = __( 'Activate Pix in the checkout', 'woocommerce-mercadopago' );
+			$title_enable = __( 'Enable or inactivate the payments via Pix', 'woocommerce-mercadopago' );
 		}
 
 		return array(
@@ -893,50 +892,6 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 			array(),
 			WC_WooMercadoPago_Constants::VERSION,
 			true
-		);
-	}
-
-	/**
-	 * Field Checkout Homolog Title
-	 *
-	 * @return array
-	 */
-	public function field_checkout_homolog_title() {
-		return array(
-			'title' => __( 'Approve your account, it will only take a few minutes', 'woocommerce-mercadopago' ),
-			'type'  => 'title',
-			'class' => 'mp_subtitle_bd',
-		);
-	}
-
-	/**
-	 * Field Checkout Homolog Subtitle
-	 *
-	 * @return array
-	 */
-	public function field_checkout_homolog_subtitle() {
-		return array(
-			'title' => __( 'Complete this process to secure your customers data and comply with the regulations<br> and legal provisions of each country.', 'woocommerce-mercadopago' ),
-			'type'  => 'title',
-			'class' => 'mp_text mp-mt--12',
-		);
-	}
-
-	/**
-	 * Field Checkout Homolog Link
-	 *
-	 * @param string $country_link Country Link.
-	 * @param string $appliocation_id Application Id.
-	 * @return array
-	 */
-	public function field_checkout_homolog_link( $country_link, $appliocation_id ) {
-		return array(
-			'title' => sprintf(
-				'%s',
-				'<a href="https://www.mercadopago.com/' . $country_link . '/account/credentials/appliance?application_id=' . $appliocation_id . '" target="_blank">' . __( 'Homologate account in Mercado Pago', 'woocommerce-mercadopago' ) . '</a>'
-			),
-			'type'  => 'title',
-			'class' => 'mp_tienda_link',
 		);
 	}
 

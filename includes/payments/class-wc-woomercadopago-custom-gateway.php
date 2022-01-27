@@ -34,8 +34,8 @@ class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 	 */
 	public function __construct() {
 		$this->id          = self::ID;
-		$this->description = __( "Offer credit card payments within your store's website.", 'woocommerce-mercadopago' );
-		$this->title       = __( 'Pay with credit cards', 'woocommerce-mercadopago' );
+		$this->description = __( 'Transparent Checkout in your store environment', 'woocommerce-mercadopago' );
+		$this->title       = __( 'Debit and Credit', 'woocommerce-mercadopago' );
 		$this->mp_options  = $this->get_mp_options();
 
 		if ( ! $this->validate_section() ) {
@@ -44,7 +44,7 @@ class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 
 		$this->form_fields        = array();
 		$this->method_title       = __( 'Mercado pago - Customized Checkout', 'woocommerce-mercadopago' );
-		$this->title              = $this->get_option( 'title', __( 'Pay with credit cards', 'woocommerce-mercadopago' ) );
+		$this->title              = $this->get_option( 'title', __( 'Debit and Credit', 'woocommerce-mercadopago' ) );
 		$this->method_description = $this->description;
 		$this->coupon_mode        = $this->get_option( 'coupon_mode', 'no' );
 		$this->wallet_button      = $this->get_option( 'wallet_button', 'yes' );
@@ -119,9 +119,7 @@ class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 			// Checkout de pagos con tarjetas de débito y crédito<br> Aceptá pagos al instante y maximizá la conversión de tu negocio.
 			'checkout_custom_header',
 			// No olvides de homologar tu cuenta.
-			'checkout_homolog_title',
-			'checkout_homolog_subtitle',
-			'checkout_homolog_link',
+			'checkout_card_homolog',
 			// Configure the personalized payment experience in your store.
 			'checkout_card_validate',
 			'checkout_custom_payments_title',
