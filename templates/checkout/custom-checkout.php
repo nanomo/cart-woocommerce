@@ -259,7 +259,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			.replace(/^(\d{4})(\d)/g, "$1 $2")
 			.replace(/^(\d{4})\s(\d{4})(\d)/g, "$1 $2 $3")
 			.replace(/^(\d{4})\s(\d{4})\s(\d{4})(\d)/g, "$1 $2 $3 $4");
-	});	
+	});
 
 	var cardExpirationDate = document.getElementById('mp-card-expiration-date');
 	cardExpirationDate.addEventListener('input', (e) => {

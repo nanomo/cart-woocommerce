@@ -574,6 +574,11 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 						'src' => $payment_method['image'],
 						'alt' => $payment_method['id']
 					];
+				} elseif ( 'bank_transfer' === $payment_method['type'] ) {
+					$bank_transfer[] = [
+						'src' => $payment_method['image'],
+						'alt' => $payment_method['id']
+					];
 				} else {
 					$ticket[] = [
 						'src' => $payment_method['image'],
@@ -583,21 +588,44 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 			}
 		}
 
-		$checkout_payment_methods = [
-			[
+		$cho_pro_display_payments = [];
+
+		$credits[] = [
+			'src' => plugins_url( '../assets/images/mercado-credito.png', plugin_dir_path( __FILE__ ) ),
+			'alt' => 'mercado_creditos'
+		];
+
+		array_push($cho_pro_display_payments, [
+			'title' => __( 'Installments without card' , 'woocommerce-mercadopago' ),
+			'label' => __( 'Up to ' , 'woocommerce-mercadopago' ) . 12 . __( ' installments' , 'woocommerce-mercadopago' ),
+			'payment_methods' => $credits
+		]);
+
+		if ( isset($credit) ) {
+			array_push($cho_pro_display_payments, [
 				'title' => __( 'Credit cards' , 'woocommerce-mercadopago' ),
 				'label' => __( 'Up to ' , 'woocommerce-mercadopago' ) . $installments . __( ' installments' , 'woocommerce-mercadopago' ),
 				'payment_methods' => $credit,
-			],
-			[
+			]);
+		};
+		if ( isset($debit) ) {
+			array_push($cho_pro_display_payments, [
 				'title' => __( 'Debit cards' , 'woocommerce-mercadopago' ),
 				'payment_methods' => $debit,
-			],
-			[
+			]);
+		};
+		if ( isset($bank_transfer) ) {
+			array_push($cho_pro_display_payments, [
+				'title' => __( 'Bank Transfer' , 'woocommerce-mercadopago' ),
+				'payment_methods' => $bank_transfer,
+			]);
+		};
+		if ( isset($ticket) ) {
+			array_push($cho_pro_display_payments, [
 				'title' => __( 'Payment by cash' , 'woocommerce-mercadopago' ),
 				'payment_methods' => $ticket,
-			]
-		];
+			]);
+		};
 
 		$parameters = [
 			'method'              => $method,
@@ -606,7 +634,7 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 			'plugin_version'      => WC_WooMercadoPago_Constants::VERSION,
 			'redirect_image'      => plugins_url( '../assets/images/cho-pro-redirect.png', plugin_dir_path( __FILE__ ) ),
 			'list_style_type_src' => plugins_url( '../assets/images/blue-check.png', plugin_dir_path( __FILE__ ) ),
-			'payment_methods'     => wp_json_encode($checkout_payment_methods),
+			'payment_methods'     => wp_json_encode($cho_pro_display_payments),
 		];
 
 		$parameters = array_merge($parameters, WC_WooMercadoPago_Payment_Abstract::mp_define_terms_and_conditions());
