@@ -68,7 +68,7 @@ class WC_WooMercadoPago_Saved_Cards {
 	 * @return void
 	 */
 	public function load_saved_cards_notice_css() {
-		if ( is_admin() && ( WC_WooMercadoPago_Helper_Current_Url::validate_page('mercadopago-settings') || WC_WooMercadoPago_Helper_Current_Url::validate_section('woo-mercado-pago') ) ) {
+		if ( is_admin() ) {
 			wp_enqueue_style(
 				'woocommerce-mercadopago-admin-saved-cards',
 				plugins_url( '../../assets/css/saved_cards_notice_mercadopago' . $this->file_suffix . '.css', plugin_dir_path( __FILE__ ) ),
@@ -84,7 +84,7 @@ class WC_WooMercadoPago_Saved_Cards {
 	 * @return void
 	 */
 	public function load_saved_cards_notice_js() {
-		if ( is_admin() && ( WC_WooMercadoPago_Helper_Current_Url::validate_page('mercadopago-settings') || WC_WooMercadoPago_Helper_Current_Url::validate_section('woo-mercado-pago') ) ) {
+		if ( is_admin() ) {
 			wp_enqueue_script(
 				'woocommerce-mercadopago-admin-saved-cards',
 				plugins_url( '../../assets/js/saved_cards_notice_mercadopago' . $this->file_suffix . '.js', plugin_dir_path( __FILE__ ) ),

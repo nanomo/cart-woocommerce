@@ -57,7 +57,7 @@ class WC_WooMercadoPago_Review_Notice {
 	 * Load admin notices CSS
 	 */
 	public function load_admin_notice_css() {
-		if ( is_admin() && ( WC_WooMercadoPago_Helper_Current_Url::validate_page('mercadopago-settings') || WC_WooMercadoPago_Helper_Current_Url::validate_section('woo-mercado-pago') ) ) {
+		if ( is_admin() ) {
 			$suffix = $this->get_suffix();
 
 			wp_enqueue_style(
@@ -73,7 +73,7 @@ class WC_WooMercadoPago_Review_Notice {
 	 * Load admin notices JS
 	 */
 	public function load_admin_notice_js() {
-		if ( is_admin() && ( WC_WooMercadoPago_Helper_Current_Url::validate_page('mercadopago-settings') || WC_WooMercadoPago_Helper_Current_Url::validate_section('woo-mercado-pago') ) ) {
+		if ( is_admin() ) {
 			$suffix = $this->get_suffix();
 
 			wp_enqueue_script(
