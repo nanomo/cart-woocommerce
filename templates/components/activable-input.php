@@ -25,7 +25,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<td class="forminp">
 		<div>
 			<fieldset>
-				<input class="input-text regular-input" type="<?php echo esc_attr( $settings['input_type'] ); ?>" name="<?php echo esc_attr( $field_key ); ?>" id="<?php echo esc_attr( $field_key ); ?>" style="<?php echo esc_attr( $settings['css'] ); ?>" value="<?php echo esc_attr( $value ); ?>" placeholder="<?php echo esc_attr( $settings['placeholder'] ); ?>" <?php echo ( $custom_attributes ); // phpcs:ignore  ?> />
+				<input class="input-text regular-input" type="<?php echo esc_attr( $settings['input_type'] ); ?>" name="<?php echo esc_attr( $field_key ); ?>" id="<?php echo esc_attr( $field_key ); ?>" style="<?php echo esc_attr( isset($settings['css']) ); ?>" value="<?php echo esc_attr( $value ); ?>" placeholder="<?php echo esc_attr( isset($settings['placeholder'] )); ?>" <?php echo ( $custom_attributes ); // phpcs:ignore  ?> />
 				<br/>
 
 				<label for="<?php echo esc_attr( $field_key_checkbox ); ?>">
