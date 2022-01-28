@@ -324,16 +324,14 @@ class WC_WooMercadoPago_Module extends WC_WooMercadoPago_Configs {
 	 * @return void
 	 */
 	public function load_global_css() {
-		if ( is_checkout() || WC_WooMercadoPago_Helper_Current_Url::validate_page('mercadopago-settings') || WC_WooMercadoPago_Helper_Current_Url::validate_section('woo-mercado') ) {
-			$suffix = $this->get_suffix();
+		$suffix = $this->get_suffix();
 
-			wp_enqueue_style(
-				'woocommerce-mercadopago-global-css',
-				plugins_url( '../assets/css/global' . $suffix . '.css', plugin_dir_path( __FILE__ ) ),
-				array(),
-				WC_WooMercadoPago_Constants::VERSION
-			);
-		}
+		wp_enqueue_style(
+			'woocommerce-mercadopago-global-css',
+			plugins_url( '../assets/css/global' . $suffix . '.css', plugin_dir_path( __FILE__ ) ),
+			array(),
+			WC_WooMercadoPago_Constants::VERSION
+		);
 	}
 
 	/**
