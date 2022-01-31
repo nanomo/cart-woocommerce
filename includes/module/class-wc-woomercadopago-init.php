@@ -155,6 +155,7 @@ class WC_WooMercadoPago_Init {
 	public static function woocommerce_mercadopago_init() {
 		self::woocommerce_mercadopago_load_plugin_textdomain();
 		require_once dirname( __FILE__ ) . '/sdk/lib/rest-client/class-mp-rest-client-abstract.php';
+		require_once dirname( __FILE__ ) . '/sdk/lib/rest-client/class-mp-rest-client.php';
 		require_once dirname( __FILE__ ) . '/config/class-wc-woomercadopago-constants.php';
 		require_once dirname( __FILE__ ) . '../../admin/notices/class-wc-woomercadopago-notices.php';
 		require_once dirname( __FILE__ ) . '../../admin/notices/class-wc-woomercadopago-saved-cards.php';
