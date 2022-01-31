@@ -1386,15 +1386,15 @@ msgid "Go to Settings"
 msgstr ""
 
 #: includes/payments/class-wc-woomercadopago-payment-abstract.php:753
-msgid "Approve your account, it will only take a few minutes"
+msgid "Activate your credentials to be able to sell"
 msgstr ""
 
 #: includes/payments/class-wc-woomercadopago-payment-abstract.php:754
-msgid "Complete this process to secure your customers data and comply with the regulations and legal provisions of each country."
+msgid "Credentials are codes that you must enter to enable sales. Go below on Activate Credentials. On the next screen, use again the Activate Credentials button and fill in the fields with the requested information."
 msgstr ""
 
 #: includes/payments/class-wc-woomercadopago-payment-abstract.php:755
-msgid "Homologate account in Mercado Pago"
+msgid "Activate credentials"
 msgstr ""
 
 #: includes/payments/class-wc-woomercadopago-payment-abstract.php:801

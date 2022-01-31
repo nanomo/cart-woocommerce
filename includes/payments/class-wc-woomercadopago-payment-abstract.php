@@ -747,21 +747,21 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 	 * @return array
 	 */
 	public function field_checkout_card_homolog() {
-		$country_link    = $this->checkout_country;
-		$appliocation_id = $this->application_id;
-		$value           = array(
-			'title'             => __( 'Approve your account, it will only take a few minutes', 'woocommerce-mercadopago' ),
-			'subtitle'          => __( 'Complete this process to secure your customers data and comply with the regulations and legal provisions of each country.', 'woocommerce-mercadopago' ),
-			'button_text'               => __( 'Homologate account in Mercado Pago', 'woocommerce-mercadopago' ),
-			'button_url'        => 'https://www.mercadopago.com/' . $country_link . '/account/credentials/appliance?application_id=' . $appliocation_id,
+		$country_link   = strtolower($this->checkout_country);
+		$application_id = $this->application_id;
+		$value          = array(
+			'title'             => __( 'Activate your credentials to be able to sell', 'woocommerce-mercadopago' ),
+			'subtitle'          => __( 'Credentials are codes that you must enter to enable sales. Go below on Activate Credentials. On the next screen, use again the Activate Credentials button and fill in the fields with the requested information.', 'woocommerce-mercadopago' ),
+			'button_text'       => __( 'Activate credentials', 'woocommerce-mercadopago' ),
+			'button_url'        => 'https://www.mercadopago.com/' . $country_link . '/account/credentials/appliance?application_id=' . $application_id,
 			'icon'              => 'mp-icon-badge-warning',
 			'color_card'        => 'mp-alert-color-alert',
 			'size_card'         => 'mp-card-body-size-homolog',
 		);
 
 		return array(
-			'type'               => 'mp_card_info',
-			'value'              => $value,
+			'type'              => 'mp_card_info',
+			'value'             => $value,
 		);
 	}
 
