@@ -4,7 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/woocommerce-"
 "mercadopago\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2022-01-31 10:38-0300\n"
+"PO-Revision-Date: 2022-01-31 13:24-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: pt_BR\n"
@@ -1264,7 +1264,7 @@ msgid ""
 "environment."
 msgstr ""
 "Com o Checkout Pro, você vende com toda a segurança, no ambiente do Mercado "
-"Pago. "
+"Pago."
 
 #: includes/payments/class-wc-woomercadopago-basic-gateway.php:267
 msgid "Advanced settings"
@@ -1427,7 +1427,7 @@ msgstr "Mercado Pago - Checkout personalizado"
 
 #: includes/payments/class-wc-woomercadopago-custom-gateway.php:153
 msgid "Transparent Checkout | Credit card "
-msgstr "Checkout Transparente | Cartão de Crédito"
+msgstr "Checkout Transparente | Cartão de Crédito "
 
 #: includes/payments/class-wc-woomercadopago-custom-gateway.php:157
 msgid ""
@@ -1435,7 +1435,7 @@ msgid ""
 "without redirection and with the security from Mercado Pago."
 msgstr ""
 "Com o Checkout Transparente, você consegue vender dentro do ambiente da sua "
-"loja, sem redirecionamento, com toda a segurança do Mercado Pago. "
+"loja, sem redirecionamento, com toda a segurança do Mercado Pago."
 
 #: includes/payments/class-wc-woomercadopago-custom-gateway.php:175
 msgid "Advanced configuration of the personalized payment experience\""
@@ -1466,7 +1466,7 @@ msgstr ""
 
 #: includes/payments/class-wc-woomercadopago-custom-gateway.php:216
 msgid "You can see how the feature is in your store Checkout below:"
-msgstr "Abaixo, como é a funcionalidade no checkout da loja: "
+msgstr "Abaixo, como é a funcionalidade no checkout da loja:"
 
 #: includes/payments/class-wc-woomercadopago-custom-gateway.php:247
 msgid "That’s it, payment accepted!"
@@ -1647,23 +1647,25 @@ msgstr "Ajuste taxas e prazos, teste sua loja ou acesso o manual do plugin."
 
 #: includes/payments/class-wc-woomercadopago-payment-abstract.php:731
 msgid "Go to Settings"
-msgstr "Ir para Configurações "
+msgstr "Ir para Configurações"
 
 #: includes/payments/class-wc-woomercadopago-payment-abstract.php:753
-msgid "Approve your account, it will only take a few minutes"
-msgstr "Homologue sua conta, isso levará somente alguns minutos"
+msgid "Activate your credentials to be able to sell"
+msgstr "Ative suas credenciais para conseguir vender"
 
 #: includes/payments/class-wc-woomercadopago-payment-abstract.php:754
 msgid ""
-"Complete this process to secure your customers data and comply with the "
-"regulations and legal provisions of each country."
+"Credentials are codes that you must enter to enable sales. Go below on "
+"Activate Credentials. On the next screen, use again the Activate Credentials "
+"button and fill in the fields with the requested information."
 msgstr ""
-"Complete este processo para proteger os dados de seus clientes e cumprir com "
-"as regulamentações e disposições legais de cada país."
+"Credenciais são senhas que você deve integrar para habilitar vendas. Vá "
+"abaixo em Ativar credencias. Na tela seguinte, vá novamente no botão Ativar "
+"credenciais e preencha os campos com os dados pedidos."
 
 #: includes/payments/class-wc-woomercadopago-payment-abstract.php:755
-msgid "Homologate account in Mercado Pago"
-msgstr "Homologar minha conta"
+msgid "Activate credentials"
+msgstr "Ativar credenciais"
 
 #: includes/payments/class-wc-woomercadopago-payment-abstract.php:801
 msgid "Activate checkout"
@@ -1679,7 +1681,7 @@ msgid ""
 "payment methods."
 msgstr ""
 "Ao desativar, você desabilita todos os meios de pagamento do Checkout "
-"Transparente Mercado Pago. "
+"Transparente Mercado Pago."
 
 #: includes/payments/class-wc-woomercadopago-payment-abstract.php:812
 msgid "This checkout is <b>enabled</b>."
@@ -1705,11 +1707,11 @@ msgstr ""
 
 #: includes/payments/class-wc-woomercadopago-payment-abstract.php:922
 msgid "Discount coupons is <b>active</b>."
-msgstr "Cupons de desconto estão <b>habilitados</b>"
+msgstr "Cupons de desconto estão <b>habilitados</b>."
 
 #: includes/payments/class-wc-woomercadopago-payment-abstract.php:923
 msgid "Discount coupons is <b>disabled</b>."
-msgstr "Cupons de desconto estão <b>desabilitados</b>"
+msgstr "Cupons de desconto estão <b>desabilitados</b>."
 
 #: includes/payments/class-wc-woomercadopago-payment-abstract.php:935
 msgid "Automatic decline of payments without instant approval"
@@ -1782,7 +1784,7 @@ msgstr ""
 #: includes/payments/class-wc-woomercadopago-pix-gateway.php:31
 #: includes/payments/class-wc-woomercadopago-pix-gateway.php:40
 msgid "Pix"
-msgstr "Pix "
+msgstr "Pix"
 
 #: includes/payments/class-wc-woomercadopago-pix-gateway.php:205
 msgid "To activate Pix, you must have a key registered in Mercado Pago."
@@ -2007,7 +2009,7 @@ msgid ""
 "without redirection and all the safety from Mercado Pago."
 msgstr ""
 "Com o Checkout Transparente, você consegue vender dentro do ambiente da sua "
-"loja, sem redirecionamento, com toda a segurança do Mercado Pago. "
+"loja, sem redirecionamento, com toda a segurança do Mercado Pago."
 
 #: includes/payments/class-wc-woomercadopago-ticket-gateway.php:198
 msgid "Advanced configuration of the cash payment experience"
@@ -2492,6 +2494,19 @@ msgid ""
 msgstr ""
 "Este é o status de pagamento das Atividades do seu Mercado Pago. Para status "
 "do pedido, consulte Detalhes do Pedido."
+
+#~ msgid "Approve your account, it will only take a few minutes"
+#~ msgstr "Homologue sua conta, isso levará somente alguns minutos"
+
+#~ msgid ""
+#~ "Complete this process to secure your customers data and comply with the "
+#~ "regulations and legal provisions of each country."
+#~ msgstr ""
+#~ "Complete este processo para proteger os dados de seus clientes e cumprir "
+#~ "com as regulamentações e disposições legais de cada país."
+
+#~ msgid "Homologate account in Mercado Pago"
+#~ msgstr "Homologar minha conta"
 
 #~ msgid "No"
 #~ msgstr "Não"
