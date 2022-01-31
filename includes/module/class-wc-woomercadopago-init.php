@@ -161,8 +161,8 @@ class WC_WooMercadoPago_Init {
 		require_once dirname( __FILE__ ) . '../../admin/notices/class-wc-woomercadopago-notices.php';
 		require_once dirname( __FILE__ ) . '../../admin/notices/class-wc-woomercadopago-saved-cards.php';
 		require_once dirname( __FILE__ ) . '../../admin/hooks/class-wc-woomercadopago-hook-order-details.php';
-		}
 		WC_WooMercadoPago_Notices::init_mercadopago_notice();
+		}
 
 		// Check for PHP version and throw notice.
 		if ( version_compare( PHP_VERSION, '5.6', '<=' ) ) {
