@@ -127,20 +127,16 @@
 }
 
 @media screen and (max-width: 1200px) {
-
 	.mp-list-group {
 		display: block;
 		min-width: 50%;
 	}
-
 }
 
 @media screen and (max-width: 680px) {
-
 	.mp-list-group {
 		width: 100%;
 	}
-
 }
 
 /* Card info Component */
@@ -151,7 +147,6 @@
 }
 .mp-alert-color-sucess {
 	width: 6px;
-	height: 121px;
 	background: #009ee3;
 	border-radius: 6px 0 0 6px;
 }
@@ -183,7 +178,7 @@
 .mp-icon-badge-warning {
 	background: url(../images/icon-warning.png) 98% 50% no-repeat transparent;
 	margin: 5px 16px 16px 12px;
-	width: 20px;
+	width: 22px;
 	height: 20px;
 }
 .mp-text-title {
@@ -206,12 +201,12 @@
 	color: rgba(0, 0, 0, 0.9);
 	margin: 4px 0px;
 }
+
 .mp-button-payments {
 	font-size: 14px;
 	line-height: 16px;
 	color: #ffffff;
 	border: none;
-	text-align: center;
 	padding: 9px 12px 7px;
 	background: #009ee3;
 	border-radius: 5px;
@@ -219,12 +214,27 @@
 	cursor: pointer;
 	transition: box-shadow 0.25s ease-out, background-color 0.2s ease-out;
 	box-shadow: 0 0 0 0 #fff;
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	align-items: center;
-	width: 160px;
+}
+.mp-button-payments-a {
 	text-decoration: none;
+}
+.mp-button-payments:hover {
+	border-color: transparent;
+	background-color: #007eb5;
+	color: #fff;
+	-webkit-transition: background-color 0.2s ease-in;
+	transition: background-color 0.2s ease-in;
+}
+.mp-button-payments:focus {
+	outline: 0;
+	box-shadow: 0 0 0 0.1875em rgb(27 135 201 / 30%);
+	-webkit-transition: box-shadow 0.25s ease-in;
+	transition: box-shadow 0.25s ease-in;
+}
+.mp-button-payments:active {
+	border-color: transparent;
+	background-color: #005e88;
+	color: #fff;
 }
 
 /* Shared component styles */
@@ -242,9 +252,7 @@
 }
 
 @media screen and (max-width: 900px) {
-
 	.mp-component-card {
 		max-width: 100%;
 	}
-
 }
