@@ -805,7 +805,7 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 
 		return array(
 			'title'       => $title_enable,
-			'subtitle'    => __( 'If disabled, you will disable every payment method attached to this checkout.', 'woocommerce-mercadopago' ),
+			'subtitle'    => __( 'By disabling it, you will disable all Mercado Pago Transparent Checkout payment methods.', 'woocommerce-mercadopago' ),
 			'type'        => 'mp_toggle_switch',
 			'default'     => 'no',
 			'descriptions' => array(

@@ -234,18 +234,6 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 	}
 
 	/**
-	 * Enabled Field descripion. Contains the description that will appear when the checkout is enabled and disabled.
-	 *
-	 * @return array
-	 */
-	public function get_enabled_field_descriptions() {
-		return array(
-			'enabled' => __( 'The Basic Checkout is <b>enabled</b>.', 'woocommerce-mercadopago' ),
-			'disabled' => __( 'The Basic Checkout is <b>disabled</b>.', 'woocommerce-mercadopago' ),
-		);
-	}
-
-	/**
 	 * Field checkout header
 	 *
 	 * @return array
