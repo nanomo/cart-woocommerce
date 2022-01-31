@@ -189,12 +189,16 @@ class WC_WooMercadoPago_Init {
 			require_once dirname( __FILE__ ) . '/log/class-wc-woomercadopago-log.php';
 			require_once dirname( __FILE__ ) . '/class-wc-woomercadopago-module.php';
 			require_once dirname( __FILE__ ) . '/class-wc-woomercadopago-credentials.php';
+			require_once dirname( __FILE__ ) . '/class-wc-woomercadopago-options.php';
 			if ( is_admin() ) {
 			require_once dirname( __FILE__ ) . '../../admin/notices/class-wc-woomercadopago-review-notice.php';
 			require_once dirname( __FILE__ ) . '/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php';
-			require_once dirname( __FILE__ ) . '/class-wc-woomercadopago-options.php';
 			// Init Get Option
 			$option = WC_WooMercadoPago_Options::get_instance();
+
+			WC_WooMercadoPago_Review_Notice::init_mercadopago_review_notice();
+			WC_WooMercadoPago_Saved_Cards::init_singleton();
+			new WC_WooMercadoPago_Hook_Order_Details();
 
 			// Load Mercado Pago Settings Screen
 			( new WC_WooMercadoPago_MercadoPago_Settings($option) )->init();
@@ -202,12 +206,9 @@ class WC_WooMercadoPago_Init {
 			require_once dirname( __FILE__ ) . '../../pix/class-wc-woomercadopago-image-generator.php';
 
 			WC_WooMercadoPago_Module::init_mercado_pago_class();
-			WC_WooMercadoPago_Review_Notice::init_mercadopago_review_notice();
-			WC_WooMercadoPago_Saved_Cards::init_singleton();
 			WC_WooMercadoPago_Image_Generator::init_image_generator_class();
 			self::update_plugin_version();
 
-			new WC_WooMercadoPago_Hook_Order_Details();
 			add_action( 'woocommerce_order_actions', array( __CLASS__, 'add_mp_order_meta_box_actions' ) );
 
 		} else {
