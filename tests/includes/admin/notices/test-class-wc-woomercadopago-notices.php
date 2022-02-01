@@ -1,7 +1,14 @@
 <?php
 
 class WC_WooMercadoPago_NoticesTest extends WP_UnitTestCase {
+	public function setUp() {
+		parent::setUp();
+		require_once __DIR__ . '/../../../../includes/admin/notices/class-wc-woomercadopago-notices.php';
+ 	}
 
+ 	public function tearDown() {
+		parent::tearDown();
+ 	}
 	function test_get_alert_frame() {
 		$notices = WC_WooMercadoPago_Notices::get_alert_frame( 'unit', 'test');
 		$imgSrc = str_replace(
