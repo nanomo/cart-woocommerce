@@ -57,7 +57,7 @@ class WC_WooMercadoPago_Helper_Links {
 	 *
 	 * @return String
 	 */
-	public function get_mp_devsite_link( $country ) {
+	public static function get_mp_devsite_link( $country ) {
 		$country_links = [
 			'mla' => 'https://www.mercadopago.com.ar/developers/es/guides/plugins/woocommerce/testing',
 			'mlb' => 'https://www.mercadopago.com.br/developers/pt/guides/plugins/woocommerce/testing',
