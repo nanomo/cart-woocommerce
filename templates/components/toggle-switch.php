@@ -37,8 +37,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 			</label>
 		</div>
 		<?php
-		if ( isset( $settings['execute_action'] ) && $settings['execute_action'] ) {
-			do_action( 'mp_after_toggle_switch' );
+		if ( isset( $settings['after_toggle'] ) && $settings['after_toggle'] ) {
+			echo $settings['after_toggle']; // WPCS: XSS ok.
 		}
 		?>
 	</td>
