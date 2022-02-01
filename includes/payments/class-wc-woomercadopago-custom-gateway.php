@@ -95,7 +95,7 @@ class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 			$form_fields['binary_mode']                             = $this->field_binary_mode();
 			$form_fields['checkout_custom_payments_advanced_title'] = $this->field_checkout_custom_payments_advanced_title();
 			$form_fields['coupon_mode']                             = $this->field_coupon_mode();
-			$form_fields['checkout_custom_wallet_button_toggle']    = $this->field_checkout_custom_wallet_button_title();
+			$form_fields['wallet_button']                           = $this->field_checkout_custom_wallet_button_title();
 		}
 		$form_fields_abs = parent::get_form_mp_fields( $label );
 		if ( 1 === count( $form_fields_abs ) ) {
