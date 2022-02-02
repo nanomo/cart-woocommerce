@@ -656,21 +656,21 @@ class WC_WooMercadoPago_Module extends WC_WooMercadoPago_Configs {
 	 */
 	public static function get_country_name( $site_id ) {
 		switch ( $site_id ) {
-			case 'MCO':
+			case 'mco':
 				return __( 'Colombia', 'woocommerce-mercadopago' );
-			case 'MLA':
+			case 'mla':
 				return __( 'Argentina', 'woocommerce-mercadopago' );
-			case 'MLB':
+			case 'mlb':
 				return __( 'Brazil', 'woocommerce-mercadopago' );
-			case 'MLC':
+			case 'mlc':
 				return __( 'Chile', 'woocommerce-mercadopago' );
-			case 'MLM':
+			case 'mlm':
 				return __( 'Mexico', 'woocommerce-mercadopago' );
-			case 'MLU':
+			case 'mlu':
 				return __( 'Uruguay', 'woocommerce-mercadopago' );
-			case 'MLV':
+			case 'mlv':
 				return __( 'Venezuela', 'woocommerce-mercadopago' );
-			case 'MPE':
+			case 'mpe':
 				return __( 'Peru', 'woocommerce-mercadopago' );
 		}
 		return '';

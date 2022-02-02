@@ -392,7 +392,7 @@ class WC_WooMercadoPago_Ticket_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 		}
 
 		// Check for brazilian FEBRABAN rules.
-		if ( 'MLB' === $this->mp_options->get_site_id() ) {
+		if ( 'mlb' === $this->mp_options->get_site_id() ) {
 			if ( ! isset( $ticket_checkout['docNumber'] ) || empty( $ticket_checkout['docNumber'] ) ||
 				( 14 !== strlen( $ticket_checkout['docNumber'] ) && 18 !== strlen( $ticket_checkout['docNumber'] ) ) ) {
 				wc_add_notice(
@@ -408,7 +408,7 @@ class WC_WooMercadoPago_Ticket_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 			}
 		}
 
-		if ( 'MLU' === $this->mp_options->get_site_id() ) {
+		if ( 'mlu' === $this->mp_options->get_site_id() ) {
 			if (
 				! isset( $ticket_checkout['docNumber'] ) || empty( $ticket_checkout['docNumber'] ) ||
 				! isset( $ticket_checkout['docType'] ) || empty( $ticket_checkout['docType'] )

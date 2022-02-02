@@ -45,7 +45,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<div class="frame-tarjetas">
 				<div id="mercadopago-form-ticket">
 
-					<?php if ( 'MLU' === $site_id ) : ?>
+					<?php if ( 'mlu' === $site_id ) : ?>
 						<div id="form-ticket">
 							<div class="mp-row-checkout">
 								<p class="mp-subtitle-custom-checkout"><?php echo esc_html__( 'Enter your document number', 'woocommerce-mercadopago' ); ?></p>
@@ -117,7 +117,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 							</div>
 						</div>
 					</div>
-					<?php if ( 'MLB' === $site_id ) : ?>
+					<?php if ( 'mlb' === $site_id ) : ?>
 						<div class="mp-col-md-12 mp-pb-15" id="box-docnumber">
 							<label for="cpfcnpj" id="mp_cpf_cnpj_label" class="mp-label-form title-cpf"><?php echo esc_html__( 'CPF/CNPJ', 'woocommerce-mercadopago' ); ?> <em>*</em></label>
 							<input type="text" class="mp-form-control" value="<?php echo esc_textarea( $febraban['docNumber'] ); ?>" id="mp_doc_number" data-checkout="mp_doc_number" name="mercadopago_ticket[docNumber]" onkeyup="mpMaskInput(this, mpCpfCnpj);" maxlength="18">

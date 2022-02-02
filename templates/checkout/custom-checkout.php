@@ -48,7 +48,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<a class="mp-checkout-link mp-pr-10" id="button-show-payments">
 				<?php echo esc_html__( 'With what cards can I pay', 'woocommerce-mercadopago' ); ?> ⌵
 			</a>
-			<?php if ( 'MLA' === $site_id ) : ?>
+			<?php if ( 'mla' === $site_id ) : ?>
 				<span id="mp_promotion_link"> | </span>
 				<a href="https://www.mercadopago.com.ar/cuotas" id="mp_checkout_link" class="mp-checkout-link mp-pl-10" target="_blank">
 					<?php echo esc_html__( 'See current promotions', 'woocommerce-mercadopago' ); ?>
