@@ -38,7 +38,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		</div>
 		<?php
 		if ( isset( $settings['after_toggle'] ) && $settings['after_toggle'] ) {
-			echo $settings['after_toggle']; // phpcs:ignore
+			echo $settings['after_toggle']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		}
 		?>
 	</td>
