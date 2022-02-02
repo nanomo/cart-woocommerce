@@ -245,7 +245,7 @@ class WC_WooMercadoPago_Options {
 	public function get_site_id() {
 		$site_id = $this->site_id;
 
-		return $site_id;
+		return strtolower($site_id);
 	}
 
 	/**
