@@ -217,7 +217,7 @@ class WC_WooMercadoPago_Configs {
 	 */
 	public static function get_country_configs() {
 		return array(
-			'mco' => array(
+			'MCO' => array(
 				'site_id'                => 'mco',
 				'sponsor_id'             => 208687643,
 				'checkout_banner'        => plugins_url( '../../assets/images/MCO/standard_mco.jpg', __FILE__ ),
@@ -226,7 +226,7 @@ class WC_WooMercadoPago_Configs {
 				'zip_code'               => '110111',
 				'currency_symbol'        => '$',
 			),
-			'mla' => array(
+			'MLA' => array(
 				'site_id'                => 'mla',
 				'sponsor_id'             => 208682286,
 				'checkout_banner'        => plugins_url( '../../assets/images/MLA/standard_mla.jpg', __FILE__ ),
@@ -235,7 +235,7 @@ class WC_WooMercadoPago_Configs {
 				'zip_code'               => '3039',
 				'currency_symbol'        => '$',
 			),
-			'mlb' => array(
+			'MLB' => array(
 				'site_id'                => 'mlb',
 				'sponsor_id'             => 208686191,
 				'checkout_banner'        => plugins_url( '../../assets/images/MLB/standard_mlb.jpg', __FILE__ ),
@@ -244,7 +244,7 @@ class WC_WooMercadoPago_Configs {
 				'zip_code'               => '01310924',
 				'currency_symbol'        => 'R$',
 			),
-			'mlc' => array(
+			'MLC' => array(
 				'site_id'                => 'mlc',
 				'sponsor_id'             => 208690789,
 				'checkout_banner'        => plugins_url( '../../assets/images/MLC/standard_mlc.gif', __FILE__ ),
@@ -253,7 +253,7 @@ class WC_WooMercadoPago_Configs {
 				'zip_code'               => '7591538',
 				'currency_symbol'        => '$',
 			),
-			'mlm' => array(
+			'MLM' => array(
 				'site_id'                => 'mlm',
 				'sponsor_id'             => 208692380,
 				'checkout_banner'        => plugins_url( '../../assets/images/MLM/standard_mlm.jpg', __FILE__ ),
@@ -262,7 +262,7 @@ class WC_WooMercadoPago_Configs {
 				'zip_code'               => '11250',
 				'currency_symbol'        => '$',
 			),
-			'mlu' => array(
+			'MLU' => array(
 				'site_id'                => 'mlu',
 				'sponsor_id'             => 243692679,
 				'checkout_banner'        => plugins_url( '../../assets/images/MLU/standard_mlu.png', __FILE__ ),
@@ -271,7 +271,7 @@ class WC_WooMercadoPago_Configs {
 				'zip_code'               => '11800',
 				'currency_symbol'        => '$',
 			),
-			'mlv' => array(
+			'MLV' => array(
 				'site_id'                => 'mlv',
 				'sponsor_id'             => 208692735,
 				'checkout_banner'        => plugins_url( '../../assets/images/MLV/standard_mlv.jpg', __FILE__ ),
@@ -280,7 +280,7 @@ class WC_WooMercadoPago_Configs {
 				'zip_code'               => '1160',
 				'currency_symbol'        => '$',
 			),
-			'mpe' => array(
+			'MPE' => array(
 				'site_id'                => 'mpe',
 				'sponsor_id'             => 216998692,
 				'checkout_banner'        => plugins_url( '../../assets/images/MPE/standard_mpe.png', __FILE__ ),

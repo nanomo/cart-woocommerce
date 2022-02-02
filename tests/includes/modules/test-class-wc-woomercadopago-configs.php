@@ -50,7 +50,7 @@ class WC_WooMercadoPago_ConfigsTest extends WP_UnitTestCase {
 		$url_mpe_credit_card = str_replace( '/tests', '', plugins_url( 'module/../../assets/images/MPE/credit_card.png', plugin_dir_path( __FILE__ ) ) );
 
 		$country_configs_mock = array(
-			'mco' => array(
+			'MCO' => array(
 				'site_id'                => 'mco',
 				'sponsor_id'             => 208687643,
 				'checkout_banner'        => $url_mco_standard_mco,
@@ -59,7 +59,7 @@ class WC_WooMercadoPago_ConfigsTest extends WP_UnitTestCase {
 				'zip_code'               => '110111',
 				'currency_symbol'        => '$',
 			),
-			'mla' => array(
+			'MLA' => array(
 				'site_id'                => 'mla',
 				'sponsor_id'             => 208682286,
 				'checkout_banner'        => $url_mla_standard_mla,
@@ -68,7 +68,7 @@ class WC_WooMercadoPago_ConfigsTest extends WP_UnitTestCase {
 				'zip_code'               => '3039',
 				'currency_symbol'        => '$',
 			),
-			'mlb' => array(
+			'MLB' => array(
 				'site_id'                => 'mlb',
 				'sponsor_id'             => 208686191,
 				'checkout_banner'        => $url_mlb_standard_mlb,
@@ -77,7 +77,7 @@ class WC_WooMercadoPago_ConfigsTest extends WP_UnitTestCase {
 				'zip_code'               => '01310924',
 				'currency_symbol'        => 'R$',
 			),
-			'mlc' => array(
+			'MLC' => array(
 				'site_id'                => 'mlc',
 				'sponsor_id'             => 208690789,
 				'checkout_banner'        => $url_mlc_standard_mlc,
@@ -86,7 +86,7 @@ class WC_WooMercadoPago_ConfigsTest extends WP_UnitTestCase {
 				'zip_code'               => '7591538',
 				'currency_symbol'        => '$',
 			),
-			'mlm' => array(
+			'MLM' => array(
 				'site_id'                => 'mlm',
 				'sponsor_id'             => 208692380,
 				'checkout_banner'        => $url_mlm_standard_mlm,
@@ -95,7 +95,7 @@ class WC_WooMercadoPago_ConfigsTest extends WP_UnitTestCase {
 				'zip_code'               => '11250',
 				'currency_symbol'        => '$',
 			),
-			'mlu' => array(
+			'MLU' => array(
 				'site_id'                => 'mlu',
 				'sponsor_id'             => 243692679,
 				'checkout_banner'        => $url_mlu_standard_mlu,
@@ -104,7 +104,7 @@ class WC_WooMercadoPago_ConfigsTest extends WP_UnitTestCase {
 				'zip_code'               => '11800',
 				'currency_symbol'        => '$',
 			),
-			'mlv' => array(
+			'MLV' => array(
 				'site_id'                => 'mlv',
 				'sponsor_id'             => 208692735,
 				'checkout_banner'        => $url_mlv_standard_mlv,
@@ -113,7 +113,7 @@ class WC_WooMercadoPago_ConfigsTest extends WP_UnitTestCase {
 				'zip_code'               => '1160',
 				'currency_symbol'        => '$',
 			),
-			'mpe' => array(
+			'MPE' => array(
 				'site_id'                => 'mpe',
 				'sponsor_id'             => 216998692,
 				'checkout_banner'        => $url_mpe_standard_mpe,
