@@ -86,7 +86,8 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 				'platform_id' => WC_WooMercadoPago_Constants::PLATAFORM_ID,
 				'platform_version' => $woocommerce->version,
 				'plugin_version' => WC_WooMercadoPago_Constants::VERSION,
-				'public_key_element_id' => 'mp-public-key-prod'
+				'public_key_element_id' => 'mp-public-key-prod',
+				'reference_element_id' => 'reference'
 			)
 		);
 	}
