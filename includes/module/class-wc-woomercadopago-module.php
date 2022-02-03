@@ -597,7 +597,7 @@ class WC_WooMercadoPago_Module extends WC_WooMercadoPago_Configs {
 	 * @return array with the information.
 	 */
 	public static function get_site_data() {
-		$site_id = get_option( '_site_id_v1', '' );
+		$site_id = strtolower(get_option( '_site_id_v1', '' ));
 		if ( isset( $site_id ) && ! empty( $site_id ) ) {
 			return self::$country_configs[ $site_id ];
 		} else {

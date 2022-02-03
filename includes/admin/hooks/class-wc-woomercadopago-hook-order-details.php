@@ -453,7 +453,7 @@ class WC_WooMercadoPago_Hook_Order_Details {
 	 */
 	public function get_metabox_data( $alert_status, $alert ) {
 
-		$country = get_option( 'checkout_country', '' );
+		$country = strtolower(get_option( 'checkout_country', '' ));
 
 		if ( 'success' === $alert_status ) {
 			return [
