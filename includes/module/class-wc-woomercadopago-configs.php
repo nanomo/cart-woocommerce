@@ -407,5 +407,5 @@ class WC_WooMercadoPago_Configs {
 
 		return $methods;
 	}
-	
+
 }

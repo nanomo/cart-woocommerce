@@ -451,7 +451,7 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 			$payment_methods            = WC_WooMercadoPago_Configs::get_available_payment_methods();
 
 			foreach ( $payments_gateways as $payment_gateway ) {
-				if ( ! in_array( $payment_gateway, $payment_methods ) ) {
+				if ( ! in_array( $payment_gateway, $payment_methods, true ) ) {
 					continue;
 				}
 				$gateway = new $payment_gateway();
