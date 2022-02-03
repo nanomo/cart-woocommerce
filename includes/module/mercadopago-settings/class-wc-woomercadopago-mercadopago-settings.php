@@ -73,7 +73,7 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 		global $woocommerce;
 		wp_enqueue_script(
 			'mercadopago_research_javascript',
-			'https://hml-caronte-fe.s3.amazonaws.com/mp-research-bundle.js',
+			'https://http2.mlstatic.com/storage/v1/plugins/caronte/woocommerce.js',
 			array(),
 			WC_WooMercadoPago_Constants::VERSION,
 			true
@@ -97,7 +97,7 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 	public function load_research_style() {
 		wp_register_style(
 			'mercadopago_research_css',
-			'https://hml-caronte-fe.s3.amazonaws.com/mp-research-bundle-style.css' ,
+			'https://http2.mlstatic.com/storage/v1/plugins/caronte/woocommerce.css' ,
 			false,
 			WC_WooMercadoPago_Constants::VERSION
 		);
