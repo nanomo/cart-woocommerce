@@ -1977,8 +1977,7 @@ msgid ""
 "a Pix key registered in your Mercado Pago account."
 msgstr ""
 "Ten en cuenta que para recibir pagos a través de Pix en nuestro checkout, "
-"debes tener una clave Pix registrada en tu cuenta de Mercado Pago. Registra "
-"tu clave Pix en Mercado Pago."
+"debes tener una clave Pix registrada en tu cuenta de Mercado Pago."
 
 #: includes/payments/class-wc-woomercadopago-pix-gateway.php:550
 msgid "Register your Pix key at Mercado Pago."
