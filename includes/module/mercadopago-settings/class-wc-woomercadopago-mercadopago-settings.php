@@ -345,6 +345,7 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 					update_option( WC_WooMercadoPago_Options::CREDENTIALS_ACCESS_TOKEN_PROD, $access_token_prod, true );
 					update_option( WC_WooMercadoPago_Options::CREDENTIALS_ACCESS_TOKEN_TEST, $access_token_test, true );
 					update_option( WC_WooMercadoPago_Options::CHECKOUT_COUNTRY, $me['site_id'], true );
+					update_option( WC_WooMercadoPago_Options::SITE_ID, $me['site_id'], true );
 
 					wp_send_json_success( __( 'Credentials were updated', 'woocommerce-mercadopago' ) );
 				}
@@ -447,9 +448,10 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 			$payments_gateways          = WC_WooMercadoPago_Constants::PAYMENT_GATEWAYS;
 			$payment_gateway_properties = array();
 			$wc_country                 = WC_WooMercadoPago_Module::get_woocommerce_default_country();
+			$payment_methods            = WC_WooMercadoPago_Configs::get_available_payment_methods();
 
 			foreach ( $payments_gateways as $payment_gateway ) {
-				if ( 'WC_WooMercadoPago_Pix_Gateway' === $payment_gateway && 'BR' !== $wc_country ) {
+				if ( ! in_array( $payment_gateway, $payment_methods ) ) {
 					continue;
 				}
 				$gateway = new $payment_gateway();

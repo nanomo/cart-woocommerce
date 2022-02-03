@@ -385,16 +385,27 @@ class WC_WooMercadoPago_Configs {
 			return $methods;
 		}
 
+		return $this->get_available_payment_methods();
+	}
+
+	/**
+	 * Get available payment methods
+	 *
+	 * @return array
+	 */
+	public function get_available_payment_methods() {
 		$wc_country = WC_WooMercadoPago_Module::get_woocommerce_default_country();
-		$site_id    = get_option( '_site_id_v1', '' );
+		$site_id    = strtolower(get_option( '_site_id_v1', '' ));
 
 		$methods[] = 'WC_WooMercadoPago_Basic_Gateway';
 		$methods[] = 'WC_WooMercadoPago_Custom_Gateway';
 		$methods[] = 'WC_WooMercadoPago_Ticket_Gateway';
+
 		if ( ( 'BR' === $wc_country && '' === $site_id ) || ( 'mlb' === $site_id ) ) {
 			$methods[] = 'WC_WooMercadoPago_Pix_Gateway';
 		}
 
 		return $methods;
 	}
+	
 }

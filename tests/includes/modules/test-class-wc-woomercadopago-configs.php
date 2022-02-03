@@ -208,4 +208,20 @@ class WC_WooMercadoPago_ConfigsTest extends WP_UnitTestCase {
 
 		$this->assertEqualSets( $methods_returned , $payment_gateway );
 	}
+
+	/**
+	 * Get available payment methods for Brazil
+	 */
+	public function test_get_available_payment_methods() {
+		$woomercadoPago_configs = new WC_WooMercadoPago_Configs;
+		$payment_gateway = $woomercadoPago_configs->get_available_payment_methods( [] );
+		$methods_returned = array (
+			'WC_WooMercadoPago_Basic_Gateway',
+			'WC_WooMercadoPago_Custom_Gateway',
+			'WC_WooMercadoPago_Ticket_Gateway',
+			'WC_WooMercadoPago_Pix_Gateway',
+		);
+
+		$this->assertEqualSets( $methods_returned , $payment_gateway );
+	}
 }
