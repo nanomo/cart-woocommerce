@@ -26,6 +26,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<span class="mp-text-subtitle"><?php echo esc_html($settings['value']['subtitle']); ?></span>
 		<a class="mp-button-payments-a" target="_blank" href="<?php echo esc_html( $settings['value']['button_url'] ); ?>"><button type="button" class="mp-button-payments"><?php echo esc_html($settings['value']['button_text']); ?></button></a>
 	</div>
-	</div>
 </div>
-

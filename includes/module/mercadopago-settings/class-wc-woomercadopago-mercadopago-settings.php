@@ -389,6 +389,8 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 					update_option( WC_WooMercadoPago_Options::CHECKOUT_COUNTRY, $me['site_id'], true );
 					update_option( WC_WooMercadoPago_Options::SITE_ID, $me['site_id'], true );
 
+					WC_WooMercadoPago_Credentials::mercadopago_payment_update();
+
 					wp_send_json_success( __( 'Credentials were updated', 'woocommerce-mercadopago' ) );
 				}
 			}

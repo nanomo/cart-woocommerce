@@ -327,7 +327,7 @@ class WC_WooMercadoPago_Helpers_CurrencyConverter {
 			$result  = $mp->get( '/users/me', array( 'Authorization' => 'Bearer ' . $access_token ) );
 			$site_id = isset( $result['response'], $result['response']['site_id'] ) ? $result['response']['site_id'] : null;
 
-			strtolower(update_option( '_site_id_v1', $site_id ));
+			update_option( '_site_id_v1', $site_id );
 
 			return $site_id;
 		} catch ( Exception $e ) {
