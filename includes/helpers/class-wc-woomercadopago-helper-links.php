@@ -49,4 +49,101 @@ class WC_WooMercadoPago_Helper_Links {
 
 		return $devsite_links;
 	}
+
+	/**
+	 * Get Mercado Pago Devsite Page Link
+	 *
+	 * @param String $country Country Acronym
+	 *
+	 * @return String
+	 */
+	public static function get_mp_devsite_link( $country ) {
+		$country_links = [
+			'mla' => 'https://www.mercadopago.com.ar/developers/es/guides/plugins/woocommerce/testing',
+			'mlb' => 'https://www.mercadopago.com.br/developers/pt/guides/plugins/woocommerce/testing',
+			'mlc' => 'https://www.mercadopago.cl/developers/es/guides/plugins/woocommerce/testing',
+			'mco' => 'https://www.mercadopago.com.co/developers/es/guides/plugins/woocommerce/testing',
+			'mlm' => 'https://www.mercadopago.com.mx/developers/es/guides/plugins/woocommerce/testing',
+			'mpe' => 'https://www.mercadopago.com.pe/developers/es/guides/plugins/woocommerce/testing',
+			'mlu' => 'https://www.mercadopago.com.uy/developers/es/guides/plugins/woocommerce/testing',
+		];
+		$link          = array_key_exists($country, $country_links) ? $country_links[$country] : $country_links['mla'];
+
+		return $link;
+	}
+
+	/**
+	 * Get Country Link to Mercado Pago
+	 *
+	 * @param string $checkout Checkout by country.
+	 * @return string
+	 */
+	public static function get_country_link_mp_terms() {
+
+		$country_link = [
+			'mla' => [
+				'help'      => 'ayuda',
+				'sufix_url' => 'com.ar/',
+				'translate' => 'es',
+				'term_conditition' => '/terminos-y-politicas_194',  // Argentinian.
+			],
+			'mlb' => [
+				'help'      => 'ajuda',
+				'sufix_url' => 'com.br/',
+				'translate' => 'pt',
+				'term_conditition' => '/termos-e-politicas_194',   //Brasil
+			],
+			'mlc' => [
+				'help'      => 'ayuda',
+				'sufix_url' => 'cl/',
+				'translate' => 'es',
+				'term_conditition' => '/terminos-y-politicas_194',   // Chile.
+			],
+			'mco' => [
+				'help'      => 'ayuda',
+				'sufix_url' => 'com.co/',
+				'translate' => 'es',
+				'term_conditition' => '/terminos-y-politicas_194',   // Colombia.
+			],
+			'mlm' => [
+				'help'      => 'ayuda',
+				'sufix_url' => 'com.mx/',
+				'translate' => 'es',
+				'term_conditition' => '/terminos-y-politicas_194',   // Mexico.
+			],
+			'mpe' => [
+				'help'      => 'ayuda',
+				'sufix_url' => 'com.pe/',
+				'translate' => 'es',
+				'term_conditition' => '/terminos-y-politicas_194',   // Peru.
+			],
+			'mlu' => [
+				'help'      => 'ayuda',
+				'sufix_url' => 'com.uy/',
+				'translate' => 'es',
+				'term_conditition' => '/terminos-y-politicas_194',   // Uruguay.
+			],
+		];
+
+		$option_country   = WC_WooMercadoPago_Options::get_instance();
+		$checkout_country = strtolower($option_country->get_checkout_country());
+		return $country_link[ $checkout_country ];
+	}
+
+	/**
+	 *
+	 * Define terms and conditions link
+	 *
+	 * @return array
+	 */
+	public static function mp_define_terms_and_conditions() {
+
+		$links_mp       = self::get_country_link_mp_terms();
+		$link_prefix_mp = 'https://www.mercadopago.';
+		return array (
+			'text_prefix'                           => __( 'By continuing, you agree to our ', 'woocommerce-mercadopago' ),
+			'link_terms_and_conditions' => $link_prefix_mp . $links_mp['sufix_url'] . $links_mp['help'] . $links_mp['term_conditition'],
+			'text_suffix'                               => __( 'Terms and Conditions', 'woocommerce-mercadopago' ),
+		);
+	}
 }

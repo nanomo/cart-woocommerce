@@ -4,7 +4,7 @@
  * Part of Woo Mercado Pago Module
  * Author - Mercado Pago
  * Developer
- * Copyright - Copyright(c) MercadoPago [https://www.mercadopago.com]
+ * Copyright - Copyright(c) MercadoPago [http://www.mercadopago.com]
  * License - https://www.gnu.org/licenses/gpl.html GPL version 2 or higher
  *
  * @package MercadoPago
@@ -16,10 +16,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 ?><tr valign="top">
 	<th scope="row" class="titledesc">
-		<label for="<?php echo esc_attr( $field_key ); ?>"><?php echo esc_html( $settings['title'] ); ?></label>
+		<label for="<?php echo esc_attr( $field_key ); ?>"><?php echo esc_html( $settings['title'] ); ?>
+		<?php if ( isset($settings['desc_tip']) ) { ?>
+			<span class="woocommerce-help-tip" data-tip="<?php echo esc_html( $settings['desc_tip'] ); ?>"></span>
+		<?php } ?>
+		</label>
+		<?php if ( $settings['subtitle'] ) { ?>
+		<p class="description mp-toggle-subtitle"><?php echo wp_kses_post( $settings['subtitle'] ); ?></p>
+		<?php } ?>
 	</th>
 	<td class="forminp">
-		<div>
+		<div class="mp-component-card">
 			<label class="mp-toggle">
 				<input class="mp-toggle-checkbox" type="checkbox" name="<?php echo esc_attr( $field_key ); ?>" value='yes' id="<?php echo esc_attr( $field_key ); ?>" <?php checked( $field_value, 'yes' ); ?>/>
 				<div class="mp-toggle-switch"></div>
@@ -29,5 +36,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 				</div>
 			</label>
 		</div>
+		<?php
+		if ( isset( $settings['after_toggle'] ) && $settings['after_toggle'] ) {
+			echo $settings['after_toggle']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		}
+		?>
 	</td>
 </tr>

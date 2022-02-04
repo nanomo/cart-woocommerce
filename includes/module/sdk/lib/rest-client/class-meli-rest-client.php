@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Class MeliRestClient
  */
-class Meli_Rest_Client extends Rest_Client_Abstract {
+class Meli_Rest_Client extends Mp_Rest_Client_Abstract {
 
 	const API_MELI_BASE_URL = 'https://api.mercadolibre.com';
 

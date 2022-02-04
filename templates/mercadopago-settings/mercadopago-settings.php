@@ -29,7 +29,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<div class="mp-settings-requirements">
 		<div class="mp-container">
 			<div class="mp-block mp-block-requirements mp-settings-margin-right">
-				<p class="mp-settings-font-color mp-settings-title-requirements-font-size"><?php echo esc_html($translation_header['title_requirements']); ?></p>
+				<p class="mp-settings-font-color mp-settings-title-font-size"><?php echo esc_html($translation_header['title_requirements']); ?></p>
 				<div class="mp-inner-container">
 					<div>
 						<p class="mp-settings-font-color mp-settings-subtitle-font-size"><?php echo esc_html($translation_header['ssl']); ?></p>

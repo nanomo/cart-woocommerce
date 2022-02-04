@@ -43,26 +43,30 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 	 * Load CSS
 	 */
 	public function load_admin_style() {
-		wp_register_style(
-			'mercadopago_settings_admin_css',
-			$this->get_url( '../../../assets/css/mercadopago-settings/mercadopago_settings', '.css' ),
-			false,
-			WC_WooMercadoPago_Constants::VERSION
-		);
-		wp_enqueue_style( 'mercadopago_settings_admin_css' );
+		if ( is_admin() && ( WC_WooMercadoPago_Helper_Current_Url::validate_page('mercadopago-settings') || WC_WooMercadoPago_Helper_Current_Url::validate_section('woo-mercado-pago') ) ) {
+			wp_register_style(
+				'mercadopago_settings_admin_css',
+				$this->get_url( '../../../assets/css/mercadopago-settings/mercadopago_settings', '.css' ),
+				false,
+				WC_WooMercadoPago_Constants::VERSION
+			);
+			wp_enqueue_style( 'mercadopago_settings_admin_css' );
+		}
 	}
 
 	/**
 	 * Load JavaScripts
 	 */
 	public function load_admin_scripts() {
-		wp_enqueue_script(
-			'mercadopago_settings_javascript',
-			$this->get_url( '../../../assets/js/mercadopago-settings/mercadopago_settings', '.js' ),
-			array(),
-			WC_WooMercadoPago_Constants::VERSION,
-			true
-		);
+		if ( is_admin() && ( WC_WooMercadoPago_Helper_Current_Url::validate_page('mercadopago-settings') || WC_WooMercadoPago_Helper_Current_Url::validate_section('woo-mercado-pago') ) ) {
+			wp_enqueue_script(
+				'mercadopago_settings_javascript',
+				$this->get_url( '../../../assets/js/mercadopago-settings/mercadopago_settings', '.js' ),
+				array(),
+				WC_WooMercadoPago_Constants::VERSION,
+				true
+			);
+		}
 	}
 
 	/**
@@ -383,6 +387,7 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 					update_option( WC_WooMercadoPago_Options::CREDENTIALS_ACCESS_TOKEN_PROD, $access_token_prod, true );
 					update_option( WC_WooMercadoPago_Options::CREDENTIALS_ACCESS_TOKEN_TEST, $access_token_test, true );
 					update_option( WC_WooMercadoPago_Options::CHECKOUT_COUNTRY, $me['site_id'], true );
+					update_option( WC_WooMercadoPago_Options::SITE_ID, $me['site_id'], true );
 
 					wp_send_json_success( __( 'Credentials were updated', 'woocommerce-mercadopago' ) );
 				}
@@ -485,9 +490,10 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 			$payments_gateways          = WC_WooMercadoPago_Constants::PAYMENT_GATEWAYS;
 			$payment_gateway_properties = array();
 			$wc_country                 = WC_WooMercadoPago_Module::get_woocommerce_default_country();
+			$payment_methods            = WC_WooMercadoPago_Configs::get_available_payment_methods();
 
 			foreach ( $payments_gateways as $payment_gateway ) {
-				if ( 'WC_WooMercadoPago_Pix_Gateway' === $payment_gateway && 'BR' !== $wc_country ) {
+				if ( ! in_array( $payment_gateway, $payment_methods, true ) ) {
 					continue;
 				}
 				$gateway = new $payment_gateway();

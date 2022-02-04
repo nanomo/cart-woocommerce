@@ -177,7 +177,7 @@ abstract class WC_WooMercadoPago_Preference_Abstract extends WC_Payment_Gateway 
 		$this->notification_class = get_class( $this->payment );
 		$this->sandbox            = $this->payment->is_test_user();
 		$this->test_user_v1       = get_option( '_test_user_v1', '' );
-		$this->site_id            = get_option( '_site_id_v1', '' );
+		$this->site_id            = strtolower(get_option( '_site_id_v1', '' ));
 		$this->site_data          = WC_WooMercadoPago_Module::$country_configs;
 		$this->order              = $order;
 		$this->checkout           = $request_checkout;
@@ -591,7 +591,7 @@ abstract class WC_WooMercadoPago_Preference_Abstract extends WC_Payment_Gateway 
 			'platform'         => WC_WooMercadoPago_Constants::PLATAFORM_ID,
 			'platform_version' => $w->version,
 			'module_version'   => WC_WooMercadoPago_Constants::VERSION,
-			'site_id'          => get_option( '_site_id_v1' ),
+			'site_id'          => strtolower(get_option( '_site_id_v1' )),
 			'sponsor_id'       => $this->get_sponsor_id(),
 			'collector'        => $seller,
 			'test_mode'        => $test_mode,

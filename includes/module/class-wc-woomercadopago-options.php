@@ -137,7 +137,7 @@ class WC_WooMercadoPago_Options {
 	public function get_checkout_country() {
 		$checkout_country = $this->checkout_country;
 
-		return $checkout_country;
+		return strtolower($checkout_country);
 	}
 
 	/**
@@ -245,7 +245,7 @@ class WC_WooMercadoPago_Options {
 	public function get_site_id() {
 		$site_id = $this->site_id;
 
-		return $site_id;
+		return strtolower($site_id);
 	}
 
 	/**

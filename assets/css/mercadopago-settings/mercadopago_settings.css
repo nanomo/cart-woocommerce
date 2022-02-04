@@ -89,10 +89,6 @@
 	font-size: 16px;
 	line-height: 20px;
 }
-.mp-settings-title-requirements-font-size {
-	font-size: 18px;
-	line-height: 22px;
-}
 .mp-settings-title-color {
 	color: rgba(0, 0, 0, 0.55);
 }
@@ -242,8 +238,8 @@
 	margin: 32px 0 32px;
 }
 .mp-settings-title-blocks {
-	font-size: 28px;
-	line-height: 35px;
+	font-size: 20px;
+	line-height: 25px;
 }
 .mp-settings-input {
 	width: 100%;
