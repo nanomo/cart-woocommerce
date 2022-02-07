@@ -325,14 +325,14 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 	 */
 	public function field_checkout_pix_card_info() {
 		$value = array(
-			'title'                 => __('Would you like to know how Pix works?', 'woocommerce-mercadopago'), __('Important! Do not forget to add the credentials and details of your store.' , 'woocommerce-mercadopago'),
+			'title'             => __('Would you like to know how Pix works?', 'woocommerce-mercadopago'), __('Important! Do not forget to add the credentials and details of your store.' , 'woocommerce-mercadopago'),
 			'subtitle'          => __('We have a dedicated page where we explain how it works and its advantages.', 'woocommerce-mercadopago'),
 			'button_text'       => __('Find out more about Pix', 'woocommerce-mercadopago'),
 			'button_url'        => 'https://www.mercadopago.com.br/pix/',
-			'icon'                  => 'mp-icon-badge-info',
+			'icon'              => 'mp-icon-badge-info',
 			'color_card'        => 'mp-alert-color-sucess',
 			'size_card'         => 'mp-card-body-size',
-			'target'                        => '_blank'
+			'target'            => '_blank'
 		);
 		return array(
 			'type'                  => 'mp_card_info',

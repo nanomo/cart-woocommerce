@@ -761,7 +761,7 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 			'icon'              => 'mp-icon-badge-warning',
 			'color_card'        => 'mp-alert-color-alert',
 			'size_card'         => 'mp-card-body-size',
-			'target'                        => '_self',
+			'target'            => '_self',
 		);
 
 		if ( ! empty( $this->checkout_country ) && ! empty( $this->get_access_token() ) && ! empty( $this->get_public_key() ) ) {
@@ -772,7 +772,7 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 				'button_url'        => admin_url( 'admin.php?page=mercadopago-settings' ),
 				'icon'              => 'mp-icon-badge-info',
 				'color_card'        => 'mp-alert-color-sucess',
-				'target'                        => '_self',
+				'target'            => '_self',
 			);
 		}
 
@@ -798,7 +798,7 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 			'icon'              => 'mp-icon-badge-warning',
 			'color_card'        => 'mp-alert-color-alert',
 			'size_card'         => 'mp-card-body-size-homolog',
-			'target'                        => '_blank'
+			'target'            => '_blank'
 		);
 
 		return array(
