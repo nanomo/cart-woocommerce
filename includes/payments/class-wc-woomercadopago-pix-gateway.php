@@ -331,7 +331,8 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 			'button_url'        => 'https://www.mercadopago.com.br/pix/',
 			'icon'                  => 'mp-icon-badge-info',
 			'color_card'        => 'mp-alert-color-sucess',
-			'size_card'         => 'mp-card-body-size'
+			'size_card'         => 'mp-card-body-size',
+			'target'                        => '_blank'
 		);
 		return array(
 			'type'                  => 'mp_card_info',
