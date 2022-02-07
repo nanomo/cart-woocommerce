@@ -703,7 +703,7 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 			'type'        => 'text',
 			'description' => __('Change the display text in Checkout, maximum characters: 85', 'woocommerce-mercadopago'),
 			'maxlength'   => 100,
-			'desc_tip'    => __( 'If you change the display text, no translation will be available', 'woocommerce-mercadopago' ),
+			'desc_tip'    => __( 'The text inserted here will not be translated to other languages', 'woocommerce-mercadopago' ),
 			'class'       => 'limit-title-max-length',
 			'default'     => $this->title,
 		);
