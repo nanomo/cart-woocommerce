@@ -659,10 +659,9 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 	/**
 	 * Get Mercado Pago form fields
 	 *
-	 * @param string $label label.
 	 * @return array
 	 */
-	public function get_form_mp_fields( $label ) {
+	public function get_form_mp_fields() {
 		$this->init_form_fields();
 		$this->init_settings();
 		$form_fields = array();
@@ -674,7 +673,7 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 					// @codingStandardsIgnoreLine
 					$form_fields['checkout_card_homolog'] = $this->field_checkout_card_homolog();
 				}
-				$form_fields['enabled']                                = $this->field_enabled( $label );
+				$form_fields['enabled']                                = $this->field_enabled();
 				$form_fields['title']                                  = $this->field_title();
 				$form_fields['description']                            = $this->field_description();
 				$form_fields['gateway_discount']                       = $this->field_gateway_discount();
@@ -836,23 +835,17 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 	/**
 	 * Field enabled
 	 *
-	 * @param string $label label.
 	 * @return array
 	 */
-	public function field_enabled( $label ) {
-		$title_enable = __( 'Activate checkout', 'woocommerce-mercadopago' );
-		if ( 'Pix' === $label ) {
-			$title_enable = __( 'Enable or inactivate the payments via Pix', 'woocommerce-mercadopago' );
-		}
-
+	public function field_enabled() {
 		return array(
-			'title'       => $title_enable,
-			'subtitle'    => __( 'By disabling it, you will disable all Mercado Pago Transparent Checkout payment methods.', 'woocommerce-mercadopago' ),
+			'title'       => __( 'Enable the checkout', 'woocommerce-mercadopago' ),
+			'subtitle'    => __( 'By disabling it, you will disable all payment methods of this checkout.', 'woocommerce-mercadopago' ),
 			'type'        => 'mp_toggle_switch',
 			'default'     => 'no',
 			'descriptions' => array(
-				'enabled' => __( 'This checkout is <b>enabled</b>.', 'woocommerce-mercadopago' ),
-				'disabled' => __( 'This checkout is <b>disabled</b>.', 'woocommerce-mercadopago' ),
+				'enabled' => __( 'The checkout is <b>enabled</b>.', 'woocommerce-mercadopago' ),
+				'disabled' => __( 'The checkout is <b>disabled</b>.', 'woocommerce-mercadopago' ),
 			),
 		);
 	}
