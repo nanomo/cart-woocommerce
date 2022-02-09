@@ -771,6 +771,7 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 				'button_url'        => admin_url( 'admin.php?page=mercadopago-settings' ),
 				'icon'              => 'mp-icon-badge-info',
 				'color_card'        => 'mp-alert-color-sucess',
+				'size_card'         => 'mp-card-body-size',
 				'target'            => '_self',
 			);
 		}
