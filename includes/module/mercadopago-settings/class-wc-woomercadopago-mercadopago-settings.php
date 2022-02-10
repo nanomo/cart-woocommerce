@@ -486,8 +486,8 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 	}
 
 	/**
- 	* Update Credentials for production
- 	*/
+	* Update Credentials for production
+	*/
 	public function update_credential_production() {
 
 		foreach ( WC_WooMercadoPago_Constants::PAYMENT_GATEWAYS as $gateway ) {
@@ -507,8 +507,8 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 	}
 
 	/**
- 	* Get payment class properties
- 	*/
+	* Get payment class properties
+	*/
 	public function mp_get_payment_class_properties() {
 		try {
 			$payments_gateways          = WC_WooMercadoPago_Constants::PAYMENT_GATEWAYS;
