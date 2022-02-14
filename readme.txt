@@ -138,6 +138,7 @@ Check out our <a href="https://www.mercadopago.com.br/developers/pt/plugins_sdks
 - Redesign Admin
 - Performance improvements
 - Added research in the Mercado Pago plugin configuration pages
+
 * Bug fixes
 - Adjusted the css of payment ticket images and text
 
