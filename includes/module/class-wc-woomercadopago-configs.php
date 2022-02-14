@@ -57,7 +57,7 @@ class WC_WooMercadoPago_Configs {
 				$this->update_token();
 			}
 		}
-		if ( empty( strtolower(get_option( '_site_id_v1' )) ) || empty( get_option( '_collector_id_v1' ) ) ) {
+		if ( empty( strtolower( get_option( '_site_id_v1' ) ) ) || empty( get_option( '_collector_id_v1' ) ) ) {
 			WC_WooMercadoPago_Credentials::validate_credentials_v1();
 		}
 
@@ -171,7 +171,7 @@ class WC_WooMercadoPago_Configs {
 	 * Saved Cards Notice
 	 *
 	 * @return false
-	*/
+	 */
 	public function saved_cards_notice() {
 		if ( $this->must_not_show_saved_cards_notice() ) {
 			return false;
@@ -300,57 +300,57 @@ class WC_WooMercadoPago_Configs {
 	public function get_categories() {
 		return array(
 			'store_categories_id'          =>
-			array(
-				'art',
-				'baby',
-				'coupons',
-				'donations',
-				'computing',
-				'cameras',
-				'video games',
-				'television',
-				'car electronics',
-				'electronics',
-				'automotive',
-				'entertainment',
-				'fashion',
-				'games',
-				'home',
-				'musical',
-				'phones',
-				'services',
-				'learnings',
-				'tickets',
-				'travels',
-				'virtual goods',
-				'others',
-			),
+				array(
+					'art',
+					'baby',
+					'coupons',
+					'donations',
+					'computing',
+					'cameras',
+					'video games',
+					'television',
+					'car electronics',
+					'electronics',
+					'automotive',
+					'entertainment',
+					'fashion',
+					'games',
+					'home',
+					'musical',
+					'phones',
+					'services',
+					'learnings',
+					'tickets',
+					'travels',
+					'virtual goods',
+					'others',
+				),
 			'store_categories_description' =>
-			array(
-				'Collectibles & Art',
-				'Toys for Baby, Stroller, Stroller Accessories, Car Safety Seats',
-				'Coupons',
-				'Donations',
-				'Computers & Tablets',
-				'Cameras & Photography',
-				'Video Games & Consoles',
-				'LCD, LED, Smart TV, Plasmas, TVs',
-				'Car Audio, Car Alarm Systems & Security, Car DVRs, Car Video Players, Car PC',
-				'Audio & Surveillance, Video & GPS, Others',
-				'Parts & Accessories',
-				'Music, Movies & Series, Books, Magazines & Comics, Board Games & Toys',
-				"Men's, Women's, Kids & baby, Handbags & Accessories, Health & Beauty, Shoes, Jewelry & Watches",
-				'Online Games & Credits',
-				'Home appliances. Home & Garden',
-				'Instruments & Gear',
-				'Cell Phones & Accessories',
-				'General services',
-				'Trainings, Conferences, Workshops',
-				'Tickets for Concerts, Sports, Arts, Theater, Family, Excursions tickets, Events & more',
-				'Plane tickets, Hotel vouchers, Travel vouchers',
-				'E-books, Music Files, Software, Digital Images,  PDF Files and any item which can be electronically stored in a file, Mobile Recharge, DTH Recharge and any Online Recharge',
-				'Other categories',
-			),
+				array(
+					'Collectibles & Art',
+					'Toys for Baby, Stroller, Stroller Accessories, Car Safety Seats',
+					'Coupons',
+					'Donations',
+					'Computers & Tablets',
+					'Cameras & Photography',
+					'Video Games & Consoles',
+					'LCD, LED, Smart TV, Plasmas, TVs',
+					'Car Audio, Car Alarm Systems & Security, Car DVRs, Car Video Players, Car PC',
+					'Audio & Surveillance, Video & GPS, Others',
+					'Parts & Accessories',
+					'Music, Movies & Series, Books, Magazines & Comics, Board Games & Toys',
+					"Men's, Women's, Kids & baby, Handbags & Accessories, Health & Beauty, Shoes, Jewelry & Watches",
+					'Online Games & Credits',
+					'Home appliances. Home & Garden',
+					'Instruments & Gear',
+					'Cell Phones & Accessories',
+					'General services',
+					'Trainings, Conferences, Workshops',
+					'Tickets for Concerts, Sports, Arts, Theater, Family, Excursions tickets, Events & more',
+					'Plane tickets, Hotel vouchers, Travel vouchers',
+					'E-books, Music Files, Software, Digital Images,  PDF Files and any item which can be electronically stored in a file, Mobile Recharge, DTH Recharge and any Online Recharge',
+					'Other categories',
+				),
 		);
 	}
 
@@ -358,6 +358,7 @@ class WC_WooMercadoPago_Configs {
 	 * Set payment
 	 *
 	 * @param array|null $methods Methods.
+	 *
 	 * @return array
 	 */
 	public function set_payment_gateway( $methods = null ) {
@@ -365,27 +366,28 @@ class WC_WooMercadoPago_Configs {
 		if ( ! empty( $wp ) && isset( $wp->query_vars['wc-api'] ) ) {
 			$api_request = wc_clean( $wp->query_vars['wc-api'] );
 			if ( ! empty( $api_request ) && in_array(
-				strtolower( $api_request ),
-				array(
-					'wc_woomercadopago_basic_gateway',
-					'wc_woomercadopago_custom_gateway',
-					'wc_woomercadopago_ticket_gateway',
-					'wc_woomercadopago_pix_gateway',
-					'wc_woomercadopago_basicgateway',
-					'wc_woomercadopago_customgateway',
-					'wc_woomercadopago_ticketgateway',
-				),
-				true
-			) ) {
+					strtolower( $api_request ),
+					array(
+						'wc_woomercadopago_basic_gateway',
+						'wc_woomercadopago_custom_gateway',
+						'wc_woomercadopago_ticket_gateway',
+						'wc_woomercadopago_pix_gateway',
+						'wc_woomercadopago_basicgateway',
+						'wc_woomercadopago_customgateway',
+						'wc_woomercadopago_ticketgateway',
+					),
+					true
+				) ) {
 				if ( ! preg_match( '/(_gateway)/i', $api_request ) ) {
 					$api_request = preg_replace( '/gateway/i', '_Gateway', $api_request );
 				}
 				$methods[] = $api_request;
 			}
+
 			return $methods;
 		}
 
-		return $this->get_available_payment_methods($methods);
+		return $this->get_available_payment_methods( $methods );
 	}
 
 	/**
@@ -395,9 +397,9 @@ class WC_WooMercadoPago_Configs {
 	 *
 	 * @return array
 	 */
-	public function get_available_payment_methods($methods) {
+	public function get_available_payment_methods( $methods ) {
 		$wc_country = WC_WooMercadoPago_Module::get_woocommerce_default_country();
-		$site_id    = strtolower(get_option( '_site_id_v1', '' ));
+		$site_id    = strtolower( get_option( '_site_id_v1', '' ) );
 
 		$methods[] = 'WC_WooMercadoPago_Basic_Gateway';
 		$methods[] = 'WC_WooMercadoPago_Custom_Gateway';
