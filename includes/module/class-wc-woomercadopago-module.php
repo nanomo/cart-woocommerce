@@ -227,8 +227,10 @@ class WC_WooMercadoPago_Module extends WC_WooMercadoPago_Configs {
 	 * @return void
 	 */
 	public function load_helpers() {
+		include_once dirname( __FILE__ ) . '/../helpers/class-wc-woomercadopago-helper-current-url.php';
 		include_once dirname( __FILE__ ) . '/../helpers/class-wc-woomercadopago-helpers-currencyconverter.php';
 		include_once dirname( __FILE__ ) . '/../helpers/class-wc-woomercadopago-composite-id-helper.php';
+		include_once dirname( __FILE__ ) . '/../helpers/class-wc-woomercadopago-helper-links.php';
 	}
 
 	/**
@@ -297,12 +299,19 @@ class WC_WooMercadoPago_Module extends WC_WooMercadoPago_Configs {
 	 * @return void
 	 */
 	public function load_admin_css() {
-		if ( is_admin() ) {
+		if ( is_admin() && ( WC_WooMercadoPago_Helper_Current_Url::validate_page('mercadopago-settings') || WC_WooMercadoPago_Helper_Current_Url::validate_section('woo-mercado-pago') ) ) {
 			$suffix = $this->get_suffix();
 
 			wp_enqueue_style(
 				'woocommerce-mercadopago-basic-config-styles',
 				plugins_url( '../assets/css/config_mercadopago' . $suffix . '.css', plugin_dir_path( __FILE__ ) ),
+				array(),
+				WC_WooMercadoPago_Constants::VERSION
+			);
+
+			wp_enqueue_style(
+				'woocommerce-mercadopago-components',
+				plugins_url( '../assets/css/components_mercadopago' . $suffix . '.css', plugin_dir_path( __FILE__ ) ),
 				array(),
 				WC_WooMercadoPago_Constants::VERSION
 			);
@@ -369,10 +378,9 @@ class WC_WooMercadoPago_Module extends WC_WooMercadoPago_Configs {
 	public function woomercadopago_settings_link( $links ) {
 		$links_mp       = self::define_link_country();
 		$plugin_links   = array();
-		$plugin_links[] = '<a href="' . admin_url( 'admin.php?page=wc-settings&tab=checkout' ) . '">' . __( 'Set up', 'woocommerce-mercadopago' ) . '</a>';
-		$plugin_links[] = '<a target="_blank" href="https://wordpress.org/support/plugin/woocommerce-mercadopago/reviews/?rate=5#new-post">' . __( 'Your opinion helps us get better', 'woocommerce-mercadopago' ) . '</a>';
-		$plugin_links[] = '<br><a target="_blank" href="https://www.mercadopago.' . $links_mp['sufix_url'] . 'developers/' . $links_mp['translate'] . '/guides/plugins/woocommerce/introduction/">' . __( 'Guides and Documentation', 'woocommerce-mercadopago' ) . '</a>';
-		$plugin_links[] = '<a target="_blank" href="https://www.mercadopago.' . $links_mp['sufix_url'] . $links_mp['help'] . '">' . __( 'Report Problem', 'woocommerce-mercadopago' ) . '</a>';
+		$plugin_links[] = '<a href="' . admin_url( 'admin.php?page=mercadopago-settings' ) . '">' . __( 'Set plugin', 'woocommerce-mercadopago' ) . '</a>';
+		$plugin_links[] = '<a target="_blank" href="' . admin_url( 'admin.php?page=wc-settings&tab=checkout' ) . '">' . __( 'Payment methods', 'woocommerce-mercadopago' ) . '</a>';
+		$plugin_links[] = '<br><a target="_blank" href="https://www.mercadopago.' . $links_mp['sufix_url'] . 'developers/' . $links_mp['translate'] . '/guides/plugins/woocommerce/introduction/">' . __( 'Plugin manual', 'woocommerce-mercadopago' ) . '</a>';
 		return array_merge( $plugin_links, $links );
 	}
 
@@ -390,42 +398,50 @@ class WC_WooMercadoPago_Module extends WC_WooMercadoPago_Configs {
 				'sufix_url' => 'com.ar/',
 				'translate' => 'es',
 				'term_conditition' => '/terminos-y-politicas_194',
+				'site_id_mp' => 'mla',
+
 			),
 			'BR' => array( // Brazil.
 				'help'      => 'ajuda',
 				'sufix_url' => 'com.br/',
 				'translate' => 'pt',
 				'term_conditition' => '/termos-e-politicas_194',
+				'site_id_mp' => 'mlb',
 			),
 			'CL' => array( // Chile.
 				'help'      => 'ayuda',
 				'sufix_url' => 'cl/',
 				'translate' => 'es',
 				'term_conditition' => '/terminos-y-politicas_194',
+				'site_id_mp' => 'mlc',
 			),
 			'CO' => array( // Colombia.
 				'help'      => 'ayuda',
 				'sufix_url' => 'com.co/',
 				'translate' => 'es',
 				'term_conditition' => '/terminos-y-politicas_194',
+				'site_id_mp' => 'mco',
 			),
 			'MX' => array( // Mexico.
 				'help'      => 'ayuda',
 				'sufix_url' => 'com.mx/',
 				'translate' => 'es',
 				'term_conditition' => '/terminos-y-politicas_194',
+				'site_id_mp' => 'mlm',
 			),
 			'PE' => array( // Peru.
 				'help'      => 'ayuda',
 				'sufix_url' => 'com.pe/',
 				'translate' => 'es',
 				'term_conditition' => '/terminos-y-politicas_194',
+				'site_id_mp' => 'mpe',
 			),
 			'UY' => array( // Uruguay.
 				'help'      => 'ayuda',
 				'sufix_url' => 'com.uy/',
 				'translate' => 'es',
 				'term_conditition' => '/terminos-y-politicas_194',
+				'site_id_mp' => 'mlu',
 			),
 		);
 
@@ -461,9 +477,9 @@ class WC_WooMercadoPago_Module extends WC_WooMercadoPago_Configs {
 		$link_prefix_mp = 'https://www.mercadopago.';
 
 	return array (
-		'text_prefix'                           => __( 'By continuing, you agree to our ', 'woocommerce-mercadopago' ),
+		'text_prefix'               => __( 'By continuing, you agree to our ', 'woocommerce-mercadopago' ),
 		'link_terms_and_conditions' => $link_prefix_mp . $links_mp['sufix_url'] . $links_mp['help'] . $links_mp['term_conditition'],
-		'text_suffix'                               => __( 'Terms and Conditions', 'woocommerce-mercadopago' ),
+		'text_suffix'               => __( 'Terms and Conditions', 'woocommerce-mercadopago' ),
 	);
 
 	}
@@ -581,7 +597,7 @@ class WC_WooMercadoPago_Module extends WC_WooMercadoPago_Configs {
 	 * @return array with the information.
 	 */
 	public static function get_site_data() {
-		$site_id = get_option( '_site_id_v1', '' );
+		$site_id = strtolower(get_option( '_site_id_v1', '' ));
 		if ( isset( $site_id ) && ! empty( $site_id ) ) {
 			return self::$country_configs[ $site_id ];
 		} else {
@@ -640,21 +656,21 @@ class WC_WooMercadoPago_Module extends WC_WooMercadoPago_Configs {
 	 */
 	public static function get_country_name( $site_id ) {
 		switch ( $site_id ) {
-			case 'MCO':
+			case 'mco':
 				return __( 'Colombia', 'woocommerce-mercadopago' );
-			case 'MLA':
+			case 'mla':
 				return __( 'Argentina', 'woocommerce-mercadopago' );
-			case 'MLB':
+			case 'mlb':
 				return __( 'Brazil', 'woocommerce-mercadopago' );
-			case 'MLC':
+			case 'mlc':
 				return __( 'Chile', 'woocommerce-mercadopago' );
-			case 'MLM':
+			case 'mlm':
 				return __( 'Mexico', 'woocommerce-mercadopago' );
-			case 'MLU':
+			case 'mlu':
 				return __( 'Uruguay', 'woocommerce-mercadopago' );
-			case 'MLV':
+			case 'mlv':
 				return __( 'Venezuela', 'woocommerce-mercadopago' );
-			case 'MPE':
+			case 'mpe':
 				return __( 'Peru', 'woocommerce-mercadopago' );
 		}
 		return '';

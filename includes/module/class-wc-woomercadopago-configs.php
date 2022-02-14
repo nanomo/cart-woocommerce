@@ -57,7 +57,7 @@ class WC_WooMercadoPago_Configs {
 				$this->update_token();
 			}
 		}
-		if ( empty( get_option( '_site_id_v1' ) ) || empty( get_option( '_collector_id_v1' ) ) ) {
+		if ( empty( strtolower(get_option( '_site_id_v1' )) ) || empty( get_option( '_collector_id_v1' ) ) ) {
 			WC_WooMercadoPago_Credentials::validate_credentials_v1();
 		}
 
@@ -217,8 +217,8 @@ class WC_WooMercadoPago_Configs {
 	 */
 	public static function get_country_configs() {
 		return array(
-			'MCO' => array(
-				'site_id'                => 'MCO',
+			'mco' => array(
+				'site_id'                => 'mco',
 				'sponsor_id'             => 208687643,
 				'checkout_banner'        => plugins_url( '../../assets/images/MCO/standard_mco.jpg', __FILE__ ),
 				'checkout_banner_custom' => plugins_url( '../../assets/images/MCO/credit_card.png', __FILE__ ),
@@ -226,8 +226,8 @@ class WC_WooMercadoPago_Configs {
 				'zip_code'               => '110111',
 				'currency_symbol'        => '$',
 			),
-			'MLA' => array(
-				'site_id'                => 'MLA',
+			'mla' => array(
+				'site_id'                => 'mla',
 				'sponsor_id'             => 208682286,
 				'checkout_banner'        => plugins_url( '../../assets/images/MLA/standard_mla.jpg', __FILE__ ),
 				'checkout_banner_custom' => plugins_url( '../../assets/images/MLA/credit_card.png', __FILE__ ),
@@ -235,8 +235,8 @@ class WC_WooMercadoPago_Configs {
 				'zip_code'               => '3039',
 				'currency_symbol'        => '$',
 			),
-			'MLB' => array(
-				'site_id'                => 'MLB',
+			'mlb' => array(
+				'site_id'                => 'mlb',
 				'sponsor_id'             => 208686191,
 				'checkout_banner'        => plugins_url( '../../assets/images/MLB/standard_mlb.jpg', __FILE__ ),
 				'checkout_banner_custom' => plugins_url( '../../assets/images/MLB/credit_card.png', __FILE__ ),
@@ -244,8 +244,8 @@ class WC_WooMercadoPago_Configs {
 				'zip_code'               => '01310924',
 				'currency_symbol'        => 'R$',
 			),
-			'MLC' => array(
-				'site_id'                => 'MLC',
+			'mlc' => array(
+				'site_id'                => 'mlc',
 				'sponsor_id'             => 208690789,
 				'checkout_banner'        => plugins_url( '../../assets/images/MLC/standard_mlc.gif', __FILE__ ),
 				'checkout_banner_custom' => plugins_url( '../../assets/images/MLC/credit_card.png', __FILE__ ),
@@ -253,8 +253,8 @@ class WC_WooMercadoPago_Configs {
 				'zip_code'               => '7591538',
 				'currency_symbol'        => '$',
 			),
-			'MLM' => array(
-				'site_id'                => 'MLM',
+			'mlm' => array(
+				'site_id'                => 'mlm',
 				'sponsor_id'             => 208692380,
 				'checkout_banner'        => plugins_url( '../../assets/images/MLM/standard_mlm.jpg', __FILE__ ),
 				'checkout_banner_custom' => plugins_url( '../../assets/images/MLM/credit_card.png', __FILE__ ),
@@ -262,8 +262,8 @@ class WC_WooMercadoPago_Configs {
 				'zip_code'               => '11250',
 				'currency_symbol'        => '$',
 			),
-			'MLU' => array(
-				'site_id'                => 'MLU',
+			'mlu' => array(
+				'site_id'                => 'mlu',
 				'sponsor_id'             => 243692679,
 				'checkout_banner'        => plugins_url( '../../assets/images/MLU/standard_mlu.png', __FILE__ ),
 				'checkout_banner_custom' => plugins_url( '../../assets/images/MLU/credit_card.png', __FILE__ ),
@@ -271,8 +271,8 @@ class WC_WooMercadoPago_Configs {
 				'zip_code'               => '11800',
 				'currency_symbol'        => '$',
 			),
-			'MLV' => array(
-				'site_id'                => 'MLV',
+			'mlv' => array(
+				'site_id'                => 'mlv',
 				'sponsor_id'             => 208692735,
 				'checkout_banner'        => plugins_url( '../../assets/images/MLV/standard_mlv.jpg', __FILE__ ),
 				'checkout_banner_custom' => plugins_url( '../../assets/images/MLV/credit_card.png', __FILE__ ),
@@ -280,8 +280,8 @@ class WC_WooMercadoPago_Configs {
 				'zip_code'               => '1160',
 				'currency_symbol'        => '$',
 			),
-			'MPE' => array(
-				'site_id'                => 'MPE',
+			'mpe' => array(
+				'site_id'                => 'mpe',
 				'sponsor_id'             => 216998692,
 				'checkout_banner'        => plugins_url( '../../assets/images/MPE/standard_mpe.png', __FILE__ ),
 				'checkout_banner_custom' => plugins_url( '../../assets/images/MPE/credit_card.png', __FILE__ ),
@@ -385,16 +385,27 @@ class WC_WooMercadoPago_Configs {
 			return $methods;
 		}
 
+		return $this->get_available_payment_methods();
+	}
+
+	/**
+	 * Get available payment methods
+	 *
+	 * @return array
+	 */
+	public function get_available_payment_methods() {
 		$wc_country = WC_WooMercadoPago_Module::get_woocommerce_default_country();
-		$site_id    = get_option( '_site_id_v1', '' );
+		$site_id    = strtolower(get_option( '_site_id_v1', '' ));
 
 		$methods[] = 'WC_WooMercadoPago_Basic_Gateway';
 		$methods[] = 'WC_WooMercadoPago_Custom_Gateway';
 		$methods[] = 'WC_WooMercadoPago_Ticket_Gateway';
-		if ( ( 'BR' === $wc_country && '' === $site_id ) || ( 'MLB' === $site_id ) ) {
+
+		if ( ( 'BR' === $wc_country && '' === $site_id ) || ( 'mlb' === $site_id ) ) {
 			$methods[] = 'WC_WooMercadoPago_Pix_Gateway';
 		}
 
 		return $methods;
 	}
+
 }
