@@ -27,27 +27,28 @@ class WC_WooMercadoPago_Ticket_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 	 */
 	public function __construct() {
 		$this->id          = self::ID;
-		$this->description = __( 'Accept cash payments within the custom checkout and expand your customers purchase options.', 'woocommerce-mercadopago' );
-		$this->title       = __( 'Pay with cash', 'woocommerce-mercadopago' );
+		$this->description = __( 'Transparent Checkout in your store environment', 'woocommerce-mercadopago' );
+		$this->title       = __( 'Invoice', 'woocommerce-mercadopago' );
+		$this->mp_options  = $this->get_mp_options();
 
 		if ( ! $this->validate_section() ) {
 			return;
 		}
 
 		$this->form_fields        = array();
-		$this->method_title       = __( 'Mercado Pago - Custom Checkout', 'woocommerce-mercadopago' );
-		$this->title              = $this->get_option_mp( 'title', __( 'Pay with cash', 'woocommerce-mercadopago' ) );
+		$this->method_title       = __( 'Mercado pago - Customized Checkout', 'woocommerce-mercadopago' );
+		$this->title              = $this->get_option( 'title', __( 'Invoice', 'woocommerce-mercadopago' ) );
 		$this->method_description = $this->description;
-		$this->coupon_mode        = $this->get_option_mp( 'coupon_mode', 'no' );
-		$this->stock_reduce_mode  = $this->get_option_mp( 'stock_reduce_mode', 'no' );
-		$this->date_expiration    = (int) $this->get_option_mp( 'date_expiration', 3 );
-		$this->type_payments      = $this->get_option_mp( 'type_payments', 'no' );
+		$this->coupon_mode        = $this->get_option( 'coupon_mode', 'no' );
+		$this->stock_reduce_mode  = $this->get_option( 'stock_reduce_mode', 'no' );
+		$this->date_expiration    = (int) $this->get_option( 'date_expiration', 3 );
+		$this->type_payments      = $this->get_option( 'type_payments', 'no' );
 		$this->payment_type       = 'ticket';
 		$this->checkout_type      = 'custom';
 		$this->activated_payment  = $this->get_activated_payment();
 		$this->field_forms_order  = $this->get_fields_sequence();
 		parent::__construct();
-		$this->form_fields         = $this->get_form_mp_fields( 'Ticket' );
+		$this->form_fields         = $this->get_form_mp_fields();
 		$this->hook                = new WC_WooMercadoPago_Hook_Ticket( $this );
 		$this->notification        = new WC_WooMercadoPago_Notification_Webhook( $this );
 		$this->currency_convertion = true;
@@ -59,8 +60,8 @@ class WC_WooMercadoPago_Ticket_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 	 * @param string $label Label.
 	 * @return array
 	 */
-	public function get_form_mp_fields( $label ) {
-		if ( is_admin() && $this->is_manage_section() ) {
+	public function get_form_mp_fields() {
+		if ( is_admin() && $this->is_manage_section() && ( WC_WooMercadoPago_Helper_Current_Url::validate_page('mercadopago-settings') || WC_WooMercadoPago_Helper_Current_Url::validate_section('woo-mercado-pago') ) ) {
 			$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 			wp_enqueue_script(
 				'woocommerce-mercadopago-ticket-config-script',
@@ -86,22 +87,17 @@ class WC_WooMercadoPago_Ticket_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 			$this->field_forms_order = array_slice( $this->field_forms_order, 0, 22 );
 		}
 
-		$form_fields                           = array();
-		$form_fields['checkout_ticket_header'] = $this->field_checkout_ticket_header();
+		$form_fields = array();
 		if ( ! empty( $this->checkout_country ) && ! empty( $this->get_access_token() ) && ! empty( $this->get_public_key() ) ) {
-			$form_fields['checkout_ticket_options_title']           = $this->field_checkout_ticket_options_title();
-			$form_fields['checkout_ticket_payments_title']          = $this->field_checkout_ticket_payments_title();
-			$form_fields['checkout_ticket_payments_description']    = $this->field_checkout_ticket_options_description();
+			$form_fields['checkout_ticket_header']                  = $this->field_checkout_ticket_header();
 			$form_fields['checkout_ticket_payments_advanced_title'] = $this->field_checkout_ticket_payments_advanced_title();
 			$form_fields['coupon_mode']                             = $this->field_coupon_mode();
 			$form_fields['stock_reduce_mode']                       = $this->field_stock_reduce_mode();
 			$form_fields['date_expiration']                         = $this->field_date_expiration();
-			foreach ( $this->field_ticket_payments() as $key => $value ) {
-				$form_fields[ $key ] = $value;
-			}
+			$form_fields['field_ticket_payments']                   = $this->field_ticket_payments();
 		}
 
-		$form_fields_abs = parent::get_form_mp_fields( $label );
+		$form_fields_abs = parent::get_form_mp_fields();
 		if ( 1 === count( $form_fields_abs ) ) {
 			return $form_fields_abs;
 		}
@@ -122,49 +118,10 @@ class WC_WooMercadoPago_Ticket_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 			'description',
 			// Checkout de pagos con dinero en efectivo<br> Aceptá pagos al instante y maximizá la conversión de tu negocio.
 			'checkout_ticket_header',
-			'checkout_steps',
-			// ¿En qué país vas a activar tu tienda?
-			'checkout_country_title',
-			'checkout_country',
-			'checkout_btn_save',
-			// Carga tus credenciales.
-			'checkout_credential_title',
-			'checkout_credential_link',
-			'checkout_credential_title_prod',
-			'checkout_credential_description_prod',
-			'_mp_public_key_prod',
-			'_mp_access_token_prod',
-			'checkout_credential_title_test',
-			'checkout_credential_description_test',
-			'_mp_public_key_test',
-			'_mp_access_token_test',
-			'checkout_mode_title',
-			'checkout_subtitle_checkout_mode',
-			'checkbox_checkout_test_mode',
-			'checkbox_checkout_production_mode',
-			'checkout_mode_alert',
-			// Everything ready for the takeoff of your sales?
-			'checkout_ready_title',
-			'checkout_ready_description',
-			'checkout_ready_description_link',
 			// No olvides de homologar tu cuenta.
-			'checkout_homolog_title',
-			'checkout_homolog_subtitle',
-			'checkout_homolog_link',
-			// Set up the payment experience in your store.
-			'checkout_ticket_options_title',
-			'mp_statement_descriptor',
-			'_mp_category_id',
-			'_mp_store_identificator',
-			'_mp_integrator_id',
-			// Advanced settings.
-			'checkout_advanced_settings',
-			'_mp_debug_mode',
-			'_mp_custom_domain',
+			'checkout_card_homolog',
 			// Configure the personalized payment experience in your store.
-			'checkout_ticket_payments_title',
-			'checkout_payments_subtitle',
-			'checkout_ticket_payments_description',
+			'checkout_card_validate',
 			'enabled',
 			'title',
 			WC_WooMercadoPago_Helpers_CurrencyConverter::CONFIG_KEY,
@@ -177,11 +134,6 @@ class WC_WooMercadoPago_Ticket_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 			'stock_reduce_mode',
 			'gateway_discount',
 			'commission',
-			// Support session.
-			'checkout_support_title',
-			'checkout_support_description',
-			'checkout_support_description_link',
-			'checkout_support_problem',
 		);
 	}
 
@@ -213,6 +165,24 @@ class WC_WooMercadoPago_Ticket_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 	}
 
 	/**
+	 * Field enabled
+	 *
+	 * @return array
+	 */
+	public function field_enabled() {
+		return array(
+			'title'       => __( 'Enable the checkout', 'woocommerce-mercadopago' ),
+			'subtitle'    => __( 'By disabling it, you will disable all invoice payments from Mercado Pago Transparent Checkout.', 'woocommerce-mercadopago' ),
+			'type'        => 'mp_toggle_switch',
+			'default'     => 'no',
+			'descriptions' => array(
+				'enabled' => __( 'The transparent checkout for tickets is <b>enabled</b>.', 'woocommerce-mercadopago' ),
+				'disabled' => __( 'The transparent checkout for tickets is <b>disabled</b>.', 'woocommerce-mercadopago' ),
+			),
+		);
+	}
+
+	/**
 	 * Field checkout ticket header
 	 *
 	 * @return array
@@ -220,60 +190,19 @@ class WC_WooMercadoPago_Ticket_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 	public function field_checkout_ticket_header() {
 		return array(
 			'title' => sprintf(
-				/* translators: %s checkout */
-				__( 'Checkout of payments with cash %s', 'woocommerce-mercadopago' ),
 				'<div class="mp-row">
                 <div class="mp-col-md-12 mp_subtitle_header">
-                ' . __( 'Accept face-to-face payments, do not leave anyone out!', 'woocommerce-mercadopago' ) . '
+                ' . __( 'Transparent Checkout | Invoice or Loterica', 'woocommerce-mercadopago' ) . '
                  </div>
               <div class="mp-col-md-12">
                 <p class="mp-text-checkout-body mp-mb-0">
-                  ' . __( 'Include this preferred purchase option by some customers.', 'woocommerce-mercadopago' ) . '
+                  ' . __( 'With the Transparent Checkout, you can sell inside your store environment, without redirection and all the safety from Mercado Pago.', 'woocommerce-mercadopago' ) . '
                 </p>
               </div>
             </div>'
 			),
 			'type'  => 'title',
 			'class' => 'mp_title_header',
-		);
-	}
-
-	/**
-	 * Field checkout ticket options title
-	 *
-	 * @return array
-	 */
-	public function field_checkout_ticket_options_title() {
-		return array(
-			'title' => __( 'Configure Mercado Pago for WooCommerce', 'woocommerce-mercadopago' ),
-			'type'  => 'title',
-			'class' => 'mp_title_bd',
-		);
-	}
-
-	/**
-	 * Field checkout ticket options description
-	 *
-	 * @return array
-	 */
-	public function field_checkout_ticket_options_description() {
-		return array(
-			'title' => __( 'Enable Mercado Pago for cash payments in your store and <br> select the options available to your customers.', 'woocommerce-mercadopago' ),
-			'type'  => 'title',
-			'class' => 'mp_small_text',
-		);
-	}
-
-	/**
-	 * Field checkout ticket payments
-	 *
-	 * @return array
-	 */
-	public function field_checkout_ticket_payments_title() {
-		return array(
-			'title' => __( 'Set payment preferences with cash', 'woocommerce-mercadopago' ),
-			'type'  => 'title',
-			'class' => 'mp_title_bd',
 		);
 	}
 
@@ -298,12 +227,12 @@ class WC_WooMercadoPago_Ticket_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 	public function field_stock_reduce_mode() {
 		return array(
 			'title'       => __( 'Reduce inventory', 'woocommerce-mercadopago' ),
-			'type'        => 'select',
+			'type'        => 'mp_toggle_switch',
 			'default'     => 'no',
-			'description' => __( 'Activates inventory reduction during the creation of an order, whether or not the final payment is credited. Disable this option to reduce it only when payments are approved.', 'woocommerce-mercadopago' ),
-			'options'     => array(
-				'no'  => __( 'No', 'woocommerce-mercadopago' ),
-				'yes' => __( 'Yes', 'woocommerce-mercadopago' ),
+			'subtitle' => __( 'Activates inventory reduction during the creation of an order, whether or not the final payment is credited. Disable this option to reduce it only when payments are approved.', 'woocommerce-mercadopago' ),
+			'descriptions' => array(
+				'enabled' => __( 'Reduce inventory is <b>enabled</b>.', 'woocommerce-mercadopago' ),
+				'disabled' => __( 'Reduce inventory is <b>disabled</b>.', 'woocommerce-mercadopago' ),
 			),
 		);
 	}
@@ -323,14 +252,11 @@ class WC_WooMercadoPago_Ticket_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 	}
 
 	/**
-	 * Fielf ticket payments
+	 * Field ticket payments
 	 *
 	 * @return array
 	 */
 	public function field_ticket_payments() {
-		$ticket_payments      = array();
-		$ticket_payments_sort = array();
-
 		$get_payment_methods_ticket = get_option( '_all_payment_methods_ticket', '[]' );
 
 		$count_payment = 0;
@@ -339,43 +265,30 @@ class WC_WooMercadoPago_Ticket_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 			$get_payment_methods_ticket = json_decode( $get_payment_methods_ticket, true );
 		}
 
-		foreach ( $get_payment_methods_ticket as $payment_method_ticket ) {
-			$element = array(
-				'label'             => array_key_exists('payment_places', $payment_method_ticket) ? $payment_method_ticket['name'] . ' (' . $this->build_paycash_payments_string() . ')' : $payment_method_ticket['name'] ,
-				'id'                => 'woocommerce_mercadopago_' . $payment_method_ticket['id'],
-				'default'           => 'yes',
-				'type'              => 'checkbox',
-				'class'             => 'ticket_payment_method_select',
-				'custom_attributes' => array(
-					'data-translate' => __( 'All payment methods', 'woocommerce-mercadopago' ),
+		$payment_list = array(
+			'description'          => __( 'Enable the available payment methods', 'woocommerce-mercadopago' ),
+			'title'                => __( 'Payment methods', 'woocommerce-mercadopago' ),
+			'desc_tip'             => __( 'Choose the available payment methods in your store.', 'woocommerce-mercadopago' ),
+			'type'                 => 'mp_checkbox_list',
+			'payment_method_types' => array(
+				'ticket'           => array(
+					'label'        => __('All payment methods', 'woocommerce-mercadopago'),
+					'list'         => array(),
 				),
+			),
+		);
+
+		foreach ( $get_payment_methods_ticket as $payment_method_ticket ) {
+			$payment_list['payment_method_types']['ticket']['list'][] = array(
+				'id'        => $payment_method_ticket['id'],
+				'field_key' => $this->get_field_key($payment_method_ticket['id']),
+				'label'     => array_key_exists('payment_places', $payment_method_ticket) ? $payment_method_ticket['name'] . ' (' . $this->build_paycash_payments_string() . ')' : $payment_method_ticket['name'],
+				'value'     => $this->get_option($payment_method_ticket['id'], 'yes'),
+				'type'      => 'checkbox',
 			);
-
-			$count_payment++;
-
-			if ( 1 === $count_payment ) {
-				$element['title']    = __( 'Payment methods', 'woocommerce-mercadopago' );
-				$element['desc_tip'] = __( 'Choose the available payment methods in your store.', 'woocommerce-mercadopago' );
-			}
-			if ( count( $get_payment_methods_ticket ) === $count_payment ) {
-				$element['description'] = __( 'Activate the available payment methods to your clients.', 'woocommerce-mercadopago' );
-			}
-
-			$ticket_payments[ 'ticket_payment_' . $payment_method_ticket['id'] ] = $element;
-			$ticket_payments_sort[] = 'ticket_payment_' . $payment_method_ticket['id'];
 		}
 
-		$index = 0;
-		foreach ( $this->field_forms_order as $k => $field ) {
-			$index++;
-			if ( 'field_ticket_payments' === $field ) {
-				unset( $this->field_forms_order[ $k ] );
-				array_splice( $this->field_forms_order, $index, 0, $ticket_payments_sort );
-				break;
-			}
-		}
-
-		return $ticket_payments;
+		return $payment_list;
 	}
 
 	/**
@@ -419,7 +332,7 @@ class WC_WooMercadoPago_Ticket_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 			),
 			'amount'               => $amount,
 			'payment_methods'      => $this->activated_payment,
-			'site_id'              => $this->get_option_mp( '_site_id_v1' ),
+			'site_id'              => $this->mp_options->get_site_id(),
 			'coupon_mode'          => isset( $logged_user_email ) ? $this->coupon_mode : 'no',
 			'discount_action_url'  => $this->discount_action_url,
 			'payer_email'          => esc_js( $logged_user_email ),
@@ -450,7 +363,7 @@ class WC_WooMercadoPago_Ticket_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 			'images_path'          => plugins_url( '../assets/images/', plugin_dir_path( __FILE__ ) ),
 		);
 
-		$parameters = array_merge($parameters, WC_WooMercadoPago_Payment_Abstract::mp_define_terms_and_conditions());
+		$parameters = array_merge($parameters, WC_WooMercadoPago_Helper_Links::mp_define_terms_and_conditions());
 		wc_get_template( 'checkout/ticket-checkout.php', $parameters, 'woo/mercado/pago/module/', WC_WooMercadoPago_Module::get_templates_path() );
 	}
 
@@ -469,7 +382,7 @@ class WC_WooMercadoPago_Ticket_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 		$order  = wc_get_order( $order_id );
 		$amount = $this->get_order_total();
 		if ( method_exists( $order, 'update_meta_data' ) ) {
-			$order->update_meta_data( 'is_production_mode', $this->get_option_mp( 'checkbox_checkout_production_mode' ) );
+			$order->update_meta_data( 'is_production_mode', (int) $this->mp_options->get_checkbox_checkout_production_mode() );
 			$order->update_meta_data( '_used_gateway', get_class( $this ) );
 
 			if ( ! empty( $this->gateway_discount ) ) {
@@ -497,7 +410,7 @@ class WC_WooMercadoPago_Ticket_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 		}
 
 		// Check for brazilian FEBRABAN rules.
-		if ( 'MLB' === $this->get_option_mp( '_site_id_v1' ) ) {
+		if ( 'mlb' === $this->mp_options->get_site_id() ) {
 			if ( ! isset( $ticket_checkout['docNumber'] ) || empty( $ticket_checkout['docNumber'] ) ||
 				( 14 !== strlen( $ticket_checkout['docNumber'] ) && 18 !== strlen( $ticket_checkout['docNumber'] ) ) ) {
 				wc_add_notice(
@@ -513,7 +426,7 @@ class WC_WooMercadoPago_Ticket_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 			}
 		}
 
-		if ( 'MLU' === $this->get_option_mp( '_site_id_v1' ) ) {
+		if ( 'mlu' === $this->mp_options->get_site_id() ) {
 			if (
 				! isset( $ticket_checkout['docNumber'] ) || empty( $ticket_checkout['docNumber'] ) ||
 				! isset( $ticket_checkout['docType'] ) || empty( $ticket_checkout['docType'] )

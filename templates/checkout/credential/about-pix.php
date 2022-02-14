@@ -15,14 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 
 <div>
-	<h3 class="mp_subtitle_bd"><?php echo esc_html( $title ); ?></h3>
-	<h3 class="mp_small_text mp-mt--12 mp-mb-18"><?php echo esc_html( $subtitle ); ?></h3>
 
-	<div class="mp-col-md-12 mp_tienda_link">
-		<p class="">
-			<a href=<?php echo esc_html( $url_link ); ?> target="_blank"><?php echo esc_html( $button_text ); ?></a>
-		</p>
-	</div>
 
 </div>
 
