@@ -1,6 +1,15 @@
 CHANGELOG:
 == Changelog ==
 
+= v5.7.0 (14/02/2022) =
+* Features
+- Redesign Admin
+- Performance improvements
+- Added research in the Mercado Pago plugin configuration pages
+
+* Bug fixes
+- Adjusted the css of payment ticket images and text
+
 = v5.6.1 (11/01/2022) =
 * Bug fixes
 - Set important to Mercado Pago inputs, to prevent ghost input type

@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Class MPRestClient
  */
-class MP_Rest_Client extends Rest_Client_Abstract {
+class MP_Rest_Client extends Mp_Rest_Client_Abstract {
 
 	/**
 	 * Get method

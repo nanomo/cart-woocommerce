@@ -69,9 +69,7 @@ class MP {
 	 */
 	public function __construct() {
 		$includes_path = dirname( __FILE__ );
-		require_once $includes_path . '/rest-client/class-rest-client-abstract.php';
 		require_once $includes_path . '/rest-client/class-meli-rest-client.php';
-		require_once $includes_path . '/rest-client/class-mp-rest-client.php';
 
 		$i = func_num_args();
 		if ( $i > 2 || $i < 1 ) {
@@ -112,12 +110,14 @@ class MP {
 	 * Sandbox is enable?
 	 *
 	 * @param bool|null $enable Is enable.
+	 *
 	 * @return bool
 	 */
 	public function sandbox_mode( $enable = null ) {
 		if ( ! is_null( $enable ) ) {
 			$this->sandbox = true === $enable;
 		}
+
 		return $this->sandbox;
 	}
 
@@ -166,14 +166,15 @@ class MP {
 	 * Search Payment V1
 	 *
 	 * @param string $id Payment Id.
+	 *
 	 * @return array|null
 	 * @throws WC_WooMercadoPago_Exception Search Payment V1 Exception.
 	 */
 	public function search_payment_v1( $id, $token = null ) {
 		$request = array(
-			'uri'    => '/v1/payments/' . $id,
+			'uri'     => '/v1/payments/' . $id,
 			'headers' => array(
-				'Authorization' => 'Bearer ' . ( is_null($token) ? $this->get_access_token() : $token ),
+				'Authorization' => 'Bearer ' . ( is_null( $token ) ? $this->get_access_token() : $token ),
 			)
 		);
 
@@ -186,6 +187,7 @@ class MP {
 	 * Get or Create Customer
 	 *
 	 * @param string $payer_email Payer e-mail.
+	 *
 	 * @return array|mixed|null
 	 * @throws WC_WooMercadoPago_Exception Get or create customer exception.
 	 */
@@ -207,6 +209,7 @@ class MP {
 	 * Create Customer
 	 *
 	 * @param string $email E-mail.
+	 *
 	 * @return array|null
 	 * @throws WC_WooMercadoPago_Exception Create customer exception.
 	 */
@@ -229,6 +232,7 @@ class MP {
 	 * Search customer
 	 *
 	 * @param string $email E-mail.
+	 *
 	 * @return array|null
 	 * @throws WC_WooMercadoPago_Exception Search customer exception.
 	 */
@@ -250,10 +254,11 @@ class MP {
 	/**
 	 * Create card in customer
 	 *
-	 * @param string      $customer_id Customer id.
-	 * @param string      $token Token.
+	 * @param string $customer_id Customer id.
+	 * @param string $token Token.
 	 * @param string|null $payment_method_id Payment method id.
 	 * @param string|null $issuer_id Issuer id.
+	 *
 	 * @return array|null
 	 * @throws WC_WooMercadoPago_Exception Create card in customer exception.
 	 */
@@ -284,6 +289,7 @@ class MP {
 	 *
 	 * @param string $customer_id Customer Id.
 	 * @param string $token Token.
+	 *
 	 * @return array|null
 	 * @throws WC_WooMercadoPago_Exception Get all customer cards exception.
 	 */
@@ -307,6 +313,7 @@ class MP {
 	 * @param string $transaction_amount Amount.
 	 * @param string $payer_email Payer e-mail.
 	 * @param string $coupon_code Coupon code.
+	 *
 	 * @return array|null
 	 * @throws WC_WooMercadoPago_Exception Check Discount Campaigns Exception.
 	 */
@@ -322,6 +329,7 @@ class MP {
 				'coupon_code'        => $coupon_code,
 			),
 		);
+
 		return MP_Rest_Client::get( $request );
 	}
 
@@ -331,6 +339,7 @@ class MP {
 	 * Get Authorized Payment Id
 	 *
 	 * @param string $id Authorized Payment Id.
+	 *
 	 * @return array|null
 	 * @throws WC_WooMercadoPago_Exception Get Authorized Payment Exception.
 	 */
@@ -350,6 +359,7 @@ class MP {
 	 * Create Preference
 	 *
 	 * @param array $preference Preference data.
+	 *
 	 * @return array|null
 	 * @throws WC_WooMercadoPago_Exception Create Preference Exception.
 	 */
@@ -371,7 +381,8 @@ class MP {
 	 * Update Preference
 	 *
 	 * @param string $id Preference Id.
-	 * @param array  $preference Preference data.
+	 * @param array $preference Preference data.
+	 *
 	 * @return array|null
 	 * @throws WC_WooMercadoPago_Exception Update Preference Exception.
 	 */
@@ -392,6 +403,7 @@ class MP {
 	 * Get Preference
 	 *
 	 * @param string $id Preference id.
+	 *
 	 * @return array|null
 	 * @throws WC_WooMercadoPago_Exception Get Preference.
 	 */
@@ -411,6 +423,7 @@ class MP {
 	 * Create Payment
 	 *
 	 * @param array $preference Preference.
+	 *
 	 * @return array|null
 	 * @throws WC_WooMercadoPago_Exception Create Payment.
 	 */
@@ -432,6 +445,7 @@ class MP {
 	 * Create Preapproval Payment
 	 *
 	 * @param array $preapproval_payment Preapproval Payment.
+	 *
 	 * @return array|null
 	 * @throws WC_WooMercadoPago_Exception Create Preapproval Payment.
 	 */
@@ -452,6 +466,7 @@ class MP {
 	 * Get Preapproval Payment
 	 *
 	 * @param string $id Payment Id.
+	 *
 	 * @return array|null
 	 * @throws WC_WooMercadoPago_Exception Get Preapproval payment exception.
 	 */
@@ -471,7 +486,8 @@ class MP {
 	 * Update Preapproval payment
 	 *
 	 * @param string $id Payment Id.
-	 * @param array  $preapproval_payment Pre Approval Payment.
+	 * @param array $preapproval_payment Pre Approval Payment.
+	 *
 	 * @return array|null
 	 * @throws WC_WooMercadoPago_Exception Update preapproval payment exception.
 	 */
@@ -492,6 +508,7 @@ class MP {
 	 * Cancel preapproval payment
 	 *
 	 * @param string $id Preapproval Id.
+	 *
 	 * @return array|null
 	 * @throws WC_WooMercadoPago_Exception Cancel Preapproval payment.
 	 */
@@ -516,6 +533,7 @@ class MP {
 	 * Refund payment
 	 *
 	 * @param string $id Payment id.
+	 *
 	 * @return array|null
 	 * @throws WC_WooMercadoPago_Exception Refund payment exception.
 	 */
@@ -534,10 +552,11 @@ class MP {
 	/**
 	 * Partial refund payment
 	 *
-	 * @param string       $id Payment id.
+	 * @param string $id Payment id.
 	 * @param string|float $amount Amount.
-	 * @param string       $reason Reason.
-	 * @param string       $external_reference External reference.
+	 * @param string $reason Reason.
+	 * @param string $external_reference External reference.
+	 *
 	 * @return array|null
 	 * @throws WC_WooMercadoPago_Exception Partial refund exception.
 	 */
@@ -564,6 +583,7 @@ class MP {
 	 * Cancel payment
 	 *
 	 * @param string $id Payment id.
+	 *
 	 * @return array|null
 	 * @throws WC_WooMercadoPago_Exception Cancel payment exception.
 	 */
@@ -584,20 +604,22 @@ class MP {
 	 * Get payment method
 	 *
 	 * @param string $access_token Access token.
+	 *
 	 * @return array|null
 	 * @throws WC_WooMercadoPago_Exception Get payment method exception.
 	 */
 	public function get_payment_methods( $access_token ) {
-		$key = sprintf('%s%s', __FUNCTION__, $access_token);
+		$key = sprintf( '%s%s', __FUNCTION__, $access_token );
 
-		$cache = $this->get_cache_response($key);
+		$cache = $this->get_cache_response( $key );
 
-		if ( ! empty($cache) ) {
+		if ( ! empty( $cache ) ) {
 			$this->debug_mode_log(
 				'mercadopago_requests',
 				__FUNCTION__,
-				__('Response from cache', 'woocommerce-mercadopago')
+				__( 'Response from cache', 'woocommerce-mercadopago' )
 			);
+
 			return $cache;
 		}
 
@@ -613,13 +635,14 @@ class MP {
 		if ( $response['status'] > 202 ) {
 			$log = WC_WooMercadoPago_Log::init_mercado_pago_log( 'get_payment_methods' );
 			$log->write_log( 'API get_payment_methods error: ', $response['response']['message'] );
+
 			return null;
 		}
 
 		asort( $response );
 
-		$this->build_payment_places($response['response']);
-		$this->set_cache_response($key, $response);
+		$this->build_payment_places( $response['response'] );
+		$this->set_cache_response( $key, $response );
 
 		return $response;
 	}
@@ -629,20 +652,22 @@ class MP {
 	 *
 	 * @param string|null $access_token Access token.
 	 * @param string|null $public_key Public key.
+	 *
 	 * @return array|null|false
 	 * @throws WC_WooMercadoPago_Exception Get credentials wrapper.
 	 */
 	public function get_credentials_wrapper( $access_token = null, $public_key = null ) {
-		$key = sprintf('%s%s%s', __FUNCTION__, $access_token, $public_key);
+		$key = sprintf( '%s%s%s', __FUNCTION__, $access_token, $public_key );
 
-		$cache = $this->get_cache_response($key);
+		$cache = $this->get_cache_response( $key );
 
-		if ( ! empty($cache) ) {
+		if ( ! empty( $cache ) ) {
 			$this->debug_mode_log(
 				'mercadopago_requests',
 				__FUNCTION__,
-				__('Response from cache', 'woocommerce-mercadopago')
+				__( 'Response from cache', 'woocommerce-mercadopago' )
 			);
+
 			return $cache;
 		}
 
@@ -662,11 +687,46 @@ class MP {
 
 		if ( $response['status'] > 202 ) {
 			$log = WC_WooMercadoPago_Log::init_mercado_pago_log( __FUNCTION__ );
-			$log->write_log( 'API GET Credentials Wrapper error:', wp_json_encode($response) );
+			$log->write_log( 'API GET Credentials Wrapper error:', wp_json_encode( $response ) );
+
 			return false;
 		}
 
-		$this->set_cache_response($key, $response['response']);
+		$this->set_cache_response( $key, $response['response'] );
+
+		return $response['response'];
+	}
+
+	public function get_me( $access_token ) {
+		$key = sprintf( '%s%s', __FUNCTION__, $access_token );
+
+		$cache = $this->get_cache_response( $key );
+
+		if ( ! empty( $cache ) ) {
+			$this->debug_mode_log(
+				'mercadopago_requests',
+				__FUNCTION__,
+				__( 'Response from cache', 'woocommerce-mercadopago' )
+			);
+
+			return $cache;
+		}
+
+		$request = array(
+			'uri' => '/users/me',
+			'headers' => array( 'Authorization' => 'Bearer ' . $access_token )
+		);
+
+		$response = MP_Rest_Client::get( $request );
+
+		if ( $response['status'] > 202 ) {
+			$log = WC_WooMercadoPago_Log::init_mercado_pago_log( __FUNCTION__ );
+			$log->write_log( 'API GET users me error:', wp_json_encode( $response ) );
+
+			return false;
+		}
+
+		$this->set_cache_response( $key, $response['response'] );
 
 		return $response['response'];
 	}
@@ -677,8 +737,9 @@ class MP {
 	 * Get call
 	 *
 	 * @param string|array $request Request.
-	 * @param array        $headers Headers.
-	 * @param bool         $authenticate Is authenticate.
+	 * @param array $headers Headers.
+	 * @param bool $authenticate Is authenticate.
+	 *
 	 * @return array|null
 	 * @throws WC_WooMercadoPago_Exception Get exception.
 	 */
@@ -706,8 +767,9 @@ class MP {
 	 * Post call
 	 *
 	 * @param array|string $request Request.
-	 * @param null         $data Request data.
-	 * @param null         $params Request params.
+	 * @param null $data Request data.
+	 * @param null $params Request params.
+	 *
 	 * @return array|null
 	 * @throws WC_WooMercadoPago_Exception Post exception.
 	 */
@@ -733,8 +795,9 @@ class MP {
 	 * Put call
 	 *
 	 * @param array|string $request Request.
-	 * @param null         $data Request data.
-	 * @param null         $params Request params.
+	 * @param null $data Request data.
+	 * @param null $params Request params.
+	 *
 	 * @return array|null
 	 * @throws WC_WooMercadoPago_Exception Put exception.
 	 */
@@ -759,8 +822,9 @@ class MP {
 	/**
 	 * Delete call
 	 *
-	 * @param array|string      $request Request.
+	 * @param array|string $request Request.
 	 * @param null|array $params Params.
+	 *
 	 * @return array|null
 	 * @throws WC_WooMercadoPago_Exception Delete exception.
 	 */
@@ -810,9 +874,9 @@ class MP {
 	 * @return mixed
 	 */
 	protected function get_cache_response( $key ) {
-		$key = sha1($key);
+		$key = sha1( $key );
 
-		return get_transient($key);
+		return get_transient( $key );
 	}
 
 	/**
@@ -823,9 +887,9 @@ class MP {
 	 * @param int $ttl
 	 */
 	protected function set_cache_response( $key, $value, $ttl = MINUTE_IN_SECONDS ) {
-		$key = sha1($key);
+		$key = sha1( $key );
 
-		set_transient($key, $value, $ttl);
+		set_transient( $key, $value, $ttl );
 	}
 
 	/**
@@ -850,48 +914,47 @@ class MP {
 	private function build_payment_places( &$api_response ) {
 
 		$payment_places =
-		[
-			'paycash' => [
-						[
+			[
+				'paycash' => [
+					[
 						'payment_option_id' => '7eleven',
-						'name' => '7 Eleven',
-						'status' => 'active',
-						'thumbnail' => 'https://http2.mlstatic.com/storage/logos-api-admin/417ddb90-34ab-11e9-b8b8-15cad73057aa-s.png'
-						],
-						[
-						'payment_option_id' => 'circlek',
-						'name' => 'Circle K',
-						'status' => 'active',
-						'thumbnail' => 'https://http2.mlstatic.com/storage/logos-api-admin/6f952c90-34ab-11e9-8357-f13e9b392369-s.png'
-						],
-						[
-						'payment_option_id' => 'soriana',
-						'name' => 'Soriana',
-						'status' => 'active',
-						'thumbnail' => 'https://http2.mlstatic.com/storage/logos-api-admin/dac0bf10-01eb-11ec-ad92-052532916206-s.png'
-						],
-						[
-						'payment_option_id' => 'extra',
-						'name' => 'Extra',
-						'status' => 'active',
-						'thumbnail' => 'https://http2.mlstatic.com/storage/logos-api-admin/9c8f26b0-34ab-11e9-b8b8-15cad73057aa-s.png'
-						],
-						[
-						'payment_option_id' => 'calimax',
-						'name' => 'Calimax',
-						'status' => 'active',
-						'thumbnail' => 'https://http2.mlstatic.com/storage/logos-api-admin/52efa730-01ec-11ec-ba6b-c5f27048193b-s.png'
-						],
+						'name'              => '7 Eleven',
+						'status'            => 'active',
+						'thumbnail'         => 'https://http2.mlstatic.com/storage/logos-api-admin/417ddb90-34ab-11e9-b8b8-15cad73057aa-s.png'
 					],
-		];
+					[
+						'payment_option_id' => 'circlek',
+						'name'              => 'Circle K',
+						'status'            => 'active',
+						'thumbnail'         => 'https://http2.mlstatic.com/storage/logos-api-admin/6f952c90-34ab-11e9-8357-f13e9b392369-s.png'
+					],
+					[
+						'payment_option_id' => 'soriana',
+						'name'              => 'Soriana',
+						'status'            => 'active',
+						'thumbnail'         => 'https://http2.mlstatic.com/storage/logos-api-admin/dac0bf10-01eb-11ec-ad92-052532916206-s.png'
+					],
+					[
+						'payment_option_id' => 'extra',
+						'name'              => 'Extra',
+						'status'            => 'active',
+						'thumbnail'         => 'https://http2.mlstatic.com/storage/logos-api-admin/9c8f26b0-34ab-11e9-b8b8-15cad73057aa-s.png'
+					],
+					[
+						'payment_option_id' => 'calimax',
+						'name'              => 'Calimax',
+						'status'            => 'active',
+						'thumbnail'         => 'https://http2.mlstatic.com/storage/logos-api-admin/52efa730-01ec-11ec-ba6b-c5f27048193b-s.png'
+					],
+				],
+			];
 
 		foreach ( $api_response as $k => $method ) {
-			if ( isset($payment_places[$method['id']]) ) {
-				$api_response[$k]['payment_places'] = $payment_places[$method['id']];
+			if ( isset( $payment_places[ $method['id'] ] ) ) {
+				$api_response[ $k ]['payment_places'] = $payment_places[ $method['id'] ];
 			}
 		}
 
 	}
-
 
 }
