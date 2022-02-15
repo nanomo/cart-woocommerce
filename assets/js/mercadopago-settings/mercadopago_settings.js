@@ -150,7 +150,7 @@ function mp_update_option_credentials() {
 
     } )
       .done(function (response) {
-        if (response.data.success) {
+        if (response.success) {
           mp_show_message(response.data, "success", "credentials");
           mp_validate_credentials_tips();
           setTimeout(() => {
@@ -166,7 +166,7 @@ function mp_update_option_credentials() {
         }
       })
       .fail(function (error) {
-        mp_show_message(error, "error", "credentials");
+        mp_show_message('error', "error", "credentials");
       });
   });
 }
