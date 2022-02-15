@@ -397,7 +397,7 @@ class WC_WooMercadoPago_Configs {
 	 *
 	 * @return array
 	 */
-	public function get_available_payment_methods( $methods ) {
+	public function get_available_payment_methods( $methods = [] ) {
 		$wc_country = WC_WooMercadoPago_Module::get_woocommerce_default_country();
 		$site_id    = strtolower( get_option( '_site_id_v1', '' ) );
 
