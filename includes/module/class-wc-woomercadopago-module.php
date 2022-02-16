@@ -788,7 +788,7 @@ class WC_WooMercadoPago_Module extends WC_WooMercadoPago_Configs {
 	 * Update Credentials for production
 	 */
 	public function update_credential_production() {
-		if ( ! empty( get_option( 'checkbox_checkout_test_mode', null ) ) ) {
+		if ( get_option( 'checkbox_checkout_test_mode' ) ) {
 			return;
 		}
 
