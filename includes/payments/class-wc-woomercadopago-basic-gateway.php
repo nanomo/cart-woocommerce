@@ -220,7 +220,7 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 	 */
 	private function get_ex_payments() {
 		$ex_payments            = array();
-		$get_ex_payment_options = $this->get_option( '_all_payment_methods_v0', '' );
+		$get_ex_payment_options = get_option( '_all_payment_methods_v0', '' );
 		if ( ! empty( $get_ex_payment_options ) ) {
 			$options = explode( ',', $get_ex_payment_options );
 			foreach ( $options as $option ) {
@@ -518,7 +518,7 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 		$amount = $this->get_order_total();
 
 		if ( method_exists( $order, 'update_meta_data' ) ) {
-			$order->update_meta_data( 'is_production_mode', (int) $this->mp_options->get_checkbox_checkout_production_mode() );
+			$order->update_meta_data( 'is_production_mode', $this->mp_options->get_checkbox_checkout_test_mode() ? 'no' : 'yes' );
 			$order->update_meta_data( '_used_gateway', get_class( $this ) );
 
 			if ( ! empty( $this->gateway_discount ) ) {

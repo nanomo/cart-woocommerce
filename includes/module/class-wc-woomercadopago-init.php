@@ -145,6 +145,7 @@ class WC_WooMercadoPago_Init {
 		$old_version = get_option( '_mp_version', '0' );
 		if ( version_compare( WC_WooMercadoPago_Constants::VERSION, $old_version, '>' ) ) {
 			do_action( 'mercadopago_plugin_updated' );
+			do_action( 'mercadopago_test_mode_update' );
 			update_option( '_mp_version', WC_WooMercadoPago_Constants::VERSION, true );
 		}
 	}
