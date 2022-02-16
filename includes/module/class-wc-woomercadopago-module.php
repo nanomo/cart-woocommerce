@@ -352,16 +352,13 @@ class WC_WooMercadoPago_Module extends WC_WooMercadoPago_Configs {
 			return __( 'The payment method is not valid or not available.', 'woocommerce-mercadopago' );
 		}
 		if ( 'Invalid transaction_amount' === $key ) {
-			return __( 'The transaction amount cannot be processed by Mercado Pago.', 'woocommerce-mercadopago' ) . ' ' .
-			       __( 'Possible causes: Currency not supported; Amounts below the minimum or above the maximum allowed.', 'woocommerce-mercadopago' );
+			return __( 'The transaction amount cannot be processed by Mercado Pago.', 'woocommerce-mercadopago' ) . ' ' . __( 'Possible causes: Currency not supported; Amounts below the minimum or above the maximum allowed.', 'woocommerce-mercadopago' );
 		}
 		if ( 'Invalid users involved' === $key ) {
-			return __( 'The users are not valid.', 'woocommerce-mercadopago' ) . ' ' .
-			       __( 'Possible causes: Buyer and seller have the same account in Mercado Pago; The transaction involving production and test users.', 'woocommerce-mercadopago' );
+			return __( 'The users are not valid.', 'woocommerce-mercadopago' ) . ' ' . __( 'Possible causes: Buyer and seller have the same account in Mercado Pago; The transaction involving production and test users.', 'woocommerce-mercadopago' );
 		}
 		if ( 'Unauthorized use of live credentials' === $key ) {
-			return __( 'Unauthorized use of production credentials.', 'woocommerce-mercadopago' ) . ' ' .
-			       __( 'Possible causes: Use permission in use for the credential of the seller.', 'woocommerce-mercadopago' );
+			return __( 'Unauthorized use of production credentials.', 'woocommerce-mercadopago' ) . ' ' . __( 'Possible causes: Use permission in use for the credential of the seller.', 'woocommerce-mercadopago' );
 		}
 
 		return $key;
@@ -532,7 +529,7 @@ class WC_WooMercadoPago_Module extends WC_WooMercadoPago_Configs {
 		$selection = get_option( '_mp_' . $selector_id, $defaults[ $arr[2] ] );
 
 		foreach ( wc_get_order_statuses() as $slug => $status ) {
-			$slug = str_replace( array( 'wc-', '-' ), array( '', '_' ), $slug );
+			$slug  = str_replace( array( 'wc-', '-' ), array( '', '_' ), $slug );
 			$html .= sprintf(
 				'<option value="%s"%s>%s %s</option>',
 				$slug,
