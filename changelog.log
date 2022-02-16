@@ -1,5 +1,9 @@
 CHANGELOG:
 == Changelog ==
+= v5.7.2 (14/02/2022) =
+* Bug fixes
+- Using Jquery from wp.ajax
+
 = v5.7.1 (14/02/2022) =
 * Bug fixes
 - Adjusted js and css load of mercado pago pool
