@@ -52,9 +52,9 @@ function mp_validate_credentials() {
       var self = this;
 
       jQuery.post(ajaxurl, { access_token: this.value, is_test: false, action: "mp_validate_credentials"}, function(data) {
-        console.log('validated');
+
       }).done(function (response) {
-        if (response.data.success) {
+        if (response.success) {
           self.classList.add("mp-credential-feedback-positive");
           self.classList.remove("mp-credential-feedback-negative");
         } else {
@@ -74,9 +74,9 @@ function mp_validate_credentials() {
       var self = this;
 
       jQuery.post(ajaxurl, { access_token: this.value, is_test: true, action: "mp_validate_credentials"}, function(data) {
-        console.log('validated');
+
       }).done(function (response) {
-        if (response.data.success) {
+        if (response.success) {
           self.classList.add( "mp-credential-feedback-positive" );
           self.classList.remove( "mp-credential-feedback-negative" );
         } else {
@@ -95,10 +95,9 @@ function mp_validate_credentials() {
       var self = this;
 
       jQuery.post(ajaxurl, { public_key: this.value, is_test: true, action: "mp_validate_credentials"}, function(data) {
-        console.log('validated');
       })
         .done(function (response) {
-          if (response.data.success) {
+          if (response.success) {
             self.classList.add( "mp-credential-feedback-positive" );
             self.classList.remove( "mp-credential-feedback-negative" );
           } else {
@@ -118,10 +117,9 @@ function mp_validate_credentials() {
       var self = this;
 
       jQuery.post(ajaxurl, { public_key: this.value, is_test: false, action: "mp_validate_credentials"}, function(data) {
-        console.log('validated');
       })
         .done(function (response) {
-          if (response.data.success) {
+          if (response.success) {
             self.classList.add( "mp-credential-feedback-positive" );
             self.classList.remove( "mp-credential-feedback-negative" );
           } else {
