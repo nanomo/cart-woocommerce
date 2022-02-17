@@ -52,9 +52,9 @@ function mp_validate_credentials() {
       var self = this;
 
       jQuery.post(ajaxurl, { access_token: this.value, is_test: false, action: "mp_validate_credentials"}, function(data) {
-        console.log('validated');
+
       }).done(function (response) {
-        if (response.data.success) {
+        if (response.success) {
           self.classList.add("mp-credential-feedback-positive");
           self.classList.remove("mp-credential-feedback-negative");
         } else {
@@ -74,9 +74,9 @@ function mp_validate_credentials() {
       var self = this;
 
       jQuery.post(ajaxurl, { access_token: this.value, is_test: true, action: "mp_validate_credentials"}, function(data) {
-        console.log('validated');
+
       }).done(function (response) {
-        if (response.data.success) {
+        if (response.success) {
           self.classList.add( "mp-credential-feedback-positive" );
           self.classList.remove( "mp-credential-feedback-negative" );
         } else {
@@ -95,10 +95,9 @@ function mp_validate_credentials() {
       var self = this;
 
       jQuery.post(ajaxurl, { public_key: this.value, is_test: true, action: "mp_validate_credentials"}, function(data) {
-        console.log('validated');
       })
         .done(function (response) {
-          if (response.data.success) {
+          if (response.success) {
             self.classList.add( "mp-credential-feedback-positive" );
             self.classList.remove( "mp-credential-feedback-negative" );
           } else {
@@ -118,10 +117,9 @@ function mp_validate_credentials() {
       var self = this;
 
       jQuery.post(ajaxurl, { public_key: this.value, is_test: false, action: "mp_validate_credentials"}, function(data) {
-        console.log('validated');
       })
         .done(function (response) {
-          if (response.data.success) {
+          if (response.success) {
             self.classList.add( "mp-credential-feedback-positive" );
             self.classList.remove( "mp-credential-feedback-negative" );
           } else {
@@ -162,11 +160,11 @@ function mp_update_option_credentials() {
             );
           }, 3000);
         } else {
-          mp_show_message(error, "error", "credentials");
+          mp_show_message(response.data, "error", "credentials");
         }
       })
       .fail(function (error) {
-        mp_show_message('error', "error", "credentials");
+        mp_show_message(error?.data, "error", "credentials");
       });
   });
 }
@@ -200,11 +198,11 @@ function mp_update_store_information() {
             );
           }, 3000 );
         } else {
-          mp_show_message('error', "error", "store");
+          mp_show_message(response.data, "error", "store");
         }
       })
       .fail(function (error) {
-        mp_show_message('error', "error", "store");
+        mp_show_message(error?.data, "error", "store");
       });
   });
 }
@@ -292,11 +290,11 @@ function mp_set_mode() {
             mp_show_message( response.data, "success", "test_mode" );
           }
         } else {
-          mp_show_message(error, "error", "test_mode");
+          mp_show_message(response.data, "error", "test_mode");
         }
       })
       .fail(function (error) {
-        mp_show_message(error, "error", "test_mode");
+        mp_show_message(error.data, "error", "test_mode");
       });
   });
 }
