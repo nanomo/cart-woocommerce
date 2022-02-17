@@ -160,11 +160,11 @@ function mp_update_option_credentials() {
             );
           }, 3000);
         } else {
-          mp_show_message(error, "error", "credentials");
+          mp_show_message(response.data, "error", "credentials");
         }
       })
       .fail(function (error) {
-        mp_show_message('error', "error", "credentials");
+        mp_show_message(error?.data, "error", "credentials");
       });
   });
 }
@@ -198,11 +198,11 @@ function mp_update_store_information() {
             );
           }, 3000 );
         } else {
-          mp_show_message('error', "error", "store");
+          mp_show_message(response.data, "error", "store");
         }
       })
       .fail(function (error) {
-        mp_show_message('error', "error", "store");
+        mp_show_message(error?.data, "error", "store");
       });
   });
 }
@@ -290,11 +290,11 @@ function mp_set_mode() {
             mp_show_message( response.data, "success", "test_mode" );
           }
         } else {
-          mp_show_message(error, "error", "test_mode");
+          mp_show_message(response.data, "error", "test_mode");
         }
       })
       .fail(function (error) {
-        mp_show_message(error, "error", "test_mode");
+        mp_show_message(error.data, "error", "test_mode");
       });
   });
 }
