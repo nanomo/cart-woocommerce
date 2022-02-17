@@ -377,13 +377,15 @@ class WC_WooMercadoPago_Hook_Order_Details {
 	public function payment_status_metabox_script() {
 		$suffix = $this->get_suffix();
 
-		wp_enqueue_script(
-			'mp_payment_status_metabox',
-			plugins_url( '../../assets/js/payment_status_metabox' . $suffix . '.js', plugin_dir_path( __FILE__ ) ),
-			array(),
-			WC_WooMercadoPago_Constants::VERSION,
-			false
-		);
+		if ( is_admin() ) {
+			wp_enqueue_script(
+				'mp_payment_status_metabox',
+				plugins_url( '../../assets/js/payment_status_metabox' . $suffix . '.js', plugin_dir_path( __FILE__ ) ),
+				array(),
+				WC_WooMercadoPago_Constants::VERSION,
+				false
+			);
+		}
 	}
 
 	/**
@@ -451,7 +453,7 @@ class WC_WooMercadoPago_Hook_Order_Details {
 	 */
 	public function get_metabox_data( $alert_status, $alert ) {
 
-		$country = get_option( 'checkout_country', '' );
+		$country = strtolower(get_option( 'checkout_country', '' ));
 
 		if ( 'success' === $alert_status ) {
 			return [

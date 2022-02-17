@@ -68,8 +68,8 @@ class WC_WooMercadoPago_Hook_Pix extends WC_WooMercadoPago_Hook_Abstract {
 			wp_localize_script(
 				'woocommerce-mercadopago-pix-checkout',
 				'wc_mercadopago_pix_params',
-				[
-					'site_id'             => $this->payment->get_option_mp( '_site_id_v1' ),
+				array(
+					'site_id'             => strtolower(get_option( '_site_id_v1' )),
 					'discount_action_url' => $this->payment->discount_action_url,
 					'payer_email'         => esc_js( $this->payment->logged_user_email ),
 					'apply'               => __( 'Apply', 'woocommerce-mercadopago' ),
@@ -146,7 +146,7 @@ class WC_WooMercadoPago_Hook_Pix extends WC_WooMercadoPago_Hook_Abstract {
 			'step_three'          => __( 'Scan the QR code or Pix code', 'woocommerce-mercadopago' ),
 			'step_four'           => __( 'Done! You will see the payment confirmation', 'woocommerce-mercadopago' ),
 			'text_amount'         => __( 'Value: ', 'woocommerce-mercadopago' ),
-			'currency'            => $currency_symbol[ $this->payment->get_option_mp( '_site_id_v1' ) ]['currency_symbol'],
+			'currency'            => $currency_symbol[ strtolower(get_option( '_site_id_v1' )) ]['currency_symbol'],
 			'text_scan_qr'        => __( 'Scan the QR code:', 'woocommerce-mercadopago' ),
 			'text_time_qr_one'    => __( 'Code valid for ', 'woocommerce-mercadopago' ),
 			'qr_date_expiration'  => __($this->payment->get_option_mp( 'checkout_pix_date_expiration', '30 minutes' ), 'woocommerce-mercadopago' ),

@@ -27,7 +27,7 @@ if ( ! defined('ABSPATH') ) {
 				</test-mode>
 			</div>
 		<?php endif; ?>
-		<?php if ( 'MLU' === $site_id ) : ?>
+		<?php if ( 'mlu' === $site_id ) : ?>
 			<div class="mp-checkout-ticket-input-document">
 			<input-document
 				input-name = 'mercadopago_ticket[docNumber]'
@@ -40,7 +40,7 @@ if ( ! defined('ABSPATH') ) {
 			</input-document>
 		</div>
 		<?php endif; ?>
-		<?php if ( 'MLB' === $site_id ) : ?>
+		<?php if ( 'mlb' === $site_id ) : ?>
 			<div class="mp-checkout-ticket-input-document">
 			<input-document
 				input-name = 'mercadopago_ticket[docNumber]'

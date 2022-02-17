@@ -20,7 +20,12 @@
             "phpunit"
         ]
     },
-  "require": {
-    "ext-curl": "*"
-  }
+    "require": {
+        "ext-curl": "*"
+    },
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    }
 }

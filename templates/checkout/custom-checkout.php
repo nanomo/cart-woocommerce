@@ -61,7 +61,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		<div class='mp-checkout-custom-available-payments-content'>
 			<payment-methods methods='<?php echo wp_json_encode($payment_methods); ?>'></payment-methods>
-			<hr>
+
+			<?php if ( 'mla' === $site_id ) : ?>
+				<span id="mp_promotion_link"> | </span>
+				<a href="https://www.mercadopago.com.ar/cuotas" id="mp_checkout_link" class="mp-checkout-link mp-pl-10" target="_blank">
+					<?php echo esc_html__( 'See current promotions', 'woocommerce-mercadopago' ); ?>
+				</a>
+			<?php endif; ?>
+			<hr>			
 		</div>
 	</div>
 
@@ -212,7 +219,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<terms-and-conditions
 			description="By continuing, you agree with our"
 			link-text="Terms and conditions"
-			link-src="https://developers.mercadopago.com"
+			link-src="<?php echo esc_html($link_terms_and_conditions); ?>"
 		>
 		</terms-and-conditions>
 	</div>

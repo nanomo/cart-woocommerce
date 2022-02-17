@@ -123,8 +123,8 @@
 }
 
 #mp_field_text {
-	font-family: sans-serif !important;
-	font-size: 14px !important;
+	/* font-family: sans-serif !important; */
+	font-size: 20px !important;
 	font-weight: 600 !important;
 	font-style: normal;
 	font-stretch: normal;
@@ -142,13 +142,6 @@
 	margin-bottom: 37px !important;
 }
 
-#mp_input_payments_mt {
-	border: 1px solid #ccc;
-	padding: 15px;
-	width: 390px;
-	margin-top: -39px !important;
-}
-
 .mp_text {
 	font-family: sans-serif;
 	font-size: 14px !important;
@@ -161,7 +154,16 @@
 }
 
 .mp_subtitle {
-	font-size: 18px !important;
+	/*font-size: 18px !important;*/
+
+	font-family: sans-serif !important;
+	font-size: 20px !important;
+	font-weight: 600 !important;
+	font-style: normal;
+	font-stretch: normal;
+	line-height: 1.54;
+	letter-spacing: normal;
+	color: #555555 !important;
 }
 
 .mp_subtitle_bd {
@@ -319,7 +321,7 @@
 }
 
 .mp-text-checkout-body {
-	font-size: 18px !important;
+	font-size: 14px !important;
 	font-weight: 400 !important;
 	margin-top: 10px !important;
 	line-height: 20px;
@@ -417,4 +419,27 @@
 .mp_credential_input_warning {
 	background: url("../images/icon-warning.png") 98% 50% no-repeat transparent;
 	padding-right: 30px !important;
+}
+
+
+.form-table tbody {
+	width: 100%;
+	display:block;
+}
+
+.form-table tr {
+	width: 100%;
+	display:block;
+	border-bottom: solid #ccc 1px;
+}
+
+.form-table th {
+	width: 100%;
+	display:block;
+}
+
+.form-table td {
+	margin-bottom: 30px;
+	display:block;
+	padding: 0;
 }
