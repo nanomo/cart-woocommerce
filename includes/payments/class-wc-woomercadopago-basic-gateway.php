@@ -538,7 +538,7 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 			]);
 		};
 
-		$parameters           = [
+		$parameters = [
 			'method'              => $method,
 			'test_mode'           => ! $this->is_production_mode(),
 			'test_mode_link'      => $test_mode_link,

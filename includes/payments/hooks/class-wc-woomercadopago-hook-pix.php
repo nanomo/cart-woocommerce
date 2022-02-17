@@ -86,8 +86,7 @@ class WC_WooMercadoPago_Hook_Pix extends WC_WooMercadoPago_Hook_Abstract {
 					'loading'             => plugins_url( '../../assets/images/', plugin_dir_path( __FILE__ ) ) . 'loading.gif',
 					'check'               => plugins_url( '../../assets/images/', plugin_dir_path( __FILE__ ) ) . 'check.png',
 					'error'               => plugins_url( '../../assets/images/', plugin_dir_path( __FILE__ ) ) . 'error.png',
-				]
-			);
+				));
 		}
 	}
 
