@@ -154,8 +154,8 @@ class WC_WooMercadoPago_Ticket_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 			}
 
 			foreach ( $get_payment_methods_ticket as $payment_methods_ticket ) {
-				if ( ! isset( $saved_options[ 'ticket_payment_' . $payment_methods_ticket['id'] ] )
-					|| 'yes' === $saved_options[ 'ticket_payment_' . $payment_methods_ticket['id'] ] ) {
+				if ( ! isset( $saved_options[ $payment_methods_ticket['id'] ] )
+					|| 'yes' === $saved_options[ $payment_methods_ticket['id'] ] ) {
 					array_push( $activated_payment, $payment_methods_ticket );
 					sort($activated_payment);
 				}
@@ -382,7 +382,7 @@ class WC_WooMercadoPago_Ticket_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 		$order  = wc_get_order( $order_id );
 		$amount = $this->get_order_total();
 		if ( method_exists( $order, 'update_meta_data' ) ) {
-			$order->update_meta_data( 'is_production_mode', (int) $this->mp_options->get_checkbox_checkout_production_mode() );
+			$order->update_meta_data( 'is_production_mode', 'no' === $this->mp_options->get_checkbox_checkout_test_mode() ? 'yes' : 'no' );
 			$order->update_meta_data( '_used_gateway', get_class( $this ) );
 
 			if ( ! empty( $this->gateway_discount ) ) {
@@ -589,7 +589,7 @@ class WC_WooMercadoPago_Ticket_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 		}
 
 		$last_element     = array_pop( $payments );
-		$paycash_payments = implode (', ', $payments);
+		$paycash_payments = implode(', ', $payments);
 
 		return implode( __(' and ', 'woocommerce-mercadopago') , array( $paycash_payments, $last_element ));
 	}

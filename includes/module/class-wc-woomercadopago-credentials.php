@@ -332,7 +332,7 @@ class WC_WooMercadoPago_Credentials {
 
 		$arr      = array();
 		$cho      = array();
-		$excluded = array( 'consumer_credits', 'paypal' );
+		$excluded = array( 'consumer_credits', 'paypal', 'account_money' );
 
 		foreach ( $payments_response as $payment ) {
 			if ( in_array( $payment['id'], $excluded, true ) ) {
