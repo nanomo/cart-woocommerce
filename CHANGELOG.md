@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v5.7.3] - 2022-02-16
+
+### Changed Bug fixes
+- fixed cho pro excluded payments
+- fixed cho ticket excluded payments
+- validate if has a checkout prod set all to prod
+- fixed mp order screen
+
 ## [5.7.2] - 2022-02-14
 
 ### Changed Bug fixes
