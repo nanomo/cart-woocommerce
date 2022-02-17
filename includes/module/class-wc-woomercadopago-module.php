@@ -805,7 +805,7 @@ class WC_WooMercadoPago_Module extends WC_WooMercadoPago_Configs {
 					: ( 'yes' === $old_credential_is_prod ? 'no' : 'yes' );
 				$options['checkout_credential_prod']    = 'deprecated';
 
-				if ( 'yes' === $options['checkbox_checkout_test_mode'] ) {
+				if ( 'no' === $options['checkbox_checkout_test_mode'] ) {
 					$has_a_gateway_in_production = true;
 				}
 
