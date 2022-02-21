@@ -33,9 +33,7 @@ if ( ! defined('ABSPATH') ) {
 				input-name = 'mercadopago_ticket[docNumber]'
 				select-name = 'mercadopago_ticket[docType]'
 				flag-error = 'mercadopago_ticket[docNumberError]'
-				documents='[
-					{"name":"CI"},
-					{"name":"Outro"}]'
+				documents='["CI","OUTRO"]'
 				validate=true>
 			</input-document>
 		</div>
@@ -46,9 +44,7 @@ if ( ! defined('ABSPATH') ) {
 				input-name = 'mercadopago_ticket[docNumber]'
 				select-name = 'mercadopago_ticket[docType]'
 				flag-error = 'mercadopago_ticket[docNumberError]'
-				documents='[
-					{"name":"CPF"},
-					{"name":"CNPJ"}]'
+				documents='["CPF","CNPJ"]'
 				validate=true>
 			</input-document>
 		</div>

@@ -42,7 +42,7 @@ class WC_WooMercadoPago_Preference_Ticket extends WC_WooMercadoPago_Preference_A
 		$this->preference['payer']['email'] = $this->get_email();
 
 		if ( 'BRL' === $this->site_data[ $this->site_id ]['currency'] ) {
-			$this->preference['payer']['identification']['type']   = 14 === strlen( $this->checkout['docNumber'] ) ? 'CPF' : 'CNPJ';
+			$this->preference['payer']['identification']['type']   = 11 === strlen( $this->checkout['docNumber'] ) ? 'CPF' : 'CNPJ';
 			$this->preference['payer']['identification']['number'] = $this->checkout['docNumber'];
 		}
 
