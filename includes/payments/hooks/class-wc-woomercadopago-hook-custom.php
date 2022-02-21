@@ -67,7 +67,7 @@ class WC_WooMercadoPago_Hook_Custom extends WC_WooMercadoPago_Hook_Abstract {
 
 			wp_enqueue_script(
 				'woocommerce-mercadopago-sdk',
-				'https://secure.mlstatic.com/sdk/javascript/v1/mercadopago.js',
+				'https://beta-sdk.mercadopago.com/js/v2',
 				array(),
 				WC_WooMercadoPago_Constants::VERSION,
 				true
@@ -75,7 +75,7 @@ class WC_WooMercadoPago_Hook_Custom extends WC_WooMercadoPago_Hook_Abstract {
 
 			wp_enqueue_script(
 				'woocommerce-mercadopago-checkout',
-				plugins_url( '../../assets/js/credit-card' . $suffix . '.js', plugin_dir_path( __FILE__ ) ),
+				plugins_url( '../../assets/js/SecurityFields' . $suffix . '.js', plugin_dir_path( __FILE__ ) ),
 				array(),
 				WC_WooMercadoPago_Constants::VERSION,
 				true

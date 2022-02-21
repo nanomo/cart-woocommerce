@@ -68,7 +68,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<?php echo esc_html__( 'See current promotions', 'woocommerce-mercadopago' ); ?>
 				</a>
 			<?php endif; ?>
-			<hr>			
+			<hr>
 		</div>
 	</div>
 
@@ -76,136 +76,62 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<p class='mp-checkout-custom-card-form-title'>Completa los datos de tu tarjeta</p>
 		<div class='mp-checkout-custom-card-row'>
 			<input-label isOptinal=false message="Número de cartão" for='mp-card-number'></input-label>
-			<input
-				type="text"
-				class="mp-checkout-custom-card-input"
-				autocomplete="off"
-				maxlength="23"
-				placeholder="1234 1234 1234 1234"
-				id="mp-card-number"
-				name="mp-card-number"
-				data-checkout="cardNumber"
-			/>
-			<input-helper
-				isVisible=false
-				message="Número incompleto"
-				input-id="mp-card-number-helper"
-				data-main="mp-card-number"
-			>
-			</input-helper>
+                <div class="mp-checkout-custom-card-input" id="form-checkout__cardNumber-container"></div>
+                <input-helper isVisible=false message="Dado obrigatório" input-id="mp-card-number-helper">
+            </input-helper>
 		</div>
 
 		<div class='mp-checkout-custom-card-row' id="mp-card-holder-div">
-			<input-label message="Nome" isOptinal=false></input-label>
-			<input
-				type="text"
-				class="mp-checkout-custom-card-input"
-				placeholder="Ex.: María López"
-				id="mp-card-holder-name"
-				name="mp-card-holder-name"
-				data-checkout="cardholderName"
-			>
-			<input-helper
-				isVisible=false
-				message="Dado obrigatório"
-				input-id="mp-card-holder-name-helper"
-				data-main="mp-card-holder-name"
-			>
-			</input-helper>
-		</div>
+            <input-label message="Nome" isOptinal=false></input-label>
+            <input type="text" class="mp-checkout-custom-card-input" placeholder="Ex.: María López"
+            	id="form-checkout__cardholderName" name="mp-card-holder-name" data-checkout="cardholderName" />
+            <input-helper isVisible=false message="Dado obrigatório" input-id="mp-card-holder-name-helper"
+            	data-main="mp-card-holder-name">
+            </input-helper>
+        </div>
 
 		<div class='mp-checkout-custom-card-row mp-checkout-custom-dual-column-row'>
 			<div class='mp-checkout-custom-card-column'>
-				<input-label message="Vencimento" isOptinal=false></input-label>
-				<input
-					type="text"
-					class="mp-checkout-custom-card-input mp-checkout-custom-left-card-input"
-					maxlength="5"
-					placeholder="mm/aa"
-					id="mp-card-expiration-date"
-					name="mp-card-expiration-date"
-					data-checkout="cardExpirationDate"
-					onblur="mpValidateMonthYear()"
-				/>
-				<input-helper
-					isVisible=false
-					message="Dado obrigatório"
-					input-id="mp-card-expiration-date-helper"
-					data-main="mp-card-expiration-date"
-				>
-				</input-helper>
+			<input-label message="Vencimento" isOptinal=false></input-label>
+            <div id="form-checkout__cardExpirationDate-container"
+                class="mp-checkout-custom-card-input mp-checkout-custom-left-card-input">
+            </div>
+            <input-helper isVisible=false message="Dado obrigatório" input-id="mp-expiration-date-helper">
+            </input-helper>
 			</div>
 
 			<div class='mp-checkout-custom-card-column'>
-				<input-label message="Código de Segurança" isOptinal=false for='mp-card-holder-name'></input-label>
-				<input
-					type="text"
-					class="mp-checkout-custom-card-input"
-					placeholder="123"
-					id="mp-security-code"
-					name="mp-security-code"
-					data-checkout="securityCode"
-				/>
-				<p id="mp-security-code-info" class="mp-checkout-custom-info-text"></p>
-				<input-helper
-					isVisible=false
-					message="Dado obrigatório"
-					input-id="mp-security-code-helper"
-					data-main="mp-security-code"
-				>
-				</input-helper>
+				<input-label message="Security code" isOptinal=false></input-label>
+            	<div id="form-checkout__securityCode-container" class="mp-checkout-custom-card-input"></div>
+                <p id="mp-security-code-info" class="mp-checkout-custom-info-text"></p>
+                <input-helper isVisible=false message="Dado obrigatório" input-id="mp-cvv-helper">
+                </input-helper>
 			</div>
 		</div>
 
-		<div id="mp-doc-div" class="mp-checkout-custom-input-document" style='display: none;'>
-			<input-document
-				label-message = "Documento"
-				helper-message = "Documento Inválido"
-				input-name = "docNumber"
-				input-data-checkout="docNumber"
-				select-name = "docType"
-				select-data-checkout="docType"
-				flag-error = "docNumberError"
-			>
-			</input-document>
-			<input-helper
-				isVisible=false
-				message="Dado obrigatório"
-				input-id="mp-doc-number-helper"
-				data-main="docNumber"
-			>
-			</input-helper>
-		</div>
+		<div id="mp-doc-div" class="mp-checkout-custom-input-document" style="display: none;">
+            <input-document label-message="Documento" helper-message="Documento Inválido"
+                input-name="identificationNumber" hidden-id="form-checkout__identificationNumber"
+                input-data-checkout="docNumber" select-name="identificationType"
+                select-id="form-checkout__identificationType" select-data-checkout="docType"
+                flag-error="docNumberError">
+            </input-document>
+        </div>
 	</div>
 
 	<div id="mp-checkout-custom-installments" class="mp-checkout-custom-installments-display-none">
 		<p class='mp-checkout-custom-card-form-title'>Selecciona la cantidad de cuotas</p>
-		<input-helper
-			isVisible=false
-			message="Dado obrigatório"
-			input-id="mp-checkout-custom-installments-helper"
-			data-main="mp-checkout-custom-installments"
-		>
-		</input-helper>
 		<div id="mp-checkout-custom-issuers-container" class="mp-checkout-custom-issuers-container-display-none">
-			<input-select
-				optional="false"
-				label="<?php echo esc_html_e( 'Bank', 'woocommerce-mercadopago' ); ?>"
-				option-placeholder="<?php echo esc_html_e( 'Choose an option', 'woocommerce-mercadopago' ); ?>"
-				name="mp-issuer"
-				data-checkout="issuer"
-			>
-			</input-select>
-			<input-helper
-				isVisible=false
-				message="Dado obrigatório"
-				input-id="mp-issuer-helper"
-				data-main="mp-issuer"
-			>
-			</input-helper>
-		</div>
+            <div class="mp-input-select-input">
+                <select name="issuer" id="form-checkout__issuer" class="mp-input-select-select"></select>
+            </div>
+        </div>
+
 
 		<div id="mp-checkout-custom-installments-container" class="mp-checkout-custom-installments-container"></div>
+		<select style="display: none;" data-checkout="installments" name="installments"
+            id="form-checkout__installments" class="mp-input-select-select">
+        </select>
 
 		<div id="mp-checkout-custom-box-input-tax-cft">
 			<div id="mp-checkout-custom-box-input-tax-tea">
