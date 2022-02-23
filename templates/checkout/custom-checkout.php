@@ -194,6 +194,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					cardExpirationDate: {
 						id: 'form-checkout__cardExpirationDate-container',
 						placeholder: '<?php echo esc_html( $placeholders['cardExpirationDate'] ); ?>',
+						mode: 'short',
 						style: {
 							"font-size": "16px",
 							"height": "40px",
@@ -244,6 +245,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					try {
 					if (paymentMethods) {
 						setCvvHint(paymentMethods[0].settings[0].security_code);
+						changeCvvPlaceHolder(paymentMethods[0].settings[0].security_code.length)
 						clearInputs();
 						removeInputHelper('mp-card-number');
 						setImageCard(paymentMethods[0].thumbnail);
@@ -302,8 +304,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 				}
 			});
 			mp_security_fields_loaded = true;
+			function changeCvvPlaceHolder(cvvLength){
+				let text = '';
+				for (let index = 0; index < cvvLength; index++) {
+					text += index+1
+				}
+				cardForm.update('securityCode', { placeholder: text });
+			}
 		}
 	});
+
+
 
 	var availablePayment = document.getElementsByClassName('mp-checkout-custom-available-payments')[0];
 	var collapsible = availablePayment.getElementsByClassName('mp-checkout-custom-available-payments-header')[0];

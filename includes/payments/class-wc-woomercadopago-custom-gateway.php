@@ -366,7 +366,6 @@ class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 
 		$parameters = array(
 			'test_mode'            => ! $this->is_production_mode(),
-			'test_mode_link'       => $test_mode_link,
 			'amount'               => $amount,
 			'site_id'              => $this->mp_options->get_site_id(),
 			'public_key'           => $this->get_public_key(),
