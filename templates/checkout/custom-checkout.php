@@ -149,172 +149,180 @@ if ( ! defined( 'ABSPATH' ) ) {
 			>
 			</terms-and-conditions>
 		</div>
-		<div id="mercadopago-utilities">
-			<input type="hidden" id="mp-amount" value='<?php echo esc_textarea( $amount ); ?>' name="mercadopago_custom[amount]" />
-			<input type="hidden" id="currency_ratio" value='<?php echo esc_textarea( $currency_ratio ); ?>' name="mercadopago_custom[currency_ratio]" />
-			<input type="hidden" id="paymentMethodId" name="mercadopago_custom[paymentMethodId]" />
-			<input type="hidden" id="mp_checkout_type" name="mercadopago_custom[checkout_type]" value="custom" />
-			<input type="hidden" id="cardExpirationMonth" data-checkout="cardExpirationMonth">
-			<input type="hidden" id="cardExpirationYear" data-checkout="cardExpirationYear">
-			<input type="hidden" id="cardTokenId" name="mercadopago_custom[token]" />
-		</div>
 	</div>
 </form>
+<div id="mercadopago-utilities">
+	<input type="hidden" id="mp-amount" value='<?php echo esc_textarea( $amount ); ?>' name="mercadopago_custom[amount]" />
+	<input type="hidden" id="currency_ratio" value='<?php echo esc_textarea( $currency_ratio ); ?>' name="mercadopago_custom[currency_ratio]" />
+	<input type="hidden" id="paymentMethodId" name="mercadopago_custom[paymentMethodId]" />
+	<input type="hidden" id="mp_checkout_type" name="mercadopago_custom[checkout_type]" value="custom" />
+	<input type="hidden" id="cardExpirationMonth" data-checkout="cardExpirationMonth">
+	<input type="hidden" id="cardExpirationYear" data-checkout="cardExpirationYear">
+	<input type="hidden" id="cardTokenId" name="mercadopago_custom[token]" />
+	<input type="hidden" id="cardInstallments" name="mercadopago_custom[installments]">
+</div>
 
 <script type="text/javascript">
+	var cardForm;
+	var isSubmitted = false;
+
 	function submitWalletButton(event) {
 		event.preventDefault();
 		jQuery('#mp_checkout_type').val('wallet_button');
 		jQuery('form.checkout, form#order_review').submit();
 	}
 
+	function submitChoCustom() {
+		if(isSubmitted){
+			return true;
+		}
+		cardForm.createCardToken()
+			.then(cardToken => {
+				if (cardToken.token) {
+					document.querySelector("#cardTokenId").value = cardToken.token;
+					isSubmitted = true;
+					console.log('TOKEN:', cardToken.token);
+					jQuery('form.checkout, form#order_review').submit();
+				} else {
+					throw new Error('cardToken is empty');
+				}
+			})
+			.catch(error => {
+        		console.log('ERRO:',error)
+    		});
+			return false;
+	}
+
 	// MLB
 	var mp_security_fields_loaded = false;
-	jQuery( document ).on( 'updated_checkout', function() {
-		if(!mp_security_fields_loaded){
-			const mp = new MercadoPago('<?php echo esc_html( $public_key ); ?>');
-			const cardForm = mp.cardForm({
-				amount: '<?php echo esc_html( $amount ); ?>',
-				iframe: true,
-				form: {
-					id: 'form-checkout',
-					cardNumber: {
-						id: 'form-checkout__cardNumber-container',
-						placeholder: '0000 0000 0000 0000',
-						style: {
-							"font-size": "16px",
-							"height": "40px",
-							"padding": "14px"
-						}
-					},
-					cardholderName: {
-						id: 'form-checkout__cardholderName',
-						placeholder: "Ex.: María López",
-					},
-					cardExpirationDate: {
-						id: 'form-checkout__cardExpirationDate-container',
-						placeholder: '<?php echo esc_html( $placeholders['cardExpirationDate'] ); ?>',
-						mode: 'short',
-						style: {
-							"font-size": "16px",
-							"height": "40px",
-							"padding": "14px"
-						}
-					},
-					securityCode: {
-						id: 'form-checkout__securityCode-container',
-						placeholder: '123',
-						style: {
-							"font-size": "16px",
-							"height": "40px",
-							"padding": "14px"
-						}
-					},
-					identificationType: {
-						id: 'form-checkout__identificationType',
-					},
-					identificationNumber: {
-						id: 'form-checkout__identificationNumber',
-					},
-					issuer: {
-						id: 'form-checkout__issuer',
-						placeholder: '<?php echo esc_html( $placeholders['issuer'] ); ?>'
-					},
-					installments: {
-						id: 'form-checkout__installments',
-						placeholder: '<?php echo esc_html( $placeholders['installments'] ); ?>'
-					},
-				},
-				callbacks: {
-				onFormMounted: function (error) {
-					if (error) return console.log('Callback para tratar o erro: montando o cardForm ', error)
-				},
-				onInstallmentsReceived: (error, installments) => {
-					if (error) {
-					return console.warn('Installments handling error: ', error)
-					}
-					setChangeEventOnInstallments(getCountry(), installments);
-				},
-				onCardTokenReceived: (error, token) => {
-					if (error) {
-					return console.warn('Token handling error: ', error);
-					}
-					// this.placeOrder();
-				},
-				onPaymentMethodsReceived: (error, paymentMethods) => {
-					try {
-					if (paymentMethods) {
-						setCvvHint(paymentMethods[0].settings[0].security_code);
-						changeCvvPlaceHolder(paymentMethods[0].settings[0].security_code.length)
-						clearInputs();
-						removeInputHelper('mp-card-number');
-						setImageCard(paymentMethods[0].thumbnail);
-						handleInstallments(paymentMethods[0].payment_type_id);
-						loadAdditionalInfo(paymentMethods[0].additional_info_needed);
-						additionalInfoHandler();
-					}
-					else {
-						showInputHelper('mp-card-number');
-					}
-					} catch (error) {
-					showInputHelper('mp-card-number');
-					}
-				},
-				onSubmit: function (event) {
-					event.preventDefault();
-					alert("Implementar no plugin");
-					const {
-					paymentMethodId: payment_method_id,
-					issuerId: issuer_id,
-					amount,
-					token,
-					installments,
-					identificationNumber,
-					identificationType
-					} = cardForm.getCardFormData();
 
-					fetch('/process_payment', {
-					method: 'POST',
-					headers: {
-						'Content-Type': 'application/json'
+	jQuery( document ).on( 'updated_checkout', function() {
+		console.log("updated_checkout chamado")
+		if(!mp_security_fields_loaded){
+			var mp = new MercadoPago('<?php echo esc_html( $public_key ); ?>');
+
+			cardForm = mp.cardForm(
+				{
+					amount: '<?php echo esc_html( $amount ); ?>',
+					iframe: true,
+					form: {
+						id: 'form-checkout',
+						cardNumber: {
+							id: 'form-checkout__cardNumber-container',
+							placeholder: '0000 0000 0000 0000',
+							style: {
+								"font-size": "16px",
+								"height": "40px",
+								"padding": "14px"
+							}
+						},
+						cardholderName: {
+							id: 'form-checkout__cardholderName',
+							placeholder: "Ex.: María López",
+						},
+						cardExpirationDate: {
+							id: 'form-checkout__cardExpirationDate-container',
+							placeholder: '<?php echo esc_html( $placeholders['cardExpirationDate'] ); ?>',
+							//mode: 'short',
+							style: {
+								"font-size": "16px",
+								"height": "40px",
+								"padding": "14px"
+							}
+						},
+						securityCode: {
+							id: 'form-checkout__securityCode-container',
+							placeholder: '123',
+							style: {
+								"font-size": "16px",
+								"height": "40px",
+								"padding": "14px"
+							}
+						},
+						identificationType: {
+							id: 'form-checkout__identificationType',
+						},
+						identificationNumber: {
+							id: 'form-checkout__identificationNumber',
+						},
+						issuer: {
+							id: 'form-checkout__issuer',
+							placeholder: '<?php echo esc_html( $placeholders['issuer'] ); ?>'
+						},
+						installments: {
+							id: 'form-checkout__installments',
+							placeholder: '<?php echo esc_html( $placeholders['installments'] ); ?>'
+						},
 					},
-					body: JSON.stringify({
-						token,
-						issuer_id,
-						payment_method_id,
-						transaction_amount: Number(amount),
-						installments: Number(installments),
-						description: 'product description',
-						payer: {
-						identification: {
-							type: identificationType,
-							number: identificationNumber
+					callbacks: {
+						onFormMounted: function (error) {
+							if (error) return console.log('Callback para tratar o erro: montando o cardForm ', error)
+						},
+						onInstallmentsReceived: (error, installments) => {
+							if (error) {
+							return console.warn('Installments handling error: ', error)
+							}
+							setChangeEventOnInstallments(getCountry(), installments);
+						},
+						onCardTokenReceived: (error, token) => {
+							if (error) {
+							return console.warn('Token handling error: ', error);
+							}
+						},
+						onPaymentMethodsReceived: (error, paymentMethods) => {
+							try {
+							if (paymentMethods) {
+								setPaymentMethodId(paymentMethods[0].id)
+								setCvvHint(paymentMethods[0].settings[0].security_code);
+								changeCvvPlaceHolder(paymentMethods[0].settings[0].security_code.length)
+								clearInputs();
+								removeInputHelper('mp-card-number');
+								setImageCard(paymentMethods[0].thumbnail);
+								handleInstallments(paymentMethods[0].payment_type_id);
+								loadAdditionalInfo(paymentMethods[0].additional_info_needed);
+								additionalInfoHandler();
+							}
+							else {
+								showInputHelper('mp-card-number');
+							}
+							} catch (error) {
+							showInputHelper('mp-card-number');
+							}
+						},
+						onError: function (errors) {
+							errors.forEach(error =>{
+								if (error.message.includes("cardNumber")) {return showInputHelper('mp-card-number');}
+								else if (error.message.includes("cardholderName")) {return showInputHelper('mp-card-holder-name');}
+								else if (error.message.includes("expirationMonth") || error.message.includes("expirationYear")) {return showInputHelper('mp-expiration-date');}
+								else if (error.message.includes("CVV")) {return showInputHelper('mp-cvv');}
+								else if (error.message.includes("identificationNumber")) {return showInputHelper('mp-doc-number');}
+								else {return console.log("Erro desconhecido")}
+							});
+						},
+						onSubmit: function (event) {
+							event.preventDefault();
+							console.log('SUBMIT INTERNO');
+						},
+						onValidityChange: function (error, field) {
+							if (error) {
+							if (field == 'cardNumber') { document.getElementById('form-checkout__cardNumber-container').style.background = 'no-repeat #fff'; }
+							return showInputHelper(inputHelperName(field));
+							}
+							return removeInputHelper(inputHelperName(field));
 						}
-						}
-					})
-					})
-				},
-				onValidityChange: function (error, field) {
-					if (error) {
-					if (field == 'cardNumber') { document.getElementById('form-checkout__cardNumber-container').style.background = 'no-repeat #fff'; }
-					return showInputHelper(inputHelperName(field));
 					}
-					return removeInputHelper(inputHelperName(field));
 				}
-				}
-			});
-			mp_security_fields_loaded = true;
+			);
 			function changeCvvPlaceHolder(cvvLength){
 				let text = '';
 				for (let index = 0; index < cvvLength; index++) {
 					text += index+1
 				}
-				cardForm.update('securityCode', { placeholder: text });
+				//cardForm.update('securityCode', { placeholder: text });
 			}
+			mp_security_fields_loaded = true;
 		}
 	});
-
-
 
 	var availablePayment = document.getElementsByClassName('mp-checkout-custom-available-payments')[0];
 	var collapsible = availablePayment.getElementsByClassName('mp-checkout-custom-available-payments-header')[0];
@@ -334,4 +342,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 		}
 	});
 
+	jQuery("form.checkout").on(
+      "checkout_place_order_woo-mercado-pago-custom",
+      function () {
+        return submitChoCustom();
+      }
+    );
+
+	// If payment fail, retry on next checkout page
+    jQuery("form#order_review").submit(function () {
+      return submitChoCustom();
+    });
 </script>
