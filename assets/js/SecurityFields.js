@@ -71,15 +71,15 @@ const setChangeEventOnInstallments = function (siteId, response) {
   inputTable.setAttribute('columns', JSON.stringify(installments));
   showInstallments();
   showInstallmentsComponent(inputTable);
+  setupTaxEvents();
   document.getElementById('more-options').addEventListener('click', () => {
     setTimeout(() => {
-      setupTaxEvents()
+      setupTaxEvents();
     }, 100);
   });
 
   if (siteId === 'MLA') {
     clearTax();
-    setupTaxEvents();
   }
 
   function setupTaxEvents() {
@@ -89,6 +89,7 @@ const setChangeEventOnInstallments = function (siteId, response) {
       taxesElements[i].addEventListener('click', showTaxes);
       taxesElements[i].addEventListener('click', () => {
         document.getElementById('form-checkout__installments').value = installmentValue;
+        document.getElementById('cardInstallments').value = installmentValue;
       });
     }
   }
@@ -191,6 +192,10 @@ const setCvvHint = function (security_code) {
 const setImageCard = function (secureThumbnail) {
   document.getElementById('form-checkout__cardNumber-container').style.background = 'url(' + secureThumbnail + ') 98% 50% no-repeat #fff';
   document.getElementById('form-checkout__cardNumber-container').style.backgroundSize = '7%';
+}
+
+const setPaymentMethodId = function (id) {
+  document.getElementById('paymentMethodId').value = id;
 }
 
 const handleInstallments = function (payment_type_id) {
