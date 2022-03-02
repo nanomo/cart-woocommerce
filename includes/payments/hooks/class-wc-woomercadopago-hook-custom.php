@@ -147,7 +147,7 @@ class WC_WooMercadoPago_Hook_Custom extends WC_WooMercadoPago_Hook_Abstract {
 					'plugin_version'         => WC_WooMercadoPago_Constants::VERSION,
 					'currency'               => $this->payment->site_data['currency'],
 					'intl'                   => $this->payment->site_data['intl'],
-					'placeholders'         	 => array(
+					'placeholders'           => array(
 						'cardExpirationDate' => __( 'mm/yy', 'woocommerce-mercadopago' ),
 						'issuer'             => __( 'Issuer', 'woocommerce-mercadopago' ),
 						'installments'       => __( 'Installments', 'woocommerce-mercadopago' ),
