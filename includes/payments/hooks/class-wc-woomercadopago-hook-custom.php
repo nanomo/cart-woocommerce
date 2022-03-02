@@ -28,6 +28,8 @@ class WC_WooMercadoPago_Hook_Custom extends WC_WooMercadoPago_Hook_Abstract {
 			add_action( 'wp_enqueue_scripts', array( $this, 'add_checkout_scripts_custom' ) );
 			add_action( 'woocommerce_after_checkout_form', array( $this, 'add_mp_settings_script_custom' ) );
 			add_action( 'woocommerce_thankyou', array( $this, 'update_mp_settings_script_custom' ) );
+			add_action( 'woocommerce_review_order_before_payment', array( $this, 'add_init_cardform_checkout'));
+			add_action( 'before_woocommerce_pay', array( $this, 'add_init_cardform_order_review'));
 		}
 
 		add_action(
@@ -37,6 +39,34 @@ class WC_WooMercadoPago_Hook_Custom extends WC_WooMercadoPago_Hook_Abstract {
 				// @codingStandardsIgnoreLine
 				$this->render_order_form( $order );
 			}
+		);
+	}
+
+	/**
+	 *  Add Init Cardform on Checkout Page
+	 */
+	public function add_init_cardform_checkout() {
+		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
+		wp_enqueue_script(
+			'woocommerce-mercadopago-checkout-init-cardform',
+			plugins_url( '../../assets/js/CheckoutSecurityFields' . $suffix . '.js', plugin_dir_path( __FILE__ ) ),
+			array(),
+			WC_WooMercadoPago_Constants::VERSION,
+			true
+		);
+	}
+
+	/**
+	 *  Add Init Cardform on Order Review Page
+	 */
+	public function add_init_cardform_order_review() {
+		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
+		wp_enqueue_script(
+			'woocommerce-mercadopago-checkout-init-cardform-order-review',
+			plugins_url( '../../assets/js/OrderReviewSecurityFields' . $suffix . '.js', plugin_dir_path( __FILE__ ) ),
+			array(),
+			WC_WooMercadoPago_Constants::VERSION,
+			true
 		);
 	}
 
@@ -117,6 +147,11 @@ class WC_WooMercadoPago_Hook_Custom extends WC_WooMercadoPago_Hook_Abstract {
 					'plugin_version'         => WC_WooMercadoPago_Constants::VERSION,
 					'currency'               => $this->payment->site_data['currency'],
 					'intl'                   => $this->payment->site_data['intl'],
+					'placeholders'         	 => array(
+						'cardExpirationDate' => __( 'mm/yy', 'woocommerce-mercadopago' ),
+						'issuer'             => __( 'Issuer', 'woocommerce-mercadopago' ),
+						'installments'       => __( 'Installments', 'woocommerce-mercadopago' ),
+					)
 				)
 			);
 		}

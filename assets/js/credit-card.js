@@ -508,9 +508,12 @@
         }
       }
 
-function setPaymentMethodId(paymentMethodId) {
-  document.getElementById('paymentMethodId').value = paymentMethodId;
-}
+      if (emptyInputs) {
+        return emptyInputs;
+      } else {
+        return emptyInputs;
+      }
+    }
 
     /**
      * Validate Inputs to Create Token
@@ -528,12 +531,8 @@ function setPaymentMethodId(paymentMethodId) {
         return false;
       }
 
-function setCvvProperties(security_code) {
-  document.getElementById('mp-security-code').setAttribute('maxlength', security_code.length);
-  document.getElementById(
-    'mp-security-code-info',
-  ).innerText = `Last ${security_code.length} digits in ${security_code.card_location}`;
-  document.getElementById('mp-security-code').setAttribute('placeholder', countPlaceHolder());
+      return true;
+    }
 
     /**
      * Focus input with error
@@ -546,9 +545,6 @@ function setCvvProperties(security_code) {
         form_inputs[0].focus();
       }
     }
-    return placeholder;
-  }
-}
 
     /**
      * Validate fixed Inputs is empty
@@ -583,9 +579,11 @@ function setCvvProperties(security_code) {
         }
       }
 
-  for (let i = 0; i < additional_info_needed.length; i++) {
-    if (additional_info_needed[i] === 'issuer_id') {
-      additionalInfoNeeded.issuer = true;
+      if (emptyInputs) {
+        return emptyInputs;
+      } else {
+        return emptyInputs;
+      }
     }
 
     /**
@@ -657,7 +655,6 @@ function setCvvProperties(security_code) {
         $("form.checkout, form#order_review").submit();
       }
     }
-}
 
     /**
      *
@@ -855,9 +852,16 @@ function setCvvProperties(security_code) {
       return document.querySelector("#mp-amount").value;
     }
 
-	var element = document.querySelector('input-label[for=mp-card-holder-name]');
-
-	var parent = element.parentElement;
+    /**
+     * Handler submit
+     *
+     * @return {bool}
+     */
+    function mercadoPagoFormHandler() {
+      if (mercado_pago_submit) {
+        mercado_pago_submit = false;
+        return true;
+      }
 
       if ($("#mp_checkout_type").val() === "wallet_button") {
         return true;
@@ -872,11 +876,12 @@ function setCvvProperties(security_code) {
 
       $("#mp_checkout_type").val("custom");
 
-		return dataInput;
-	}
+      if (validateInputsCreateToken()) {
+        return createToken();
+      }
 
-	return dataInput;
-}
+      return false;
+    }
 
     // Process when submit the checkout form.
     $("form.checkout").on(
