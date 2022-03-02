@@ -4,14 +4,14 @@ var amount = document.getElementById('mp-amount').value;
 
 var form = document.querySelector('form[name=checkout]')
 var formId = 'checkout';
-if(form) {		
+if (form) {
   form.id = formId;
 } else {
   formId = 'order_review';
 }
 
 function submitChoCustom() {
-  if(isSubmitted){
+  if (isSubmitted) {
     return true;
   }
   cardForm.createCardToken()
@@ -25,12 +25,12 @@ function submitChoCustom() {
       }
     })
     .catch(error => {
-      console.log('ERRO:',error)
+      console.log('ERRO:', error)
     });
-    return false;
+  return false;
 }
 
-function init_cardForm(){
+function init_cardForm() {
   var mp = new MercadoPago(wc_mercadopago_params.public_key);
 
   cardForm = mp.cardForm(
@@ -92,13 +92,14 @@ function init_cardForm(){
         },
         onInstallmentsReceived: (error, installments) => {
           if (error) {
-          return console.warn('Installments handling error: ', error)
+            return console.warn('Installments handling error: ', error)
           }
           setChangeEventOnInstallments(getCountry(), installments);
         },
         onCardTokenReceived: (error, token) => {
+
           if (error) {
-          return console.warn('Token handling error: ', error);
+            return console.warn('Token handling error: ', error);
           }
         },
         onPaymentMethodsReceived: (error, paymentMethods) => {
@@ -122,13 +123,13 @@ function init_cardForm(){
           }
         },
         onError: function (errors) {
-          errors.forEach(error =>{
-            if (error.message.includes("cardNumber")) {return showInputHelper('mp-card-number');}
-            else if (error.message.includes("cardholderName")) {return showInputHelper('mp-card-holder-name');}
-            else if (error.message.includes("expirationMonth") || error.message.includes("expirationYear")) {return showInputHelper('mp-expiration-date');}
-            else if (error.message.includes("CVV")) {return showInputHelper('mp-cvv');}
-            else if (error.message.includes("identificationNumber")) {return showInputHelper('mp-doc-number');}
-            else {return console.log("Erro desconhecido")}
+          errors.forEach(error => {
+            if (error.message.includes("cardNumber")) { return showInputHelper('mp-card-number'); }
+            else if (error.message.includes("cardholderName")) { return showInputHelper('mp-card-holder-name'); }
+            else if (error.message.includes("expirationMonth") || error.message.includes("expirationYear")) { return showInputHelper('mp-expiration-date'); }
+            else if (error.message.includes("CVV")) { return showInputHelper('mp-cvv'); }
+            else if (error.message.includes("identificationNumber")) { return showInputHelper('mp-doc-number'); }
+            else { return console.log("Erro desconhecido") }
           });
         },
         onSubmit: function (event) {
@@ -136,22 +137,22 @@ function init_cardForm(){
         },
         onValidityChange: function (error, field) {
           if (error) {
-          if (field == 'cardNumber') { document.getElementById('form-checkout__cardNumber-container').style.background = 'no-repeat #fff'; }
-          return showInputHelper(inputHelperName(field));
+            if (field == 'cardNumber') { document.getElementById('form-checkout__cardNumber-container').style.background = 'no-repeat #fff'; }
+            return showInputHelper(inputHelperName(field));
           }
           return removeInputHelper(inputHelperName(field));
         }
       }
     }
   );
-  function changeCvvPlaceHolder(cvvLength){
+  function changeCvvPlaceHolder(cvvLength) {
     let text = '';
     for (let index = 0; index < cvvLength; index++) {
-      text += index+1
+      text += index + 1
     }
     cardForm.update('securityCode', { placeholder: text });
   }
-}	
+}
 
 function inputHelperName(field) {
   let inputHelperName = {
@@ -343,7 +344,7 @@ const setCvvHint = function (security_code) {
 
 const setImageCard = function (secureThumbnail) {
   document.getElementById('form-checkout__cardNumber-container').style.background = 'url(' + secureThumbnail + ') 98% 50% no-repeat #fff';
-  document.getElementById('form-checkout__cardNumber-container').style.backgroundSize = '7%';
+  document.getElementById('form-checkout__cardNumber-container').style.backgroundSize = 'auto 24px';
 }
 
 const setPaymentMethodId = function (id) {
