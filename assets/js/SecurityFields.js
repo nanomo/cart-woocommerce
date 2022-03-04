@@ -1,6 +1,8 @@
 var cardForm;
 var isSubmitted = false;
-var amount = document.getElementById('mp-amount').value;
+if (document.getElementById('mp-amount')) {
+  var amount = document.getElementById('mp-amount').value;
+}
 
 var form = document.querySelector('form[name=checkout]')
 var formId = 'checkout';
