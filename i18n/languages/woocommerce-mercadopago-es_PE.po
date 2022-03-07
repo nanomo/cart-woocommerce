@@ -620,10 +620,8 @@ msgstr "hasta "
 #: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:511,
 #: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:518,
 #: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:518
-#, fuzzy
-#| msgid "2 installments"
 msgid " installments"
-msgstr "2 cuotas"
+msgstr "X"
 
 #: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:517,
 #: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:349,
@@ -2848,29 +2846,23 @@ msgstr "Consulte las reglas para el modo test."
 
 #: ../../templates/checkout/basic-checkout.php:32,
 #: ../../templates/checkout/basic-checkout.php:32
-#, fuzzy
-#| msgid "Pay with Mercado Pago"
 msgid "Pay faster with Mercado Pago"
-msgstr "Pagar con Mercado Pago"
+msgstr "Paga más rápido con Mercado Pago"
 
 #: ../../templates/checkout/basic-checkout.php:34,
 #: ../../templates/checkout/basic-checkout.php:34
-#, fuzzy
-#| msgid "Declined payment"
 msgid "Secure payment"
-msgstr "Cobro rechazado"
+msgstr "Pago seguro"
 
 #: ../../templates/checkout/basic-checkout.php:35,
 #: ../../templates/checkout/basic-checkout.php:35
 msgid "No need to fill out details"
-msgstr ""
+msgstr "Sin cargar datos"
 
 #: ../../templates/checkout/basic-checkout.php:36,
 #: ../../templates/checkout/basic-checkout.php:36
-#, fuzzy
-#| msgid "installments"
 msgid "Installments available"
-msgstr "cuotas"
+msgstr "Cuotas disponibles"
 
 #: ../../templates/checkout/basic-checkout.php:39,
 #: ../../templates/checkout/basic-checkout.php:39

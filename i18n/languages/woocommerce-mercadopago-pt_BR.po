@@ -614,13 +614,13 @@ msgstr "Parcelas sem cartão"
 #: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:518,
 #: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:518
 msgid "Up to "
-msgstr "até"
+msgstr "ATÉ "
 
 #: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:511,
 #: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:518,
 #: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:518
 msgid " installments"
-msgstr " 2 parcelas"
+msgstr "X"
 
 #: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:517,
 #: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:349,
@@ -2756,8 +2756,6 @@ msgstr "Banco emissor"
 
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:153,
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:153
-#, fuzzy
-#| msgid "installments"
 msgid "Installments"
 msgstr "x"
 
@@ -2844,29 +2842,23 @@ msgstr "Consulte as regras do modo teste."
 
 #: ../../templates/checkout/basic-checkout.php:32,
 #: ../../templates/checkout/basic-checkout.php:32
-#, fuzzy
-#| msgid "Pay with Mercado Pago"
 msgid "Pay faster with Mercado Pago"
-msgstr "Pagar com Mercado Pago"
+msgstr "Pague mais rápido com Mercado Pago"
 
 #: ../../templates/checkout/basic-checkout.php:34,
 #: ../../templates/checkout/basic-checkout.php:34
-#, fuzzy
-#| msgid "Declined payment"
 msgid "Secure payment"
-msgstr "Pagamento recusado"
+msgstr "Pagamento seguro"
 
 #: ../../templates/checkout/basic-checkout.php:35,
 #: ../../templates/checkout/basic-checkout.php:35
 msgid "No need to fill out details"
-msgstr ""
+msgstr "Sem preenchimento de dados"
 
 #: ../../templates/checkout/basic-checkout.php:36,
 #: ../../templates/checkout/basic-checkout.php:36
-#, fuzzy
-#| msgid "installments"
 msgid "Installments available"
-msgstr "x"
+msgstr "Parcelas disponíveis"
 
 #: ../../templates/checkout/basic-checkout.php:39,
 #: ../../templates/checkout/basic-checkout.php:39
@@ -2951,7 +2943,7 @@ msgid ""
 "payment."
 msgstr ""
 "É possível testar o fluxo para gerar uma fatura, mas não é possível "
-"finalizar o pagamento. "
+"finalizar o pagamento."
 
 #: ../../templates/checkout/pix-checkout.php:30,
 #: ../../templates/checkout/pix-checkout.php:30
@@ -2992,7 +2984,7 @@ msgstr "Selecione onde você quer pagar"
 #: ../../templates/checkout/ticket-checkout.php:60,
 #: ../../templates/checkout/ticket-checkout.php:60
 msgid "more options"
-msgstr "Mais opções"
+msgstr "mais opções"
 
 #: ../../templates/order/payment-status-metabox-content.php:20,
 #: ../../templates/order/payment-status-metabox-content.php:20
