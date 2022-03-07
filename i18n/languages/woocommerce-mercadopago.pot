@@ -1856,11 +1856,11 @@ msgstr ""
 msgid "Checkout Pro redirect info image"
 msgstr ""
 
-#: ../../templates/checkout/basic-checkout.php:63, ../../templates/checkout/basic-checkout.php:63, ../../templates/checkout/basic-checkout.php:63, ../../templates/checkout/custom-checkout.php:145, ../../templates/checkout/custom-checkout.php:145, ../../templates/checkout/custom-checkout.php:145, ../../templates/checkout/pix-checkout.php:39, ../../templates/checkout/pix-checkout.php:39, ../../templates/checkout/pix-checkout.php:39, ../../templates/checkout/ticket-checkout.php:80, ../../templates/checkout/ticket-checkout.php:80, ../../templates/checkout/ticket-checkout.php:80
+#: ../../templates/checkout/basic-checkout.php:63, ../../templates/checkout/basic-checkout.php:63, ../../templates/checkout/basic-checkout.php:63, ../../templates/checkout/custom-checkout.php:147, ../../templates/checkout/custom-checkout.php:147, ../../templates/checkout/custom-checkout.php:147, ../../templates/checkout/pix-checkout.php:39, ../../templates/checkout/pix-checkout.php:39, ../../templates/checkout/pix-checkout.php:39, ../../templates/checkout/ticket-checkout.php:80, ../../templates/checkout/ticket-checkout.php:80, ../../templates/checkout/ticket-checkout.php:80
 msgid "By continuing, you agree with our"
 msgstr ""
 
-#: ../../templates/checkout/basic-checkout.php:64, ../../templates/checkout/basic-checkout.php:64, ../../templates/checkout/basic-checkout.php:64, ../../templates/checkout/custom-checkout.php:146, ../../templates/checkout/custom-checkout.php:146, ../../templates/checkout/custom-checkout.php:146, ../../templates/checkout/pix-checkout.php:40, ../../templates/checkout/pix-checkout.php:40, ../../templates/checkout/pix-checkout.php:40, ../../templates/checkout/ticket-checkout.php:81, ../../templates/checkout/ticket-checkout.php:81, ../../templates/checkout/ticket-checkout.php:81
+#: ../../templates/checkout/basic-checkout.php:64, ../../templates/checkout/basic-checkout.php:64, ../../templates/checkout/basic-checkout.php:64, ../../templates/checkout/custom-checkout.php:148, ../../templates/checkout/custom-checkout.php:148, ../../templates/checkout/custom-checkout.php:148, ../../templates/checkout/pix-checkout.php:40, ../../templates/checkout/pix-checkout.php:40, ../../templates/checkout/pix-checkout.php:40, ../../templates/checkout/ticket-checkout.php:81, ../../templates/checkout/ticket-checkout.php:81, ../../templates/checkout/ticket-checkout.php:81
 msgid "Terms and conditions"
 msgstr ""
 
@@ -1890,6 +1890,38 @@ msgstr ""
 
 #: ../../templates/checkout/custom-checkout.php:77, ../../templates/checkout/custom-checkout.php:77, ../../templates/checkout/custom-checkout.php:77
 msgid "Fill in your card details"
+msgstr ""
+
+#: ../../templates/checkout/custom-checkout.php:79, ../../templates/checkout/custom-checkout.php:79, ../../templates/checkout/custom-checkout.php:79
+msgid "Card number"
+msgstr ""
+
+#: ../../templates/checkout/custom-checkout.php:81, ../../templates/checkout/custom-checkout.php:89, ../../templates/checkout/custom-checkout.php:100, ../../templates/checkout/custom-checkout.php:108, ../../templates/checkout/custom-checkout.php:81, ../../templates/checkout/custom-checkout.php:89, ../../templates/checkout/custom-checkout.php:100, ../../templates/checkout/custom-checkout.php:108, ../../templates/checkout/custom-checkout.php:81, ../../templates/checkout/custom-checkout.php:89, ../../templates/checkout/custom-checkout.php:100, ../../templates/checkout/custom-checkout.php:108
+msgid "Mandatory data"
+msgstr ""
+
+#: ../../templates/checkout/custom-checkout.php:86, ../../templates/checkout/custom-checkout.php:86, ../../templates/checkout/custom-checkout.php:86
+msgid "Holder name as it appears on the card"
+msgstr ""
+
+#: ../../templates/checkout/custom-checkout.php:96, ../../templates/checkout/custom-checkout.php:96, ../../templates/checkout/custom-checkout.php:96
+msgid "Expiration"
+msgstr ""
+
+#: ../../templates/checkout/custom-checkout.php:105, ../../templates/checkout/custom-checkout.php:105, ../../templates/checkout/custom-checkout.php:105
+msgid "Security Code"
+msgstr ""
+
+#: ../../templates/checkout/custom-checkout.php:115, ../../templates/checkout/custom-checkout.php:115, ../../templates/checkout/custom-checkout.php:115
+msgid "Holder document"
+msgstr ""
+
+#: ../../templates/checkout/custom-checkout.php:116, ../../templates/checkout/custom-checkout.php:116, ../../templates/checkout/custom-checkout.php:116
+msgid "Invalid document"
+msgstr ""
+
+#: ../../templates/checkout/custom-checkout.php:126, ../../templates/checkout/custom-checkout.php:126, ../../templates/checkout/custom-checkout.php:126
+msgid "Select the number of installments"
 msgstr ""
 
 #: ../../templates/checkout/pix-checkout.php:22, ../../templates/checkout/pix-checkout.php:22, ../../templates/checkout/pix-checkout.php:22

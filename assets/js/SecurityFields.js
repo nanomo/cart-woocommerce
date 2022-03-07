@@ -139,7 +139,7 @@ function init_cardForm() {
         },
         onValidityChange: function (error, field) {
           if (error) {
-            if (field == 'cardNumber') { 
+            if (field == 'cardNumber') {
               document.getElementById('form-checkout__cardNumber-container').style.background = 'no-repeat #fff';
               removeAdditionFields();
             }
@@ -159,7 +159,7 @@ function init_cardForm() {
   }
 }
 
-function removeAdditionFields(){
+function removeAdditionFields() {
   hideDocumentField();
   hideInstallments();
   hideIssuer();
@@ -311,19 +311,19 @@ function clearInstallmentsComponent() {
   }
 }
 
-function showDocumentField(){
+function showDocumentField() {
   document.getElementById('mp-doc-div').style.display = 'block';
 }
 
-function hideDocumentField(){
+function hideDocumentField() {
   document.getElementById('mp-doc-div').style.display = 'none';
 }
 
-function showIssuer(){
+function showIssuer() {
   document.getElementById('form-checkout__issuer').style.display = 'block';
 }
 
-function hideIssuer(){
+function hideIssuer() {
   document.getElementById('form-checkout__issuer').style.display = 'none';
 }
 
@@ -360,13 +360,29 @@ function showTaxes() {
 }
 
 const getCountry = function () {
-  return 'MLB';
+  return wc_mercadopago_params.site_id;
 }
 
 const setCvvHint = function (security_code) {
-  document.getElementById(
-    'mp-security-code-info',
-  ).innerText = `Last ${security_code.length} digits in ${security_code.card_location}`;
+  let cvvText = `Últimos ${security_code.length} dígitos `;
+  cvvText += cvvLocationTranslate(getCountry(), security_code.card_location)
+  document.getElementById('mp-security-code-info').innerText = cvvText;
+}
+
+const cvvLocationTranslate = function (site_id, location) {
+
+  if (site_id !== 'mlb') site_id = 'spanish';
+
+  $cvv_front = {
+    'spanish': 'delante',
+    'mlb': 'na frente',
+  };
+
+  $cvv_back = {
+    'spanish': 'del dorso',
+    'mlb': 'atrás',
+  };
+  return location === 'back' ? $cvv_back[site_id] : $cvv_front[site_id];
 }
 
 const setImageCard = function (secureThumbnail) {
