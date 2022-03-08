@@ -379,7 +379,7 @@ const setCvvHint = function (security_code) {
   var cvvText = wc_mercadopago_params.cvvText;
   var text = cvvText.split(" ");
   cvvText = `${text[0]} ${security_code.length} ${text[1]} `;
-  cvvText += cvvLocationTranslate(getCountry(), security_code.card_location)
+  cvvText += cvvLocationTranslate(security_code.card_location)
   document.getElementById('mp-security-code-info').innerText = cvvText;
 }
 
