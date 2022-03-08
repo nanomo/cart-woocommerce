@@ -103,7 +103,7 @@ function init_cardForm() {
             return console.warn('Token handling error: ', error);
           }
         },
-        onPaymentMethodsReceived: (paymentMethods) => {
+        onPaymentMethodsReceived: (error, paymentMethods) => {
           try {
             if (paymentMethods) {
               setPaymentMethodId(paymentMethods[0].id)
@@ -139,7 +139,7 @@ function init_cardForm() {
         },
         onValidityChange: function (error, field) {
           if (error) {
-            if (field == 'cardNumber') { 
+            if (field == 'cardNumber') {
               document.getElementById('form-checkout__cardNumber-container').style.background = 'no-repeat #fff';
               removeAdditionFields();
             }
@@ -170,7 +170,7 @@ function removeInstallmentsValue(){
   document.getElementById('cardInstallments').value = '';
 }
 
-function removeAdditionFields(){
+function removeAdditionFields() {
   hideDocumentField();
   hideInstallments();
   hideIssuer();
@@ -233,7 +233,7 @@ const setChangeEventOnInstallments = function (siteId, response) {
       id: `installment-${installment}`,
       value: installment,
       rowText: `${installment}x ${formatCurrency(payerCosts[j].installment_amount)}`,
-      rowObs: installmentRate ? 'No fee' : formatCurrency(payerCosts[j].total_amount),
+      rowObs: installmentRate ? wc_mercadopago_params.installmentObsFee : formatCurrency(payerCosts[j].total_amount),
       highlight: installmentRate ? 'true' : '',
       dataRate: argentinaResolution(payerCosts[j].labels),
     });
@@ -323,19 +323,19 @@ function clearInstallmentsComponent() {
   }
 }
 
-function showDocumentField(){
+function showDocumentField() {
   document.getElementById('mp-doc-div').style.display = 'block';
 }
 
-function hideDocumentField(){
+function hideDocumentField() {
   document.getElementById('mp-doc-div').style.display = 'none';
 }
 
-function showIssuer(){
+function showIssuer() {
   document.getElementById('form-checkout__issuer').style.display = 'block';
 }
 
-function hideIssuer(){
+function hideIssuer() {
   document.getElementById('form-checkout__issuer').style.display = 'none';
 }
 
@@ -372,13 +372,21 @@ function showTaxes() {
 }
 
 const getCountry = function () {
-  return 'MLB';
+  return wc_mercadopago_params.site_id;
 }
 
 const setCvvHint = function (security_code) {
-  document.getElementById(
-    'mp-security-code-info',
-  ).innerText = `Last ${security_code.length} digits in ${security_code.card_location}`;
+  var cvvText = wc_mercadopago_params.cvvText;
+  var text = cvvText.split(" ");
+  cvvText = `${text[0]} ${security_code.length} ${text[1]} `;
+  cvvText += cvvLocationTranslate(security_code.card_location)
+  document.getElementById('mp-security-code-info').innerText = cvvText;
+}
+
+const cvvLocationTranslate = function (location) {
+  $cvv_front = wc_mercadopago_params.cvvHint['front'];
+  $cvv_back = wc_mercadopago_params.cvvHint['back'];
+  return location === 'back' ? $cvv_back : $cvv_front;
 }
 
 const setImageCard = function (secureThumbnail) {

@@ -23,7 +23,7 @@ msgstr "Al continuar, aceptas nuestros "
 #: ../../includes/module/class-wc-woomercadopago-module.php:338,
 #: ../../includes/module/class-wc-woomercadopago-module.php:338
 msgid "Terms and Conditions"
-msgstr "Términos y Condiciones"
+msgstr "Términos y condiciones"
 
 #: ../../includes/helpers/class-wc-woomercadopago-helpers-currencyconverter.php:92,
 #: ../../includes/helpers/class-wc-woomercadopago-helpers-currencyconverter.php:92
@@ -2737,7 +2737,8 @@ msgid "Terms and conditions of use"
 msgstr "Términos y condiciones de uso"
 
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:142,
-#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:142
+#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:160,
+#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:160
 msgid "No fee"
 msgstr "Sin interés"
 
@@ -2762,6 +2763,21 @@ msgstr "Banco"
 #| msgid "installments"
 msgid "Installments"
 msgstr "cuotas"
+
+#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:156,
+#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:156
+msgid "in back"
+msgstr "del dorso"
+
+#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:157,
+#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:157
+msgid "in front"
+msgstr "delante"
+
+#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:159,
+#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:159
+msgid "Last digits"
+msgstr "Últimos dígitos"
 
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:141,
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:141
@@ -2882,7 +2898,7 @@ msgid "Checkout Pro redirect info image"
 msgstr ""
 
 #: ../../templates/checkout/basic-checkout.php:63,
-#: ../../templates/checkout/custom-checkout.php:145,
+#: ../../templates/checkout/custom-checkout.php:148,
 #: ../../templates/checkout/pix-checkout.php:39,
 #: ../../templates/checkout/ticket-checkout.php:80,
 #: ../../templates/checkout/ticket-checkout.php:80
@@ -2890,12 +2906,12 @@ msgid "By continuing, you agree with our"
 msgstr "Al continuar, aceptas nuestros"
 
 #: ../../templates/checkout/basic-checkout.php:64,
-#: ../../templates/checkout/custom-checkout.php:146,
+#: ../../templates/checkout/custom-checkout.php:149,
 #: ../../templates/checkout/pix-checkout.php:40,
 #: ../../templates/checkout/ticket-checkout.php:81,
 #: ../../templates/checkout/ticket-checkout.php:81
 msgid "Terms and conditions"
-msgstr "Términos y Condiciones "
+msgstr "Términos y condiciones "
 
 #: ../../templates/checkout/custom-checkout.php:22,
 #: ../../templates/checkout/custom-checkout.php:22
@@ -2931,6 +2947,50 @@ msgstr "Ver promociones vigentes"
 #: ../../templates/checkout/custom-checkout.php:77
 msgid "Fill in your card details"
 msgstr "Completa los datos de tu tarjeta"
+
+#: ../../templates/checkout/custom-checkout.php:79,
+#: ../../templates/checkout/custom-checkout.php:79
+msgid "Card number"
+msgstr "Número de Tarjeta"
+
+#: ../../templates/checkout/custom-checkout.php:81,
+#: ../../templates/checkout/custom-checkout.php:89,
+#: ../../templates/checkout/custom-checkout.php:100,
+#: ../../templates/checkout/custom-checkout.php:108,
+#: ../../templates/checkout/custom-checkout.php:108
+msgid "Mandatory data"
+msgstr "Campo obligatorio"
+
+#: ../../templates/checkout/custom-checkout.php:86,
+#: ../../templates/checkout/custom-checkout.php:86
+msgid "Holder name as it appears on the card"
+msgstr "Nombre del titular como aparece en la tarjeta"
+
+#: ../../templates/checkout/custom-checkout.php:96,
+#: ../../templates/checkout/custom-checkout.php:96
+msgid "Expiration"
+msgstr "Vencimiento"
+
+#: ../../templates/checkout/custom-checkout.php:105,
+#: ../../templates/checkout/custom-checkout.php:105
+msgid "Security Code"
+msgstr "Código de seguridad"
+
+#: ../../templates/checkout/custom-checkout.php:115,
+#: ../../templates/checkout/custom-checkout.php:115
+msgid "Holder document"
+msgstr "Documento del titular"
+
+#: ../../templates/checkout/custom-checkout.php:116,
+#: ../../templates/checkout/custom-checkout.php:116
+msgid "Invalid document"
+msgstr "Número de documento no válido"
+
+#: ../../templates/checkout/custom-checkout.php:126,
+#: ../../templates/checkout/custom-checkout.php:127,
+#: ../../templates/checkout/custom-checkout.php:127
+msgid "Select the number of installments"
+msgstr "Selecciona la cantidad de cuotas"
 
 #: ../../templates/checkout/pix-checkout.php:22,
 #: ../../templates/checkout/pix-checkout.php:22
@@ -3048,9 +3108,6 @@ msgstr "Imprimir ticket"
 #~ msgid "The code you entered is incorrect"
 #~ msgstr "El código que ingresaste es incorrecto"
 
-#~ msgid "Card number"
-#~ msgstr "Número de Tarjeta"
-
 #~ msgid "Invalid Card Number"
 #~ msgstr "Numero de tarjeta invalido"
 
@@ -3062,9 +3119,6 @@ msgstr "Imprimir ticket"
 
 #~ msgid "Invalid Expiration Date"
 #~ msgstr "Fecha de expiracion inválida"
-
-#~ msgid "Security code"
-#~ msgstr "Código de seguridad"
 
 #~ msgid "Last 3 numbers on the back"
 #~ msgstr "Últimos 3 números en el reverso"
@@ -3078,9 +3132,6 @@ msgstr "Imprimir ticket"
 #~ msgid "for"
 #~ msgstr "para"
 
-#~ msgid "Select the number of installment"
-#~ msgstr "Seleccione el número de cuotas"
-
 #~ msgid "Enter your document number"
 #~ msgstr "Ingresa tu número de documento"
 
@@ -3092,9 +3143,6 @@ msgstr "Imprimir ticket"
 
 #~ msgid "Only numbers"
 #~ msgstr "Sólo números"
-
-#~ msgid "Invalid Document Number"
-#~ msgstr "Número de documento no válido"
 
 #~ msgid "Obligatory field"
 #~ msgstr "Campo obligatorio"
@@ -3293,9 +3341,6 @@ msgstr "Imprimir ticket"
 
 #~ msgid "Set up the payment via Pix experience"
 #~ msgstr "Configura la experiencia de pago a través de Pix"
-
-#~ msgid "Pix Expiration"
-#~ msgstr "Vencimiento del Pix"
 
 #~ msgid "Checkout of payments with cash %s"
 #~ msgstr "Paga con dinero en efectivo"

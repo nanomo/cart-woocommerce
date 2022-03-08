@@ -76,42 +76,44 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<div class='mp-checkout-custom-card-form'>
 		<p class='mp-checkout-custom-card-form-title'><?php echo esc_html_e( 'Fill in your card details', 'woocommerce-mercadopago' ); ?></p>
 		<div class='mp-checkout-custom-card-row'>
-			<input-label isOptinal=false message="Número de cartão" for='mp-card-number'></input-label>
+			<input-label isOptinal=false message="<?php echo esc_html_e('Card number', 'woocommerce-mercadopago'); ?>" for='mp-card-number'></input-label>
 				<div class="mp-checkout-custom-card-input" id="form-checkout__cardNumber-container"></div>
-				<input-helper isVisible=false message="Dado obrigatório" input-id="mp-card-number-helper">
+				<input-helper isVisible=false message="<?php echo esc_html_e('Mandatory data', 'woocommerce-mercadopago' ); ?>" input-id="mp-card-number-helper">
 			</input-helper>
 		</div>
 
 		<div class='mp-checkout-custom-card-row' id="mp-card-holder-div">
-			<input-label message="Nome" isOptinal=false></input-label>
+			<input-label message="<?php echo esc_html_e('Holder name as it appears on the card', 'woocommerce-mercadopago' ); ?>" isOptinal=false></input-label>
 			<input type="text" class="mp-checkout-custom-card-input" placeholder="Ex.: María López"
 				id="form-checkout__cardholderName" name="mp-card-holder-name" data-checkout="cardholderName" />
-			<input-helper isVisible=false message="Dado obrigatório" input-id="mp-card-holder-name-helper"
+			<input-helper isVisible=false message="<?php echo esc_html_e('Mandatory data', 'woocommerce-mercadopago' ); ?>" input-id="mp-card-holder-name-helper"
 				data-main="mp-card-holder-name">
 			</input-helper>
 		</div>
 
 		<div class='mp-checkout-custom-card-row mp-checkout-custom-dual-column-row'>
 			<div class='mp-checkout-custom-card-column'>
-			<input-label message="Vencimento" isOptinal=false></input-label>
+			<input-label message="<?php echo esc_html_e('Expiration', 'woocommerce-mercadopago' ); ?>" isOptinal=false></input-label>
 			<div id="form-checkout__cardExpirationDate-container"
 				class="mp-checkout-custom-card-input mp-checkout-custom-left-card-input">
 			</div>
-			<input-helper isVisible=false message="Dado obrigatório" input-id="mp-expiration-date-helper">
+			<input-helper isVisible=false message="<?php echo esc_html_e('Mandatory data', 'woocommerce-mercadopago' ); ?>" input-id="mp-expiration-date-helper">
 			</input-helper>
 			</div>
 
 			<div class='mp-checkout-custom-card-column'>
-				<input-label message="Security code" isOptinal=false></input-label>
+				<input-label message="<?php echo esc_html_e('Security Code', 'woocommerce-mercadopago' ); ?>" isOptinal=false></input-label>
 				<div id="form-checkout__securityCode-container" class="mp-checkout-custom-card-input"></div>
 				<p id="mp-security-code-info" class="mp-checkout-custom-info-text"></p>
-				<input-helper isVisible=false message="Dado obrigatório" input-id="mp-cvv-helper">
+				<input-helper isVisible=false message="<?php echo esc_html_e('Mandatory data', 'woocommerce-mercadopago' ); ?>" input-id="mp-cvv-helper">
 				</input-helper>
 			</div>
 		</div>
 
 		<div id="mp-doc-div" class="mp-checkout-custom-input-document" style="display: none;">
-			<input-document label-message="Documento" helper-message="Documento Inválido"
+			<input-document
+				label-message="<?php echo esc_html_e('Holder document', 'woocommerce-mercadopago' ); ?>"
+				helper-message="<?php echo esc_html_e('Invalid document', 'woocommerce-mercadopago' ); ?>"
 				input-name="identificationNumber" hidden-id="form-checkout__identificationNumber"
 				input-data-checkout="docNumber" select-name="identificationType"
 				select-id="form-checkout__identificationType" select-data-checkout="docType"
@@ -121,8 +123,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	</div>
 
 	<div id="mp-checkout-custom-installments" class="mp-checkout-custom-installments-display-none">
-		<p class='mp-checkout-custom-card-form-title'>Selecciona la cantidad de cuotas</p>
-		<input-helper isVisible=false message="Selecione uma opção" input-id="mp-installments-helper"></input-helper>
+		<p class='mp-checkout-custom-card-form-title'><?php echo esc_html_e('Select the number of installments', 'woocommerce-mercadopago' ); ?></p>		
+		<input-helper isVisible=false message="<?php echo esc_html_e('Select the number of installments', 'woocommerce-mercadopago' ); ?>" input-id="mp-installments-helper"></input-helper>
 		<div id="mp-checkout-custom-issuers-container" class="mp-checkout-custom-issuers-container-display-none">
 			<div class="mp-input-select-input">
 				<select name="issuer" id="form-checkout__issuer" class="mp-input-select-select"></select>
