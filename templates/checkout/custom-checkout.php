@@ -123,7 +123,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	</div>
 
 	<div id="mp-checkout-custom-installments" class="mp-checkout-custom-installments-display-none">
-		<p class='mp-checkout-custom-card-form-title'><?php echo esc_html_e('Select the number of installments', 'woocommerce-mercadopago' ); ?></p>
+		<p class='mp-checkout-custom-card-form-title'><?php echo esc_html_e('Select the number of installments', 'woocommerce-mercadopago' ); ?></p>		
+		<input-helper isVisible=false message="<?php echo esc_html_e('Select the number of installments', 'woocommerce-mercadopago' ); ?>" input-id="mp-installments-helper"></input-helper>
 		<div id="mp-checkout-custom-issuers-container" class="mp-checkout-custom-issuers-container-display-none">
 			<div class="mp-input-select-input">
 				<select name="issuer" id="form-checkout__issuer" class="mp-input-select-select"></select>
