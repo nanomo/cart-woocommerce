@@ -151,7 +151,13 @@ class WC_WooMercadoPago_Hook_Custom extends WC_WooMercadoPago_Hook_Abstract {
 						'cardExpirationDate' => __( 'mm/yy', 'woocommerce-mercadopago' ),
 						'issuer'             => __( 'Issuer', 'woocommerce-mercadopago' ),
 						'installments'       => __( 'Installments', 'woocommerce-mercadopago' ),
-					)
+					),
+					'cvvHint'                => array(
+						'back'               => __( 'in back', 'woocommerce-mercadopago' ),
+						'front'              => __( 'in front', 'woocommerce-mercadopago' ),
+					),
+					'cvvText'                => __( 'Last Digits', 'woocommerce-mercadopago' ),
+
 				)
 			);
 		}

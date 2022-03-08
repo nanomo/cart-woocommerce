@@ -103,7 +103,7 @@ function init_cardForm() {
             return console.warn('Token handling error: ', error);
           }
         },
-        onPaymentMethodsReceived: (paymentMethods) => {
+        onPaymentMethodsReceived: (error, paymentMethods) => {
           try {
             if (paymentMethods) {
               setPaymentMethodId(paymentMethods[0].id)
@@ -376,25 +376,17 @@ const getCountry = function () {
 }
 
 const setCvvHint = function (security_code) {
-  let cvvText = `Últimos ${security_code.length} dígitos `;
+  var cvvText = wc_mercadopago_params.cvvText;
+  var text = cvvText.split(" ");
+  cvvText = `${text[0]} ${security_code.length} ${text[1]} `;
   cvvText += cvvLocationTranslate(getCountry(), security_code.card_location)
   document.getElementById('mp-security-code-info').innerText = cvvText;
 }
 
-const cvvLocationTranslate = function (site_id, location) {
-
-  if (site_id !== 'mlb') site_id = 'spanish';
-
-  $cvv_front = {
-    'spanish': 'delante',
-    'mlb': 'na frente',
-  };
-
-  $cvv_back = {
-    'spanish': 'del dorso',
-    'mlb': 'atrás',
-  };
-  return location === 'back' ? $cvv_back[site_id] : $cvv_front[site_id];
+const cvvLocationTranslate = function (location) {
+  $cvv_front = wc_mercadopago_params.cvvHint['front'];
+  $cvv_back = wc_mercadopago_params.cvvHint['back'];
+  return location === 'back' ? $cvv_back : $cvv_front;
 }
 
 const setImageCard = function (secureThumbnail) {
