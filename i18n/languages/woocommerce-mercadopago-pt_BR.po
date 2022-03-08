@@ -2741,7 +2741,8 @@ msgid "No fee"
 msgstr "Sem juros"
 
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:143,
-#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:143
+#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:161,
+#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:161
 msgid "More options"
 msgstr "Mais opções"
 
@@ -2772,10 +2773,8 @@ msgstr "na frente"
 
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:159,
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:159
-#, fuzzy
-#| msgid "Last Digits"
 msgid "Last digits"
-msgstr "Últimos dígitos"
+msgstr "Últimos dígitos "
 
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:141,
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:141

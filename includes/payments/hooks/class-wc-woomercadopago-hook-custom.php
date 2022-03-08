@@ -158,6 +158,7 @@ class WC_WooMercadoPago_Hook_Custom extends WC_WooMercadoPago_Hook_Abstract {
 					),
 					'cvvText'                => __( 'Last digits', 'woocommerce-mercadopago' ),
 					'installmentObsFee'      => __( 'No fee', 'woocommerce-mercadopago' ),
+					'installmentButton'      => __( 'More options', 'woocommerce-mercadopago' ),
 
 				)
 			);

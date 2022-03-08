@@ -365,17 +365,13 @@ msgstr "Checkout Pro"
 
 #: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:38,
 #: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:38
-#, fuzzy
-#| msgid "Mercado pago - Checkout Pro"
 msgid "Mercado Pago - Checkout Pro"
-msgstr "Mercado Pago - Checkout Pro"
+msgstr "Mercado Pago - Checkout Pro "
 
 #: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:40,
 #: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:40
-#, fuzzy
-#| msgid "Purchases with saved cards or money in Mercado Pago"
 msgid "Your saved cards or money in Mercado Pago"
-msgstr "Compras con tarjetas guardadas o saldo en Mercado Pago"
+msgstr "Compras con tarjetas guardadas o saldo en Mercado Pago "
 
 #: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:156,
 #: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:156
@@ -2743,7 +2739,8 @@ msgid "No fee"
 msgstr "Sin interés"
 
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:143,
-#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:143
+#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:161,
+#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:161
 msgid "More options"
 msgstr "Más opciones"
 
@@ -2759,10 +2756,8 @@ msgstr "Banco"
 
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:153,
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:153
-#, fuzzy
-#| msgid "installments"
 msgid "Installments"
-msgstr "cuotas"
+msgstr "cuotas "
 
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:156,
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:156
@@ -3037,16 +3032,12 @@ msgstr "Facturas en Modo Test"
 
 #: ../../templates/checkout/ticket-checkout.php:24,
 #: ../../templates/checkout/ticket-checkout.php:24
-#, fuzzy
-#| msgid ""
-#| "You can test the flow to generate an invoice, but you cannot finalize the "
-#| "payment."
 msgid ""
 "You can test the flow to generate an invoice, but you cannot finalize the "
 "payment. "
 msgstr ""
 "Es posible testear el flujo para generar una factura, pero no es posible "
-"finalizar el pago."
+"finalizar el pago. "
 
 #: ../../templates/checkout/ticket-checkout.php:56,
 #: ../../templates/checkout/ticket-checkout.php:56

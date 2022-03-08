@@ -149,10 +149,10 @@ function init_cardForm() {
         }
       }
     }
-  );  
+  );
 }
 
-function verifyInstallments(){
+function verifyInstallments() {
   if (document.getElementById('cardInstallments').value == "") {
     showInputHelper('mp-installments');
   }
@@ -166,7 +166,7 @@ function changeCvvPlaceHolder(cvvLength) {
   cardForm.update('securityCode', { placeholder: text });
 }
 
-function removeInstallmentsValue(){
+function removeInstallmentsValue() {
   document.getElementById('cardInstallments').value = '';
 }
 
@@ -241,7 +241,7 @@ const setChangeEventOnInstallments = function (siteId, response) {
 
   const inputTable = document.createElement('input-table');
   inputTable.setAttribute('name', 'mp-installments');
-  inputTable.setAttribute('button-name', 'More options');
+  inputTable.setAttribute('button-name', wc_mercadopago_params.installmentButton);
   inputTable.setAttribute('columns', JSON.stringify(installments));
   showInstallments();
   showInstallmentsComponent(inputTable);
