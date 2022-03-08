@@ -156,7 +156,8 @@ class WC_WooMercadoPago_Hook_Custom extends WC_WooMercadoPago_Hook_Abstract {
 						'back'               => __( 'in back', 'woocommerce-mercadopago' ),
 						'front'              => __( 'in front', 'woocommerce-mercadopago' ),
 					),
-					'cvvText'                => __( 'Last Digits', 'woocommerce-mercadopago' ),
+					'cvvText'                => __( 'Last digits', 'woocommerce-mercadopago' ),
+					'installmentObsFee'      => __( 'No fee', 'woocommerce-mercadopago' ),
 
 				)
 			);

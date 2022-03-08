@@ -1745,7 +1745,7 @@ msgstr ""
 msgid "Terms and conditions of use"
 msgstr ""
 
-#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:142, ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:142, ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:142
+#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:142, ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:160, ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:142, ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:160, ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:142, ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:160
 msgid "No fee"
 msgstr ""
 
@@ -1763,6 +1763,18 @@ msgstr ""
 
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:153, ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:153, ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:153
 msgid "Installments"
+msgstr ""
+
+#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:156, ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:156, ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:156
+msgid "in back"
+msgstr ""
+
+#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:157, ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:157, ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:157
+msgid "in front"
+msgstr ""
+
+#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:159, ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:159, ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:159
+msgid "Last digits"
 msgstr ""
 
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:141, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:141, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:141
@@ -1856,11 +1868,11 @@ msgstr ""
 msgid "Checkout Pro redirect info image"
 msgstr ""
 
-#: ../../templates/checkout/basic-checkout.php:63, ../../templates/checkout/basic-checkout.php:63, ../../templates/checkout/basic-checkout.php:63, ../../templates/checkout/custom-checkout.php:147, ../../templates/checkout/custom-checkout.php:147, ../../templates/checkout/custom-checkout.php:147, ../../templates/checkout/pix-checkout.php:39, ../../templates/checkout/pix-checkout.php:39, ../../templates/checkout/pix-checkout.php:39, ../../templates/checkout/ticket-checkout.php:80, ../../templates/checkout/ticket-checkout.php:80, ../../templates/checkout/ticket-checkout.php:80
+#: ../../templates/checkout/basic-checkout.php:63, ../../templates/checkout/basic-checkout.php:63, ../../templates/checkout/basic-checkout.php:63, ../../templates/checkout/custom-checkout.php:148, ../../templates/checkout/custom-checkout.php:148, ../../templates/checkout/custom-checkout.php:148, ../../templates/checkout/pix-checkout.php:39, ../../templates/checkout/pix-checkout.php:39, ../../templates/checkout/pix-checkout.php:39, ../../templates/checkout/ticket-checkout.php:80, ../../templates/checkout/ticket-checkout.php:80, ../../templates/checkout/ticket-checkout.php:80
 msgid "By continuing, you agree with our"
 msgstr ""
 
-#: ../../templates/checkout/basic-checkout.php:64, ../../templates/checkout/basic-checkout.php:64, ../../templates/checkout/basic-checkout.php:64, ../../templates/checkout/custom-checkout.php:148, ../../templates/checkout/custom-checkout.php:148, ../../templates/checkout/custom-checkout.php:148, ../../templates/checkout/pix-checkout.php:40, ../../templates/checkout/pix-checkout.php:40, ../../templates/checkout/pix-checkout.php:40, ../../templates/checkout/ticket-checkout.php:81, ../../templates/checkout/ticket-checkout.php:81, ../../templates/checkout/ticket-checkout.php:81
+#: ../../templates/checkout/basic-checkout.php:64, ../../templates/checkout/basic-checkout.php:64, ../../templates/checkout/basic-checkout.php:64, ../../templates/checkout/custom-checkout.php:149, ../../templates/checkout/custom-checkout.php:149, ../../templates/checkout/custom-checkout.php:149, ../../templates/checkout/pix-checkout.php:40, ../../templates/checkout/pix-checkout.php:40, ../../templates/checkout/pix-checkout.php:40, ../../templates/checkout/ticket-checkout.php:81, ../../templates/checkout/ticket-checkout.php:81, ../../templates/checkout/ticket-checkout.php:81
 msgid "Terms and conditions"
 msgstr ""
 
@@ -1920,7 +1932,7 @@ msgstr ""
 msgid "Invalid document"
 msgstr ""
 
-#: ../../templates/checkout/custom-checkout.php:126, ../../templates/checkout/custom-checkout.php:126, ../../templates/checkout/custom-checkout.php:126
+#: ../../templates/checkout/custom-checkout.php:126, ../../templates/checkout/custom-checkout.php:127, ../../templates/checkout/custom-checkout.php:126, ../../templates/checkout/custom-checkout.php:127, ../../templates/checkout/custom-checkout.php:126, ../../templates/checkout/custom-checkout.php:127
 msgid "Select the number of installments"
 msgstr ""
 

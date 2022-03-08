@@ -23,7 +23,7 @@ msgstr "Ao continuar, você concorda com nossos "
 #: ../../includes/module/class-wc-woomercadopago-module.php:338,
 #: ../../includes/module/class-wc-woomercadopago-module.php:338
 msgid "Terms and Conditions"
-msgstr "Termos e Condições"
+msgstr "Termos e condições"
 
 #: ../../includes/helpers/class-wc-woomercadopago-helpers-currencyconverter.php:92,
 #: ../../includes/helpers/class-wc-woomercadopago-helpers-currencyconverter.php:92
@@ -2735,7 +2735,8 @@ msgid "Terms and conditions of use"
 msgstr "Termos e condições de uso"
 
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:142,
-#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:142
+#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:160,
+#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:160
 msgid "No fee"
 msgstr "Sem juros"
 
@@ -2758,6 +2759,23 @@ msgstr "Banco emissor"
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:153
 msgid "Installments"
 msgstr "x"
+
+#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:156,
+#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:156
+msgid "in back"
+msgstr "atrás"
+
+#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:157,
+#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:157
+msgid "in front"
+msgstr "na frente"
+
+#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:159,
+#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:159
+#, fuzzy
+#| msgid "Last Digits"
+msgid "Last digits"
+msgstr "Últimos dígitos"
 
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:141,
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:141
@@ -2880,7 +2898,7 @@ msgid "Checkout Pro redirect info image"
 msgstr ""
 
 #: ../../templates/checkout/basic-checkout.php:63,
-#: ../../templates/checkout/custom-checkout.php:147,
+#: ../../templates/checkout/custom-checkout.php:148,
 #: ../../templates/checkout/pix-checkout.php:39,
 #: ../../templates/checkout/ticket-checkout.php:80,
 #: ../../templates/checkout/ticket-checkout.php:80
@@ -2888,12 +2906,12 @@ msgid "By continuing, you agree with our"
 msgstr "Ao continuar, você concorda com nossos"
 
 #: ../../templates/checkout/basic-checkout.php:64,
-#: ../../templates/checkout/custom-checkout.php:148,
+#: ../../templates/checkout/custom-checkout.php:149,
 #: ../../templates/checkout/pix-checkout.php:40,
 #: ../../templates/checkout/ticket-checkout.php:81,
 #: ../../templates/checkout/ticket-checkout.php:81
 msgid "Terms and conditions"
-msgstr "Termos e Condições"
+msgstr "Termos e condições"
 
 #: ../../templates/checkout/custom-checkout.php:22,
 #: ../../templates/checkout/custom-checkout.php:22
@@ -2970,7 +2988,8 @@ msgid "Invalid document"
 msgstr "Número de documento inválido"
 
 #: ../../templates/checkout/custom-checkout.php:126,
-#: ../../templates/checkout/custom-checkout.php:126
+#: ../../templates/checkout/custom-checkout.php:127,
+#: ../../templates/checkout/custom-checkout.php:127
 msgid "Select the number of installments"
 msgstr "Escolha o número de parcelas"
 

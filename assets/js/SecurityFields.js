@@ -233,7 +233,7 @@ const setChangeEventOnInstallments = function (siteId, response) {
       id: `installment-${installment}`,
       value: installment,
       rowText: `${installment}x ${formatCurrency(payerCosts[j].installment_amount)}`,
-      rowObs: installmentRate ? 'No fee' : formatCurrency(payerCosts[j].total_amount),
+      rowObs: installmentRate ? wc_mercadopago_params.installmentObsFee : formatCurrency(payerCosts[j].total_amount),
       highlight: installmentRate ? 'true' : '',
       dataRate: argentinaResolution(payerCosts[j].labels),
     });
