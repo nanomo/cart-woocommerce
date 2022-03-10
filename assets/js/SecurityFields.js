@@ -141,15 +141,15 @@ function init_cardForm() {
           if (error) {
             let helper_message = getHelperMessage(field);
 
-            if (field == 'cardNumber') {              
+            if (field == 'cardNumber') {
               helper_message.innerHTML = wc_mercadopago_params.input_helper_message[field][error[0].cause];
               document.getElementById('form-checkout__cardNumber-container').style.background = 'no-repeat #fff';
               removeAdditionFields();
             }
-            else if (field == 'cardholderName' ) {
+            else if (field == 'cardholderName') {
               helper_message.innerHTML = wc_mercadopago_params.input_helper_message[field][error[0].code]
             }
-            else{
+            else {
               helper_message.innerHTML = wc_mercadopago_params.input_helper_message[field][error[0].cause]
             }
 
@@ -162,7 +162,7 @@ function init_cardForm() {
   );
 }
 
-function getHelperMessage(field){
+function getHelperMessage(field) {
   let query = 'input-helper[input-id=' + inputHelperName(field) + '-helper]';
   let div_input_helper = document.querySelector(query);
   let helper_message = div_input_helper.querySelector('div[class=mp-helper-message]');
@@ -224,7 +224,7 @@ clearInputs = function () {
 
 showInputHelper = function (name) {
   let div_input_helper = document.querySelector('input-helper[input-id=' + name + '-helper]');
-  if(div_input_helper)  {
+  if (div_input_helper) {
     let input_helper = div_input_helper.querySelector('div');
     input_helper.style.display = "flex";
   }
@@ -232,7 +232,7 @@ showInputHelper = function (name) {
 
 removeInputHelper = function (name) {
   let div_input_helper = document.querySelector('input-helper[input-id=' + name + '-helper]');
-  if(div_input_helper)  {
+  if (div_input_helper) {
     let input_helper = div_input_helper.querySelector('div');
     input_helper.style.display = "none";
   }
@@ -273,7 +273,7 @@ const setChangeEventOnInstallments = function (siteId, response) {
     }, 100);
   });
 
-  if (siteId === 'MLA') {
+  if (siteId === 'mla') {
     clearTax();
   }
 
@@ -303,7 +303,7 @@ function formatCurrency(value) {
 function argentinaResolution(payerCosts) {
   let dataInput = '';
 
-  if (getCountry() === 'MLA') {
+  if (getCountry() === 'mla') {
     for (let l = 0; l < payerCosts.length; l++) {
       if (payerCosts[l].indexOf('CFT_') !== -1) {
         dataInput = payerCosts[l];
