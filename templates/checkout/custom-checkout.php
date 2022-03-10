@@ -123,7 +123,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	</div>
 
 	<div id="mp-checkout-custom-installments" class="mp-checkout-custom-installments-display-none">
-		<p class='mp-checkout-custom-card-form-title'><?php echo esc_html_e('Select the number of installments', 'woocommerce-mercadopago' ); ?></p>		
+		<p class='mp-checkout-custom-card-form-title'><?php echo esc_html_e('Select the number of installments', 'woocommerce-mercadopago' ); ?></p>
 		<input-helper isVisible=false message="<?php echo esc_html_e('Select the number of installments', 'woocommerce-mercadopago' ); ?>" input-id="mp-installments-helper"></input-helper>
 		<div id="mp-checkout-custom-issuers-container" class="mp-checkout-custom-issuers-container-display-none">
 			<div class="mp-input-select-input">
@@ -184,7 +184,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			content.style.padding = "0px";
 			icon.src = "<?php echo esc_url( plugins_url( '../assets/images/chefron-down.png', plugin_dir_path( __FILE__ ) ) ); ?>";
 		} else {
-			content.style.maxHeight = content.scrollHeight + "px";
+			content.style.maxHeight = content.scrollHeight + 10 + "px";
 			content.style.padding = "24px 0px 0px";
 			icon.src = "<?php echo esc_url( plugins_url( '../assets/images/chefron-up.png', plugin_dir_path( __FILE__ ) ) ); ?>";
 		}
