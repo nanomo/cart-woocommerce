@@ -66,7 +66,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<p class="mp-details-pix-qr-title">
 				<?php echo esc_html( $text_scan_qr ); ?>
 			</p>
-			<img class="mp-details-pix-qr-img" src="data:image/jpeg;base64,<?php echo esc_html( $qr_base64 ); ?>" />
+			<img data-cy="qrcode-pix" class="mp-details-pix-qr-img" src="data:image/jpeg;base64,<?php echo esc_html( $qr_base64 ); ?>" />
 			<p class="mp-details-pix-qr-subtitle">
 				<?php echo esc_html( $text_time_qr_one ); ?><?php echo esc_html( $qr_date_expiration ); ?>
 			</p>
