@@ -53,7 +53,7 @@ if ( ! defined('ABSPATH') ) {
 			</input-document>
 		</div>
 		<?php endif; ?>
-		<p class="mp-checkout-ticket-text"><?php echo esc_html_e('Select where you want to pay', 'woocommerce-mercadopago'); ?></p>
+		<p class="mp-checkout-ticket-text" data-cy="checkout-ticket-text"><?php echo esc_html_e('Select where you want to pay', 'woocommerce-mercadopago'); ?></p>
 
 		<input-table
 			name="mercadopago_ticket[paymentMethodId]"
