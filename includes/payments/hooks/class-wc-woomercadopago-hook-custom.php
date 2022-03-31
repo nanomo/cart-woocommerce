@@ -97,7 +97,7 @@ class WC_WooMercadoPago_Hook_Custom extends WC_WooMercadoPago_Hook_Abstract {
 
 			wp_enqueue_script(
 				'woocommerce-mercadopago-sdk',
-				'https://sdk.mercadopago.com/js/v2',//https://sdk.mercadopago.com/js/v2
+				'https://sdk.mercadopago.com/js/v2',
 				array(),
 				WC_WooMercadoPago_Constants::VERSION,
 				true
