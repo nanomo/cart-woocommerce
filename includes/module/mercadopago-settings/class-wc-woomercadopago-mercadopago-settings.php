@@ -520,8 +520,7 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 		try {
 			$payments_gateways          = WC_WooMercadoPago_Constants::PAYMENT_GATEWAYS;
 			$payment_gateway_properties = array();
-			$wc_country                 = WC_WooMercadoPago_Module::get_woocommerce_default_country();
-			$payment_methods            = WC_WooMercadoPago_Configs::get_available_payment_methods();
+			$payment_methods            = ( new WC_WooMercadoPago_Configs() )->get_available_payment_methods();
 
 			foreach ( $payments_gateways as $payment_gateway ) {
 				if ( ! in_array( $payment_gateway, $payment_methods, true ) ) {
