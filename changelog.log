@@ -1,5 +1,10 @@
 CHANGELOG:
 == Changelog ==
+== Changelog ==
+= v5.7.5 (31/03/2022) =
+* Bug fixes
+- Instance a non-static class to call a method (Fatal error on PHP 8)
+
 = v5.7.4 (25/02/2022) =
 * Bug fixes
 - Changed php constant
