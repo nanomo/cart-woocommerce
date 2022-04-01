@@ -73,7 +73,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 						</p>
 					</div>
 					<div>
-					<a target="_blank" href="<?php echo esc_html($links['link_costs']); ?>"><button class="mp-button"><?php echo esc_html($translation_header['button_installments']); ?></button></a>
+						<a target="_blank" href="<?php echo esc_html($links['link_costs']); ?>">
+							<button class="mp-button" id="mp-set-installments-button">
+								<?php echo esc_html($translation_header['button_installments']); ?>
+							</button>
+						</a>
 					</div>
 				</div>
 			</div>
@@ -84,7 +88,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 						<p class="mp-settings-font-color mp-settings-subtitle-font-size mp-settings-title-color"><?php echo esc_html($translation_header['descripition_questions_one']); ?> <b><span><?php echo esc_html($translation_header['descripition_questions_two']); ?></b></span><?php echo esc_html($translation_header['descripition_questions_three']); ?></p>
 					</div>
 					<div>
-					<a target="_blank" href="<?php echo esc_html($links['link_guides_plugin']); ?>"><button class="mp-button mp-button-light-blue"> <?php echo esc_html($translation_header['button_questions']); ?></button></a>
+						<a target="_blank" href="<?php echo esc_html($links['link_guides_plugin']); ?>">
+							<button id="mp-plugin-guide-button" class="mp-button mp-button-light-blue">
+								<?php echo esc_html($translation_header['button_questions']); ?>
+							</button>
+						</a>
 					</div>
 				</div>
 			</div>
@@ -93,7 +101,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	<hr class="mp-settings-hr"/>
 	<div class="mp-settings-credentials">
-		<div class="mp-settings-title-align">
+		<div id="mp-settings-step-one" class="mp-settings-title-align">
 			<div class="mp-settings-title-container">
 				<span class="mp-settings-font-color mp-settings-title-blocks mp-settings-margin-right"><?php echo esc_html($translation_credential['title_credentials']); ?></span>
 				<img class="mp-settings-margin-left mp-settings-margin-right" id="mp-settings-icon-credentials">
@@ -107,7 +115,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<p class="mp-settings-subtitle-font-size mp-settings-title-color"><?php echo esc_html($translation_credential['subtitle_credentials_one']); ?> <b><?php echo esc_html($translation_credential['subtitle_credentials_two']); ?></b></p>
 			</div>
 			<div class="mp-message-credentials">
-			<a class="mp-heading-credentials" target="_blank" href="<?php echo esc_html($links['link_credentials']); ?>"><button class="mp-button mp-button-light-blue"> <?php echo esc_html($translation_credential['button_link_credentials']); ?></button></a>
+				<a class="mp-heading-credentials" target="_blank" href="<?php echo esc_html($links['link_credentials']); ?>">
+					<button id="mp-get-credentials-button" class="mp-button mp-button-light-blue">
+						<?php echo esc_html($translation_credential['button_link_credentials']); ?>
+					</button>
+				</a>
 			</div>
 			<div class="mp-container">
 				<div class="mp-block mp-block-flex mp-settings-margin-right">
@@ -141,7 +153,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	<hr class="mp-settings-hr"/>
 	<div class="mp-settings-credentials">
-		<div class="mp-settings-title-align">
+		<div id="mp-settings-step-two" class="mp-settings-title-align">
 			<div class="mp-settings-title-container">
 				<span class="mp-settings-font-color mp-settings-title-blocks mp-settings-margin-right"><?php echo esc_html($translation_store['title_store']); ?></span>
 				<img class="mp-settings-margin-left mp-settings-margin-right" id="mp-settings-icon-store">
@@ -198,7 +210,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					</p>
 					<div>
 						<p class="mp-settings-blue-text" id="options">
-						<?php echo esc_html($translation_store['accordion_advanced_store']); ?>
+							<?php echo esc_html($translation_store['accordion_advanced_store']); ?>
 						</p>
 						<div class="mp-settings-advanced-options" style="display:none">
 							<div class="mp-settings-standard-margin">
@@ -243,7 +255,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	<hr class="mp-settings-hr"/>
 	<div class="mp-settings-payment">
-		<div class="mp-settings-title-align">
+		<div id="mp-settings-step-three" class="mp-settings-title-align">
 			<div class="mp-settings-title-container">
 				<span class="mp-settings-font-color mp-settings-title-blocks mp-settings-margin-right"><?php echo esc_html($translation_payment['title_payments']); ?></span>
 				<img class="mp-settings-margin-left mp-settings-margin-right" id="mp-settings-icon-payment">
@@ -260,7 +272,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	</div>
 	<hr class="mp-settings-hr" />
 	<div class="mp-settings-mode">
-		<div class="mp-settings-title-align">
+		<div id="mp-settings-step-four" class="mp-settings-title-align">
 			<div class="mp-settings-title-container">
 				<span class="mp-settings-font-color mp-settings-title-blocks mp-settings-margin-right"><?php echo esc_html($translation_test_mode['title_test_mode']); ?></span>
 				<div id="mp-mode-badge" class="mp-settings-margin-left mp-settings-margin-right <?php echo esc_html('yes' === ( $checkbox_checkout_test_mode ) ? 'mp-settings-test-mode-alert' : 'mp-settings-prod-mode-alert'); ?>  ">
