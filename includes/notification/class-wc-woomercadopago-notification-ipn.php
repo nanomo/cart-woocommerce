@@ -137,7 +137,7 @@ class WC_WooMercadoPago_Notification_IPN extends WC_WooMercadoPago_Notification_
 			if ( ! empty( $data['payments'] ) ) {
 				$payment_ids = array();
 				foreach ( $data['payments'] as $payment ) {
-					$coupon_mp = $this->get_payment_info($payment['id'])['coupon_amount'];
+					$coupon_mp     = $this->get_payment_info($payment['id'])['coupon_amount'];
 					$payment_ids[] = $payment['id'];
 					$order->update_meta_data(
 						'Mercado Pago - Payment ' . $payment['id'],
@@ -168,7 +168,7 @@ class WC_WooMercadoPago_Notification_IPN extends WC_WooMercadoPago_Notification_
 			if ( ! empty( $data['payments'] ) ) {
 				$payment_ids = array();
 				foreach ( $data['payments'] as $payment ) {
-					$coupon_mp = $this->get_payment_info($payment['id'])['coupon_amount'];
+					$coupon_mp     = $this->get_payment_info($payment['id'])['coupon_amount'];
 					$payment_ids[] = $payment['id'];
 					update_post_meta(
 						$order->id,
@@ -187,9 +187,9 @@ class WC_WooMercadoPago_Notification_IPN extends WC_WooMercadoPago_Notification_
 		}
 		return $status;
 	}
-	public function get_payment_info($id){
-		$payment_info 		= $this->mp->search_payment_v1($id);
-		$coupon_amount    = (float) $payment_info['response']['coupon_amount'];
+	public function get_payment_info( $id ) {
+		$payment_info  = $this->mp->search_payment_v1($id);
+		$coupon_amount = (float) $payment_info['response']['coupon_amount'];
 
 		return [
 			'coupon_amount' => $coupon_amount,
