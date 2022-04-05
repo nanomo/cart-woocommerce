@@ -360,7 +360,9 @@ function mp_get_payment_properties() {
         mp_payment_properties(gateway);
 
         // added melidata events on store configuration step three
-        window.melidata.stepThreeCallback();
+        if (window.melidata && window.melidata.stepThreeCallback) {
+          window.melidata.stepThreeCallback();
+        }
       });
     })
     .fail(function (error) {});
