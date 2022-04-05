@@ -181,7 +181,7 @@ function init_cardForm() {
               helper_message.innerHTML = wc_mercadopago_params.input_helper_message[field]['invalid_length'];
             }
 
-            if (field == 'cardNumber') {              
+            if (field == 'cardNumber') {
               document.getElementById('form-checkout__cardNumber-container').style.background = 'no-repeat #fff';
               removeAdditionFields();
             }
@@ -214,10 +214,10 @@ function verifyDocument(){
 
   let input = document.getElementById('form-checkout__identificationNumber');
   if(input.value === '-1' || input.value === ""){return false;}
-  
+
   let input_helper = document.querySelector('input-helper[input-id=mp-doc-number-helper]');
-  if (input_helper.querySelector('div').style.display == 'flex'){return false;}  
-  
+  if (input_helper.querySelector('div').style.display == 'flex'){return false;}
+
   return true;
 }
 
@@ -523,6 +523,10 @@ jQuery("form.checkout").on(
 );
 
 // If payment fail, retry on next checkout page
-jQuery("form#order_review").submit(function () {  
-  return mercadoPagoFormHandler();
+jQuery("form#order_review").submit(function () {
+  if (document.getElementById("payment_method_woo-mercado-pago-custom").checked) {
+    return mercadoPagoFormHandler();
+  }else{
+    cardForm.unmount()
+  }
 });
