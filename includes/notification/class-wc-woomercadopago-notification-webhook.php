@@ -143,9 +143,9 @@ class WC_WooMercadoPago_Notification_Webhook extends WC_WooMercadoPago_Notificat
 	 * @return mixed|string
 	 */
 	public function process_status_mp_business( $data, $order ) {
-		$status       = isset( $data['status'] ) ? $data['status'] : 'pending';
-		$total_paid   = isset( $data['transaction_details']['total_paid_amount'] ) ? $data['transaction_details']['total_paid_amount'] : 0.00;
-		$total_refund = isset( $data['transaction_amount_refunded'] ) ? $data['transaction_amount_refunded'] : 0.00;
+		$status        = isset( $data['status'] ) ? $data['status'] : 'pending';
+		$total_paid    = isset( $data['transaction_details']['total_paid_amount'] ) ? $data['transaction_details']['total_paid_amount'] : 0.00;
+		$total_refund  = isset( $data['transaction_amount_refunded'] ) ? $data['transaction_amount_refunded'] : 0.00;
 		$coupon_amount = isset( $data['coupon_amount'] ) ? $data['coupon_amount'] : 0.00;
 		// WooCommerce 3.0 or later.
 		if ( method_exists( $order, 'update_meta_data' ) ) {
