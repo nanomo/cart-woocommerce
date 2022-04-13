@@ -247,7 +247,7 @@ class WC_WooMercadoPago_Ticket_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 			'title'       => __( 'Payment Due', 'woocommerce-mercadopago' ),
 			'type'        => 'number',
 			'description' => __( 'In how many days will cash payments expire.', 'woocommerce-mercadopago' ),
-			'default'     => '',
+			'default'     => 3,
 		);
 	}
 
