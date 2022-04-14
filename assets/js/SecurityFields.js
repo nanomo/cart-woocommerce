@@ -36,10 +36,6 @@ function mercadoPagoFormHandler() {
     return true;
   }
 
-  if (!document.getElementById("payment_method_woo-mercado-pago-custom").checked) {
-    return true;
-  }
-
   jQuery("#mp_checkout_type").val("custom");
 
   if (validateInputsCreateToken()) {
@@ -68,7 +64,6 @@ function createToken() {
 
 function init_cardForm() {
   var mp = new MercadoPago(wc_mercadopago_params.public_key);
-
   cardForm = mp.cardForm(
     {
       amount: amount,
