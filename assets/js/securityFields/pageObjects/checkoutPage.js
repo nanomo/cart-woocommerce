@@ -345,7 +345,7 @@ const CheckoutPage = {
     document.getElementById("more-options").addEventListener("click", () => {
       setTimeout(() => {
         this.setupTaxEvents();
-      }, 100);
+      }, 200);
     });
 
     if (siteId === "mla") {
