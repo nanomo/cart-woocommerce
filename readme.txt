@@ -133,7 +133,7 @@ Set up both the plugin and the checkouts you want to activate on your payment av
 Check out our <a href="https://www.mercadopago.com.br/developers/pt/plugins_sdks/plugins/official/woo-commerce/">official documentation</a> for more information on the specific fields to configure.
 
 == Changelog ==
-= v5.7.6 (13/04/2022) =
+= v5.7.6 (19/04/2022) =
 * Bug fixes
 - Adjusted IPN notification to recognize discount coupon
 - Added coupon information in order details
