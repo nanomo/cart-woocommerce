@@ -1,6 +1,6 @@
 CHANGELOG:
 == Changelog ==
-= v5.7.6 (13/04/2022) =
+= v5.7.6 (19/04/2022) =
 * Bug fixes
 - Adjusted IPN notification to recognize discount coupon
 - Added coupon information in order details
