@@ -171,6 +171,20 @@ class MP {
 	 * @throws WC_WooMercadoPago_Exception Search Payment V1 Exception.
 	 */
 	public function search_payment_v1( $id, $token = null ) {
+		$key = sprintf( '%s%s', __FUNCTION__, $id );
+
+		$cache = $this->get_cache_response( $key );
+
+		if ( ! empty( $cache ) ) {
+			$this->debug_mode_log(
+				'mercadopago_requests',
+				__FUNCTION__,
+				__( 'Response from cache', 'woocommerce-mercadopago' )
+			);
+
+			return $cache;
+		}
+
 		$request = array(
 			'uri'     => '/v1/payments/' . $id,
 			'headers' => array(
