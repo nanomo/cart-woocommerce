@@ -91,16 +91,19 @@ class WC_WooMercadoPago_Notification_IPN extends WC_WooMercadoPago_Notification_
 	public function process_status_mp_business( $data, $order ) {
 		$status   = 'pending';
 		$payments = $data['payments'];
-		if ( 1 === count( $payments ) ) {
-			// If we have only one payment, just set status as its status.
-			$status = $payments[0]['status'];
-		} elseif ( count( $payments ) > 1 ) {
-			// However, if we have multiple payments, the overall payment have some rules.
+
+		if ( is_array($payments) ) {
+			$total        = $data['shipping_cost'] + $data['total_amount'];
 			$total_paid   = 0.00;
 			$total_refund = 0.00;
-			$total        = $data['shipping_cost'] + $data['total_amount'];
 			// Grab some information...
 			foreach ( $data['payments'] as $payment ) {
+				$coupon_mp = $this->get_payment_info($payment['id']);
+
+				if ( $coupon_mp > 0 ) {
+					$total_paid += (float) $coupon_mp;
+				}
+
 				if ( 'approved' === $payment['status'] ) {
 					// Get the total paid amount, considering only approved incomings.
 					$total_paid += (float) $payment['total_paid_amount'];
@@ -109,6 +112,7 @@ class WC_WooMercadoPago_Notification_IPN extends WC_WooMercadoPago_Notification_
 					$total_refund += (float) $payment['amount_refunded'];
 				}
 			}
+
 			if ( $total_paid >= $total ) {
 				$status = 'approved';
 			} elseif ( $total_refund >= $total ) {
@@ -133,12 +137,14 @@ class WC_WooMercadoPago_Notification_IPN extends WC_WooMercadoPago_Notification_
 			if ( ! empty( $data['payments'] ) ) {
 				$payment_ids = array();
 				foreach ( $data['payments'] as $payment ) {
+					$coupon_mp     = $this->get_payment_info($payment['id']);
 					$payment_ids[] = $payment['id'];
 					$order->update_meta_data(
 						'Mercado Pago - Payment ' . $payment['id'],
 						'[Date ' . gmdate( 'Y-m-d H:i:s', strtotime( $payment['date_created'] ) ) .
 							']/[Amount ' . $payment['transaction_amount'] .
 							']/[Paid ' . $payment['total_paid_amount'] .
+							']/[Coupon ' . $coupon_mp .
 							']/[Refund ' . $payment['amount_refunded'] . ']'
 					);
 				}
@@ -162,6 +168,7 @@ class WC_WooMercadoPago_Notification_IPN extends WC_WooMercadoPago_Notification_
 			if ( ! empty( $data['payments'] ) ) {
 				$payment_ids = array();
 				foreach ( $data['payments'] as $payment ) {
+					$coupon_mp     = $this->get_payment_info($payment['id']);
 					$payment_ids[] = $payment['id'];
 					update_post_meta(
 						$order->id,
@@ -169,6 +176,7 @@ class WC_WooMercadoPago_Notification_IPN extends WC_WooMercadoPago_Notification_
 						'[Date ' . gmdate( 'Y-m-d H:i:s', strtotime( $payment['date_created'] ) ) .
 							']/[Amount ' . $payment['transaction_amount'] .
 							']/[Paid ' . $payment['total_paid_amount'] .
+							']/[Coupon ' . $coupon_mp .
 							']/[Refund ' . $payment['amount_refunded'] . ']'
 					);
 				}
@@ -178,5 +186,11 @@ class WC_WooMercadoPago_Notification_IPN extends WC_WooMercadoPago_Notification_
 			}
 		}
 		return $status;
+	}
+	public function get_payment_info( $id ) {
+		$payment_info  = $this->mp->search_payment_v1($id);
+		$coupon_amount = (float) $payment_info['response']['coupon_amount'];
+
+		return $coupon_amount;
 	}
 }

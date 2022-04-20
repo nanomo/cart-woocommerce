@@ -1,6 +1,11 @@
 CHANGELOG:
 == Changelog ==
-== Changelog ==
+= v5.7.6 (19/04/2022) =
+* Bug fixes
+- Adjusted IPN notification to recognize discount coupon
+- Added coupon information in order details
+- Changed default value of checkout ticket date_expiration
+
 = v5.7.5 (31/03/2022) =
 * Bug fixes
 - Instance a non-static class to call a method (Fatal error on PHP 8)

@@ -41,7 +41,7 @@ class WC_WooMercadoPago_Ticket_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 		$this->method_description = $this->description;
 		$this->coupon_mode        = $this->get_option( 'coupon_mode', 'no' );
 		$this->stock_reduce_mode  = $this->get_option( 'stock_reduce_mode', 'no' );
-		$this->date_expiration    = (int) $this->get_option( 'date_expiration', 3 );
+		$this->date_expiration    = (int) $this->get_option( 'date_expiration', WC_WooMercadoPago_Constants::DATE_EXPIRATION );
 		$this->type_payments      = $this->get_option( 'type_payments', 'no' );
 		$this->payment_type       = 'ticket';
 		$this->checkout_type      = 'custom';
@@ -247,7 +247,7 @@ class WC_WooMercadoPago_Ticket_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 			'title'       => __( 'Payment Due', 'woocommerce-mercadopago' ),
 			'type'        => 'number',
 			'description' => __( 'In how many days will cash payments expire.', 'woocommerce-mercadopago' ),
-			'default'     => '',
+			'default'     => WC_WooMercadoPago_Constants::DATE_EXPIRATION,
 		);
 	}
 
