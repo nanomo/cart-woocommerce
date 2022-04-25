@@ -355,15 +355,16 @@ function mp_get_payment_properties() {
     .post(ajaxurl, { action: "mp_get_payment_properties" }, function (data) {})
     .done(function (response) {
       const payment = document.getElementById("mp-payment");
+
       response.data.reverse().forEach((gateway) => {
         payment.insertAdjacentHTML("afterend", mp_payment_properties(gateway));
         mp_payment_properties(gateway);
-
-        // added melidata events on store configuration step three
-        if (window.melidata && window.melidata.stepPaymentMethodsCallback) {
-          window.melidata.stepPaymentMethodsCallback();
-        }
       });
+
+      // added melidata events on store configuration step three
+      if (window.melidata && window.melidata.stepPaymentMethodsCallback) {
+        window.melidata.stepPaymentMethodsCallback();
+      }
     })
     .fail(function (error) {});
 }
