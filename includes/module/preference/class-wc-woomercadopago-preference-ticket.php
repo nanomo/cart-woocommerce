@@ -30,7 +30,7 @@ class WC_WooMercadoPago_Preference_Ticket extends WC_WooMercadoPago_Preference_A
 
 		$helper                                 = new WC_WooMercadoPago_Composite_Id_Helper();
 		$id                                     = $ticket_checkout['paymentMethodId'];
-		$date_expiration                        = $payment->get_option_mp( 'date_expiration', '' ) . ' days';
+		$date_expiration                        = $payment->get_option( 'date_expiration', WC_WooMercadoPago_Constants::DATE_EXPIRATION ) . ' days';
 		$this->preference                       = $this->make_commum_preference();
 		$this->preference['payment_method_id']  = $helper->getPaymentMethodId($id);
 		$this->preference['date_of_expiration'] = $this->get_date_of_expiration( $date_expiration );
