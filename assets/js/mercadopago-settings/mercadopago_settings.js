@@ -1,22 +1,26 @@
 function mp_settings_accordion_start() {
-  var acc = document.getElementsByClassName("mp-settings-title-align");
   var i;
+  var acc = document.getElementsByClassName("mp-settings-title-align");
+
   for (i = 0; i < acc.length; i++) {
     acc[i].addEventListener("click", function () {
       this.classList.toggle("active");
+
       if ("mp-settings-margin-left" && "mp-arrow-up") {
         var accordionArrow = null;
+
         for (var i = 0; i < this.childNodes.length; i++) {
-          if (
-            this.childNodes[i]?.classList?.contains("mp-settings-margin-left")
-          ) {
+          if (this.childNodes[i]?.classList?.contains("mp-settings-margin-left")) {
             accordionArrow = this.childNodes[i];
             break;
           }
         }
+
         accordionArrow.childNodes[1].classList.toggle("mp-arrow-up");
       }
+
       var panel = this.nextElementSibling;
+
       if (panel.style.display === "block") {
         panel.style.display = "none";
       } else {
@@ -516,6 +520,26 @@ function mp_go_to_next_step(actualStep, nextStep, actualArrowId, nextArrowId) {
   next.style.display = "block";
   actualArrow.classList.remove("mp-arrow-up");
   nextArrow.classList.add("mp-arrow-up");
+
+  // added melidata timers on store configuration steps
+  if (window.melidata && window.melidata.addStoreConfigurationsStepTimer) {
+    switch (nextStep) {
+      case 'mp-step-2':
+        window.melidata.addStoreConfigurationsStepTimer({ step: 'business' });
+        break;
+
+      case 'mp-step-3':
+        window.melidata.addStoreConfigurationsStepTimer({ step: 'payment_methods', sendOnClose: true });
+        break;
+
+      case 'mp-step-4':
+        window.melidata.addStoreConfigurationsStepTimer({ step: 'mode' });
+        break;
+
+      default:
+        break;
+    }
+  }
 }
 
 function mp_continue_to_next_step() {
