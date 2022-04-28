@@ -91,6 +91,7 @@ class WC_WooMercadoPago_Module extends WC_WooMercadoPago_Configs {
 			$this->load_stock_manager();
 
 			add_action( 'admin_enqueue_scripts', array( $this, 'load_admin_scripts' ) );
+			add_action( 'woocommerce_review_order_before_payment', array( $this, 'load_admin_scripts' ) );
 
 			add_action( 'admin_enqueue_scripts', array( $this, 'load_admin_css' ) );
 			add_action( 'admin_enqueue_scripts', array( $this, 'load_global_css' ) );

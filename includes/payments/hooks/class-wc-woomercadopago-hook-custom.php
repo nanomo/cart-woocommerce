@@ -23,6 +23,7 @@ class WC_WooMercadoPago_Hook_Custom extends WC_WooMercadoPago_Hook_Abstract {
 	 */
 	public function load_hooks() {
 		parent::load_hooks();
+
 		if ( ! empty( $this->payment->settings['enabled'] ) && 'yes' === $this->payment->settings['enabled'] ) {
 			add_action( 'wp_enqueue_scripts', array( $this, 'add_checkout_scripts_custom' ) );
 			add_action( 'woocommerce_after_checkout_form', array( $this, 'add_mp_settings_script_custom' ) );

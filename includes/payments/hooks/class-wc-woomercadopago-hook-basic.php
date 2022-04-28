@@ -25,6 +25,7 @@ class WC_WooMercadoPago_Hook_Basic extends WC_WooMercadoPago_Hook_Abstract {
 	 */
 	public function load_hooks( $is_instance = false ) {
 		parent::load_hooks();
+
 		if ( ! empty( $this->payment->settings['enabled'] ) && 'yes' === $this->payment->settings['enabled'] ) {
 			add_action( 'wp_enqueue_scripts', array( $this, 'add_checkout_scripts_basic' ) );
 			add_action( 'woocommerce_after_checkout_form', array( $this, 'add_mp_settings_script_basic' ) );
