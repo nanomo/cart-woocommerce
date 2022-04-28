@@ -294,9 +294,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 							<input name="mp-test-prod" type="radio" class="mp-settings-radio-button" value='yes' <?php echo esc_html(( 'yes' === $checkbox_checkout_test_mode ) ? 'checked' : ''); ?> >
 						</div>
 						<div>
-							<span class="mp-settings-subtitle-font-size mp-settings-font-color"><?php echo esc_html($translation_test_mode['title_test']); ?></span><br>
+							<span class="mp-settings-subtitle-font-size mp-settings-font-color">
+								<?php echo esc_html($translation_test_mode['title_test']); ?>
+							</span>
+							<br>
 
-							<span class="mp-settings-subtitle-font-size mp-settings-title-color"><?php echo esc_html( $translation_test_mode['subtitle_test'] ); ?><span> <a class="mp-settings-blue-text" target="_blank" href="<?php echo esc_html($devsite_links['shopping_testing']); ?>"><?php echo esc_html($translation_test_mode['subtitle_test_link']); ?></a><span></span>
+							<span class="mp-settings-subtitle-font-size mp-settings-title-color">
+								<?php echo esc_html( $translation_test_mode['subtitle_test'] ); ?>
+							<span>
+							<a id="mp-test-mode-rules-link" class="mp-settings-blue-text" target="_blank" href="<?php echo esc_html($devsite_links['shopping_testing']); ?>">
+								<?php echo esc_html($translation_test_mode['subtitle_test_link']); ?>
+							</a>
+							<span></span>
 						</div>
 					</div>
 					<div class="mp-settings-mode-container">
