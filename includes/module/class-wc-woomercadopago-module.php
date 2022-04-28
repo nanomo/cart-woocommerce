@@ -663,7 +663,9 @@ class WC_WooMercadoPago_Module extends WC_WooMercadoPago_Configs {
 			'mercadopago_melidata',
 			'wc_melidata_params',
 			array(
+				'type'             => 'seller',
 				'site_id'          => $site_id ? strtoupper( $site_id ) : 'MLA',
+				'location'         => '/settings',
 				'plugin_version'   => WC_WooMercadoPago_Constants::VERSION,
 				'platform_version' => $woocommerce->version,
 			)
