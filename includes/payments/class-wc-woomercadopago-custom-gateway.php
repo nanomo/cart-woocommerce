@@ -347,7 +347,7 @@ class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 		if ( 0 !== count( $credit_card ) ) {
 			$payment_methods[] = array(
 				'title'           => __( 'Credit cards', 'woocommerce-mercadopago' ),
-				'label'           => 'Em 24 parcelas',
+				'label'           => __( 'Up to 24 installments', 'woocommerce-mercadopago' ),
 				'payment_methods' => $credit_card,
 			);
 		}

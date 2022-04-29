@@ -38,7 +38,7 @@ const CheckoutPage = {
 
   setCvvHint(securityCode) {
     var cvvText = wc_mercadopago_params.cvvText;
-    cvvText = `${securityCode.length} ${cvvText}`;
+    cvvText = `${securityCode.length} ${cvvText} `;
     cvvText += this.cvvLocationTranslate(securityCode.card_location);
     this.setText("mpSecurityCodeInfo", cvvText);
   },
