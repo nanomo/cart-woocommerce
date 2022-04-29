@@ -366,8 +366,8 @@ function mp_get_payment_properties() {
       });
 
       // added melidata events on store configuration step three
-      if (window.melidata && window.melidata.stepPaymentMethodsCallback) {
-        window.melidata.stepPaymentMethodsCallback();
+      if (window.melidata && window.melidata.client && window.melidata.client.stepPaymentMethodsCallback) {
+        window.melidata.client.stepPaymentMethodsCallback();
       }
     })
     .fail(function (error) {});
@@ -522,18 +522,18 @@ function mp_go_to_next_step(actualStep, nextStep, actualArrowId, nextArrowId) {
   nextArrow.classList.add("mp-arrow-up");
 
   // added melidata timers on store configuration steps
-  if (window.melidata && window.melidata.addStoreConfigurationsStepTimer) {
+  if (window.melidata && window.melidata.client && window.melidata.client.addStoreConfigurationsStepTimer) {
     switch (nextStep) {
       case 'mp-step-2':
-        window.melidata.addStoreConfigurationsStepTimer({ step: 'business' });
+        window.melidata.client.addStoreConfigurationsStepTimer({ step: 'business' });
         break;
 
       case 'mp-step-3':
-        window.melidata.addStoreConfigurationsStepTimer({ step: 'payment_methods', sendOnClose: true });
+        window.melidata.client.addStoreConfigurationsStepTimer({ step: 'payment_methods', sendOnClose: true });
         break;
 
       case 'mp-step-4':
-        window.melidata.addStoreConfigurationsStepTimer({ step: 'mode' });
+        window.melidata.client.addStoreConfigurationsStepTimer({ step: 'mode' });
         break;
 
       default:
