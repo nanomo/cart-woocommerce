@@ -13,6 +13,7 @@
 
       scriptTag.onload = function () {
         window.melidata = new MelidataClient({
+          type: wc_melidata_params.type,
           siteID: wc_melidata_params.site_id,
           pluginVersion: wc_melidata_params.platform_version,
           platformVersion: wc_melidata_params.plugin_version,
