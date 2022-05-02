@@ -91,7 +91,7 @@ class WC_WooMercadoPago_Module extends WC_WooMercadoPago_Configs {
 			$this->load_stock_manager();
 
 			add_action( 'admin_enqueue_scripts', array( $this, 'load_admin_scripts' ) );
-			add_action( 'woocommerce_review_order_before_payment', array( $this, 'load_admin_scripts' ) );
+			add_action( 'woocommerce_review_order_before_payment', array( $this, 'load_buyer_scripts' ) );
 
 			add_action( 'admin_enqueue_scripts', array( $this, 'load_admin_css' ) );
 			add_action( 'admin_enqueue_scripts', array( $this, 'load_global_css' ) );
@@ -666,6 +666,36 @@ class WC_WooMercadoPago_Module extends WC_WooMercadoPago_Configs {
 				'type'             => 'seller',
 				'site_id'          => $site_id ? strtoupper( $site_id ) : 'MLA',
 				'location'         => '/settings',
+				'plugin_version'   => WC_WooMercadoPago_Constants::VERSION,
+				'platform_version' => $woocommerce->version,
+			)
+		);
+	}
+
+	/**
+	 * Load buyer scripts
+	 *
+	 * @return void
+	 */
+	public function load_buyer_scripts() {
+		global $woocommerce;
+
+		$site_id = get_option( '_site_id_v1' );
+
+		wp_enqueue_script(
+			'mercadopago_melidata',
+			plugins_url( '../assets/js/melidata/melidata-client.js', plugin_dir_path( __FILE__ ) ),
+			array(),
+			WC_WooMercadoPago_Constants::VERSION
+		);
+
+		wp_localize_script(
+			'mercadopago_melidata',
+			'wc_melidata_params',
+			array(
+				'type'             => 'buyer',
+				'site_id'          => $site_id ? strtoupper( $site_id ) : 'MLA',
+				'location'         => '/checkout',
 				'plugin_version'   => WC_WooMercadoPago_Constants::VERSION,
 				'platform_version' => $woocommerce->version,
 			)

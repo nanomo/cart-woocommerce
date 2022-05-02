@@ -7,7 +7,7 @@
       var scriptTag = document.createElement("script");
 
       scriptTag.setAttribute("id", "melidata_woocommerce_client");
-      scriptTag.src = "http://localhost:8080/development/woocommerce";
+      scriptTag.src = "https://http2.mlstatic.com/storage/v1/plugins/melidata/woocommerce.min.js";
       scriptTag.async = true;
       scriptTag.defer = true;
 
