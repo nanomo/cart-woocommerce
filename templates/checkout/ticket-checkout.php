@@ -55,6 +55,7 @@ if ( ! defined('ABSPATH') ) {
 		<?php endif; ?>
 		<p class="mp-checkout-ticket-text" data-cy="checkout-ticket-text"><?php echo esc_html_e('Select where you want to pay', 'woocommerce-mercadopago'); ?></p>
 
+		<input-helper isVisible=false message="<?php echo esc_html_e('Select a payment method', 'woocommerce-mercadopago' ); ?>" input-id="mp-payment-method-helper" id="payment-method-helper"></input-helper>
 		<input-table
 			name="mercadopago_ticket[paymentMethodId]"
 			button-name=<?php echo esc_html_e('more options', 'woocommerce-mercadopago'); ?>

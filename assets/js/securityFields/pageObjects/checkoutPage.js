@@ -28,7 +28,7 @@ const CheckoutPage = {
 
   setDisplayOfInputHelper(name, operator) {
     let divInputHelper = document.querySelector(
-      "input-helper[input-id=" + name + "-helper]"
+      `input-helper[input-id=${item}-helper]`
     );
     if (divInputHelper) {
       let inputHelper = divInputHelper.querySelector("div");
@@ -292,6 +292,7 @@ const CheckoutPage = {
         taxesElements[i].getElementsByTagName("input")[0].value;
       taxesElements[i].addEventListener("click", this.showTaxes);
       taxesElements[i].addEventListener("click", () => {
+        this.setDisplayOfInputHelper("mp-installments", "none");
         this.setValue("fcInstallments", installmentValue);
         this.setValue("cardInstallments", installmentValue);
       });
@@ -345,7 +346,7 @@ const CheckoutPage = {
     document.getElementById("more-options").addEventListener("click", () => {
       setTimeout(() => {
         this.setupTaxEvents();
-      }, 200);
+      }, 300);
     });
 
     if (siteId === "mla") {
