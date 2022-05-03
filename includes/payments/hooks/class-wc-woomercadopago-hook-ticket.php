@@ -62,7 +62,7 @@ class WC_WooMercadoPago_Hook_Ticket extends WC_WooMercadoPago_Hook_Abstract {
 				WC_WooMercadoPago_Constants::VERSION,
 				true
 			);
-			
+
 			wp_enqueue_script(
 				'woocommerce-mercadopago-narciso-scripts',
 				plugins_url( '../../assets/js/mp-plugins-components.js', plugin_dir_path( __FILE__ ) ),
