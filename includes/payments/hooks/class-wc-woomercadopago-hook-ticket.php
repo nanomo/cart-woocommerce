@@ -56,6 +56,14 @@ class WC_WooMercadoPago_Hook_Ticket extends WC_WooMercadoPago_Hook_Abstract {
 			$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
 			wp_enqueue_script(
+				'woocommerce-mercadopago-ticket-checkout',
+				plugins_url( '../../assets/js/ticket' . $suffix . '.js', plugin_dir_path( __FILE__ ) ),
+				array( 'jquery' ),
+				WC_WooMercadoPago_Constants::VERSION,
+				true
+			);
+
+			wp_enqueue_script(
 				'woocommerce-mercadopago-narciso-scripts',
 				plugins_url( '../../assets/js/mp-plugins-components.js', plugin_dir_path( __FILE__ ) ),
 				array( 'jquery' ),

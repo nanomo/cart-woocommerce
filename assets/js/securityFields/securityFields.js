@@ -1,5 +1,7 @@
 var cardForm;
 var mercado_pago_submit = false;
+cardFormMounted = false;
+
 if (document.getElementById("mp-amount")) {
   var amount = document.getElementById("mp-amount").value;
 }
@@ -106,9 +108,18 @@ function init_cardForm() {
     },
     callbacks: {
       onFormMounted: function (error) {
+        cardFormMounted = true;
         if (error)
           return console.log(
             "Callback to handle the error: creating the CardForm",
+            error
+          );
+      },
+      onFormUnmounted: function (error) {
+        cardFormMounted = false;
+        if (error)
+          return console.log(
+            "Callback to handle the error: unmounting the CardForm",
             error
           );
       },
@@ -153,6 +164,8 @@ function init_cardForm() {
       },
       onError: function (errors) {
         errors.forEach((error) => {
+          removeBlockOverlay();
+
           if (error.message.includes("cardNumber")) {
             return CheckoutPage.setDisplayOfInputHelper(
               "mp-card-number",
@@ -225,12 +238,42 @@ function init_cardForm() {
   });
 }
 
+/**
+ * Remove Block Overlay from Order Review page
+ */
+function removeBlockOverlay() {
+  if (jQuery("form#order_review").length > 0) {
+    jQuery(".blockOverlay").css("display", "none");
+  }
+}
+
+/**
+ * Manage mount and unmount the Cardform Instance
+ */
+function cardFormLoad() {
+  if (
+    document.getElementById("payment_method_woo-mercado-pago-custom").checked
+  ) {
+    setTimeout(() => {
+      if (!cardFormMounted) init_cardForm();
+    }, 1000);
+  } else {
+    if (cardFormMounted) {
+      cardForm.unmount();
+    }
+  }
+}
+
 jQuery("form.checkout").on(
   "checkout_place_order_woo-mercado-pago-custom",
   function () {
     return mercadoPagoFormHandler();
   }
 );
+
+jQuery("body").on("payment_method_selected", function () {
+  cardFormLoad();
+});
 
 // If payment fail, retry on next checkout page
 jQuery("form#order_review").submit(function () {
