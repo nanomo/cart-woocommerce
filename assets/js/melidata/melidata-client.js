@@ -11,6 +11,27 @@
       scriptTag.async = true;
       scriptTag.defer = true;
 
+      scriptTag.onerror = function () {
+        const url = "https://api.mercadopago.com/v1/plugins/melidata/errors";
+
+        const payload = {
+          name: "ERR_CONNECTION_REFUSED",
+          message: "Unable to load melidata script on page",
+          target: "melidata_woocommerce_client",
+          plugin: {
+            version: wc_melidata_params.plugin_version,
+          },
+          platform: {
+            name: "woocommerce",
+            uri: `${window.location.pathname}${window.location.search}`,
+            version: wc_melidata_params.platform_version,
+            location: wc_melidata_params.location,
+          },
+        };
+
+        navigator.sendBeacon(url, JSON.stringify(payload));
+      };
+
       scriptTag.onload = function () {
         window.melidata = new MelidataClient({
           type: wc_melidata_params.type,
