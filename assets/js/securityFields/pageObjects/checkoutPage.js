@@ -28,7 +28,7 @@ const CheckoutPage = {
 
   setDisplayOfInputHelper(name, operator) {
     let divInputHelper = document.querySelector(
-      `input-helper[input-id=${item}-helper]`
+      `input-helper[input-id=${name}-helper]`
     );
     if (divInputHelper) {
       let inputHelper = divInputHelper.querySelector("div");

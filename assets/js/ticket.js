@@ -6,10 +6,6 @@
   $(function () {
     var mercado_pago_submit_ticket = false;
 
-    var seller = {
-      site_id: wc_mercadopago_ticket_params.site_id,
-    };
-
     /**
      * Handler form submit
      * @return {bool}
@@ -22,10 +18,13 @@
         return true;
       }
 
-      validateDocument();
-      validateInstallments();
+      let ticketContent = document.querySelector(".mp-checkout-ticket-content");
+      let ticketHelpers = ticketContent.querySelectorAll("input-helper");
 
-      if (!hasError) {
+      verifyDocument(ticketContent, ticketHelpers);
+      verifyInstallments();
+
+      if (!checkForErrors(ticketHelpers)) {
         mercado_pago_submit_ticket = true;
       } else {
         removeBlockOverlay();
@@ -34,16 +33,15 @@
       return mercado_pago_submit_ticket;
     }
 
-    function validateDocument() {
-      let ticketContent = document.querySelector(".mp-checkout-ticket-content");
-      let ticketHelpers = ticketContent.querySelectorAll("input-helper");
-      let hasError = false;
-
+    function checkForErrors(ticketHelpers) {
       ticketHelpers.forEach((item) => {
         let inputHelper = item.querySelector("div");
-        if (inputHelper.style.display != "none") hasError = true;
+        if (inputHelper.style.display != "none") return true;
       });
+      return false;
+    }
 
+    function verifyDocument(ticketContent, ticketHelpers) {
       let documentElement = ticketContent.querySelectorAll(".mp-document");
 
       if (documentElement[0].value == "") {
@@ -52,7 +50,7 @@
       }
     }
 
-    function validateInstallments() {
+    function verifyInstallments() {
       let paymentOptionSelected = false;
       document.querySelectorAll(".mp-input-radio-radio").forEach((item) => {
         if (item.checked) paymentOptionSelected = true;
