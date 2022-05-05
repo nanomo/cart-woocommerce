@@ -15,6 +15,17 @@ if (form) {
 }
 
 function mercadoPagoFormHandler() {
+
+  let formOrderReview = document.querySelector("form[id=order_review]");
+  if (formOrderReview) {
+    let choCustomContent = document.querySelector(".mp-checkout-custom-container");
+    let choCustomHelpers = choCustomContent.querySelectorAll("input-helper");
+    choCustomHelpers.forEach((item) => {
+      let inputHelper = item.querySelector("div");
+      if (inputHelper.style.display != "none") removeBlockOverlay();
+    });
+  }
+
   if (mercado_pago_submit) {
     mercado_pago_submit = false;
     return true;
