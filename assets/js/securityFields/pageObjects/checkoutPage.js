@@ -288,9 +288,10 @@ const CheckoutPage = {
       "mp-input-table-label"
     );
     for (var i = 0; i < taxesElements.length; i++) {
-      let installmentValue =
-        taxesElements[i].getElementsByTagName("input")[0].value;
-      taxesElements[i].addEventListener("click", this.showTaxes);
+      let installmentValue = taxesElements[i].getElementsByTagName("input")[0].value;
+
+      if( wc_mercadopago_params.site_id === "mla") taxesElements[i].addEventListener("click", this.showTaxes);
+
       taxesElements[i].addEventListener("click", () => {
         this.setDisplayOfInputHelper("mp-installments", "none");
         this.setValue("fcInstallments", installmentValue);
