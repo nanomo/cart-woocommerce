@@ -185,12 +185,15 @@ const CheckoutPage = {
 
   clearInputs() {
     this.hideErrors();
-
     this.setBackground("fcCardholderNameContainer", "no-repeat #fff");
     this.setValue("fcCardExpirationDateContainer", "");
     this.setValue("fcIdentificationNumber", "");
     this.setValue("fcSecurityNumberContainer", "");
     this.setValue("fcCardholderName", "");
+    this.setElementDisplay("mpDocumentContainer", "none");
+    this.clearInstallmentsComponent();
+    this.setElementDisplay("mpInstallments", "none");
+    document.querySelector('input[data-cy=input-document]').value = '';
   },
 
   verifyDocument() {

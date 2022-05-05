@@ -117,6 +117,7 @@ function init_cardForm() {
       },
       onFormUnmounted: function (error) {
         cardFormMounted = false;
+        CheckoutPage.clearInputs();
         if (error)
           return console.log(
             "Callback to handle the error: unmounting the CardForm",
