@@ -22,7 +22,9 @@
       let ticketContent = document.querySelector(".mp-checkout-ticket-content");
       let ticketHelpers = ticketContent.querySelectorAll("input-helper");
 
-      verifyDocument(ticketContent, ticketHelpers);
+      if( wc_mercadopago_params.site_id === "mlb" || wc_mercadopago_params.site_id === "mlu" ){
+        verifyDocument(ticketContent, ticketHelpers);
+      }
       verifyInstallments();
 
       if (!checkForErrors(ticketHelpers)) {

@@ -252,7 +252,8 @@ const CheckoutPage = {
   },
 
   showTaxes() {
-    const selectorInstallments = document.querySelectorAll(
+    let choCustomContent = document.querySelector(".mp-checkout-custom-container");
+    const selectorInstallments = choCustomContent.querySelectorAll(
       CheckoutElements.mpInputRadio
     );
     let tax = null;
@@ -287,7 +288,8 @@ const CheckoutPage = {
   },
 
   setupTaxEvents() {
-    const taxesElements = document.getElementsByClassName(
+    let choCustomContent = document.querySelector(".mp-checkout-custom-container");
+    const taxesElements = choCustomContent.getElementsByClassName(
       "mp-input-table-label"
     );
     for (var i = 0; i < taxesElements.length; i++) {
