@@ -290,6 +290,13 @@ jQuery("form.checkout").on(
   }
 );
 
+jQuery("form.checkout").on(
+  "checkout_place_order_woo-mercado-pago-pix",
+  function () {
+    cardFormLoad();
+  }
+);
+
 jQuery("body").on("payment_method_selected", function () {
   cardFormLoad();
 });
