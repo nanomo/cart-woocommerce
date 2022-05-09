@@ -39,6 +39,7 @@
           pluginVersion: wc_melidata_params.platform_version,
           platformVersion: wc_melidata_params.plugin_version,
           pageLocation: wc_melidata_params.location,
+          paymentMethod: wc_melidata_params.payment_method,
         });
       };
 
