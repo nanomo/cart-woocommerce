@@ -11,7 +11,6 @@
      * @return {bool}
      */
     function mercadoPagoFormHandlerTicket() {
-      cardForm.unmount();
       if (
         !document.getElementById("payment_method_woo-mercado-pago-ticket")
           .checked
