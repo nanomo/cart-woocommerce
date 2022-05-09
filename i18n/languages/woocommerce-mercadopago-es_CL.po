@@ -617,7 +617,7 @@ msgstr "hasta "
 #: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:518,
 #: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:518
 msgid " installments"
-msgstr "X"
+msgstr " Cuotas"
 
 #: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:517,
 #: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:349,
