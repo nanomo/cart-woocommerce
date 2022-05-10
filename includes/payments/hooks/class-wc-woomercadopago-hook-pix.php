@@ -17,7 +17,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Class WC_WooMercadoPago_Hook_Pix
  */
 class WC_WooMercadoPago_Hook_Pix extends WC_WooMercadoPago_Hook_Abstract {
-
 	/**
 	 * Load Hooks
 	 */
@@ -40,9 +39,11 @@ class WC_WooMercadoPago_Hook_Pix extends WC_WooMercadoPago_Hook_Abstract {
 		if ( ! isset( $_POST['mercadopago_pix'] ) ) {
 			return;
 		}
+
 		if ( is_admin() && ! defined( 'DOING_AJAX' ) || is_cart() ) {
 			return;
 		}
+
 		// @todo need fix Processing form data without nonce verification
 		// @codingStandardsIgnoreLine
 		$pix_checkout = $_POST['mercadopago_pix'];
@@ -54,6 +55,15 @@ class WC_WooMercadoPago_Hook_Pix extends WC_WooMercadoPago_Hook_Abstract {
 	 */
 	public function add_checkout_scripts_pix() {
 		if ( is_checkout() && $this->payment->is_available() && ! get_query_var( 'order-received' ) ) {
+			$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
+
+			wp_enqueue_script(
+				'woocommerce-mercadopago-narciso-scripts',
+				plugins_url( '../../assets/js/mp-plugins-components.js', plugin_dir_path( __FILE__ ) ),
+				array( 'jquery' ),
+				WC_WooMercadoPago_Constants::VERSION,
+				true
+			);
 
 			wp_localize_script(
 				'woocommerce-mercadopago-pix-checkout',
@@ -76,13 +86,12 @@ class WC_WooMercadoPago_Hook_Pix extends WC_WooMercadoPago_Hook_Abstract {
 					'loading'             => plugins_url( '../../assets/images/', plugin_dir_path( __FILE__ ) ) . 'loading.gif',
 					'check'               => plugins_url( '../../assets/images/', plugin_dir_path( __FILE__ ) ) . 'check.png',
 					'error'               => plugins_url( '../../assets/images/', plugin_dir_path( __FILE__ ) ) . 'error.png',
-				)
-			);
+				));
 		}
 	}
 
 	/**
-	 * MP Settings Ticket
+	 * MP Settings pix
 	 */
 	public function add_mp_settings_script_pix() {
 		parent::add_mp_settings_script();
@@ -95,15 +104,20 @@ class WC_WooMercadoPago_Hook_Pix extends WC_WooMercadoPago_Hook_Abstract {
 	 */
 	public function update_mp_settings_script_pix( $order_id ) {
 		parent::update_mp_settings_script( $order_id );
+
 		$order              = wc_get_order( $order_id );
 		$qr_base64          = ( method_exists( $order, 'get_meta' ) ) ? $order->get_meta( 'mp_pix_qr_base64' ) : get_post_meta( $order->get_id(), 'mp_pix_qr_base64', true );
 		$qr_code            = ( method_exists( $order, 'get_meta' ) ) ? $order->get_meta( 'mp_pix_qr_code' ) : get_post_meta( $order->get_id(), 'mp_pix_qr_code', true );
 		$transaction_amount = ( method_exists( $order, 'get_meta' ) ) ? $order->get_meta( 'mp_transaction_amount' ) : get_post_meta( $order->get_id(), 'mp_transaction_amount', true );
+		$currency_symbol    = WC_WooMercadoPago_Configs::get_country_configs();
+
 		if ( empty( $qr_base64 ) && empty( $qr_code ) ) {
 			return;
 		}
 
 		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
+
+		// add js
 		wp_enqueue_script(
 			'woocommerce-mercadopago-pix-order-recived',
 			plugins_url( '../../assets/js/pix_mercadopago_order_received' . $suffix . '.js', plugin_dir_path( __FILE__ ) ),
@@ -112,7 +126,13 @@ class WC_WooMercadoPago_Hook_Pix extends WC_WooMercadoPago_Hook_Abstract {
 			false
 		);
 
-		$currency_symbol = WC_WooMercadoPago_Configs::get_country_configs();
+		// add css
+		wp_enqueue_style(
+			'woocommerce-mercadopago-pix-checkout',
+			plugins_url( '../../assets/css/basic_checkout_mercadopago' . $suffix . '.css', plugin_dir_path( __FILE__ ) ),
+			array(),
+			WC_WooMercadoPago_Constants::VERSION
+		);
 
 		$parameters = array(
 			'img_pix'             => plugins_url( '../../assets/images/img-pix.png', plugin_dir_path( __FILE__ ) ),
@@ -139,15 +159,6 @@ class WC_WooMercadoPago_Hook_Pix extends WC_WooMercadoPago_Hook_Abstract {
 			$parameters,
 			'woo/mercado/pago/module/',
 			WC_WooMercadoPago_Module::get_templates_path()
-		);
-
-		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
-
-		wp_enqueue_style(
-			'woocommerce-mercadopago-pix-checkout',
-			plugins_url( '../../assets/css/basic_checkout_mercadopago' . $suffix . '.css', plugin_dir_path( __FILE__ ) ),
-			array(),
-			WC_WooMercadoPago_Constants::VERSION
 		);
 	}
 }

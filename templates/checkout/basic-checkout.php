@@ -13,76 +13,64 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 ?>
-<div class="mp-panel-checkout">
-	<?php
-		// @codingStandardsIgnoreLine
-		echo $checkout_alert_test_mode;
-	?>
-	<div class="mp-row-checkout">
-	<?php if ( 0 !== (int) $credito ) : ?>
-	<div id="framePayments" class="mp-col-md-12">
-		<div class="frame-tarjetas">
-			<p class="mp-subtitle-basic-checkout">
-				<?php echo esc_html_e( 'Credit cards', 'woocommerce-mercadopago' ); ?>
-				<span class="mp-badge-checkout"><?php echo esc_html_e( 'Until', 'woocommerce-mercadopago' ); ?> <?php echo esc_html( $installments ); ?>
-				<?php if ( '1' === $installments ) : ?>
-					<?php echo esc_html_e( 'installment', 'woocommerce-mercadopago' ); ?>
-				<?php else : ?>
-					<?php echo esc_html_e( 'installments', 'woocommerce-mercadopago' ); ?>
-				<?php endif; ?></span>
-			</p>
-			<?php foreach ( $tarjetas as $tarjeta ) : ?>
-				<?php if ( 'credit_card' === $tarjeta['type'] ) : ?>
-				<img src="<?php echo esc_html( $tarjeta['image'] ); ?>" class="mp-img-fluid mp-img-tarjetas" alt=""/>
-				<?php endif; ?>
-			<?php endforeach; ?>
+
+<div class="mp-checkout-pro-container">
+	<div class="mp-checkout-pro-content">
+		<?php if ( true === $test_mode ) : ?>
+			<div class="mp-checkout-pro-test-mode">
+				<test-mode
+					title="<?php echo esc_html_e( 'Checkout Pro in Test Mode', 'woocommerce-mercadopago' ); ?>"
+					description="<?php echo esc_html_e( 'Use Mercado Pago\'s payment methods without real charges. ', 'woocommerce-mercadopago' ); ?>"
+					link-text="<?php echo esc_html_e( 'See the rules for the test mode.', 'woocommerce-mercadopago' ); ?>"
+					link-src="<?php echo esc_html( $test_mode_link ); ?>"
+				>
+				</test-mode>
+			</div>
+		<?php endif; ?>
+
+		<checkout-benefits
+			title="<?php echo esc_html_e( 'Pay faster with Mercado Pago', 'woocommerce-mercadopago' ); ?>"
+			items='[
+				"<?php echo esc_html_e( 'Secure payment', 'woocommerce-mercadopago' ); ?>",
+				"<?php echo esc_html_e( 'No need to fill out details', 'woocommerce-mercadopago' ); ?>",
+				"<?php echo esc_html_e( 'Installments available', 'woocommerce-mercadopago' ); ?>"
+			]'
+			list-style-type-src="<?php echo esc_html( $list_style_type_src ); ?>"
+			list-style-type-alt="<?php echo esc_html_e( 'List style type blue check', 'woocommerce-mercadopago' ); ?>"
+		>
+		</checkout-benefits>
+
+		<div class="mp-checkout-pro-payment-methods">
+			<payment-methods methods="<?php echo esc_html( $payment_methods ); ?>"></payment-methods>
 		</div>
 	</div>
-	<?php endif; ?>
-
-	<?php if ( 0 !== $debito ) : ?>
-	<div id="framePayments" class="mp-col-md-6 mp-pr-15">
-		<div class="frame-tarjetas">
-			<p class="submp-title-checkout"><?php echo esc_html_e( 'Debit card', 'woocommerce-mercadopago' ); ?></p>
-
-			<?php foreach ( $tarjetas as $tarjeta ) : ?>
-				<?php if ( 'debit_card' === $tarjeta['type'] || 'prepaid_card' === $tarjeta['type'] ) : ?>
-				<img src="<?php echo esc_html( $tarjeta['image'] ); ?>" class="mp-img-fluid mp-img-tarjetas" alt="" />
-			<?php endif; ?>
-			<?php endforeach; ?>
-		</div>
-	</div>
-	<?php endif; ?>
-
-	<?php if ( 0 !== $efectivo ) : ?>
-	<div id="framePayments" class="mp-col-md-6">
-		<div class="frame-tarjetas">
-			<p class="submp-title-checkout"><?php echo esc_html_e( 'Payments in cash', 'woocommerce-mercadopago' ); ?></p>
-
-			<?php foreach ( $tarjetas as $tarjeta ) : ?>
-				<?php if ( 'credit_card' !== $tarjeta['type'] && 'debit_card' !== $tarjeta['type'] && 'prepaid_card' !== $tarjeta['type'] ) : ?>
-				<img src="<?php echo esc_html( $tarjeta['image'] ); ?>" class="mp-img-fluid mp-img-tarjetas" alt=""/>
-			<?php endif; ?>
-			<?php endforeach; ?>
-		</div>
-	</div>
-	<?php endif; ?>
 
 	<?php if ( 'redirect' === $method ) : ?>
-	<div class="mp-col-md-12 mp-pt-20">
-		<div class="mp-redirect-frame">
-			<img src="<?php echo esc_html( $cho_image ); ?>" class="mp-img-fluid mp-img-redirect" alt=""/>
-			<p><?php echo esc_html_e( 'We take you to our site to complete the payment', 'woocommerce-mercadopago' ); ?></p>
+		<div class="mp-checkout-pro-redirect">
+			<checkout-redirect
+				text="<?php echo esc_html_e( 'By confirming your purchase, you will be redirected to your Mercado Pago account', 'woocommerce-mercadopago' ); ?>"
+				alt="<?php echo esc_html_e( 'Checkout Pro redirect info image', 'woocommerce-mercadopago' ); ?>"
+				src="<?php echo esc_html( $redirect_image ); ?>"
+			>
+			</checkout-redirect>
 		</div>
-	</div>
 	<?php endif; ?>
+</div>
 
-	</div>
-</div>
 <!-- Terms and conditions link at checkout -->
-<div>
-	<p class="mp-terms-and-conditions">
-		<?php echo esc_html($text_prefix); ?>
-		<a target="_blank" href="<?php echo esc_html($link_terms_and_conditions); ?>">  <?php echo esc_html($text_suffix); ?> </a>
-	</p>
+<div class="mp-checkout-pro-terms-and-conditions">
+	<terms-and-conditions
+		description="<?php echo esc_html_e( 'By continuing, you agree with our', 'woocommerce-mercadopago' ); ?>"
+		link-text="<?php echo esc_html_e( 'Terms and conditions', 'woocommerce-mercadopago' ); ?>"
+		link-src="<?php echo esc_html( $link_terms_and_conditions ); ?>"
+	>
+	</terms-and-conditions>
 </div>
+<script type="text/javascript">
+	if(document.getElementById("payment_method_woo-mercado-pago-custom")) {
+		jQuery("form.checkout").on(
+			  "checkout_place_order_woo-mercado-pago-basic",
+			  function () { cardFormLoad();}
+		);
+	}
+</script>

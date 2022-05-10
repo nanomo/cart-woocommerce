@@ -45,12 +45,16 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 		$this->checkout_type      = 'custom';
 		$this->activated_payment  = get_option( '_mp_payment_methods_pix', '' );
 		$this->field_forms_order  = $this->get_fields_sequence();
+
 		parent::__construct();
+
 		$this->update_pix_method();
 		$this->form_fields         = $this->get_form_mp_fields();
 		$this->hook                = new WC_WooMercadoPago_Hook_Pix( $this );
 		$this->notification        = new WC_WooMercadoPago_Notification_Webhook( $this );
 		$this->currency_convertion = true;
+		$this->icon                = $this->get_checkout_icon();
+
 		add_action( 'woocommerce_email_before_order_table', array(__CLASS__,'get_pix_template'), 20, 4 );
 		add_action( 'woocommerce_order_details_after_order_table', array(__CLASS__,'get_pix_template_order_details') );
 	}
@@ -362,25 +366,20 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 	 * Payment fields
 	 */
 	public function payment_fields() {
-		// add css.
 		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
+		// add css.
 		wp_enqueue_style(
-			'woocommerce-mercadopago-basic-checkout-styles',
-			plugins_url( '../assets/css/basic_checkout_mercadopago' . $suffix . '.css', plugin_dir_path( __FILE__ ) ),
+			'woocommerce-mercadopago-narciso-styles',
+			plugins_url( '../assets/css/mp-plugins-components.css', plugin_dir_path( __FILE__ ) ),
 			array(),
 			WC_WooMercadoPago_Constants::VERSION
 		);
 
-		$parameters = array(
-			'checkout_alert_test_mode' => $this->is_production_mode()
-			? ''
-			: $this->checkout_alert_test_mode_template(
-				'Pix em Modo Teste',
-				'É possível testar o fluxo até gerar o código, mas não é possível finalizar o pagamento.'
-			),
-			'image_pix' => plugins_url( '../assets/images/pix.png', plugin_dir_path( __FILE__ ) ),
-		);
+		$parameters = [
+			'test_mode' => ! $this->is_production_mode(),
+			'pix_image' => plugins_url( '../assets/images/pix.png', plugin_dir_path( __FILE__ ) ),
+		];
 
 		$parameters = array_merge($parameters, WC_WooMercadoPago_Helper_Links::mp_define_terms_and_conditions());
 		wc_get_template( 'checkout/pix-checkout.php', $parameters, 'woo/mercado/pago/module/', WC_WooMercadoPago_Module::get_templates_path() );
@@ -659,4 +658,12 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 
 	}
 
+	/**
+	 * Get Mercado Pago Icon
+	 *
+	 * @return mixed
+	 */
+	public function get_checkout_icon() {
+		return apply_filters( 'woocommerce_mercadopago_icon', plugins_url( '../assets/images/icons/pix.png', plugin_dir_path( __FILE__ ) ) );
+	}
 }
