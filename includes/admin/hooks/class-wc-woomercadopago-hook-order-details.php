@@ -18,6 +18,13 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class WC_WooMercadoPago_Hook_Order_Details {
 
+	/**
+	 * The Order
+	 *
+	 * @param WC_Order
+	 */
+	protected $order;
+
 	public function __construct() {
 		$this->load_hooks();
 		$this->load_scripts();
@@ -310,11 +317,51 @@ class WC_WooMercadoPago_Hook_Order_Details {
 	}
 
 	/**
+	 * Get Order from Post
+	 *
+	 * @param WP_Post $post
+	 *
+	 * return WC_Order | false
+	 */
+	private function get_order( $post ) {
+		if ( $this->order instanceof WC_Order ) {
+			return $this->order;
+		}
+
+		if ( is_null($post->ID) ) {
+			return false;
+		}
+
+		$this->order = wc_get_order($post->ID);
+
+		if ( ! $this->order || is_null($this->order) ) {
+			return false;
+		}
+
+		return $this->order;
+	}
+
+	/**
 	 * Create payment status metabox
+	 *
+	 * @param WP_Post $post
 	 *
 	 * @return void
 	 */
-	public function payment_status_metabox() {
+	public function payment_status_metabox( $post ) {
+		$order = $this->get_order( $post );
+
+		if ( ! $order ) {
+			return;
+		}
+
+		$payment_method                = $order->get_payment_method();
+		$is_mercadopago_payment_method = in_array($payment_method, WC_WooMercadoPago_Constants::GATEWAYS_IDS, true);
+
+		if ( ! $is_mercadopago_payment_method ) {
+			return;
+		}
+
 		add_meta_box(
 			'mp-payment-status-metabox',
 			__( 'Payment status on Mercado Pago', 'woocommerce-mercadopago' ),
@@ -330,13 +377,15 @@ class WC_WooMercadoPago_Hook_Order_Details {
 	public function payment_status_metabox_script() {
 		$suffix = $this->get_suffix();
 
-		wp_enqueue_script(
-			'mp_payment_status_metabox',
-			plugins_url( '../../assets/js/payment_status_metabox' . $suffix . '.js', plugin_dir_path( __FILE__ ) ),
-			array(),
-			WC_WooMercadoPago_Constants::VERSION,
-			false
-		);
+		if ( is_admin() ) {
+			wp_enqueue_script(
+				'mp_payment_status_metabox',
+				plugins_url( '../../assets/js/payment_status_metabox' . $suffix . '.js', plugin_dir_path( __FILE__ ) ),
+				array(),
+				WC_WooMercadoPago_Constants::VERSION,
+				false
+			);
+		}
 	}
 
 	/**
@@ -347,17 +396,15 @@ class WC_WooMercadoPago_Hook_Order_Details {
 	 * @return void
 	 */
 	public function payment_status_metabox_content( $post ) {
-		$order = wc_get_order($post->ID);
+		$order = $this->get_order( $post );
 
-		if ( is_null($order) || is_null($post->ID) ) {
+		if ( ! $order ) {
 			return;
 		}
 
-		$payment_method                = $order->get_payment_method();
-		$is_mercadopago_payment_method = in_array($payment_method, WC_WooMercadoPago_Constants::GATEWAYS_IDS, true);
-		$payment_ids                   = explode(',', $order->get_meta( '_Mercado_Pago_Payment_IDs' ));
+		$payment_ids = explode(',', $order->get_meta( '_Mercado_Pago_Payment_IDs' ));
 
-		if ( ! $is_mercadopago_payment_method || empty($payment_ids) ) {
+		if ( empty($payment_ids) ) {
 			return;
 		}
 
@@ -406,7 +453,7 @@ class WC_WooMercadoPago_Hook_Order_Details {
 	 */
 	public function get_metabox_data( $alert_status, $alert ) {
 
-		$country = get_option( 'checkout_country', '' );
+		$country = strtolower(get_option( 'checkout_country', '' ));
 
 		if ( 'success' === $alert_status ) {
 			return [

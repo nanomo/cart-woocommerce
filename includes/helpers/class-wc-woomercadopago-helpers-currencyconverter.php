@@ -202,11 +202,11 @@ class WC_WooMercadoPago_Helpers_CurrencyConverter {
 	 * @return mixed
 	 */
 	private function get_access_token( WC_WooMercadoPago_Payment_Abstract $method ) {
-		$type = $method->get_option_mp( 'checkbox_checkout_test_mode' ) === 'yes'
+		$type = $method->get_option( 'checkbox_checkout_test_mode' ) === 'yes'
 			? '_mp_access_token_test'
 			: '_mp_access_token_prod';
 
-		return $method->get_option_mp( $type );
+		return $method->get_option( $type );
 	}
 
 	/**
@@ -317,7 +317,7 @@ class WC_WooMercadoPago_Helpers_CurrencyConverter {
 	 */
 	private function get_site_id( $access_token ) {
 		try {
-			$site_id = get_option( '_site_id_v1', false );
+			$site_id = strtolower(get_option( '_site_id_v1', false ));
 
 			if ( $site_id ) {
 				return $site_id;
@@ -410,27 +410,6 @@ class WC_WooMercadoPago_Helpers_CurrencyConverter {
 		}
 
 		return $this->supported_currencies;
-	}
-
-	/**
-	 *
-	 * Get Field
-	 *
-	 * @param WC_WooMercadoPago_Payment_Abstract $method method.
-	 *
-	 * @return array
-	 */
-	public function get_field( WC_WooMercadoPago_Payment_Abstract $method ) {
-		return array(
-			'title'       => __( 'Convert Currency', 'woocommerce-mercadopago' ),
-			'type'        => 'select',
-			'default'     => 'no',
-			'description' => $this->msg_description,
-			'options'     => array(
-				'no'  => __( 'No', 'woocommerce-mercadopago' ),
-				'yes' => __( 'Yes', 'woocommerce-mercadopago' ),
-			),
-		);
 	}
 
 	/**

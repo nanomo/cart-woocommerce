@@ -70,7 +70,7 @@ abstract class WC_WooMercadoPago_Hook_Abstract {
 		$this->mp_instance = $payment->mp;
 		$this->public_key  = $payment->get_public_key();
 		$this->test_user   = get_option( '_test_user_v1' );
-		$this->site_id     = get_option( '_site_id_v1' );
+		$this->site_id     = strtolower(get_option( '_site_id_v1' ));
 
 		$this->load_hooks();
 	}
@@ -240,8 +240,12 @@ abstract class WC_WooMercadoPago_Hook_Abstract {
 
 		$value_credential_production = null;
 		$this->payment->init_settings();
-		$post_data          = $this->payment->get_post_data();
-		$sorted_form_fields = $this->sort_by_checkout_mode_first( $this->payment->get_form_fields() );
+		$post_data   = $this->payment->get_post_data();
+		$form_fields = $this->payment->get_form_fields();
+
+		$form_fields = $this->handle_mp_components($form_fields);
+
+		$sorted_form_fields = $this->sort_by_checkout_mode_first( $form_fields );
 
 		foreach ( $sorted_form_fields as $key => $field ) {
 			if ( 'title' !== $this->payment->get_field_type( $field ) ) {
@@ -263,8 +267,6 @@ abstract class WC_WooMercadoPago_Hook_Abstract {
 			}
 		}
 
-		$this->update_others_checkout_mode($this->payment->id);
-
 		WC_WooMercadoPago_Helpers_CurrencyConverter::get_instance()->schedule_notice(
 			$this->payment,
 			$old_data,
@@ -272,6 +274,67 @@ abstract class WC_WooMercadoPago_Hook_Abstract {
 		);
 
 		return update_option( $this->payment->get_option_key(), apply_filters( 'woocommerce_settings_api_sanitized_fields_' . $this->payment->id, $this->payment->settings ) );
+	}
+
+	/**
+	 * Handles custom components for better integration with native hooks
+	 *
+	 * @param array $form_fields all the form fields
+	 *
+	 * @return array
+	 */
+	public function handle_mp_components( $form_fields ) {
+		foreach ( $form_fields as $key => $form_field ) {
+			//separating payment methods
+			if ( 'mp_checkbox_list' === $form_field['type'] ) {
+				$form_fields += $this->separate_checkboxes($form_fields[$key]);
+				unset($form_fields[$key]);
+			}
+
+			//separating checkboxes from activable inputs
+			if ( 'mp_activable_input' === $form_field['type'] && ! isset( $form_fields[$key . '_checkbox'] ) ) {
+				$form_fields[$key . '_checkbox'] = array(
+					'type'      => 'checkbox',
+				);
+			}
+
+			//setting toggle as checkbox
+			if ( 'mp_toggle_switch' === $form_field['type'] ) {
+				$form_fields[$key]['type'] = 'checkbox';
+			}
+		}
+
+		return $form_fields;
+	}
+
+	/**
+	 * Separates multiple ex_payments checkbox into an array
+	 *
+	 * @param array $ex_payments ex_payments form field
+	 *
+	 * @return array
+	 */
+	public function separate_checkboxes( $ex_payments ) {
+		$payment_methods = array();
+		foreach ( $ex_payments['payment_method_types'] as $payment_method_type ) {
+			$payment_methods += $this->separate_checkboxes_list($payment_method_type['list']);
+		}
+		return $payment_methods;
+	}
+
+	/**
+	 * Separates multiple ex_payments checkbox into an array
+	 *
+	 * @param array $ex_payments list of payment_methods
+	 *
+	 * @return array
+	 */
+	public function separate_checkboxes_list( $ex_payments_list ) {
+		$payment_methods = array();
+		foreach ( $ex_payments_list as $payment ) {
+			$payment_methods[$payment['id']] = $payment;
+		}
+		return $payment_methods;
 	}
 
 	/**
@@ -283,37 +346,6 @@ abstract class WC_WooMercadoPago_Hook_Abstract {
 	 */
 	private function build_woocommerce_settings_key( $gateway_id ) {
 		return 'woocommerce_' . $gateway_id . '_settings';
-	}
-
-	/**
-	 * Update others checkout mode
-	 *
-	 * @param String $current_gateway_id Current constant ID
-	 *
-	 * @return void
-	 */
-	private function update_others_checkout_mode( $current_gateway_id ) {
-		foreach ( WC_WooMercadoPago_Constants::GATEWAYS_IDS as $gateway_id ) {
-			$gateway_settings_key = $this->build_woocommerce_settings_key($gateway_id);
-			$options              = get_option( $gateway_settings_key );
-			$is_other_gateway     = $gateway_id !== $current_gateway_id;
-
-			if ( empty($options) || ! array_key_exists('enabled', $options) ) {
-				continue;
-			}
-
-			$is_enabled_gateway = 'yes' === $options['enabled'];
-
-			if ( $is_other_gateway && $is_enabled_gateway ) {
-				$options['checkbox_checkout_test_mode']       = $this->payment->settings['checkbox_checkout_test_mode'];
-				$options['checkbox_checkout_production_mode'] = $this->payment->settings['checkbox_checkout_production_mode'];
-
-				update_option(
-					$gateway_settings_key,
-					apply_filters( 'woocommerce_settings_api_sanitized_fields_' . $gateway_id, $options )
-				);
-			}
-		}
 	}
 
 	/**
@@ -443,8 +475,8 @@ abstract class WC_WooMercadoPago_Hook_Abstract {
 				WC_WooMercadoPago_Credentials::update_payment_methods( $this->mp_instance, $value );
 				WC_WooMercadoPago_Credentials::update_ticket_method( $this->mp_instance, $value );
 				$wc_country = WC_WooMercadoPago_Module::get_woocommerce_default_country();
-				$site_id    = get_option( '_site_id_v1', '' );
-				if ( ( 'BR' === $wc_country && '' === $site_id ) || ( 'MLB' === $site_id ) ) {
+				$site_id    = strtolower(get_option( '_site_id_v1', '' ));
+				if ( ( 'BR' === $wc_country && '' === $site_id ) || ( 'mlb' === $site_id ) ) {
 					WC_WooMercadoPago_Credentials::update_pix_method( $this->mp_instance, $value );
 				}
 			}

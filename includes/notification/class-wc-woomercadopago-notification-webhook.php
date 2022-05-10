@@ -143,9 +143,10 @@ class WC_WooMercadoPago_Notification_Webhook extends WC_WooMercadoPago_Notificat
 	 * @return mixed|string
 	 */
 	public function process_status_mp_business( $data, $order ) {
-		$status       = isset( $data['status'] ) ? $data['status'] : 'pending';
-		$total_paid   = isset( $data['transaction_details']['total_paid_amount'] ) ? $data['transaction_details']['total_paid_amount'] : 0.00;
-		$total_refund = isset( $data['transaction_amount_refunded'] ) ? $data['transaction_amount_refunded'] : 0.00;
+		$status        = isset( $data['status'] ) ? $data['status'] : 'pending';
+		$total_paid    = isset( $data['transaction_details']['total_paid_amount'] ) ? $data['transaction_details']['total_paid_amount'] : 0.00;
+		$total_refund  = isset( $data['transaction_amount_refunded'] ) ? $data['transaction_amount_refunded'] : 0.00;
+		$coupon_amount = isset( $data['coupon_amount'] ) ? $data['coupon_amount'] : 0.00;
 		// WooCommerce 3.0 or later.
 		if ( method_exists( $order, 'update_meta_data' ) ) {
 			// Updates the type of gateway.
@@ -164,6 +165,7 @@ class WC_WooMercadoPago_Notification_Webhook extends WC_WooMercadoPago_Notificat
 				'[Date ' . gmdate( 'Y-m-d H:i:s', strtotime( $data['date_created'] ) ) .
 					']/[Amount ' . $data['transaction_amount'] .
 					']/[Paid ' . $total_paid .
+					']/[Coupon ' . $coupon_amount .
 					']/[Refund ' . $total_refund . ']'
 			);
 			$order->update_meta_data( '_Mercado_Pago_Payment_IDs', $data['id'] );
@@ -186,6 +188,7 @@ class WC_WooMercadoPago_Notification_Webhook extends WC_WooMercadoPago_Notificat
 				'[Date ' . gmdate( 'Y-m-d H:i:s', strtotime( $data['date_created'] ) ) .
 					']/[Amount ' . $data['transaction_amount'] .
 					']/[Paid ' . $total_paid .
+					']/[Coupon ' . $coupon_amount .
 					']/[Refund ' . $total_refund . ']'
 			);
 			update_post_meta( $order->id, '_Mercado_Pago_Payment_IDs', $data['id'] );

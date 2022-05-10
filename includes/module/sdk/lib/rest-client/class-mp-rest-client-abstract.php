@@ -14,11 +14,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Class Rest_Client_Abstract
+ * Class Mp_Rest_Client_Abstract
  *
  * @todo Refactor this class to use wp_remote_get()
  */
-class Rest_Client_Abstract {
+class Mp_Rest_Client_Abstract {
 
 	/**
 	 * E-mail admin

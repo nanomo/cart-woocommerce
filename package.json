@@ -1,24 +1,24 @@
 {
-  "name": "cart-woocommerce",
-  "description": "Gateway de pagamento Mercado Pago para WooCommerce",
-  "scripts": {
-    "php:lint": "composer phpcs",
-    "php:fix": "composer phpcbf",
-    "build:js": "node -e 'require(\"./main.js\").minifyFiles(\"js\")'",
-    "build:css": "node -e 'require(\"./main.js\").minifyFiles(\"css\")'",
-    "pot": "node -e 'require(\"./main.js\").generatePotFiles()'",
-    "lint": "jshint"
-  },
-  "version": "5.5.0",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/mercadopago/cart-woocommerce"
-  },
-  "main": "main.js",
-  "devDependencies": {
-    "husky": "^7.0.0",
-    "jshint": "^2.11.0",
-    "minify": "^7.0.2",
-    "wp-pot": "^1.9.9"
-  }
+    "name": "cart-woocommerce",
+    "description": "Gateway de pagamento Mercado Pago para WooCommerce",
+    "scripts": {
+        "php:lint": "composer phpcs",
+        "php:fix": "composer phpcbf",
+        "build:js": "node -e 'require(\"./main.js\").minifyFiles(\"js\")'",
+        "build:css": "node -e 'require(\"./main.js\").minifyFiles(\"css\")'",
+        "pot": "node -e 'require(\"./main.js\").generatePotFiles()'",
+        "lint": "jshint"
+    },
+    "version": "5.7.6",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/mercadopago/cart-woocommerce"
+    },
+    "main": "main.js",
+    "devDependencies": {
+        "husky": "^7.0.0",
+        "jshint": "^2.11.0",
+        "minify": "^7.0.2",
+        "wp-pot": "^1.9.9"
+    }
 }

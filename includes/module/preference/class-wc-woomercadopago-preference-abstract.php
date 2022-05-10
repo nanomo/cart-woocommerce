@@ -177,7 +177,7 @@ abstract class WC_WooMercadoPago_Preference_Abstract extends WC_Payment_Gateway 
 		$this->notification_class = get_class( $this->payment );
 		$this->sandbox            = $this->payment->is_test_user();
 		$this->test_user_v1       = get_option( '_test_user_v1', '' );
-		$this->site_id            = get_option( '_site_id_v1', '' );
+		$this->site_id            = strtolower(get_option( '_site_id_v1', '' ));
 		$this->site_data          = WC_WooMercadoPago_Module::$country_configs;
 		$this->order              = $order;
 		$this->checkout           = $request_checkout;
@@ -243,7 +243,7 @@ abstract class WC_WooMercadoPago_Preference_Abstract extends WC_Payment_Gateway 
 			'binary_mode'          => $this->get_binary_mode( $this->payment ),
 			'external_reference'   => $this->get_external_reference( $this->payment ),
 			'notification_url'     => $this->get_notification_url(),
-			'statement_descriptor' => $this->payment->get_option_mp( 'mp_statement_descriptor', 'Mercado Pago' ),
+			'statement_descriptor' => get_option( 'mp_statement_descriptor', 'Mercado Pago' ),
 		);
 
 		if ( ! $this->test_user_v1 && ! $this->sandbox ) {
@@ -573,7 +573,7 @@ abstract class WC_WooMercadoPago_Preference_Abstract extends WC_Payment_Gateway 
 		$access_token = get_option( '_mp_access_token_prod', '' );
 		$test_mode    = false;
 
-		if ( 'yes' === $this->payment->get_option_mp( 'checkbox_checkout_test_mode', '' ) ) {
+		if ( 'yes' === get_option( 'checkbox_checkout_test_mode', '' ) ) {
 			$test_mode    = true;
 			$access_token = get_option( '_mp_access_token_test', '' );
 		}
@@ -591,7 +591,7 @@ abstract class WC_WooMercadoPago_Preference_Abstract extends WC_Payment_Gateway 
 			'platform'         => WC_WooMercadoPago_Constants::PLATAFORM_ID,
 			'platform_version' => $w->version,
 			'module_version'   => WC_WooMercadoPago_Constants::VERSION,
-			'site_id'          => get_option( '_site_id_v1' ),
+			'site_id'          => strtolower(get_option( '_site_id_v1' )),
 			'sponsor_id'       => $this->get_sponsor_id(),
 			'collector'        => $seller,
 			'test_mode'        => $test_mode,
@@ -625,7 +625,7 @@ abstract class WC_WooMercadoPago_Preference_Abstract extends WC_Payment_Gateway 
 			'user' => array(
 				'registered_user' => ( null !== $user_id && '' !== $user_id && 0 !== $user_id ) ? 'yes' : 'no',
 				'user_email' => ( null !== $user_id && '' !== $user_id && 0 !== $user_id ) ? get_userdata( $user_id )->user_email : null,
-				'user_registration_date' => ( null !== $user_id && ' ' !== $user_id && 0 !== $user_id ) ? gmdate( DateTimeInterface::RFC3339_EXTENDED, strtotime(get_userdata($user_id)->user_registered) ) : null,
+				'user_registration_date' => ( null !== $user_id && ' ' !== $user_id && 0 !== $user_id ) ? gmdate('Y-m-d\TH:i:s.vP', strtotime(get_userdata($user_id)->user_registered) ) : null,
 			),
 		);
 	}

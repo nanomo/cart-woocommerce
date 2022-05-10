@@ -34,22 +34,23 @@ class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 	 */
 	public function __construct() {
 		$this->id          = self::ID;
-		$this->description = __( 'Accept card payments on your website with the best possible financing and maximize the conversion of your business. With personalized checkout your customers pay without leaving your store!', 'woocommerce-mercadopago' );
-		$this->title       = __( 'Pay with debit and credit cards', 'woocommerce-mercadopago' );
+		$this->description = __( 'Transparent Checkout in your store environment', 'woocommerce-mercadopago' );
+		$this->title       = __( 'Debit and Credit', 'woocommerce-mercadopago' );
+		$this->mp_options  = $this->get_mp_options();
 
 		if ( ! $this->validate_section() ) {
 			return;
 		}
 
 		$this->form_fields        = array();
-		$this->method_title       = __( 'Mercado Pago - Custom Checkout', 'woocommerce-mercadopago' );
-		$this->title              = $this->get_option_mp( 'title', __( 'Pay with debit and credit cards', 'woocommerce-mercadopago' ) );
+		$this->method_title       = __( 'Mercado pago - Customized Checkout', 'woocommerce-mercadopago' );
+		$this->title              = $this->get_option( 'title', __( 'Debit and Credit', 'woocommerce-mercadopago' ) );
 		$this->method_description = $this->description;
-		$this->coupon_mode        = $this->get_option_mp( 'coupon_mode', 'no' );
-		$this->wallet_button      = $this->get_option_mp( 'wallet_button', 'yes' );
+		$this->coupon_mode        = $this->get_option( 'coupon_mode', 'no' );
+		$this->wallet_button      = $this->get_option( 'wallet_button', 'yes' );
 		$this->field_forms_order  = $this->get_fields_sequence();
 		parent::__construct();
-		$this->form_fields         = $this->get_form_mp_fields( 'Custom' );
+		$this->form_fields         = $this->get_form_mp_fields();
 		$this->hook                = new WC_WooMercadoPago_Hook_Custom( $this );
 		$this->notification        = new WC_WooMercadoPago_Notification_Webhook( $this );
 		$this->currency_convertion = true;
@@ -58,11 +59,10 @@ class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 	/**
 	 * Get Form Mercado Pago fields
 	 *
-	 * @param string $label Label.
 	 * @return array
 	 */
-	public function get_form_mp_fields( $label ) {
-		if ( is_admin() && $this->is_manage_section() ) {
+	public function get_form_mp_fields() {
+		if ( is_admin() && $this->is_manage_section() && ( WC_WooMercadoPago_Helper_Current_Url::validate_page('mercadopago-settings') || WC_WooMercadoPago_Helper_Current_Url::validate_section('woo-mercado-pago') ) ) {
 			$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 			wp_enqueue_script(
 				'woocommerce-mercadopago-custom-config-script',
@@ -88,21 +88,15 @@ class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 			$this->field_forms_order = array_slice( $this->field_forms_order, 0, 22 );
 		}
 
-		$form_fields                           = array();
-		$form_fields['checkout_custom_header'] = $this->field_checkout_custom_header();
+		$form_fields = array();
 		if ( ! empty( $this->checkout_country ) && ! empty( $this->get_access_token() ) && ! empty( $this->get_public_key() ) ) {
-			$form_fields['checkout_custom_options_title']           = $this->field_checkout_custom_options_title();
-			$form_fields['checkout_custom_payments_title']          = $this->field_checkout_custom_payments_title();
-			$form_fields['checkout_payments_subtitle']              = $this->field_checkout_payments_subtitle();
+			$form_fields['checkout_custom_header']                  = $this->field_checkout_custom_header();
 			$form_fields['binary_mode']                             = $this->field_binary_mode();
 			$form_fields['checkout_custom_payments_advanced_title'] = $this->field_checkout_custom_payments_advanced_title();
 			$form_fields['coupon_mode']                             = $this->field_coupon_mode();
-			$form_fields['wallet_button']                           = $this->field_checkout_custom_wallet_button();
-			$form_fields['mp_psj_title']                            = $this->field_mp_psj_title( $this->checkout_country );
-			$form_fields['mp_psj_description']                      = $this->field_mp_psj_description( $this->checkout_country );
-			$form_fields['mp_psj_description_link']                 = $this->field_mp_psj_description_link( $this->checkout_country );
+			$form_fields['wallet_button']                           = $this->field_checkout_custom_wallet_button_title();
 		}
-		$form_fields_abs = parent::get_form_mp_fields( $label );
+		$form_fields_abs = parent::get_form_mp_fields();
 		if ( 1 === count( $form_fields_abs ) ) {
 			return $form_fields_abs;
 		}
@@ -123,55 +117,17 @@ class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 			'description',
 			// Checkout de pagos con tarjetas de débito y crédito<br> Aceptá pagos al instante y maximizá la conversión de tu negocio.
 			'checkout_custom_header',
-			'checkout_steps',
-			// ¿En qué país vas a activar tu tienda?
-			'checkout_country_title',
-			'checkout_country',
-			'checkout_btn_save',
-			// Carga tus credenciales.
-			'checkout_credential_title',
-			'checkout_credential_link',
-			'checkout_credential_title_prod',
-			'checkout_credential_description_prod',
-			'_mp_public_key_prod',
-			'_mp_access_token_prod',
-			'checkout_credential_title_test',
-			'checkout_credential_description_test',
-			'_mp_public_key_test',
-			'_mp_access_token_test',
-			'checkout_mode_title',
-			'checkout_subtitle_checkout_mode',
-			'checkbox_checkout_test_mode',
-			'checkbox_checkout_production_mode',
-			'checkout_mode_alert',
-			// Everything ready for the takeoff of your sales?
-			'checkout_ready_title',
-			'checkout_ready_description',
-			'checkout_ready_description_link',
 			// No olvides de homologar tu cuenta.
-			'checkout_homolog_title',
-			'checkout_homolog_subtitle',
-			'checkout_homolog_link',
-			// Set up the payment experience in your store.
-			'checkout_custom_options_title',
-			'mp_statement_descriptor',
-			'_mp_category_id',
-			'_mp_store_identificator',
-			'_mp_integrator_id',
-			// Advanced settings.
-			'checkout_advanced_settings',
-			'_mp_debug_mode',
-			'_mp_custom_domain',
+			'checkout_card_homolog',
 			// Configure the personalized payment experience in your store.
+			'checkout_card_validate',
 			'checkout_custom_payments_title',
 			'checkout_payments_subtitle',
 			'enabled',
 			'title',
 			WC_WooMercadoPago_Helpers_CurrencyConverter::CONFIG_KEY,
+			'checkout_custom_wallet_button_toggle',
 			'wallet_button',
-			'mp_psj_title',
-			'mp_psj_description',
-			'mp_psj_description_link',
 			// Advanced configuration of the personalized payment experience.
 			'checkout_custom_payments_advanced_title',
 			'checkout_payments_advanced_description',
@@ -179,11 +135,24 @@ class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 			'binary_mode',
 			'gateway_discount',
 			'commission',
-			// Support session.
-			'checkout_support_title',
-			'checkout_support_description',
-			'checkout_support_description_link',
-			'checkout_support_problem',
+		);
+	}
+
+	/**
+	 * Field enabled
+	 *
+	 * @return array
+	 */
+	public function field_enabled() {
+		return array(
+			'title'       => __( 'Enable the checkout', 'woocommerce-mercadopago' ),
+			'subtitle'    => __( 'By disabling it, you will disable all credit cards payments from Mercado Pago Transparent Checkout.', 'woocommerce-mercadopago' ),
+			'type'        => 'mp_toggle_switch',
+			'default'     => 'no',
+			'descriptions' => array(
+				'enabled' => __( 'Transparent checkout for credit cards is <b>enabled</b>.', 'woocommerce-mercadopago' ),
+				'disabled' => __( 'Transparent checkout for credit cards is <b>disabled</b>.', 'woocommerce-mercadopago' ),
+			),
 		);
 	}
 
@@ -196,14 +165,13 @@ class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 		$checkout_custom_header = array(
 			'title' => sprintf(
 				/* translators: %s card */
-				__( 'Checkout of payments with debit and credit cards %s', 'woocommerce-mercadopago' ),
 				'<div class="mp-row">
                 <div class="mp-col-md-12 mp_subtitle_header">
-                ' . __( 'Accept payments instantly and maximize the conversion of your business', 'woocommerce-mercadopago' ) . '
+                ' . __( 'Transparent Checkout | Credit card ', 'woocommerce-mercadopago' ) . '
                  </div>
               <div class="mp-col-md-12">
                 <p class="mp-text-checkout-body mp-mb-0">
-                  ' . __( 'Turn your online store into a secure and easy-to-use payment gateway for your customers. With personalized checkout your customers pay without leaving your store!', 'woocommerce-mercadopago' ) . '
+                  ' . __( 'With the Transparent Checkout, you can sell inside your store environment, without redirection and with the security from Mercado Pago.', 'woocommerce-mercadopago' ) . '
                 </p>
               </div>
             </div>'
@@ -212,34 +180,6 @@ class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 			'class' => 'mp_title_header',
 		);
 		return $checkout_custom_header;
-	}
-
-	/**
-	 * Filed checkout custom options title
-	 *
-	 * @return array
-	 */
-	public function field_checkout_custom_options_title() {
-		$checkout_custom_options_title = array(
-			'title' => __( 'Set up the payment experience in your store', 'woocommerce-mercadopago' ),
-			'type'  => 'title',
-			'class' => 'mp_title_bd',
-		);
-		return $checkout_custom_options_title;
-	}
-
-	/**
-	 * Field checkout custom payments title
-	 *
-	 * @return array
-	 */
-	public function field_checkout_custom_payments_title() {
-		$checkout_custom_payments_title = array(
-			'title' => __( 'Configure the personalized payment experience in your store', 'woocommerce-mercadopago' ),
-			'type'  => 'title',
-			'class' => 'mp_title_bd',
-		);
-		return $checkout_custom_payments_title;
 	}
 
 	/**
@@ -257,21 +197,57 @@ class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 	}
 
 	/**
-	 * Field Gateway Discount
+	 * Field Wallet Button toggle
 	 *
 	 * @return array
 	 */
-	public function field_checkout_custom_wallet_button() {
+	public function field_checkout_custom_wallet_button_title() {
 		return array(
-			'title'       => __( 'Payment with card stored in Mercado Pago', 'woocommerce-mercadopago' ),
-			'type'        => 'select',
-			'default'     => 'yes',
-			'description' => __( 'Activate this function so that your customers already using Mercado Pago can buy without having to fill in their card details at the store checkout.', 'woocommerce-mercadopago' ),
-			'options'     => array(
-				'no'  => __( 'No', 'woocommerce-mercadopago' ),
-				'yes' => __( 'Yes', 'woocommerce-mercadopago' ),
+			'title'        => __( 'Purchases with saved cards or money in Mercado Pago', 'woocommerce-mercadopago' ),
+			'subtitle'     => __( 'Feature for those who have a saved card or money in Mercado Pago to buy without having to fill in details.', 'woocommerce-mercadopago' ),
+			'type'         => 'mp_toggle_switch',
+			'default'      => 'yes',
+			'descriptions' => array(
+				'enabled'  => __( 'The feature for payments with <b>saved cards</b> is <b>active</b>.', 'woocommerce-mercadopago' ),
+				'disabled' => __( 'The feature for payments with <b>saved cards</b> is <b>inactive</b>.', 'woocommerce-mercadopago' ),
 			),
+			'after_toggle' => $this->wallet_button_preview(),
 		);
+	}
+
+	/**
+	 * Generate Wallet Button HTML
+	 *
+	 * @param $key field key
+	 * @param $settings settings array
+	 *
+	 * @return array
+	 */
+	public function wallet_button_preview() {
+		return wc_get_template_html(
+			'components/wallet-button.php',
+			array (
+				'img_wallet_button_uri'         => $this->get_wallet_button_example_uri(),
+				'img_wallet_button_description' => __( 'You can see how the feature is in your store Checkout below:', 'woocommerce-mercadopago' ),
+			),
+			'',
+			WC_WooMercadoPago_Module::get_templates_path()
+		);
+	}
+
+	/**
+	 * Returns wallet button URI based on current store locale
+	 *
+	 * @return string
+	 */
+	public function get_wallet_button_example_uri() {
+		$locale = substr( strtolower(get_locale()), 0, 2 );
+
+		if ( 'pt' !== $locale && 'es' !== $locale ) {
+			$locale = 'en';
+		}
+
+		return plugins_url( '../assets/images/pix-admin/example-' . $locale . '.png', plugin_dir_path( __FILE__ ) );
 	}
 
 	/**
@@ -339,7 +315,7 @@ class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 		$discount   = $amount * ( $this->gateway_discount / 100 );
 		$comission  = $amount * ( $this->commission / 100 );
 		$amount     = $amount - $discount + $comission;
-		$banner_url = $this->get_option_mp( '_mp_custom_banner' );
+		$banner_url = $this->get_option( '_mp_custom_banner' );
 		if ( ! isset( $banner_url ) || empty( $banner_url ) ) {
 			$banner_url = $this->site_data['checkout_banner_custom'];
 		}
@@ -363,7 +339,7 @@ class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 			$currency_ratio = WC_WooMercadoPago_Helpers_CurrencyConverter::DEFAULT_RATIO;
 		}
 
-		$test_mode_rules_link = $this->get_mp_devsite_link($this->checkout_country);
+		$test_mode_rules_link = WC_WooMercadoPago_Helper_Links::get_mp_devsite_link($this->checkout_country);
 		$parameters           = array(
 			'checkout_alert_test_mode' => $this->is_production_mode()
 			? ''
@@ -374,7 +350,7 @@ class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 				. __( 'test mode rules', 'woocommerce-mercadopago' ) . '</a>.</p>'
 			),
 			'amount'               => $amount,
-			'site_id'              => $this->get_option_mp( '_site_id_v1' ),
+			'site_id'              => $this->mp_options->get_site_id(),
 			'public_key'           => $this->get_public_key(),
 			'coupon_mode'          => isset( $this->logged_user_email ) ? $this->coupon_mode : 'no',
 			'discount_action_url'  => $this->discount_action_url,
@@ -388,7 +364,7 @@ class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 			'wallet_button'        => $this->wallet_button,
 		);
 
-		$parameters = array_merge($parameters, WC_WooMercadoPago_Payment_Abstract::mp_define_terms_and_conditions());
+		$parameters = array_merge($parameters, WC_WooMercadoPago_Helper_Links::mp_define_terms_and_conditions());
 		wc_get_template( 'checkout/custom-checkout.php', $parameters, 'woo/mercado/pago/module/', WC_WooMercadoPago_Module::get_templates_path() );
 	}
 
@@ -560,7 +536,7 @@ class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 	protected function process_discount_and_commission( $order_id, $order ) {
 		$amount = $this->get_order_total();
 		if ( method_exists( $order, 'update_meta_data' ) ) {
-			$order->update_meta_data( 'is_production_mode', $this->get_option_mp( 'checkbox_checkout_production_mode' ) );
+			$order->update_meta_data( 'is_production_mode', 'no' === $this->mp_options->get_checkbox_checkout_test_mode() ? 'yes' : 'no' );
 			$order->update_meta_data( '_used_gateway', get_class( $this ) );
 
 			if ( ! empty( $this->gateway_discount ) ) {
@@ -679,7 +655,7 @@ class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 			return false;
 		}
 
-		$_mp_access_token    = get_option( '_mp_access_token_prod' );
+		$_mp_access_token    = $this->mp_options->get_access_token_prod();
 		$is_prod_credentials = false === WC_WooMercadoPago_Credentials::validate_credentials_test( $this->mp, $_mp_access_token, null );
 
 		if ( ( empty( $_SERVER['HTTPS'] ) || 'off' === $_SERVER['HTTPS'] ) && $is_prod_credentials ) {
