@@ -30,6 +30,8 @@ if ( ! defined('ABSPATH') ) {
 		<?php if ( 'mlu' === $site_id ) : ?>
 			<div class="mp-checkout-ticket-input-document">
 			<input-document
+				label-message="<?php echo esc_html_e('Holder document', 'woocommerce-mercadopago' ); ?>"
+				helper-message="<?php echo esc_html_e('Invalid document', 'woocommerce-mercadopago' ); ?>"
 				input-name = 'mercadopago_ticket[docNumber]'
 				select-name = 'mercadopago_ticket[docType]'
 				flag-error = 'mercadopago_ticket[docNumberError]'
@@ -41,6 +43,8 @@ if ( ! defined('ABSPATH') ) {
 		<?php if ( 'mlb' === $site_id ) : ?>
 			<div class="mp-checkout-ticket-input-document">
 			<input-document
+				label-message="<?php echo esc_html_e('Holder document', 'woocommerce-mercadopago' ); ?>"
+				helper-message="<?php echo esc_html_e('Invalid document', 'woocommerce-mercadopago' ); ?>"
 				input-name = 'mercadopago_ticket[docNumber]'
 				select-name = 'mercadopago_ticket[docType]'
 				flag-error = 'mercadopago_ticket[docNumberError]'
@@ -49,8 +53,9 @@ if ( ! defined('ABSPATH') ) {
 			</input-document>
 		</div>
 		<?php endif; ?>
-		<p class="mp-checkout-ticket-text"><?php echo esc_html_e('Select where you want to pay', 'woocommerce-mercadopago'); ?></p>
+		<p class="mp-checkout-ticket-text" data-cy="checkout-ticket-text"><?php echo esc_html_e('Select where you want to pay', 'woocommerce-mercadopago'); ?></p>
 
+		<input-helper isVisible=false message="<?php echo esc_html_e('Select a payment method', 'woocommerce-mercadopago' ); ?>" input-id="mp-payment-method-helper" id="payment-method-helper"></input-helper>
 		<input-table
 			name="mercadopago_ticket[paymentMethodId]"
 			button-name=<?php echo esc_html_e('more options', 'woocommerce-mercadopago'); ?>
@@ -79,3 +84,11 @@ if ( ! defined('ABSPATH') ) {
 			</terms-and-conditions>
 		</div>
 </div>
+<script type="text/javascript">
+if(document.getElementById("payment_method_woo-mercado-pago-custom")) {
+	jQuery("form.checkout").on(
+		"checkout_place_order_woo-mercado-pago-ticket",
+		  function () { cardFormLoad();}
+	);
+}
+</script>

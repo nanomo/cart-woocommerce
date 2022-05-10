@@ -66,3 +66,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 	>
 	</terms-and-conditions>
 </div>
+<script type="text/javascript">
+	if(document.getElementById("payment_method_woo-mercado-pago-custom")) {
+		jQuery("form.checkout").on(
+			  "checkout_place_order_woo-mercado-pago-basic",
+			  function () { cardFormLoad();}
+		);
+	}
+</script>

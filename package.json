@@ -9,7 +9,7 @@
         "pot": "node -e 'require(\"./main.js\").generatePotFiles()'",
         "lint": "jshint"
     },
-    "version": "5.7.3",
+    "version": "5.7.6",
     "repository": {
         "type": "git",
         "url": "https://github.com/mercadopago/cart-woocommerce"

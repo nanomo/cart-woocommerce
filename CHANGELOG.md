@@ -5,6 +5,23 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [5.7.6] - 2022-04-19
+
+### Changed Bug fixes
+- Adjusted IPN notification to recognize discount coupon
+- Added coupon information in order details
+- Changed default value of checkout ticket date_expiration
+
+## [5.7.5] - 2022-03-31
+
+### Changed Bug fixes
+- Instance a non-static class to call a method (Fatal error on PHP 8)
+
+## [5.7.4] - 2022-02-25
+
+### Changed Bug fixes
+- Changed php constant
+
 ## [5.7.3] - 2022-02-16
 
 ### Changed Bug fixes
