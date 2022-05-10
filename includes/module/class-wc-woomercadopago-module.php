@@ -906,6 +906,11 @@ class WC_WooMercadoPago_Module extends WC_WooMercadoPago_Configs {
 					$has_a_gateway_in_production = true;
 				}
 
+				/**
+				 * Update if options were changed.
+				 *
+				 * @since 3.0.1
+				 */
 				update_option( $key, apply_filters( 'woocommerce_settings_api_sanitized_fields_' . $gateway::get_id(), $options ) );
 			}
 		}

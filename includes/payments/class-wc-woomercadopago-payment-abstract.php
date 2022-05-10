@@ -570,6 +570,11 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 		}
 
 		if ( $changed ) {
+			/**
+			 * Update if options were changed.
+			 *
+			 * @since 3.0.1
+			 */
 			update_option( $this->get_option_key(), apply_filters( 'woocommerce_settings_api_sanitized_fields_' . $this->id, $this->settings ) );
 		}
 	}
@@ -628,6 +633,11 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 	 * @return mixed
 	 */
 	public function get_mp_icon() {
+		/**
+		 * Add Mercado Pago icon.
+		 *
+		 * @since 3.0.1
+		 */
 		return apply_filters( 'woocommerce_mercadopago_icon', plugins_url( '../assets/images/mercadopago.png', plugin_dir_path( __FILE__ ) ) );
 	}
 
@@ -1140,6 +1150,7 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 		foreach ( WC_WooMercadoPago_Constants::PAYMENT_GATEWAYS as $gateway ) {
 			$key     = 'woocommerce_' . $gateway::get_id() . '_settings';
 			$options = get_option( $key );
+
 			if ( ! empty( $options ) ) {
 				if ( isset( $options['checkbox_checkout_test_mode'] ) && 'no' === $options['checkbox_checkout_test_mode'] && ! empty( $this->mp_access_token_prod ) ) {
 					continue;
@@ -1150,6 +1161,12 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 				}
 
 				$options['enabled'] = 'no';
+
+				/**
+				 * Update if options were changed
+				 *
+				 * @since 3.0.1
+				 */
 				update_option( $key, apply_filters( 'woocommerce_settings_api_sanitized_fields_' . $gateway::get_id(), $options ) );
 			}
 		}
