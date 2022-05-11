@@ -25,7 +25,7 @@
 
 .mp-alert-circle-img {
 	width: 16px;
-	margin-top: 16px;
+	margin-top: 16px !important;
 }
 
 .mp-alert-texts-checkout-test-mode {
