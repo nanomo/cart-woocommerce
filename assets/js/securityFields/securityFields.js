@@ -294,6 +294,6 @@ jQuery("form#order_review").submit(function () {
   ) {
     return mercadoPagoFormHandler();
   } else {
-    cardForm.unmount();
+    cardFormLoad();
   }
 });

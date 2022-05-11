@@ -1,5 +1,11 @@
 CHANGELOG:
 == Changelog ==
+= v6.0.0 (11/05/2022) =
+* Features
+- Added melidata script to collect metrics from plugin
+- Added ideal checkout template
+- Added secure inputs for Checkout Custom
+
 = v5.7.6 (19/04/2022) =
 * Bug fixes
 - Adjusted IPN notification to recognize discount coupon
