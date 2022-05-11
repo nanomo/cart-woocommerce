@@ -198,6 +198,10 @@ const CheckoutPage = {
 
   verifyDocument() {
     let input = document.querySelector(CheckoutElements.fcIdentificationNumber);
+    if (input.style.display === 'none' || input.style.display === '') {
+      return true;
+    }
+
     if (input.value === "-1" || input.value === "") {
       return false;
     }
