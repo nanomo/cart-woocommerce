@@ -29,7 +29,6 @@ class WC_WooMercadoPago_Hook_Custom extends WC_WooMercadoPago_Hook_Abstract {
 			add_action( 'woocommerce_after_checkout_form', array( $this, 'add_mp_settings_script_custom' ) );
 			add_action( 'woocommerce_thankyou', array( $this, 'update_mp_settings_script_custom' ) );
 			add_action( 'woocommerce_review_order_before_payment', array( $this, 'add_init_cardform_checkout'));
-			add_action( 'before_woocommerce_pay', array( $this, 'add_init_cardform_order_review'));
 		}
 
 		add_action(
@@ -50,20 +49,6 @@ class WC_WooMercadoPago_Hook_Custom extends WC_WooMercadoPago_Hook_Abstract {
 		wp_enqueue_script(
 			'woocommerce-mercadopago-checkout-init-cardform',
 			plugins_url( '../../assets/js/securityFields/checkoutSecurityFields' . $suffix . '.js', plugin_dir_path( __FILE__ ) ),
-			array(),
-			WC_WooMercadoPago_Constants::VERSION,
-			true
-		);
-	}
-
-	/**
-	 *  Add Init Cardform on Order Review Page
-	 */
-	public function add_init_cardform_order_review() {
-		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
-		wp_enqueue_script(
-			'woocommerce-mercadopago-checkout-init-cardform-order-review',
-			plugins_url( '../../assets/js/securityFields/orderReviewSecurityFields' . $suffix . '.js', plugin_dir_path( __FILE__ ) ),
 			array(),
 			WC_WooMercadoPago_Constants::VERSION,
 			true
