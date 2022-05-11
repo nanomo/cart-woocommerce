@@ -6,6 +6,9 @@ CHANGELOG:
 - Added ideal checkout template
 - Added secure inputs for Checkout Custom
 
+* Changes
+- Changed mp logo
+
 = v5.7.6 (19/04/2022) =
 * Bug fixes
 - Adjusted IPN notification to recognize discount coupon
