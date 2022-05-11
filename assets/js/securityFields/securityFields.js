@@ -2,10 +2,6 @@ var cardForm;
 var mercado_pago_submit = false;
 cardFormMounted = false;
 
-if (document.getElementById("mp-amount")) {
-  var amount = document.getElementById("mp-amount").value;
-}
-
 var form = document.querySelector("form[name=checkout]");
 var formId = "checkout";
 if (form) {
@@ -66,7 +62,7 @@ function init_cardForm() {
   var mp = new MercadoPago(wc_mercadopago_params.public_key);
 
   cardForm = mp.cardForm({
-    amount: amount,
+    amount: document.getElementById("mp-amount").value,
     iframe: true,
     form: {
       id: formId,
