@@ -13,6 +13,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added ideal checkout template
 - Added secure inputs for Checkout Custom
 
+### Changes
+
+- Changed mp logo
+
 ## [5.7.6] - 2022-04-19
 
 ### Changed Bug fixes

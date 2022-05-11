@@ -138,6 +138,8 @@ Check out our <a href="https://www.mercadopago.com.br/developers/pt/plugins_sdks
 - Added melidata script to collect metrics from plugin
 - Added ideal checkout template
 - Added secure inputs for Checkout Custom
+* Changes
+- Changed mp logo
 
 = v5.7.6 (19/04/2022) =
 * Bug fixes
