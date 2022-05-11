@@ -88,7 +88,7 @@ if ( ! defined('ABSPATH') ) {
 if(document.getElementById("payment_method_woo-mercado-pago-custom")) {
 	jQuery("form.checkout").on(
 		"checkout_place_order_woo-mercado-pago-ticket",
-		  function () { cardFormLoad();}
+		function () { cardFormLoad();}
 	);
 }
 </script>

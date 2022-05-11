@@ -57,7 +57,14 @@ class WC_WooMercadoPago_Notification_IPN extends WC_WooMercadoPago_Notification_
 			}
 
 			$ipn_info['response']['ipn_type'] = 'merchant_order';
+
+			/**
+			 * Do action valid_mercadopago_ipn_request.
+			 *
+			 * @since 3.0.1
+			 */
 			do_action( 'valid_mercadopago_ipn_request', $ipn_info['response'] );
+
 			$this->set_response( 200, 'OK', 'Notification IPN Successfull' );
 		}
 	}

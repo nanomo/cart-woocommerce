@@ -111,13 +111,20 @@ abstract class WC_WooMercadoPago_Hook_Abstract {
 				&& WC()->session->chosen_payment_method === $this->payment->id
 		) {
 			$this->payment->log->write_log( __FUNCTION__, $this->class . 'trying to apply discount...' );
+
 			$value = (
-				'COP' === $this->payment->site_data['currency']
-				|| 'CLP' === $this->payment->site_data['currency']
-			) ?
-				floor( $checkout['discount'] / $checkout['currency_ratio'] )
+				'COP' === $this->payment->site_data['currency'] || 'CLP' === $this->payment->site_data['currency']
+			)
+				? floor( $checkout['discount'] / $checkout['currency_ratio'] )
 				: floor( $checkout['discount'] / $checkout['currency_ratio'] * 100 ) / 100;
+
 			global $woocommerce;
+
+			/**
+			 * Apply discount filter.
+			 *
+			 * @since 3.0.1
+			 */
 			if ( apply_filters( 'wc_mercadopago_custommodule_apply_discount', 0 < $value, $woocommerce->cart ) ) {
 				$woocommerce->cart->add_fee(
 					sprintf(
@@ -273,6 +280,11 @@ abstract class WC_WooMercadoPago_Hook_Abstract {
 			$this->payment->settings
 		);
 
+		/**
+		 * Update if options were changed.
+		 *
+		 * @since 3.0.1
+		 */
 		return update_option( $this->payment->get_option_key(), apply_filters( 'woocommerce_settings_api_sanitized_fields_' . $this->payment->id, $this->payment->settings ) );
 	}
 

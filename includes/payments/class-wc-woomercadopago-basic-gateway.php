@@ -651,6 +651,11 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 	 * @return mixed
 	 */
 	public function get_checkout_icon() {
+		/**
+		 * Add Mercado Pago icon.
+		 *
+		 * @since 3.0.1
+		 */
 		return apply_filters( 'woocommerce_mercadopago_icon', plugins_url( '../assets/images/icons/mercadopago.png', plugin_dir_path( __FILE__ ) ) );
 	}
 }

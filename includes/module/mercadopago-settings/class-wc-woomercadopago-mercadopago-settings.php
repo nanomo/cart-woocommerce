@@ -508,6 +508,11 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 					: ( 'yes' === $old_credential_is_prod ? 'no' : 'yes' );
 				$options['checkout_credential_prod']    = 'deprecated';
 
+				/**
+				 * Update id options were changed.
+				 *
+				 * @since 3.0.1
+				 */
 				update_option( $key, apply_filters( 'woocommerce_settings_api_sanitized_fields_' . $gateway::get_id(), $options ) );
 			}
 		}

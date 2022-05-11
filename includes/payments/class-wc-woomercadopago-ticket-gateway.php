@@ -641,9 +641,21 @@ class WC_WooMercadoPago_Ticket_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 	 */
 	public function get_checkout_icon() {
 		$country = $this->get_option_mp( '_site_id_v1' );
+
 		if ( 'MLB' !== $country ) {
+			/**
+			 * Add Mercado Pago icon.
+			 *
+			 * @since 3.0.1
+			 */
 			return apply_filters( 'woocommerce_mercadopago_icon', plugins_url( '../assets/images/icons/ticket.png', plugin_dir_path( __FILE__ ) ) );
 		}
+
+		/**
+		 * Add Mercado Pago icon.
+		 *
+		 * @since 3.0.1
+		 */
 		return apply_filters( 'woocommerce_mercadopago_icon', plugins_url( '../assets/images/icons/ticket_mlb.png', plugin_dir_path( __FILE__ ) ) );
 	}
 }
