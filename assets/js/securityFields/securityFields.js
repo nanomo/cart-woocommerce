@@ -158,7 +158,7 @@ function init_cardForm() {
             CheckoutPage.clearInputs();
             CheckoutPage.setDisplayOfInputHelper("mp-card-number", "none");
             CheckoutPage.setImageCard(paymentMethods[0].thumbnail);
-            CheckoutPage.handleInstallments(paymentMethods[0].payment_type_id);
+            CheckoutPage.installment_amount(paymentMethods[0].payment_type_id);
             CheckoutPage.loadAdditionalInfo(
               paymentMethods[0].additional_info_needed
             );
