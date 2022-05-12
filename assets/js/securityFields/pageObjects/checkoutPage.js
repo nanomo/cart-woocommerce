@@ -90,7 +90,7 @@ const CheckoutPage = {
     this.setText("mpTaxTeaText", "");
   },
 
-  handleInstallments(paymentTypeId) {
+  installment_amount(paymentTypeId) {
     let element = document.querySelector(CheckoutElements.fcInstallments);
 
     if (paymentTypeId === "debit_card") {
@@ -326,12 +326,8 @@ const CheckoutPage = {
       installments.push({
         id: `installment-${installment}`,
         value: installment,
-        rowText: `${installment}x ${this.formatCurrency(
-          payerCosts[j].installment_amount
-        )}`,
-        rowObs: installmentRate
-          ? wc_mercadopago_params.installmentObsFee
-          : this.formatCurrency(payerCosts[j].total_amount),
+        rowText: payerCosts[j].recommended_message.split('(')[0],
+        rowObs: installmentRate ? wc_mercadopago_params.installmentObsFee : this.formatCurrency(payerCosts[j].total_amount),
         highlight: installmentRate ? "true" : "",
         dataRate: this.argentinaResolution(payerCosts[j].labels),
       });
