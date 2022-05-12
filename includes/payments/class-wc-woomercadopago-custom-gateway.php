@@ -313,14 +313,14 @@ class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 			WC_WooMercadoPago_Constants::VERSION
 		);
 
-		$total          = $this->get_order_total();
-        $subtotal       = (float) WC()->cart->subtotal;
-        $tax            = $total - $subtotal;
-        $discount       = $subtotal * ( $this->gateway_discount / 100 );
-        $comission      = $subtotal * ( $this->commission / 100 );
-        $amount         = $subtotal - $discount + $comission;
-        $amount         = $amount + $tax;
-		
+		$total     = $this->get_order_total();
+		$subtotal  = (float) WC()->cart->subtotal;
+		$tax       = $total - $subtotal;
+		$discount  = $subtotal * ( $this->gateway_discount / 100 );
+		$comission = $subtotal * ( $this->commission / 100 );
+		$amount    = $subtotal - $discount + $comission;
+		$amount    = $amount + $tax;
+
 		$banner_url     = $this->get_option( '_mp_custom_banner' );
 		$test_mode_link = $this->get_mp_devsite_link($this->checkout_country);
 		if ( ! isset( $banner_url ) || empty( $banner_url ) ) {
