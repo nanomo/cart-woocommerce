@@ -326,13 +326,9 @@ const CheckoutPage = {
       installments.push({
         id: `installment-${installment}`,
         value: installment,
-        rowText: `${installment}x ${this.formatCurrency(
-          payerCosts[j].installment_amount
-        )}`,
-        rowObs: installmentRate
-          ? wc_mercadopago_params.installmentObsFee
-          : this.formatCurrency(payerCosts[j].total_amount),
-        highlight: installmentRate ? "true" : "",
+        rowText: payerCosts[j].recommended_message,
+        rowObs: '',
+        highlight: '',
         dataRate: this.argentinaResolution(payerCosts[j].labels),
       });
     }

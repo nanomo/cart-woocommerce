@@ -634,7 +634,7 @@ msgstr "Tarjetas de débito "
 #: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:530,
 #: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:530
 msgid "Bank Transfer"
-msgstr "transferencia bancaria"
+msgstr "Transferencia bancaria"
 
 #: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:536,
 #: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:536
