@@ -26,21 +26,22 @@
       }
       verifyInstallments();
 
-      if (!checkForErrors(ticketHelpers)) {
-        mercado_pago_submit_ticket = true;
-      } else {
+      if (checkForErrors(ticketHelpers)) {
         removeBlockOverlay();
+      } else {
+        mercado_pago_submit_ticket = true;
       }
 
       return mercado_pago_submit_ticket;
     }
 
     function checkForErrors(ticketHelpers) {
+      let hasError = false
       ticketHelpers.forEach((item) => {
         let inputHelper = item.querySelector("div");
-        if (inputHelper.style.display != "none") return true;
+        if (inputHelper.style.display != "none") hasError = true;
       });
-      return false;
+      return hasError;
     }
 
     function verifyDocument(ticketContent, ticketHelpers) {

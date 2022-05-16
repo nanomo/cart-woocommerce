@@ -134,8 +134,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 			</div>
 		</div>
 
-		<input-helper isVisible=false message="<?php echo esc_html_e('Select the number of installments', 'woocommerce-mercadopago' ); ?>" input-id="mp-installments-helper"></input-helper>
 		<div id="mp-checkout-custom-installments-container" class="mp-checkout-custom-installments-container"></div>
+		<input-helper isVisible=false message="<?php echo esc_html_e('Select the number of installments', 'woocommerce-mercadopago' ); ?>" input-id="mp-installments-helper"></input-helper>
 		<select style="display: none;" data-checkout="installments" name="installments"
 			id="form-checkout__installments" class="mp-input-select-select">
 		</select>
