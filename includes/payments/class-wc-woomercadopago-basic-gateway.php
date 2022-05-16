@@ -671,7 +671,7 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 	public function is_credits( $payments_response ) {
 		if ( is_array($payments_response) ) {
 			foreach ( $payments_response as $payment ) {
-				if ( isset( $payment['id'] ) && $payment['id'] === 'consumer_credits' ) {
+				if ( isset( $payment['id'] ) && 'consumer_credits' === $payment['id'] ) {
 					return true;
 				}
 			}
