@@ -501,16 +501,18 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 
 		$cho_pro_display_payments = [];
 
-		$credits[] = [
-			'src' => plugins_url( '../assets/images/mercado-credito.png', plugin_dir_path( __FILE__ ) ),
-			'alt' => 'mercado_creditos'
-		];
-
-		array_push($cho_pro_display_payments, [
-			'title' => __( 'Installments without card' , 'woocommerce-mercadopago' ),
-			'label' => __( 'Up to ' , 'woocommerce-mercadopago' ) . 12 . __( ' installments' , 'woocommerce-mercadopago' ),
-			'payment_methods' => $credits
-		]);
+		$payments_response = $this->get_payment_response();
+        if($this->is_credits($payments_response)) {
+            $credits[] = [
+                'src' => plugins_url( '../assets/images/mercado-credito.png', plugin_dir_path( __FILE__ ) ),
+                'alt' => 'mercado_creditos'
+            ];
+            array_push($cho_pro_display_payments, [
+                'title' => __( 'Installments without card' , 'woocommerce-mercadopago' ),
+                'label' => __( 'Up to ' , 'woocommerce-mercadopago' ) . 12 . __( ' installments' , 'woocommerce-mercadopago' ),
+                'payment_methods' => $credits
+            ]);
+        }
 
 		if ( isset($credit) ) {
 			array_push($cho_pro_display_payments, [
@@ -658,4 +660,39 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 		 */
 		return apply_filters( 'woocommerce_mercadopago_icon', plugins_url( '../assets/images/icons/mercadopago.png', plugin_dir_path( __FILE__ ) ) );
 	}
+
+	/**
+     *
+     * Get Payment Response function
+     *
+     * @param array $payments_response Payment Method Response.
+     * @return bool
+     */
+    public function is_credits($payments_response) {
+        if (is_array($payments_response)) {
+            foreach ( $payments_response as $payment ) {
+                if ( isset( $payment['id'] ) && $payment['id'] === 'consumer_credits' ) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+    /**
+     *
+     * Get Payment Response function
+     *
+     * @return mixed
+     */
+    public function get_payment_response() {
+        $access_token = $this->mp->get_access_token();
+        $site = strtoupper($this->mp_options->get_site_id());
+        if ( ! empty( $access_token ) ) {
+            $payments = $this->mp->get( '/sites/' . $site . '/payment_methods', array( 'Authorization' => 'Bearer ' . $access_token ) );
+            if ( isset( $payments['response'] ) ) {
+                return $payments['response'];
+            }
+        }
+        return null;
+    }
 }
