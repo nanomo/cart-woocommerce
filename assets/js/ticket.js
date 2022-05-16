@@ -49,7 +49,7 @@
 
       if (documentElement[0].value == "") {
         let child = ticketHelpers[0].querySelector("div");
-        child.style.display == "flex";
+        child.style.display = "flex";
       }
     }
 
