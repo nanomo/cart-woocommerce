@@ -14,7 +14,7 @@ if ( ! defined('ABSPATH') ) {
 	exit;
 }
 ?>
-
+<div class='mp-checkout-container'>
 <div class="mp-checkout-pix-container">
 	<?php if ( true === $test_mode ) : ?>
 		<div class="mp-checkout-pix-test-mode">
@@ -43,6 +43,8 @@ if ( ! defined('ABSPATH') ) {
 		</terms-and-conditions>
 	</div>
 </div>
+</div>
+
 <script type="text/javascript">
 	if(document.getElementById("payment_method_woo-mercado-pago-custom")) {
 		jQuery("form.checkout").on(

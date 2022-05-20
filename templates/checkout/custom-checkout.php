@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 ?>
 
-
+<div class='mp-checkout-container'>
 <div class='mp-checkout-custom-container'>
 	<?php if ( true === $test_mode ) : ?>
 		<div class="mp-checkout-pro-test-mode">
@@ -51,7 +51,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class='mp-checkout-custom-available-payments-header'>
 			<div class="mp-checkout-custom-available-payments-title">
 				<img src="<?php echo esc_url( plugins_url( '../assets/images/purple_card.png', plugin_dir_path( __FILE__ ) ) ); ?>" class='mp-icon'>
-				<p><?php echo esc_html_e( 'With which card can you pay?', 'woocommerce-mercadopago' ); ?></p>
+				<p class="mp-checkout-custom-available-payments-text"><?php echo esc_html_e( 'With which card can you pay?', 'woocommerce-mercadopago' ); ?></p>
 			</div>
 
 			<img
@@ -156,7 +156,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		</terms-and-conditions>
 	</div>
 </div>
-
+</div>
 <div id="mercadopago-utilities">
 	<input type="hidden" id="mp-amount" value='<?php echo esc_textarea( $amount ); ?>' name="mercadopago_custom[amount]" />
 	<input type="hidden" id="currency_ratio" value='<?php echo esc_textarea( $currency_ratio ); ?>' name="mercadopago_custom[currency_ratio]" />
@@ -188,8 +188,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 			content.style.padding = "0px";
 			icon.src = "<?php echo esc_url( plugins_url( '../assets/images/chefron-down.png', plugin_dir_path( __FILE__ ) ) ); ?>";
 		} else {
-			content.style.maxHeight = content.scrollHeight + 10 + "px";
-			content.style.padding = "24px 0px 0px";
+			let hg = content.scrollHeight + 15 + "px";
+			content.style.setProperty("max-height", hg, "important");
+			content.style.setProperty("padding", "24px 0px 0px", "important");
+
 			icon.src = "<?php echo esc_url( plugins_url( '../assets/images/chefron-up.png', plugin_dir_path( __FILE__ ) ) ); ?>";
 		}
 	});

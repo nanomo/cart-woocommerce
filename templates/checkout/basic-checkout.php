@@ -14,6 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 ?>
 
+<div class='mp-checkout-container'>
 <div class="mp-checkout-pro-container">
 	<div class="mp-checkout-pro-content">
 		<?php if ( true === $test_mode ) : ?>
@@ -56,8 +57,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 		</div>
 	<?php endif; ?>
 </div>
-
-<!-- Terms and conditions link at checkout -->
 <div class="mp-checkout-pro-terms-and-conditions">
 	<terms-and-conditions
 		description="<?php echo esc_html_e( 'By continuing, you agree with our', 'woocommerce-mercadopago' ); ?>"
@@ -66,6 +65,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 	>
 	</terms-and-conditions>
 </div>
+</div>
+
+
+<!-- Terms and conditions link at checkout -->
+
 <script type="text/javascript">
 	if(document.getElementById("payment_method_woo-mercado-pago-custom")) {
 		jQuery("form.checkout").on(
