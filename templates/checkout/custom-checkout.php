@@ -84,7 +84,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		<div class='mp-checkout-custom-card-row' id="mp-card-holder-div">
 			<input-label message="<?php echo esc_html_e('Holder name as it appears on the card', 'woocommerce-mercadopago' ); ?>" isOptinal=false></input-label>
-			<input type="text" class="mp-checkout-custom-card-input mp-card-holder-name" placeholder="Ex.: María López"
+			<input class="mp-checkout-custom-card-input mp-card-holder-name" placeholder="Ex.: María López"
 				id="form-checkout__cardholderName" name="mp-card-holder-name" data-checkout="cardholderName" />
 			<input-helper isVisible=false message="<?php echo esc_html_e('Required data', 'woocommerce-mercadopago' ); ?>" input-id="mp-card-holder-name-helper"
 				data-main="mp-card-holder-name">
