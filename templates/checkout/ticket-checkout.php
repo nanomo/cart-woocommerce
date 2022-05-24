@@ -10,7 +10,7 @@
  * @package MercadoPago
  */
 
-if (!defined('ABSPATH')) {
+if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 ?>
@@ -18,19 +18,19 @@ if (!defined('ABSPATH')) {
 <div class='mp-checkout-container'>
 	<div class="mp-checkout-ticket-container">
 		<div class="mp-checkout-ticket-content">
-			<?php if (true === $test_mode) : ?>
+			<?php if ( true === $test_mode ) : ?>
 				<div class="mp-checkout-ticket-test-mode">
 					<test-mode title="<?php echo esc_html_e('Offline Methods in Test Mode', 'woocommerce-mercadopago'); ?>" description="<?php echo esc_html_e('You can test the flow to generate an invoice, but you cannot finalize the payment. ', 'woocommerce-mercadopago'); ?>" link-text="<?php echo esc_html_e('See the rules for the test mode.', 'woocommerce-mercadopago'); ?>" link-src="<?php echo esc_html($test_mode_link); ?>">
 					</test-mode>
 				</div>
 			<?php endif; ?>
-			<?php if ('mlu' === $site_id) : ?>
+			<?php if ( 'mlu' === $site_id ) : ?>
 				<div class="mp-checkout-ticket-input-document">
 					<input-document label-message="<?php echo esc_html_e('Holder document', 'woocommerce-mercadopago'); ?>" helper-message="<?php echo esc_html_e('Invalid document', 'woocommerce-mercadopago'); ?>" input-name='mercadopago_ticket[docNumber]' select-name='mercadopago_ticket[docType]' flag-error='mercadopago_ticket[docNumberError]' documents='["CI","OUTRO"]' validate=true>
 					</input-document>
 				</div>
 			<?php endif; ?>
-			<?php if ('mlb' === $site_id) : ?>
+			<?php if ( 'mlb' === $site_id ) : ?>
 				<div class="mp-checkout-ticket-input-document">
 					<input-document label-message="<?php echo esc_html_e('Holder document', 'woocommerce-mercadopago'); ?>" helper-message="<?php echo esc_html_e('Invalid document', 'woocommerce-mercadopago'); ?>" input-name='mercadopago_ticket[docNumber]' select-name='mercadopago_ticket[docType]' flag-error='mercadopago_ticket[docNumberError]' documents='["CPF","CNPJ"]' validate=true>
 					</input-document>
@@ -64,7 +64,7 @@ if (!defined('ABSPATH')) {
 </div>
 
 <script type="text/javascript">
-	if (document.getElementById("payment_method_woo-mercado-pago-custom")) {
+	if ( document.getElementById("payment_method_woo-mercado-pago-custom") ) {
 		jQuery("form.checkout").on(
 			"checkout_place_order_woo-mercado-pago-ticket",
 			function() {

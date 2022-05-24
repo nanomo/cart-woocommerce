@@ -10,7 +10,7 @@
  * @package MercadoPago
  */
 
-if (!defined('ABSPATH')) {
+if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 ?>
@@ -18,7 +18,7 @@ if (!defined('ABSPATH')) {
 <div class='mp-checkout-container'>
 	<div class="mp-checkout-pro-container">
 		<div class="mp-checkout-pro-content">
-			<?php if (true === $test_mode) : ?>
+			<?php if ( true === $test_mode ) : ?>
 				<div class="mp-checkout-pro-test-mode">
 					<test-mode title="<?php echo esc_html_e('Checkout Pro in Test Mode', 'woocommerce-mercadopago'); ?>" description="<?php echo esc_html_e('Use Mercado Pago\'s payment methods without real charges. ', 'woocommerce-mercadopago'); ?>" link-text="<?php echo esc_html_e('See the rules for the test mode.', 'woocommerce-mercadopago'); ?>" link-src="<?php echo esc_html($test_mode_link); ?>">
 					</test-mode>
@@ -37,7 +37,7 @@ if (!defined('ABSPATH')) {
 			</div>
 		</div>
 
-		<?php if ('redirect' === $method) : ?>
+		<?php if ( 'redirect' === $method ) : ?>
 			<div class="mp-checkout-pro-redirect">
 				<checkout-redirect text="<?php echo esc_html_e('By confirming your purchase, you will be redirected to your Mercado Pago account', 'woocommerce-mercadopago'); ?>" alt="<?php echo esc_html_e('Checkout Pro redirect info image', 'woocommerce-mercadopago'); ?>" src="<?php echo esc_html($redirect_image); ?>">
 				</checkout-redirect>
@@ -54,7 +54,7 @@ if (!defined('ABSPATH')) {
 <!-- Terms and conditions link at checkout -->
 
 <script type="text/javascript">
-	if (document.getElementById("payment_method_woo-mercado-pago-custom")) {
+	if ( document.getElementById("payment_method_woo-mercado-pago-custom") ) {
 		jQuery("form.checkout").on(
 			"checkout_place_order_woo-mercado-pago-basic",
 			function() {

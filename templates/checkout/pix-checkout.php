@@ -10,13 +10,14 @@
  * @package MercadoPago
  */
 
-if (!defined('ABSPATH')) {
+if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 ?>
+
 <div class='mp-checkout-container'>
 	<div class="mp-checkout-pix-container">
-		<?php if (true === $test_mode) : ?>
+		<?php if ( true === $test_mode ) : ?>
 			<div class="mp-checkout-pix-test-mode">
 				<test-mode title="<?php echo esc_html_e('Pix in Test Mode', 'woocommerce-mercadopago'); ?>" description="<?php echo esc_html_e('You can test the flow to generate a code, but you cannot finalize the payment.', 'woocommerce-mercadopago'); ?>">
 				</test-mode>
@@ -34,7 +35,7 @@ if (!defined('ABSPATH')) {
 </div>
 
 <script type="text/javascript">
-	if (document.getElementById("payment_method_woo-mercado-pago-custom")) {
+	if ( document.getElementById("payment_method_woo-mercado-pago-custom") ) {
 		jQuery("form.checkout").on(
 			"checkout_place_order_woo-mercado-pago-pix",
 			function() {

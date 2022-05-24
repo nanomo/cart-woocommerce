@@ -10,21 +10,21 @@
  * @package MercadoPago
  */
 
-if (!defined('ABSPATH')) {
+if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 ?>
 
 <div class='mp-checkout-container'>
 	<div class='mp-checkout-custom-container'>
-		<?php if (true === $test_mode) : ?>
+		<?php if ( true === $test_mode ) : ?>
 			<div class="mp-checkout-pro-test-mode">
 				<test-mode title="<?php echo esc_html_e('Checkout Custom in Test Mode', 'woocommerce-mercadopago'); ?>" description="<?php echo esc_html_e('Use Mercado Pago means without real charges.', 'woocommerce-mercadopago'); ?>" link-text="<?php echo esc_html_e('See test mode rules.', 'woocommerce-mercadopago'); ?>" link-src="<?php echo esc_html($test_mode_link); ?>">
 				</test-mode>
 			</div>
 		<?php endif; ?>
 
-		<?php if ('yes' === $wallet_button) : ?>
+		<?php if ( 'yes' === $wallet_button ) : ?>
 			<div class='mp-wallet-button-container'>
 				<div class='mp-wallet-button-title'>
 					<img src="<?php echo esc_url(plugins_url('../assets/images/mp_logo.png', plugin_dir_path(__FILE__))); ?>">
@@ -56,7 +56,7 @@ if (!defined('ABSPATH')) {
 			<div class='mp-checkout-custom-available-payments-content'>
 				<payment-methods methods='<?php echo wp_json_encode($payment_methods); ?>'></payment-methods>
 
-				<?php if ('mla' === $site_id) : ?>
+				<?php if ( 'mla' === $site_id ) : ?>
 					<span id="mp_promotion_link"> | </span>
 					<a href="https://www.mercadopago.com.ar/cuotas" id="mp_checkout_link" class="mp-checkout-link mp-pl-10" target="_blank">
 						<?php echo esc_html__('See current promotions', 'woocommerce-mercadopago'); ?>
@@ -161,7 +161,7 @@ if (!defined('ABSPATH')) {
 		var icon = collapsible.getElementsByClassName('mp-checkout-custom-available-payments-collapsible')[0];
 		var content = availablePayment.getElementsByClassName('mp-checkout-custom-available-payments-content')[0];
 
-		if (content.style.maxHeight) {
+		if ( content.style.maxHeight ) {
 			content.style.maxHeight = null;
 			content.style.padding = "0px";
 			icon.src = "<?php echo esc_url(plugins_url('../assets/images/chefron-down.png', plugin_dir_path(__FILE__))); ?>";
