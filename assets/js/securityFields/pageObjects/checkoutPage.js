@@ -204,8 +204,9 @@ const CheckoutPage = {
 
   verifyDocument() {
     let input = document.querySelector(CheckoutElements.fcIdentificationNumber);
+    let inputContainer = document.querySelector(CheckoutElements.mpDocumentContainer);
 
-    if (input.style.display === 'none' || input.style.display === '') {
+    if (inputContainer.style.display === 'none' || inputContainer.style.display === '') {
       return true;
     }
 
