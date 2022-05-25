@@ -10,6 +10,10 @@ if (form) {
   formId = "order_review";
 }
 
+/**
+ * Handler form submit
+ * @return {bool}
+ */
 function mercadoPagoFormHandler() {
 
   let formOrderReview = document.querySelector("form[id=order_review]");
@@ -40,6 +44,10 @@ function mercadoPagoFormHandler() {
   return false;
 }
 
+/**
+ * Create a new token
+ * @return {mixed}
+ */
 function createToken() {
   cardForm
     .createCardToken()
@@ -58,6 +66,9 @@ function createToken() {
   return false;
 }
 
+/**
+ * Init cardForm
+ */
 function init_cardForm() {
   var mp = new MercadoPago(wc_mercadopago_params.public_key);
 

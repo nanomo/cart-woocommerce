@@ -14,8 +14,8 @@ const CheckoutPage = {
   },
 
   setBackground(element, background) {
-    document.querySelector(CheckoutElements[element]).style.background =
-      background;
+    document.querySelector(CheckoutElements[element]).style
+    .setProperty("background", background, "important");
   },
 
   setImageCard(secureThumbnail) {
@@ -23,8 +23,7 @@ const CheckoutPage = {
       "fcCardholderNameContainer",
       "url(" + secureThumbnail + ") 98% 50% no-repeat #fff"
     );
-
-    document.querySelector(CheckoutElements.fcCardholderNameContainer).style.backgroundSize = "auto 24px";
+    document.querySelector(CheckoutElements.fcCardholderNameContainer).style.setProperty("background-size", "auto 32px","important");
   },
 
   setDisplayOfInputHelper(name, operator) {
@@ -203,8 +202,9 @@ const CheckoutPage = {
 
   verifyDocument() {
     let input = document.querySelector(CheckoutElements.fcIdentificationNumber);
+    let inputContainer = document.querySelector(CheckoutElements.mpDocumentContainer);
 
-    if (input.style.display === 'none' || input.style.display === '') {
+    if (inputContainer.style.display === 'none' || inputContainer.style.display === '') {
       return true;
     }
 
