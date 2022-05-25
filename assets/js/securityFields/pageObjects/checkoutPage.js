@@ -1,3 +1,5 @@
+/* globals wc_mercadopago_params */
+
 const CheckoutPage = {
   setElementDisplay(element, operator) {
     document.querySelector(CheckoutElements[element]).style.display = operator;
@@ -101,12 +103,8 @@ const CheckoutPage = {
   },
 
   formatCurrency(value) {
-    const isMLB = wc_mercadopago_params.site_id === "mlb";
-    const locale = isMLB ? "pt-BR" : "es-AR";
-    const currency = isMLB ? "BRL" : "ARS";
-
-    const formatter = new Intl.NumberFormat(locale, {
-      currency,
+    const formatter = new Intl.NumberFormat(wc_mercadopago_params.intl, {
+      currency: wc_mercadopago_params.currency,
       style: "currency",
       currencyDisplay: "narrowSymbol",
     });
