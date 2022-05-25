@@ -413,7 +413,7 @@ class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 
 		$custom_checkout_log = $custom_checkout;
 
-		if(isset($custom_checkout_log['token'])){
+		if ( isset($custom_checkout_log['token']) ) {
 			unset($custom_checkout_log['token']);
 		}
 
