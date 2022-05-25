@@ -411,7 +411,13 @@ class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 			);
 		}
 
-		$this->log->write_log( __FUNCTION__, 'POST Custom: ' . wp_json_encode( $custom_checkout, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE ) );
+		$custom_checkout_log = $custom_checkout;
+
+		if(isset($custom_checkout_log['token'])){
+			unset($custom_checkout_log['token']);
+		}
+
+		$this->log->write_log( __FUNCTION__, 'POST Custom: ' . wp_json_encode( $custom_checkout_log, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE ) );
 
 		$order = wc_get_order( $order_id );
 

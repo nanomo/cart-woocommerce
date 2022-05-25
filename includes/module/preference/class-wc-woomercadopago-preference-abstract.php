@@ -521,7 +521,12 @@ abstract class WC_WooMercadoPago_Preference_Abstract extends WC_Payment_Gateway 
 	 * @return array
 	 */
 	public function get_preference() {
-		$this->log->write_log( 'Created preference: ', 'Preference: ' . wp_json_encode( $this->preference, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE ) );
+		$preference_log = $this->preference;
+
+		if(isset($preference_log['token'])){
+			unset($preference_log['token']);
+		}
+		$this->log->write_log( 'Created preference: ', 'Preference: ' . wp_json_encode( $preference_log, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE ) );
 		return $this->preference;
 	}
 
