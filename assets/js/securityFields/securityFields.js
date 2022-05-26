@@ -2,10 +2,6 @@ var cardForm;
 var mercado_pago_submit = false;
 cardFormMounted = false;
 
-if (document.getElementById("mp-amount")) {
-  var amount = document.getElementById("mp-amount").value;
-}
-
 var form = document.querySelector("form[name=checkout]");
 var formId = "checkout";
 if (form) {
@@ -14,6 +10,10 @@ if (form) {
   formId = "order_review";
 }
 
+/**
+ * Handler form submit
+ * @return {bool}
+ */
 function mercadoPagoFormHandler() {
 
   let formOrderReview = document.querySelector("form[id=order_review]");
@@ -44,6 +44,10 @@ function mercadoPagoFormHandler() {
   return false;
 }
 
+/**
+ * Create a new token
+ * @return {mixed}
+ */
 function createToken() {
   cardForm
     .createCardToken()
@@ -62,11 +66,14 @@ function createToken() {
   return false;
 }
 
+/**
+ * Init cardForm
+ */
 function init_cardForm() {
   var mp = new MercadoPago(wc_mercadopago_params.public_key);
 
   cardForm = mp.cardForm({
-    amount: amount,
+    amount: document.getElementById("mp-amount").value,
     iframe: true,
     form: {
       id: formId,
@@ -162,7 +169,7 @@ function init_cardForm() {
             CheckoutPage.clearInputs();
             CheckoutPage.setDisplayOfInputHelper("mp-card-number", "none");
             CheckoutPage.setImageCard(paymentMethods[0].thumbnail);
-            CheckoutPage.handleInstallments(paymentMethods[0].payment_type_id);
+            CheckoutPage.installment_amount(paymentMethods[0].payment_type_id);
             CheckoutPage.loadAdditionalInfo(
               paymentMethods[0].additional_info_needed
             );

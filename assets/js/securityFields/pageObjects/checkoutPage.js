@@ -1,3 +1,5 @@
+/* globals wc_mercadopago_params */
+
 const CheckoutPage = {
   setElementDisplay(element, operator) {
     document.querySelector(CheckoutElements[element]).style.display = operator;
@@ -12,8 +14,8 @@ const CheckoutPage = {
   },
 
   setBackground(element, background) {
-    document.querySelector(CheckoutElements[element]).style.background =
-      background;
+    document.querySelector(CheckoutElements[element]).style
+    .setProperty("background", background, "important");
   },
 
   setImageCard(secureThumbnail) {
@@ -21,15 +23,12 @@ const CheckoutPage = {
       "fcCardholderNameContainer",
       "url(" + secureThumbnail + ") 98% 50% no-repeat #fff"
     );
-    document.querySelector(
-      CheckoutElements.fcCardholderNameContainer
-    ).style.backgroundSize = "auto 24px";
+    document.querySelector(CheckoutElements.fcCardholderNameContainer).style.setProperty("background-size", "auto 32px","important");
   },
 
   setDisplayOfInputHelper(name, operator) {
-    let divInputHelper = document.querySelector(
-      `input-helper[input-id=${name}-helper]`
-    );
+    let divInputHelper = document.querySelector(`input-helper[input-id=${name}-helper]`);
+
     if (divInputHelper) {
       let inputHelper = divInputHelper.querySelector("div");
       inputHelper.style.display = operator;
@@ -78,9 +77,11 @@ const CheckoutPage = {
 
   changeCvvPlaceHolder(cvvLength) {
     let text = "";
+
     for (let index = 0; index < cvvLength; index++) {
       text += index + 1;
     }
+
     cardForm.update("securityCode", { placeholder: text });
   },
 
@@ -90,7 +91,7 @@ const CheckoutPage = {
     this.setText("mpTaxTeaText", "");
   },
 
-  handleInstallments(paymentTypeId) {
+  installment_amount(paymentTypeId) {
     let element = document.querySelector(CheckoutElements.fcInstallments);
 
     if (paymentTypeId === "debit_card") {
@@ -101,9 +102,9 @@ const CheckoutPage = {
   },
 
   formatCurrency(value) {
-    const formatter = new Intl.NumberFormat("es-AR", {
+    const formatter = new Intl.NumberFormat(wc_mercadopago_params.intl, {
+      currency: wc_mercadopago_params.currency,
       style: "currency",
-      currency: "ARS",
       currencyDisplay: "narrowSymbol",
     });
 
@@ -118,6 +119,7 @@ const CheckoutPage = {
       securityCode: CheckoutElements.mpSecurityCode,
       identificationNumber: CheckoutElements.mpIdentificationNumber,
     };
+
     return inputHelperName[field];
   },
 
@@ -133,6 +135,7 @@ const CheckoutPage = {
     const selectorInstallments = document.querySelector(
       CheckoutElements.mpInstallmentsContainer
     );
+
     selectorInstallments.classList.remove(
       CheckoutElements.mpInstallmentsContainer
     );
@@ -146,19 +149,19 @@ const CheckoutPage = {
     const selectorInstallments = document.querySelector(
       CheckoutElements.mpInstallmentsContainer
     );
+
     selectorInstallments.classList.add(
       CheckoutElements.mpInstallmentsContainer
     );
+
     selectorInstallments.appendChild(child);
   },
 
   getHelperMessage(field) {
-    let query =
-      "input-helper[input-id=" + this.inputHelperName(field) + "-helper]";
+    let query = "input-helper[input-id=" + this.inputHelperName(field) + "-helper]";
     let divInputHelper = document.querySelector(query);
-    let helperMessage = divInputHelper.querySelector(
-      "div[class=mp-helper-message]"
-    );
+    let helperMessage = divInputHelper.querySelector("div[class=mp-helper-message]");
+
     return helperMessage;
   },
 
@@ -178,6 +181,7 @@ const CheckoutPage = {
 
   hideErrors() {
     let inputHelpers = document.querySelectorAll("input-helper");
+
     inputHelpers.forEach((inputHelper) => {
       inputHelper.querySelector("div").style.display = "none";
     });
@@ -198,13 +202,18 @@ const CheckoutPage = {
 
   verifyDocument() {
     let input = document.querySelector(CheckoutElements.fcIdentificationNumber);
+    let inputContainer = document.querySelector(CheckoutElements.mpDocumentContainer);
+
+    if (inputContainer.style.display === 'none' || inputContainer.style.display === '') {
+      return true;
+    }
+
     if (input.value === "-1" || input.value === "") {
       return false;
     }
 
-    let inputHelper = document.querySelector(
-      "input-helper[input-id=mp-doc-number-helper]"
-    );
+    let inputHelper = document.querySelector("input-helper[input-id=mp-doc-number-helper]");
+
     if (inputHelper.querySelector("div").style.display == "flex") {
       return false;
     }
@@ -224,12 +233,15 @@ const CheckoutPage = {
       if (sdkAdditionalInfoNeeded[i] === "issuer_id") {
         additionalInfoNeeded.issuer = true;
       }
+
       if (sdkAdditionalInfoNeeded[i] === "cardholder_name") {
         additionalInfoNeeded.cardholder_name = true;
       }
+
       if (sdkAdditionalInfoNeeded[i] === "cardholder_identification_type") {
         additionalInfoNeeded.cardholder_identification_type = true;
       }
+
       if (sdkAdditionalInfoNeeded[i] === "cardholder_identification_number") {
         additionalInfoNeeded.cardholder_identification_number = true;
       }
@@ -241,21 +253,24 @@ const CheckoutPage = {
       this.setDisplayOfInputHelper("mp-installments", "flex");
       return false;
     }
+
     this.setDisplayOfInputHelper("mp-installments", "none");
+
     return true;
   },
 
   validateInputsCreateToken() {
     let isInstallmentsValid = this.verifyInstallments();
     let isDocumentValid = this.verifyDocument();
+
     return isInstallmentsValid && isDocumentValid ? true : false;
   },
 
   showTaxes() {
     let choCustomContent = document.querySelector(".mp-checkout-custom-container");
-    const selectorInstallments = choCustomContent.querySelectorAll(
-      CheckoutElements.mpInputRadio
-    );
+
+    const selectorInstallments = choCustomContent.querySelectorAll(CheckoutElements.mpInputRadio);
+
     let tax = null;
     let display = "block";
 
@@ -281,21 +296,22 @@ const CheckoutPage = {
       }
     }
 
-    document.querySelector(CheckoutElements.mpInputTaxCft).style.display =
-      display;
+    document.querySelector(CheckoutElements.mpInputTaxCft).style.display = display;
     document.querySelector(CheckoutElements.mpTaxCftText).innerHTML = cft;
     document.querySelector(CheckoutElements.mpTaxTeaText).innerHTML = tea;
   },
 
   setupTaxEvents() {
     let choCustomContent = document.querySelector(".mp-checkout-custom-container");
-    const taxesElements = choCustomContent.getElementsByClassName(
-      "mp-input-table-label"
-    );
+
+    const taxesElements = choCustomContent.getElementsByClassName("mp-input-table-label");
+
     for (var i = 0; i < taxesElements.length; i++) {
       let installmentValue = taxesElements[i].getElementsByTagName("input")[0].value;
 
-      if( wc_mercadopago_params.site_id === "mla") taxesElements[i].addEventListener("click", this.showTaxes);
+      if(wc_mercadopago_params.site_id === "mla") {
+        taxesElements[i].addEventListener("click", this.showTaxes);
+      }
 
       taxesElements[i].addEventListener("click", () => {
         this.setDisplayOfInputHelper("mp-installments", "none");
@@ -322,12 +338,8 @@ const CheckoutPage = {
       installments.push({
         id: `installment-${installment}`,
         value: installment,
-        rowText: `${installment}x ${this.formatCurrency(
-          payerCosts[j].installment_amount
-        )}`,
-        rowObs: installmentRate
-          ? wc_mercadopago_params.installmentObsFee
-          : this.formatCurrency(payerCosts[j].total_amount),
+        rowText: payerCosts[j].recommended_message.split('(')[0],
+        rowObs: installmentRate ? wc_mercadopago_params.installmentObsFee : this.formatCurrency(payerCosts[j].total_amount),
         highlight: installmentRate ? "true" : "",
         dataRate: this.argentinaResolution(payerCosts[j].labels),
       });

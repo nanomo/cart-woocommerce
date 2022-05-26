@@ -313,10 +313,14 @@ class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 			WC_WooMercadoPago_Constants::VERSION
 		);
 
-		$amount         = $this->get_order_total();
-		$discount       = $amount * ( $this->gateway_discount / 100 );
-		$comission      = $amount * ( $this->commission / 100 );
-		$amount         = $amount - $discount + $comission;
+		$total     = $this->get_order_total();
+		$subtotal  = (float) WC()->cart->subtotal;
+		$tax       = $total - $subtotal;
+		$discount  = $subtotal * ( $this->gateway_discount / 100 );
+		$comission = $subtotal * ( $this->commission / 100 );
+		$amount    = $subtotal - $discount + $comission;
+		$amount    = $amount + $tax;
+
 		$banner_url     = $this->get_option( '_mp_custom_banner' );
 		$test_mode_link = $this->get_mp_devsite_link($this->checkout_country);
 		if ( ! isset( $banner_url ) || empty( $banner_url ) ) {
@@ -347,7 +351,7 @@ class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 		if ( 0 !== count( $credit_card ) ) {
 			$payment_methods[] = array(
 				'title'           => __( 'Credit cards', 'woocommerce-mercadopago' ),
-				'label'           => __( 'Up to 24 installments', 'woocommerce-mercadopago' ),
+				'label'           => __( 'Up to ' , 'woocommerce-mercadopago' ) . 12 . __( ' installments' , 'woocommerce-mercadopago' ),
 				'payment_methods' => $credit_card,
 			);
 		}
@@ -367,7 +371,7 @@ class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 
 		$parameters = array(
 			'test_mode'            => ! $this->is_production_mode(),
-			'test_mode_link'      => $test_mode_link,
+			'test_mode_link'       => $test_mode_link,
 			'amount'               => $amount,
 			'site_id'              => $this->mp_options->get_site_id(),
 			'public_key'           => $this->get_public_key(),
@@ -407,7 +411,13 @@ class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 			);
 		}
 
-		$this->log->write_log( __FUNCTION__, 'POST Custom: ' . wp_json_encode( $custom_checkout, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE ) );
+		$custom_checkout_log = $custom_checkout;
+
+		if ( isset($custom_checkout_log['token']) ) {
+			unset($custom_checkout_log['token']);
+		}
+
+		$this->log->write_log( __FUNCTION__, 'POST Custom: ' . wp_json_encode( $custom_checkout_log, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE ) );
 
 		$order = wc_get_order( $order_id );
 
@@ -552,7 +562,7 @@ class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 	 * @param $order
 	 */
 	protected function process_discount_and_commission( $order_id, $order ) {
-		$amount = $this->get_order_total();
+		$amount = (float) WC()->cart->subtotal;
 		if ( method_exists( $order, 'update_meta_data' ) ) {
 			$order->update_meta_data( 'is_production_mode', 'no' === $this->mp_options->get_checkbox_checkout_test_mode() ? 'yes' : 'no' );
 			$order->update_meta_data( '_used_gateway', get_class( $this ) );
