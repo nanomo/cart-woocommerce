@@ -1,5 +1,6 @@
 var cardForm;
 var mercado_pago_submit = false;
+var hasToken = false;
 cardFormMounted = false;
 
 var form = document.querySelector("form[name=checkout]");
@@ -37,7 +38,7 @@ function mercadoPagoFormHandler() {
 
   jQuery("#mp_checkout_type").val("custom");
 
-  if (CheckoutPage.validateInputsCreateToken()) {
+  if (CheckoutPage.validateInputsCreateToken() && !hasToken) {
     return createToken();
   }
 
@@ -46,15 +47,17 @@ function mercadoPagoFormHandler() {
 
 /**
  * Create a new token
- * @return {mixed}
+ * @return {bool}
  */
 function createToken() {
   cardForm
     .createCardToken()
     .then((cardToken) => {
       if (cardToken.token) {
+        if (hasToken) return;
         document.querySelector("#cardTokenId").value = cardToken.token;
         mercado_pago_submit = true;
+        hasToken = true;
         jQuery("form.checkout, form#order_review").submit();
       } else {
         throw new Error("cardToken is empty");
