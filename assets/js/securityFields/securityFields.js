@@ -54,6 +54,7 @@ function createToken() {
     .createCardToken()
     .then((cardToken) => {
       if (cardToken.token) {
+        if (hasToken) return;
         document.querySelector("#cardTokenId").value = cardToken.token;
         mercado_pago_submit = true;
         hasToken = true;
