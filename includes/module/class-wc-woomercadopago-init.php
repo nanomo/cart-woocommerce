@@ -163,7 +163,7 @@ class WC_WooMercadoPago_Init {
 			do_action( 'mercadopago_plugin_updated' );
 
 			/**
-			 * Do action mercadopago_plugin_updated.
+			 * Do action mercadopago_test_mode_update.
 			 *
 			 * @since 3.0.1
 			 */

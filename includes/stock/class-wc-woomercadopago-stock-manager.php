@@ -72,7 +72,7 @@ class WC_WooMercadoPago_Stock_Manager {
 					wc_update_product_stock( $_product, $qty, 'increase' );
 
 					/**
-					 * Do action.
+					 * Do action woocommerce_auto_stock_restored.
 					 *
 					 * @since 3.0.1
 					 */
