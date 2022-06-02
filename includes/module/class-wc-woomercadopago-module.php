@@ -90,6 +90,15 @@ class WC_WooMercadoPago_Module extends WC_WooMercadoPago_Configs {
 			$this->load_notifications();
 			$this->load_stock_manager();
 
+			// melidata admin scripts
+			add_action( 'admin_enqueue_scripts', array( $this, 'load_admin_scripts' ) );
+
+			// melidata buyer scripts
+			add_action( 'before_woocommerce_pay', array( $this, 'load_before_woocommerce_pay_scripts' ) );
+			add_action( 'woocommerce_before_checkout_form', array( $this, 'load_before_checkout_scripts' ) );
+			add_action( 'woocommerce_pay_order_before_submit', array( $this, 'load_pay_order_scripts' ) );
+			add_action( 'woocommerce_before_thankyou', array( $this, 'load_before_thankyou_scripts' ) );
+
 			add_action( 'admin_enqueue_scripts', array( $this, 'load_admin_css' ) );
 			add_action( 'admin_enqueue_scripts', array( $this, 'load_global_css' ) );
 			add_action( 'wp_enqueue_scripts', array( $this, 'load_global_css' ) );
@@ -640,6 +649,94 @@ class WC_WooMercadoPago_Module extends WC_WooMercadoPago_Configs {
 	}
 
 	/**
+	 * Load admin scripts
+	 *
+	 * @return void
+	 */
+	public function load_admin_scripts() {
+		if ( is_admin() ) {
+			global $woocommerce;
+
+			$site_id = get_option( '_site_id_v1' );
+
+			wp_enqueue_script(
+				'mercadopago_melidata',
+				plugins_url( '../assets/js/melidata/melidata-client.js', plugin_dir_path( __FILE__ ) ),
+				array(),
+				WC_WooMercadoPago_Constants::VERSION,
+				true
+			);
+
+			wp_localize_script(
+				'mercadopago_melidata',
+				'wc_melidata_params',
+				array(
+					'type'             => 'seller',
+					'site_id'          => $site_id ? strtoupper( $site_id ) : 'MLA',
+					'location'         => '/settings',
+					'plugin_version'   => WC_WooMercadoPago_Constants::VERSION,
+					'platform_version' => $woocommerce->version,
+				)
+			);
+		}
+	}
+
+	public function load_before_woocommerce_pay_scripts() {
+		$this->load_buyer_scripts('/woocommerce_pay', null);
+	}
+
+	public function load_before_checkout_scripts() {
+		$this->load_buyer_scripts('/checkout', null);
+	}
+
+	public function load_pay_order_scripts() {
+		$this->load_buyer_scripts('/pay_order', null);
+	}
+
+	public function load_before_thankyou_scripts( $order_id ) {
+		$order = wc_get_order( $order_id );
+
+		$payment_method                = $order->get_payment_method();
+		$is_mercadopago_payment_method = in_array($payment_method, WC_WooMercadoPago_Constants::GATEWAYS_IDS, true);
+
+		if ( $is_mercadopago_payment_method ) {
+			$this->load_buyer_scripts('/thankyou', $payment_method);
+		}
+	}
+
+	/**
+	 * Load buyer scripts
+	 *
+	 * @return void
+	 */
+	public function load_buyer_scripts( $location, $payment_method ) {
+		global $woocommerce;
+
+		$site_id = get_option( '_site_id_v1' );
+
+		wp_enqueue_script(
+			'mercadopago_melidata',
+			plugins_url( '../assets/js/melidata/melidata-client.js', plugin_dir_path( __FILE__ ) ),
+			array(),
+			WC_WooMercadoPago_Constants::VERSION,
+			true
+		);
+
+		wp_localize_script(
+			'mercadopago_melidata',
+			'wc_melidata_params',
+			array(
+				'type'             => 'buyer',
+				'site_id'          => $site_id ? strtoupper( $site_id ) : 'MLA',
+				'location'         => $location,
+				'payment_method'   => $payment_method,
+				'plugin_version'   => WC_WooMercadoPago_Constants::VERSION,
+				'platform_version' => $woocommerce->version,
+			)
+		);
+	}
+
+	/**
 	 *
 	 * Filter Payment Method by Shipping
 	 *
@@ -809,6 +906,11 @@ class WC_WooMercadoPago_Module extends WC_WooMercadoPago_Configs {
 					$has_a_gateway_in_production = true;
 				}
 
+				/**
+				 * Update if options were changed.
+				 *
+				 * @since 3.0.1
+				 */
 				update_option( $key, apply_filters( 'woocommerce_settings_api_sanitized_fields_' . $gateway::get_id(), $options ) );
 			}
 		}

@@ -27,7 +27,13 @@ class WC_WooMercadoPago_Init {
 	 */
 	public static function woocommerce_mercadopago_load_plugin_textdomain() {
 		$text_domain = 'woocommerce-mercadopago';
-		$locale      = apply_filters( 'plugin_locale', get_locale(), $text_domain );
+
+		/**
+		 * Apply filters plugin_locale.
+		 *
+		 * @since 3.0.1
+		 */
+		$locale = apply_filters( 'plugin_locale', get_locale(), $text_domain );
 
 		$original_language_file = dirname( __FILE__ ) . '/../../i18n/languages/woocommerce-mercadopago-' . $locale . '.mo';
 
@@ -134,6 +140,11 @@ class WC_WooMercadoPago_Init {
 	public static function mercadopago_handle_saved_cards_notice() {
 		$must_not_show_review = (int) get_option( '_mp_dismiss_saved_cards_notice' );
 		if ( ! isset( $must_not_show_review ) || $must_not_show_review ) {
+			/**
+			 * Update if option was changed.
+			 *
+			 * @since 3.0.1
+			 */
 			update_option( '_mp_dismiss_saved_cards_notice', 0, true );
 		}
 	}
@@ -144,8 +155,20 @@ class WC_WooMercadoPago_Init {
 	public static function update_plugin_version() {
 		$old_version = get_option( '_mp_version', '0' );
 		if ( version_compare( WC_WooMercadoPago_Constants::VERSION, $old_version, '>' ) ) {
+			/**
+			 * Do action mercadopago_plugin_updated.
+			 *
+			 * @since 3.0.1
+			 */
 			do_action( 'mercadopago_plugin_updated' );
+
+			/**
+			 * Do action mercadopago_plugin_updated.
+			 *
+			 * @since 3.0.1
+			 */
 			do_action( 'mercadopago_test_mode_update' );
+
 			update_option( '_mp_version', WC_WooMercadoPago_Constants::VERSION, true );
 		}
 	}
