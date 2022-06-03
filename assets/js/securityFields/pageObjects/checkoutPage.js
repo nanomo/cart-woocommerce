@@ -20,10 +20,24 @@ const CheckoutPage = {
 
   setImageCard(secureThumbnail) {
     this.setBackground(
-      "fcCardholderNameContainer",
+      "fcCardNumberContainer",
       "url(" + secureThumbnail + ") 98% 50% no-repeat #fff"
     );
-    document.querySelector(CheckoutElements.fcCardholderNameContainer).style.setProperty("background-size", "auto 32px","important");
+    document.querySelector(CheckoutElements.fcCardNumberContainer).style.setProperty("background-size", "auto 32px","important");
+  },
+
+  findContainerField(field) {
+    let id = field == "cardholderName" ? `#form-checkout__${field}` : `#form-checkout__${field}-container`;
+
+    return Object.keys(CheckoutElements).find(key => CheckoutElements[key] === id);
+  },
+
+  setDisplayOfError(element, operator, className) {
+    if (operator == "add") {
+      document.querySelector(CheckoutElements[element]).classList.add(`${className}`);
+      return;
+    }
+    document.querySelector(CheckoutElements[element]).classList.remove(`${className}`);
   },
 
   setDisplayOfInputHelper(name, operator) {
@@ -189,12 +203,20 @@ const CheckoutPage = {
 
   clearInputs() {
     this.hideErrors();
-    this.setBackground("fcCardholderNameContainer", "no-repeat #fff");
-    this.setValue("fcCardExpirationDateContainer", "");
-    this.setValue("fcIdentificationNumber", "");
-    this.setValue("fcSecurityNumberContainer", "");
+    this.setBackground("fcCardNumberContainer", "no-repeat #fff");
     this.setValue("fcCardholderName", "");
+    this.setDisplayOfError("fcCardholderName", "removed", "mp-error");
+
+    this.setValue("fcCardExpirationDateContainer", "");
+    this.setDisplayOfError("fcCardExpirationDateContainer", "removed", "mp-error");
+
+    this.setValue("fcSecurityNumberContainer", "");
+    this.setDisplayOfError("fcSecurityNumberContainer", "removed", "mp-error");
+
+    this.setValue("fcIdentificationNumber", "");
     this.setElementDisplay("mpDocumentContainer", "none");
+    this.setDisplayOfError("fcIdentificationNumberContainer", "removed", "mp-error");
+
     this.clearInstallmentsComponent();
     this.setElementDisplay("mpInstallments", "none");
     document.querySelector('input[data-cy=input-document]').value = '';
@@ -250,10 +272,12 @@ const CheckoutPage = {
 
   verifyInstallments() {
     if (document.querySelector(CheckoutElements.cardInstallments).value == "") {
+      CheckoutPage.setDisplayOfError('fcInputTableContainer', 'add', 'mp-error');
       this.setDisplayOfInputHelper("mp-installments", "flex");
       return false;
     }
 
+    CheckoutPage.setDisplayOfError('fcInputTableContainer', 'remove', 'mp-error');
     this.setDisplayOfInputHelper("mp-installments", "none");
 
     return true;
@@ -314,6 +338,7 @@ const CheckoutPage = {
       }
 
       taxesElements[i].addEventListener("click", () => {
+        CheckoutPage.setDisplayOfError('fcInputTableContainer', 'remove', 'mp-error');
         this.setDisplayOfInputHelper("mp-installments", "none");
         this.setValue("fcInstallments", installmentValue);
         this.setValue("cardInstallments", installmentValue);
