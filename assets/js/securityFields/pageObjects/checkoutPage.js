@@ -194,7 +194,8 @@ const CheckoutPage = {
   },
 
   hideErrors() {
-    let inputHelpers = document.querySelectorAll("input-helper");
+    let customContent = document.querySelector(".mp-checkout-custom-container");
+    let inputHelpers = customContent.querySelectorAll("input-helper");
 
     inputHelpers.forEach((inputHelper) => {
       inputHelper.querySelector("div").style.display = "none";
