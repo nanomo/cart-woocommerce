@@ -48,6 +48,7 @@
       let documentElement = ticketContent.querySelectorAll(".mp-document");
 
       if (documentElement[0].value == "") {
+        document.getElementsByClassName("mp-input")[1].classList.add("mp-error");
         let child = ticketHelpers[0].querySelector("div");
         child.style.display = "flex";
       }
@@ -59,14 +60,17 @@
         if (item.checked) paymentOptionSelected = true;
       });
 
-      if (paymentOptionSelected == false)
+      if (paymentOptionSelected == false) {
+        CheckoutPage.setDisplayOfError('fcInputTableContainer', 'add', 'mp-error');
         CheckoutPage.setDisplayOfInputHelper("mp-payment-method", "flex");
+      }
 
       const radioElements = document.getElementsByClassName(
         "mp-input-table-label"
       );
       for (var i = 0; i < radioElements.length; i++) {
         radioElements[i].addEventListener("click", () => {
+          CheckoutPage.setDisplayOfError('fcInputTableContainer', 'remove', 'mp-error');
           CheckoutPage.setDisplayOfInputHelper("mp-payment-method", "none");
         });
       }
