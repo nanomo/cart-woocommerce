@@ -85,7 +85,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<div class='mp-checkout-custom-card-row mp-checkout-custom-dual-column-row'>
 				<div class='mp-checkout-custom-card-column'>
 					<input-label message="<?php echo esc_html_e('Expiration', 'woocommerce-mercadopago'); ?>" isOptinal=false></input-label>
-					<div id="form-checkout__cardExpirationDate-container" class="mp-checkout-custom-card-input mp-checkout-custom-left-card-input">
+					<div id="form-checkout__expirationDate-container" class="mp-checkout-custom-card-input mp-checkout-custom-left-card-input">
 					</div>
 					<input-helper isVisible=false message="<?php echo esc_html_e('Required data', 'woocommerce-mercadopago'); ?>" input-id="mp-expiration-date-helper">
 					</input-helper>

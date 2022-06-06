@@ -94,7 +94,7 @@ function init_cardForm() {
         placeholder: "Ex.: María López",
       },
       cardExpirationDate: {
-        id: "form-checkout__cardExpirationDate-container",
+        id: "form-checkout__expirationDate-container",
         placeholder: wc_mercadopago_params.placeholders["cardExpirationDate"],
         mode: "short",
         style: {
@@ -170,6 +170,7 @@ function init_cardForm() {
               paymentMethods[0].settings[0].security_code.length
             );
             CheckoutPage.clearInputs();
+            CheckoutPage.setDisplayOfError('fcCardNumberContainer', 'remove', 'mp-error');
             CheckoutPage.setDisplayOfInputHelper("mp-card-number", "none");
             CheckoutPage.setImageCard(paymentMethods[0].thumbnail);
             CheckoutPage.installment_amount(paymentMethods[0].payment_type_id);
@@ -178,9 +179,11 @@ function init_cardForm() {
             );
             CheckoutPage.additionalInfoHandler(additionalInfoNeeded);
           } else {
+            CheckoutPage.setDisplayOfError("fcCardNumberContainer", "add", "mp-error");
             CheckoutPage.setDisplayOfInputHelper("mp-card-number", "flex");
           }
         } catch (error) {
+          CheckoutPage.setDisplayOfError("fcCardNumberContainer", "add", "mp-error");
           CheckoutPage.setDisplayOfInputHelper("mp-card-number", "flex");
         }
       },
@@ -189,11 +192,13 @@ function init_cardForm() {
           removeBlockOverlay();
 
           if (error.message.includes("cardNumber")) {
+            CheckoutPage.setDisplayOfError('fcCardNumberContainer', 'add', 'mp-error');
             return CheckoutPage.setDisplayOfInputHelper(
               "mp-card-number",
               "flex"
             );
           } else if (error.message.includes("cardholderName")) {
+            CheckoutPage.setDisplayOfError("fcCardholderName", "add", "mp-error");
             return CheckoutPage.setDisplayOfInputHelper(
               "mp-card-holder-name",
               "flex"
@@ -202,16 +207,19 @@ function init_cardForm() {
             error.message.includes("expirationMonth") ||
             error.message.includes("expirationYear")
           ) {
+            CheckoutPage.setDisplayOfError("fcCardExpirationDateContainer", "add", "mp-error");
             return CheckoutPage.setDisplayOfInputHelper(
               "mp-expiration-date",
               "flex"
             );
           } else if (error.message.includes("securityCode")) {
+            CheckoutPage.setDisplayOfError("fcSecurityNumberContainer", "add", "mp-error");
             return CheckoutPage.setDisplayOfInputHelper(
               "mp-security-code",
               "flex"
             );
           } else if (error.message.includes("identificationNumber")) {
+            CheckoutPage.setDisplayOfError("fcIdentificationNumberContainer", "add", "mp-error");
             return CheckoutPage.setDisplayOfInputHelper(
               "mp-doc-number",
               "flex"
@@ -241,16 +249,21 @@ function init_cardForm() {
 
           if (field == "cardNumber") {
             CheckoutPage.setBackground(
-              "fcCardholderNameContainer",
+              "fcCardNumberContainer",
               "no-repeat #fff"
             );
             CheckoutPage.removeAdditionFields();
+            CheckoutPage.clearInputs();
           }
+          let containerField = CheckoutPage.findContainerField(field);
+          CheckoutPage.setDisplayOfError(containerField, 'add', 'mp-error');
           return CheckoutPage.setDisplayOfInputHelper(
             CheckoutPage.inputHelperName(field),
             "flex"
           );
         }
+        let containerField = CheckoutPage.findContainerField(field);
+        CheckoutPage.setDisplayOfError(containerField, 'removed', 'mp-error');
         return CheckoutPage.setDisplayOfInputHelper(
           CheckoutPage.inputHelperName(field),
           "none"
