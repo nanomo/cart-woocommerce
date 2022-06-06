@@ -28,7 +28,6 @@ function mercadoPagoFormHandler() {
   }
 
   if (mercado_pago_submit) {
-    mercado_pago_submit = false;
     return true;
   }
 
@@ -54,6 +53,7 @@ function createToken() {
     .createCardToken()
     .then((cardToken) => {
       if (cardToken.token) {
+
         if (hasToken) return;
         document.querySelector("#cardTokenId").value = cardToken.token;
         mercado_pago_submit = true;
@@ -307,3 +307,8 @@ jQuery("form#order_review").submit(function () {
     cardFormLoad();
   }
 });
+
+jQuery(document.body).on('checkout_error', () => {
+  hasToken = false;
+  mercado_pago_submit = false;
+})
