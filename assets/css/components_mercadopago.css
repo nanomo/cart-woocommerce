@@ -39,11 +39,11 @@
 	box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.5);
 }
 
-.mp-toggle-checkbox:checked + .mp-toggle-switch {
+.mp-toggle-checkbox:checked+.mp-toggle-switch {
 	background: #009ee3;
 }
 
-.mp-toggle-checkbox:checked + .mp-toggle-switch:before {
+.mp-toggle-checkbox:checked+.mp-toggle-switch:before {
 	left: 30px;
 }
 
@@ -63,23 +63,36 @@
 	display: none;
 }
 
-.mp-toggle-checkbox:checked
-	+ .mp-toggle-switch
-	+ .mp-toggle-label
-	> span.mp-toggle-label-disabled {
+.mp-toggle-checkbox:checked+.mp-toggle-switch+.mp-toggle-label>span.mp-toggle-label-disabled {
 	display: none;
 }
 
-.mp-toggle-checkbox:checked
-	+ .mp-toggle-switch
-	+ .mp-toggle-label
-	> span.mp-toggle-label-enabled {
+.mp-toggle-checkbox:checked+.mp-toggle-switch+.mp-toggle-label>span.mp-toggle-label-enabled {
 	display: inline;
 }
 
 .mp-toggle-subtitle {
 	font-weight: normal !important;
 	font-size: 14px !important;
+}
+
+.mp-badge-new {
+	position: absolute !important;
+	transform: translate(0%, 15%);
+	border-radius: 40px;
+	background: #697379;
+	font-family: 'Proxima Nova';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 14px !important;
+	line-height: 18px !important;
+	color: #FFFFFF;
+	margin-left: 16px;
+	padding: 3px 14px 3px 14px;
+}
+
+.mp-toggle-subtitle a {
+	text-decoration: none;
 }
 
 /* Checkbox List Component */
@@ -145,16 +158,19 @@
 	display: flex;
 	margin: 32px 0px 32px 0px;
 }
+
 .mp-alert-color-sucess {
 	width: 6px;
 	background: #009ee3;
 	border-radius: 6px 0 0 6px;
 }
+
 .mp-alert-color-alert {
 	width: 6px;
 	background: #ff7733;
 	border-radius: 6px 0 0 6px;
 }
+
 .mp-card-body-payments {
 	display: flex;
 	align-items: flex-start;
@@ -163,18 +179,22 @@
 	background: rgba(0, 0, 0, 0.04);
 	border-radius: 0 6px 6px 0;
 }
+
 .mp-card-body-size {
 	width: 600px;
 }
+
 .mp-card-body-size-homolog {
 	width: 700px;
 }
+
 .mp-icon-badge-info {
 	background: url(../images/icon-tip.png) 98% 50% no-repeat transparent;
 	margin: 5px 16px 16px 12px;
 	width: 20px;
 	height: 20px;
 }
+
 .mp-icon-badge-warning {
 	background: url(../images/icon-warning.png) 98% 50% no-repeat transparent;
 	margin: 5px 16px 16px 12px;
@@ -182,6 +202,7 @@
 	height: 20px;
 	padding-left: 10px;
 }
+
 .mp-text-title {
 	font-family: "Proxima Nova", -apple-system, "Helvetica Neue", Helvetica,
 		"Roboto", Arial, sans-serif;
@@ -192,6 +213,7 @@
 	color: rgba(0, 0, 0, 0.9);
 	margin: 4px 0px;
 }
+
 .mp-text-subtitle {
 	font-family: "Proxima Nova", -apple-system, "Helvetica Neue", Helvetica,
 		"Roboto", Arial, sans-serif;
@@ -216,9 +238,11 @@
 	transition: box-shadow 0.25s ease-out, background-color 0.2s ease-out;
 	box-shadow: 0 0 0 0 #fff;
 }
+
 .mp-button-payments-a {
 	text-decoration: none;
 }
+
 .mp-button-payments:hover {
 	border-color: transparent;
 	background-color: #007eb5;
@@ -226,12 +250,14 @@
 	-webkit-transition: background-color 0.2s ease-in;
 	transition: background-color 0.2s ease-in;
 }
+
 .mp-button-payments:focus {
 	outline: 0;
 	box-shadow: 0 0 0 0.1875em rgb(27 135 201 / 30%);
 	-webkit-transition: box-shadow 0.25s ease-in;
 	transition: box-shadow 0.25s ease-in;
 }
+
 .mp-button-payments:active {
 	border-color: transparent;
 	background-color: #005e88;
@@ -263,5 +289,9 @@
 @media screen and (max-width: 900px) {
 	.mp-component-card {
 		max-width: 100%;
+	}
+
+	.mp-badge-new {
+		transform: translate(0%, 0%);
 	}
 }
