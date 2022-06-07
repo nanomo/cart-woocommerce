@@ -20,6 +20,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<?php if ( isset($settings['desc_tip']) ) { ?>
 			<span class="woocommerce-help-tip" data-tip="<?php echo esc_html( $settings['desc_tip'] ); ?>"></span>
 		<?php } ?>
+		<?php if ( isset($settings['title_badge']) ) { ?>
+			<span class="mp-badge-new"><?php echo esc_html( $settings['title_badge'] ); ?></span>
+		<?php } ?>
 		</label>
 		<?php if ( $settings['subtitle'] ) { ?>
 		<p class="description mp-toggle-subtitle"><?php echo wp_kses_post( $settings['subtitle'] ); ?></p>
