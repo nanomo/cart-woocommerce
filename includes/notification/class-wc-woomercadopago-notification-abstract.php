@@ -182,6 +182,11 @@ abstract class WC_WooMercadoPago_Notification_Abstract {
 	public function mp_rule_approved( $data, $order, $used_gateway ) {
 		$order->add_order_note( 'Mercado Pago: ' . __( 'Payment approved.', 'woocommerce-mercadopago' ) );
 
+		/**
+		 * Apply filters woocommerce_payment_complete_order_status.
+		 *
+		 * @since 3.0.1
+		 */
 		$payment_completed_status = apply_filters(
 			'woocommerce_payment_complete_order_status',
 			$order->needs_processing() ? 'processing' : 'completed',
