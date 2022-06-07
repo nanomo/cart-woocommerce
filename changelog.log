@@ -1,5 +1,12 @@
 CHANGELOG:
 == Changelog ==
+= v5.8.0 (07/06/2022) =
+* Features
+- Added melidata script to collect metrics from plugin
+
+* Bug fixes
+- Changed mp logo
+
 = v5.7.6 (19/04/2022) =
 * Bug fixes
 - Adjusted IPN notification to recognize discount coupon
