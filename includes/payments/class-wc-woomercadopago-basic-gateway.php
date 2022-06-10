@@ -94,16 +94,16 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 			$form_fields['binary_mode']                      = $this->field_binary_mode();
 			$form_fields['installments']                     = $this->field_installments();
 			$form_fields['checkout_payments_advanced_title'] = $this->field_checkout_payments_advanced_title();
-			$payments_response = $this->get_payment_response();
+			$payments_response                               = $this->get_payment_response();
 			if ( $this->is_credits($payments_response) ) {
-				$form_fields['credits_banner']                 = $this->field_credits_banner_mode();
+				$form_fields['credits_banner'] = $this->field_credits_banner_mode();
 			}
-			$form_fields['method']                           = $this->field_method();
-			$form_fields['success_url']                      = $this->field_success_url();
-			$form_fields['failure_url']                      = $this->field_failure_url();
-			$form_fields['pending_url']                      = $this->field_pending_url();
-			$form_fields['auto_return']                      = $this->field_auto_return();
-			$form_fields['ex_payments']                      = $this->field_ex_payments();
+			$form_fields['method']      = $this->field_method();
+			$form_fields['success_url'] = $this->field_success_url();
+			$form_fields['failure_url'] = $this->field_failure_url();
+			$form_fields['pending_url'] = $this->field_pending_url();
+			$form_fields['auto_return'] = $this->field_auto_return();
+			$form_fields['ex_payments'] = $this->field_ex_payments();
 		}
 
 		$form_fields_abs = parent::get_form_mp_fields();
@@ -265,15 +265,15 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 		return array(
 			'title' => sprintf(
 				'<div class="row">
-                <div class="mp-col-md-12 mp_subtitle_header">
-                ' . __( 'Checkout Pro', 'woocommerce-mercadopago' ) . '
-                 </div>
-              <div class="mp-col-md-12">
-                <p class="mp-text-checkout-body mp-mb-0">
-                  ' . __( 'With Checkout Pro you sell with all the safety inside Mercado Pago environment.', 'woocommerce-mercadopago' ) . '
-                </p>
-              </div>
-            </div>'
+								<div class="mp-col-md-12 mp_subtitle_header">
+								' . __( 'Checkout Pro', 'woocommerce-mercadopago' ) . '
+								 </div>
+							<div class="mp-col-md-12">
+								<p class="mp-text-checkout-body mp-mb-0">
+									' . __( 'With Checkout Pro you sell with all the safety inside Mercado Pago environment.', 'woocommerce-mercadopago' ) . '
+								</p>
+							</div>
+						</div>'
 			),
 			'type'  => 'title',
 			'class' => 'mp_title_header',
