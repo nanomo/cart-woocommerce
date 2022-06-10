@@ -94,11 +94,10 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 			$form_fields['binary_mode']                      = $this->field_binary_mode();
 			$form_fields['installments']                     = $this->field_installments();
 			$form_fields['checkout_payments_advanced_title'] = $this->field_checkout_payments_advanced_title();
-
-			if ( isset( $this->settings['enabled'] ) && 'yes' === $this->settings['enabled'] ) {
-				$form_fields['credits_banner']                   = $this->field_credits_banner_mode();
+			$payments_response = $this->get_payment_response();
+			if ( $this->is_credits($payments_response) ) {
+				$form_fields['credits_banner']                 = $this->field_credits_banner_mode();
 			}
-
 			$form_fields['method']                           = $this->field_method();
 			$form_fields['success_url']                      = $this->field_success_url();
 			$form_fields['failure_url']                      = $this->field_failure_url();
@@ -625,4 +624,41 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 	public static function get_id() {
 		return self::ID;
 	}
+
+	/**
+	 *
+	 * Get Payment Response function
+	 *
+	 * @param array $payments_response Payment Method Response.
+	 * @return bool
+	 */
+	public function is_credits( $payments_response ) {
+		if ( is_array($payments_response) ) {
+			foreach ( $payments_response as $payment ) {
+				if ( isset( $payment['id'] ) && 'consumer_credits' === $payment['id'] ) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
+	/**
+	 *
+	 * Get Payment Response function
+	 *
+	 * @return mixed
+	 */
+	public function get_payment_response() {
+		$access_token = $this->mp->get_access_token();
+		$site         = strtoupper($this->mp_options->get_site_id());
+		if ( ! empty( $access_token ) ) {
+			$payments = $this->mp->get( '/sites/' . $site . '/payment_methods', array( 'Authorization' => 'Bearer ' . $access_token ) );
+			if ( isset( $payments['response'] ) ) {
+				return $payments['response'];
+			}
+		}
+		return null;
+	}
+
 }
