@@ -63,20 +63,12 @@ class MP {
 	private $payment_class;
 
 	/**
-	 * Options
-	 *
-	 * @var WC_WooMercadoPago_Options
-	 */
-	public $mp_options;
-
-	/**
 	 * MP constructor.
 	 *
 	 * @throws WC_WooMercadoPago_Exception MP Class exception.
 	 */
 	public function __construct() {
-		$this->mp_options = $this->get_mp_options();
-		$includes_path    = dirname( __FILE__ );
+		$includes_path = dirname( __FILE__ );
 		require_once $includes_path . '/rest-client/class-meli-rest-client.php';
 
 		$i = func_num_args();
@@ -92,18 +84,6 @@ class MP {
 			$this->client_id     = func_get_arg( 0 );
 			$this->client_secret = func_get_arg( 1 );
 		}
-	}
-
-	/**
-	 * Get Options
-	 *
-	 * @return mixed
-	 */
-	public function get_mp_options() {
-		if ( null === $this->mp_options ) {
-			$this->mp_options = WC_WooMercadoPago_Options::get_instance();
-		}
-		return $this->mp_options;
 	}
 
 	/**
@@ -991,9 +971,8 @@ class MP {
 
 	}
 
-	public function get_payment_response_by_sites() {
+	public function get_payment_response_by_sites( $site ) {
 		$access_token = $this->get_access_token();
-		$site         = strtoupper($this->mp_options->get_site_id());
 
 		$key = sprintf( '%s%s', __FUNCTION__, $site );
 
