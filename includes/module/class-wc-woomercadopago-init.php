@@ -191,6 +191,7 @@ class WC_WooMercadoPago_Init {
 			require_once dirname( __FILE__ ) . '/class-wc-woomercadopago-module.php';
 			require_once dirname( __FILE__ ) . '/class-wc-woomercadopago-credentials.php';
 			require_once dirname( __FILE__ ) . '/class-wc-woomercadopago-options.php';
+			include_once dirname( __FILE__ ) . '../../products/hooks/class-wc-woomercadopago-products-hook-credits.php';
 			if ( is_admin() ) {
 			require_once dirname( __FILE__ ) . '../../admin/notices/class-wc-woomercadopago-review-notice.php';
 			require_once dirname( __FILE__ ) . '/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php';
@@ -206,6 +207,7 @@ class WC_WooMercadoPago_Init {
 			}
 			require_once dirname( __FILE__ ) . '../../pix/class-wc-woomercadopago-image-generator.php';
 
+			new WC_WooMercadoPago_Products_Hook_Credits();
 			WC_WooMercadoPago_Module::init_mercado_pago_class();
 			WC_WooMercadoPago_Image_Generator::init_image_generator_class();
 			self::update_plugin_version();

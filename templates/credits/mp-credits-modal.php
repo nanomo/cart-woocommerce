@@ -10,74 +10,57 @@
  * @package MercadoPago
  */
 
-if (!defined('ABSPATH')) {
+if ( ! defined('ABSPATH') ) {
 	exit;
 }
 
 ?><div class="mp-credits-banner-info">
 	<div class="mp-credits-banner-round-base">
 		<div class="mp-credits-banner-round-background">
-			<img class="mp-credits-banner-round-logo">
+			<img class="mp-credits-banner-round-logo" src="<?php echo esc_html(plugins_url( '../assets/images/credits/mp-logo-hands-shake.png', plugin_dir_path( __FILE__ ) )); ?>">
 		</div>
 	</div>
 	<div class="mp-credits-banner-text">
-		<span>Pague <strong>parcelado sem cartão</strong> com Mercado Pago</span>
+		<span><?php echo wp_kses_post($banner_title); ?></span>
 	</div>
 	<div class="mp-credits-banner-link">
-		<span><a href="#" id="mp-open-modal">Ler mais</a></span>
+		<span><a href="#" id="mp-open-modal"><?php echo esc_html($banner_link); ?></a></span>
 		<div id="mp-credits-modal">
 			<div class="mp-credits-modal-container">
 				<div class="mp-credits-modal-container-content">
 					<div class="mp-credits-modal-content">
 						<div class="mp-credits-modal-close-button">
-							<img id="mp-credits-modal-close-modal" src="Icon shape.png">
+							<img id="mp-credits-modal-close-modal" src="<?php echo esc_html(plugins_url( '../assets/images/credits/Icon shape.png', plugin_dir_path( __FILE__ ) )); ?>">
 						</div>
 						<div class="mp-logo-img">
-							<img src="Group.png">
+							<img src="<?php echo esc_html(plugins_url( '../assets/images/credits/Group.png', plugin_dir_path( __FILE__ ) )); ?>">
 						</div>
 
 						<div class="mp-credits-modal-titles">
 							<div>
-								<h1>
-									Compre agora e pague parcelado sem cartão depois!
-								</h1>
-								<p>
-									Pague as parcelas com <span>Pix, boleto</span> ou <span>saldo da conta Mercado
-										Pago</span>, 100% online e sem
-									custos extras
-
-								<p>
+								<h1><?php echo esc_html($modal_title); ?></h1>
+								<p><?php echo esc_html($modal_subtitle); ?><p>
 							</div>
 							<div>
-								<h2>
-									Como usar!
-								</h2>
+								<h2><?php echo esc_html($modal_how_to); ?></h2>
 								<div class="mp-credits-modal-how-to-use">
 									<div>
 										<div class="mp-credits-modal-blue-circle"><span>1</span></div>
-
-										<span>No pagamento, escolha Mercado Pago. Entre na sua conta ou crie uma em
-											poucos passos.</span>
-
+										<span><?php echo esc_html($modal_step_1); ?></span>
 									</div>
 									<div>
 										<div class="mp-credits-modal-blue-circle"><span>2</span></div>
-
-										<span>Procure por Mercado Crédito entre as opções, selecione e defina em
-											quantas<br>
-											vezes quer pagar.</span>
+										<span><?php echo esc_html($modal_step_2); ?></span>
 									</div>
 									<div>
 										<div class="mp-credits-modal-blue-circle"><span>3</span></div>
-
-										<span>Pague as parcelas todo mês como preferir, no app do Mercado Pago.</span>
-
+										<span><?php echo esc_html($modal_step_3); ?></span>
 									</div>
 								</div>
 							</div>
 						</div>
 						<div class="mp-credits-modal-FAQ">
-							<p>Dúvidas? <span>Consulte nossa FAQ</span>. Crédito sujeito a aprovação.</p>
+							<p><?php echo esc_html($modal_footer); ?></p>
 						</div>
 					</div>
 				</div>
