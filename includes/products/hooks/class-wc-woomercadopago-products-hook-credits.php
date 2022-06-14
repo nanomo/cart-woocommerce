@@ -72,6 +72,7 @@ class WC_WooMercadoPago_Products_Hook_Credits {
 	}
 
 	public function before_add_to_cart_form() {
+		global $woocommerce;
 		$suffix = $this->get_suffix();
 
 		wp_enqueue_script(
@@ -80,6 +81,27 @@ class WC_WooMercadoPago_Products_Hook_Credits {
 			array(),
 			WC_WooMercadoPago_Constants::VERSION,
 			false
+		);
+
+		wp_enqueue_script(
+			'mercadopago_melidata',
+			plugins_url( '../../assets/js/melidata/melidata-client' . $suffix . '.js', plugin_dir_path( __FILE__ ) ),
+			array(),
+			WC_WooMercadoPago_Constants::VERSION,
+			true
+		);
+
+		wp_localize_script(
+			'mercadopago_melidata',
+			'wc_melidata_params',
+			array(
+				'type'             => 'buyer',
+				'site_id'          => $this->site_id ? strtoupper( $this->site_id ) : 'MLA',
+				'location'         => '/products',
+				'payment_method'   => null,
+				'plugin_version'   => WC_WooMercadoPago_Constants::VERSION,
+				'platform_version' => $woocommerce->version,
+			)
 		);
 
 		wp_enqueue_style(

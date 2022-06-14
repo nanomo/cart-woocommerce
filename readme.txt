@@ -4,7 +4,7 @@ Tags: ecommerce, mercadopago, woocommerce
 Requires at least: 4.9.10
 Tested up to: 5.9
 Requires PHP: 5.6
-Stable tag: 5.7.6
+Stable tag: 5.8.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -133,6 +133,13 @@ Set up both the plugin and the checkouts you want to activate on your payment av
 Check out our <a href="https://www.mercadopago.com.br/developers/pt/plugins_sdks/plugins/official/woo-commerce/">official documentation</a> for more information on the specific fields to configure.
 
 == Changelog ==
+= v5.8.0 (07/06/2022) =
+* Features
+- Added melidata script to collect metrics from plugin
+
+* Bug fixes
+- Changed mp logo
+
 = v5.7.6 (19/04/2022) =
 * Bug fixes
 - Adjusted IPN notification to recognize discount coupon

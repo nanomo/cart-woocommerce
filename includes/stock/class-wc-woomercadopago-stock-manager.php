@@ -39,6 +39,11 @@ class WC_WooMercadoPago_Stock_Manager {
 	public static function restore_stock_item( $order_id ) {
 		$order = wc_get_order( $order_id );
 
+		/**
+		 * Apply filters woocommerce_can_reduce_order_stock.
+		 *
+		 * @since 3.0.1
+		 */
 		if ( ! $order || 'yes' !== get_option( 'woocommerce_manage_stock' ) || ! apply_filters( 'woocommerce_can_reduce_order_stock', true, $order ) ) {
 			return;
 		}
@@ -55,9 +60,22 @@ class WC_WooMercadoPago_Stock_Manager {
 		foreach ( $order->get_items() as $item ) {
 			if ( $item['product_id'] > 0 ) {
 				$_product = wc_get_product( $item['product_id'] );
+
 				if ( $_product && $_product->exists() && $_product->managing_stock() ) {
+					/**
+					 * Apply filters woocommerce_order_item_quantity.
+					 *
+					 * @since 3.0.1
+					 */
 					$qty = apply_filters( 'woocommerce_order_item_quantity', $item['qty'], $order, $item );
+
 					wc_update_product_stock( $_product, $qty, 'increase' );
+
+					/**
+					 * Do action woocommerce_auto_stock_restored.
+					 *
+					 * @since 3.0.1
+					 */
 					do_action( 'woocommerce_auto_stock_restored', $_product, $item );
 				}
 			}
