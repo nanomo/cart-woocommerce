@@ -63,12 +63,20 @@ class MP {
 	private $payment_class;
 
 	/**
+	 * Options
+	 *
+	 * @var WC_WooMercadoPago_Options
+	 */
+	public $mp_options;
+
+	/**
 	 * MP constructor.
 	 *
 	 * @throws WC_WooMercadoPago_Exception MP Class exception.
 	 */
 	public function __construct() {
-		$includes_path = dirname( __FILE__ );
+		$this->mp_options = $this->get_mp_options();
+		$includes_path    = dirname( __FILE__ );
 		require_once $includes_path . '/rest-client/class-meli-rest-client.php';
 
 		$i = func_num_args();
@@ -84,6 +92,18 @@ class MP {
 			$this->client_id     = func_get_arg( 0 );
 			$this->client_secret = func_get_arg( 1 );
 		}
+	}
+
+	/**
+	 * Get Options
+	 *
+	 * @return mixed
+	 */
+	public function get_mp_options() {
+		if ( null === $this->mp_options ) {
+			$this->mp_options = WC_WooMercadoPago_Options::get_instance();
+		}
+		return $this->mp_options;
 	}
 
 	/**
@@ -969,6 +989,44 @@ class MP {
 			}
 		}
 
+	}
+
+	public function get_payment_response_by_sites() {
+		$access_token = $this->get_access_token();
+		$site         = strtoupper($this->mp_options->get_site_id());
+
+		$key = sprintf( '%s%s', __FUNCTION__, $site );
+
+		$cache = $this->get_cache_response( $key );
+
+		if ( ! empty( $cache ) ) {
+					$this->debug_mode_log(
+						'get_payment_response_by_sites',
+						__FUNCTION__,
+						__( 'Response from cache', 'woocommerce-mercadopago' )
+					);
+
+				return $cache;
+		}
+
+		if ( ! empty( $access_token ) ) {
+			$payments = $this->get( '/sites/' . $site . '/payment_methods', array( 'Authorization' => 'Bearer ' . $access_token ) );
+
+			if ( isset( $payments['response'] ) ) {
+
+				$this->set_cache_response( $key, $payment['response'] );
+
+				$this->debug_mode_log(
+					'get_payment_response_by_sites',
+					__FUNCTION__,
+					__( 'Response from API', 'woocommerce-mercadopago' )
+				);
+
+				return $payments['response'];
+			}
+		}
+
+		return [];
 	}
 
 }

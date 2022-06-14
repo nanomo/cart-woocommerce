@@ -18,17 +18,27 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 
-	const ID = 'woo-mercado-pago-basic';
+	const ID           = 'woo-mercado-pago-basic';
+	const CREDITS_MODE = 'yes';
+
+	/**
+	 * Credits mode
+	 *
+	 * @var string
+	 */
+	public $credits_mode;
+
 	/**
 	 * WC_WooMercadoPago_BasicGateway constructor.
 	 *
 	 * @throws WC_WooMercadoPago_Exception On load payment exception.
 	 */
 	public function __construct() {
-		$this->id          = self::ID;
-		$this->description = __( 'Debit, Credit and invoice in Mercado Pago environment', 'woocommerce-mercadopago' );
-		$this->title       = __( 'Checkout Pro', 'woocommerce-mercadopago' );
-		$this->mp_options  = $this->get_mp_options();
+		$this->id           = self::ID;
+		$this->credits_mode = self::CREDITS_MODE;
+		$this->description  = __( 'Debit, Credit and invoice in Mercado Pago environment', 'woocommerce-mercadopago' );
+		$this->title        = __( 'Checkout Pro', 'woocommerce-mercadopago' );
+		$this->mp_options   = $this->get_mp_options();
 
 		if ( ! $this->validate_section() ) {
 			return;
@@ -39,6 +49,7 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 		$this->method               = $this->get_option( 'method', 'redirect' );
 		$this->title                = $this->get_option( 'title', __( 'Checkout Pro', 'woocommerce-mercadopago' ) );
 		$this->method_description   = $this->description;
+		$this->credits_banner       = $this->get_option( 'credits_banner', $this->credits_mode );
 		$this->auto_return          = $this->get_option( 'auto_return', 'yes' );
 		$this->success_url          = $this->get_option( 'success_url', '' );
 		$this->failure_url          = $this->get_option( 'failure_url', '' );
@@ -94,7 +105,7 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 			$form_fields['binary_mode']                      = $this->field_binary_mode();
 			$form_fields['installments']                     = $this->field_installments();
 			$form_fields['checkout_payments_advanced_title'] = $this->field_checkout_payments_advanced_title();
-			$payments_response                               = $this->get_payment_response();
+			$payments_response                               = $this->mp->get_payment_response_by_sites();
 			if ( $this->is_credits($payments_response) ) {
 				$form_fields['credits_banner'] = $this->field_credits_banner_mode();
 			}
@@ -523,7 +534,7 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 			'title'       => __( 'Pagamentos com Mercado Crédito', 'woocommerce-mercadopago' ),
 			'title_badge' => __( 'Novo!', 'woocommerce-mercadopago' ),
 			'type'        => 'mp_toggle_switch',
-			'default'     => 'yes',
+			'default'     => $this->credits_mode,
 			'subtitle' => __( 'Com <a href="https://conteudo.mercadopago.com.br/como-funciona-o-mercado-credito"> Mercado Crédito</a>, seus clientes podem pagar parcelado sem usar cartão, via Pix, boleto ou saldo em conta, direto no app do Mercado Pago. <br/> <b>Ao mostrar o aviso de parcelamento sem cartão</b>, você aumentará suas chances de vender. Para entender melhor como o aviso funcionará na sua loja, acesse a <a href="https://conteudo.mercadopago.com.br/como-funciona-o-mercado-credito">documentação</a>.', 'woocommerce-mercadopago' ),
 			'descriptions' => array(
 				'enabled' => __( '<b>Mostrar aviso</b> de parcelamento sem cartão com Mercado Crédito.', 'woocommerce-mercadopago' ),
@@ -642,23 +653,4 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 		}
 		return false;
 	}
-
-	/**
-	 *
-	 * Get Payment Response function
-	 *
-	 * @return mixed
-	 */
-	public function get_payment_response() {
-		$access_token = $this->mp->get_access_token();
-		$site         = strtoupper($this->mp_options->get_site_id());
-		if ( ! empty( $access_token ) ) {
-			$payments = $this->mp->get( '/sites/' . $site . '/payment_methods', array( 'Authorization' => 'Bearer ' . $access_token ) );
-			if ( isset( $payments['response'] ) ) {
-				return $payments['response'];
-			}
-		}
-		return null;
-	}
-
 }
