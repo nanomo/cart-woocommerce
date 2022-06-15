@@ -105,11 +105,14 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 			$form_fields['binary_mode']                      = $this->field_binary_mode();
 			$form_fields['installments']                     = $this->field_installments();
 			$form_fields['checkout_payments_advanced_title'] = $this->field_checkout_payments_advanced_title();
+
 			$site              = strtoupper($this->mp_options->get_site_id());
 			$payments_response = $this->mp->get_payment_response_by_sites($site);
+
 			if ( $this->is_credits($payments_response) ) {
 				$form_fields['credits_banner'] = $this->field_credits_banner_mode();
 			}
+
 			$form_fields['method']      = $this->field_method();
 			$form_fields['success_url'] = $this->field_success_url();
 			$form_fields['failure_url'] = $this->field_failure_url();
