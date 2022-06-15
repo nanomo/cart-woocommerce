@@ -1,8 +1,8 @@
 .mp-credits-banner-info {
-    font-family: Proxima Nova,Helvetica Neue,Helvetica,Arial,sans-serif;
+    font-family: Proxima Nova, Helvetica Neue, Helvetica, Arial, sans-serif;
     width: 314px;
     height: 64px;
-    background: rgba(0, 158, 227, 0.1);
+    background: #E6F5FC;
     border-radius: 32px;
     text-align: center;
     padding-right: 12px;
@@ -35,6 +35,7 @@
     border-radius: 50%;
     width: 24px;
     height: 16px;
+    background: url('mp-logo-hands-shake.png');
 }
 
 .mp-credits-banner-text {
@@ -43,6 +44,10 @@
     font-size: 12px;
     line-height: 15px;
     color: #464545;
+}
+
+.mp-credits-banner-text>span>span{
+    font-weight: 600;
 }
 
 .mp-credits-banner-link {
@@ -61,11 +66,11 @@
     color: #009EE3
 }
 
-#mp-credits-modal{
-    font-family: Proxima Nova,Helvetica Neue,Helvetica,Arial,sans-serif;
+#mp-credits-modal {
+    font-family: Proxima Nova, Helvetica Neue, Helvetica, Arial, sans-serif;
     display: none;
     position: fixed;
-    z-index: 1;
+    z-index: 10000;
     left: 0;
     top: 0;
     width: 100%;
@@ -74,11 +79,11 @@
     background-color: rgba(0, 0, 0, 0.3);
 }
 
-#mp-credits-modal .mp-credits-modal-container{
+#mp-credits-modal .mp-credits-modal-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    transform: translate(0,75%);
+    transform: translate(0, 50%);
 }
 
 .mp-credits-modal-blue-circle {
@@ -90,17 +95,29 @@
     justify-content: center;
     align-items: center;
     font-size: 12px;
+    line-height: 15px;
     color: #ffff;
-    text-align: left;
+    position: absolute;
 }
 
 .mp-credits-modal-blue-circle~span {
+    margin-left: 16px;
+    font-weight: 400;
+    text-align: left;
     transform: translate(7px, -12.5%);
     font-style: normal;
     font-size: 14px;
     line-height: 20px;
+	color:#000000;
 }
 
+.mp-credits-modal-blue-circle~span>span {
+    font-weight: 600;
+}
+
+.mp-credits-modal-how-to-use>div~div~div>span{
+    font-weight: 600;
+}
 .mp-credits-modal-how-to-use {
     display: flex;
     flex-direction: column;
@@ -113,18 +130,18 @@
     padding-bottom: 16px;
 }
 
-.mp-credits-modal-container-content{
+.mp-credits-modal-container-content {
     border-radius: 5px;
     background-color: #ffff;
     max-width: 666px;
     display: block;
     justify-content: left;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-    
+
 }
 
-.mp-credits-modal-content{
-    padding: 30px 30px 50px 40px;
+.mp-credits-modal-content {
+    padding: 30px 35px 50px 35px;
 }
 
 .mp-credits-modal-container-content img {
@@ -139,19 +156,37 @@
 }
 
 .mp-credits-modal-titles {
+	color:black;
     margin: 0;
 }
 
-.mp-credits-modal-titles h1 {
-    margin: 0;
-    padding: 30px 0 16px;
+.mp-credits-modal-titles>div {
+    padding-top: 30px;
+    margin: 0
+}
+
+.mp-credits-modal-titles>div>span {
+    line-height: 31.2px;
     font-style: normal;
     font-size: 24px;
     text-align: center;
+	font-weight: 400;
+}
+
+.mp-credits-modal-titles>div+div{
+    padding-top: 16px;
+    text-align: left;
+}
+.mp-credits-modal-titles>div+div>span {
     font-weight: 600;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 20px;
 }
 
 .mp-credits-modal-titles p {
+    padding-top: 16px;
+    font-weight: 400;
     text-align: center;
     font-style: normal;
     font-size: 16px;
@@ -170,6 +205,7 @@
 }
 
 .mp-credits-modal-FAQ {
+    font-weight: 400;
     padding-top: 16px;
     display: flex;
     justify-content: center;
@@ -178,14 +214,25 @@
     line-height: 18px;
     color: rgba(0, 0, 0, 0.25);
 }
+
+.mp-credits-modal-FAQ>p>a {
+    text-decoration: none;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.25);
+    text-decoration: underline
+}
+
 .mp-credits-modal-FAQ p {
     margin: 0;
 }
 
-.mp-credits-modal-close-button{
-    display: flex; 
-    align-items: flex-start; 
-    justify-content: flex-end; 
+.mp-credits-modal-close-button {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
     width: 100%;
 }
 
+.mp-credits-modal-close-button img {
+    cursor: pointer;
+}
