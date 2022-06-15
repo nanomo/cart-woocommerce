@@ -972,7 +972,6 @@ class MP {
 	}
 
 	public function get_payment_response_by_sites( $site ) {
-		$access_token = $this->get_access_token();
 
 		$key = sprintf( '%s%s', __FUNCTION__, $site );
 
@@ -988,12 +987,12 @@ class MP {
 				return $cache;
 		}
 
-		if ( ! empty( $access_token ) ) {
-			$payments = $this->get( '/sites/' . $site . '/payment_methods', array( 'Authorization' => 'Bearer ' . $access_token ) );
+		if ( ! empty( $site ) ) {
+			$payments = $this->get( '/sites/' . $site . '/payment_methods');
 
 			if ( isset( $payments['response'] ) ) {
 
-				$this->set_cache_response( $key, $payment['response'] );
+				$this->set_cache_response( $key, $payments['response']);
 
 				$this->debug_mode_log(
 					'get_payment_response_by_sites',
