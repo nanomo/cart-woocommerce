@@ -971,4 +971,40 @@ class MP {
 
 	}
 
+	public function get_payment_response_by_sites( $site ) {
+
+		$key = sprintf( '%s%s', __FUNCTION__, $site );
+
+		$cache = $this->get_cache_response( $key );
+
+		if ( ! empty( $cache ) ) {
+					$this->debug_mode_log(
+						'get_payment_response_by_sites',
+						__FUNCTION__,
+						__( 'Response from cache', 'woocommerce-mercadopago' )
+					);
+
+				return $cache;
+		}
+
+		if ( ! empty( $site ) ) {
+			$payments = $this->get( '/sites/' . $site . '/payment_methods');
+
+			if ( isset( $payments['response'] ) ) {
+
+				$this->set_cache_response( $key, $payments['response']);
+
+				$this->debug_mode_log(
+					'get_payment_response_by_sites',
+					__FUNCTION__,
+					__( 'Response from API', 'woocommerce-mercadopago' )
+				);
+
+				return $payments['response'];
+			}
+		}
+
+		return [];
+	}
+
 }
