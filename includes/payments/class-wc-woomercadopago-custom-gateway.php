@@ -479,7 +479,7 @@ class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 						WC()->cart->empty_cart();
 						wc_add_notice(
 							'<p>' . $this->get_order_status( $response['status_detail'] ) . '</p>' .
-							'<p><a class="button" href="' . esc_url( $order->get_checkout_order_received_url() ) . '">' .
+							'<p><a id="mp_pending_payment_button" class="button" href="' . esc_url( $order->get_checkout_order_received_url() ) . '" data-mp-checkout-type="woo-mercado-pago-' . $custom_checkout['checkout_type'] . '">' .
 							__( 'See your order form', 'woocommerce-mercadopago' ) .
 							'</a></p>',
 							'notice'
@@ -497,7 +497,7 @@ class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 							) . '<br>' .
 							$this->get_order_status( $response['status_detail'] ) .
 							'</p>' .
-							'<p><a class="button" href="' . esc_url( $order->get_checkout_payment_url() ) . '">' .
+							'<p><a id="mp_failed_payment_button" class="button" href="' . esc_url( $order->get_checkout_payment_url() ) . '" data-mp-checkout-type="woo-mercado-pago-' . $custom_checkout['checkout_type'] . '">' .
 							__( 'Click to try again', 'woocommerce-mercadopago' ) .
 							'</a></p>',
 							'error'
@@ -510,7 +510,7 @@ class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 					case 'in_mediation':
 					case 'charged_back':
 						// If we enter here (an order generating a direct [cancelled, in_mediation, or charged_back] status),
-						// them there must be something very wrong!
+						// then there must be something very wrong!
 						break;
 					default:
 						break;

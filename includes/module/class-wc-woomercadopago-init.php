@@ -27,7 +27,13 @@ class WC_WooMercadoPago_Init {
 	 */
 	public static function woocommerce_mercadopago_load_plugin_textdomain() {
 		$text_domain = 'woocommerce-mercadopago';
-		$locale      = apply_filters( 'plugin_locale', get_locale(), $text_domain );
+
+		/**
+		 * Apply filters plugin_locale.
+		 *
+		 * @since 3.0.1
+		 */
+		$locale = apply_filters( 'plugin_locale', get_locale(), $text_domain );
 
 		$original_language_file = dirname( __FILE__ ) . '/../../i18n/languages/woocommerce-mercadopago-' . $locale . '.mo';
 
@@ -134,6 +140,11 @@ class WC_WooMercadoPago_Init {
 	public static function mercadopago_handle_saved_cards_notice() {
 		$must_not_show_review = (int) get_option( '_mp_dismiss_saved_cards_notice' );
 		if ( ! isset( $must_not_show_review ) || $must_not_show_review ) {
+			/**
+			 * Update if option was changed.
+			 *
+			 * @since 3.0.1
+			 */
 			update_option( '_mp_dismiss_saved_cards_notice', 0, true );
 		}
 	}
@@ -144,8 +155,20 @@ class WC_WooMercadoPago_Init {
 	public static function update_plugin_version() {
 		$old_version = get_option( '_mp_version', '0' );
 		if ( version_compare( WC_WooMercadoPago_Constants::VERSION, $old_version, '>' ) ) {
+			/**
+			 * Do action mercadopago_plugin_updated.
+			 *
+			 * @since 3.0.1
+			 */
 			do_action( 'mercadopago_plugin_updated' );
+
+			/**
+			 * Do action mercadopago_test_mode_update.
+			 *
+			 * @since 3.0.1
+			 */
 			do_action( 'mercadopago_test_mode_update' );
+
 			update_option( '_mp_version', WC_WooMercadoPago_Constants::VERSION, true );
 		}
 	}
@@ -191,6 +214,7 @@ class WC_WooMercadoPago_Init {
 			require_once dirname( __FILE__ ) . '/class-wc-woomercadopago-module.php';
 			require_once dirname( __FILE__ ) . '/class-wc-woomercadopago-credentials.php';
 			require_once dirname( __FILE__ ) . '/class-wc-woomercadopago-options.php';
+			include_once dirname( __FILE__ ) . '../../products/hooks/class-wc-woomercadopago-products-hook-credits.php';
 			if ( is_admin() ) {
 			require_once dirname( __FILE__ ) . '../../admin/notices/class-wc-woomercadopago-review-notice.php';
 			require_once dirname( __FILE__ ) . '/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php';
@@ -207,6 +231,7 @@ class WC_WooMercadoPago_Init {
 			require_once dirname( __FILE__ ) . '../../pix/class-wc-woomercadopago-image-generator.php';
 
 			WC_WooMercadoPago_Module::init_mercado_pago_class();
+			new WC_WooMercadoPago_Products_Hook_Credits();
 			WC_WooMercadoPago_Image_Generator::init_image_generator_class();
 			self::update_plugin_version();
 

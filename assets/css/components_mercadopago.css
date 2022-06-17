@@ -80,18 +80,20 @@
 	position: absolute !important;
 	transform: translate(0%, 15%);
 	border-radius: 40px;
-	background: #697379;
+	background: rgba(71, 154, 209, 0.1);
 	font-style: normal;
 	font-weight: 400;
 	font-size: 14px !important;
 	line-height: 18px !important;
-	color: #FFFFFF;
+	color: #009EE3;
 	margin-left: 16px;
 	padding: 3px 14px 3px 14px;
 }
 
 .mp-toggle-subtitle a {
 	text-decoration: none;
+	color: #039ee3;
+	font-weight: bold;
 }
 
 /* Checkbox List Component */

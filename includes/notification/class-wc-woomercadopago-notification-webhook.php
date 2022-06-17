@@ -65,9 +65,16 @@ class WC_WooMercadoPago_Notification_Webhook extends WC_WooMercadoPago_Notificat
 			if ( 'payment' === $data['type'] ) {
 				$access_token = $this->mp->get_access_token();
 				$payment_info = $this->mp->get( '/v1/payments/' . $data['data_id'], array( 'Authorization' => 'Bearer ' . $access_token ), false );
+
 				if ( ! is_wp_error( $payment_info ) && ( 200 === $payment_info['status'] || 201 === $payment_info['status'] ) ) {
 					if ( $payment_info['response'] ) {
+						/**
+						 * Do action valid_mercadopago_ipn_request.
+						 *
+						 * @since 3.0.1
+						 */
 						do_action( 'valid_mercadopago_ipn_request', $payment_info['response'] );
+
 						$this->set_response( 200, 'OK', 'Webhook Notification Successfull' );
 					}
 				} else {

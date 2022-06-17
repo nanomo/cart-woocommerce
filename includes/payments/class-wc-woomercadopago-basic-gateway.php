@@ -106,10 +106,7 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 			$form_fields['installments']                     = $this->field_installments();
 			$form_fields['checkout_payments_advanced_title'] = $this->field_checkout_payments_advanced_title();
 
-			$site              = strtoupper($this->mp_options->get_site_id());
-			$payments_response = $this->mp->get_payment_response_by_sites($site);
-
-			if ( $this->is_credits($payments_response) ) {
+			if ( $this->is_credits() ) {
 				$form_fields['credits_banner'] = $this->field_credits_banner_mode();
 			}
 
@@ -539,10 +536,10 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 			'title_badge' => __( 'Novo!', 'woocommerce-mercadopago' ),
 			'type'        => 'mp_toggle_switch',
 			'default'     => $this->credits_mode,
-			'subtitle' => __( 'Com <a href="https://conteudo.mercadopago.com.br/como-funciona-o-mercado-credito"> Mercado Crédito</a>, seus clientes podem pagar parcelado sem usar cartão, via Pix, boleto ou saldo em conta, direto no app do Mercado Pago. <br/> <b>Ao mostrar o aviso de parcelamento sem cartão</b>, você aumentará suas chances de vender. Para entender melhor como o aviso funcionará na sua loja, acesse a <a href="https://conteudo.mercadopago.com.br/como-funciona-o-mercado-credito">documentação</a>.', 'woocommerce-mercadopago' ),
+			'subtitle' => __( 'Com <a href="https://conteudo.mercadopago.com.br/como-funciona-o-mercado-credito"> Mercado Crédito</a>, os clientes pagam parcelado sem cartão, via <b>Pix, boleto ou saldo em conta</b>, no app do Mercado Pago. <br/> <b>Ao ativar o informativo de parcelamento sem cartão</b>, você aumentará suas chances de vender. Para saber mais, acesse a <a href="https://conteudo.mercadopago.com.br/como-funciona-o-mercado-credito">documentação</a>.', 'woocommerce-mercadopago' ),
 			'descriptions' => array(
-				'enabled' => __( '<b>Mostrar aviso</b> de parcelamento sem cartão com Mercado Crédito.', 'woocommerce-mercadopago' ),
-				'disabled' => __( '<b>Não mostrar aviso</b> de parcelamento sem cartão com Mercado Crédito.', 'woocommerce-mercadopago' ),
+				'enabled' => __( 'O informativo de parcelamento sem cartão está <b>ativo</b>.', 'woocommerce-mercadopago' ),
+				'disabled' => __( 'O informativo de parcelamento sem cartão está <b>desativado</b>.', 'woocommerce-mercadopago' ),
 			),
 		);
 	}
@@ -647,7 +644,9 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 	 * @param array $payments_response Payment Method Response.
 	 * @return bool
 	 */
-	public function is_credits( $payments_response ) {
+	public function is_credits() {
+		$site              = strtoupper($this->mp_options->get_site_id());
+		$payments_response = $this->mp->get_payment_response_by_sites($site);
 		if ( is_array($payments_response) ) {
 			foreach ( $payments_response as $payment ) {
 				if ( isset( $payment['id'] ) && 'consumer_credits' === $payment['id'] ) {
