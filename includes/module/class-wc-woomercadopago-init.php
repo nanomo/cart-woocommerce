@@ -230,7 +230,6 @@ class WC_WooMercadoPago_Init {
 			}
 			require_once dirname( __FILE__ ) . '../../pix/class-wc-woomercadopago-image-generator.php';
 
-
 			WC_WooMercadoPago_Module::init_mercado_pago_class();
 			new WC_WooMercadoPago_Products_Hook_Credits();
 			WC_WooMercadoPago_Image_Generator::init_image_generator_class();
