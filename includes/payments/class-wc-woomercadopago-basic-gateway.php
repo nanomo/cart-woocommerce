@@ -106,10 +106,7 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 			$form_fields['installments']                     = $this->field_installments();
 			$form_fields['checkout_payments_advanced_title'] = $this->field_checkout_payments_advanced_title();
 
-			$site              = strtoupper($this->mp_options->get_site_id());
-			$payments_response = $this->mp->get_payment_response_by_sites($site);
-
-			if ( $this->is_credits($payments_response) ) {
+			if ( $this->is_credits() ) {
 				$form_fields['credits_banner'] = $this->field_credits_banner_mode();
 			}
 
@@ -647,7 +644,9 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 	 * @param array $payments_response Payment Method Response.
 	 * @return bool
 	 */
-	public function is_credits( $payments_response ) {
+	public function is_credits() {
+		$site              = strtoupper($this->mp_options->get_site_id());
+		$payments_response = $this->mp->get_payment_response_by_sites($site);
 		if ( is_array($payments_response) ) {
 			foreach ( $payments_response as $payment ) {
 				if ( isset( $payment['id'] ) && 'consumer_credits' === $payment['id'] ) {
