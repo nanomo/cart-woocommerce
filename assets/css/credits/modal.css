@@ -2,7 +2,7 @@
     font-family: Proxima Nova, Helvetica Neue, Helvetica, Arial, sans-serif;
     width: 314px;
     height: 64px;
-    background: #E6F5FC;
+    background: rgba(0, 158, 227, 0.1);
     border-radius: 32px;
     text-align: center;
     padding-right: 12px;
@@ -70,7 +70,7 @@
     font-family: Proxima Nova, Helvetica Neue, Helvetica, Arial, sans-serif;
     display: none;
     position: fixed;
-    z-index: 10000;
+    z-index: 1;
     left: 0;
     top: 0;
     width: 100%;
@@ -80,10 +80,11 @@
 }
 
 #mp-credits-modal .mp-credits-modal-container {
+    width: 100%;
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
-    transform: translate(0, 50%);
 }
 
 .mp-credits-modal-blue-circle {
@@ -108,7 +109,6 @@
     font-style: normal;
     font-size: 14px;
     line-height: 20px;
-	color:#000000;
 }
 
 .mp-credits-modal-blue-circle~span>span {
@@ -134,7 +134,7 @@
     border-radius: 5px;
     background-color: #ffff;
     max-width: 666px;
-    display: block;
+    display: flex;
     justify-content: left;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 
@@ -142,6 +142,12 @@
 
 .mp-credits-modal-content {
     padding: 30px 35px 50px 35px;
+}
+
+.mp-credits-modal-content-centralize{
+    height: 100%;
+    display: flex;
+    align-items: center;
 }
 
 .mp-credits-modal-container-content img {
@@ -156,7 +162,6 @@
 }
 
 .mp-credits-modal-titles {
-	color:black;
     margin: 0;
 }
 
@@ -170,7 +175,6 @@
     font-style: normal;
     font-size: 24px;
     text-align: center;
-	font-weight: 400;
 }
 
 .mp-credits-modal-titles>div+div{
@@ -182,6 +186,10 @@
     font-style: normal;
     font-size: 16px;
     line-height: 20px;
+}
+
+.mp-credits-modal-titles>div>span {
+    font-weight: 600;
 }
 
 .mp-credits-modal-titles p {
@@ -236,3 +244,16 @@
 .mp-credits-modal-close-button img {
     cursor: pointer;
 }
+
+@media screen and (max-width: 666px) {
+    .mp-credits-modal-container-content{
+        position: relative;
+        transform: translate(0, 100vh);
+    }
+
+  .mp-mobile{
+    transform: translate(0, 0vh);
+    transition: transform 3s;
+  }
+
+  }
