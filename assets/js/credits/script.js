@@ -1,21 +1,22 @@
 (() => {
+  const modal = document.querySelector('#mp-credits-modal')
+  const modalContent = document.querySelector('.mp-credits-modal-container-content')
+  const modalCentralize = document.querySelector('#mp-credits-centralize')
+
   const switchModal = () => {
-    const modal = document.querySelector('#mp-credits-modal')
     const actualStyle = modal.style.display
-    const modalContent = document.querySelector('.mp-credits-modal-container-content')
-
-
     if (actualStyle == 'block') {
       modal.style.display = 'none'
       modalContent.classList.remove('mp-mobile')
     }
     else {
       modal.style.display = 'block'
-      if (modal.clientWidth < 666) {
+      modalCentralize.classList.add('mp-credits-modal-content-centralize')
+      if (modal.clientWidth < 768) {
+        modalCentralize.classList.remove('mp-credits-modal-content-centralize')
         const modalHeight = modal.clientHeight
         const modalContentHeight = modalContent.clientHeight
-        let top = modalHeight - modalContentHeight
-        modalContent.style.top = `${top}.px`
+        modalContent.style.top = `${modalHeight - modalContentHeight}.px`
         modalContent.classList.add('mp-mobile')
       }
     }
@@ -27,10 +28,22 @@
   closebBtn.addEventListener('click', switchModal)
 
   window.onclick = function (event) {
-    console.log(event)
     const modal = document.querySelector('.mp-credits-modal-container')
     if (event.target == modal) {
       switchModal()
     }
   }
+
+  window.addEventListener('resize', () => {
+    if (modal.clientWidth > 768) {
+      modalCentralize.classList.add('mp-credits-modal-content-centralize')
+      modalContent.classList.remove('mp-mobile')
+    }else {
+      modalCentralize.classList.remove('mp-credits-modal-content-centralize')
+      modalContent.style.top = `${modal.clientHeight -  modalContent.clientHeight}.px`
+      modalContent.classList.add('mp-mobile')
+    }
+  })
+
 })()
+
