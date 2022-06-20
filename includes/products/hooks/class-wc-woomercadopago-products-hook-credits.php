@@ -48,7 +48,7 @@ class WC_WooMercadoPago_Products_Hook_Credits {
 			$this->checkout_pro_enabled = 'no';
 			$this->site_id              = strtolower(get_option( '_site_id_v1' ));
 
-			if ( isset( $checkout_pro_configs['enabled'] ) ) {
+			if ( isset( $checkout_pro_configs['enabled'] ) && isset( $checkout_pro_configs['credits_banner'] ) ) {
 				$this->checkout_pro_enabled = $checkout_pro_configs['enabled'];
 				$this->credits_banner       = $checkout_pro_configs['credits_banner'];
 			}
