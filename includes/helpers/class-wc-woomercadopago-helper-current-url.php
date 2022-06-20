@@ -21,15 +21,19 @@ class WC_WooMercadoPago_Helper_Current_Url {
 	public static function get_current_page() {
 		// @codingStandardsIgnoreLine
 		$current_page = isset( $_GET['page'] ) ? sanitize_text_field( $_GET['page'] ) : '';
-
 		return $current_page;
 	}
 
 	public static function get_current_section() {
 		// @codingStandardsIgnoreLine
 		$current_section = isset( $_GET['section'] ) ? sanitize_text_field( $_GET['section'] ) : '';
-
 		return $current_section;
+	}
+
+	public static function get_current_url() {
+		// @codingStandardsIgnoreLine
+		$current_url = isset( $_SERVER[REQUEST_URI] ) ? sanitize_text_field( $_SERVER[REQUEST_URI] ) : '';
+		return $current_url;
 	}
 
 	public static function validate_page( $expected_page, $current_page = null, $allow_partial_match = false ) {
@@ -46,6 +50,14 @@ class WC_WooMercadoPago_Helper_Current_Url {
 		}
 
 		return self::compare_strings( $expected_section, $current_section, $allow_partial_match );
+	}
+
+	public static function validate_url( $expected_url, $current_url = null, $allow_partial_match = true ) {
+		if ( ! $current_url ) {
+			$current_url = self::get_current_url();
+		}
+
+		return self::compare_strings( $expected_url, $current_url, $allow_partial_match );
 	}
 
 	public static function compare_strings( $expected, $current, $allow_partial_match ) {
