@@ -26,7 +26,7 @@ if ( ! defined('ABSPATH') ) {
 	<div class="mp-credits-banner-link">
 		<span><a href="#" id="mp-open-modal"><?php echo esc_html($banner_link); ?></a></span>
 		<div id="mp-credits-modal">
-			<div class="mp-credits-modal-content-centralize">
+			<div id="mp-credits-centralize" class="mp-credits-modal-content-centralize">
 				<div class="mp-credits-modal-container">
 					<div class="mp-credits-modal-container-content">
 						<div class="mp-credits-modal-content">
