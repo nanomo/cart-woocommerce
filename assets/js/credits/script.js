@@ -8,8 +8,8 @@
     if (actualStyle == 'block') {
       modal.style.display = 'none'
       modalContent.classList.remove('mp-mobile')
-    }
-    else {
+      document.dispatchEvent(new CustomEvent('mp-modal-close'));
+    } else {
       modal.style.display = 'block'
       modalCentralize.classList.add('mp-credits-modal-content-centralize')
       if (modal.clientWidth < 768) {
@@ -38,12 +38,10 @@
     if (modal.clientWidth > 768) {
       modalCentralize.classList.add('mp-credits-modal-content-centralize')
       modalContent.classList.remove('mp-mobile')
-    }else {
+    } else {
       modalCentralize.classList.remove('mp-credits-modal-content-centralize')
-      modalContent.style.top = `${modal.clientHeight -  modalContent.clientHeight}.px`
+      modalContent.style.top = `${modal.clientHeight - modalContent.clientHeight}.px`
       modalContent.classList.add('mp-mobile')
     }
   })
-
 })()
-

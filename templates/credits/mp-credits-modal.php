@@ -61,7 +61,11 @@ if ( ! defined('ABSPATH') ) {
 								</div>
 							</div>
 							<div class="mp-credits-modal-FAQ">
-								<p><?php echo esc_html($modal_footer); ?><a href="<?php echo esc_html($modal_footer_help_link); ?>"><?php echo esc_html($modal_footer_link); ?></a><?php echo esc_html($modal_footer_end); ?></p>
+								<p>
+									<?php echo esc_html($modal_footer); ?>
+									<a id="mp-modal-footer-link" target="_blank" href="<?php echo esc_html($modal_footer_help_link); ?>"><?php echo esc_html($modal_footer_link); ?></a>
+									<?php echo esc_html($modal_footer_end); ?>
+								</p>
 							</div>
 						</div>
 					</div>
