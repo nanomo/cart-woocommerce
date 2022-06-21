@@ -536,7 +536,7 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 			'title_badge' => __( 'Novo!', 'woocommerce-mercadopago' ),
 			'type'        => 'mp_toggle_switch',
 			'default'     => $this->credits_mode,
-			'subtitle' => __( 'Com <a href="https://conteudo.mercadopago.com.br/como-funciona-o-mercado-credito"> Mercado Crédito</a>, os clientes pagam parcelado sem cartão, via <b>Pix, boleto ou saldo em conta</b>, no app do Mercado Pago. <br/> <b>Ao ativar o informativo de parcelamento sem cartão</b>, você aumentará suas chances de vender. Para saber mais, acesse a <a href="https://conteudo.mercadopago.com.br/como-funciona-o-mercado-credito">documentação</a>.', 'woocommerce-mercadopago' ),
+			'subtitle' => __( 'Com <a href="https://conteudo.mercadopago.com.br/como-funciona-o-mercado-credito">Mercado Crédito</a>, os clientes pagam parcelado sem cartão, via <b>Pix, boleto ou saldo em conta</b>, no app do Mercado Pago. <br/> <b>Ao ativar o informativo de parcelamento sem cartão</b>, você aumentará suas chances de vender.', 'woocommerce-mercadopago' ),
 			'descriptions' => array(
 				'enabled' => __( 'O informativo de parcelamento sem cartão está <b>ativo</b>.', 'woocommerce-mercadopago' ),
 				'disabled' => __( 'O informativo de parcelamento sem cartão está <b>desativado</b>.', 'woocommerce-mercadopago' ),
