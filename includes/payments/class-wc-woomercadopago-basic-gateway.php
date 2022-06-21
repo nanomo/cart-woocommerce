@@ -17,9 +17,16 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Class WC_WooMercadoPago_Basic_Gateway
  */
 class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract {
-
+	
 	const ID = 'woo-mercado-pago-basic';
-
+	
+	/**
+	 * CreditsHelper
+	 * 
+	 * @var WC_WooMercadoPago_Helper_Credits
+	 */
+	private $credits_helper;
+	
 	/**
 	 * WC_WooMercadoPago_BasicGateway constructor.
 	 *
@@ -51,6 +58,7 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 		$this->field_forms_order    = $this->get_fields_sequence();
 		$this->ex_payments          = $this->get_ex_payments();
 		parent::__construct();
+		$this->credits_helper      = new WC_WooMercadoPago_Helper_Credits();
 		$this->form_fields         = $this->get_form_mp_fields();
 		$this->hook                = new WC_WooMercadoPago_Hook_Basic( $this );
 		$this->notification        = new WC_WooMercadoPago_Notification_IPN( $this );
@@ -97,7 +105,7 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 			$form_fields['installments']                     = $this->field_installments();
 			$form_fields['checkout_payments_advanced_title'] = $this->field_checkout_payments_advanced_title();
 
-			if ( $this->is_credits() ) {
+			if ( $this->credits_helper->is_credits() ) {
 				$form_fields['credits_banner'] = $this->field_credits_banner_mode();
 			}
 
@@ -626,25 +634,5 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 	 */
 	public static function get_id() {
 		return self::ID;
-	}
-
-	/**
-	 *
-	 * Get Payment Response function
-	 *
-	 * @param array $payments_response Payment Method Response.
-	 * @return bool
-	 */
-	public function is_credits() {
-		$site              = strtoupper($this->mp_options->get_site_id());
-		$payments_response = $this->mp->get_payment_response_by_sites($site);
-		if ( is_array($payments_response) ) {
-			foreach ( $payments_response as $payment ) {
-				if ( isset( $payment['id'] ) && 'consumer_credits' === $payment['id'] ) {
-					return true;
-				}
-			}
-		}
-		return false;
 	}
 }

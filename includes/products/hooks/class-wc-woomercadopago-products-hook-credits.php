@@ -39,25 +39,24 @@ class WC_WooMercadoPago_Products_Hook_Credits {
 	public $credits_banner;
 
 	/**
-	 * Checkout Pro class
+	 * Credits Helper Class
 	 *
-	 * @var WC_WooMercadoPago_Basic_Gateway
+	 * @var WC_WooMercadoPago_Helper_Credits
 	 */
-	public $payment_cho_pro;
-
+	public $credits_helper;
 
 	/**
 	 * WC_WooMercadoPago_Products_Hook_Credits constructor.
 	 *
 	 */
 	public function __construct() {
-		$this->payment_cho_pro = new WC_WooMercadoPago_Basic_Gateway();
+		$this->credits_helper = new WC_WooMercadoPago_Helper_Credits();
 
 		if ( ! is_admin() ) {
 			$checkout_pro_configs       = get_option( 'woocommerce_woo-mercado-pago-basic_settings', '' );
 			$this->checkout_pro_enabled = 'no';
 			$this->site_id              = strtolower(get_option( '_site_id_v1' ));
-			$is_credits                 = $this->payment_cho_pro->is_credits();
+			$is_credits                 = $this->credits_helper->is_credits();
 
 			if ( isset( $checkout_pro_configs['enabled'] ) && isset( $checkout_pro_configs['credits_banner'] ) ) {
 				$this->checkout_pro_enabled = $checkout_pro_configs['enabled'];
