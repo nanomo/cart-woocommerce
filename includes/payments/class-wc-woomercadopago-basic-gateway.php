@@ -18,15 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 
-	const ID           = 'woo-mercado-pago-basic';
-	const CREDITS_MODE = 'yes';
-
-	/**
-	 * Credits mode
-	 *
-	 * @var string
-	 */
-	public $credits_mode;
+	const ID = 'woo-mercado-pago-basic';
 
 	/**
 	 * WC_WooMercadoPago_BasicGateway constructor.
@@ -34,11 +26,10 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 	 * @throws WC_WooMercadoPago_Exception On load payment exception.
 	 */
 	public function __construct() {
-		$this->id           = self::ID;
-		$this->credits_mode = self::CREDITS_MODE;
-		$this->description  = __( 'Debit, Credit and invoice in Mercado Pago environment', 'woocommerce-mercadopago' );
-		$this->title        = __( 'Checkout Pro', 'woocommerce-mercadopago' );
-		$this->mp_options   = $this->get_mp_options();
+		$this->id          = self::ID;
+		$this->description = __( 'Debit, Credit and invoice in Mercado Pago environment', 'woocommerce-mercadopago' );
+		$this->title       = __( 'Checkout Pro', 'woocommerce-mercadopago' );
+		$this->mp_options  = $this->get_mp_options();
 
 		if ( ! $this->validate_section() ) {
 			return;
@@ -49,7 +40,7 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 		$this->method               = $this->get_option( 'method', 'redirect' );
 		$this->title                = $this->get_option( 'title', __( 'Checkout Pro', 'woocommerce-mercadopago' ) );
 		$this->method_description   = $this->description;
-		$this->credits_banner       = $this->get_option( 'credits_banner', $this->credits_mode );
+		$this->credits_banner       = $this->get_option( 'credits_banner', 'no' );
 		$this->auto_return          = $this->get_option( 'auto_return', 'yes' );
 		$this->success_url          = $this->get_option( 'success_url', '' );
 		$this->failure_url          = $this->get_option( 'failure_url', '' );
@@ -535,7 +526,7 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 			'title'       => __( 'Pagamentos com Mercado Crédito', 'woocommerce-mercadopago' ),
 			'title_badge' => __( 'Novo!', 'woocommerce-mercadopago' ),
 			'type'        => 'mp_toggle_switch',
-			'default'     => $this->credits_mode,
+			'default'     => 'no',
 			'subtitle' => __( 'Com <a href="https://conteudo.mercadopago.com.br/como-funciona-o-mercado-credito">Mercado Crédito</a>, os clientes pagam parcelado sem cartão, via <b>Pix, boleto ou saldo em conta</b>, no app do Mercado Pago. <br/> <b>Ao ativar o informativo de parcelamento sem cartão</b>, você aumentará suas chances de vender.', 'woocommerce-mercadopago' ),
 			'descriptions' => array(
 				'enabled' => __( 'O informativo de parcelamento sem cartão está <b>ativo</b>.', 'woocommerce-mercadopago' ),
