@@ -33,7 +33,7 @@ class WC_WooMercadoPago_Helper_Credits {
 	public $mp_options;
 
 	public function __construct() {
-		$this->mp =  WC_WooMercadoPago_Module::get_mp_instance_singleton();
+		$this->mp = WC_WooMercadoPago_Module::get_mp_instance_singleton();
 
 		if ( null === $this->mp_options ) {
 			$this->mp_options = WC_WooMercadoPago_Options::get_instance();
@@ -60,5 +60,4 @@ class WC_WooMercadoPago_Helper_Credits {
 		}
 		return false;
 	}
-	
 }

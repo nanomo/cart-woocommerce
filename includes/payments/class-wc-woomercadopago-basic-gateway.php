@@ -17,16 +17,16 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Class WC_WooMercadoPago_Basic_Gateway
  */
 class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract {
-	
+
 	const ID = 'woo-mercado-pago-basic';
-	
+
 	/**
-	 * CreditsHelper
-	 * 
+	 * Credits Helper Class
+	 *
 	 * @var WC_WooMercadoPago_Helper_Credits
 	 */
 	private $credits_helper;
-	
+
 	/**
 	 * WC_WooMercadoPago_BasicGateway constructor.
 	 *
