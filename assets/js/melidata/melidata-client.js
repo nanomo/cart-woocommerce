@@ -1,6 +1,6 @@
 /* globals wc_melidata_params */
 (function () {
-  window.onload = function () {
+  window.addEventListener("load", function () {
     window.melidata = null;
 
     try {
@@ -47,5 +47,5 @@
     } catch (e) {
       console.warn(e);
     }
-  };
+  });
 })();

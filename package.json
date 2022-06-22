@@ -4,6 +4,7 @@
     "scripts": {
         "php:lint": "composer phpcs",
         "php:fix": "composer phpcbf",
+        "build": "npm run build:js && npm run build:css",
         "build:js": "node -e 'require(\"./main.js\").minifyFiles(\"js\")'",
         "build:css": "node -e 'require(\"./main.js\").minifyFiles(\"css\")'",
         "pot": "node -e 'require(\"./main.js\").generatePotFiles()'",
