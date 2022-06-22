@@ -112,7 +112,7 @@ abstract class WC_WooMercadoPago_Hook_Abstract {
 		) {
 			$this->payment->log->write_log( __FUNCTION__, $this->class . 'trying to apply discount...' );
 
-			$value = ('COP' === $this->payment->site_data['currency'] || 'CLP' === $this->payment->site_data['currency'])
+			$value = ( 'COP' === $this->payment->site_data['currency'] || 'CLP' === $this->payment->site_data['currency'] )
 				? floor( $checkout['discount'] / $checkout['currency_ratio'] )
 				: floor( $checkout['discount'] / $checkout['currency_ratio'] * 100 ) / 100;
 
