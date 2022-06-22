@@ -6,6 +6,7 @@
     border-radius: 32px;
     text-align: center;
     padding-right: 12px;
+    margin: 0px 0px 15px 0px;
     display: flex;
     align-items: center;
 }
@@ -69,7 +70,7 @@
     font-family: Proxima Nova, Helvetica Neue, Helvetica, Arial, sans-serif;
     display: none;
     position: fixed;
-    z-index: 99;
+    z-index: 9999;
     left: 0;
     top: 0;
     width: 100%;
@@ -115,6 +116,11 @@
 
 .mp-credits-modal-blue-circle~span>span {
     font-weight: 600;
+}
+
+.mp-credits-modal-blue-circle>span {
+    color: #ffff;
+    font-size: 12px;
 }
 
 .mp-credits-modal-how-to-use>div~div~div>span{
