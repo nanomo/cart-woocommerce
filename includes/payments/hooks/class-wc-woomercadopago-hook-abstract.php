@@ -104,17 +104,15 @@ abstract class WC_WooMercadoPago_Hook_Abstract {
 	public function add_discount_abst( $checkout ) {
 		if (
 			isset( $checkout['discount'] )
-				&& ! empty( $checkout['discount'] )
-				&& isset( $checkout['coupon_code'] )
-				&& ! empty( $checkout['coupon_code'] )
-				&& $checkout['discount'] > 0
-				&& WC()->session->chosen_payment_method === $this->payment->id
+			&& ! empty( $checkout['discount'] )
+			&& isset( $checkout['coupon_code'] )
+			&& ! empty( $checkout['coupon_code'] )
+			&& $checkout['discount'] > 0
+			&& WC()->session->chosen_payment_method === $this->payment->id
 		) {
 			$this->payment->log->write_log( __FUNCTION__, $this->class . 'trying to apply discount...' );
 
-			$value = (
-				'COP' === $this->payment->site_data['currency'] || 'CLP' === $this->payment->site_data['currency']
-			)
+			$value = ('COP' === $this->payment->site_data['currency'] || 'CLP' === $this->payment->site_data['currency'])
 				? floor( $checkout['discount'] / $checkout['currency_ratio'] )
 				: floor( $checkout['discount'] / $checkout['currency_ratio'] * 100 ) / 100;
 

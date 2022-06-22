@@ -60,6 +60,7 @@ class WC_WooMercadoPago_Stock_Manager {
 		foreach ( $order->get_items() as $item ) {
 			if ( $item['product_id'] > 0 ) {
 				$_product = wc_get_product( $item['product_id'] );
+
 				if ( $_product && $_product->exists() && $_product->managing_stock() ) {
 					/**
 					 * Apply filters woocommerce_order_item_quantity.
@@ -71,7 +72,7 @@ class WC_WooMercadoPago_Stock_Manager {
 					wc_update_product_stock( $_product, $qty, 'increase' );
 
 					/**
-					 * Do action.
+					 * Do action woocommerce_auto_stock_restored.
 					 *
 					 * @since 3.0.1
 					 */

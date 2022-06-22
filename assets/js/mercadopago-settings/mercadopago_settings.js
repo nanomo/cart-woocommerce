@@ -178,10 +178,8 @@ function mp_update_option_credentials() {
       .post(
         ajaxurl,
         {
-          access_token_prod: document.getElementById("mp-access-token-prod")
-            .value,
-          access_token_test: document.getElementById("mp-access-token-test")
-            .value,
+          access_token_prod: document.getElementById("mp-access-token-prod").value,
+          access_token_test: document.getElementById("mp-access-token-test").value,
           public_key_prod: document.getElementById("mp-public-key-prod").value,
           public_key_test: document.getElementById("mp-public-key-test").value,
           action: "mp_update_option_credentials",
@@ -217,18 +215,12 @@ function mp_update_store_information() {
       .post(
         ajaxurl,
         {
-          store_identificator: document.getElementById("mp-store-identificator")
-            .value,
-          store_category_id: document.getElementById("mp-store-category-id")
-            .value,
-          store_categories: document.getElementById("mp-store-categories")
-            .value,
+          store_identificator: document.getElementById("mp-store-identificator").value,
+          store_category_id: document.getElementById("mp-store-category-id").value,
+          store_categories: document.getElementById("mp-store-categories").value,
           store_url_ipn: document.querySelector("#mp-store-url-ipn").value,
-          store_integrator_id: document.getElementById("mp-store-integrator-id")
-            .value,
-          store_debug_mode: document.querySelector(
-            "#mp-store-debug-mode:checked"
-          )?.value,
+          store_integrator_id: document.getElementById("mp-store-integrator-id").value,
+          store_debug_mode: document.querySelector("#mp-store-debug-mode:checked")?.value,
           action: "mp_update_store_information",
         },
         function (data) {}
@@ -285,9 +277,8 @@ function mp_settings_accordion_options() {
 function mp_set_mode() {
   var button = document.getElementById("mp-store-mode-save");
   button.addEventListener("click", function () {
-    var mode_value = document.querySelector(
-      'input[name="mp-test-prod"]:checked'
-    ).value;
+    var mode_value = document.querySelector('input[name="mp-test-prod"]:checked').value;
+
     jQuery
       .post(
         ajaxurl,

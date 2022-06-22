@@ -654,14 +654,21 @@ class WC_WooMercadoPago_Module extends WC_WooMercadoPago_Configs {
 	 * @return void
 	 */
 	public function load_admin_scripts() {
-		if ( is_admin() ) {
+		if (
+			is_admin() && (
+				WC_WooMercadoPago_Helper_Current_Url::validate_url( 'plugins' ) ||
+				WC_WooMercadoPago_Helper_Current_Url::validate_page( 'mercadopago-settings' ) ||
+				WC_WooMercadoPago_Helper_Current_Url::validate_section( 'woo-mercado-pago' )
+			)
+		) {
 			global $woocommerce;
 
+			$suffix  = $this->get_suffix();
 			$site_id = get_option( '_site_id_v1' );
 
 			wp_enqueue_script(
 				'mercadopago_melidata',
-				plugins_url( '../assets/js/melidata/melidata-client.js', plugin_dir_path( __FILE__ ) ),
+				plugins_url( '../assets/js/melidata/melidata-client' . $suffix . '.js', plugin_dir_path( __FILE__ ) ),
 				array(),
 				WC_WooMercadoPago_Constants::VERSION,
 				true
@@ -712,11 +719,12 @@ class WC_WooMercadoPago_Module extends WC_WooMercadoPago_Configs {
 	public function load_buyer_scripts( $location, $payment_method ) {
 		global $woocommerce;
 
+		$suffix  = $this->get_suffix();
 		$site_id = get_option( '_site_id_v1' );
 
 		wp_enqueue_script(
 			'mercadopago_melidata',
-			plugins_url( '../assets/js/melidata/melidata-client.js', plugin_dir_path( __FILE__ ) ),
+			plugins_url( '../assets/js/melidata/melidata-client' . $suffix . '.js', plugin_dir_path( __FILE__ ) ),
 			array(),
 			WC_WooMercadoPago_Constants::VERSION,
 			true

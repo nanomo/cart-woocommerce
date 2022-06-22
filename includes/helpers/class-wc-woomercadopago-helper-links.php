@@ -17,7 +17,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Class WC_WooMercadoPago_Helper_Links
  */
 class WC_WooMercadoPago_Helper_Links {
-
 	/**
 	 * Links by country configured in woocommerce.
 	 */
@@ -36,7 +35,6 @@ class WC_WooMercadoPago_Helper_Links {
 			'link_credentials' => $link_prefix_mp . $link_settings ['sufix_url'] . $link_developers . $link_credentials,
 		);
 	}
-
 
 	public static function get_mp_devsite_links() {
 		$link          = WC_WooMercadoPago_Module::define_link_country();
@@ -67,7 +65,8 @@ class WC_WooMercadoPago_Helper_Links {
 			'mpe' => 'https://www.mercadopago.com.pe/developers/es/guides/plugins/woocommerce/testing',
 			'mlu' => 'https://www.mercadopago.com.uy/developers/es/guides/plugins/woocommerce/testing',
 		];
-		$link          = array_key_exists($country, $country_links) ? $country_links[$country] : $country_links['mla'];
+
+		$link = array_key_exists($country, $country_links) ? $country_links[$country] : $country_links['mla'];
 
 		return $link;
 	}
@@ -79,7 +78,6 @@ class WC_WooMercadoPago_Helper_Links {
 	 * @return string
 	 */
 	public static function get_country_link_mp_terms() {
-
 		$country_link = [
 			'mla' => [
 				'help'      => 'ayuda',
@@ -127,6 +125,7 @@ class WC_WooMercadoPago_Helper_Links {
 
 		$option_country   = WC_WooMercadoPago_Options::get_instance();
 		$checkout_country = strtolower($option_country->get_checkout_country());
+
 		return $country_link[ $checkout_country ];
 	}
 

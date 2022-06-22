@@ -509,7 +509,7 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 				$options['checkout_credential_prod']    = 'deprecated';
 
 				/**
-				 * Update id options were changed.
+				 * Update if options were changed.
 				 *
 				 * @since 3.0.1
 				 */
