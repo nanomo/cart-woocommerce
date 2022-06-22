@@ -68,7 +68,7 @@
 
 #mp-credits-modal {
     font-family: Proxima Nova, Helvetica Neue, Helvetica, Arial, sans-serif;
-    display: none;
+    visibility: hidden;
     position: fixed;
     z-index: 9999;
     left: 0;
@@ -248,7 +248,7 @@
     width: 100%;
 }
 
-.mp-credits-modal-close-button img {
+.mp-credits-modal-close-button img, #mp-open-modal {
     cursor: pointer;
 }
 

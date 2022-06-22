@@ -24,7 +24,7 @@ if ( ! defined('ABSPATH') ) {
 		<span><?php echo wp_kses_post($banner_title); ?><span> <?php echo wp_kses_post($banner_title_bold); ?></span> <?php echo wp_kses_post($banner_title_end); ?></span>
 	</div>
 	<div class="mp-credits-banner-link">
-		<span><a href="#" id="mp-open-modal"><?php echo esc_html($banner_link); ?></a></span>
+		<span><a id="mp-open-modal"><?php echo esc_html($banner_link); ?></a></span>
 		<div id="mp-credits-modal">
 			<div id="mp-credits-centralize" class="mp-credits-modal-content-centralize">
 				<div class="mp-credits-modal-container">
