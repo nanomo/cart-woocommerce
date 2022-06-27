@@ -248,22 +248,29 @@ function init_cardForm() {
           }
 
           if (field == "cardNumber") {
-            CheckoutPage.setBackground(
-              "fcCardNumberContainer",
-              "no-repeat #fff"
-            );
-            CheckoutPage.removeAdditionFields();
-            CheckoutPage.clearInputs();
+            if (error[0].code !== 'invalid_length') {
+              CheckoutPage.setBackground(
+                "fcCardNumberContainer",
+                "no-repeat #fff"
+              );
+
+              CheckoutPage.removeAdditionFields();
+              CheckoutPage.clearInputs();
+            }
           }
+
           let containerField = CheckoutPage.findContainerField(field);
           CheckoutPage.setDisplayOfError(containerField, 'add', 'mp-error');
+
           return CheckoutPage.setDisplayOfInputHelper(
             CheckoutPage.inputHelperName(field),
             "flex"
           );
         }
+
         let containerField = CheckoutPage.findContainerField(field);
         CheckoutPage.setDisplayOfError(containerField, 'removed', 'mp-error');
+
         return CheckoutPage.setDisplayOfInputHelper(
           CheckoutPage.inputHelperName(field),
           "none"
