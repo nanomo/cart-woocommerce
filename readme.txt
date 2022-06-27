@@ -4,7 +4,7 @@ Tags: ecommerce, mercadopago, woocommerce
 Requires at least: 4.9.10
 Tested up to: 5.9
 Requires PHP: 5.6
-Stable tag: 5.8.0
+Stable tag: 6.0.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -15,6 +15,8 @@ Offer to your clients the best experience in e-Commerce by using Mercado Pago as
 The official Mercado Pago plugin allows you to process payments for your online store, allowing users to finalize their purchase with their preferred payment method.
 
 To install it, **you don't need to have technical knowledge:** you can follow the [step by step of how to integrate it](https://www.mercadopago.com.ar/developers/es/guides/plugins/woocommerce/introduction/). from our developer website and start selling today.
+
+**Warning about v6.0.0:** when updating, if you have made custom layout changes to your checkout, it is possible that some of those customizations become misconfigured. If you have a separate store environment just for testing, please update there first in order to visualize and test the changes.
 
 ### What to do with the Mercado Pago Plugin?
 * Activate **Checkout Pro** to offer logged-in payments with money in Mercado Pago account, saved cards and off means.
@@ -133,6 +135,15 @@ Set up both the plugin and the checkouts you want to activate on your payment av
 Check out our <a href="https://www.mercadopago.com.br/developers/pt/plugins_sdks/plugins/official/woo-commerce/">official documentation</a> for more information on the specific fields to configure.
 
 == Changelog ==
+
+= v6.0.0 (22/06/2022) =
+* Features
+- Added ideal checkout template
+- Added secure inputs for Checkout Custom
+
+* Changes
+- Updated melidata script to load only on plugin pages
+
 = v5.8.0 (07/06/2022) =
 * Features
 - Added melidata script to collect metrics from plugin

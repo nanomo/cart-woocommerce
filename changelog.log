@@ -1,5 +1,13 @@
 CHANGELOG:
 == Changelog ==
+= v6.0.0 (22/06/2022) =
+* Features
+- Added ideal checkout template
+- Added secure inputs for Checkout Custom
+
+* Changes
+- Updated melidata script to load only on plugin pages
+
 = v5.8.0 (07/06/2022) =
 * Features
 - Added melidata script to collect metrics from plugin

@@ -225,6 +225,7 @@ class WC_WooMercadoPago_Configs {
 				'currency'               => 'COP',
 				'zip_code'               => '110111',
 				'currency_symbol'        => '$',
+				'intl'                   => 'es-CO',
 			),
 			'mla' => array(
 				'site_id'                => 'mla',
@@ -234,6 +235,7 @@ class WC_WooMercadoPago_Configs {
 				'currency'               => 'ARS',
 				'zip_code'               => '3039',
 				'currency_symbol'        => '$',
+				'intl'                   => 'es-AR',
 			),
 			'mlb' => array(
 				'site_id'                => 'mlb',
@@ -243,6 +245,7 @@ class WC_WooMercadoPago_Configs {
 				'currency'               => 'BRL',
 				'zip_code'               => '01310924',
 				'currency_symbol'        => 'R$',
+				'intl'                   => 'pt-BR',
 			),
 			'mlc' => array(
 				'site_id'                => 'mlc',
@@ -252,6 +255,7 @@ class WC_WooMercadoPago_Configs {
 				'currency'               => 'CLP',
 				'zip_code'               => '7591538',
 				'currency_symbol'        => '$',
+				'intl'                   => 'es-CL',
 			),
 			'mlm' => array(
 				'site_id'                => 'mlm',
@@ -261,6 +265,7 @@ class WC_WooMercadoPago_Configs {
 				'currency'               => 'MXN',
 				'zip_code'               => '11250',
 				'currency_symbol'        => '$',
+				'intl'                   => 'es-MX',
 			),
 			'mlu' => array(
 				'site_id'                => 'mlu',
@@ -270,6 +275,7 @@ class WC_WooMercadoPago_Configs {
 				'currency'               => 'UYU',
 				'zip_code'               => '11800',
 				'currency_symbol'        => '$',
+				'intl'                   => 'es-UY',
 			),
 			'mlv' => array(
 				'site_id'                => 'mlv',
@@ -279,6 +285,7 @@ class WC_WooMercadoPago_Configs {
 				'currency'               => 'VEF',
 				'zip_code'               => '1160',
 				'currency_symbol'        => '$',
+				'intl'                   => 'es-VE',
 			),
 			'mpe' => array(
 				'site_id'                => 'mpe',
@@ -288,6 +295,7 @@ class WC_WooMercadoPago_Configs {
 				'currency'               => 'PEN',
 				'zip_code'               => '15074',
 				'currency_symbol'        => '$',
+				'intl'                   => 'es-PE',
 			),
 		);
 	}

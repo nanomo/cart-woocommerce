@@ -47,11 +47,13 @@ class WC_WooMercadoPago_Ticket_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 		$this->checkout_type      = 'custom';
 		$this->activated_payment  = $this->get_activated_payment();
 		$this->field_forms_order  = $this->get_fields_sequence();
+
 		parent::__construct();
 		$this->form_fields         = $this->get_form_mp_fields();
 		$this->hook                = new WC_WooMercadoPago_Hook_Ticket( $this );
 		$this->notification        = new WC_WooMercadoPago_Notification_Webhook( $this );
 		$this->currency_convertion = true;
+		$this->icon                = $this->get_checkout_icon();
 	}
 
 	/**
@@ -144,6 +146,7 @@ class WC_WooMercadoPago_Ticket_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 	 */
 	public static function get_activated_payment() {
 		$activated_payment          = array();
+		$treated_payments           = array();
 		$get_payment_methods_ticket = get_option( '_all_payment_methods_ticket', '' );
 
 		if ( ! empty( $get_payment_methods_ticket ) ) {
@@ -161,7 +164,29 @@ class WC_WooMercadoPago_Ticket_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 				}
 			}
 		}
-		return $activated_payment;
+
+		foreach ( $activated_payment as $payment ) {
+			$treated_payment = [];
+			if ( isset($payment['payment_places']) ) {
+				foreach ( $payment['payment_places'] as $place ) {
+					$payment_place_id           = ( new WC_WooMercadoPago_Composite_Id_Helper() )->generateIdFromPlace($payment['id'], $place['payment_option_id']);
+					$treated_payment['id']      = $payment_place_id;
+					$treated_payment['value']   = $payment_place_id;
+					$treated_payment['rowText'] = $place['name'];
+					$treated_payment['img']     = $place['thumbnail'];
+					$treated_payment['alt']     = $place['name'];
+					array_push( $treated_payments, $treated_payment);
+				}
+			} else {
+				$treated_payment['id']      = $payment['id'];
+				$treated_payment['value']   = $payment['id'];
+				$treated_payment['rowText'] = $payment['name'];
+				$treated_payment['img']     = $payment['secure_thumbnail'];
+				$treated_payment['alt']     = $payment['name'];
+				array_push( $treated_payments, $treated_payment);
+			}
+		}
+		return $treated_payments;
 	}
 
 	/**
@@ -299,8 +324,8 @@ class WC_WooMercadoPago_Ticket_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
 		wp_enqueue_style(
-			'woocommerce-mercadopago-basic-checkout-styles',
-			plugins_url( '../assets/css/basic_checkout_mercadopago' . $suffix . '.css', plugin_dir_path( __FILE__ ) ),
+			'woocommerce-mercadopago-narciso-styles',
+			plugins_url( '../assets/css/mp-plugins-components.css', plugin_dir_path( __FILE__ ) ),
 			array(),
 			WC_WooMercadoPago_Constants::VERSION
 		);
@@ -316,6 +341,7 @@ class WC_WooMercadoPago_Ticket_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 		$address          .= ( ! empty( $address_2 ) ? ' - ' . $address_2 : '' );
 		$country           = get_user_meta( wp_get_current_user()->ID, 'billing_country', true );
 		$address          .= ( ! empty( $country ) ? ' - ' . $country : '' );
+		$test_mode_link    = $this->get_mp_devsite_link($this->checkout_country);
 
 		try {
 			$currency_ratio = WC_WooMercadoPago_Helpers_CurrencyConverter::get_instance()->ratio( $this );
@@ -324,12 +350,8 @@ class WC_WooMercadoPago_Ticket_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 		}
 
 		$parameters = array(
-			'checkout_alert_test_mode' => $this->is_production_mode()
-			? ''
-			: $this->checkout_alert_test_mode_template(
-				__( 'Offline Methods in Test Mode', 'woocommerce-mercadopago' ),
-				__( 'You can test the flow to generate an invoice, but you cannot finalize the payment.', 'woocommerce-mercadopago' )
-			),
+			'test_mode'            => ! $this->is_production_mode(),
+			'test_mode_link'       => $test_mode_link,
 			'amount'               => $amount,
 			'payment_methods'      => $this->activated_payment,
 			'site_id'              => $this->mp_options->get_site_id(),
@@ -411,14 +433,23 @@ class WC_WooMercadoPago_Ticket_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 
 		// Check for brazilian FEBRABAN rules.
 		if ( 'mlb' === $this->mp_options->get_site_id() ) {
-			if ( ! isset( $ticket_checkout['docNumber'] ) || empty( $ticket_checkout['docNumber'] ) ||
-				( 14 !== strlen( $ticket_checkout['docNumber'] ) && 18 !== strlen( $ticket_checkout['docNumber'] ) ) ) {
-				wc_add_notice(
-					'<p>' .
-					__( 'There was a problem processing your payment. Are you sure you have correctly filled out all the information on the payment form?', 'woocommerce-mercadopago' ) .
-					'</p>',
-					'error'
-				);
+			if ( ! isset( $ticket_checkout['docNumber'] ) || empty( $ticket_checkout['docNumber'] ) ) {
+
+				if ( isset( $ticket_checkout['docNumberError'] ) || ! empty( $ticket_checkout['docNumberError'] ) ) {
+					wc_add_notice(
+						'<p>' .
+						__( 'Your document data is invalid', 'woocommerce-mercadopago' ) .
+						'</p>',
+						'error'
+					);
+				} else {
+					wc_add_notice(
+						'<p>' .
+						__( 'There was a problem processing your payment. Are you sure you have correctly filled out all the information on the payment form?', 'woocommerce-mercadopago' ) .
+						'</p>',
+						'error'
+					);
+				}
 				return array(
 					'result'   => 'fail',
 					'redirect' => '',
@@ -431,12 +462,21 @@ class WC_WooMercadoPago_Ticket_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 				! isset( $ticket_checkout['docNumber'] ) || empty( $ticket_checkout['docNumber'] ) ||
 				! isset( $ticket_checkout['docType'] ) || empty( $ticket_checkout['docType'] )
 			) {
-				wc_add_notice(
-					'<p>' .
-					__( 'There was a problem processing your payment. Are you sure you have correctly filled out all the information on the payment form?', 'woocommerce-mercadopago' ) .
-					'</p>',
-					'error'
-				);
+				if ( isset( $ticket_checkout['docNumberError'] ) || ! empty( $ticket_checkout['docNumberError'] ) ) {
+					wc_add_notice(
+						'<p>' .
+						__( 'Your document data is invalid', 'woocommerce-mercadopago' ) .
+						'</p>',
+						'error'
+					);
+				} else {
+					wc_add_notice(
+						'<p>' .
+						__( 'There was a problem processing your payment. Are you sure you have correctly filled out all the information on the payment form?', 'woocommerce-mercadopago' ) .
+						'</p>',
+						'error'
+					);
+				}
 				return array(
 					'result'   => 'fail',
 					'redirect' => '',
@@ -592,5 +632,30 @@ class WC_WooMercadoPago_Ticket_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 		$paycash_payments = implode(', ', $payments);
 
 		return implode( __(' and ', 'woocommerce-mercadopago') , array( $paycash_payments, $last_element ));
+	}
+
+	/**
+	 * Get Mercado Pago Icon
+	 *
+	 * @return mixed
+	 */
+	public function get_checkout_icon() {
+		$country = $this->get_option_mp( '_site_id_v1' );
+
+		if ( 'MLB' !== $country ) {
+			/**
+			 * Add Mercado Pago icon.
+			 *
+			 * @since 3.0.1
+			 */
+			return apply_filters( 'woocommerce_mercadopago_icon', plugins_url( '../assets/images/icons/ticket.png', plugin_dir_path( __FILE__ ) ) );
+		}
+
+		/**
+		 * Add Mercado Pago icon.
+		 *
+		 * @since 3.0.1
+		 */
+		return apply_filters( 'woocommerce_mercadopago_icon', plugins_url( '../assets/images/icons/ticket_mlb.png', plugin_dir_path( __FILE__ ) ) );
 	}
 }
