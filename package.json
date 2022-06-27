@@ -7,9 +7,10 @@
         "build:js": "node -e 'require(\"./main.js\").minifyFiles(\"js\")'",
         "build:css": "node -e 'require(\"./main.js\").minifyFiles(\"css\")'",
         "pot": "node -e 'require(\"./main.js\").generatePotFiles()'",
-        "lint": "jshint"
+        "lint": "jshint",
+        "husky": "husky install && rm -rf .husky/_/.gitignore"
     },
-    "version": "5.8.0",
+    "version": "6.0.0",
     "repository": {
         "type": "git",
         "url": "https://github.com/mercadopago/cart-woocommerce"
@@ -17,7 +18,7 @@
     "main": "main.js",
     "devDependencies": {
         "husky": "^7.0.0",
-        "jshint": "^2.11.0",
+        "jshint": "^2.13.4",
         "minify": "^7.0.2",
         "wp-pot": "^1.9.9"
     }
