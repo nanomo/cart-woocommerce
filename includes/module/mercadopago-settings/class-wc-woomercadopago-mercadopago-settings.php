@@ -124,9 +124,6 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 			$credentials = $this->options->get_access_token_and_public_key();
 			$public_key  = $credentials['credentials_public_key_prod'];
 
-			$notices_js_link  = plugins_url( '../../assets/js/notices/notices.js', plugin_dir_path( __FILE__ ) );
-			$notices_css_link = plugins_url( '../../assets/css/notices/notices.css', plugin_dir_path( __FILE__ ) );
-
 			wp_enqueue_script(
 				'mercadopago_notices',
 				plugins_url( '../../assets/js/notices/notices-client' . $this->get_suffix() . '.js', plugin_dir_path( __FILE__ ) ),
@@ -144,8 +141,6 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 					'public_key'       => $public_key,
 					'platform_id'      => WC_WooMercadoPago_Constants::PLATAFORM_ID,
 					'plugin_version'   => WC_WooMercadoPago_Constants::VERSION,
-					'notices_js_link'  => $notices_js_link,
-					'notices_css_link' => $notices_css_link,
 				)
 			);
 		}
