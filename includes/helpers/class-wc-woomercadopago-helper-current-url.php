@@ -32,7 +32,7 @@ class WC_WooMercadoPago_Helper_Current_Url {
 
 	public static function get_current_url() {
 		// @codingStandardsIgnoreLine
-		$current_url = isset( $_SERVER[REQUEST_URI] ) ? sanitize_text_field( $_SERVER[REQUEST_URI] ) : '';
+		$current_url = isset( $_SERVER['REQUEST_URI'] ) ? sanitize_text_field( $_SERVER['REQUEST_URI'] ) : '';
 		return $current_url;
 	}
 
