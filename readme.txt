@@ -16,6 +16,8 @@ The official Mercado Pago plugin allows you to process payments for your online 
 
 To install it, **you don't need to have technical knowledge:** you can follow the [step by step of how to integrate it](https://www.mercadopago.com.ar/developers/es/guides/plugins/woocommerce/introduction/). from our developer website and start selling today.
 
+**Warning about v6.0.0:** when updating, if you have made custom layout changes to your checkout, it is possible that some of those customizations become misconfigured. If you have a separate store environment just for testing, please update there first in order to visualize and test the changes.
+
 ### What to do with the Mercado Pago Plugin?
 * Activate **Checkout Pro** to offer logged-in payments with money in Mercado Pago account, saved cards and off means.
 * Offer payments without the need of having a Mercado Pago account, through the **Custom Checkout** for cards and off means, such as cash, bank transfer and PIX (only in Brazil).
