@@ -86,6 +86,7 @@ class WC_WooMercadoPago_Products_Hook_Credits {
 	}
 
 	public function before_add_to_cart_form() {
+		$links = WC_WooMercadoPago_Helper_Links::woomercadopago_settings_links();
 		global $woocommerce;
 		$suffix = $this->get_suffix();
 
@@ -99,28 +100,28 @@ class WC_WooMercadoPago_Products_Hook_Credits {
 		wc_get_template(
 			'credits/mp-credits-modal.php',
 			array (
-				'banner_title'   => __( 'Pague', 'woocommerce-mercadopago' ),
-				'banner_title_bold' => __('parcelado sem cartão', 'woocommerce-mercadopago' ),
-				'banner_title_end' => __('com Mercado Pago', 'woocommerce-mercadopago' ),
-				'banner_link'    => __( 'Ler mais', 'woocommerce-mercadopago' ),
-				'modal_title'    => __( 'Compre agora e pague parcelado sem cartão depois!', 'woocommerce-mercadopago' ),
-				'modal_subtitle' => __( 'Pague as parcelas com', 'woocommerce-mercadopago' ),
-				'modal_subtitle_bold_pixbol' => __('Pix, boleto', 'woocommerce-mercadopago'),
-				'modal_subtitle_or' => __('ou', 'woocommerce-mercadopago'),
-				'modal_subtitle_bold_accmoney' => __('saldo da conta Mercado Pago', 'woocommerce-mercadopago'),
-				'modal_subtitle_end' => __(', 100% online e sem custos extras.', 'woocommerce-mercadopago'),
-				'modal_how_to'   => __( 'Como usar!', 'woocommerce-mercadopago' ),
-				'modal_step_1'   => __( 'No pagamento, escolha', 'woocommerce-mercadopago' ),
+				'banner_title'   => __( 'Pay in', 'woocommerce-mercadopago' ),
+				'banner_title_bold' => __('installments', 'woocommerce-mercadopago' ),
+				'banner_title_end' => __('with Mercado Pago', 'woocommerce-mercadopago' ),
+				'banner_link'    => __( 'Read more', 'woocommerce-mercadopago' ),
+				'modal_title'    => __( 'Buy now and pay in installments with no card later!', 'woocommerce-mercadopago' ),
+				'modal_subtitle' => __( '100% online, without paperwork or monthly fees', 'woocommerce-mercadopago' ),
+				// 'modal_subtitle_bold_pixbol' => __('Pix, boleto', 'woocommerce-mercadopago'),
+				// 'modal_subtitle_or' => __('ou', 'woocommerce-mercadopago'),
+				// 'modal_subtitle_bold_accmoney' => __('saldo da conta Mercado Pago', 'woocommerce-mercadopago'),
+				// 'modal_subtitle_end' => __(', 100% online e sem custos extras.', 'woocommerce-mercadopago'),
+				'modal_how_to'   => __( 'How does it work?', 'woocommerce-mercadopago' ),
+				'modal_step_1'   => __( 'When paying, choose', 'woocommerce-mercadopago' ),
 				'modal_step_1_bold' => __('Mercado Pago', 'woocommerce-mercadopago' ),
-				'modal_step_1_end'  => __('. Entre na sua conta ou crie uma em poucos passos.', 'woocommerce-mercadopago'),
-				'modal_step_2'   => __( 'Procure por', 'woocommerce-mercadopago' ),
-				'modal_step_2_bold' => __('Mercado Crédito', 'woocommerce-mercadopago' ),
-				'modal_step_2_end' => __('entre as opções, selecione e defina em quantas vezes quer pagar.', 'woocommerce-mercadopago'),
-				'modal_step_3'   => __( 'Pague as parcelas todo mês como preferir, no app do Mercado Pago.', 'woocommerce-mercadopago' ),
-				'modal_footer'   => __( 'Dúvidas? ', 'woocommerce-mercadopago' ),
-				'modal_footer_help_link' => __('https://www.mercadopago.com.br/ajuda/19040', 'woocommerce-mercadopago'),
-				'modal_footer_link' => __('Consulte nossa FAQ', 'woocommerce-mercadopago'),
-				'modal_footer_end' => __('. Crédito sujeito a aprovação.', 'woocommerce-mercadopago')
+				'modal_step_1_end'  => __('. Login to your account or create one in a few steps.', 'woocommerce-mercadopago'),
+				'modal_step_2'   => __( 'Search for', 'woocommerce-mercadopago' ),
+				'modal_step_2_bold' => __('Mercado Credito', 'woocommerce-mercadopago' ),
+				'modal_step_2_end' => __('among the options, select it and choose in how many installments you would like to pay.', 'woocommerce-mercadopago'),
+				'modal_step_3'   => __( 'Pay your installments monthly as you wish, in the Mercado Pago app.', 'woocommerce-mercadopago' ),
+				'modal_footer'   => __( 'Questions? ', 'woocommerce-mercadopago' ),
+				'modal_footer_help_link' => $links['link_help_credits'],
+				'modal_footer_link' => __('Check our FAQ', 'woocommerce-mercadopago'),
+				'modal_footer_end' => __('. Credit subject to approval.', 'woocommerce-mercadopago')
 			),
 			'',
 			WC_WooMercadoPago_Module::get_templates_path()

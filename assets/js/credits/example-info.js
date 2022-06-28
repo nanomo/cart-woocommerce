@@ -2,7 +2,7 @@
   let blueBadgeArr = document.querySelectorAll('.credits-info-example-buttons-child')
   let iconImg = document.querySelectorAll('.icon-image')
   let gifImg = document.querySelector('#gif-image')
-
+  let exampleFooter = document.querySelector('#credits-info-example-gif-footer')
 
   let btnFirst = document.querySelector('#btn-first')
   let btnSecond = document.querySelector('#btn-second')
@@ -17,6 +17,7 @@
           iconImg[0].setAttribute('src', wc_mp_icon_images.computerBlueIcon)
           iconImg[1].setAttribute('src', wc_mp_icon_images.cellphoneGrayIcon)
           gifImg.setAttribute('src', wc_mp_icon_images.viewDesktop)
+          exampleFooter.innerHTML = wc_mp_icon_images.footerDesktop
           return
       }
       if (blueBadgeArr[1].classList.contains('selected')) {
@@ -25,6 +26,7 @@
           iconImg[1].setAttribute('src', wc_mp_icon_images.cellphoneBlueIcon)
           iconImg[0].setAttribute('src', wc_mp_icon_images.computerGrayIcon)
           gifImg.setAttribute('src', wc_mp_icon_images.viewMobile)
+          exampleFooter.innerText = wc_mp_icon_images.footerCellphone
           return
       }
   }

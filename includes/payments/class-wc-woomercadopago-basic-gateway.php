@@ -20,6 +20,7 @@ if ( ! defined('ABSPATH') ) {
 class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 
 
+
 	const ID = 'woo-mercado-pago-basic';
 
 	/**
@@ -537,21 +538,18 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 	 */
 	public function field_credits_banner_mode() {
 	   return array(
-			'title'       => __('Pagamentos com Mercado Crédito', 'woocommerce-mercadopago'),
-			'title_badge' => __('Novo!', 'woocommerce-mercadopago'),
+			'title'       => __('Payment with Mercado Credito', 'woocommerce-mercadopago'),
+			'title_badge' => __('New!', 'woocommerce-mercadopago'),
 			'type'        => 'mp_toggle_switch',
 			'default'     => 'no',
-			'subtitle' => __('Com <a href="https://conteudo.mercadopago.com.br/como-funciona-o-mercado-credito">Mercado Crédito</a>, os clientes pagam parcelado sem cartão, via <b>Pix, boleto ou saldo em conta</b>, no app do Mercado Pago. <br/> <b>Ao ativar o informativo de parcelamento sem cartão</b>, você aumentará suas chances de vender.', 'woocommerce-mercadopago'),
+			'subtitle' => __('With <a href="https://conteudo.mercadopago.com.br/como-funciona-o-mercado-credito">Mercado Credito</a>, clients can pay <b>in installments with no card, by transfers, invoice or money available in their Mercado Pago account.</b><br/><b>By activating the no-card installments banner</b>, you will increase your chances of selling.', 'woocommerce-mercadopago'),
 			'descriptions' => array(
-				'enabled' => __('O informativo de parcelamento sem cartão está <b>ativo</b>.', 'woocommerce-mercadopago'),
-				'disabled' => __('O informativo de parcelamento sem cartão está <b>desativado</b>.', 'woocommerce-mercadopago'),
+			'enabled' => __('The no-card installments banner is <b>active</b>.', 'woocommerce-mercadopago'),
+			'disabled' => __('The no-card installments banner is <b>disabled</b>.', 'woocommerce-mercadopago'),
 			),
 			'after_toggle' => $this->get_credits_info_template()
 		);
 	}
-
-
-
 
 	/**
 	 * Example Banner Credits Admin
@@ -583,17 +581,19 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 				'cellphoneGrayIcon' => plugins_url('../assets/images/credits/cellphone-gray-icon.png', plugin_dir_path(__FILE__)),
 				'viewMobile' => plugins_url('../assets/images/credits/view_mobile.gif', plugin_dir_path(__FILE__)),
 				'viewDesktop' => plugins_url('../assets/images/credits/view_desktop.gif', plugin_dir_path(__FILE__)),
+				'footerDesktop' => __('Banner on the product page | Computer version', 'woocommerce-mercadopago'),
+				'footerCellphone' => __('Banner on the product page | Cellphone version', 'woocommerce-mercadopago'),
 			)
 		);
 
 		return wc_get_template_html(
 			'components/credits-info-example.php',
 			array(
-				'desktop'          => __( 'Computador', 'woocommerce-mercadopago' ),
-				'cellphone'          => __( 'Celular', 'woocommerce-mercadopago' ),
-				'footer'              => __('Informativo na página do produto | Versão para computador', 'woocommerce-mercadopago'),
-				'title'            => __('Visualização do informativo', 'woocommerce-mercadopago' ),
-				'subtitle'          => __('Confira o exemplo de como vai aparecer na loja:', 'woocommerce-mercadopago'),
+				'desktop'          => __('Computer', 'woocommerce-mercadopago'),
+				'cellphone'          => __('Mobile', 'woocommerce-mercadopago'),
+				'footer'              => __('Banner on the product page | Computer version', 'woocommerce-mercadopago'),
+				'title'            => __('Banner visualization', 'woocommerce-mercadopago'),
+				'subtitle'          => __('Check the example of how it will appear in the store:', 'woocommerce-mercadopago'),
 			),
 			'',
 			WC_WooMercadoPago_Module::get_templates_path()

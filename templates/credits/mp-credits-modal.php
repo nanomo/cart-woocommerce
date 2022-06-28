@@ -40,7 +40,7 @@ if ( ! defined('ABSPATH') ) {
 							<div class="mp-credits-modal-titles">
 								<div>
 									<span><?php echo esc_html($modal_title); ?></span>
-									<p><?php echo esc_html($modal_subtitle); ?> <span><?php echo esc_html($modal_subtitle_bold_pixbol); ?> </span> <?php echo esc_html($modal_subtitle_or); ?> <span><?php echo esc_html($modal_subtitle_bold_accmoney); ?></span><?php echo esc_html($modal_subtitle_end); ?></p>
+									<p><?php echo esc_html($modal_subtitle); ?> <!-- <span><?php /*echo esc_html($modal_subtitle_bold_pixbol); ?> </span> <?php echo esc_html($modal_subtitle_or); ?> <span><?php echo esc_html($modal_subtitle_bold_accmoney); ?></span><?php echo esc_html($modal_subtitle_end); */?> --></p>
 								</div>
 								<div>
 									<span><?php echo esc_html($modal_how_to); ?></span>
