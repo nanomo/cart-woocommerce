@@ -8,7 +8,7 @@
       link.href = "https://http2.mlstatic.com/storage/v1/plugins/notices/woocommerce.css";
 
       link.onerror = function () {
-        console.error("Error on load mpnotices woocommerce client styles");
+        console.error("Error on load mp notices styles");
       };
 
       link.onload = function () {
@@ -19,7 +19,7 @@
         scriptTag.defer = true;
 
         scriptTag.onerror = function () {
-          console.error("Error on load mpnotices woocommerce client script");
+          console.error("Error on load mp notices script");
         };
 
         document.body.appendChild(scriptTag);
