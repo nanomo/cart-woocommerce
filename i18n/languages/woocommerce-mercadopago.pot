@@ -7,7 +7,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Last-Translator: MPB Desenvolvimento <mpb_desenvolvimento@mercadopago.com.br>\n"
-"POT-Creation-Date: 2022-06-28 12:46+0000\n"
+"POT-Creation-Date: 2022-06-28 20:11+0000\n"
 "Project-Id-Version: undefined\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
@@ -1352,7 +1352,7 @@ msgstr ""
 msgid "Set deadlines and fees"
 msgstr ""
 
-#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:194, ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:194, ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:194, ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:121, ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:121, ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:121
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:194, ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:194, ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:194, ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:117, ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:117, ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:117
 msgid "Questions? "
 msgstr ""
 
@@ -1841,43 +1841,43 @@ msgstr ""
 msgid "100% online, without paperwork or monthly fees"
 msgstr ""
 
-#: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:113, ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:113, ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:113
+#: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:109, ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:109, ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:109
 msgid "How does it work?"
 msgstr ""
 
-#: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:114, ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:114, ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:114
+#: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:110, ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:110, ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:110
 msgid "When paying, choose"
 msgstr ""
 
-#: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:115, ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:115, ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:115
+#: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:111, ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:111, ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:111
 msgid "Mercado Pago"
 msgstr ""
 
-#: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:116, ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:116, ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:116
+#: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:112, ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:112, ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:112
 msgid ". Login to your account or create one in a few steps."
 msgstr ""
 
-#: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:117, ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:117, ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:117
+#: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:113, ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:113, ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:113
 msgid "Search for"
 msgstr ""
 
-#: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:118, ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:118, ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:118
+#: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:114, ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:114, ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:114
 msgid "Mercado Credito"
 msgstr ""
 
-#: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:119, ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:119, ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:119
+#: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:115, ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:115, ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:115
 msgid "among the options, select it and choose in how many installments you would like to pay."
 msgstr ""
 
-#: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:120, ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:120, ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:120
+#: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:116, ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:116, ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:116
 msgid "Pay your installments monthly as you wish, in the Mercado Pago app."
 msgstr ""
 
-#: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:123, ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:123, ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:123
+#: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:119, ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:119, ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:119
 msgid "Check our FAQ"
 msgstr ""
 
-#: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:124, ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:124, ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:124
+#: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:120, ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:120, ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:120
 msgid ". Credit subject to approval."
 msgstr ""
 
