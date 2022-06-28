@@ -654,7 +654,13 @@ class WC_WooMercadoPago_Module extends WC_WooMercadoPago_Configs {
 	 * @return void
 	 */
 	public function load_admin_scripts() {
-		if ( is_admin() ) {
+		if (
+			is_admin() && (
+				WC_WooMercadoPago_Helper_Current_Url::validate_url( 'plugins' ) ||
+				WC_WooMercadoPago_Helper_Current_Url::validate_page( 'mercadopago-settings' ) ||
+				WC_WooMercadoPago_Helper_Current_Url::validate_section( 'woo-mercado-pago' )
+			)
+		) {
 			global $woocommerce;
 
 			$site_id = get_option( '_site_id_v1' );
