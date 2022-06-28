@@ -5,7 +5,7 @@
       var link = document.createElement("link");
       link.rel = "stylesheet";
       link.type = "text/css";
-      link.href = "https://http2.mlstatic.com/storage/homol/v1/plugins/notices/woocommerce.css?v=100";
+      link.href = "https://http2.mlstatic.com/storage/v1/plugins/notices/woocommerce.css";
 
       link.onerror = function () {
         console.error("Error on load mpnotices woocommerce client styles");
@@ -14,7 +14,7 @@
       link.onload = function () {
         var scriptTag = document.createElement("script");
         scriptTag.setAttribute("id", "mpnotices_woocommerce_client");
-        scriptTag.src = "https://http2.mlstatic.com/storage/homol/v1/plugins/notices/woocommerce.js?v=100";
+        scriptTag.src = "https://http2.mlstatic.com/storage/v1/plugins/notices/woocommerce.js";
         scriptTag.async = true;
         scriptTag.defer = true;
 
