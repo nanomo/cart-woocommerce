@@ -594,7 +594,7 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 			'subtitle' => sprintf (
 				/* translators: %s link to Mercado Credits blog */
 				__('With <a href="%s" target="blank">Mercado Credito</a>, clients can pay <b>in installments with no card, by transfers, invoice or money available in their Mercado Pago account.</b><br/><b>By activating the no-card installments banner</b>, you will increase your chances of selling.', 'woocommerce-mercadopago'),
-				$link,
+				$link
 			),
 			'descriptions' => array(
 				'enabled' => __('The no-card installments banner is <b>active</b>.', 'woocommerce-mercadopago'),
@@ -602,8 +602,6 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 			),
 			'after_toggle' => $this->get_credits_info_template()
 		);
-
-
 	}
 
 	/**
