@@ -584,18 +584,26 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 	 * @return array
 	 */
 	public function field_credits_banner_mode() {
+		$link = 'https://conteudo.mercadopago.com.br/como-funciona-o-mercado-credito';
+
 		return array(
 			'title'       => __('Payment with Mercado Credito', 'woocommerce-mercadopago'),
 			'title_badge' => __('New!', 'woocommerce-mercadopago'),
 			'type'        => 'mp_toggle_switch',
 			'default'     => 'no',
-			'subtitle' => __('With <a href="https://conteudo.mercadopago.com.br/como-funciona-o-mercado-credito">Mercado Credito</a>, clients can pay <b>in installments with no card, by transfers, invoice or money available in their Mercado Pago account.</b><br/><b>By activating the no-card installments banner</b>, you will increase your chances of selling.', 'woocommerce-mercadopago'),
+			'subtitle' => sprintf (
+				/* translators: %s link to Mercado Credits blog */
+				__('With <a href="%s" target="blank">Mercado Credito</a>, clients can pay <b>in installments with no card, by transfers, invoice or money available in their Mercado Pago account.</b><br/><b>By activating the no-card installments banner</b>, you will increase your chances of selling.', 'woocommerce-mercadopago'),
+				$link,
+			),
 			'descriptions' => array(
-			'enabled' => __('The no-card installments banner is <b>active</b>.', 'woocommerce-mercadopago'),
-			'disabled' => __('The no-card installments banner is <b>disabled</b>.', 'woocommerce-mercadopago'),
+				'enabled' => __('The no-card installments banner is <b>active</b>.', 'woocommerce-mercadopago'),
+				'disabled' => __('The no-card installments banner is <b>disabled</b>.', 'woocommerce-mercadopago'),
 			),
 			'after_toggle' => $this->get_credits_info_template()
 		);
+
+
 	}
 
 	/**

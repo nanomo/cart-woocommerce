@@ -643,76 +643,78 @@ msgstr "Transferencia bancaria"
 msgid "Payment by cash"
 msgstr "Pagos en efectivo "
 
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:588,
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:588
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:590,
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:590
 #, fuzzy
 #| msgid "Pay with Mercado Pago"
 msgid "Payment with Mercado Credito"
 msgstr "Pagar con Mercado Pago"
 
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:589,
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:589
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:591,
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:591
 msgid "New!"
 msgstr ""
 
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:592,
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:592
+#. translators: %s link to Mercado Credits blog
+#. translators: %s link to Mercado Credits blog
+#. translators: %s link to Mercado Credits blog
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:596,
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:596
 msgid ""
-"With <a href=\"https://conteudo.mercadopago.com.br/como-funciona-o-mercado-"
-"credito\">Mercado Credito</a>, clients can pay <b>in installments with no "
-"card, by transfers, invoice or money available in their Mercado Pago account."
-"</b><br/><b>By activating the no-card installments banner</b>, you will "
-"increase your chances of selling."
+"With <a href=\"%s\" target=\"blank\">Mercado Credito</a>, clients can pay "
+"<b>in installments with no card, by transfers, invoice or money available in "
+"their Mercado Pago account.</b><br/><b>By activating the no-card "
+"installments banner</b>, you will increase your chances of selling."
 msgstr ""
 
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:594,
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:594
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:600,
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:600
 #, fuzzy
 #| msgid "The feature for payments with <b>saved cards</b> is <b>active</b>."
 msgid "The no-card installments banner is <b>active</b>."
 msgstr ""
 "La funcionalidad para pagos con <b>tarjetas guardadas</b> está <b>activa</b>."
 
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:595,
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:595
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:601,
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:601
 #, fuzzy
 #| msgid "Reduce inventory is <b>disabled</b>."
 msgid "The no-card installments banner is <b>disabled</b>."
 msgstr "Reducir inventario está <b>inactivo</b>."
 
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:631,
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:641,
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:641
-msgid "Banner on the product page | Computer version"
-msgstr ""
-
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:632,
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:632
-msgid "Banner on the product page | Cellphone version"
-msgstr ""
-
 #: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:639,
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:639
-msgid "Computer"
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:649,
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:649
+msgid "Banner on the product page | Computer version"
 msgstr ""
 
 #: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:640,
 #: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:640
+msgid "Banner on the product page | Cellphone version"
+msgstr ""
+
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:647,
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:647
+msgid "Computer"
+msgstr ""
+
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:648,
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:648
 msgid "Mobile"
 msgstr ""
 
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:642,
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:642
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:650,
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:650
 msgid "Banner visualization"
 msgstr ""
 
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:643,
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:643
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:651,
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:651
 msgid "Check the example of how it will appear in the store:"
 msgstr ""
 
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:679,
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:666,
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:687,
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:674,
 #: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:584,
 #: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:572,
 #: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:421,
@@ -725,8 +727,8 @@ msgstr ""
 msgid "discount of"
 msgstr "descuento de"
 
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:684,
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:671,
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:692,
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:679,
 #: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:589,
 #: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:577,
 #: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:426,
