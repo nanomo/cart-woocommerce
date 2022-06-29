@@ -46,11 +46,19 @@ class WC_WooMercadoPago_Products_Hook_Credits {
 	public $credits_helper;
 
 	/**
+	 * Options
+	 *
+	 * @var WC_WooMercadoPago_Options
+	 */
+	public $mp_options;
+
+	/**
 	 * WC_WooMercadoPago_Products_Hook_Credits constructor.
 	 *
 	 */
 	public function __construct() {
 		$this->credits_helper = new WC_WooMercadoPago_Helper_Credits();
+		$this->mp_options           = WC_WooMercadoPago_Options::get_instance();
 
 		if ( ! is_admin() ) {
 			$checkout_pro_configs       = get_option( 'woocommerce_woo-mercado-pago-basic_settings', '' );
@@ -86,7 +94,8 @@ class WC_WooMercadoPago_Products_Hook_Credits {
 	}
 
 	public function before_add_to_cart_form() {
-		$links = WC_WooMercadoPago_Helper_Links::woomercadopago_settings_links();
+		$site =  strtolower($this->mp_options->get_site_id());
+		$links = WC_WooMercadoPago_Helper_Links::get_mc_blog_link($site);
 		global $woocommerce;
 		$suffix = $this->get_suffix();
 
@@ -115,7 +124,7 @@ class WC_WooMercadoPago_Products_Hook_Credits {
 				'modal_step_2_end' => __('among the options, select it and choose in how many installments you would like to pay.', 'woocommerce-mercadopago'),
 				'modal_step_3'   => __( 'Pay your installments monthly as you wish, in the Mercado Pago app.', 'woocommerce-mercadopago' ),
 				'modal_footer'   => __( 'Questions? ', 'woocommerce-mercadopago' ),
-				'modal_footer_help_link' => $links['link_help_credits'],
+				'modal_footer_help_link' => $links['FAQ_link'],
 				'modal_footer_link' => __('Check our FAQ', 'woocommerce-mercadopago'),
 				'modal_footer_end' => __('. Credit subject to approval.', 'woocommerce-mercadopago')
 			),
@@ -152,5 +161,4 @@ class WC_WooMercadoPago_Products_Hook_Credits {
 			)
 		);
 	}
-
 }

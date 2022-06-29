@@ -21,20 +21,18 @@ class WC_WooMercadoPago_Helper_Links {
 	 * Links by country configured in woocommerce.
 	 */
 	public static function woomercadopago_settings_links() {
-		$link_settings     = WC_WooMercadoPago_Module::define_link_country();
-		$link_prefix_mp    = 'https://www.mercadopago.';
-		$link_costs_mp     = 'costs-section';
-		$link_developers   = 'developers/';
-		$link_guides       = '/guides/plugins/woocommerce/integration';
-		$link_credentials  = 'panel/credentials';
-		$link_help_credits = '/help/19040';
+		$link_settings    = WC_WooMercadoPago_Module::define_link_country();
+		$link_prefix_mp   = 'https://www.mercadopago.';
+		$link_costs_mp    = 'costs-section';
+		$link_developers  = 'developers/';
+		$link_guides      = '/guides/plugins/woocommerce/integration';
+		$link_credentials = 'panel/credentials';
 
 		return array (
 
 			'link_costs' => $link_prefix_mp . $link_settings ['sufix_url'] . $link_costs_mp,
 			'link_guides_plugin' => $link_prefix_mp . $link_settings ['sufix_url'] . $link_developers . $link_settings ['translate'] . $link_guides,
 			'link_credentials' => $link_prefix_mp . $link_settings ['sufix_url'] . $link_developers . $link_credentials,
-			'link_help_credits' => $link_prefix_mp . $link_settings ['sufix_url'] . $link_help_credits,
 		);
 	}
 
@@ -146,5 +144,33 @@ class WC_WooMercadoPago_Helper_Links {
 			'link_terms_and_conditions' => $link_prefix_mp . $links_mp['sufix_url'] . $links_mp['help'] . $links_mp['term_conditition'],
 			'text_suffix'                               => __( 'Terms and Conditions', 'woocommerce-mercadopago' ),
 		);
+	}
+
+	/**
+	 * Get Mercado Pago Devsite Page Link
+	 *
+	 * @param String $country Country Acronym
+	 *
+	 * @return String
+	 */
+	public static function get_mc_blog_link( $country ) {
+		$country_links = [
+			'mla' => array(
+				'blog_link' => 'https://vendedores.mercadolibre.com.ar/nota/impulsa-tus-ventas-y-alcanza-mas-publico-con-mercado-credito',
+				'FAQ_link' => 'https://www.mercadopago.com.ar/help/19040'
+			),
+			'mlm' => array(
+				'blog_link' => 'https://vendedores.mercadolibre.com.ar/nota/impulsa-tus-ventas-y-alcanza-mas-publico-con-mercado-credito',
+				'FAQ_link' => 'https://www.mercadopago.com.mx/help/19040'
+			),
+			'mlb' => array(
+				'blog_link' => 'https://vendedores.mercadolibre.com.ar/nota/impulsa-tus-ventas-y-alcanza-mas-publico-con-mercado-credito',
+				'FAQ_link' => 'https://www.mercadopago.com.br/help/19040'
+			),
+		];
+
+		$link = array_key_exists($country, $country_links) ? $country_links[$country] : $country_links['mla'];
+
+		return $link;
 	}
 }

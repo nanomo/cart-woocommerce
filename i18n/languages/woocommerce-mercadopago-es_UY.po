@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Mercado Pago payments for WooCommerce 6.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/woocommerce-"
 "mercadopago\n"
-"POT-Creation-Date: \n"
+"POT-Creation-Date: 2022-06-29 20:26+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -13,13 +13,13 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 3.1\n"
 
-#: ../../includes/helpers/class-wc-woomercadopago-helper-links.php:145,
+#: ../../includes/helpers/class-wc-woomercadopago-helper-links.php:144,
 #: ../../includes/module/class-wc-woomercadopago-module.php:347,
 #: ../../includes/module/class-wc-woomercadopago-module.php:347
 msgid "By continuing, you agree to our "
 msgstr "Al continuar, aceptas nuestros "
 
-#: ../../includes/helpers/class-wc-woomercadopago-helper-links.php:147,
+#: ../../includes/helpers/class-wc-woomercadopago-helper-links.php:146,
 #: ../../includes/module/class-wc-woomercadopago-module.php:349,
 #: ../../includes/module/class-wc-woomercadopago-module.php:349
 msgid "Terms and Conditions"
@@ -35,15 +35,11 @@ msgstr ""
 "sea compatible al valor de la moneda que usas en Mercado Pago."
 
 #. translators: 1: local currency 2: currency
-#. translators: 1: local currency 2: currency
-#. translators: 1: local currency 2: currency
 #: ../../includes/helpers/class-wc-woomercadopago-helpers-currencyconverter.php:478,
 #: ../../includes/helpers/class-wc-woomercadopago-helpers-currencyconverter.php:478
 msgid "Now we convert your currency from %1$s to %2$s."
 msgstr "Ahora convertimos tu moneda de %1$s a %2$s."
 
-#. translators: 1: local currency 2: currency
-#. translators: 1: local currency 2: currency
 #. translators: 1: local currency 2: currency
 #: ../../includes/helpers/class-wc-woomercadopago-helpers-currencyconverter.php:498,
 #: ../../includes/helpers/class-wc-woomercadopago-helpers-currencyconverter.php:498
@@ -108,8 +104,6 @@ msgstr ""
 "necesaria la instalación de la extensión GD para enviar el QR Code Pix por "
 "correo electrónico."
 
-#. translators: %s link to WooCommerce
-#. translators: %s link to WooCommerce
 #. translators: %s link to WooCommerce
 #: ../../includes/module/class-wc-woomercadopago-init.php:89,
 #: ../../includes/module/class-wc-woomercadopago-init.php:89
@@ -290,8 +284,6 @@ msgid ""
 "The payment is in mediation or the purchase was unknown by the customer."
 msgstr "El pago esta en mediación o la compra fue desconocida por el cliente."
 
-#. translators: 1: payment_id 2: status
-#. translators: 1: payment_id 2: status
 #. translators: 1: payment_id 2: status
 #: ../../includes/notification/class-wc-woomercadopago-notification-abstract.php:469,
 #: ../../includes/notification/class-wc-woomercadopago-notification-abstract.php:469
@@ -602,117 +594,114 @@ msgstr "El comprador <b>será redirigido automáticamente a la tienda</b>."
 msgid "The buyer <b>will not be automatically redirected to the store</b>."
 msgstr "El comprador <b>no será redirigido automáticamente a la tienda</b>."
 
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:535,
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:535
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:537,
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:537
 msgid "Installments without card"
 msgstr "Cuotas sin tarjeta"
 
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:536,
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:544,
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:538,
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:546,
 #: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:354,
 #: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:354
 msgid "Up to "
 msgstr "hasta "
 
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:536,
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:544,
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:538,
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:546,
 #: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:354,
 #: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:354
 msgid " installments"
 msgstr " Cuotas"
 
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:543,
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:545,
 #: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:353,
 #: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:353
 msgid "Credit cards"
 msgstr "Tarjetas de crédito"
 
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:550,
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:552,
 #: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:361,
 #: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:361
 msgid "Debit cards"
 msgstr "Tarjetas de débito "
 
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:556,
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:556
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:558,
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:558
 msgid "Bank Transfer"
 msgstr "Transferencia bancaria"
 
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:562,
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:562
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:564,
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:564
 msgid "Payment by cash"
 msgstr "Pagos en efectivo "
 
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:588,
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:588
-#, fuzzy
-#| msgid "Pay with Mercado Pago"
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:593,
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:593
 msgid "Payment with Mercado Credito"
-msgstr "Pagar con Mercado Pago"
-
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:589,
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:589
-msgid "New!"
-msgstr ""
-
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:592,
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:592
-msgid ""
-"With <a href=\"https://conteudo.mercadopago.com.br/como-funciona-o-mercado-"
-"credito\">Mercado Credito</a>, clients can pay <b>in installments with no "
-"card, by transfers, invoice or money available in their Mercado Pago account."
-"</b><br/><b>By activating the no-card installments banner</b>, you will "
-"increase your chances of selling."
-msgstr ""
+msgstr "Pagos con Mercado Crédito"
 
 #: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:594,
 #: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:594
-#, fuzzy
-#| msgid "The feature for payments with <b>saved cards</b> is <b>active</b>."
+msgid "New!"
+msgstr "¡Nuevo!"
+
+#. translators: %s link to Mercado Credits blog
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:599,
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:599
+msgid ""
+"With <a href=\"%s\" target=\"blank\">Mercado Credito</a>, clients can pay "
+"<b>in installments with no card, by transfers, invoice or money available in "
+"their Mercado Pago account.</b><br/><b>By activating the no-card "
+"installments banner</b>, you will increase your chances of selling."
+msgstr ""
+"Con <a href=“%s” target=“blank”>Mercado Crédito</a>, los clientes pagan  "
+"<b>en cuotas sin tarjeta, por transferencia, factura o dinero disponible en "
+"tu cuenta de Mercado Pago.</b><br/><b>Al activar el informativo de cuotas "
+"sin tarjeta</b>, aumentarás tus chances de vender."
+
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:603,
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:603
 msgid "The no-card installments banner is <b>active</b>."
-msgstr ""
-"La funcionalidad para pagos con <b>tarjetas guardadas</b> está <b>activa</b>."
+msgstr "El informativo de cuotas sin tarjeta está <b>activo</b>. "
 
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:595,
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:595
-#, fuzzy
-#| msgid "Reduce inventory is <b>disabled</b>."
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:604,
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:604
 msgid "The no-card installments banner is <b>disabled</b>."
-msgstr "Reducir inventario está <b>inactivo</b>."
-
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:631,
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:641,
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:641
-msgid "Banner on the product page | Computer version"
-msgstr ""
-
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:632,
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:632
-msgid "Banner on the product page | Cellphone version"
-msgstr ""
-
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:639,
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:639
-msgid "Computer"
-msgstr ""
+msgstr "El informativo de cuotas sin tarjeta está <b>inactivo</b>. "
 
 #: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:640,
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:640
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:650,
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:650
+msgid "Banner on the product page | Computer version"
+msgstr "Informativo en la página del producto | Versión para computadora"
+
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:641,
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:641
+msgid "Banner on the product page | Cellphone version"
+msgstr "Informativo en la página del producto | Versión para celular"
+
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:648,
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:648
+msgid "Computer"
+msgstr "Computadora"
+
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:649,
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:649
 msgid "Mobile"
-msgstr ""
+msgstr "Celular"
 
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:642,
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:642
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:651,
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:651
 msgid "Banner visualization"
-msgstr ""
+msgstr "Visualización del informativo"
 
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:643,
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:643
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:652,
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:652
 msgid "Check the example of how it will appear in the store:"
-msgstr ""
+msgstr "Consulta el ejemplo de cómo aparecerá en la tienda:"
 
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:679,
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:666,
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:688,
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:675,
 #: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:584,
 #: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:572,
 #: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:421,
@@ -725,8 +714,8 @@ msgstr ""
 msgid "discount of"
 msgstr "descuento de"
 
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:684,
-#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:671,
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:693,
+#: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:680,
 #: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:589,
 #: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:577,
 #: ../../includes/payments/class-wc-woomercadopago-pix-gateway.php:426,
@@ -2179,8 +2168,8 @@ msgid "Set deadlines and fees"
 msgstr "Ajustar plazos y tasas"
 
 #: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:194,
-#: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:117,
-#: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:117
+#: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:126,
+#: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:126
 msgid "Questions? "
 msgstr "¿Dudas? "
 
@@ -2619,8 +2608,6 @@ msgid "Discount provided by store"
 msgstr "Descuento proporcionado por la tienda"
 
 #. translators: %s coupon
-#. translators: %s coupon
-#. translators: %s coupon
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:130,
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-abstract.php:130
 msgid "Discount for coupon %s"
@@ -2937,118 +2924,106 @@ msgstr "Si lo prefieres, puedes pagar copiando y pegando el siguiente código"
 msgid "Copy code"
 msgstr "Copiar código"
 
-#: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:103,
-#: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:103
-#, fuzzy
-#| msgid "Pay securely and instantly!"
-msgid "Pay in"
-msgstr "Pago seguro e instantáneo!"
-
-#: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:104,
-#: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:104
-#, fuzzy
-#| msgid " installments"
-msgid "installments"
-msgstr " Cuotas"
-
-#: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:105,
-#: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:105
-#, fuzzy
-#| msgid "Pay with Mercado Pago"
-msgid "with Mercado Pago"
-msgstr "Pagar con Mercado Pago"
-
-#: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:106,
-#: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:106
-msgid "Read more"
-msgstr ""
-
-#: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:107,
-#: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:107
-msgid "Buy now and pay in installments with no card later!"
-msgstr ""
-
-#: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:108,
-#: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:108
-msgid "100% online, without paperwork or monthly fees"
-msgstr ""
-
-#: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:109,
-#: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:109
-msgid "How does it work?"
-msgstr ""
-
-#: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:110,
-#: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:110
-msgid "When paying, choose"
-msgstr ""
-
-#: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:111,
-#: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:111
-#, fuzzy
-#| msgid "By Mercado Pago"
-msgid "Mercado Pago"
-msgstr "Por Mercado Pago"
-
 #: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:112,
 #: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:112
-msgid ". Login to your account or create one in a few steps."
-msgstr ""
+msgid "Pay in"
+msgstr "Paga"
 
 #: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:113,
 #: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:113
-msgid "Search for"
-msgstr ""
+msgid "installments"
+msgstr "en cuotas"
 
 #: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:114,
 #: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:114
-#, fuzzy
-#| msgid "Debit and Credit"
-msgid "Mercado Credito"
-msgstr "Débito e crédito"
+msgid "with Mercado Pago"
+msgstr "con Mercado Pago "
 
 #: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:115,
 #: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:115
+msgid "Read more"
+msgstr "Leer más"
+
+#: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:116,
+#: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:116
+msgid "Buy now and pay in installments with no card later!"
+msgstr "¡Compra ahora y paga después en meses sin tarjeta!"
+
+#: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:117,
+#: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:117
+msgid "100% online, without paperwork or monthly fees"
+msgstr "¡Compra ahora y paga después en meses sin tarjeta!"
+
+#: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:118,
+#: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:118
+msgid "How does it work?"
+msgstr "¿Cómo funciona?"
+
+#: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:119,
+#: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:119
+msgid "When paying, choose"
+msgstr "Al pagar elige"
+
+#: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:120,
+#: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:120
+msgid "Mercado Pago"
+msgstr "Mercado Pago"
+
+#: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:121,
+#: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:121
+msgid ". Login to your account or create one in a few steps."
+msgstr ". Podrás ingresar con tu cuenta o crear una en pocos pasos."
+
+#: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:122,
+#: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:122
+msgid "Search for"
+msgstr "Busca"
+
+#: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:123,
+#: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:123
+msgid "Mercado Credito"
+msgstr "Mercado Crédito"
+
+#: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:124,
+#: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:124
 msgid ""
 "among the options, select it and choose in how many installments you would "
 "like to pay."
 msgstr ""
+"entre las opciones, selecciónalo y elige en cuántas cuotas quieres pagar."
 
-#: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:116,
-#: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:116
+#: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:125,
+#: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:125
 msgid "Pay your installments monthly as you wish, in the Mercado Pago app."
 msgstr ""
+"Pagas mes a mes tus meses como prefieras, desde la app de Mercado Pago."
 
-#: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:119,
-#: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:119
-#, fuzzy
-#| msgid "Checkout Pro"
+#: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:128,
+#: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:128
 msgid "Check our FAQ"
-msgstr "Checkout Pro"
+msgstr "Consulta nuestra FAQ"
 
-#: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:120,
-#: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:120
+#: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:129,
+#: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:129
 msgid ". Credit subject to approval."
-msgstr ""
+msgstr ". Crédito sujeto a aprobación."
 
 #: ../../includes/module/sdk/lib/class-mp.php:182,
 #: ../../includes/module/sdk/lib/class-mp.php:634,
 #: ../../includes/module/sdk/lib/class-mp.php:682,
 #: ../../includes/module/sdk/lib/class-mp.php:723,
-#: ../../includes/module/sdk/lib/class-mp.php:984,
-#: ../../includes/module/sdk/lib/class-mp.php:984
+#: ../../includes/module/sdk/lib/class-mp.php:982,
+#: ../../includes/module/sdk/lib/class-mp.php:982
 msgid "Response from cache"
 msgstr "Respuesta de la caché"
 
-#: ../../includes/module/sdk/lib/class-mp.php:1000,
-#: ../../includes/module/sdk/lib/class-mp.php:1000
+#: ../../includes/module/sdk/lib/class-mp.php:996,
+#: ../../includes/module/sdk/lib/class-mp.php:996
 #, fuzzy
 #| msgid "Response from cache"
 msgid "Response from API"
 msgstr "Respuesta de la caché"
 
-#. translators: 1: total_time currency 2: url
-#. translators: 1: total_time currency 2: url
 #. translators: 1: total_time currency 2: url
 #: ../../includes/module/sdk/lib/rest-client/class-mp-rest-client-abstract.php:179,
 #: ../../includes/module/sdk/lib/rest-client/class-mp-rest-client-abstract.php:179

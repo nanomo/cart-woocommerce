@@ -524,7 +524,9 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 		}
 
 		$cho_pro_display_payments = [];
-		$payments_response        = $this->get_payment_response();
+
+		$site              = strtoupper($this->mp_options->get_site_id());
+		$payments_response = $this->mp->get_payment_response_by_sites($site);
 
 		if ( $this->is_credits($payments_response) ) {
 			$credits[] = [
@@ -584,7 +586,8 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 	 * @return array
 	 */
 	public function field_credits_banner_mode() {
-		$link = 'https://conteudo.mercadopago.com.br/como-funciona-o-mercado-credito';
+		$site = strtolower($this->mp_options->get_site_id());
+		$link = WC_WooMercadoPago_Helper_Links::get_mc_blog_link($site);
 
 		return array(
 			'title'       => __('Payment with Mercado Credito', 'woocommerce-mercadopago'),
@@ -594,7 +597,7 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 			'subtitle' => sprintf (
 				/* translators: %s link to Mercado Credits blog */
 				__('With <a href="%s" target="blank">Mercado Credito</a>, clients can pay <b>in installments with no card, by transfers, invoice or money available in their Mercado Pago account.</b><br/><b>By activating the no-card installments banner</b>, you will increase your chances of selling.', 'woocommerce-mercadopago'),
-				$link
+				$link['blog_link']
 			),
 			'descriptions' => array(
 				'enabled' => __('The no-card installments banner is <b>active</b>.', 'woocommerce-mercadopago'),
@@ -776,22 +779,5 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 			}
 		}
 		return false;
-	}
-	/**
-	 *
-	 * Get Payment Response function
-	 *
-	 * @return mixed
-	 */
-	public function get_payment_response() {
-		$access_token = $this->mp->get_access_token();
-		$site         = strtoupper($this->mp_options->get_site_id());
-		if ( ! empty( $access_token ) ) {
-			$payments = $this->mp->get_payment_response_by_sites( $site );
-			if ( isset( $payments['response'] ) ) {
-				return $payments['response'];
-			}
-		}
-		return null;
 	}
 }
