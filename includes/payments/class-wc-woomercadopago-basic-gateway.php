@@ -524,8 +524,8 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 		}
 
 		$cho_pro_display_payments = [];
+		$payments_response        = $this->get_payment_response();
 
-		$payments_response = $this->get_payment_response();
 		if ( $this->is_credits($payments_response) ) {
 			$credits[] = [
 				'src' => plugins_url( '../assets/images/mercado-credito.png', plugin_dir_path( __FILE__ ) ),
@@ -789,7 +789,7 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 		$access_token = $this->mp->get_access_token();
 		$site         = strtoupper($this->mp_options->get_site_id());
 		if ( ! empty( $access_token ) ) {
-			$payments = $this->mp->get( '/sites/' . $site . '/payment_methods', array( 'Authorization' => 'Bearer ' . $access_token ) );
+			$payments = $this->mp->get_payment_response_by_sites( $site );
 			if ( isset( $payments['response'] ) ) {
 				return $payments['response'];
 			}
