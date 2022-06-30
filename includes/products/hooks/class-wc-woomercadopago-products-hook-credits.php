@@ -58,7 +58,7 @@ class WC_WooMercadoPago_Products_Hook_Credits {
 	 */
 	public function __construct() {
 		$this->credits_helper = new WC_WooMercadoPago_Helper_Credits();
-		$this->mp_options           = WC_WooMercadoPago_Options::get_instance();
+		$this->mp_options     = WC_WooMercadoPago_Options::get_instance();
 
 		if ( ! is_admin() ) {
 			$checkout_pro_configs       = get_option( 'woocommerce_woo-mercado-pago-basic_settings', '' );
@@ -94,7 +94,7 @@ class WC_WooMercadoPago_Products_Hook_Credits {
 	}
 
 	public function before_add_to_cart_form() {
-		$site =  strtolower($this->mp_options->get_site_id());
+		$site  = strtolower($this->mp_options->get_site_id());
 		$links = WC_WooMercadoPago_Helper_Links::get_mc_blog_link($site);
 		global $woocommerce;
 		$suffix = $this->get_suffix();
