@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Mercado Pago payments for WooCommerce 6.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/woocommerce-"
 "mercadopago\n"
-"POT-Creation-Date: 2022-06-29 20:26+0000\n"
+"POT-Creation-Date: 2022-06-30 12:27+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -13,13 +13,13 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 3.1\n"
 
-#: ../../includes/helpers/class-wc-woomercadopago-helper-links.php:144,
+#: ../../includes/helpers/class-wc-woomercadopago-helper-links.php:143,
 #: ../../includes/module/class-wc-woomercadopago-module.php:347,
 #: ../../includes/module/class-wc-woomercadopago-module.php:347
 msgid "By continuing, you agree to our "
 msgstr "Al continuar, aceptas nuestros "
 
-#: ../../includes/helpers/class-wc-woomercadopago-helper-links.php:146,
+#: ../../includes/helpers/class-wc-woomercadopago-helper-links.php:145,
 #: ../../includes/module/class-wc-woomercadopago-module.php:349,
 #: ../../includes/module/class-wc-woomercadopago-module.php:349
 msgid "Terms and Conditions"
@@ -654,10 +654,10 @@ msgid ""
 "their Mercado Pago account.</b><br/><b>By activating the no-card "
 "installments banner</b>, you will increase your chances of selling."
 msgstr ""
-"Con <a href=“%s” target=“blank”>Mercado Crédito</a>, los clientes pagan  "
-"<b>en cuotas sin tarjeta, por transferencia, factura o dinero disponible en "
-"tu cuenta de Mercado Pago.</b><br/><b>Al activar el informativo de cuotas "
-"sin tarjeta</b>, aumentarás tus chances de vender."
+"Con <a href=%s target=blank>Mercado Crédito</a>, los clientes pagan  <b>en "
+"cuotas sin tarjeta, por transferencia, factura o dinero disponible en tu "
+"cuenta de Mercado Pago.</b><br/><b>Al activar el informativo de cuotas sin "
+"tarjeta</b>, aumentarás tus chances de vender."
 
 #: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:603,
 #: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:603
