@@ -2996,7 +2996,7 @@ msgstr ""
 #: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:125
 msgid "Pay your installments monthly as you wish, in the Mercado Pago app."
 msgstr ""
-"Pagas mes a mes tus meses como prefieras, desde la app de Mercado Pago."
+"Pagas mes a mes tus cuotas como prefieras, desde la app de Mercado Pago."
 
 #: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:128,
 #: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:128

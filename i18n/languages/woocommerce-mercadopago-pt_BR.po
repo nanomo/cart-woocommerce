@@ -2928,97 +2928,88 @@ msgstr "Copiar código"
 
 #: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:112,
 #: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:112
-#, fuzzy
-#| msgid "Pay instantly"
 msgid "Pay in"
-msgstr "Pague de forma segura e instantânea"
+msgstr "Pague"
 
 #: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:113,
 #: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:113
-#, fuzzy
-#| msgid " installments"
 msgid "installments"
-msgstr "X"
+msgstr "parcelado sem cartão"
 
 #: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:114,
 #: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:114
-#, fuzzy
-#| msgid "Pay with Mercado Pago"
 msgid "with Mercado Pago"
-msgstr "Pagar com Mercado Pago"
+msgstr "com Mercado Pago"
 
 #: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:115,
 #: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:115
 msgid "Read more"
-msgstr ""
+msgstr "Ler mais"
 
 #: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:116,
 #: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:116
 msgid "Buy now and pay in installments with no card later!"
-msgstr ""
+msgstr "Compre agora e pague parcelado sem cartão depois!"
 
 #: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:117,
 #: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:117
 msgid "100% online, without paperwork or monthly fees"
 msgstr ""
+"Pague as parcelas com Pix, boleto ou saldo da conta Mercado Pago, 100% on-"
+"line \n"
+"e sem custos extras."
 
 #: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:118,
 #: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:118
 msgid "How does it work?"
-msgstr ""
+msgstr "Como usar:"
 
 #: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:119,
 #: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:119
 msgid "When paying, choose"
-msgstr ""
+msgstr "No pagamento, escolha"
 
 #: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:120,
 #: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:120
-#, fuzzy
-#| msgid "By Mercado Pago"
 msgid "Mercado Pago"
-msgstr "Por Mercado Pago"
+msgstr "Mercado Pago"
 
 #: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:121,
 #: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:121
 msgid ". Login to your account or create one in a few steps."
-msgstr ""
+msgstr ". Entre na sua conta ou crie uma em poucos passos."
 
 #: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:122,
 #: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:122
 msgid "Search for"
-msgstr ""
+msgstr "Procure por"
 
 #: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:123,
 #: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:123
-#, fuzzy
-#| msgid "Debit and Credit"
 msgid "Mercado Credito"
-msgstr "Débito e crédito"
+msgstr "Mercado Crédito"
 
 #: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:124,
 #: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:124
 msgid ""
 "among the options, select it and choose in how many installments you would "
 "like to pay."
-msgstr ""
+msgstr "entre as opções, selecione e defina em quantas vezes quer pagar."
 
 #: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:125,
 #: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:125
 msgid "Pay your installments monthly as you wish, in the Mercado Pago app."
-msgstr ""
+msgstr "Pague as parcelas todo mês como preferir, no app do Mercado Pago."
 
 #: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:128,
 #: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:128
-#, fuzzy
-#| msgid "Checkout Pro"
 msgid "Check our FAQ"
-msgstr "Checkout Pro"
+msgstr "Consulte nossa FAQ"
 
 #: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:129,
 #: ../../includes/products/hooks/class-wc-woomercadopago-products-hook-credits.php:129
 msgid ". Credit subject to approval."
-msgstr ""
+msgstr ". Crédito sujeito a aprovação."
 
 #: ../../includes/module/sdk/lib/class-mp.php:182,
 #: ../../includes/module/sdk/lib/class-mp.php:634,
