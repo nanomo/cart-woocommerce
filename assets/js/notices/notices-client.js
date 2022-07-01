@@ -32,7 +32,7 @@
   });
 
   function sendError({ target }) {
-    const url = "https://api.mercadopago.com/v1/plugins/notices/metrics";
+    var url = "https://api.mercadopago.com/v1/plugins/notices/metrics";
     var payload = {
       target,
       type: "error",
