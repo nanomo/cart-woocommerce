@@ -142,6 +142,7 @@ class WC_WooMercadoPago_Module extends WC_WooMercadoPago_Configs {
 		include_once dirname( __FILE__ ) . '/../helpers/class-wc-woomercadopago-helpers-currencyconverter.php';
 		include_once dirname( __FILE__ ) . '/../helpers/class-wc-woomercadopago-composite-id-helper.php';
 		include_once dirname( __FILE__ ) . '/../helpers/class-wc-woomercadopago-helper-links.php';
+		include_once dirname( __FILE__ ) . '/../helpers/class-wc-woomercadopago-helper-credits.php';
 	}
 
 	/**
@@ -195,6 +196,7 @@ class WC_WooMercadoPago_Module extends WC_WooMercadoPago_Configs {
 		include_once dirname( __FILE__ ) . '/../payments/hooks/class-wc-woomercadopago-hook-custom.php';
 		include_once dirname( __FILE__ ) . '/../payments/hooks/class-wc-woomercadopago-hook-ticket.php';
 		include_once dirname( __FILE__ ) . '/../payments/hooks/class-wc-woomercadopago-hook-pix.php';
+		include_once dirname( __FILE__ ) . '/../products/hooks/class-wc-woomercadopago-products-hook-credits.php';
 	}
 
 	/**
