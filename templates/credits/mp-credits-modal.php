@@ -31,16 +31,16 @@ if ( ! defined('ABSPATH') ) {
 					<div class="mp-credits-modal-container-content">
 						<div class="mp-credits-modal-content">
 							<div class="mp-credits-modal-close-button">
-								<img id="mp-credits-modal-close-modal" src="<?php echo esc_html(plugins_url('../assets/images/credits/Icon shape.png', plugin_dir_path(__FILE__))); ?>">
+								<img id="mp-credits-modal-close-modal" src="<?php echo esc_html(plugins_url('../assets/images/credits/close-icon.png', plugin_dir_path(__FILE__))); ?>">
 							</div>
 							<div class="mp-logo-img">
-								<img src="<?php echo esc_html(plugins_url('../assets/images/credits/Group.png', plugin_dir_path(__FILE__))); ?>">
+								<img src="<?php echo esc_html(plugins_url('../assets/images/credits/logo-mp.png', plugin_dir_path(__FILE__))); ?>">
 							</div>
 
 							<div class="mp-credits-modal-titles">
 								<div>
 									<span><?php echo esc_html($modal_title); ?></span>
-									<p><?php echo esc_html($modal_subtitle); ?> 
+									<p><?php echo esc_html($modal_subtitle); ?>
 								</div>
 								<div>
 									<span><?php echo esc_html($modal_how_to); ?></span>
