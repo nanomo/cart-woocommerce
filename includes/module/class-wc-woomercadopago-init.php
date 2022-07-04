@@ -17,7 +17,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  * WC WooMercadoPago Init class
  */
 class WC_WooMercadoPago_Init {
-
 	/**
 	 * Load plugin text domain.
 	 *
@@ -117,6 +116,7 @@ class WC_WooMercadoPago_Init {
 
 		$notices_array = WC_WooMercadoPago_Module::$notices;
 		$notices       = array_unique( $notices_array, SORT_STRING );
+
 		foreach ( $notices as $notice ) {
 			// @todo All output should be run through an escaping function
 		    // @codingStandardsIgnoreLine
@@ -129,6 +129,7 @@ class WC_WooMercadoPago_Init {
 	 */
 	public static function mercadopago_plugin_activation() {
 		$dismissed_review = (int) get_option( '_mp_dismiss_review' );
+
 		if ( ! isset( $dismissed_review ) || 1 === $dismissed_review ) {
 			update_option( '_mp_dismiss_review', 0, true );
 		}
@@ -139,6 +140,7 @@ class WC_WooMercadoPago_Init {
 	*/
 	public static function mercadopago_handle_saved_cards_notice() {
 		$must_not_show_review = (int) get_option( '_mp_dismiss_saved_cards_notice' );
+
 		if ( ! isset( $must_not_show_review ) || $must_not_show_review ) {
 			/**
 			 * Update if option was changed.
@@ -154,6 +156,7 @@ class WC_WooMercadoPago_Init {
 	 */
 	public static function update_plugin_version() {
 		$old_version = get_option( '_mp_version', '0' );
+
 		if ( version_compare( WC_WooMercadoPago_Constants::VERSION, $old_version, '>' ) ) {
 			/**
 			 * Do action mercadopago_plugin_updated.
@@ -178,14 +181,16 @@ class WC_WooMercadoPago_Init {
 	 */
 	public static function woocommerce_mercadopago_init() {
 		self::woocommerce_mercadopago_load_plugin_textdomain();
+
 		require_once dirname( __FILE__ ) . '/sdk/lib/rest-client/class-mp-rest-client-abstract.php';
 		require_once dirname( __FILE__ ) . '/sdk/lib/rest-client/class-mp-rest-client.php';
 		require_once dirname( __FILE__ ) . '/config/class-wc-woomercadopago-constants.php';
+
 		if ( is_admin() ) {
-		require_once dirname( __FILE__ ) . '../../admin/notices/class-wc-woomercadopago-notices.php';
-		require_once dirname( __FILE__ ) . '../../admin/notices/class-wc-woomercadopago-saved-cards.php';
-		require_once dirname( __FILE__ ) . '../../admin/hooks/class-wc-woomercadopago-hook-order-details.php';
-		WC_WooMercadoPago_Notices::init_mercadopago_notice();
+			require_once dirname( __FILE__ ) . '../../admin/notices/class-wc-woomercadopago-notices.php';
+			require_once dirname( __FILE__ ) . '../../admin/notices/class-wc-woomercadopago-saved-cards.php';
+			require_once dirname( __FILE__ ) . '../../admin/hooks/class-wc-woomercadopago-hook-order-details.php';
+			WC_WooMercadoPago_Notices::init_mercadopago_notice();
 		}
 
 		// Check for PHP version and throw notice.
@@ -214,24 +219,27 @@ class WC_WooMercadoPago_Init {
 			require_once dirname( __FILE__ ) . '/class-wc-woomercadopago-module.php';
 			require_once dirname( __FILE__ ) . '/class-wc-woomercadopago-credentials.php';
 			require_once dirname( __FILE__ ) . '/class-wc-woomercadopago-options.php';
+
 			if ( is_admin() ) {
-			require_once dirname( __FILE__ ) . '../../admin/notices/class-wc-woomercadopago-review-notice.php';
-			require_once dirname( __FILE__ ) . '/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php';
-			// Init Get Option
-			$option = WC_WooMercadoPago_Options::get_instance();
+				require_once dirname( __FILE__ ) . '../../admin/notices/class-wc-woomercadopago-review-notice.php';
+				require_once dirname( __FILE__ ) . '/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php';
+				// Init Get Option
+				$option = WC_WooMercadoPago_Options::get_instance();
 
-			WC_WooMercadoPago_Review_Notice::init_mercadopago_review_notice();
-			WC_WooMercadoPago_Saved_Cards::init_singleton();
-			new WC_WooMercadoPago_Hook_Order_Details();
+				WC_WooMercadoPago_Review_Notice::init_mercadopago_review_notice();
+				WC_WooMercadoPago_Saved_Cards::init_singleton();
+				new WC_WooMercadoPago_Hook_Order_Details();
 
-			// Load Mercado Pago Settings Screen
-			( new WC_WooMercadoPago_MercadoPago_Settings($option) )->init();
+				// Load Mercado Pago Settings Screen
+				( new WC_WooMercadoPago_MercadoPago_Settings($option) )->init();
 			}
+
 			require_once dirname( __FILE__ ) . '../../pix/class-wc-woomercadopago-image-generator.php';
 
 			WC_WooMercadoPago_Module::init_mercado_pago_class();
 			new WC_WooMercadoPago_Products_Hook_Credits();
 			WC_WooMercadoPago_Image_Generator::init_image_generator_class();
+
 			self::update_plugin_version();
 
 			add_action( 'woocommerce_order_actions', array( __CLASS__, 'add_mp_order_meta_box_actions' ) );
@@ -239,12 +247,12 @@ class WC_WooMercadoPago_Init {
 		} else {
 			add_action( 'admin_notices', array( __CLASS__, 'notify_woocommerce_miss' ) );
 		}
+
 		add_action( 'woocommerce_settings_checkout', array( __CLASS__, 'mp_show_admin_notices' ) );
 		add_action( 'wp_ajax_mercadopago_validate_credentials', array('WC_WooMercadoPago_Credentials', 'ajax_validate_credentials'));
 		add_filter('query_vars', function ( $vars ) {
 			$vars[] = 'wallet_button';
 			return $vars;
 		});
-
 	}
 }
