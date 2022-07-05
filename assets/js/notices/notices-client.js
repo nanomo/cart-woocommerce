@@ -33,22 +33,32 @@
 
   function sendError({ target }) {
     var url = "https://api.mercadopago.com/v1/plugins/notices/metrics";
+    var { plugin_version, platform_id, platform_version } = wc_mercadopago_notices_params;
+
     var payload = {
       target,
       type: "error",
       name: "ERR_CONNECTION_REFUSED",
       message: "ERR_CONNECTION_REFUSED",
       plugin: {
-        version: wc_mercadopago_notices_params.plugin_version,
+        version: plugin_version,
       },
       platform: {
-        name: "woocommerce",
         uri: `${window.location.pathname}${window.location.search}`,
-        version: wc_mercadopago_notices_params.platform_version,
-        location: wc_mercadopago_notices_params.location,
+        name: "woocommerce",
+        version: platform_version,
+        location: "woo_admin_mercadopago_settings",
       },
     };
 
-    navigator.sendBeacon(url, JSON.stringify(payload));
+    fetch(url, {
+      method: "POST",
+      body: JSON.stringify(payload),
+      headers: {
+        "Content-Type": "application/json",
+        "X-Platform-Id": platform_id.toLowerCase(),
+        "X-Plugin-Version": plugin_version,
+      },
+    });
   }
 })();
