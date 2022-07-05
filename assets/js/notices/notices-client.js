@@ -32,7 +32,7 @@
   });
 
   function sendError({ target }) {
-    var url = "https://api.mercadopago.com/homol/v1/plugins/notices/metrics";
+    var url = "https://api.mercadopago.com/v1/plugins/notices/metrics";
     var { plugin_version, platform_id, platform_version } = wc_mercadopago_notices_params;
 
     var payload = {
