@@ -160,11 +160,11 @@ class WC_WooMercadoPago_Helper_Links {
 				'FAQ_link' => 'https://www.mercadopago.com.ar/help/19040'
 			),
 			'mlm' => array(
-				'blog_link' => 'https://vendedores.mercadolibre.com.ar/nota/impulsa-tus-ventas-y-alcanza-mas-publico-con-mercado-credito',
+				'blog_link' => 'https://vendedores.mercadolibre.com.mx/nota/impulsa-tus-ventas-y-alcanza-a-mas-clientes-con-mercado-credito',
 				'FAQ_link' => 'https://www.mercadopago.com.mx/help/19040'
 			),
 			'mlb' => array(
-				'blog_link' => 'https://vendedores.mercadolibre.com.ar/nota/impulsa-tus-ventas-y-alcanza-mas-publico-con-mercado-credito',
+				'blog_link' => 'https://conteudo.mercadopago.com.br/parcelamento-via-boleto-bancario-no-mercado-pago-seus-clientes-ja-podem-solicitar',
 				'FAQ_link' => 'https://www.mercadopago.com.br/help/19040'
 			),
 		];
