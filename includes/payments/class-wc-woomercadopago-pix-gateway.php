@@ -630,9 +630,7 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 
 				return $pix_template;
 			}
-
 		}
-
 	}
 
 	/**
