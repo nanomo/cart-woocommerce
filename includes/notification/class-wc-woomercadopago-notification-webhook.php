@@ -63,7 +63,7 @@ class WC_WooMercadoPago_Notification_Webhook extends WC_WooMercadoPago_Notificat
 			}
 		} else {
 			if ( 'payment' === $data['type'] ) {
-				$payment_id = preg_replace( '/[^\d]/', '', $data['data_id'] );
+				$payment_id   = preg_replace( '/[^\d]/', '', $data['data_id'] );
 				$access_token = $this->mp->get_access_token();
 
 				$payment_info = $this->mp->get(
