@@ -63,8 +63,14 @@ class WC_WooMercadoPago_Notification_Webhook extends WC_WooMercadoPago_Notificat
 			}
 		} else {
 			if ( 'payment' === $data['type'] ) {
+				$payment_id   = preg_replace( '/[^\d]/', '', $data['data_id'] );
 				$access_token = $this->mp->get_access_token();
-				$payment_info = $this->mp->get( '/v1/payments/' . $data['data_id'], array( 'Authorization' => 'Bearer ' . $access_token ), false );
+
+				$payment_info = $this->mp->get(
+					'/v1/payments/' . $payment_id,
+					array( 'Authorization' => 'Bearer ' . $access_token ),
+					false
+				);
 
 				if ( ! is_wp_error( $payment_info ) && ( 200 === $payment_info['status'] || 201 === $payment_info['status'] ) ) {
 					if ( $payment_info['response'] ) {
