@@ -1,5 +1,9 @@
 CHANGELOG:
 == Changelog ==
+= v6.0.2 (13/07/2022) =
+* Features
+- Added preg_replace for notification external params
+
 = v6.0.1 (27/06/2022) =
 * Bug fixes
 - Added validation to invalid length on cardNumber to not clear or remove fields
