@@ -663,12 +663,11 @@ class WC_WooMercadoPago_Module extends WC_WooMercadoPago_Configs {
 		) {
 			global $woocommerce;
 
-			$suffix  = $this->get_suffix();
 			$site_id = get_option( '_site_id_v1' );
 
 			wp_enqueue_script(
 				'mercadopago_melidata',
-				plugins_url( '../assets/js/melidata/melidata-client' . $suffix . '.js', plugin_dir_path( __FILE__ ) ),
+				plugins_url( '../assets/js/melidata/melidata-client' . $this->get_suffix() . '.js', plugin_dir_path( __FILE__ ) ),
 				array(),
 				WC_WooMercadoPago_Constants::VERSION,
 				true
