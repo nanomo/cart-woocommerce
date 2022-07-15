@@ -5,7 +5,7 @@
       var link = document.createElement("link");
       link.rel = "stylesheet";
       link.type = "text/css";
-      link.href = "https://http2.mlstatic.com/storage/homol/v1/plugins/notices/woocommerce.css";
+      link.href = "https://http2.mlstatic.com/storage/v1/plugins/notices/woocommerce.css";
 
       link.onerror = function () {
         sendError({ target: "notices_woocommerce_client_css" });
@@ -14,7 +14,7 @@
       link.onload = function () {
         var scriptTag = document.createElement("script");
         scriptTag.setAttribute("id", "mpnotices_woocommerce_client");
-        scriptTag.src = "https://http2.mlstatic.com/storage/homol/v1/plugins/notices/woocommerce.js";
+        scriptTag.src = "https://http2.mlstatic.com/storage/v1/plugins/notices/woocommerce.js";
         scriptTag.async = true;
         scriptTag.defer = true;
 
