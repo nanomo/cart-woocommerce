@@ -73,26 +73,32 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 	/**
 	 * Load Research JavaScripts
 	 */
-	public function load_research_script() {
-		if ( is_admin() && ( WC_WooMercadoPago_Helper_Current_Url::validate_page( 'mercadopago-settings' ) || WC_WooMercadoPago_Helper_Current_Url::validate_section( 'woo-mercado-pago' ) ) ) {
+	public function load_notices_scripts() {
+		if ( is_admin() && WC_WooMercadoPago_Helper_Current_Url::validate_page( 'mercadopago-settings' ) ) {
 			global $woocommerce;
+
+			$site_id     = get_option( '_site_id_v1' );
+			$credentials = $this->options->get_access_token_and_public_key();
+			$public_key  = $credentials['credentials_public_key_prod'];
+
 			wp_enqueue_script(
-				'mercadopago_research_javascript',
-				'https://http2.mlstatic.com/storage/v1/plugins/caronte/woocommerce.js?v=110',
+				'mercadopago_notices',
+				plugins_url( '../../assets/js/notices/notices-client' . $this->get_suffix() . '.js', plugin_dir_path( __FILE__ ) ),
 				array(),
 				WC_WooMercadoPago_Constants::VERSION,
 				true
 			);
+
 			wp_localize_script(
-				'mercadopago_research_javascript',
-				'wc_mercadopago_params',
+				'mercadopago_notices',
+				'wc_mercadopago_notices_params',
 				array(
-					'site_id'               => $this->options->get_site_id() ? strtoupper( $this->options->get_site_id() ) : 'MLA',
-					'platform_id'           => WC_WooMercadoPago_Constants::PLATAFORM_ID,
-					'platform_version'      => $woocommerce->version,
-					'plugin_version'        => WC_WooMercadoPago_Constants::VERSION,
-					'public_key_element_id' => 'mp-public-key-prod',
-					'reference_element_id'  => 'reference'
+					'site_id'          => $site_id ? strtoupper( $site_id ) : 'MLA',
+					'container'        => '#wpbody-content',
+					'public_key'       => $public_key,
+					'plugin_version'   => WC_WooMercadoPago_Constants::VERSION,
+					'platform_id'      => WC_WooMercadoPago_Constants::PLATAFORM_ID,
+					'platform_version' => $woocommerce->version,
 				)
 			);
 		}
