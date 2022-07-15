@@ -37,6 +37,7 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 		add_action( 'admin_enqueue_scripts', array( $this, 'load_admin_style' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'load_research_style' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'load_research_script' ) );
+		add_action( 'admin_enqueue_scripts', array( $this, 'load_notices_scripts' ) );
 	}
 
 	/**
@@ -77,7 +78,7 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 			global $woocommerce;
 			wp_enqueue_script(
 				'mercadopago_research_javascript',
-				'https://http2.mlstatic.com/storage/v1/plugins/caronte/woocommerce.js?v=101',
+				'https://http2.mlstatic.com/storage/v1/plugins/caronte/woocommerce.js?v=110',
 				array(),
 				WC_WooMercadoPago_Constants::VERSION,
 				true
@@ -104,11 +105,45 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 		if ( is_admin() && ( WC_WooMercadoPago_Helper_Current_Url::validate_page( 'mercadopago-settings' ) || WC_WooMercadoPago_Helper_Current_Url::validate_section( 'woo-mercado-pago' ) ) ) {
 			wp_register_style(
 				'mercadopago_research_css',
-				'https://http2.mlstatic.com/storage/v1/plugins/caronte/woocommerce.css',
+				'https://http2.mlstatic.com/storage/v1/plugins/caronte/woocommerce.css?v=110',
 				false,
 				WC_WooMercadoPago_Constants::VERSION
 			);
 			wp_enqueue_style( 'mercadopago_research_css' );
+		}
+	}
+
+	/**
+	 * Load Notices Scripts
+	 */
+	public function load_notices_scripts() {
+		if ( is_admin() && WC_WooMercadoPago_Helper_Current_Url::validate_page( 'mercadopago-settings' ) ) {
+			global $woocommerce;
+
+			$site_id     = get_option( '_site_id_v1' );
+			$credentials = $this->options->get_access_token_and_public_key();
+			$public_key  = $credentials['credentials_public_key_prod'];
+
+			wp_enqueue_script(
+				'mercadopago_notices',
+				plugins_url( '../../assets/js/notices/notices-client' . $this->get_suffix() . '.js', plugin_dir_path( __FILE__ ) ),
+				array(),
+				WC_WooMercadoPago_Constants::VERSION,
+				true
+			);
+
+			wp_localize_script(
+				'mercadopago_notices',
+				'wc_mercadopago_notices_params',
+				array(
+					'site_id'          => $site_id ? strtoupper( $site_id ) : 'MLA',
+					'container'        => '#wpbody-content',
+					'public_key'       => $public_key,
+					'plugin_version'   => WC_WooMercadoPago_Constants::VERSION,
+					'platform_id'      => WC_WooMercadoPago_Constants::PLATAFORM_ID,
+					'platform_version' => $woocommerce->version,
+				)
+			);
 		}
 	}
 
