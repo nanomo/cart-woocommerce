@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - Added notices scripts on plugin
+- Added validation to avoid installments equal to zero
 
 ### Changed
 - Changed how to load melidata script on window.load
