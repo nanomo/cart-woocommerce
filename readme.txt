@@ -140,6 +140,7 @@ Check out our <a href="https://www.mercadopago.com.br/developers/pt/plugins_sdks
 = v6.1.0 (25/07/2022) =
 * Features
 - Added notices scripts on plugin
+- Added validation to avoid installments equal to zero
 
 * Changes
 - Changed how to load melidata script on window.load
