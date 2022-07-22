@@ -4,7 +4,7 @@ Tags: ecommerce, mercadopago, woocommerce
 Requires at least: 4.9.10
 Tested up to: 5.9
 Requires PHP: 5.6
-Stable tag: 6.0.2
+Stable tag: 6.1.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -135,6 +135,18 @@ Set up both the plugin and the checkouts you want to activate on your payment av
 Check out our <a href="https://www.mercadopago.com.br/developers/pt/plugins_sdks/plugins/official/woo-commerce/">official documentation</a> for more information on the specific fields to configure.
 
 == Changelog ==
+
+== Changelog ==
+= v6.1.0 (25/07/2022) =
+* Features
+- Added notices scripts on plugin
+
+* Changes
+- Changed how to load melidata script on window.load
+- Send email from Pix and QRCode only for orders with pending status
+
+* Bug fixes
+- Fixed plugin and platform version on melidata client
 
 = v6.0.2 (13/07/2022) =
 * Features
