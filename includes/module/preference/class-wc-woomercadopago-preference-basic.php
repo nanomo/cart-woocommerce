@@ -116,7 +116,7 @@ class WC_WooMercadoPago_Preference_Basic extends WC_WooMercadoPago_Preference_Ab
 		}
 
 		return array(
-			'installments'             => $installments == "0" ? 12 : (int) $installments,
+			'installments'             => '0' === $installments ? 12 : (int) $installments,
 			'excluded_payment_methods' => $excluded_payment_methods,
 		);
 	}
