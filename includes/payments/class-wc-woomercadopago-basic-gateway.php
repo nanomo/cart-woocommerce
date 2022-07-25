@@ -701,7 +701,7 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 	 *
 	 * @return int
 	 */
-	public function get_valid_installments($installments) {
+	public function get_valid_installments( $installments ) {
 		if ( 0 === (int) $installments ) {
 			return 12;
 		}
