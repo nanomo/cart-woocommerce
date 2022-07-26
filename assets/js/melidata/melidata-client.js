@@ -1,6 +1,6 @@
 /* globals wc_melidata_params */
 (function () {
-  window.onload = function () {
+  window.addEventListener("load", function () {
     window.melidata = null;
 
     try {
@@ -36,8 +36,8 @@
         window.melidata = new MelidataClient({
           type: wc_melidata_params.type,
           siteID: wc_melidata_params.site_id,
-          pluginVersion: wc_melidata_params.platform_version,
-          platformVersion: wc_melidata_params.plugin_version,
+          pluginVersion: wc_melidata_params.plugin_version,
+          platformVersion: wc_melidata_params.platform_version,
           pageLocation: wc_melidata_params.location,
           paymentMethod: wc_melidata_params.payment_method,
         });
@@ -47,5 +47,5 @@
     } catch (e) {
       console.warn(e);
     }
-  };
+  });
 })();
