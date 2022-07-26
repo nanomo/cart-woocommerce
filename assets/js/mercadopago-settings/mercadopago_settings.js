@@ -63,7 +63,7 @@ function mp_validate_credentials() {
             is_test: false,
             action: "mp_validate_credentials",
           },
-          function (data) {}
+          function (data) { }
         )
         .done(function (response) {
           if (response.success) {
@@ -92,7 +92,7 @@ function mp_validate_credentials() {
             is_test: true,
             action: "mp_validate_credentials",
           },
-          function (data) {}
+          function (data) { }
         )
         .done(function (response) {
           if (response.success) {
@@ -113,60 +113,68 @@ function mp_validate_credentials() {
     .getElementById("mp-public-key-test")
     .addEventListener("change", function () {
       var self = this;
-
-      jQuery
-        .post(
-          ajaxurl,
-          {
-            public_key: this.value,
-            is_test: true,
-            action: "mp_validate_credentials",
-          },
-          function (data) {}
-        )
-        .done(function (response) {
-          if (response.success) {
-            self.classList.add("mp-credential-feedback-positive");
-            self.classList.remove("mp-credential-feedback-negative");
-          } else {
+      if (this.value == '') {
+        self.classList.remove("mp-credential-feedback-positive");
+        self.classList.remove("mp-credential-feedback-negative");
+      } else {
+        jQuery
+          .post(
+            ajaxurl,
+            {
+              public_key: this.value,
+              is_test: true,
+              action: "mp_validate_credentials",
+            },
+            function (data) { }
+          )
+          .done(function (response) {
+            if (response.success) {
+              self.classList.add("mp-credential-feedback-positive");
+              self.classList.remove("mp-credential-feedback-negative");
+            } else {
+              self.classList.remove("mp-credential-feedback-positive");
+              self.classList.add("mp-credential-feedback-negative");
+            }
+          })
+          .fail(function (error) {
             self.classList.remove("mp-credential-feedback-positive");
             self.classList.add("mp-credential-feedback-negative");
-          }
-        })
-        .fail(function (error) {
-          self.classList.remove("mp-credential-feedback-positive");
-          self.classList.add("mp-credential-feedback-negative");
-        });
+          });
+      }
     });
 
   document
     .getElementById("mp-public-key-prod")
     .addEventListener("change", function () {
       var self = this;
-
-      jQuery
-        .post(
-          ajaxurl,
-          {
-            public_key: this.value,
-            is_test: false,
-            action: "mp_validate_credentials",
-          },
-          function (data) {}
-        )
-        .done(function (response) {
-          if (response.success) {
-            self.classList.add("mp-credential-feedback-positive");
-            self.classList.remove("mp-credential-feedback-negative");
-          } else {
+      if (this.value == '') {
+        self.classList.remove("mp-credential-feedback-positive");
+        self.classList.remove("mp-credential-feedback-negative");
+      } else {
+        jQuery
+          .post(
+            ajaxurl,
+            {
+              public_key: this.value,
+              is_test: false,
+              action: "mp_validate_credentials",
+            },
+            function (data) { }
+          )
+          .done(function (response) {
+            if (response.success) {
+              self.classList.add("mp-credential-feedback-positive");
+              self.classList.remove("mp-credential-feedback-negative");
+            } else {
+              self.classList.remove("mp-credential-feedback-positive");
+              self.classList.add("mp-credential-feedback-negative");
+            }
+          })
+          .fail(function (error) {
             self.classList.remove("mp-credential-feedback-positive");
             self.classList.add("mp-credential-feedback-negative");
-          }
-        })
-        .fail(function (error) {
-          self.classList.remove("mp-credential-feedback-positive");
-          self.classList.add("mp-credential-feedback-negative");
-        });
+          });
+      }
     });
 }
 
@@ -184,7 +192,7 @@ function mp_update_option_credentials() {
           public_key_test: document.getElementById("mp-public-key-test").value,
           action: "mp_update_option_credentials",
         },
-        function (data) {}
+        function (data) { }
       )
       .done(function (response) {
         if (response.success) {
@@ -223,7 +231,7 @@ function mp_update_store_information() {
           store_debug_mode: document.querySelector("#mp-store-debug-mode:checked")?.value,
           action: "mp_update_store_information",
         },
-        function (data) {}
+        function (data) { }
       )
       .done(function (response) {
         if (response.success) {
@@ -283,7 +291,7 @@ function mp_set_mode() {
       .post(
         ajaxurl,
         { input_mode_value: mode_value, action: "mp_store_mode" },
-        function (data) {}
+        function (data) { }
       )
       .done(function (response) {
         if (response.data) {
@@ -347,7 +355,7 @@ function mp_set_mode() {
 
 function mp_get_payment_properties() {
   jQuery
-    .post(ajaxurl, { action: "mp_get_payment_properties" }, function (data) {})
+    .post(ajaxurl, { action: "mp_get_payment_properties" }, function (data) { })
     .done(function (response) {
       const payment = document.getElementById("mp-payment");
 
@@ -361,7 +369,7 @@ function mp_get_payment_properties() {
         window.melidata.client.stepPaymentMethodsCallback();
       }
     })
-    .fail(function (error) {});
+    .fail(function (error) { });
 }
 
 function mp_payment_properties(gateway) {
@@ -409,7 +417,7 @@ function mp_validate_credentials_tips() {
     .post(
       ajaxurl,
       { action: "mp_validate_credentials_tips" },
-      function (data) {}
+      function (data) { }
     )
     .done(function (response) {
       if (response.success) {
@@ -427,7 +435,7 @@ function mp_validate_credentials_tips() {
 function mp_validate_store_tips() {
   var icon_store = document.getElementById("mp-settings-icon-store");
   jQuery
-    .post(ajaxurl, { action: "mp_validate_store_tips" }, function (data) {})
+    .post(ajaxurl, { action: "mp_validate_store_tips" }, function (data) { })
     .done(function (response) {
       if (response.success) {
         icon_store.classList.remove("mp-settings-icon-store");
@@ -444,7 +452,7 @@ function mp_validate_store_tips() {
 function mp_validate_payment_tips() {
   var icon_payment = document.getElementById("mp-settings-icon-payment");
   jQuery
-    .post(ajaxurl, { action: "mp_validate_payment_tips" }, function (data) {})
+    .post(ajaxurl, { action: "mp_validate_payment_tips" }, function (data) { })
     .done(function (response) {
       if (response.success) {
         icon_payment.classList.remove("mp-settings-icon-payment");
@@ -487,9 +495,9 @@ function mp_show_message(message, type, block) {
 
   type === "error"
     ? (messageDiv.className =
-        "mp-alert mp-alert-danger mp-text-center mp-card-body")
+      "mp-alert mp-alert-danger mp-text-center mp-card-body")
     : (messageDiv.className =
-        "mp-alert mp-alert-success mp-text-center mp-card-body");
+      "mp-alert mp-alert-success mp-text-center mp-card-body");
 
   messageDiv.appendChild(document.createTextNode(message));
   card.insertBefore(messageDiv, heading);

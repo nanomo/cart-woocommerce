@@ -19,7 +19,7 @@
     "devDependencies": {
         "husky": "^7.0.0",
         "jshint": "^2.13.4",
-        "minify": "^7.0.2",
+        "minify": "^7.2.2",
         "wp-pot": "^1.9.9"
     }
 }
