@@ -281,7 +281,7 @@ function init_cardForm() {
 }
 
 function getAmount() {
-  return  String(document.getElementById("mp-amount").value * document.getElementById("currency_ratio").value);
+  return String(document.getElementById("mp-amount").value * document.getElementById("currency_ratio").value);
 }
 
 /**
