@@ -192,7 +192,7 @@ abstract class WC_WooMercadoPago_Notification_Abstract {
 
 		if (is_array($response) && array_key_exists('status', $response)){
 			if ( 'approved' === $response['status'] || 'partially_refunded' === $response['status_detail'] ) {
-			return false
+			return false;
 		}
 
 		$order->add_order_note( 'Mercado Pago: ' . __( 'Payment approved.', 'woocommerce-mercadopago' ) );
