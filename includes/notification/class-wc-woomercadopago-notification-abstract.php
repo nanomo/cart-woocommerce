@@ -181,7 +181,7 @@ abstract class WC_WooMercadoPago_Notification_Abstract {
 	 */
 	public function mp_rule_approved( $data, $order, $used_gateway ) {
 
-		if ( 'approved' === $data['status'] && 'partially_refunded' === $data['status_detail'] ) {
+		if ( 'partially_refunded' === $data['status_detail'] ) {
 			return;
 		}
 
