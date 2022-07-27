@@ -441,7 +441,13 @@ abstract class WC_WooMercadoPago_Notification_Abstract {
 	 * @return bool
 	 */
 	protected function can_update_order_status( $order ) {
-		return method_exists( $order, 'get_status' ) && $order->get_status() !== 'completed' && $order->get_status() !== 'processing';
+		$log = WC_WooMercadoPago_Log::init_mercado_pago_log( 'Notification_Partial' );
+        $log->write_log('mercadopago_notification_partial', 'Order Details' . $order);
+        $log->write_log('mercadopago_notification_partial', 'Partial Refund' . method_exists($order, 'get_status_detail'));
+        if ($order->get_status() == 'approved' && $order->get_status_detail() == 'partially_refunded') {
+            return false;
+        }
+        return method_exists( $order, 'get_status' ) && $order->get_status() !== 'completed' && $order->get_status() !== 'processing';
 	}
 
 	/**
