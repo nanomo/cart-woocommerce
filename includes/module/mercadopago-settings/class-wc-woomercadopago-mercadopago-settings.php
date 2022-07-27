@@ -422,14 +422,13 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 			$validate_access_token_prod = $mp->get_credentials_wrapper( $access_token_prod );
 			$me                         = $mp->get_me( $access_token_prod );
 
-
-			if ($validate_public_key_prod && $validate_access_token_prod  && false === $validate_public_key_prod['is_test'] && false === $validate_access_token_prod['is_test'] ) {
+			if ( $validate_public_key_prod && $validate_access_token_prod && false === $validate_public_key_prod['is_test'] && false === $validate_access_token_prod['is_test'] ) {
 				update_option( WC_WooMercadoPago_Options::CREDENTIALS_ACCESS_TOKEN_PROD, $access_token_prod, true );
 				update_option( WC_WooMercadoPago_Options::CREDENTIALS_PUBLIC_KEY_PROD, $public_key_prod, true );
 				update_option( WC_WooMercadoPago_Options::CHECKOUT_COUNTRY, $me['site_id'], true );
 				update_option( WC_WooMercadoPago_Options::SITE_ID, $me['site_id'], true );
-				if ( (empty($public_key_test) && empty($access_token_test )) 
-				|| (true === $validate_public_key_test['is_test'] && true === $validate_access_token_test['is_test'])) {
+				if ( (empty( $public_key_test ) && empty( $access_token_test ) )
+				|| ( true === $validate_public_key_test['is_test'] && true === $validate_access_token_test['is_test'] ) ) {
 					update_option( WC_WooMercadoPago_Options::CREDENTIALS_PUBLIC_KEY_TEST, $public_key_test, true );
 					update_option( WC_WooMercadoPago_Options::CREDENTIALS_ACCESS_TOKEN_TEST, $access_token_test, true );
 					WC_WooMercadoPago_Credentials::mercadopago_payment_update();
@@ -608,7 +607,7 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 			$public_key_prod   = $this->options->get_public_key_prod();
 			$access_token_prod = $this->options->get_access_token_prod();
 
-			if ( !($public_key_test xor $access_token_test) && $public_key_prod && $access_token_prod ) {
+			if ( ! ($public_key_test xor $access_token_test) && $public_key_prod && $access_token_prod ) {
 				wp_send_json_success( __( 'Valid Credentials', 'woocommerce-mercadopago' ) );
 			}
 
