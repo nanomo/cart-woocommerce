@@ -184,7 +184,7 @@ abstract class WC_WooMercadoPago_Notification_Abstract {
 		$this->log->write_log( __FUNCTION__, 'Order Details' . $order);
 		$this->log->write_log( __FUNCTION__, 'Order Status Detail' . method_exists($order, 'get_status_detail'));
 
-		if ( $order->get_status() === 'approved' && $order->get_status_detail() === 'partially_refunded' ) {
+		if ( $order->get_status() === 'approved' && $order->$all_status_detail === 'partially_refunded' ) {
 		 return ;
 		}
 
