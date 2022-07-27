@@ -113,60 +113,68 @@ function mp_validate_credentials() {
     .getElementById("mp-public-key-test")
     .addEventListener("change", function () {
       var self = this;
-
-      jQuery
-        .post(
-          ajaxurl,
-          {
-            public_key: this.value,
-            is_test: true,
-            action: "mp_validate_credentials",
-          },
-          function (data) {}
-        )
-        .done(function (response) {
-          if (response.success) {
-            self.classList.add("mp-credential-feedback-positive");
-            self.classList.remove("mp-credential-feedback-negative");
-          } else {
+      if (this.value == '') {
+        self.classList.remove("mp-credential-feedback-positive");
+        self.classList.remove("mp-credential-feedback-negative");
+      } else {
+        jQuery
+          .post(
+            ajaxurl,
+            {
+              public_key: this.value,
+              is_test: true,
+              action: "mp_validate_credentials",
+            },
+            function (data) {}
+          )
+          .done(function (response) {
+            if (response.success) {
+              self.classList.add("mp-credential-feedback-positive");
+              self.classList.remove("mp-credential-feedback-negative");
+            } else {
+              self.classList.remove("mp-credential-feedback-positive");
+              self.classList.add("mp-credential-feedback-negative");
+            }
+          })
+          .fail(function (error) {
             self.classList.remove("mp-credential-feedback-positive");
             self.classList.add("mp-credential-feedback-negative");
-          }
-        })
-        .fail(function (error) {
-          self.classList.remove("mp-credential-feedback-positive");
-          self.classList.add("mp-credential-feedback-negative");
-        });
+          });
+      }
     });
 
   document
     .getElementById("mp-public-key-prod")
     .addEventListener("change", function () {
       var self = this;
-
-      jQuery
-        .post(
-          ajaxurl,
-          {
-            public_key: this.value,
-            is_test: false,
-            action: "mp_validate_credentials",
-          },
-          function (data) {}
-        )
-        .done(function (response) {
-          if (response.success) {
-            self.classList.add("mp-credential-feedback-positive");
-            self.classList.remove("mp-credential-feedback-negative");
-          } else {
+      if (this.value == '') {
+        self.classList.remove("mp-credential-feedback-positive");
+        self.classList.remove("mp-credential-feedback-negative");
+      } else {
+        jQuery
+          .post(
+            ajaxurl,
+            {
+              public_key: this.value,
+              is_test: false,
+              action: "mp_validate_credentials",
+            },
+            function (data) {}
+          )
+          .done(function (response) {
+            if (response.success) {
+              self.classList.add("mp-credential-feedback-positive");
+              self.classList.remove("mp-credential-feedback-negative");
+            } else {
+              self.classList.remove("mp-credential-feedback-positive");
+              self.classList.add("mp-credential-feedback-negative");
+            }
+          })
+          .fail(function (error) {
             self.classList.remove("mp-credential-feedback-positive");
             self.classList.add("mp-credential-feedback-negative");
-          }
-        })
-        .fail(function (error) {
-          self.classList.remove("mp-credential-feedback-positive");
-          self.classList.add("mp-credential-feedback-negative");
-        });
+          });
+      }
     });
 }
 
@@ -489,7 +497,7 @@ function mp_show_message(message, type, block) {
     ? (messageDiv.className =
         "mp-alert mp-alert-danger mp-text-center mp-card-body")
     : (messageDiv.className =
-        "mp-alert mp-alert-success mp-text-center mp-card-body");
+       "mp-alert mp-alert-success mp-text-center mp-card-body");
 
   messageDiv.appendChild(document.createTextNode(message));
   card.insertBefore(messageDiv, heading);

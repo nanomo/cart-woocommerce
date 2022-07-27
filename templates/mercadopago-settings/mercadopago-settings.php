@@ -122,18 +122,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 				</a>
 			</div>
 			<div class="mp-container">
-				<div class="mp-block mp-block-flex mp-settings-margin-right">
-					<p class="mp-settings-title-font-size"><b> <?php echo esc_html($translation_credential['title_credential_test']); ?> </b> </p>
-					<p class="mp-settings-label mp-settings-title-color mp-settings-margin-bottom"><?php echo esc_html($translation_credential['subtitle_credential_test']); ?></p>
-					<fieldset class="mp-settings-fieldset">
-						<legend class="mp-settings-label mp-settings-font-color"><?php echo esc_html($translation_credential['public_key']); ?></legend>
-						<input class="mp-settings-input " id="mp-public-key-test" type="text" value="<?php echo esc_html($options_credentials['credentials_public_key_test']); ?>" placeholder="<?php echo esc_html($translation_credential['placeholder_public_key']); ?>">
-					</fieldset>
-					<fieldset>
-						<legend class="mp-settings-label mp-settings-font-color"><?php echo esc_html($translation_credential['access_token']); ?></legend>
-						<input class="mp-settings-input " id="mp-access-token-test" type="text" value="<?php echo esc_html($options_credentials['credentials_access_token_test']); ?>" placeholder="<?php echo esc_html($translation_credential['placeholder_access_token']); ?>" >
-					</fieldset>
-				</div>
 				<div class="mp-block mp-block-flex mp-settings-margin-left">
 					<p class="mp-settings-title-font-size"><b><?php echo esc_html($translation_credential['title_credential_prod']); ?></b></p>
 					<p class="mp-settings-label mp-settings-title-color mp-settings-margin-bottom"><?php echo esc_html($translation_credential['subtitle_credential_prod']); ?></p>
@@ -144,6 +132,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<fieldset>
 						<legend class="mp-settings-label mp-settings-font-color"><?php echo esc_html($translation_credential['access_token']); ?></legend>
 						<input class="mp-settings-input " id="mp-access-token-prod" type="text" value="<?php echo esc_html($options_credentials['credentials_access_token_prod']); ?>" placeholder="<?php echo esc_html($translation_credential['placeholder_access_token']); ?>">
+					</fieldset>
+				</div>
+				<div class="mp-block mp-block-flex mp-settings-margin-right">
+					<p class="mp-settings-title-font-size"><b> <?php echo esc_html($translation_credential['title_credential_test']); ?> </b> </p>
+					<p class="mp-settings-label mp-settings-title-color mp-settings-margin-bottom"><?php echo esc_html($translation_credential['subtitle_credential_test']); ?></p>
+					<fieldset class="mp-settings-fieldset">
+						<legend class="mp-settings-label mp-settings-font-color"><?php echo esc_html($translation_credential['public_key']); ?></legend>
+						<input class="mp-settings-input " id="mp-public-key-test" type="text" value="<?php echo esc_html($options_credentials['credentials_public_key_test']); ?>" placeholder="<?php echo esc_html($translation_credential['placeholder_public_key']); ?>">
+					</fieldset>
+					<fieldset>
+						<legend class="mp-settings-label mp-settings-font-color"><?php echo esc_html($translation_credential['access_token']); ?></legend>
+						<input class="mp-settings-input " id="mp-access-token-test" type="text" value="<?php echo esc_html($options_credentials['credentials_access_token_test']); ?>" placeholder="<?php echo esc_html($translation_credential['placeholder_access_token']); ?>" >
 					</fieldset>
 				</div>
 			</div>
