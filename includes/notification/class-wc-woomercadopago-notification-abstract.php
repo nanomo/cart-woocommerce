@@ -182,10 +182,10 @@ abstract class WC_WooMercadoPago_Notification_Abstract {
 	public function mp_rule_approved( $data, $order, $used_gateway ) {
 
 		$this->log->write_log( __FUNCTION__, 'Order Details' . $order);
-		$this->log->write_log( __FUNCTION__, 'Order Status Detail' . method_exists($order, $all_status_detail));
+		$this->log->write_log( __FUNCTION__, 'Order Status Detail' . method_exists($order, array_key_exists()));
 
-		if ( $order->get_status() === 'approved' && $order->$all_status_detail === 'partially_refunded' ) {
-		 return ;
+		if ( $order->get_status() === 'approved' && $order->array_key_exists('partially_refunded') ) {
+		 return false;
 		}
 
 		$order->add_order_note( 'Mercado Pago: ' . __( 'Payment approved.', 'woocommerce-mercadopago' ) );
