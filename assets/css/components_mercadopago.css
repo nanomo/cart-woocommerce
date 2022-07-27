@@ -155,6 +155,11 @@
 	background: #ff7733;
 	border-radius: 6px 0 0 6px;
 }
+.mp-alert-color-error {
+	width: 6px;
+	background: #ff3333;
+	border-radius: 6px 0 0 6px;
+}
 .mp-card-body-payments {
 	display: flex;
 	align-items: flex-start;

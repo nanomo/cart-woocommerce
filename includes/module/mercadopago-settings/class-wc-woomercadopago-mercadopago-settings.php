@@ -625,7 +625,7 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 			$public_key_prod   = $this->options->get_public_key_prod();
 			$access_token_prod = $this->options->get_access_token_prod();
 
-			if ( $public_key_test && $access_token_test && $public_key_prod && $access_token_prod ) {
+			if ( !($public_key_test xor $access_token_test) && $public_key_prod && $access_token_prod ) {
 				wp_send_json_success( __( 'Valid Credentials', 'woocommerce-mercadopago' ) );
 			}
 
