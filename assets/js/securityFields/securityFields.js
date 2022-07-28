@@ -312,10 +312,10 @@ function init_cardForm() {
 }
 
 function getAmount() {
-  return String(
-    document.getElementById("mp-amount").value *
-      document.getElementById("currency_ratio").value
-  );
+  const amount = parseFloat(document.getElementById("mp-amount").value.replace(",", "."));
+  const currencyRatio = parseFloat(document.getElementById("currency_ratio").value.replace(",", "."));
+
+  return String(amount * currencyRatio);
 }
 
 /**
