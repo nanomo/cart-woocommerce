@@ -333,14 +333,43 @@ if ( ! defined( 'ABSPATH' ) ) {
 									</div>
 									<div id="mp-helper-badge-div" class="mp-settings-alert-mode-body mp-settings-font-color">
 										<span id="mp-helper-test"  style="display: <?php echo esc_html('yes' === ( $checkbox_checkout_test_mode ) ? 'block;' : 'none;'); ?>">
-										<a class="mp-settings-blue-text" id="mp-test-link" target="_blank" href="<?php echo esc_html(get_permalink( wc_get_page_id( 'shop' ) )); ?>"> <?php echo esc_html( $translation_test_mode['subtitle_link_test'] ); ?> </a><?php echo esc_html( $translation_test_mode['subtitle_message_test'] ); ?></span>
+											1.<?php echo esc_html($translation_test_mode['subtitle_test1']); ?>
+											<a class="mp-settings-blue-text" id="mp-test-link" target="_blank" href="<?php echo esc_html(get_permalink( wc_get_page_id( 'shop' ) )); ?>"> <?php echo esc_html( $translation_test_mode['subtitle_link_test1'] ); ?> </a><?php echo esc_html( $translation_test_mode['subtitle_message_test1'] ); ?><br/>
+											2.<a class="mp-settings-blue-text" id="mp-test-link" target="_blank" href="<?php echo esc_html(get_permalink( wc_get_page_id( 'shop' ) )); ?>"> <?php echo esc_html( $translation_test_mode['subtitle_link_test2'] ); ?> </a><?php echo esc_html( $translation_test_mode['subtitle_test2'] ); ?><br/>
+											3.<a class="mp-settings-blue-text" id="mp-test-link" target="_blank" href="<?php echo esc_html(get_permalink( wc_get_page_id( 'shop' ) )); ?>"> <?php echo esc_html( $translation_test_mode['subtitle_link_test3'] ); ?> </a><?php echo esc_html( $translation_test_mode['subtitle_test3'] ); ?>
+										</span>
 										<span id="mp-helper-prod"  style="display: <?php echo esc_html('yes' === ( $checkbox_checkout_test_mode ) ? 'none;' : 'block;'); ?>"><?php echo esc_html( $translation_test_mode['subtitle_message_prod'] ); ?></span>
 									</div>
 								</div>
 
 							</div>
 						</div>
-					</div>
+					</div>	
+					<div class="mp-settings-alert-payment-methods">
+						<div id="mp-red-badge" class="mp-settings-alert-red"  style="display:none;" >
+						<div class=" mp-settings-alert-payment-methods-gray">
+
+							<div class="mp-settings-margin-right mp-settings-mode-style" >
+								<label id="mp-icon-badge" class="mp-settings-icon-warning"></label>
+							</div>
+							<div class="mp-settings-mode-warning">
+								<div class="mp-settings-margin-left">
+									<div class="mp-settings-alert-mode-title">
+										<span id="mp-text-badge"> <?php echo esc_html( $translation_test_mode['title_alert_test'] ); ?></span> </span>
+									</div>
+									<div id="mp-helper-badge-div" class="mp-settings-alert-mode-body mp-settings-font-color">
+										<span id="mp-helper-test">
+											<?php echo esc_html($translation_test_mode['subtitle_alert_test']); ?>
+											<a class="mp-settings-blue-text" id="mp-test-link" target="_blank" href="<?php echo esc_html(get_permalink( wc_get_page_id( 'shop' ) )); ?>"> <?php echo esc_html( $translation_test_mode['title_alert_test_link'] ); ?></a>
+											<?php echo esc_html($translation_test_mode['title_alert_tes_one']); ?>
+										</span>
+									</div>
+								</div>
+
+							</div>
+						</div>
+						</div>
+					</div>	
 				</div>
 			</div>
 			<button class="mp-button" id="mp-store-mode-save"><?php echo esc_html( $translation_test_mode['button_mode'] ); ?> </button>

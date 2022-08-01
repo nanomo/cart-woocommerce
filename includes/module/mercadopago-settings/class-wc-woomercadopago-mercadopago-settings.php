@@ -340,11 +340,20 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 			'title_message_prod'    => __( 'Mercado Pago payment methods in Production Mode', 'woocommerce-mercadopago' ),
 			'subtitle_message_prod' => __( 'The clients can make real purchases in your store.', 'woocommerce-mercadopago' ),
 			'title_message_test'    => __( 'Mercado Pago payment methods in Test Mode', 'woocommerce-mercadopago' ),
-			'subtitle_link_test'    => __( 'Visit your store ', 'woocommerce-mercadopago' ),
-			'subtitle_message_test' => __( 'to test purchases', 'woocommerce-mercadopago' ),
+			'subtitle_test1'    	=> __( 'Create your ', 'woocommerce-mercadopago' ),
+			'subtitle_link_test1'   => __( 'test user ', 'woocommerce-mercadopago' ),
+			'subtitle_message_test1' => __( '(Optional. Can be used in Production Mode and Test Mode, to test payments).', 'woocommerce-mercadopago' ),
+			'subtitle_link_test2'   => __( 'Use our test cards, ', 'woocommerce-mercadopago' ),
+			'subtitle_test2'    	=> __( 'never use real cards. ', 'woocommerce-mercadopago' ),
+			'subtitle_link_test3'   => __( 'Visit your store ', 'woocommerce-mercadopago' ),
+			'subtitle_test3'    	=> __( 'to test purchases', 'woocommerce-mercadopago' ),
 			'button_mode'           => __( 'Save changes', 'woocommerce-mercadopago' ),
 			'badge_test'            => __( 'Store under test', 'woocommerce-mercadopago' ),
 			'badge_mode'            => __( 'Store in sale mode (Production)', 'woocommerce-mercadopago' ),
+			'title_alert_test'    => __( 'Enter test credentials', 'woocommerce-mercadopago' ),
+			'subtitle_alert_test'    => __( 'To enable test mode ', 'woocommerce-mercadopago' ),
+			'title_alert_test_link'    => __( 'copy your test credentials ', 'woocommerce-mercadopago' ),
+			'title_alert_tes_one'    => __( 'and paste above in section 1.', 'woocommerce-mercadopago' )
 		);
 
 		return $translation_test_mode;

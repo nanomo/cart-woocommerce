@@ -3753,3 +3753,53 @@ msgstr "Imprimir boleto"
 
 #~ msgid "Payment refused"
 #~ msgstr "Pagamento recusado"
+
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:343,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:343
+msgid "Create your "
+msgstr "Crie seu "
+
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:344,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:344
+msgid "test user "
+msgstr "usuário de teste "
+
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:344,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:344
+msgid "(Optional. Can be used in Production Mode and Test Mode, to test payments)."
+msgstr "(Opcional. Pode ser usado no Modo Produção e Modo teste, para testar pagamentos)."
+
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:344,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:344
+msgid "Use our test cards, "
+msgstr "Use nossos cartões de teste, "
+
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:344,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:344
+msgid "never use real cards. "
+msgstr "nunca use cratões reais. "
+
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:307,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:307
+msgid "Enter test credentials"
+msgstr "Insira as credenciais de teste"
+
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:307,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:307
+msgid "To enable test mode "
+msgstr "Para habilitar o modo teste "
+
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:307,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:307
+msgid "copy your test credentials "
+msgstr "copie suas credenciais de teste "
+
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:307,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:307
+msgid "and paste above in section 1."
+msgstr "e cole acima na seção 1."
+
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:307,
+#: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:307
+msgid "Invalid credentials for test mode"
+msgstr "Credenciais inválidas para modo teste"

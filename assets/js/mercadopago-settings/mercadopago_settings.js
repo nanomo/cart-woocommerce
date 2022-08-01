@@ -49,6 +49,18 @@ function mp_get_requirements() {
   });
 }
 
+function mp_verify_alert_test_mode() {
+  
+  if ( (document.getElementById("mp-public-key-test").value == '' && document.getElementById("mp-access-token-test").value == ''
+    && (document.querySelector('input[name="mp-test-prod"]').checked))){
+    document.getElementById("mp-red-badge").style.display ="block";
+    return true;
+  }else{
+    document.getElementById("mp-red-badge").style.display ="none";
+    return false;
+  };
+}
+
 function mp_validate_credentials() {
   document
     .getElementById("mp-access-token-prod")
@@ -83,7 +95,10 @@ function mp_validate_credentials() {
     .getElementById("mp-access-token-test")
     .addEventListener("change", function () {
       var self = this;
-
+      if (this.value == '') {
+        self.classList.remove("mp-credential-feedback-positive");
+        self.classList.remove("mp-credential-feedback-negative");
+      } else {
       jQuery
         .post(
           ajaxurl,
@@ -107,6 +122,7 @@ function mp_validate_credentials() {
           self.classList.remove("mp-credential-feedback-positive");
           self.classList.add("mp-credential-feedback-negative");
         });
+      }
     });
 
   document
@@ -147,10 +163,6 @@ function mp_validate_credentials() {
     .getElementById("mp-public-key-prod")
     .addEventListener("change", function () {
       var self = this;
-      if (this.value == '') {
-        self.classList.remove("mp-credential-feedback-positive");
-        self.classList.remove("mp-credential-feedback-negative");
-      } else {
         jQuery
           .post(
             ajaxurl,
@@ -174,7 +186,6 @@ function mp_validate_credentials() {
             self.classList.remove("mp-credential-feedback-positive");
             self.classList.add("mp-credential-feedback-negative");
           });
-      }
     });
 }
 
@@ -195,7 +206,9 @@ function mp_update_option_credentials() {
         function (data) {}
       )
       .done(function (response) {
+        
         if (response.success) {
+          mp_verify_alert_test_mode();
           mp_show_message(response.data, "success", "credentials");
           mp_validate_credentials_tips();
           setTimeout(() => {
@@ -283,75 +296,120 @@ function mp_settings_accordion_options() {
 }
 
 function mp_set_mode() {
-  var button = document.getElementById("mp-store-mode-save");
-  button.addEventListener("click", function () {
-    var mode_value = document.querySelector('input[name="mp-test-prod"]:checked').value;
+var badge = document.getElementById("mp-mode-badge");
+var color_badge = document.getElementById("mp-orange-badge");
+var icon_badge = document.getElementById("mp-icon-badge");
+var text_badge = document.getElementById("mp-text-badge");
+var helper_test = document.getElementById("mp-helper-test");
+var helper_prod = document.getElementById("mp-helper-prod");
+var rad = document.querySelectorAll('input[name="mp-test-prod"]');
+var red_badge = document.getElementById("mp-red-badge");
+rad[0].addEventListener("change", function () {
+  var mode_value = document.querySelector('input[name="mp-test-prod"]:checked').value;
+  jQuery
+  .post(
+    ajaxurl,
+    { input_mode_value: mode_value, action: "mp_store_mode" },
+    function (data) {}
+  )
+  .done(function (response) {
+    if (response.data) {
+      text_badge.textContent = response.data;
+      badge.classList.remove("mp-settings-prod-mode-alert");
+      badge.classList.add("mp-settings-test-mode-alert");
 
-    jQuery
-      .post(
-        ajaxurl,
-        { input_mode_value: mode_value, action: "mp_store_mode" },
-        function (data) {}
-      )
-      .done(function (response) {
-        if (response.data) {
-          var badge = document.getElementById("mp-mode-badge");
-          var color_badge = document.getElementById("mp-orange-badge");
-          var icon_badge = document.getElementById("mp-icon-badge");
-          var text_badge = document.getElementById("mp-text-badge");
-          var helper_test = document.getElementById("mp-helper-test");
-          var helper_prod = document.getElementById("mp-helper-prod");
-          text_badge.textContent = response.data;
+      color_badge.classList.remove(
+        "mp-settings-alert-payment-methods-green"
+      );
+      color_badge.classList.add(
+        "mp-settings-alert-payment-methods-orange"
+      );
 
-          if (mode_value === "yes") {
-            badge.classList.remove("mp-settings-prod-mode-alert");
-            badge.classList.add("mp-settings-test-mode-alert");
+      icon_badge.classList.remove("mp-settings-icon-success");
+      icon_badge.classList.add("mp-settings-icon-warning");
 
-            color_badge.classList.remove(
-              "mp-settings-alert-payment-methods-green"
-            );
-            color_badge.classList.add(
-              "mp-settings-alert-payment-methods-orange"
-            );
+      badge.textContent = "Loja em modo teste";
+      mp_verify_alert_test_mode();
 
-            icon_badge.classList.remove("mp-settings-icon-success");
-            icon_badge.classList.add("mp-settings-icon-warning");
-
-            badge.textContent = "Loja em modo teste";
-
-            helper_test.style.display = "block";
-            helper_prod.style.display = "none";
-
-            mp_show_message(response.data, "success", "test_mode");
-          } else {
-            badge.classList.remove("mp-settings-test-mode-alert");
-            badge.classList.add("mp-settings-prod-mode-alert");
-            badge.textContent = "Loja em modo vendas (Produção)";
-
-            color_badge.classList.remove(
-              "mp-settings-alert-payment-methods-orange"
-            );
-            color_badge.classList.add(
-              "mp-settings-alert-payment-methods-green"
-            );
-
-            icon_badge.classList.remove("mp-settings-icon-warning");
-            icon_badge.classList.add("mp-settings-icon-success");
-
-            helper_test.style.display = "none";
-            helper_prod.style.display = "block";
-
-            mp_show_message(response.data, "success", "test_mode");
-          }
-        } else {
-          mp_show_message(response.data, "error", "test_mode");
-        }
-      })
-      .fail(function (error) {
-        mp_show_message(error.data, "error", "test_mode");
-      });
+      helper_test.style.display = "block";
+      helper_prod.style.display = "none";
+      mp_show_message(response.data, "success", "test_mode");
+    } else {
+      mp_show_message(response.data, "error", "test_mode");
+    }
+  })
+  .fail(function (error) {
+    mp_show_message(error.data, "error", "test_mode");
   });
+});
+
+rad[1].addEventListener("change", function () {
+  var mode_value = document.querySelector('input[name="mp-test-prod"]:checked').value;
+  var red_badge = document.getElementById("mp-red-badge");
+  jQuery
+  .post(
+    ajaxurl,
+    { input_mode_value: mode_value, action: "mp_store_mode" },
+    function (data) {}
+  )
+  .done(function (response) {
+    if (response.data) {
+      text_badge.textContent = response.data;
+      badge.classList.remove("mp-settings-test-mode-alert");
+      badge.classList.add("mp-settings-prod-mode-alert");
+      badge.textContent = "Loja em modo vendas (Produção)";
+      red_badge.style.display ="none";
+      color_badge.classList.remove(
+        "mp-settings-alert-payment-methods-orange"
+      );
+      color_badge.classList.add(
+        "mp-settings-alert-payment-methods-green"
+      );
+
+      icon_badge.classList.remove("mp-settings-icon-warning");
+      icon_badge.classList.add("mp-settings-icon-success");
+
+      helper_test.style.display = "none";
+      helper_prod.style.display = "block";
+
+      mp_show_message(response.data, "success", "test_mode");
+    
+    } else {
+      mp_show_message(response.data, "error", "test_mode");
+    }
+  })
+  .fail(function (error) {
+    mp_show_message(error.data, "error", "test_mode");
+  });
+});
+
+var button = document.getElementById("mp-store-mode-save");
+button.addEventListener("click", function () {
+  var mode_value = document.querySelector('input[name="mp-test-prod"]:checked').value;
+
+  if (mp_verify_alert_test_mode()) {
+    mp_show_message("Invalid credentials for test mode", "error", "test_mode");
+  } else {
+  jQuery
+    .post(
+      ajaxurl,
+      { input_mode_value: mode_value, action: "mp_store_mode" },
+      function (data) {}
+    )
+    .done(function (response) {
+      if (response.data) {
+        mp_show_message(response.data, "success", "test_mode");
+      } else {
+        mp_show_message(response.data, "error", "test_mode");
+      }
+    })
+    .fail(function (error) {
+      mp_show_message(error.data, "error", "test_mode");
+    });
+  }
+});
 }
+
 
 function mp_get_payment_properties() {
   jQuery
@@ -566,4 +624,5 @@ function mp_settings_screen_load() {
   mp_validate_store_tips();
   mp_validate_payment_tips();
   mp_continue_to_next_step();
+  mp_verify_alert_test_mode();
 }
