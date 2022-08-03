@@ -256,7 +256,7 @@ function init_cardForm() {
               "flex"
             );
           } else {
-            return console.log("Unknown error: " + error);
+            return console.error("Unknown error on cardForm: " + error.message);
           }
         });
       },
