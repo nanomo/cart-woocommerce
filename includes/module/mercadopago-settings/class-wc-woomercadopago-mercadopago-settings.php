@@ -447,7 +447,7 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 			throw new Exception();
 
 		} catch ( Exception $e ) {
-			$links                       = WC_WooMercadoPago_Helper_Links::woomercadopago_settings_links();
+			$links = WC_WooMercadoPago_Helper_Links::woomercadopago_settings_links();
 			$response = [
 				'message' => __( 'Invalid credentials', 'woocommerce-mercadopago' ),
 				'subtitle' => __( 'See our manual to learn ', 'woocommerce-mercadopago' ),
@@ -520,9 +520,9 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 	public function mp_set_mode() {
 		try {
 			$verify_alert_test_mode = WC_WooMercadoPago_Credentials::get_sanitize_text_from_post( 'input_verify_alert_test_mode' );
-			if ($verify_alert_test_mode=='yes') {		
-				throw new Exception(__( 'Invalid credentials for test mode', 'woocommerce-mercadopago' ));
-			}else{
+			if ( $verify_alert_test_mode === 'yes' ) {	
+				throw new Exception( __( 'Invalid credentials for test mode', 'woocommerce-mercadopago' ) );
+			} else {
 				$this->update_credential_production();
 				$checkout_test_mode = WC_WooMercadoPago_Credentials::get_sanitize_text_from_post( 'input_mode_value' );
 				update_option( 'checkbox_checkout_test_mode', $checkout_test_mode, true );
