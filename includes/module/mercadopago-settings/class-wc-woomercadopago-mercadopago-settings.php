@@ -246,8 +246,8 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 		$translation_credential = array(
 
 			'title_credentials'        => __( '1. Integrate your store with Mercado Pago  ', 'woocommerce-mercadopago' ),
-			'subtitle_credentials_one' => __( 'To enable and test sales, you must copy and paste your ', 'woocommerce-mercadopago' ),
-			'subtitle_credentials_two' => __( 'credentials below.', 'woocommerce-mercadopago' ),
+			'subtitle_credentials_one' => __( 'To enable orders, you must create and activate production credentials in your Mercado Pago Account. ', 'woocommerce-mercadopago' ),
+			'subtitle_credentials_two' => __( 'Copy and paste the credentials below.', 'woocommerce-mercadopago' ),
 			'button_link_credentials'  => __( 'Check credentials', 'woocommerce-mercadopago' ),
 			'title_credential_test'    => __( 'Test credentials ', 'woocommerce-mercadopago' ),
 			'subtitle_credential_test' => __( 'Enable Mercado Pago checkouts for test purchases in the store.', 'woocommerce-mercadopago' ),
@@ -351,9 +351,9 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 			'badge_test'             => __( 'Store under test', 'woocommerce-mercadopago' ),
 			'badge_mode'             => __( 'Store in sale mode (Production)', 'woocommerce-mercadopago' ),
 			'title_alert_test'       => __( 'Enter test credentials', 'woocommerce-mercadopago' ),
-			'subtitle_alert_test'    => __( 'To enable test mode ', 'woocommerce-mercadopago' ),
+			'subtitle_alert_test'    => __( 'To enable test mode, ', 'woocommerce-mercadopago' ),
 			'title_alert_test_link'  => __( 'copy your test credentials ', 'woocommerce-mercadopago' ),
-			'title_alert_tes_one'    => __( 'and paste above in section 1.', 'woocommerce-mercadopago' )
+			'title_alert_tes_one'    => __( 'and paste them above in section 1 of this page.', 'woocommerce-mercadopago' )
 		);
 
 		return $translation_test_mode;
@@ -444,12 +444,16 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 					wp_send_json_success( __( 'Credentials were updated', 'woocommerce-mercadopago' ) );
 				}
 			}
-			throw new Exception( __( 'Update failed, invalid Credentials', 'woocommerce-mercadopago' ) );
+			throw new Exception();
 
 		} catch ( Exception $e ) {
-
-			$response = $e->getMessage();
-
+			$links                       = WC_WooMercadoPago_Helper_Links::woomercadopago_settings_links();
+			$response = [
+				'message' => __( 'Invalid credentials', 'woocommerce-mercadopago' ),
+				'subtitle' => __( 'See our manual to learn ', 'woocommerce-mercadopago' ),
+				'subtitle_one' => __( 'how to enter the credentials the right way.', 'woocommerce-mercadopago' ),
+				'subtitle_one_link' => $links['link_credentials']
+			];
 			wp_send_json_error( $response );
 		}
 	}
@@ -515,16 +519,20 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 	 */
 	public function mp_set_mode() {
 		try {
-			$this->update_credential_production();
-			$checkout_test_mode = WC_WooMercadoPago_Credentials::get_sanitize_text_from_post( 'input_mode_value' );
-			update_option( 'checkbox_checkout_test_mode', $checkout_test_mode, true );
+			$verify_alert_test_mode = WC_WooMercadoPago_Credentials::get_sanitize_text_from_post( 'input_verify_alert_test_mode' );
+			if ($verify_alert_test_mode=='yes') {		
+				throw new Exception(__( 'Invalid credentials for test mode', 'woocommerce-mercadopago' ));
+			}else{
+				$this->update_credential_production();
+				$checkout_test_mode = WC_WooMercadoPago_Credentials::get_sanitize_text_from_post( 'input_mode_value' );
+				update_option( 'checkbox_checkout_test_mode', $checkout_test_mode, true );
 
-			$response = 'yes' === $checkout_test_mode ?
-				__( 'Mercado Pago\'s Payment Methods in Test Mode', 'woocommerce-mercadopago' ) :
-				__( 'Mercado Pago\'s Payment Methods in Production Mode', 'woocommerce-mercadopago' );
+				$response = 'yes' === $checkout_test_mode ?
+					__( 'Mercado Pago\'s Payment Methods in Test Mode', 'woocommerce-mercadopago' ) :
+					__( 'Mercado Pago\'s Payment Methods in Production Mode', 'woocommerce-mercadopago' );
 
-			wp_send_json_success( $response );
-
+				wp_send_json_success( $response );
+		}
 		} catch ( Exception $e ) {
 			$response = [
 				'message' => $e->getMessage()

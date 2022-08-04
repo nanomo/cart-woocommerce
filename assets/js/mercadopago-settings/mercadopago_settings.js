@@ -191,8 +191,13 @@ function mp_validate_credentials() {
 
 function mp_update_option_credentials() {
   const btn_credentials = document.getElementById("mp-btn-credentials");
-
   btn_credentials.addEventListener("click", function () {
+    var msgAlert = document.getElementById("msg-info-credentials");
+
+    if(msgAlert.childNodes.length>1){
+      document.querySelector(".mp-card-info").remove();
+    }
+  
     jQuery
       .post(
         ajaxurl,
@@ -220,7 +225,11 @@ function mp_update_option_credentials() {
             );
           }, 3000);
         } else {
-          mp_show_message(response.data, "error", "credentials");
+        mp_show_error("msg-info-credentials",
+          response.data.message,
+           response.data.subtitle,
+           response.data.subtitle_one_link,
+           response.data.subtitle_one);
         }
       })
       .fail(function (error) {
@@ -299,22 +308,11 @@ function mp_set_mode() {
 var badge = document.getElementById("mp-mode-badge");
 var color_badge = document.getElementById("mp-orange-badge");
 var icon_badge = document.getElementById("mp-icon-badge");
-var text_badge = document.getElementById("mp-text-badge");
 var helper_test = document.getElementById("mp-helper-test");
 var helper_prod = document.getElementById("mp-helper-prod");
 var rad = document.querySelectorAll('input[name="mp-test-prod"]');
-var red_badge = document.getElementById("mp-red-badge");
 rad[0].addEventListener("change", function () {
-  var mode_value = document.querySelector('input[name="mp-test-prod"]:checked').value;
-  jQuery
-  .post(
-    ajaxurl,
-    { input_mode_value: mode_value, action: "mp_store_mode" },
-    function (data) {}
-  )
-  .done(function (response) {
-    if (response.data) {
-      text_badge.textContent = response.data;
+    if (rad[0].checked) {
       badge.classList.remove("mp-settings-prod-mode-alert");
       badge.classList.add("mp-settings-test-mode-alert");
 
@@ -333,28 +331,12 @@ rad[0].addEventListener("change", function () {
 
       helper_test.style.display = "block";
       helper_prod.style.display = "none";
-      mp_show_message(response.data, "success", "test_mode");
-    } else {
-      mp_show_message(response.data, "error", "test_mode");
     }
-  })
-  .fail(function (error) {
-    mp_show_message(error.data, "error", "test_mode");
-  });
 });
 
 rad[1].addEventListener("change", function () {
-  var mode_value = document.querySelector('input[name="mp-test-prod"]:checked').value;
   var red_badge = document.getElementById("mp-red-badge");
-  jQuery
-  .post(
-    ajaxurl,
-    { input_mode_value: mode_value, action: "mp_store_mode" },
-    function (data) {}
-  )
-  .done(function (response) {
-    if (response.data) {
-      text_badge.textContent = response.data;
+    if ( rad[1].checked ) {
       badge.classList.remove("mp-settings-test-mode-alert");
       badge.classList.add("mp-settings-prod-mode-alert");
       badge.textContent = "Loja em modo vendas (Produção)";
@@ -371,42 +353,31 @@ rad[1].addEventListener("change", function () {
 
       helper_test.style.display = "none";
       helper_prod.style.display = "block";
-
-      mp_show_message(response.data, "success", "test_mode");
-    
-    } else {
-      mp_show_message(response.data, "error", "test_mode");
     }
-  })
-  .fail(function (error) {
-    mp_show_message(error.data, "error", "test_mode");
-  });
 });
 
 var button = document.getElementById("mp-store-mode-save");
 button.addEventListener("click", function () {
   var mode_value = document.querySelector('input[name="mp-test-prod"]:checked').value;
-
-  if (mp_verify_alert_test_mode()) {
-    mp_show_message("Invalid credentials for test mode", "error", "test_mode");
-  } else {
+  var alert_validate = mp_verify_alert_test_mode() ? 'yes': 'no';
   jQuery
     .post(
       ajaxurl,
-      { input_mode_value: mode_value, action: "mp_store_mode" },
+      { input_mode_value: mode_value,
+        input_verify_alert_test_mode: alert_validate, 
+        action: "mp_store_mode" },
       function (data) {}
     )
     .done(function (response) {
-      if (response.data) {
-        mp_show_message(response.data, "success", "test_mode");
-      } else {
-        mp_show_message(response.data, "error", "test_mode");
-      }
+      if( response.success ){
+        mp_show_message( response.data, "success", "test_mode" );
+      } else{
+        mp_show_message( response.data.message, "error", "test_mode" );
+      }   
     })
     .fail(function (error) {
-      mp_show_message(error.data, "error", "test_mode");
+      mp_show_message( error.data, "error", "test_mode" );
     });
-  }
 });
 }
 
@@ -561,6 +532,40 @@ function mp_show_message(message, type, block) {
   card.insertBefore(messageDiv, heading);
 
   setTimeout(clearMessage, 3000);
+}
+
+function mp_show_error(element,title, subTitle,link,msgLink) {
+const cardInfo = document.getElementById(element);
+var classCardInfo=document.createElement("div");
+classCardInfo.className="mp-card-info";
+var cardInfoColor=document.createElement("div");
+cardInfoColor.className="mp-alert-color-error";
+var cardBodyStyle=document.createElement("div")
+cardBodyStyle.className="mp-card-body-payments mp-card-body-size"
+
+var cardInfoIcon=document.createElement("div");
+cardInfoIcon.className="mp-icon-badge-warning";
+var cardInfoBody = document.createElement("div");
+var titleElement = document.createElement("span");
+titleElement.className="mp-text-title";
+var subTitleElement = document.createElement("span");
+subTitleElement.className="mp-helper-test";
+var linkText = document.createElement("a");
+linkText.className="mp-settings-blue-text";
+linkText.appendChild(document.createTextNode(msgLink))
+linkText.href=link
+titleElement.appendChild(document.createTextNode(title));
+subTitleElement.appendChild(document.createTextNode(subTitle));
+
+cardInfoBody.appendChild(titleElement);
+subTitleElement.appendChild(linkText);
+cardInfoBody.appendChild(subTitleElement);
+cardBodyStyle.appendChild(cardInfoIcon);
+cardBodyStyle.appendChild(cardInfoBody);
+classCardInfo.appendChild(cardInfoColor);
+classCardInfo.appendChild(cardBodyStyle);
+
+cardInfo.appendChild(classCardInfo);
 }
 
 function clearMessage() {

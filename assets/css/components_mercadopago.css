@@ -196,6 +196,7 @@
 	align-items: center;
 	color: rgba(0, 0, 0, 0.9);
 	margin: 4px 0px;
+	font-weight: bold;
 }
 .mp-text-subtitle {
 	font-family: "Proxima Nova", -apple-system, "Helvetica Neue", Helvetica,

@@ -121,20 +121,24 @@ if ( ! defined( 'ABSPATH' ) ) {
 					</button>
 				</a>
 			</div>
+
+			<div id="msg-info-credentials">
+			</div>
+
 			<div class="mp-container">
-				<div class="mp-block mp-block-flex mp-settings-margin-left">
+				<div class="mp-block mp-block-flex mp-settings-margin-right">
 					<p class="mp-settings-title-font-size"><b><?php echo esc_html($translation_credential['title_credential_prod']); ?></b></p>
 					<p class="mp-settings-label mp-settings-title-color mp-settings-margin-bottom"><?php echo esc_html($translation_credential['subtitle_credential_prod']); ?></p>
 					<fieldset class="mp-settings-fieldset">
-						<legend class="mp-settings-label mp-settings-font-color"><?php echo esc_html($translation_credential['public_key']); ?></legend>
+						<legend class="mp-settings-label mp-settings-font-color"><?php echo esc_html($translation_credential['public_key']); ?><span style="color: red;">*</span></legend>
 						<input class="mp-settings-input " id="mp-public-key-prod" type="text" value="<?php echo esc_html($options_credentials['credentials_public_key_prod']); ?>" placeholder="<?php echo esc_html($translation_credential['placeholder_public_key']); ?>">
 					</fieldset>
 					<fieldset>
-						<legend class="mp-settings-label mp-settings-font-color"><?php echo esc_html($translation_credential['access_token']); ?></legend>
+						<legend class="mp-settings-label mp-settings-font-color"><?php echo esc_html($translation_credential['access_token']); ?><span style="color: red;">*</span></legend>
 						<input class="mp-settings-input " id="mp-access-token-prod" type="text" value="<?php echo esc_html($options_credentials['credentials_access_token_prod']); ?>" placeholder="<?php echo esc_html($translation_credential['placeholder_access_token']); ?>">
 					</fieldset>
 				</div>
-				<div class="mp-block mp-block-flex mp-settings-margin-right">
+				<div class="mp-block mp-block-flex mp-settings-margin-left">
 					<p class="mp-settings-title-font-size"><b> <?php echo esc_html($translation_credential['title_credential_test']); ?> </b> </p>
 					<p class="mp-settings-label mp-settings-title-color mp-settings-margin-bottom"><?php echo esc_html($translation_credential['subtitle_credential_test']); ?></p>
 					<fieldset class="mp-settings-fieldset">
@@ -334,9 +338,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 									<div id="mp-helper-badge-div" class="mp-settings-alert-mode-body mp-settings-font-color">
 										<span id="mp-helper-test"  style="display: <?php echo esc_html('yes' === ( $checkbox_checkout_test_mode ) ? 'block;' : 'none;'); ?>">
 											1.<?php echo esc_html($translation_test_mode['subtitle_test1']); ?>
-											<a class="mp-settings-blue-text" id="mp-test-link" target="_blank" href="<?php echo esc_html(get_permalink( wc_get_page_id( 'shop' ) )); ?>"> <?php echo esc_html( $translation_test_mode['subtitle_link_test1'] ); ?> </a><?php echo esc_html( $translation_test_mode['subtitle_message_test1'] ); ?><br/>
-											2.<a class="mp-settings-blue-text" id="mp-test-link" target="_blank" href="<?php echo esc_html(get_permalink( wc_get_page_id( 'shop' ) )); ?>"> <?php echo esc_html( $translation_test_mode['subtitle_link_test2'] ); ?> </a><?php echo esc_html( $translation_test_mode['subtitle_test2'] ); ?><br/>
-											3.<a class="mp-settings-blue-text" id="mp-test-link" target="_blank" href="<?php echo esc_html(get_permalink( wc_get_page_id( 'shop' ) )); ?>"> <?php echo esc_html( $translation_test_mode['subtitle_link_test3'] ); ?> </a><?php echo esc_html( $translation_test_mode['subtitle_test3'] ); ?>
+											<a class="mp-settings-blue-text" id="mp-test-link" target="_blank" href="https://www.mercadopago.com/developers/panel/test-users"> <?php echo esc_html( $translation_test_mode['subtitle_link_test1'] ); ?> </a><?php echo esc_html( $translation_test_mode['subtitle_message_test1'] ); ?><br/>
+											2.<a class="mp-settings-blue-text" id="mp-test-link" target="_blank" href="<?php echo esc_html($devsite_links['test_cards']); ?>"> <?php echo esc_html( $translation_test_mode['subtitle_link_test2'] ); ?> </a><?php echo esc_html( $translation_test_mode['subtitle_test2'] ); ?><br/>
+											3.<a class="mp-settings-blue-text" id="mp-test-link" target="_blank" href="<?php echo esc_html(get_permalink( wc_get_page_id( 'shop' ) )); ?>"> <?php echo esc_html( $translation_test_mode['subtitle_link_test3'] ); ?> </a><?php echo esc_html( $translation_test_mode['subtitle_test3'] ); ?>.
 										</span>
 										<span id="mp-helper-prod"  style="display: <?php echo esc_html('yes' === ( $checkbox_checkout_test_mode ) ? 'none;' : 'block;'); ?>"><?php echo esc_html( $translation_test_mode['subtitle_message_prod'] ); ?></span>
 									</div>
@@ -360,7 +364,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 									<div id="mp-helper-badge-div" class="mp-settings-alert-mode-body mp-settings-font-color">
 										<span id="mp-helper-test">
 											<?php echo esc_html($translation_test_mode['subtitle_alert_test']); ?>
-											<a class="mp-settings-blue-text" id="mp-test-link" target="_blank" href="<?php echo esc_html(get_permalink( wc_get_page_id( 'shop' ) )); ?>"> <?php echo esc_html( $translation_test_mode['title_alert_test_link'] ); ?></a>
+											<a class="mp-settings-blue-text" id="mp-test-link" target="_blank" href="<?php echo esc_html($links['link_credentials']); ?>"> <?php echo esc_html( $translation_test_mode['title_alert_test_link'] ); ?></a>
 											<?php echo esc_html($translation_test_mode['title_alert_tes_one']); ?>
 										</span>
 									</div>
