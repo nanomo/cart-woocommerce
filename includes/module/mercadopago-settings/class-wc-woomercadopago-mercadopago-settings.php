@@ -520,7 +520,7 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 	public function mp_set_mode() {
 		try {
 			$verify_alert_test_mode = WC_WooMercadoPago_Credentials::get_sanitize_text_from_post( 'input_verify_alert_test_mode' );
-			if ( $verify_alert_test_mode === 'yes' ) {	
+			if ( 'yes' === $verify_alert_test_mode ) {
 				throw new Exception( __( 'Invalid credentials for test mode', 'woocommerce-mercadopago' ) );
 			} else {
 				$this->update_credential_production();
