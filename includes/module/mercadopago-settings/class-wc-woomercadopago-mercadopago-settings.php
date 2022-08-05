@@ -532,7 +532,7 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 					__( 'Mercado Pago\'s Payment Methods in Production Mode', 'woocommerce-mercadopago' );
 
 				wp_send_json_success( $response );
-		}
+			}
 		} catch ( Exception $e ) {
 			$response = [
 				'message' => $e->getMessage()
