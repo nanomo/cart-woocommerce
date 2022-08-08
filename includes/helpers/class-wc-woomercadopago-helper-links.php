@@ -42,7 +42,8 @@ class WC_WooMercadoPago_Helper_Links {
 		$devsite_links = array(
 			'dev_program'       => $base_link . '/developer-program',
 			'notifications_ipn' => $base_link . '/guides/notifications/ipn',
-			'shopping_testing'  => $base_link . '/guides/plugins/woocommerce/testing'
+			'shopping_testing'  => $base_link . '/guides/plugins/woocommerce/testing',
+			'test_cards'        => $base_link . '/docs/checkout-api/integration-test/test-cards'
 		);
 
 		return $devsite_links;
