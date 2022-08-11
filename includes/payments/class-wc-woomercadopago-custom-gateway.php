@@ -152,7 +152,7 @@ class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 			'type'        => 'mp_toggle_switch',
 			'default'     => 'no',
 			'descriptions' => array(
-				'enabled' => __( 'Transparent checkout for credit cards is <b>enabled</b>.', 'woocommerce-mercadopago' ),
+				'enabled' => __( 'Transparent Checkout for credit cards is <b>enabled</b>.', 'woocommerce-mercadopago' ),
 				'disabled' => __( 'Transparent checkout for credit cards is <b>disabled</b>.', 'woocommerce-mercadopago' ),
 			),
 		);
