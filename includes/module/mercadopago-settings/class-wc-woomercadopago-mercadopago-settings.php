@@ -441,16 +441,16 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 					update_option( WC_WooMercadoPago_Options::CREDENTIALS_PUBLIC_KEY_TEST, $public_key_test, true );
 					update_option( WC_WooMercadoPago_Options::CREDENTIALS_ACCESS_TOKEN_TEST, $access_token_test, true );
 					WC_WooMercadoPago_Credentials::mercadopago_payment_update();
-					if ( empty( $public_key_test ) && empty( $access_token_test ) && ( 'yes' === get_option( 'checkbox_checkout_test_mode', '' )) ){	
+					if ( empty( $public_key_test ) && empty( $access_token_test ) && ( 'yes' === get_option( 'checkbox_checkout_test_mode', '' ) ) ) {
 						$response = [
 						'message' => __( 'Your store has exited Test Mode and is making real sales in Production Mode.', 'woocommerce-mercadopago' ),
 						'subtitle' => __( 'To test the store, re-enter both test credentials.', 'woocommerce-mercadopago' ),
 						'type' => 'alert',
 						'test_mode' => 'no'
 						];
-						update_option( 'checkbox_checkout_test_mode','no' );
+						update_option( 'checkbox_checkout_test_mode', 'no' );
 						throw new Exception();
-					} else{
+					} else {
 						wp_send_json_success( __( 'Credentials were updated', 'woocommerce-mercadopago' ) );
 					}
 				}
@@ -462,7 +462,7 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 				'subtitle_one' => __( 'how to enter the credentials the right way.', 'woocommerce-mercadopago' ),
 				'subtitle_one_link' => $links['link_credentials'],
 				'type' => 'error',
-				'test_mode' =>  get_option( 'checkbox_checkout_test_mode' )
+				'test_mode' => get_option( 'checkbox_checkout_test_mode' )
 			];
 			throw new Exception();
 
