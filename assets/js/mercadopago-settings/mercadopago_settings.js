@@ -225,12 +225,23 @@ function mp_update_option_credentials() {
             );
           }, 3000);
         } else {
-        mp_show_error("msg-info-credentials",
+        mp_msg_element("msg-info-credentials",
           response.data.message,
            response.data.subtitle,
            response.data.subtitle_one_link,
-           response.data.subtitle_one);
-        }
+           response.data.subtitle_one,
+          response.data.type);
+
+          var rad = document.querySelectorAll('input[name="mp-test-prod"]');
+        
+          if('no' === response.data.test_mode){
+            rad[1].checked = true;
+            select_test_mode(false);
+          } else {
+            rad[0].checked = true;
+            select_test_mode(true);
+          }
+        }  
       })
       .fail(function (error) {
         mp_show_message(error?.data, "error", "credentials");
@@ -304,55 +315,79 @@ function mp_settings_accordion_options() {
   });
 }
 
+function select_test_mode(test){
+  var badge = document.getElementById("mp-mode-badge");
+  var color_badge = document.getElementById("mp-orange-badge");
+  var icon_badge = document.getElementById("mp-icon-badge");
+  var helper_test = document.getElementById("mp-helper-test");
+  var helper_prod = document.getElementById("mp-helper-prod");
+  var title_helper_prod = document.getElementById("mp-title-helper-prod");
+  var title_helper_test = document.getElementById("mp-title-helper-test");
+  var badge_test = document.getElementById("mp-mode-badge-test");
+  var badge_prod = document.getElementById("mp-mode-badge-prod");
+
+  if(test){
+    
+    badge.classList.remove("mp-settings-prod-mode-alert");
+    badge.classList.add("mp-settings-test-mode-alert");
+
+    color_badge.classList.remove(
+      "mp-settings-alert-payment-methods-green"
+    );
+    color_badge.classList.add(
+      "mp-settings-alert-payment-methods-orange"
+    );
+
+    icon_badge.classList.remove("mp-settings-icon-success");
+    icon_badge.classList.add("mp-settings-icon-warning");
+
+    mp_verify_alert_test_mode();
+
+    helper_test.style.display = "block";
+    helper_prod.style.display = "none";
+    title_helper_test.style.display = "block";
+    title_helper_prod.style.display = "none";
+    badge_test.style.display = "block";
+    badge_prod.style.display = "none";
+    
+  } else {
+
+    var red_badge = document.getElementById("mp-red-badge");
+
+    badge.classList.remove("mp-settings-test-mode-alert");
+    badge.classList.add("mp-settings-prod-mode-alert");
+    red_badge.style.display ="none";
+    color_badge.classList.remove(
+      "mp-settings-alert-payment-methods-orange"
+    );
+    color_badge.classList.add(
+      "mp-settings-alert-payment-methods-green"
+    );
+
+    icon_badge.classList.remove("mp-settings-icon-warning");
+    icon_badge.classList.add("mp-settings-icon-success");
+
+    helper_test.style.display = "none";
+    helper_prod.style.display = "block";
+    title_helper_test.style.display = "none";
+    title_helper_prod.style.display = "block";
+    badge_test.style.display = "none";
+    badge_prod.style.display = "block";
+  }
+}
+
 function mp_set_mode() {
-var badge = document.getElementById("mp-mode-badge");
-var color_badge = document.getElementById("mp-orange-badge");
-var icon_badge = document.getElementById("mp-icon-badge");
-var helper_test = document.getElementById("mp-helper-test");
-var helper_prod = document.getElementById("mp-helper-prod");
-var rad = document.querySelectorAll('input[name="mp-test-prod"]');
-rad[0].addEventListener("change", function () {
+  var rad = document.querySelectorAll('input[name="mp-test-prod"]');
+  rad[0].addEventListener("change", function () {
     if (rad[0].checked) {
-      badge.classList.remove("mp-settings-prod-mode-alert");
-      badge.classList.add("mp-settings-test-mode-alert");
-
-      color_badge.classList.remove(
-        "mp-settings-alert-payment-methods-green"
-      );
-      color_badge.classList.add(
-        "mp-settings-alert-payment-methods-orange"
-      );
-
-      icon_badge.classList.remove("mp-settings-icon-success");
-      icon_badge.classList.add("mp-settings-icon-warning");
-
-      badge.textContent = "Loja em modo teste";
-      mp_verify_alert_test_mode();
-
-      helper_test.style.display = "block";
-      helper_prod.style.display = "none";
+      select_test_mode(true);
     }
 });
 
 rad[1].addEventListener("change", function () {
-  var red_badge = document.getElementById("mp-red-badge");
+  
     if ( rad[1].checked ) {
-      badge.classList.remove("mp-settings-test-mode-alert");
-      badge.classList.add("mp-settings-prod-mode-alert");
-      badge.textContent = "Loja em modo vendas (Produção)";
-      red_badge.style.display ="none";
-      color_badge.classList.remove(
-        "mp-settings-alert-payment-methods-orange"
-      );
-      color_badge.classList.add(
-        "mp-settings-alert-payment-methods-green"
-      );
-
-      icon_badge.classList.remove("mp-settings-icon-warning");
-      icon_badge.classList.add("mp-settings-icon-success");
-
-      helper_test.style.display = "none";
-      helper_prod.style.display = "block";
+     select_test_mode(false);
     }
 });
 
@@ -534,42 +569,51 @@ function mp_show_message(message, type, block) {
   setTimeout(clearMessage, 3000);
 }
 
-function mp_show_error(element,title, subTitle,link,msgLink) {
-const cardInfo = document.getElementById(element);
-var classCardInfo=document.createElement("div");
-classCardInfo.className="mp-card-info";
-var cardInfoColor=document.createElement("div");
-cardInfoColor.className="mp-alert-color-error";
-var cardBodyStyle=document.createElement("div")
-cardBodyStyle.className="mp-card-body-payments mp-card-body-size"
+function mp_msg_element(element, title, subTitle, link, msgLink, type) {
+  const cardInfo = document.getElementById(element);
+  var classCardInfo=document.createElement("div");
+  classCardInfo.className="mp-card-info";
+  classCardInfo.id=element.concat("-card-info")
+  var cardInfoColor=document.createElement("div");
+  cardInfoColor.className="mp-alert-color-".concat(type);
+  var cardBodyStyle=document.createElement("div")
+  cardBodyStyle.className="mp-card-body-payments mp-card-body-size"
 
-var cardInfoIcon=document.createElement("div");
-cardInfoIcon.className="mp-icon-badge-warning";
-var cardInfoBody = document.createElement("div");
-var titleElement = document.createElement("span");
-titleElement.className="mp-text-title";
-var subTitleElement = document.createElement("span");
-subTitleElement.className="mp-helper-test";
-var linkText = document.createElement("a");
-linkText.className="mp-settings-blue-text";
-linkText.appendChild(document.createTextNode(msgLink))
-linkText.href=link
-titleElement.appendChild(document.createTextNode(title));
-subTitleElement.appendChild(document.createTextNode(subTitle));
+  var cardInfoIcon=document.createElement("div");
+  cardInfoIcon.className="mp-icon-badge-warning";
+  var cardInfoBody = document.createElement("div");
+  var titleElement = document.createElement("span");
+  titleElement.className="mp-text-title";
+  var subTitleElement = document.createElement("span");
+  subTitleElement.className="mp-helper-test";
+  titleElement.appendChild(document.createTextNode(title));
+  subTitleElement.appendChild(document.createTextNode(subTitle));
+  cardInfoBody.appendChild(titleElement);
 
-cardInfoBody.appendChild(titleElement);
-subTitleElement.appendChild(linkText);
-cardInfoBody.appendChild(subTitleElement);
-cardBodyStyle.appendChild(cardInfoIcon);
-cardBodyStyle.appendChild(cardInfoBody);
-classCardInfo.appendChild(cardInfoColor);
-classCardInfo.appendChild(cardBodyStyle);
-
-cardInfo.appendChild(classCardInfo);
+  if ( link!==undefined) {
+    var linkText = document.createElement("a");
+    linkText.className="mp-settings-blue-text";
+    linkText.appendChild(document.createTextNode(msgLink))
+    linkText.href=link
+    subTitleElement.appendChild(linkText);
+  }
+  cardInfoBody.appendChild(subTitleElement);
+  cardBodyStyle.appendChild(cardInfoIcon);
+  cardBodyStyle.appendChild(cardInfoBody);
+  classCardInfo.appendChild(cardInfoColor);
+  classCardInfo.appendChild(cardBodyStyle);
+  cardInfo.appendChild(classCardInfo);
+  if( 'alert' === type ){
+    setTimeout(clearElement, 5000, classCardInfo.id);
+  }
 }
 
 function clearMessage() {
   document.querySelector(".mp-alert").remove();
+}
+
+function clearElement(element) {
+   document.getElementById(element).remove();
 }
 
 function mp_go_to_next_step(actualStep, nextStep, actualArrowId, nextArrowId) {

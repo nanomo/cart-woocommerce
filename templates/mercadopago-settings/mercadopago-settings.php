@@ -280,7 +280,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<div class="mp-settings-title-container">
 				<span class="mp-settings-font-color mp-settings-title-blocks mp-settings-margin-right"><?php echo esc_html($translation_test_mode['title_test_mode']); ?></span>
 				<div id="mp-mode-badge" class="mp-settings-margin-left mp-settings-margin-right <?php echo esc_html('yes' === ( $checkbox_checkout_test_mode ) ? 'mp-settings-test-mode-alert' : 'mp-settings-prod-mode-alert'); ?>  ">
-				<span><?php echo esc_html('yes' === ( $checkbox_checkout_test_mode ) ? $translation_test_mode['badge_test'] : $translation_test_mode['badge_mode']); ?></span></div>
+				<span id="mp-mode-badge-test" style="display: <?php echo esc_html('yes' === ( $checkbox_checkout_test_mode ) ? 'block;' : 'none;'); ?>">
+					<?php echo esc_html( $translation_test_mode['badge_test'] ); ?>
+				</span>
+				<span id="mp-mode-badge-prod" style="display: <?php echo esc_html('yes' === ( $checkbox_checkout_test_mode ) ? 'none;' : 'block;'); ?>">
+					<?php echo esc_html( $translation_test_mode['badge_mode'] ); ?>
+				</span>
+				</div>
 			</div>
 			<div class="mp-settings-title-container mp-settings-margin-left">
 				<img class="mp-settings-icon-open" id="mp-modes-arrow-up">
@@ -333,7 +339,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 							<div class="mp-settings-mode-warning">
 								<div class="mp-settings-margin-left">
 									<div class="mp-settings-alert-mode-title">
-										<span id="mp-text-badge"> <?php echo esc_html('yes' === ( $checkbox_checkout_test_mode ) ? $translation_test_mode['title_message_test'] : $translation_test_mode['title_message_prod'] ); ?></span> </span>
+										<span id="mp-title-helper-prod" style="display: <?php echo esc_html('yes' === ( $checkbox_checkout_test_mode ) ? 'none;' : 'block;'); ?>">
+										<span id="mp-text-badge"> <?php echo esc_html( $translation_test_mode['title_message_prod'] ); ?></span>
+										</span>
+										<span id="mp-title-helper-test" style="display: <?php echo esc_html('yes' === ( $checkbox_checkout_test_mode ) ? 'block;' : 'none;'); ?>">
+										<span id="mp-text-badge" > <?php echo esc_html( $translation_test_mode['title_message_test'] ); ?></span>
+										</span>
 									</div>
 									<div id="mp-helper-badge-div" class="mp-settings-alert-mode-body mp-settings-font-color">
 										<span id="mp-helper-test"  style="display: <?php echo esc_html('yes' === ( $checkbox_checkout_test_mode ) ? 'block;' : 'none;'); ?>">
