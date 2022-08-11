@@ -467,7 +467,6 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 			throw new Exception();
 
 		} catch ( Exception $e ) {
-			
 			wp_send_json_error( $response );
 		}
 	}
