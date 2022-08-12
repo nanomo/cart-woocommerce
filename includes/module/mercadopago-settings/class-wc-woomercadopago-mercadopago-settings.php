@@ -35,7 +35,6 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 	public function load_scripts_and_styles() {
 		add_action( 'admin_enqueue_scripts', array( $this, 'load_admin_scripts' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'load_admin_style' ) );
-		add_action( 'admin_enqueue_scripts', array( $this, 'load_research_style' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'load_research_script' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'load_notices_scripts' ) );
 	}
@@ -71,18 +70,20 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 	}
 
 	/**
-	 * Load Research JavaScripts
+	 * Load Research Scripts
 	 */
 	public function load_research_script() {
 		if ( is_admin() && ( WC_WooMercadoPago_Helper_Current_Url::validate_page( 'mercadopago-settings' ) || WC_WooMercadoPago_Helper_Current_Url::validate_section( 'woo-mercado-pago' ) ) ) {
 			global $woocommerce;
+
 			wp_enqueue_script(
 				'mercadopago_research_javascript',
-				'https://http2.mlstatic.com/storage/v1/plugins/caronte/woocommerce.js?v=110',
+				plugins_url( '../../assets/js/caronte/caronte-client' . $this->get_suffix() . '.js', plugin_dir_path( __FILE__ ) ),
 				array(),
 				WC_WooMercadoPago_Constants::VERSION,
 				true
 			);
+
 			wp_localize_script(
 				'mercadopago_research_javascript',
 				'wc_mercadopago_params',
@@ -95,21 +96,6 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 					'reference_element_id'  => 'reference'
 				)
 			);
-		}
-	}
-
-	/**
-	 * Load Research Style
-	 */
-	public function load_research_style() {
-		if ( is_admin() && ( WC_WooMercadoPago_Helper_Current_Url::validate_page( 'mercadopago-settings' ) || WC_WooMercadoPago_Helper_Current_Url::validate_section( 'woo-mercado-pago' ) ) ) {
-			wp_register_style(
-				'mercadopago_research_css',
-				'https://http2.mlstatic.com/storage/v1/plugins/caronte/woocommerce.css?v=110',
-				false,
-				WC_WooMercadoPago_Constants::VERSION
-			);
-			wp_enqueue_style( 'mercadopago_research_css' );
 		}
 	}
 
