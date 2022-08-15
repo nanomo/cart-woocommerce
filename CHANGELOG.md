@@ -10,6 +10,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Added notices scripts on plugin
 - Added validation to avoid installments equal to zero
+- Added trigger to payment_method_selected event if it not triggered on checkout custom load
+- Added rule in notification to allow an approved payment to update if order status is pending, on_hold or failed
+- Added client to handle caronte scripts success and error
 
 ### Changed
 - Changed how to load melidata script on window.load
@@ -18,6 +21,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 - Fixed plugin and platform version on melidata client
+- Fixed order status when a partial refund is made
+- Fixed currency conversion value to display at checkout
 
 ## [6.0.2] - 2022-07-13
 
