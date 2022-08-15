@@ -130,14 +130,34 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<p class="mp-settings-title-font-size"><b><?php echo esc_html($translation_credential['title_credential_prod']); ?></b></p>
 					<p class="mp-settings-label mp-settings-title-color mp-settings-margin-bottom"><?php echo esc_html($translation_credential['subtitle_credential_prod']); ?></p>
 					<fieldset class="mp-settings-fieldset">
-						<legend class="mp-settings-label mp-settings-font-color"><?php echo esc_html($translation_credential['public_key']); ?><span style="color: red;">*</span></legend>
-						<input class="mp-settings-input " id="mp-public-key-prod" type="text" value="<?php echo esc_html($options_credentials['credentials_public_key_prod']); ?>" placeholder="<?php echo esc_html($translation_credential['placeholder_public_key']); ?>">
+						<legend class="mp-settings-label mp-settings-font-color">
+							<?php echo esc_html($translation_credential['public_key']); ?>
+							<span style="color: red;">&nbsp;*</span>
+						</legend>
+						<input
+							type="text"
+							id="mp-public-key-prod"
+							class="mp-settings-input"
+							value="<?php echo esc_html($options_credentials['credentials_public_key_prod']); ?>"
+							placeholder="<?php echo esc_html($translation_credential['placeholder_public_key']); ?>"
+						>
 					</fieldset>
+
 					<fieldset>
-						<legend class="mp-settings-label mp-settings-font-color"><?php echo esc_html($translation_credential['access_token']); ?><span style="color: red;">*</span></legend>
-						<input class="mp-settings-input " id="mp-access-token-prod" type="text" value="<?php echo esc_html($options_credentials['credentials_access_token_prod']); ?>" placeholder="<?php echo esc_html($translation_credential['placeholder_access_token']); ?>">
+						<legend class="mp-settings-label mp-settings-font-color">
+							<?php echo esc_html($translation_credential['access_token']); ?>
+							<span style="color: red;">&nbsp;*</span>
+						</legend>
+						<input
+							type="text"
+							id="mp-access-token-prod"
+							class="mp-settings-input"
+							value="<?php echo esc_html($options_credentials['credentials_access_token_prod']); ?>"
+							placeholder="<?php echo esc_html($translation_credential['placeholder_access_token']); ?>"
+						>
 					</fieldset>
 				</div>
+
 				<div class="mp-block mp-block-flex mp-settings-margin-left">
 					<p class="mp-settings-title-font-size"><b> <?php echo esc_html($translation_credential['title_credential_test']); ?> </b> </p>
 					<p class="mp-settings-label mp-settings-title-color mp-settings-margin-bottom"><?php echo esc_html($translation_credential['subtitle_credential_test']); ?></p>
@@ -359,7 +379,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 							</div>
 						</div>
-					</div>	
+					</div>
 					<div class="mp-settings-alert-payment-methods">
 						<div id="mp-red-badge" class="mp-settings-alert-red"  style="display:none;" >
 						<div class=" mp-settings-alert-payment-methods-gray">
@@ -384,7 +404,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 							</div>
 						</div>
 						</div>
-					</div>	
+					</div>
 				</div>
 			</div>
 			<button class="mp-button" id="mp-store-mode-save"><?php echo esc_html( $translation_test_mode['button_mode'] ); ?> </button>
