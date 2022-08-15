@@ -441,17 +441,17 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 					}
 				}
 			}
-			$links = WC_WooMercadoPago_Helper_Links::woomercadopago_settings_links();
+			$links    = WC_WooMercadoPago_Helper_Links::woomercadopago_settings_links();
 			$response = [
-				'message' => __( 'Invalid credentials', 'woocommerce-mercadopago' ),
-				'subtitle' => __( 'See our manual to learn ', 'woocommerce-mercadopago' ),
-				'subtitle_one' => __( 'how to enter the credentials the right way.', 'woocommerce-mercadopago' ),
+				'message'           => __( 'Invalid credentials', 'woocommerce-mercadopago' ),
+				'subtitle'          => __( 'See our manual to learn ', 'woocommerce-mercadopago' ),
+				'subtitle_one'      => __( 'how to enter the credentials the right way.', 'woocommerce-mercadopago' ),
 				'subtitle_one_link' => $links['link_credentials'],
-				'type' => 'error',
-				'test_mode' => get_option( 'checkbox_checkout_test_mode' )
+				'type'              => 'error',
+				'test_mode'         => get_option( 'checkbox_checkout_test_mode' )
 			];
-			throw new Exception();
 
+			throw new Exception();
 		} catch ( Exception $e ) {
 			wp_send_json_error( $response );
 		}
