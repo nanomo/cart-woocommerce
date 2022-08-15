@@ -180,47 +180,52 @@ abstract class WC_WooMercadoPago_Notification_Abstract {
 	 * @param string $used_gateway Class of gateway.
 	 */
 	public function mp_rule_approved( $data, $order, $used_gateway ) {
-		$order->add_order_note( 'Mercado Pago: ' . __( 'Payment approved.', 'woocommerce-mercadopago' ) );
 
-		/**
-		 * Apply filters woocommerce_payment_complete_order_status.
-		 *
-		 * @since 3.0.1
-		 */
-		$payment_completed_status = apply_filters(
-			'woocommerce_payment_complete_order_status',
-			$order->needs_processing() ? 'processing' : 'completed',
-			$order->get_id(),
-			$order
-		);
+		if ( 'pending' === $status || 'on_hold' === $status || 'failed' === $status ) {
 
-		if ( method_exists( $order, 'get_status' ) && $order->get_status() !== 'completed' ) {
-			switch ( $used_gateway ) {
-				case 'WC_WooMercadoPago_Basic_Gateway':
-				case 'WC_WooMercadoPago_Custom_Gateway':
-					$order->payment_complete();
-					if ( 'completed' !== $payment_completed_status ) {
-						$order->update_status( self::get_wc_status_for_mp_status( 'approved' ) );
-					}
-					break;
-				case 'WC_WooMercadoPago_Ticket_Gateway':
-					if ( 'no' === get_option( 'stock_reduce_mode', 'no' ) ) {
+			$order->add_order_note( 'Mercado Pago: ' . __( 'Payment approved.', 'woocommerce-mercadopago' ) );
+
+			/**
+			 * Apply filters woocommerce_payment_complete_order_status.
+			 *
+			 * @since 3.0.1
+			 */
+			$payment_completed_status = apply_filters(
+				'woocommerce_payment_complete_order_status',
+				$order->needs_processing() ? 'processing' : 'completed',
+				$order->get_id(),
+				$order
+			);
+
+			if ( method_exists( $order, 'get_status' ) && $order->get_status() !== 'completed' ) {
+				switch ( $used_gateway ) {
+					case 'WC_WooMercadoPago_Basic_Gateway':
+					case 'WC_WooMercadoPago_Custom_Gateway':
 						$order->payment_complete();
 						if ( 'completed' !== $payment_completed_status ) {
 							$order->update_status( self::get_wc_status_for_mp_status( 'approved' ) );
 						}
-					}
-					break;
-				case 'WC_WooMercadoPago_Pix_Gateway':
-					if ( 'no' === get_option( 'stock_reduce_mode', 'no' ) ) {
-						$order->payment_complete();
-						if ( 'completed' !== $payment_completed_status ) {
-							$order->update_status( self::get_wc_status_for_mp_status( 'approved' ) );
+						break;
+					case 'WC_WooMercadoPago_Ticket_Gateway':
+						if ( 'no' === get_option( 'stock_reduce_mode', 'no' ) ) {
+							$order->payment_complete();
+							if ( 'completed' !== $payment_completed_status ) {
+								$order->update_status( self::get_wc_status_for_mp_status( 'approved' ) );
+							}
 						}
-					}
-					break;
+						break;
+					case 'WC_WooMercadoPago_Pix_Gateway':
+						if ( 'no' === get_option( 'stock_reduce_mode', 'no' ) ) {
+							$order->payment_complete();
+							if ( 'completed' !== $payment_completed_status ) {
+								$order->update_status( self::get_wc_status_for_mp_status( 'approved' ) );
+							}
+						}
+						break;
+				}
 			}
 		}
+		return;
 	}
 
 	/**
