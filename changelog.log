@@ -1,5 +1,17 @@
 CHANGELOG:
 == Changelog ==
+= v6.1.0 (25/07/2022) =
+* Features
+- Added notices scripts on plugin
+- Added validation to avoid installments equal to zero
+
+* Changes
+- Changed how to load melidata script on window.load
+- Send email from Pix and QRCode only for orders with pending status
+
+* Bug fixes
+- Fixed plugin and platform version on melidata client
+
 = v6.0.2 (13/07/2022) =
 * Features
 - Added preg_replace for notification external params

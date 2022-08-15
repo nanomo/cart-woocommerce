@@ -246,8 +246,8 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 		$translation_credential = array(
 
 			'title_credentials'        => __( '1. Integrate your store with Mercado Pago  ', 'woocommerce-mercadopago' ),
-			'subtitle_credentials_one' => __( 'To enable and test sales, you must copy and paste your ', 'woocommerce-mercadopago' ),
-			'subtitle_credentials_two' => __( 'credentials below.', 'woocommerce-mercadopago' ),
+			'subtitle_credentials_one' => __( 'To enable orders, you must create and activate production credentials in your Mercado Pago Account. ', 'woocommerce-mercadopago' ),
+			'subtitle_credentials_two' => __( 'Copy and paste the credentials below.', 'woocommerce-mercadopago' ),
 			'button_link_credentials'  => __( 'Check credentials', 'woocommerce-mercadopago' ),
 			'title_credential_test'    => __( 'Test credentials ', 'woocommerce-mercadopago' ),
 			'subtitle_credential_test' => __( 'Enable Mercado Pago checkouts for test purchases in the store.', 'woocommerce-mercadopago' ),
@@ -329,22 +329,31 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 	 */
 	public function mp_translation_admin_test_mode() {
 		$translation_test_mode = array(
-			'title_test_mode'       => __( '4. Test your store before you sell', 'woocommerce-mercadopago' ),
-			'subtitle_test_mode'    => __( 'Test the experience in Test Mode and then enable the Sale Mode (Production) to sell.', 'woocommerce-mercadopago' ),
-			'title_mode'            => __( 'Choose how you want to operate your store:', 'woocommerce-mercadopago' ),
-			'title_test'            => __( 'Test Mode', 'woocommerce-mercadopago' ),
-			'subtitle_test'         => __( 'Mercado Pago Checkouts disabled for real collections. ', 'woocommerce-mercadopago' ),
-			'subtitle_test_link'    => __( 'Test Mode rules.', 'woocommerce-mercadopago' ),
-			'title_prod'            => __( 'Sale Mode (Production)', 'woocommerce-mercadopago' ),
-			'subtitle_prod'         => __( 'Mercado Pago Checkouts enabled for real collections.', 'woocommerce-mercadopago' ),
-			'title_message_prod'    => __( 'Mercado Pago payment methods in Production Mode', 'woocommerce-mercadopago' ),
-			'subtitle_message_prod' => __( 'The clients can make real purchases in your store.', 'woocommerce-mercadopago' ),
-			'title_message_test'    => __( 'Mercado Pago payment methods in Test Mode', 'woocommerce-mercadopago' ),
-			'subtitle_link_test'    => __( 'Visit your store ', 'woocommerce-mercadopago' ),
-			'subtitle_message_test' => __( 'to test purchases', 'woocommerce-mercadopago' ),
-			'button_mode'           => __( 'Save changes', 'woocommerce-mercadopago' ),
-			'badge_test'            => __( 'Store under test', 'woocommerce-mercadopago' ),
-			'badge_mode'            => __( 'Store in sale mode (Production)', 'woocommerce-mercadopago' ),
+			'title_test_mode'        => __( '4. Test your store before you sell', 'woocommerce-mercadopago' ),
+			'subtitle_test_mode'     => __( 'Test the experience in Test Mode and then enable the Sale Mode (Production) to sell.', 'woocommerce-mercadopago' ),
+			'title_mode'             => __( 'Choose how you want to operate your store:', 'woocommerce-mercadopago' ),
+			'title_test'             => __( 'Test Mode', 'woocommerce-mercadopago' ),
+			'subtitle_test'          => __( 'Mercado Pago Checkouts disabled for real collections. ', 'woocommerce-mercadopago' ),
+			'subtitle_test_link'     => __( 'Test Mode rules.', 'woocommerce-mercadopago' ),
+			'title_prod'             => __( 'Sale Mode (Production)', 'woocommerce-mercadopago' ),
+			'subtitle_prod'          => __( 'Mercado Pago Checkouts enabled for real collections.', 'woocommerce-mercadopago' ),
+			'title_message_prod'     => __( 'Mercado Pago payment methods in Production Mode', 'woocommerce-mercadopago' ),
+			'subtitle_message_prod'  => __( 'The clients can make real purchases in your store.', 'woocommerce-mercadopago' ),
+			'title_message_test'     => __( 'Mercado Pago payment methods in Test Mode', 'woocommerce-mercadopago' ),
+			'subtitle_test1'         => __( 'Create your ', 'woocommerce-mercadopago' ),
+			'subtitle_link_test1'    => __( 'test user ', 'woocommerce-mercadopago' ),
+			'subtitle_message_test1' => __( '(Optional. Can be used in Production Mode and Test Mode, to test payments).', 'woocommerce-mercadopago' ),
+			'subtitle_link_test2'    => __( 'Use our test cards, ', 'woocommerce-mercadopago' ),
+			'subtitle_test2'         => __( 'never use real cards. ', 'woocommerce-mercadopago' ),
+			'subtitle_link_test3'    => __( 'Visit your store ', 'woocommerce-mercadopago' ),
+			'subtitle_test3'         => __( 'to test purchases', 'woocommerce-mercadopago' ),
+			'button_mode'            => __( 'Save changes', 'woocommerce-mercadopago' ),
+			'badge_test'             => __( 'Store under test', 'woocommerce-mercadopago' ),
+			'badge_mode'             => __( 'Store in sale mode (Production)', 'woocommerce-mercadopago' ),
+			'title_alert_test'       => __( 'Enter test credentials', 'woocommerce-mercadopago' ),
+			'subtitle_alert_test'    => __( 'To enable test mode, ', 'woocommerce-mercadopago' ),
+			'title_alert_test_link'  => __( 'copy your test credentials ', 'woocommerce-mercadopago' ),
+			'title_alert_tes_one'    => __( 'and paste them above in section 1 of this page.', 'woocommerce-mercadopago' )
 		);
 
 		return $translation_test_mode;
@@ -422,27 +431,42 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 			$validate_access_token_prod = $mp->get_credentials_wrapper( $access_token_prod );
 			$me                         = $mp->get_me( $access_token_prod );
 
-			if ( $validate_public_key_test && $validate_access_token_test && $validate_public_key_prod && $validate_access_token_prod ) {
-				if ( true === $validate_public_key_test['is_test'] && true === $validate_access_token_test['is_test'] && false === $validate_public_key_prod['is_test'] && false === $validate_access_token_prod['is_test'] ) {
+			if ( $validate_public_key_prod && $validate_access_token_prod && false === $validate_public_key_prod['is_test'] && false === $validate_access_token_prod['is_test'] ) {
+				update_option( WC_WooMercadoPago_Options::CREDENTIALS_ACCESS_TOKEN_PROD, $access_token_prod, true );
+				update_option( WC_WooMercadoPago_Options::CREDENTIALS_PUBLIC_KEY_PROD, $public_key_prod, true );
+				update_option( WC_WooMercadoPago_Options::CHECKOUT_COUNTRY, $me['site_id'], true );
+				update_option( WC_WooMercadoPago_Options::SITE_ID, $me['site_id'], true );
+				if ( ( empty( $public_key_test ) && empty( $access_token_test ) )
+				|| ( true === $validate_public_key_test['is_test'] && true === $validate_access_token_test['is_test'] ) ) {
 					update_option( WC_WooMercadoPago_Options::CREDENTIALS_PUBLIC_KEY_TEST, $public_key_test, true );
-					update_option( WC_WooMercadoPago_Options::CREDENTIALS_PUBLIC_KEY_PROD, $public_key_prod, true );
-					update_option( WC_WooMercadoPago_Options::CREDENTIALS_ACCESS_TOKEN_PROD, $access_token_prod, true );
 					update_option( WC_WooMercadoPago_Options::CREDENTIALS_ACCESS_TOKEN_TEST, $access_token_test, true );
-					update_option( WC_WooMercadoPago_Options::CHECKOUT_COUNTRY, $me['site_id'], true );
-					update_option( WC_WooMercadoPago_Options::SITE_ID, $me['site_id'], true );
-
 					WC_WooMercadoPago_Credentials::mercadopago_payment_update();
-
-					wp_send_json_success( __( 'Credentials were updated', 'woocommerce-mercadopago' ) );
+					if ( empty( $public_key_test ) && empty( $access_token_test ) && ( 'yes' === get_option( 'checkbox_checkout_test_mode', '' ) ) ) {
+						$response = [
+						'message' => __( 'Your store has exited Test Mode and is making real sales in Production Mode.', 'woocommerce-mercadopago' ),
+						'subtitle' => __( 'To test the store, re-enter both test credentials.', 'woocommerce-mercadopago' ),
+						'type' => 'alert',
+						'test_mode' => 'no'
+						];
+						update_option( 'checkbox_checkout_test_mode', 'no' );
+						throw new Exception();
+					} else {
+						wp_send_json_success( __( 'Credentials were updated', 'woocommerce-mercadopago' ) );
+					}
 				}
 			}
-
-			throw new Exception( __( 'Update failed, invalid Credentials', 'woocommerce-mercadopago' ) );
+			$links = WC_WooMercadoPago_Helper_Links::woomercadopago_settings_links();
+			$response = [
+				'message' => __( 'Invalid credentials', 'woocommerce-mercadopago' ),
+				'subtitle' => __( 'See our manual to learn ', 'woocommerce-mercadopago' ),
+				'subtitle_one' => __( 'how to enter the credentials the right way.', 'woocommerce-mercadopago' ),
+				'subtitle_one_link' => $links['link_credentials'],
+				'type' => 'error',
+				'test_mode' => get_option( 'checkbox_checkout_test_mode' )
+			];
+			throw new Exception();
 
 		} catch ( Exception $e ) {
-
-			$response = $e->getMessage();
-
 			wp_send_json_error( $response );
 		}
 	}
@@ -508,16 +532,20 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 	 */
 	public function mp_set_mode() {
 		try {
-			$this->update_credential_production();
-			$checkout_test_mode = WC_WooMercadoPago_Credentials::get_sanitize_text_from_post( 'input_mode_value' );
-			update_option( 'checkbox_checkout_test_mode', $checkout_test_mode, true );
+			$verify_alert_test_mode = WC_WooMercadoPago_Credentials::get_sanitize_text_from_post( 'input_verify_alert_test_mode' );
+			if ( 'yes' === $verify_alert_test_mode ) {
+				throw new Exception( __( 'Invalid credentials for test mode', 'woocommerce-mercadopago' ) );
+			} else {
+				$this->update_credential_production();
+				$checkout_test_mode = WC_WooMercadoPago_Credentials::get_sanitize_text_from_post( 'input_mode_value' );
+				update_option( 'checkbox_checkout_test_mode', $checkout_test_mode, true );
 
-			$response = 'yes' === $checkout_test_mode ?
-				__( 'Mercado Pago\'s Payment Methods in Test Mode', 'woocommerce-mercadopago' ) :
-				__( 'Mercado Pago\'s Payment Methods in Production Mode', 'woocommerce-mercadopago' );
+				$response = 'yes' === $checkout_test_mode ?
+					__( 'Mercado Pago\'s Payment Methods in Test Mode', 'woocommerce-mercadopago' ) :
+					__( 'Mercado Pago\'s Payment Methods in Production Mode', 'woocommerce-mercadopago' );
 
-			wp_send_json_success( $response );
-
+				wp_send_json_success( $response );
+			}
 		} catch ( Exception $e ) {
 			$response = [
 				'message' => $e->getMessage()
@@ -609,7 +637,7 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 			$public_key_prod   = $this->options->get_public_key_prod();
 			$access_token_prod = $this->options->get_access_token_prod();
 
-			if ( $public_key_test && $access_token_test && $public_key_prod && $access_token_prod ) {
+			if ( ! ( $public_key_test xor $access_token_test ) && $public_key_prod && $access_token_prod ) {
 				wp_send_json_success( __( 'Valid Credentials', 'woocommerce-mercadopago' ) );
 			}
 

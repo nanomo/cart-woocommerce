@@ -181,6 +181,10 @@ abstract class WC_WooMercadoPago_Notification_Abstract {
 	 */
 	public function mp_rule_approved( $data, $order, $used_gateway ) {
 
+		if ( 'partially_refunded' === $data['status_detail'] ) {
+			return;
+		}
+
 		if ( 'pending' === $status || 'on_hold' === $status || 'failed' === $status ) {
 
 			$order->add_order_note( 'Mercado Pago: ' . __( 'Payment approved.', 'woocommerce-mercadopago' ) );
@@ -446,6 +450,7 @@ abstract class WC_WooMercadoPago_Notification_Abstract {
 	 * @return bool
 	 */
 	protected function can_update_order_status( $order ) {
+
 		return method_exists( $order, 'get_status' ) && $order->get_status() !== 'completed' && $order->get_status() !== 'processing';
 	}
 
