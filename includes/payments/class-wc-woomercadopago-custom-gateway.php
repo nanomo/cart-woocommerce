@@ -654,6 +654,7 @@ class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 		$this->installments       = 12;
 		$preference_wallet_button = new WC_WooMercadoPago_Preference_Custom_Wallet_Button( $this, $order );
 		$preference               = $preference_wallet_button->get_preference();
+
 		try {
 			$checkout_info = $this->mp->create_preference( wp_json_encode( $preference ) );
 			$this->log->write_log( __FUNCTION__, 'Created Preference: ' . wp_json_encode( $checkout_info, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE ) );
