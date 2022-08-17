@@ -38,7 +38,7 @@ class WC_WooMercadoPago_Helper_Links {
 
 	public static function get_mp_devsite_links() {
 		$link          = WC_WooMercadoPago_Module::define_link_country();
-		$base_link     = 'https://www.mercadopago.' . $link['sufix_url'] . 'developers/' . $link['translate'];
+		$base_link     = 'https://www.mercadopago.com/developers/' . $link['translate'];
 		$devsite_links = array(
 			'dev_program'       => $base_link . '/developer-program',
 			'notifications_ipn' => $base_link . '/guides/notifications/ipn',

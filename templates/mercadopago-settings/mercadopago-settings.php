@@ -349,10 +349,31 @@ if ( ! defined( 'ABSPATH' ) ) {
 						</div>
 					</div>
 					<div class="mp-settings-alert-payment-methods">
-
+						<div id="mp-red-badge" class="mp-settings-alert-red" style="display:none;" >
+							<div class="mp-settings-alert-payment-methods-gray" style="width: 540px">
+								<div class="mp-settings-margin-right mp-settings-mode-style">
+									<label id="mp-icon-badge-error" class="mp-settings-icon-warning"></label>
+								</div>
+								<div class="mp-settings-mode-warning">
+									<div class="mp-settings-margin-left">
+										<div class="mp-settings-alert-mode-title">
+											<span id="mp-text-badge"> <?php echo esc_html( $translation_test_mode['title_alert_test'] ); ?></span> </span>
+										</div>
+										<div id="mp-helper-badge-div" class="mp-settings-alert-mode-body mp-settings-font-color">
+											<span id="mp-helper-test-error">
+												<?php echo esc_html($translation_test_mode['subtitle_alert_test']); ?>
+												<a class="mp-settings-blue-text" id="mp-testmode-credentials-link" target="_blank" href="<?php echo esc_html($links['link_credentials']); ?>"> <?php echo esc_html( $translation_test_mode['title_alert_test_link'] ); ?></a>
+												<?php echo esc_html($translation_test_mode['title_alert_tes_one']); ?>
+											</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="mp-settings-alert-payment-methods">
 						<div id="mp-orange-badge" class="<?php echo esc_html('yes' === ( $checkbox_checkout_test_mode ) ? 'mp-settings-alert-payment-methods-orange' : 'mp-settings-alert-payment-methods-green'); ?>"></div>
-						<div class=" mp-settings-alert-payment-methods-gray">
-
+						<div class="mp-settings-alert-payment-methods-gray">
 							<div class="mp-settings-margin-right mp-settings-mode-style">
 								<label id="mp-icon-badge" class="<?php echo esc_html('yes' === ( $checkbox_checkout_test_mode ) ? 'mp-settings-icon-warning' : 'mp-settings-icon-success'); ?>  "></label>
 							</div>
@@ -367,7 +388,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 										</span>
 									</div>
 									<div id="mp-helper-badge-div" class="mp-settings-alert-mode-body mp-settings-font-color">
-										<span id="mp-helper-test"  style="display: <?php echo esc_html('yes' === ( $checkbox_checkout_test_mode ) ? 'block;' : 'none;'); ?>">
+										<span id="mp-helper-test" style="display: <?php echo esc_html('yes' === ( $checkbox_checkout_test_mode ) ? 'block;' : 'none;'); ?>">
 											1.<?php echo esc_html($translation_test_mode['subtitle_test1']); ?>
 											<a class="mp-settings-blue-text" id="mp-testmode-testuser-link" target="_blank" href="https://www.mercadopago.com/developers/panel/test-users"> <?php echo esc_html( $translation_test_mode['subtitle_link_test1'] ); ?> </a><?php echo esc_html( $translation_test_mode['subtitle_message_test1'] ); ?><br/>
 											2.<a class="mp-settings-blue-text" id="mp-testmode-cardtest-link" target="_blank" href="<?php echo esc_html($devsite_links['test_cards']); ?>"> <?php echo esc_html( $translation_test_mode['subtitle_link_test2'] ); ?> </a><?php echo esc_html( $translation_test_mode['subtitle_test2'] ); ?><br/>
@@ -376,33 +397,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 										<span id="mp-helper-prod"  style="display: <?php echo esc_html('yes' === ( $checkbox_checkout_test_mode ) ? 'none;' : 'block;'); ?>"><?php echo esc_html( $translation_test_mode['subtitle_message_prod'] ); ?></span>
 									</div>
 								</div>
-
 							</div>
-						</div>
-					</div>
-					<div class="mp-settings-alert-payment-methods">
-						<div id="mp-red-badge" class="mp-settings-alert-red"  style="display:none;" >
-						<div class=" mp-settings-alert-payment-methods-gray">
-
-							<div class="mp-settings-margin-right mp-settings-mode-style" >
-								<label id="mp-icon-badge" class="mp-settings-icon-warning"></label>
-							</div>
-							<div class="mp-settings-mode-warning">
-								<div class="mp-settings-margin-left">
-									<div class="mp-settings-alert-mode-title">
-										<span id="mp-text-badge"> <?php echo esc_html( $translation_test_mode['title_alert_test'] ); ?></span> </span>
-									</div>
-									<div id="mp-helper-badge-div" class="mp-settings-alert-mode-body mp-settings-font-color">
-										<span id="mp-helper-test">
-											<?php echo esc_html($translation_test_mode['subtitle_alert_test']); ?>
-											<a class="mp-settings-blue-text" id="mp-testmode-credentials-link" target="_blank" href="<?php echo esc_html($links['link_credentials']); ?>"> <?php echo esc_html( $translation_test_mode['title_alert_test_link'] ); ?></a>
-											<?php echo esc_html($translation_test_mode['title_alert_tes_one']); ?>
-										</span>
-									</div>
-								</div>
-
-							</div>
-						</div>
 						</div>
 					</div>
 				</div>

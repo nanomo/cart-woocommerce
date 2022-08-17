@@ -2450,7 +2450,7 @@ msgstr "usuario de prueba "
 msgid ""
 "(Optional. Can be used in Production Mode and Test Mode, to test payments)."
 msgstr ""
-"(opcional. Se puede utilizar en modo de producción y en modo de prueba, para "
+"(Opcional. Se puede utilizar en modo de producción y en modo de prueba, para "
 "probar los pagos)."
 
 #: ../../includes/module/mercadopago-settings/class-wc-woomercadopago-mercadopago-settings.php:346,
