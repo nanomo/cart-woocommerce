@@ -50,7 +50,7 @@ function mp_get_requirements() {
 }
 
 function mp_verify_alert_test_mode() {
-  
+
   if ( (document.getElementById("mp-public-key-test").value == '' || document.getElementById("mp-access-token-test").value == '')
     && (document.querySelector('input[name="mp-test-prod"]').checked) ) {
     document.getElementById("mp-red-badge").style.display ="block";
@@ -197,7 +197,7 @@ function mp_update_option_credentials() {
     if(msgAlert.childNodes.length>1){
       document.querySelector(".mp-card-info").remove();
     }
-  
+
     jQuery
       .post(
         ajaxurl,
@@ -211,7 +211,7 @@ function mp_update_option_credentials() {
         function (data) {}
       )
       .done(function (response) {
-        
+
         if (response.success) {
           mp_verify_alert_test_mode();
           mp_show_message(response.data, "success", "credentials");
@@ -233,7 +233,7 @@ function mp_update_option_credentials() {
           response.data.type);
 
           var rad = document.querySelectorAll('input[name="mp-test-prod"]');
-        
+
           if('no' === response.data.test_mode){
             rad[1].checked = true;
             select_test_mode(false);
@@ -241,7 +241,7 @@ function mp_update_option_credentials() {
             rad[0].checked = true;
             select_test_mode(true);
           }
-        }  
+        }
       })
       .fail(function (error) {
         mp_show_message(error?.data, "error", "credentials");
@@ -327,7 +327,7 @@ function select_test_mode(test){
   var badge_prod = document.getElementById("mp-mode-badge-prod");
 
   if(test){
-    
+
     badge.classList.remove("mp-settings-prod-mode-alert");
     badge.classList.add("mp-settings-test-mode-alert");
 
@@ -349,7 +349,7 @@ function select_test_mode(test){
     title_helper_prod.style.display = "none";
     badge_test.style.display = "block";
     badge_prod.style.display = "none";
-    
+
   } else {
 
     var red_badge = document.getElementById("mp-red-badge");
@@ -385,7 +385,7 @@ function mp_set_mode() {
 });
 
 rad[1].addEventListener("change", function () {
-  
+
     if ( rad[1].checked ) {
      select_test_mode(false);
     }
@@ -399,7 +399,7 @@ button.addEventListener("click", function () {
     .post(
       ajaxurl,
       { input_mode_value: mode_value,
-        input_verify_alert_test_mode: alert_validate, 
+        input_verify_alert_test_mode: alert_validate,
         action: "mp_store_mode" },
       function (data) {}
     )
@@ -411,7 +411,7 @@ button.addEventListener("click", function () {
           document.getElementById("mp-red-badge").style.display ="block";
         }
         mp_show_message( response.data.message, "error", "test_mode" );
-      }   
+      }
     })
     .fail(function (error) {
       mp_show_message( error.data, "error", "test_mode" );
@@ -607,7 +607,7 @@ function mp_msg_element(element, title, subTitle, link, msgLink, type) {
   classCardInfo.appendChild(cardBodyStyle);
   cardInfo.appendChild(classCardInfo);
   if( 'alert' === type ){
-    setTimeout(clearElement, 5000, classCardInfo.id);
+    setTimeout(clearElement, 10000, classCardInfo.id);
   }
 }
 
