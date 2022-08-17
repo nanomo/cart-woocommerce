@@ -373,7 +373,7 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 			$mp = WC_WooMercadoPago_Module::get_mp_instance_singleton();
 
 			if ( $access_token ) {
-				$validate_access_token = $mp->get_credentials_wrapper( $access_token );
+				$validate_access_token = $mp->get_credentials_wrapper( $access_token, null );
 				if ( ! $validate_access_token || $validate_access_token['is_test'] !== $is_test ) {
 					wp_send_json_error( __( 'Invalid Access Token', 'woocommerce-mercadopago' ) );
 				}
@@ -412,9 +412,9 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 			$mp = WC_WooMercadoPago_Module::get_mp_instance_singleton();
 
 			$validate_public_key_test   = $mp->get_credentials_wrapper( null, $public_key_test );
-			$validate_access_token_test = $mp->get_credentials_wrapper( $access_token_test );
+			$validate_access_token_test = $mp->get_credentials_wrapper( $access_token_test , null );
 			$validate_public_key_prod   = $mp->get_credentials_wrapper( null, $public_key_prod );
-			$validate_access_token_prod = $mp->get_credentials_wrapper( $access_token_prod );
+			$validate_access_token_prod = $mp->get_credentials_wrapper( $access_token_prod , null );
 			$me                         = $mp->get_me( $access_token_prod );
 
 			if ( $validate_public_key_prod && $validate_access_token_prod && false === $validate_public_key_prod['is_test'] && false === $validate_access_token_prod['is_test'] ) {
@@ -518,12 +518,14 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 	 */
 	public function mp_set_mode() {
 		try {
+			$checkout_test_mode = WC_WooMercadoPago_Credentials::get_sanitize_text_from_post( 'input_mode_value' );
+
 			$verify_alert_test_mode = WC_WooMercadoPago_Credentials::get_sanitize_text_from_post( 'input_verify_alert_test_mode' );
-			if ( 'yes' === $verify_alert_test_mode ) {
+			if ( 'yes' === $verify_alert_test_mode || ('yes' === $checkout_test_mode && (( '' === get_option( WC_WooMercadoPago_Options::CREDENTIALS_PUBLIC_KEY_TEST, '' ) || '' === get_option( WC_WooMercadoPago_Options::CREDENTIALS_ACCESS_TOKEN_TEST, '' ) )))) {
 				throw new Exception( __( 'Invalid credentials for test mode', 'woocommerce-mercadopago' ) );
 			} else {
 				$this->update_credential_production();
-				$checkout_test_mode = WC_WooMercadoPago_Credentials::get_sanitize_text_from_post( 'input_mode_value' );
+			
 				update_option( 'checkbox_checkout_test_mode', $checkout_test_mode, true );
 
 				$response = 'yes' === $checkout_test_mode ?
