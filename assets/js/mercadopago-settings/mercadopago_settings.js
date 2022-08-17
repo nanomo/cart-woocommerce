@@ -51,11 +51,11 @@ function mp_get_requirements() {
 
 function mp_verify_alert_test_mode() {
 
-  if ( (document.getElementById("mp-public-key-test").value == '' && document.getElementById("mp-access-token-test").value == ''
-    && (document.querySelector('input[name="mp-test-prod"]').checked))){
+  if ( (document.getElementById("mp-public-key-test").value == '' || document.getElementById("mp-access-token-test").value == '')
+    && (document.querySelector('input[name="mp-test-prod"]').checked) ) {
     document.getElementById("mp-red-badge").style.display ="block";
     return true;
-  }else{
+  } else {
     document.getElementById("mp-red-badge").style.display ="none";
     return false;
   };
@@ -407,6 +407,9 @@ button.addEventListener("click", function () {
       if( response.success ){
         mp_show_message( response.data, "success", "test_mode" );
       } else{
+        if (rad[0].checked) {
+          document.getElementById("mp-red-badge").style.display ="block";
+        }
         mp_show_message( response.data.message, "error", "test_mode" );
       }
     })
