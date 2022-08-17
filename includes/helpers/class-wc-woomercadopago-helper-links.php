@@ -21,13 +21,13 @@ class WC_WooMercadoPago_Helper_Links {
 	 * Links by country configured in woocommerce.
 	 */
 	public static function woomercadopago_settings_links() {
-		$link_settings    = WC_WooMercadoPago_Module::define_link_country();
-		$link_prefix_mp   = 'https://www.mercadopago.';
-		$link_prefix_mp_link   = 'https://www.mercadopago.com/';
-		$link_costs_mp    = 'costs-section';
-		$link_developers  = 'developers/';
-		$link_guides      = '/guides/plugins/woocommerce/integration';
-		$link_credentials = 'panel/credentials';
+		$link_settings       = WC_WooMercadoPago_Module::define_link_country();
+		$link_prefix_mp      = 'https://www.mercadopago.';
+		$link_prefix_mp_link = 'https://www.mercadopago.com/';
+		$link_costs_mp       = 'costs-section';
+		$link_developers     = 'developers/';
+		$link_guides         = '/guides/plugins/woocommerce/integration';
+		$link_credentials    = 'panel/credentials';
 
 		return array (
 
