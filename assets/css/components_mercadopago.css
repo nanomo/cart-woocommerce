@@ -163,13 +163,12 @@
 .mp-card-body-payments {
 	display: flex;
 	align-items: flex-start;
-	padding: 12px 16px 0px 0px;
-	width: 512px;
+	padding: 24px 100px 24px 0px;
 	background: rgba(0, 0, 0, 0.04);
 	border-radius: 0 6px 6px 0;
 }
 .mp-card-body-size {
-	width: 600px;
+	width: 653px;
 }
 .mp-card-body-size-homolog {
 	width: 700px;

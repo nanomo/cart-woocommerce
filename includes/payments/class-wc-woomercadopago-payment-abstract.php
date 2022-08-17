@@ -1324,4 +1324,19 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 			'link_terms_and_conditions' => $link_prefix_mp . $links_mp['sufix_url'] . $links_mp['help'] . $links_mp['term_conditition']
 		);
 	}
+
+	/**
+	 * Validate if installments is equal to zero
+	 *
+	 * @return int
+	 */
+	public function get_valid_installments( $installments ) {
+		$installments = (int) $installments;
+
+		if ( 0 === $installments ) {
+			return 12;
+		}
+
+		return $installments;
+	}
 }

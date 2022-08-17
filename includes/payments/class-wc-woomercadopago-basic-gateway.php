@@ -695,19 +695,4 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 		}
 		return null;
 	}
-
-	/**
-	 * Validate if installments is equal to zero
-	 *
-	 * @return int
-	 */
-	public function get_valid_installments( $installments ) {
-		$installments = (int) $installments;
-
-		if ( 0 === $installments ) {
-			return 12;
-		}
-
-		return $installments;
-	}
 }
