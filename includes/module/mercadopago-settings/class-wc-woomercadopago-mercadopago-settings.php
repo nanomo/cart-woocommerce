@@ -521,11 +521,10 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 			$checkout_test_mode = WC_WooMercadoPago_Credentials::get_sanitize_text_from_post( 'input_mode_value' );
 
 			$verify_alert_test_mode = WC_WooMercadoPago_Credentials::get_sanitize_text_from_post( 'input_verify_alert_test_mode' );
-			if ( 'yes' === $verify_alert_test_mode || ('yes' === $checkout_test_mode && (( '' === get_option( WC_WooMercadoPago_Options::CREDENTIALS_PUBLIC_KEY_TEST, '' ) || '' === get_option( WC_WooMercadoPago_Options::CREDENTIALS_ACCESS_TOKEN_TEST, '' ) )))) {
+			if ( 'yes' === $verify_alert_test_mode || ( 'yes' === $checkout_test_mode && ( ( '' === get_option( WC_WooMercadoPago_Options::CREDENTIALS_PUBLIC_KEY_TEST, '' ) || '' === get_option( WC_WooMercadoPago_Options::CREDENTIALS_ACCESS_TOKEN_TEST, '' ) ) ) ) ) {
 				throw new Exception( __( 'Invalid credentials for test mode', 'woocommerce-mercadopago' ) );
 			} else {
 				$this->update_credential_production();
-			
 				update_option( 'checkbox_checkout_test_mode', $checkout_test_mode, true );
 
 				$response = 'yes' === $checkout_test_mode ?
