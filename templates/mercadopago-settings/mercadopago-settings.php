@@ -350,7 +350,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					</div>
 					<div class="mp-settings-alert-payment-methods">
 						<div id="mp-red-badge" class="mp-settings-alert-red" style="display:none;" >
-							<div class="mp-settings-alert-payment-methods-gray">
+							<div class="mp-settings-alert-payment-methods-gray" style="width: 540px">
 								<div class="mp-settings-margin-right mp-settings-mode-style">
 									<label id="mp-icon-badge-error" class="mp-settings-icon-warning"></label>
 								</div>
