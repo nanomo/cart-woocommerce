@@ -598,6 +598,7 @@ function mp_msg_element(element, title, subTitle, link, msgLink, type) {
     linkText.className="mp-settings-blue-text";
     linkText.appendChild(document.createTextNode(msgLink))
     linkText.href=link
+    linkText.setAttribute("target", "_blank");
     subTitleElement.appendChild(linkText);
   }
   cardInfoBody.appendChild(subTitleElement);
