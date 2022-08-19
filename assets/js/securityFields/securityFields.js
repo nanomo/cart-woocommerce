@@ -153,14 +153,16 @@ function init_cardForm() {
         },
         onInstallmentsReceived: (error, installments) => {
           if (error) {
-            return console.warn("Installments handling error: ", error);
+            console.warn("Installments handling error: ", error);
+            return;
           }
 
           CheckoutPage.setChangeEventOnInstallments(CheckoutPage.getCountry(), installments);
         },
         onCardTokenReceived: (error) => {
           if (error) {
-            return console.warn("Token handling error: ", error);
+            console.warn("Token handling error: ", error);
+            return;
           }
         },
         onPaymentMethodsReceived: (error, paymentMethods) => {
@@ -307,14 +309,7 @@ function cardFormLoad() {
   if (document.getElementById("payment_method_woo-mercado-pago-custom").checked) {
     setTimeout(() => {
       if (!cardFormMounted) {
-        init_cardForm()
-          .then(() => {
-            setCustomCheckoutLoaded();
-          })
-          .catch((error) => {
-            setCustomCheckoutError();
-            console.error('Instance cardForm error: ', error);
-          })
+        handleCardFormLoad();
       }
     }, 1000);
   } else {
@@ -322,6 +317,17 @@ function cardFormLoad() {
       cardForm.unmount();
     }
   }
+}
+
+function handleCardFormLoad() {
+  init_cardForm()
+    .then(() => {
+      setCustomCheckoutLoaded();
+    })
+    .catch((error) => {
+      setCustomCheckoutError();
+      console.error('Instance cardForm error: ', error);
+    })
 }
 
 jQuery("form.checkout").on(
