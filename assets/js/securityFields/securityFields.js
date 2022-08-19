@@ -1,7 +1,9 @@
 var cardForm;
-var mercado_pago_submit, hasToken = false;
-var cardFormMounted, cardFormReady, cardFormError = false;
+var hasToken = false;
+var mercado_pago_submit = false;
 var triggeredPaymentMethodSelectedEvent = false;
+var cardFormReady = false;
+var cardFormMounted = false;
 
 var form = document.querySelector("form[name=checkout]");
 var formId = "checkout";
@@ -12,19 +14,13 @@ if (form) {
   formId = "order_review";
 }
 
-/**
- * Handler form submit
- * @return {bool}
- */
 function mercadoPagoFormHandler() {
   let formOrderReview = document.querySelector("form[id=order_review]");
 
   if (formOrderReview) {
-    let choCustomContent = document.querySelector(
-      ".mp-checkout-custom-container"
-    );
-
+    let choCustomContent = document.querySelector( ".mp-checkout-custom-container");
     let choCustomHelpers = choCustomContent.querySelectorAll("input-helper");
+
     choCustomHelpers.forEach((item) => {
       let inputHelper = item.querySelector("div");
       if (inputHelper.style.display != "none") {
@@ -81,7 +77,7 @@ function createToken() {
 function init_cardForm() {
   var mp = new MercadoPago(wc_mercadopago_params.public_key);
 
-  try {
+  return new Promise((resolve, reject) => {
     cardForm = mp.cardForm({
       amount: getAmount(),
       iframe: true,
@@ -135,9 +131,7 @@ function init_cardForm() {
         },
       },
       callbacks: {
-        onReady: () => {
-          setCustomCheckoutLoaded();
-        },
+        onReady: resolve,
         onFormMounted: function (error) {
           cardFormMounted = true;
 
@@ -149,7 +143,7 @@ function init_cardForm() {
         onFormUnmounted: function (error) {
           cardFormMounted = false;
           CheckoutPage.clearInputs();
-          setCustomCheckoutUnloaded();
+          setTimeout(setCustomCheckoutUnloaded, 1000);
 
           if (error) {
             console.log("Callback to handle the error: unmounting the CardForm", error);
@@ -243,34 +237,51 @@ function init_cardForm() {
               CheckoutPage.setDisplayOfError("fcIdentificationNumberContainer", "add", "mp-error");
               return CheckoutPage.setDisplayOfInputHelper("mp-doc-number", "flex");
             } else {
-              return console.error("Unknown error on cardForm: " + error.message);
+              console.error("Unknown error on cardForm: " + error.message);
+              return reject();
             }
           });
         },
       },
     });
-  } catch(err) {
-    console.error('Instance cardForm error: ', err);
-  }
+  })
 }
 
 function getCustomCheckoutElements() {
   return {
     loader: document.getElementById('mp-custom-checkout-loader'),
     container: document.getElementById('mp-custom-checkout-form-container'),
+    error: document.getElementById('mp-custom-checkout-error-container'),
   }
+}
+
+function setCustomCheckoutOnLoad() {
+  var customCheckoutElements = getCustomCheckoutElements();
+  customCheckoutElements.loader.style.display = 'flex';
+  customCheckoutElements.container.style.display = 'none';
+  customCheckoutElements.error.style.display = 'none';
+  cardFormReady = false;
 }
 
 function setCustomCheckoutLoaded() {
   var customCheckoutElements = getCustomCheckoutElements();
   customCheckoutElements.loader.style.display = 'none';
   customCheckoutElements.container.style.display = 'block';
+  cardFormReady = true;
 }
 
 function setCustomCheckoutUnloaded() {
   var customCheckoutElements = getCustomCheckoutElements();
   customCheckoutElements.loader.style.display = 'flex';
   customCheckoutElements.container.style.display = 'none';
+  cardFormReady = false;
+}
+
+function setCustomCheckoutError() {
+  var customCheckoutElements = getCustomCheckoutElements();
+  customCheckoutElements.loader.style.display = 'none';
+  customCheckoutElements.error.style.display = 'flex';
+  cardFormReady = false;
 }
 
 function getAmount() {
@@ -285,23 +296,26 @@ function getAmount() {
   return String(amount * currencyRatio);
 }
 
-/**
- * Remove Block Overlay from Order Review page
- */
 function removeBlockOverlay() {
   if (jQuery("form#order_review").length > 0) {
     jQuery(".blockOverlay").css("display", "none");
   }
 }
 
-/**
- * Manage mount and unmount the Cardform Instance
- */
 function cardFormLoad() {
   if (document.getElementById("payment_method_woo-mercado-pago-custom").checked) {
+    setCustomCheckoutOnLoad();
+
     setTimeout(() => {
       if (!cardFormMounted) {
-        init_cardForm();
+        init_cardForm()
+          .then(() => {
+            setCustomCheckoutLoaded();
+          })
+          .catch((error) => {
+            setCustomCheckoutError();
+            console.error('Instance cardForm error: ', error);
+          })
       }
     }, 1000);
   } else {
@@ -324,7 +338,6 @@ jQuery("body").on("payment_method_selected", function () {
   }
 });
 
-// If payment fail, retry on next checkout page
 jQuery("form#order_review").submit(function () {
   if (document.getElementById("payment_method_woo-mercado-pago-custom").checked) {
     return mercadoPagoFormHandler();

@@ -47,6 +47,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<div class="mp-loader"></div>
 		</div>
 
+		<div class="mp-checkout-error-container" id="mp-custom-checkout-error-container">
+			Error loading form. Please refresh the page to try again...
+		</div>
+
 		<div id="mp-custom-checkout-form-container" style="display: none;">
 			<div class='mp-checkout-custom-available-payments'>
 				<div class='mp-checkout-custom-available-payments-header'>

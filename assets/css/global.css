@@ -48,6 +48,13 @@
 	color: rgba(0, 0, 0, 0.7);
 }
 
+
+.mp-checkout-error-container {
+	display: none;
+	align-items: center;
+	justify-content: center;
+}
+
 /* LOADER */
 
 .mp-loader-container {

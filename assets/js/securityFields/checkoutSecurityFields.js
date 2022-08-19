@@ -6,6 +6,15 @@ if (form) {
       cardForm.unmount();
     }
 
-    init_cardForm();
+    setCustomCheckoutOnLoad();
+
+    init_cardForm()
+      .then(() => {
+        setCustomCheckoutLoaded();
+      })
+      .catch((error) => {
+        setCustomCheckoutError();
+        console.error("Instance cardForm error: ", error);
+      });
   });
 }
