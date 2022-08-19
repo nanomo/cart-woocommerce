@@ -6,8 +6,6 @@ if (form) {
       cardForm.unmount();
     }
 
-    setCustomCheckoutOnLoad();
-
     init_cardForm()
       .then(() => {
         setCustomCheckoutLoaded();

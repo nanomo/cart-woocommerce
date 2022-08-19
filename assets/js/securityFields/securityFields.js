@@ -75,8 +75,9 @@ function createToken() {
  * Init cardForm
  */
 function init_cardForm() {
-  var mp = new MercadoPago(wc_mercadopago_params.public_key);
+  setCustomCheckoutOnLoad();
 
+  var mp = new MercadoPago(wc_mercadopago_params.public_key);
   return new Promise((resolve, reject) => {
     cardForm = mp.cardForm({
       amount: getAmount(),
@@ -304,8 +305,6 @@ function removeBlockOverlay() {
 
 function cardFormLoad() {
   if (document.getElementById("payment_method_woo-mercado-pago-custom").checked) {
-    setCustomCheckoutOnLoad();
-
     setTimeout(() => {
       if (!cardFormMounted) {
         init_cardForm()
