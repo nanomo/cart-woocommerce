@@ -671,7 +671,7 @@ class MP {
 	 * @throws WC_WooMercadoPago_Exception Get credentials wrapper.
 	 */
 	public function get_credentials_wrapper( $access_token = null, $public_key = null ) {
-		$key = sprintf( '%s%s%s', __FUNCTION__, $access_token, $public_key );
+		$key = sprintf( '%sat%spk%s', __FUNCTION__, $access_token, $public_key );
 
 		$cache = $this->get_cache_response( $key );
 
