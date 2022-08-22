@@ -26,7 +26,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<?php endif; ?>
 			<?php if ( 'mlu' === $site_id ) : ?>
 				<div class="mp-checkout-ticket-input-document">
-					<input-document label-message="<?php echo esc_html_e('Holder document', 'woocommerce-mercadopago'); ?>" helper-message="<?php echo esc_html_e('Invalid document', 'woocommerce-mercadopago'); ?>" input-name='mercadopago_ticket[docNumber]' select-name='mercadopago_ticket[docType]' flag-error='mercadopago_ticket[docNumberError]' documents='["CI","OUTRO"]' validate=true>
+					<input-document label-message="<?php echo esc_html_e('Holder document', 'woocommerce-mercadopago'); ?>" helper-message="<?php echo esc_html_e('Invalid document', 'woocommerce-mercadopago'); ?>" input-name='mercadopago_ticket[docNumber]' select-name='mercadopago_ticket[docType]' flag-error='mercadopago_ticket[docNumberError]' documents='["CI","OTRO"]' validate=true>
 					</input-document>
 				</div>
 			<?php endif; ?>
