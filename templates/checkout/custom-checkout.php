@@ -48,7 +48,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 		</div>
 
 		<div class="mp-checkout-error-container" id="mp-custom-checkout-error-container">
-			Error loading form. Please refresh the page to try again...
+			<p>Error loading form. Please refresh the page to try again...</p>
+			<p id="mp-custom-checkout-error-details"></p>
 		</div>
 
 		<div id="mp-custom-checkout-form-container" style="display: none;">

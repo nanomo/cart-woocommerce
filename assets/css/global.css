@@ -51,8 +51,9 @@
 
 .mp-checkout-error-container {
 	display: none;
-	align-items: center;
+	align-items: flex-start;
 	justify-content: center;
+	flex-direction: column;
 }
 
 /* LOADER */
