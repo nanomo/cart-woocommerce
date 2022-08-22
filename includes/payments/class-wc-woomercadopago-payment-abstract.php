@@ -759,9 +759,9 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 	public function field_checkout_card_validate() {
 
 		$value = array(
-			'title'             => __('Important! To sell, you must enter your credentials.' , 'woocommerce-mercadopago'),
-			'subtitle'          => __('You must enter both production credentials.', 'woocommerce-mercadopago'),
-			'button_text'       => __('Go to step-by-step', 'woocommerce-mercadopago'),
+			'title'             => __('Important! To sell you must enter your credentials.', 'woocommerce-mercadopago'),
+			'subtitle'          => __('You must enter&nbsp;<b>production credentials</b>.', 'woocommerce-mercadopago'),
+			'button_text'       => __('Enter credentials', 'woocommerce-mercadopago'),
 			'button_url'        => admin_url( 'admin.php?page=mercadopago-settings' ),
 			'icon'              => 'mp-icon-badge-warning',
 			'color_card'        => 'mp-alert-color-error',
