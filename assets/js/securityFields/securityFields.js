@@ -255,39 +255,51 @@ function getCustomCheckoutElements() {
     loader: document.getElementById('mp-custom-checkout-loader'),
     container: document.getElementById('mp-custom-checkout-form-container'),
     error: document.getElementById('mp-custom-checkout-error-container'),
-    errorDetails: document.getElementById('mp-custom-checkout-error-details'),
   }
 }
 
 function setCustomCheckoutOnLoad() {
-  var customCheckoutElements = getCustomCheckoutElements();
-  customCheckoutElements.loader.style.display = 'flex';
-  customCheckoutElements.container.style.display = 'none';
-  customCheckoutElements.error.style.display = 'none';
+  const { loader, container, error } = getCustomCheckoutElements();
+
+  loader.style.display = 'flex';
+  container.style.display = 'none';
+  error.style.display = 'none';
+
+  if (error.firstElementChild) {
+    error.removeChild(error.firstElementChild);
+  }
+
   cardFormReady = false;
 }
 
 function setCustomCheckoutLoaded() {
-  var customCheckoutElements = getCustomCheckoutElements();
-  customCheckoutElements.loader.style.display = 'none';
-  customCheckoutElements.container.style.display = 'block';
-  customCheckoutElements.error.style.display = 'none';
+  const { loader, container, error } = getCustomCheckoutElements();
+  loader.style.display = 'none';
+  container.style.display = 'block';
+  error.style.display = 'none';
   cardFormReady = true;
 }
 
 function setCustomCheckoutUnloaded() {
-  var customCheckoutElements = getCustomCheckoutElements();
-  customCheckoutElements.loader.style.display = 'flex';
-  customCheckoutElements.container.style.display = 'none';
-  customCheckoutElements.error.style.display = 'none';
+  const { loader, container, error } = getCustomCheckoutElements();
+  loader.style.display = 'flex';
+  container.style.display = 'none';
+  error.style.display = 'none';
   cardFormReady = false;
 }
 
-function setCustomCheckoutError(error) {
-  var customCheckoutElements = getCustomCheckoutElements();
-  customCheckoutElements.loader.style.display = 'none';
-  customCheckoutElements.error.style.display = 'flex';
-  customCheckoutElements.errorDetails.innerText = 'Details: ' + error;
+function setCustomCheckoutError(err) {
+  const { loader, container, error } = getCustomCheckoutElements();
+
+  var alertDetails = document.createElement('alert-details');
+  alertDetails.setAttribute('title', 'Error loading form. Please refresh the page to try again.');
+  alertDetails.setAttribute('description', 'Click here to see more details...');
+  alertDetails.setAttribute('details', err);
+
+  error.appendChild(alertDetails);
+  loader.style.display = 'none';
+  container.style.display = 'none';
+  error.style.display = 'flex';
   cardFormReady = false;
 }
 

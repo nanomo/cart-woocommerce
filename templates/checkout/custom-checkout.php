@@ -19,7 +19,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<div class='mp-checkout-custom-container'>
 		<?php if ( true === $test_mode ) : ?>
 			<div class="mp-checkout-pro-test-mode">
-				<test-mode title="<?php echo esc_html_e('Checkout Custom in Test Mode', 'woocommerce-mercadopago'); ?>" description="<?php echo esc_html_e('Use Mercado Pago means without real charges.', 'woocommerce-mercadopago'); ?>" link-text="<?php echo esc_html_e('See test mode rules.', 'woocommerce-mercadopago'); ?>" link-src="<?php echo esc_html($test_mode_link); ?>">
+				<test-mode
+					title="<?php echo esc_html_e('Checkout Custom in Test Mode', 'woocommerce-mercadopago'); ?>"
+					description="<?php echo esc_html_e('Use Mercado Pago means without real charges.', 'woocommerce-mercadopago'); ?>"
+					link-text="<?php echo esc_html_e('See test mode rules.', 'woocommerce-mercadopago'); ?>" link-src="<?php echo esc_html($test_mode_link); ?>"
+				>
 				</test-mode>
 			</div>
 		<?php endif; ?>
@@ -47,10 +51,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<div class="mp-loader"></div>
 		</div>
 
-		<div class="mp-checkout-error-container" id="mp-custom-checkout-error-container">
-			<p>Error loading form. Please refresh the page to try again...</p>
-			<p id="mp-custom-checkout-error-details"></p>
-		</div>
+		<div class="mp-checkout-error-container" id="mp-custom-checkout-error-container"></div>
 
 		<div id="mp-custom-checkout-form-container" style="display: none;">
 			<div class='mp-checkout-custom-available-payments'>
