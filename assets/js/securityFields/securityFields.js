@@ -294,8 +294,8 @@ function setCustomCheckoutError(err) {
   const { loader, container, error } = getCustomCheckoutElements();
 
   var alertDetails = document.createElement('alert-details');
-  alertDetails.setAttribute('title', 'Error loading form. Please refresh the page to try again.');
-  alertDetails.setAttribute('description', 'Click here to see more details...');
+  alertDetails.setAttribute('title', wc_mercadopago_params.custom_checkout_sdk_handler.title);
+  alertDetails.setAttribute('description', wc_mercadopago_params.custom_checkout_sdk_handler.description);
   alertDetails.setAttribute('details', err);
 
   error.appendChild(alertDetails);
@@ -347,7 +347,7 @@ function handleCardFormLoad() {
       sendError(parsedError);
       setCustomCheckoutError(parsedError);
       console.error('Mercado Pago cardForm error: ', parsedError);
-    })
+    });
 }
 
 function handleCardFormErrors(cardFormErrors) {

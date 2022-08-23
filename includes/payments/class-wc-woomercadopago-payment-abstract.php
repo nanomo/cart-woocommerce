@@ -771,7 +771,7 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 
 		if ( ! empty( $this->checkout_country ) && ! empty( $this->get_access_token() ) && ! empty( $this->get_public_key() ) ) {
 			$value = array(
-				'title'             => __('Mercado Pago Plugin general settings', 'woocommerce-mercadopago'), __('Important! To sell you must enter your credentials.?' , 'woocommerce-mercadopago'),
+				'title'             => __('Mercado Pago Plugin general settings', 'woocommerce-mercadopago'), __('Important! To sell you must enter your credentials.' , 'woocommerce-mercadopago'),
 				'subtitle'          => __('Set the deadlines and fees, test your store or access the Plugin manual.', 'woocommerce-mercadopago'),
 				'button_text'       => __('Go to Settings', 'woocommerce-mercadopago'),
 				'button_url'        => admin_url( 'admin.php?page=mercadopago-settings' ),
