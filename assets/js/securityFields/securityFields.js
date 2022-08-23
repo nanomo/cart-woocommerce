@@ -1,3 +1,5 @@
+/* globals wc_mercadopago_params */
+
 var cardForm;
 var hasToken = false;
 var mercado_pago_submit = false;
@@ -342,8 +344,9 @@ function handleCardFormLoad() {
     })
     .catch((error) => {
       const parsedError = handleCardFormErrors(error);
-      console.error('Mercado Pago cardForm error: ', parsedError);
+      sendError(parsedError);
       setCustomCheckoutError(parsedError);
+      console.error('Mercado Pago cardForm error: ', parsedError);
     })
 }
 
@@ -358,6 +361,26 @@ function handleCardFormErrors(cardFormErrors) {
   }
 
   return cardFormErrors.description || cardFormErrors.message;
+}
+
+function sendError(error) {
+  const url = "https://api.mercadopago.com/v1/plugins/melidata/errors";
+  const payload = {
+    name: 'MP_CARDFORM_ERROR',
+    target: "mp_custom_checkout_security_fields_client",
+    message: error,
+    plugin: {
+      version: wc_mercadopago_params.plugin_version,
+    },
+    platform: {
+      name: "woocommerce",
+      uri: window.location.href,
+      version: wc_mercadopago_params.platform_version,
+      location: wc_mercadopago_params.location,
+    },
+  };
+
+  navigator.sendBeacon(url, JSON.stringify(payload));
 }
 
 jQuery("form.checkout").on(

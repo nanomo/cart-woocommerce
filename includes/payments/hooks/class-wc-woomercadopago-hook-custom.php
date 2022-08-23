@@ -78,6 +78,8 @@ class WC_WooMercadoPago_Hook_Custom extends WC_WooMercadoPago_Hook_Abstract {
 	 */
 	public function add_checkout_scripts_custom() {
 		if ( is_checkout() && $this->payment->is_available() && ! get_query_var( 'order-received' ) ) {
+			global $woocommerce;
+
 			$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
 			wp_enqueue_script(
@@ -179,6 +181,9 @@ class WC_WooMercadoPago_Hook_Custom extends WC_WooMercadoPago_Hook_Abstract {
 							'invalid_length' => __( 'Security code incomplete', 'woocommerce-mercadopago' ),
 						)
 					),
+					'location'               => '/checkout',
+					'plugin_version'         => WC_WooMercadoPago_Constants::VERSION,
+					'platform_version'       => $woocommerce->version,
 				)
 			);
 		}
