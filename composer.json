@@ -1,0 +1,31 @@
+{
+    "require-dev": {
+        "woocommerce/woocommerce-sniffs": "^0.1.0",
+        "phpunit/phpunit": "^7",
+        "php-stubs/wordpress-globals": "^0.2.0",
+        "giacocorsiglia/wordpress-stubs": "^5.1",
+        "yoast/phpunit-polyfills": "^1.0"
+    },
+    "scripts": {
+        "phpcs": [
+            "Composer\\Config::disableProcessTimeout",
+            "phpcs --standard=phpcs.xml includes templates woocommerce-mercadopago.php "
+        ],
+        "phpcbf": [
+            "Composer\\Config::disableProcessTimeout",
+            "phpcbf --standard=phpcs.xml includes templates woocommerce-mercadopago.php "
+        ],
+        "phpunit": [
+            "Composer\\Config::disableProcessTimeout",
+            "phpunit"
+        ]
+    },
+    "require": {
+        "ext-curl": "*"
+    },
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    }
+}
