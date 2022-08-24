@@ -78,6 +78,8 @@ class WC_WooMercadoPago_Hook_Custom extends WC_WooMercadoPago_Hook_Abstract {
 	 */
 	public function add_checkout_scripts_custom() {
 		if ( is_checkout() && $this->payment->is_available() && ! get_query_var( 'order-received' ) ) {
+			global $woocommerce;
+
 			$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
 			wp_enqueue_script(
@@ -124,60 +126,67 @@ class WC_WooMercadoPago_Hook_Custom extends WC_WooMercadoPago_Hook_Abstract {
 				'woocommerce-mercadopago-checkout',
 				'wc_mercadopago_params',
 				array(
-					'site_id'                => strtolower(get_option( '_site_id_v1' )),
-					'public_key'             => $this->payment->get_public_key(),
-					'coupon_mode'            => isset( $this->payment->logged_user_email ) ? $this->payment->coupon_mode : 'no',
-					'discount_action_url'    => $this->payment->discount_action_url,
-					'payer_email'            => esc_js( $this->payment->logged_user_email ),
-					'apply'                  => __( 'Apply', 'woocommerce-mercadopago' ),
-					'remove'                 => __( 'Remove', 'woocommerce-mercadopago' ),
-					'coupon_empty'           => __( 'Please, inform your coupon code', 'woocommerce-mercadopago' ),
-					'choose'                 => __( 'To choose', 'woocommerce-mercadopago' ),
-					'other_bank'             => __( 'Other bank', 'woocommerce-mercadopago' ),
-					'discount_info1'         => __( 'You will save', 'woocommerce-mercadopago' ),
-					'discount_info2'         => __( 'with discount of', 'woocommerce-mercadopago' ),
-					'discount_info3'         => __( 'Total of your purchase:', 'woocommerce-mercadopago' ),
-					'discount_info4'         => __( 'Total of your purchase with discount:', 'woocommerce-mercadopago' ),
-					'discount_info5'         => __( '*After payment approval', 'woocommerce-mercadopago' ),
-					'discount_info6'         => __( 'Terms and conditions of use', 'woocommerce-mercadopago' ),
-					'rate_text'              => __( 'No fee', 'woocommerce-mercadopago' ),
-					'more_installments_text' => __( 'More options', 'woocommerce-mercadopago' ),
-					'loading'                => plugins_url( '../../assets/images/', plugin_dir_path( __FILE__ ) ) . 'loading.gif',
-					'check'                  => plugins_url( '../../assets/images/', plugin_dir_path( __FILE__ ) ) . 'check.png',
-					'error'                  => plugins_url( '../../assets/images/', plugin_dir_path( __FILE__ ) ) . 'error.png',
-					'plugin_version'         => WC_WooMercadoPago_Constants::VERSION,
-					'currency'               => $this->payment->site_data['currency'],
-					'intl'                   => $this->payment->site_data['intl'],
-					'placeholders'           => array(
-						'cardExpirationDate' => __( 'mm/yy', 'woocommerce-mercadopago' ),
-						'issuer'             => __( 'Issuer', 'woocommerce-mercadopago' ),
-						'installments'       => __( 'Installments', 'woocommerce-mercadopago' ),
+					'site_id'                     => strtolower(get_option( '_site_id_v1' )),
+					'public_key'                  => $this->payment->get_public_key(),
+					'coupon_mode'                 => isset( $this->payment->logged_user_email ) ? $this->payment->coupon_mode : 'no',
+					'discount_action_url'         => $this->payment->discount_action_url,
+					'payer_email'                 => esc_js( $this->payment->logged_user_email ),
+					'apply'                       => __( 'Apply', 'woocommerce-mercadopago' ),
+					'remove'                      => __( 'Remove', 'woocommerce-mercadopago' ),
+					'coupon_empty'                => __( 'Please, inform your coupon code', 'woocommerce-mercadopago' ),
+					'choose'                      => __( 'To choose', 'woocommerce-mercadopago' ),
+					'other_bank'                  => __( 'Other bank', 'woocommerce-mercadopago' ),
+					'discount_info1'              => __( 'You will save', 'woocommerce-mercadopago' ),
+					'discount_info2'              => __( 'with discount of', 'woocommerce-mercadopago' ),
+					'discount_info3'              => __( 'Total of your purchase:', 'woocommerce-mercadopago' ),
+					'discount_info4'              => __( 'Total of your purchase with discount:', 'woocommerce-mercadopago' ),
+					'discount_info5'              => __( '*After payment approval', 'woocommerce-mercadopago' ),
+					'discount_info6'              => __( 'Terms and conditions of use', 'woocommerce-mercadopago' ),
+					'rate_text'                   => __( 'No fee', 'woocommerce-mercadopago' ),
+					'more_installments_text'      => __( 'More options', 'woocommerce-mercadopago' ),
+					'loading'                     => plugins_url( '../../assets/images/', plugin_dir_path( __FILE__ ) ) . 'loading.gif',
+					'check'                       => plugins_url( '../../assets/images/', plugin_dir_path( __FILE__ ) ) . 'check.png',
+					'error'                       => plugins_url( '../../assets/images/', plugin_dir_path( __FILE__ ) ) . 'error.png',
+					'plugin_version'              => WC_WooMercadoPago_Constants::VERSION,
+					'currency'                    => $this->payment->site_data['currency'],
+					'intl'                        => $this->payment->site_data['intl'],
+					'placeholders'                => array(
+						'cardExpirationDate'      => __( 'mm/yy', 'woocommerce-mercadopago' ),
+						'issuer'                  => __( 'Issuer', 'woocommerce-mercadopago' ),
+						'installments'            => __( 'Installments', 'woocommerce-mercadopago' ),
 					),
-					'cvvHint'                => array(
-						'back'               => __( 'on the back', 'woocommerce-mercadopago' ),
-						'front'              => __( 'on the front', 'woocommerce-mercadopago' ),
+					'cvvHint'                     => array(
+						'back'                    => __( 'on the back', 'woocommerce-mercadopago' ),
+						'front'                   => __( 'on the front', 'woocommerce-mercadopago' ),
 					),
-					'cvvText'                => __( 'digits', 'woocommerce-mercadopago' ),
-					'installmentObsFee'      => __( 'No fee', 'woocommerce-mercadopago' ),
-					'installmentButton'      => __( 'More options', 'woocommerce-mercadopago' ),
-					'input_helper_message'   => array(
-						'cardNumber'         => array(
-							'invalid_type'   => __( 'Card number is required', 'woocommerce-mercadopago' ),
-							'invalid_length' => __( 'Card number invalid', 'woocommerce-mercadopago' ),
+					'cvvText'                     => __( 'digits', 'woocommerce-mercadopago' ),
+					'installmentObsFee'           => __( 'No fee', 'woocommerce-mercadopago' ),
+					'installmentButton'           => __( 'More options', 'woocommerce-mercadopago' ),
+					'input_helper_message'        => array(
+						'cardNumber'              => array(
+							'invalid_type'        => __( 'Card number is required', 'woocommerce-mercadopago' ),
+							'invalid_length'      => __( 'Card number invalid', 'woocommerce-mercadopago' ),
 						),
-						'cardholderName'     => array(
-							'221'            => __( 'Holder name is required', 'woocommerce-mercadopago' ),
-							'316'            => __( 'Holder name invalid', 'woocommerce-mercadopago' ),
+						'cardholderName'          => array(
+							'221'                 => __( 'Holder name is required', 'woocommerce-mercadopago' ),
+							'316'                 => __( 'Holder name invalid', 'woocommerce-mercadopago' ),
 						),
-						'expirationDate'     => array(
-							'invalid_type'   => __( 'Expiration date invalid', 'woocommerce-mercadopago' ),
-							'invalid_length' => __( 'Expiration date incomplete', 'woocommerce-mercadopago' ),
-							'invalid_value'  => __( 'Expiration date invalid', 'woocommerce-mercadopago' ),
+						'expirationDate'          => array(
+							'invalid_type'        => __( 'Expiration date invalid', 'woocommerce-mercadopago' ),
+							'invalid_length'      => __( 'Expiration date incomplete', 'woocommerce-mercadopago' ),
+							'invalid_value'       => __( 'Expiration date invalid', 'woocommerce-mercadopago' ),
 						),
-						'securityCode'                => array(
-							'invalid_type'   => __( 'Security code is required', 'woocommerce-mercadopago' ),
-							'invalid_length' => __( 'Security code incomplete', 'woocommerce-mercadopago' ),
+						'securityCode'            => array(
+							'invalid_type'        => __( 'Security code is required', 'woocommerce-mercadopago' ),
+							'invalid_length'      => __( 'Security code incomplete', 'woocommerce-mercadopago' ),
 						)
+					),
+					'location'                    => '/checkout',
+					'plugin_version'              => WC_WooMercadoPago_Constants::VERSION,
+					'platform_version'            => $woocommerce->version,
+					'custom_checkout_sdk_handler' => array(
+						'title'                   => __( 'Error loading form. Please refresh the page to try again.', 'woocommerce-mercadopago' ),
+						'description'             => __( 'Click here to see more details...', 'woocommerce-mercadopago' ),
 					),
 				)
 			);

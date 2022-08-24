@@ -191,7 +191,7 @@ class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 	 */
 	public function field_checkout_custom_payments_advanced_title() {
 		$checkout_custom_payments_advanced_title = array(
-			'title' => __( 'Advanced configuration of the personalized payment experience"', 'woocommerce-mercadopago' ),
+			'title' => __( 'Advanced configuration of the personalized payment experience', 'woocommerce-mercadopago' ),
 			'type'  => 'title',
 			'class' => 'mp_subtitle_bd',
 		);
