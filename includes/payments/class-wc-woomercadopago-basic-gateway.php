@@ -614,7 +614,7 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 	 *
 	 * @return string
 	 */
-	public function get_credits_info_template($siteId) {
+	public function get_credits_info_template( $siteId ) {
 		$suffix = defined('SCRIPT_DEBUG') && SCRIPT_DEBUG ? '' : '.min';
 		wp_enqueue_script(
 			'woocommerce-mercadopago-info-admin-credits-script',
@@ -666,8 +666,7 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 	 *
 	 * @return string
 	 */
-	protected function get_mercado_credits_gif_path($siteId, $view)
-	{
+	protected function get_mercado_credits_gif_path( $siteId, $view ) {
 		$siteIds = [
 			'mla' => 'MLA_',
 			'mlb' => 'MLB_',
