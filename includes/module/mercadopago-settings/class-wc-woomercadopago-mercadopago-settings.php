@@ -134,40 +134,6 @@ class WC_WooMercadoPago_MercadoPago_Settings {
 	}
 
 	/**
-	 * Load Notices Scripts
-	 */
-	public function load_notices_scripts() {
-		if ( is_admin() && WC_WooMercadoPago_Helper_Current_Url::validate_page( 'mercadopago-settings' ) ) {
-			global $woocommerce;
-
-			$site_id     = get_option( '_site_id_v1' );
-			$credentials = $this->options->get_access_token_and_public_key();
-			$public_key  = $credentials['credentials_public_key_prod'];
-
-			wp_enqueue_script(
-				'mercadopago_notices',
-				plugins_url( '../../assets/js/notices/notices-client' . $this->get_suffix() . '.js', plugin_dir_path( __FILE__ ) ),
-				array(),
-				WC_WooMercadoPago_Constants::VERSION,
-				true
-			);
-
-			wp_localize_script(
-				'mercadopago_notices',
-				'wc_mercadopago_notices_params',
-				array(
-					'site_id'          => $site_id ? strtoupper( $site_id ) : 'MLA',
-					'container'        => '#wpbody-content',
-					'public_key'       => $public_key,
-					'plugin_version'   => WC_WooMercadoPago_Constants::VERSION,
-					'platform_id'      => WC_WooMercadoPago_Constants::PLATAFORM_ID,
-					'platform_version' => $woocommerce->version,
-				)
-			);
-		}
-	}
-
-	/**
 	 * Register Mercado Pago Option in WooCommerce Menu
 	 */
 	public function register_mercadopago_in_woocommerce_menu() {

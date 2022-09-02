@@ -603,16 +603,18 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 				'enabled' => __('The no-card installments banner is <b>active</b>.', 'woocommerce-mercadopago'),
 				'disabled' => __('The no-card installments banner is <b>disabled</b>.', 'woocommerce-mercadopago'),
 			),
-			'after_toggle' => $this->get_credits_info_template()
+			'after_toggle' => $this->get_credits_info_template($site)
 		);
 	}
 
 	/**
 	 * Example Banner Credits Admin
 	 *
-	 * @return array
+	 * @param $siteId
+	 *
+	 * @return string
 	 */
-	public function get_credits_info_template() {
+	public function get_credits_info_template($siteId) {
 		$suffix = defined('SCRIPT_DEBUG') && SCRIPT_DEBUG ? '' : '.min';
 		wp_enqueue_script(
 			'woocommerce-mercadopago-info-admin-credits-script',
@@ -635,8 +637,8 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 				'computerGrayIcon' => plugins_url('../assets/images/credits/desktop-gray-icon.png', plugin_dir_path(__FILE__)),
 				'cellphoneBlueIcon' => plugins_url('../assets/images/credits/cellphone-blue-icon.png', plugin_dir_path(__FILE__)),
 				'cellphoneGrayIcon' => plugins_url('../assets/images/credits/cellphone-gray-icon.png', plugin_dir_path(__FILE__)),
-				'viewMobile' => plugins_url('../assets/images/credits/view_mobile.gif', plugin_dir_path(__FILE__)),
-				'viewDesktop' => plugins_url('../assets/images/credits/view_desktop.gif', plugin_dir_path(__FILE__)),
+				'viewMobile' => plugins_url($this->get_mercado_credits_gif_path($siteId, 'mobile'), plugin_dir_path(__FILE__)),
+				'viewDesktop' => plugins_url($this->get_mercado_credits_gif_path($siteId, 'desktop'), plugin_dir_path(__FILE__)),
 				'footerDesktop' => __('Banner on the product page | Computer version', 'woocommerce-mercadopago'),
 				'footerCellphone' => __('Banner on the product page | Cellphone version', 'woocommerce-mercadopago'),
 			)
@@ -654,6 +656,27 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 			'',
 			WC_WooMercadoPago_Module::get_templates_path()
 		);
+	}
+
+	/**
+	 * Get git image path for mercado credits demonstration
+	 *
+	 * @param $siteId
+	 * @param $view
+	 *
+	 * @return string
+	 */
+	protected function get_mercado_credits_gif_path($siteId, $view)
+	{
+		$siteIds = [
+			'mla' => 'MLA_',
+			'mlb' => 'MLB_',
+			'mlm' => 'MLM_',
+		];
+
+		$prefix = isset($siteIds[$siteId]) ? $siteIds[$siteId] : '';
+
+		return sprintf('../assets/images/credits/%sview_%s.gif', $prefix, $view);
 	}
 
 	/**
