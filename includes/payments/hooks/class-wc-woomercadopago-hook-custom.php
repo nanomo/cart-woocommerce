@@ -29,9 +29,9 @@ class WC_WooMercadoPago_Hook_Custom extends WC_WooMercadoPago_Hook_Abstract {
 			add_action( 'woocommerce_after_checkout_form', array( $this, 'add_mp_settings_script_custom' ) );
 			add_action( 'woocommerce_thankyou_' . $this->payment->id, array( $this, 'update_mp_settings_script_custom' ) );
 			add_action( 'woocommerce_order_details_after_order_table', array( $this, 'update_mp_settings_script_custom'));
-			add_action( 'woocommerce_review_order_before_payment', array( $this, 'add_init_cardform_checkout')); 
-		}   
- 
+			add_action( 'woocommerce_review_order_before_payment', array( $this, 'add_init_cardform_checkout'));
+		}
+
 		add_action(
 			'woocommerce_receipt_' . $this->payment->id,
 			function ( $order ) {
@@ -211,32 +211,32 @@ class WC_WooMercadoPago_Hook_Custom extends WC_WooMercadoPago_Hook_Abstract {
 		// @codingStandardsIgnoreLine
 		parent::update_mp_settings_script( $order_id );
 
-		$order 			= wc_get_order( $order_id );
-		$paymentsId     = ( method_exists( $order, 'get_meta' ) ) ? $order->get_meta( '_Mercado_Pago_Payment_IDs' ) : get_post_meta( $order->get_id(), '_Mercado_Pago_Payment_IDs', true );
+		$order      = wc_get_order( $order_id );
+		$paymentsId = ( method_exists( $order, 'get_meta' ) ) ? $order->get_meta( '_Mercado_Pago_Payment_IDs' ) : get_post_meta( $order->get_id(), '_Mercado_Pago_Payment_IDs', true );
 
-		$payment_info 		= $this->mp_instance->search_payment_v1($paymentsId);
-		$installments 		= (float) $payment_info['response']['installments'];
+		$payment_info       = $this->mp_instance->search_payment_v1($paymentsId);
+		$installments       = (float) $payment_info['response']['installments'];
 		$installment_amount = (float) $payment_info['response']['transaction_details']['installment_amount'];
 		$transaction_amount = (float) $payment_info['response']['transaction_amount'];
-		$total_paid_amount 	= (float) $payment_info['response']['transaction_details']['total_paid_amount'] ;
+		$total_paid_amount  = (float) $payment_info['response']['transaction_details']['total_paid_amount'];
 
-		$currency_symbol   	= WC_WooMercadoPago_Configs::get_country_configs();
-		$total_diff_cost 	=  $total_paid_amount - $transaction_amount;
+		$currency_symbol = WC_WooMercadoPago_Configs::get_country_configs();
+		$total_diff_cost = $total_paid_amount - $transaction_amount;
 
 		$parameters_custom = array(
-			'title_installment_cost'    	=> __( 'Cost of installments', 'woocommerce-mercadopago' ),
-			'title_installment_total'   	=> __( 'Total with installments', 'woocommerce-mercadopago' ),
-			'text_installments'				=> __( 'x', 'woocommerce-mercadopago' ),
-			'text_de'						=> __( 'de', 'woocommerce-mercadopago' ),
-			'currency'            			=> $currency_symbol[ strtolower(get_option( '_site_id_v1' )) ]['currency_symbol'],
-			'total_paid_amount'         	=> number_format( $total_paid_amount, 2, ',', '.' ),
-			'transaction_amount'        	=> number_format( $transaction_amount, 2, ',', '.' ),
-			'total_diff_cost'        		=> number_format( $total_diff_cost, 2, ',', '.' ),
-			'installment_amount'        	=> number_format( $installment_amount, 2, ',', '.' ),
-			'installments'           		=> number_format( $installments ),
+			'title_installment_cost'   => __( 'Cost of installments', 'woocommerce-mercadopago' ),
+			'title_installment_total'  => __( 'Total with installments', 'woocommerce-mercadopago' ),
+			'text_installments'        => __( 'x', 'woocommerce-mercadopago' ),
+			'text_de'                  => __( 'de', 'woocommerce-mercadopago' ),
+			'currency'                 => $currency_symbol[ strtolower(get_option( '_site_id_v1' )) ]['currency_symbol'],
+			'total_paid_amount'        => number_format( $total_paid_amount, 2, ',', '.' ),
+			'transaction_amount'       => number_format( $transaction_amount, 2, ',', '.' ),
+			'total_diff_cost'          => number_format( $total_diff_cost, 2, ',', '.' ),
+			'installment_amount'       => number_format( $installment_amount, 2, ',', '.' ),
+			'installments'             => number_format( $installments ),
 		);
 
-		if (!$total_diff_cost == 0 ){
+		if ( ! 0 === $total_diff_cost ) {
 			wc_get_template(
 				'order-received/show-custom.php',
 				$parameters_custom,
