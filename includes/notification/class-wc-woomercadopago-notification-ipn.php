@@ -43,7 +43,13 @@ class WC_WooMercadoPago_Notification_IPN extends WC_WooMercadoPago_Notification_
 
 		$access_token = $this->mp->get_access_token();
 		if ( 'merchant_order' === $data['topic'] ) {
-			$ipn_info = $this->mp->get( '/merchant_orders/' . $data['id'], array( 'Authorization' => 'Bearer ' . $access_token ), false );
+			$merchant_order_id = preg_replace( '/[^\d]/', '', $data['id'] );
+
+			$ipn_info = $this->mp->get(
+				'/merchant_orders/' . $merchant_order_id,
+				array( 'Authorization' => 'Bearer ' . $access_token ),
+				false
+			);
 
 			if ( is_wp_error( $ipn_info ) || ( 200 !== $ipn_info['status'] && 201 !== $ipn_info['status'] ) ) {
 				$this->log->write_log( __FUNCTION__, ' IPN merchant_order not found ' . wp_json_encode( $ipn_info, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE ) );

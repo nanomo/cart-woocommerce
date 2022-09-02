@@ -11,7 +11,7 @@
         "lint": "jshint",
         "husky": "husky install && rm -rf .husky/_/.gitignore"
     },
-    "version": "6.0.1",
+    "version": "6.1.0",
     "repository": {
         "type": "git",
         "url": "https://github.com/mercadopago/cart-woocommerce"
@@ -20,7 +20,7 @@
     "devDependencies": {
         "husky": "^7.0.0",
         "jshint": "^2.13.4",
-        "minify": "^7.0.2",
+        "minify": "^7.2.2",
         "wp-pot": "^1.9.9"
     }
 }

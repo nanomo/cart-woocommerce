@@ -494,8 +494,8 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 		$ticket          = [];
 		$method          = $this->get_option_mp( 'method', 'redirect' );
 		$payment_methods = get_option( '_checkout_payments_methods', '' );
-		$installments    = $this->get_option_mp( 'installments' );
-		$test_mode_link  = $this->get_mp_devsite_link($this->checkout_country);
+		$test_mode_link  = $this->get_mp_devsite_link( $this->checkout_country );
+		$installments    = $this->get_valid_installments( $this->get_option_mp( 'installments' ) );
 
 		foreach ( $payment_methods as $payment_method ) {
 			if ( 'yes' === $this->get_option_mp( $payment_method['config'], '' ) ) {

@@ -2,9 +2,9 @@
 Contributors: mercadopago, mercadolivre, claudiosanches, marcelohama
 Tags: ecommerce, mercadopago, woocommerce
 Requires at least: 4.9.10
-Tested up to: 5.9
+Tested up to: 6.8
 Requires PHP: 5.6
-Stable tag: 6.0.1
+Stable tag: 6.1.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -135,6 +135,31 @@ Set up both the plugin and the checkouts you want to activate on your payment av
 Check out our <a href="https://www.mercadopago.com.br/developers/pt/plugins_sdks/plugins/official/woo-commerce/">official documentation</a> for more information on the specific fields to configure.
 
 == Changelog ==
+
+== Changelog ==
+= v6.1.0 (22/08/2022) =
+* Features
+- Added notices scripts on plugin
+- Added validation to avoid installments equal to zero
+- Added trigger to payment_method_selected event if it not triggered on checkout custom load
+- Added rule in notification to allow an approved payment to update if order status is pending, on_hold or failed
+- Added client to handle caronte scripts success and error
+
+* Changes
+- Removed the test credentials requirement to configure the plugin
+- Adjusted credential saving flow to avoid saving two public_key or access_token
+- Changed how to load melidata script on window.load
+- Send email from Pix and QRCode only for orders with pending status
+- Audited npm packages
+
+* Bug fixes
+- Fixed plugin and platform version on melidata client
+- Fixed order status when a partial refund is made
+- Fixed currency conversion value to display at checkout
+
+= v6.0.2 (13/07/2022) =
+* Features
+- Added preg_replace for notification external params
 
 = v6.0.1 (27/06/2022) =
 * Bug fixes

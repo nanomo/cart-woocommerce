@@ -509,23 +509,20 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 	 * @return array
 	 */
 	public function get_common_config() {
-
-		$configs = array(
-
-			'_mp_public_key_test'      => $this->mp_options->get_public_key_test(),
-			'_mp_access_token_test'    => $this->mp_options->get_access_token_test(),
-			'_mp_public_key_prod'      => $this->mp_options->get_public_key_prod(),
-			'_mp_access_token_prod'    => $this->mp_options->get_access_token_prod(),
-			'checkout_country'         => $this->mp_options->get_checkout_country(),
-			'mp_statement_descriptor'  => $this->mp_options->get_store_name_on_invoice(),
-			'_mp_category_id'          => $this->mp_options->get_store_category(),
-			'_mp_store_identificator'  => $this->mp_options->get_store_id(),
-			'_mp_integrator_id'        => $this->mp_options->get_integrator_id(),
-			'_mp_custom_domain'        => $this->mp_options->get_custom_domain(),
-			'installments'             => $this->get_option('installments'),
-			'auto_return'              => $this->get_option('auto_return'),
+		return array(
+			'_mp_public_key_test'     => $this->mp_options->get_public_key_test(),
+			'_mp_access_token_test'   => $this->mp_options->get_access_token_test(),
+			'_mp_public_key_prod'     => $this->mp_options->get_public_key_prod(),
+			'_mp_access_token_prod'   => $this->mp_options->get_access_token_prod(),
+			'checkout_country'        => $this->mp_options->get_checkout_country(),
+			'mp_statement_descriptor' => $this->mp_options->get_store_name_on_invoice(),
+			'_mp_category_id'         => $this->mp_options->get_store_category(),
+			'_mp_store_identificator' => $this->mp_options->get_store_id(),
+			'_mp_integrator_id'       => $this->mp_options->get_integrator_id(),
+			'_mp_custom_domain'       => $this->mp_options->get_custom_domain(),
+			'installments'            => $this->get_option('installments'),
+			'auto_return'             => $this->get_option('auto_return'),
 		);
-		return $configs;
 	}
 
 	/**
@@ -762,19 +759,19 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 	public function field_checkout_card_validate() {
 
 		$value = array(
-			'title'             => __('Important! Do not forget to add the credentials and details of your store.' , 'woocommerce-mercadopago'),
-			'subtitle'          => __('Before setting up payments, follow the step-by-step to start selling.', 'woocommerce-mercadopago'),
-			'button_text'       => __('Go to step-by-step', 'woocommerce-mercadopago'),
+			'title'             => __('Important! To sell you must enter your credentials.', 'woocommerce-mercadopago'),
+			'subtitle'          => __('You must enter&nbsp;<b>production credentials</b>.', 'woocommerce-mercadopago'),
+			'button_text'       => __('Enter credentials', 'woocommerce-mercadopago'),
 			'button_url'        => admin_url( 'admin.php?page=mercadopago-settings' ),
 			'icon'              => 'mp-icon-badge-warning',
-			'color_card'        => 'mp-alert-color-alert',
+			'color_card'        => 'mp-alert-color-error',
 			'size_card'         => 'mp-card-body-size',
 			'target'            => '_self',
 		);
 
 		if ( ! empty( $this->checkout_country ) && ! empty( $this->get_access_token() ) && ! empty( $this->get_public_key() ) ) {
 			$value = array(
-				'title'             => __('Mercado Pago Plugin general settings', 'woocommerce-mercadopago'), __('Important! Do not forget to add the credentials and details of your store.' , 'woocommerce-mercadopago'),
+				'title'             => __('Mercado Pago Plugin general settings', 'woocommerce-mercadopago'), __('Important! To sell you must enter your credentials.?' , 'woocommerce-mercadopago'),
 				'subtitle'          => __('Set the deadlines and fees, test your store or access the Plugin manual.', 'woocommerce-mercadopago'),
 				'button_text'       => __('Go to Settings', 'woocommerce-mercadopago'),
 				'button_url'        => admin_url( 'admin.php?page=mercadopago-settings' ),
@@ -1326,5 +1323,20 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 		return array (
 			'link_terms_and_conditions' => $link_prefix_mp . $links_mp['sufix_url'] . $links_mp['help'] . $links_mp['term_conditition']
 		);
+	}
+
+	/**
+	 * Validate if installments is equal to zero
+	 *
+	 * @return int
+	 */
+	public function get_valid_installments( $installments ) {
+		$installments = (int) $installments;
+
+		if ( 0 === $installments ) {
+			return 12;
+		}
+
+		return $installments;
 	}
 }
