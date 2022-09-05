@@ -19,7 +19,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<div class='mp-checkout-custom-container'>
 		<?php if ( true === $test_mode ) : ?>
 			<div class="mp-checkout-pro-test-mode">
-				<test-mode title="<?php echo esc_html_e('Checkout Custom in Test Mode', 'woocommerce-mercadopago'); ?>" description="<?php echo esc_html_e('Use Mercado Pago means without real charges.', 'woocommerce-mercadopago'); ?>" link-text="<?php echo esc_html_e('See test mode rules.', 'woocommerce-mercadopago'); ?>" link-src="<?php echo esc_html($test_mode_link); ?>">
+				<test-mode
+					title="<?php echo esc_html_e('Checkout Custom in Test Mode', 'woocommerce-mercadopago'); ?>"
+					description="<?php echo esc_html_e('Use Mercado Pago means without real charges.', 'woocommerce-mercadopago'); ?>"
+					link-text="<?php echo esc_html_e('See test mode rules.', 'woocommerce-mercadopago'); ?>" link-src="<?php echo esc_html($test_mode_link); ?>"
+				>
 				</test-mode>
 			</div>
 		<?php endif; ?>
@@ -43,96 +47,104 @@ if ( ! defined( 'ABSPATH' ) ) {
 			</div>
 		<?php endif; ?>
 
-		<div class='mp-checkout-custom-available-payments'>
-			<div class='mp-checkout-custom-available-payments-header'>
-				<div class="mp-checkout-custom-available-payments-title">
-					<img src="<?php echo esc_url(plugins_url('../assets/images/purple_card.png', plugin_dir_path(__FILE__))); ?>" class='mp-icon'>
-					<p class="mp-checkout-custom-available-payments-text"><?php echo esc_html_e('With which card can you pay?', 'woocommerce-mercadopago'); ?></p>
-				</div>
-
-				<img src="<?php echo esc_url(plugins_url('../assets/images/chefron-down.png', plugin_dir_path(__FILE__))); ?>" class='mp-checkout-custom-available-payments-collapsible' />
-			</div>
-
-			<div class='mp-checkout-custom-available-payments-content'>
-				<payment-methods methods='<?php echo wp_json_encode($payment_methods); ?>'></payment-methods>
-
-				<?php if ( 'mla' === $site_id ) : ?>
-					<span id="mp_promotion_link"> | </span>
-					<a href="https://www.mercadopago.com.ar/cuotas" id="mp_checkout_link" class="mp-checkout-link mp-pl-10" target="_blank">
-						<?php echo esc_html__('See current promotions', 'woocommerce-mercadopago'); ?>
-					</a>
-				<?php endif; ?>
-				<hr>
-			</div>
+		<div class="mp-loader-container" id="mp-custom-checkout-loader">
+			<div class="mp-loader"></div>
 		</div>
 
-		<div class='mp-checkout-custom-card-form'>
-			<p class='mp-checkout-custom-card-form-title'><?php echo esc_html_e('Fill in your card details', 'woocommerce-mercadopago'); ?></p>
-			<div class='mp-checkout-custom-card-row'>
-				<input-label isOptinal=false message="<?php echo esc_html_e('Card number', 'woocommerce-mercadopago'); ?>" for='mp-card-number'></input-label>
-				<div class="mp-checkout-custom-card-input" id="form-checkout__cardNumber-container"></div>
-				<input-helper isVisible=false message="<?php echo esc_html_e('Required data', 'woocommerce-mercadopago'); ?>" input-id="mp-card-number-helper">
-				</input-helper>
-			</div>
+		<div class="mp-checkout-error-container" id="mp-custom-checkout-error-container"></div>
 
-			<div class='mp-checkout-custom-card-row' id="mp-card-holder-div">
-				<input-label message="<?php echo esc_html_e('Holder name as it appears on the card', 'woocommerce-mercadopago'); ?>" isOptinal=false></input-label>
-				<input class="mp-checkout-custom-card-input mp-card-holder-name" placeholder="Ex.: María López" id="form-checkout__cardholderName" name="mp-card-holder-name" data-checkout="cardholderName" />
-				<input-helper isVisible=false message="<?php echo esc_html_e('Required data', 'woocommerce-mercadopago'); ?>" input-id="mp-card-holder-name-helper" data-main="mp-card-holder-name">
-				</input-helper>
-			</div>
-
-			<div class='mp-checkout-custom-card-row mp-checkout-custom-dual-column-row'>
-				<div class='mp-checkout-custom-card-column'>
-					<input-label message="<?php echo esc_html_e('Expiration', 'woocommerce-mercadopago'); ?>" isOptinal=false></input-label>
-					<div id="form-checkout__expirationDate-container" class="mp-checkout-custom-card-input mp-checkout-custom-left-card-input">
+		<div id="mp-custom-checkout-form-container" style="display: none;">
+			<div class='mp-checkout-custom-available-payments'>
+				<div class='mp-checkout-custom-available-payments-header'>
+					<div class="mp-checkout-custom-available-payments-title">
+						<img src="<?php echo esc_url(plugins_url('../assets/images/purple_card.png', plugin_dir_path(__FILE__))); ?>" class='mp-icon'>
+						<p class="mp-checkout-custom-available-payments-text"><?php echo esc_html_e('With which card can you pay?', 'woocommerce-mercadopago'); ?></p>
 					</div>
-					<input-helper isVisible=false message="<?php echo esc_html_e('Required data', 'woocommerce-mercadopago'); ?>" input-id="mp-expiration-date-helper">
-					</input-helper>
+
+					<img src="<?php echo esc_url(plugins_url('../assets/images/chefron-down.png', plugin_dir_path(__FILE__))); ?>" class='mp-checkout-custom-available-payments-collapsible' />
 				</div>
 
-				<div class='mp-checkout-custom-card-column'>
-					<input-label message="<?php echo esc_html_e('Security Code', 'woocommerce-mercadopago'); ?>" isOptinal=false></input-label>
-					<div id="form-checkout__securityCode-container" class="mp-checkout-custom-card-input"></div>
-					<p id="mp-security-code-info" class="mp-checkout-custom-info-text"></p>
-					<input-helper isVisible=false message="<?php echo esc_html_e('Required data', 'woocommerce-mercadopago'); ?>" input-id="mp-security-code-helper">
-					</input-helper>
+				<div class='mp-checkout-custom-available-payments-content'>
+					<payment-methods methods='<?php echo wp_json_encode($payment_methods); ?>'></payment-methods>
+
+					<?php if ( 'mla' === $site_id ) : ?>
+						<span id="mp_promotion_link"> | </span>
+						<a href="https://www.mercadopago.com.ar/cuotas" id="mp_checkout_link" class="mp-checkout-link mp-pl-10" target="_blank">
+							<?php echo esc_html__('See current promotions', 'woocommerce-mercadopago'); ?>
+						</a>
+					<?php endif; ?>
+					<hr>
 				</div>
 			</div>
 
-			<div id="mp-doc-div" class="mp-checkout-custom-input-document" style="display: none;">
-				<input-document label-message="<?php echo esc_html_e('Holder document', 'woocommerce-mercadopago'); ?>" helper-message="<?php echo esc_html_e('Invalid document', 'woocommerce-mercadopago'); ?>" input-name="identificationNumber" hidden-id="form-checkout__identificationNumber" input-data-checkout="docNumber" select-name="identificationType" select-id="form-checkout__identificationType" select-data-checkout="docType" flag-error="docNumberError">
-				</input-document>
-			</div>
-		</div>
-
-		<div id="mp-checkout-custom-installments" class="mp-checkout-custom-installments-display-none">
-			<p class='mp-checkout-custom-card-form-title'><?php echo esc_html_e('Select the number of installments', 'woocommerce-mercadopago'); ?></p>
-
-			<div id="mp-checkout-custom-issuers-container" class="mp-checkout-custom-issuers-container">
+			<div class='mp-checkout-custom-card-form'>
+				<p class='mp-checkout-custom-card-form-title'><?php echo esc_html_e('Fill in your card details', 'woocommerce-mercadopago'); ?></p>
 				<div class='mp-checkout-custom-card-row'>
-					<input-label isOptinal=false message="<?php echo esc_html_e('Issuer', 'woocommerce-mercadopago'); ?>" for='mp-issuer'></input-label>
+					<input-label isOptinal=false message="<?php echo esc_html_e('Card number', 'woocommerce-mercadopago'); ?>" for='mp-card-number'></input-label>
+					<div class="mp-checkout-custom-card-input" id="form-checkout__cardNumber-container"></div>
+					<input-helper isVisible=false message="<?php echo esc_html_e('Required data', 'woocommerce-mercadopago'); ?>" input-id="mp-card-number-helper">
+					</input-helper>
 				</div>
-				<div class="mp-input-select-input">
-					<select name="issuer" id="form-checkout__issuer" class="mp-input-select-select"></select>
+
+				<div class='mp-checkout-custom-card-row' id="mp-card-holder-div">
+					<input-label message="<?php echo esc_html_e('Holder name as it appears on the card', 'woocommerce-mercadopago'); ?>" isOptinal=false></input-label>
+					<input class="mp-checkout-custom-card-input mp-card-holder-name" placeholder="Ex.: María López" id="form-checkout__cardholderName" name="mp-card-holder-name" data-checkout="cardholderName" />
+					<input-helper isVisible=false message="<?php echo esc_html_e('Required data', 'woocommerce-mercadopago'); ?>" input-id="mp-card-holder-name-helper" data-main="mp-card-holder-name">
+					</input-helper>
+				</div>
+
+				<div class='mp-checkout-custom-card-row mp-checkout-custom-dual-column-row'>
+					<div class='mp-checkout-custom-card-column'>
+						<input-label message="<?php echo esc_html_e('Expiration', 'woocommerce-mercadopago'); ?>" isOptinal=false></input-label>
+						<div id="form-checkout__expirationDate-container" class="mp-checkout-custom-card-input mp-checkout-custom-left-card-input">
+						</div>
+						<input-helper isVisible=false message="<?php echo esc_html_e('Required data', 'woocommerce-mercadopago'); ?>" input-id="mp-expiration-date-helper">
+						</input-helper>
+					</div>
+
+					<div class='mp-checkout-custom-card-column'>
+						<input-label message="<?php echo esc_html_e('Security Code', 'woocommerce-mercadopago'); ?>" isOptinal=false></input-label>
+						<div id="form-checkout__securityCode-container" class="mp-checkout-custom-card-input"></div>
+						<p id="mp-security-code-info" class="mp-checkout-custom-info-text"></p>
+						<input-helper isVisible=false message="<?php echo esc_html_e('Required data', 'woocommerce-mercadopago'); ?>" input-id="mp-security-code-helper">
+						</input-helper>
+					</div>
+				</div>
+
+				<div id="mp-doc-div" class="mp-checkout-custom-input-document" style="display: none;">
+					<input-document label-message="<?php echo esc_html_e('Holder document', 'woocommerce-mercadopago'); ?>" helper-message="<?php echo esc_html_e('Invalid document', 'woocommerce-mercadopago'); ?>" input-name="identificationNumber" hidden-id="form-checkout__identificationNumber" input-data-checkout="docNumber" select-name="identificationType" select-id="form-checkout__identificationType" select-data-checkout="docType" flag-error="docNumberError">
+					</input-document>
 				</div>
 			</div>
 
-			<div id="mp-checkout-custom-installments-container" class="mp-checkout-custom-installments-container"></div>
-			<input-helper isVisible=false message="<?php echo esc_html_e('Select the number of installments', 'woocommerce-mercadopago'); ?>" input-id="mp-installments-helper"></input-helper>
-			<select style="display: none;" data-checkout="installments" name="installments" id="form-checkout__installments" class="mp-input-select-select">
-			</select>
+			<div id="mp-checkout-custom-installments" class="mp-checkout-custom-installments-display-none">
+				<p class='mp-checkout-custom-card-form-title'><?php echo esc_html_e('Select the number of installments', 'woocommerce-mercadopago'); ?></p>
 
-			<div id="mp-checkout-custom-box-input-tax-cft">
-				<div id="mp-checkout-custom-box-input-tax-tea">
-					<div id="mp-checkout-custom-tax-tea-text"></div>
+				<div id="mp-checkout-custom-issuers-container" class="mp-checkout-custom-issuers-container">
+					<div class='mp-checkout-custom-card-row'>
+						<input-label isOptinal=false message="<?php echo esc_html_e('Issuer', 'woocommerce-mercadopago'); ?>" for='mp-issuer'></input-label>
+					</div>
+					<div class="mp-input-select-input">
+						<select name="issuer" id="form-checkout__issuer" class="mp-input-select-select"></select>
+					</div>
 				</div>
-				<div id="mp-checkout-custom-tax-cft-text"></div>
+
+				<div id="mp-checkout-custom-installments-container" class="mp-checkout-custom-installments-container"></div>
+				<input-helper isVisible=false message="<?php echo esc_html_e('Select the number of installments', 'woocommerce-mercadopago'); ?>" input-id="mp-installments-helper"></input-helper>
+				<select style="display: none;" data-checkout="installments" name="installments" id="form-checkout__installments" class="mp-input-select-select">
+				</select>
+
+				<div id="mp-checkout-custom-box-input-tax-cft">
+					<div id="mp-checkout-custom-box-input-tax-tea">
+						<div id="mp-checkout-custom-tax-tea-text"></div>
+					</div>
+					<div id="mp-checkout-custom-tax-cft-text"></div>
+				</div>
 			</div>
-		</div>
-		<div class="mp-checkout-custom-terms-and-conditions">
-			<terms-and-conditions description="<?php echo esc_html_e('By continuing, you agree with our', 'woocommerce-mercadopago'); ?>" link-text="<?php echo esc_html_e('Terms and conditions', 'woocommerce-mercadopago'); ?>" link-src="<?php echo esc_html($link_terms_and_conditions); ?>">
-			</terms-and-conditions>
+			<div class="mp-checkout-custom-terms-and-conditions">
+				<terms-and-conditions description="<?php echo esc_html_e('By continuing, you agree with our', 'woocommerce-mercadopago'); ?>" link-text="<?php echo esc_html_e('Terms and conditions', 'woocommerce-mercadopago'); ?>" link-src="<?php echo esc_html($link_terms_and_conditions); ?>">
+				</terms-and-conditions>
+			</div>
 		</div>
 	</div>
 </div>

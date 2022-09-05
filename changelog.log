@@ -1,5 +1,12 @@
 CHANGELOG:
 == Changelog ==
+= v6.2.0 (05/09/2022) =
+* Features
+- Added loader on custom checkout to avoid timeout, handle and show errors on screen
+
+* Bug fixes
+- Fixed email sending method for order placed with PIX
+
 = v6.1.0 (22/08/2022) =
 * Features
 - Added notices scripts on plugin
