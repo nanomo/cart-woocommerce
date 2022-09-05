@@ -735,35 +735,33 @@ msgstr "Configuración Avanzada"
 
 #: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:208,
 #: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:208
-msgid "Purchases with saved cards or money in Mercado Pago"
-msgstr "Compras con tarjetas guardadas o saldo en Mercado Pago"
+msgid "Payments via Mercado Pago account"
+msgstr "Pagos a través de la cuenta de Mercado Pago"
 
 #: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:209,
 #: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:209
 msgid ""
-"Feature for those who have a saved card or money in Mercado Pago to buy "
-"without having to fill in details."
+"Your customers pay faster with saved cards, money balance or other available "
+"methods in their Mercado Pago accounts."
 msgstr ""
-"Es una funcionalidade para quienes tienen tarjetas guardadas o saldo en "
-"Mercado Pago puedan comprar sin la necesidad de completar datos."
+"Tus clientes pagan más rápido con tarjetas guardadas, dinero disponible o "
+"con otros medios disponibles en sus cuentas de MP."
 
 #: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:213,
 #: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:213
-msgid "The feature for payments with <b>saved cards</b> is <b>active</b>."
-msgstr ""
-"La funcionalidad para pagos con <b>tarjetas guardadas</b> está <b>activa</b>."
+msgid "Payments via Mercado Pago accounts are <b>active</b>."
+msgstr "Los pagos a través de la cuenta de Mercado Pago están <b>activos</b>."
 
 #: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:214,
 #: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:214
-msgid "The feature for payments with <b>saved cards</b> is <b>inactive</b>."
+msgid "Payments via Mercado Pago accounts are <b>inactive</b>."
 msgstr ""
-"La funcionalidad para pagos con <b>tarjetas guardadas</b> está <b>inactiva</"
-"b>."
+"Los pagos a través de la cuenta de Mercado Pago están <b>deshabilitados</b>."
 
 #: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:233,
 #: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:233
-msgid "You can see how the feature is in your store Checkout below:"
-msgstr "A continuación, cómo es la funcionalidad en el checkout de la tienda:"
+msgid "Check an example of how it will appear in your store:"
+msgstr "Conoce un ejemplo de cómo aparecerá en la tienda:"
 
 #: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:264,
 #: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:264
@@ -1967,25 +1965,24 @@ msgstr "Valorar el plugin"
 
 #: ../../includes/admin/notices/class-wc-woomercadopago-saved-cards.php:130,
 #: ../../includes/admin/notices/class-wc-woomercadopago-saved-cards.php:130
-msgid "Mercado Pago customers can now pay with stored cards."
-msgstr "Clientes de Mercado Pago ahora pueden pagar con tarjetas guardadas."
+msgid "Enable payments via Mercado Pago account"
+msgstr "Pagos a través de la cuenta de Mercado Pago"
 
 #: ../../includes/admin/notices/class-wc-woomercadopago-saved-cards.php:133,
 #: ../../includes/admin/notices/class-wc-woomercadopago-saved-cards.php:133
 msgid ""
-"The function Saved card payments  is enabled. With this setting, customers "
-"using Mercado Pago can purchase without having to fill in payment details. "
-"You can control this option in the settings."
+"When you enable this function, your customers pay faster using their Mercado "
+"Pago accounts.</br>The approval rate of these payments in your store can be "
+"25% higher compared to other payment methods."
 msgstr ""
-"La función Pago con tarjetas guardadas de Mercado Pago está habilitada. "
-"Ahora los clientes que utilizan Mercado pago pueden comprar sin tener que "
-"completar los datos de la tarjeta. Puedes controlar esta opción en "
-"configuración."
+"Con esta función activa, tus clientes pagan más rápido usando su cuenta de "
+"Mercado Pago.</br>La tasa de aprobación de estos pagos en tu tienda puede "
+"ser un 25% mayor en comparación con otros medios de pago."
 
 #: ../../includes/admin/notices/class-wc-woomercadopago-saved-cards.php:142,
 #: ../../includes/admin/notices/class-wc-woomercadopago-saved-cards.php:142
-msgid "Go to settings"
-msgstr "Ir a la configuración"
+msgid "Activate"
+msgstr ""
 
 #: ../../includes/admin/views/html-admin-alert-frame.php:34,
 #: ../../includes/admin/views/html-admin-alert-woocommerce-miss.php:30,
@@ -2719,7 +2716,6 @@ msgstr ""
 "inténtelo de nuevo o póngase en contacto con nosotros para Asistencia."
 
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-basic.php:84,
-#: ../../templates/checkout/custom-checkout.php:35,
 #: ../../templates/checkout/custom-checkout.php:44,
 #: ../../templates/receipt/custom-checkout.php:41,
 #: ../../templates/receipt/custom-checkout.php:41
@@ -2993,18 +2989,20 @@ msgstr "Paga más rápido con Mercado Pago"
 
 #: ../../templates/checkout/basic-checkout.php:36,
 #: ../../templates/checkout/basic-checkout.php:36
-msgid "Secure payment"
-msgstr "Pago seguro"
+msgid ""
+"If you already have a Mercado Libre account, use the same email and password"
+msgstr ""
+"Si ya tienes una cuenta de Mercado Libre, usa el mismo mail y contraseña "
 
 #: ../../templates/checkout/basic-checkout.php:37,
 #: ../../templates/checkout/basic-checkout.php:37
-msgid "No need to fill out details"
-msgstr "Sin cargar datos"
+msgid "Buy with your balance or saved cards"
+msgstr "Compra con tu dinero disponible o tarjetas guardadas "
 
 #: ../../templates/checkout/basic-checkout.php:38,
 #: ../../templates/checkout/basic-checkout.php:38
-msgid "Installments available"
-msgstr "Cuotas disponibles"
+msgid "Earn more points and have exclusive benefits in Mercado Puntos"
+msgstr "Gana más puntos y ventajas exclusivas en Mercado Puntos "
 
 #: ../../templates/checkout/basic-checkout.php:41,
 #: ../../templates/checkout/basic-checkout.php:41
@@ -3014,9 +3012,10 @@ msgstr ""
 #: ../../templates/checkout/basic-checkout.php:53,
 #: ../../templates/checkout/basic-checkout.php:53
 msgid ""
-"By confirming your purchase, you will be redirected to your Mercado Pago "
+"When you confirm your purchase, we will redirect you to your Mercado Pago "
 "account"
-msgstr "Al confirmar tu compra, te redirigiremos a tu cuenta de Mercado Pago"
+msgstr ""
+"Cuando confirmes tu compra, te redireccionaremos a tu cuenta de Mercado Pago"
 
 #: ../../templates/checkout/basic-checkout.php:54,
 #: ../../templates/checkout/basic-checkout.php:54
@@ -3054,10 +3053,20 @@ msgstr "Utiliza los medios de Mercado Pago sin cobros reales."
 msgid "See test mode rules."
 msgstr "Ver las reglas del Modo Test. "
 
+#: ../../templates/checkout/custom-checkout.php:35,
+#: ../../templates/checkout/custom-checkout.php:35
+msgid "Pay with saved cards"
+msgstr "Paga con tarjetas guardadas"
+
 #: ../../templates/checkout/custom-checkout.php:39,
 #: ../../templates/checkout/custom-checkout.php:39
-msgid "Pay faster with your saved cards and without completing data."
-msgstr "Paga más rápido con tus tarjetas guardadas y sin completar datos."
+msgid ""
+"Do you have a Mercado Libre account? Then use the same email and password to "
+"pay faster with Mercado Pago."
+msgstr ""
+"¿Tienes una cuenta de Mercado Libre? Usa el mismo e-mail y contraseña para "
+"pagar más rápido \n"
+"con Mercado Pago."
 
 #: ../../templates/checkout/custom-checkout.php:61,
 #: ../../templates/checkout/custom-checkout.php:61
@@ -3213,6 +3222,58 @@ msgstr ""
 msgid "Print ticket"
 msgstr "Imprimir ticket"
 
+#~ msgid "Purchases with saved cards or money in Mercado Pago"
+#~ msgstr "Compras con tarjetas guardadas o saldo en Mercado Pago"
+
+#~ msgid ""
+#~ "Feature for those who have a saved card or money in Mercado Pago to buy "
+#~ "without having to fill in details."
+#~ msgstr ""
+#~ "Es una funcionalidade para quienes tienen tarjetas guardadas o saldo en "
+#~ "Mercado Pago puedan comprar sin la necesidad de completar datos."
+
+#~ msgid "The feature for payments with <b>saved cards</b> is <b>active</b>."
+#~ msgstr ""
+#~ "La funcionalidad para pagos con <b>tarjetas guardadas</b> está <b>activa</"
+#~ "b>."
+
+#~ msgid "The feature for payments with <b>saved cards</b> is <b>inactive</b>."
+#~ msgstr ""
+#~ "La funcionalidad para pagos con <b>tarjetas guardadas</b> está "
+#~ "<b>inactiva</b>."
+
+#~ msgid "You can see how the feature is in your store Checkout below:"
+#~ msgstr ""
+#~ "A continuación, cómo es la funcionalidad en el checkout de la tienda:"
+
+#~ msgid "Mercado Pago customers can now pay with stored cards."
+#~ msgstr "Clientes de Mercado Pago ahora pueden pagar con tarjetas guardadas."
+
+#~ msgid ""
+#~ "The function Saved card payments  is enabled. With this setting, "
+#~ "customers using Mercado Pago can purchase without having to fill in "
+#~ "payment details. You can control this option in the settings."
+#~ msgstr ""
+#~ "La función Pago con tarjetas guardadas de Mercado Pago está habilitada. "
+#~ "Ahora los clientes que utilizan Mercado pago pueden comprar sin tener que "
+#~ "completar los datos de la tarjeta. Puedes controlar esta opción en "
+#~ "configuración."
+
+#~ msgid "Go to settings"
+#~ msgstr "Ir a la configuración"
+
+#~ msgid "Secure payment"
+#~ msgstr "Pago seguro"
+
+#~ msgid "No need to fill out details"
+#~ msgstr "Sin cargar datos"
+
+#~ msgid "Installments available"
+#~ msgstr "Cuotas disponibles"
+
+#~ msgid "Pay faster with your saved cards and without completing data."
+#~ msgstr "Paga más rápido con tus tarjetas guardadas y sin completar datos."
+
 #, fuzzy
 #~| msgid "Important! To sell you must enter your credentials."
 #~ msgid "Important! To sell, you must enter your credentials."
@@ -3254,9 +3315,6 @@ msgstr "Imprimir ticket"
 
 #~ msgid "We take you to our site to complete the payment"
 #~ msgstr "Te llevamos a nuestro sitio para completar el pago"
-
-#~ msgid "Pay with a saved card"
-#~ msgstr "Pagar con tarjeta guardada"
 
 #~ msgid "Enter your discount coupon"
 #~ msgstr "Ingresa tu cupón de descuento"
@@ -3606,9 +3664,6 @@ msgstr "Imprimir ticket"
 #~ "Con estas credenciales habilitas que tus checkouts Mercado Pago puedan "
 #~ "recibir pagos reales."
 
-#~ msgid "This name will appear on your customers invoice."
-#~ msgstr "Este nombre aparecerá en la factura de tus clientes."
-
 #~ msgid ""
 #~ "What category do your products belong to? Choose the one that best "
 #~ "characterizes them (choose \"other\" if your product is too specific)."
@@ -3726,9 +3781,6 @@ msgstr "Imprimir ticket"
 #~ "Visita tu tienda como si fueras uno de tus clientes y revisa que todo "
 #~ "esté bien. Si ya saliste a Producción,<br> trae a tus clientes y aumenta "
 #~ "tus ventas con la mejor experiencia de compra online."
-
-#~ msgid "Test payment via Mercado Pago"
-#~ msgstr "Testear pago vía Mercado Pago"
 
 #~ msgid "%s"
 #~ msgstr "%s"
