@@ -347,7 +347,7 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 	 */
 	public function field_checkout_pix_card_info() {
 		$value = array(
-			'title'             => __('Would you like to know how Pix works?', 'woocommerce-mercadopago'), __('Important! Do not forget to add the credentials and details of your store.' , 'woocommerce-mercadopago'),
+			'title'             => __('Would you like to know how Pix works?', 'woocommerce-mercadopago'), __('Important! To sell you must enter your credentials.' , 'woocommerce-mercadopago'),
 			'subtitle'          => __('We have a dedicated page where we explain how it works and its advantages.', 'woocommerce-mercadopago'),
 			'button_text'       => __('Find out more about Pix', 'woocommerce-mercadopago'),
 			'button_url'        => 'https://www.mercadopago.com.br/pix/',
@@ -586,17 +586,14 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 	/**
 	 * Get pix template
 	 *
-	 * @param object $order Order.
+	 * @param WC_Order $order Order.
 	 * @return string
 	 */
 	public static function get_pix_template( $order ) {
-
 		$pix_on = get_post_meta( $order->get_id(), 'pix_on' );
-
 		$pix_on = (int) array_pop( $pix_on );
 
-		if ( 1 === $pix_on ) {
-
+		if ( 1 === $pix_on && 'pending' === $order->get_status() ) {
 			$mp_pix_qr_code               = get_post_meta( $order->get_id(), 'mp_pix_qr_code' );
 			$mp_pix_qr_base64             = get_post_meta( $order->get_id(), 'mp_pix_qr_base64' );
 			$checkout_pix_date_expiration = get_post_meta($order->get_id(), 'checkout_pix_date_expiration');
@@ -606,8 +603,7 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 			$src             = 'data:image/jpeg;base64';
 			$expiration_date = array_pop( $checkout_pix_date_expiration );
 
-			$order = $order->get_id();
-
+			$order         = $order->get_id();
 			$qr_code_image = get_option('siteurl') . '/?wc-api=wc_mp_pix_image&id=' . $order;
 
 			if ( ! in_array( 'gd', get_loaded_extensions(), true ) ) {
@@ -628,7 +624,6 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 
 			return $pix_template;
 		}
-
 	}
 
 	/**

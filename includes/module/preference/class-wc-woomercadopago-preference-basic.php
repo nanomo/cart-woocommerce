@@ -103,6 +103,7 @@ class WC_WooMercadoPago_Preference_Basic extends WC_WooMercadoPago_Preference_Ab
 	 */
 	public function get_payment_methods( $ex_payments, $installments ) {
 		$excluded_payment_methods = array();
+
 		if ( is_array( $ex_payments ) && count( $ex_payments ) !== 0 ) {
 			foreach ( $ex_payments as $excluded ) {
 				array_push(
@@ -115,7 +116,7 @@ class WC_WooMercadoPago_Preference_Basic extends WC_WooMercadoPago_Preference_Ab
 		}
 
 		return array(
-			'installments'             => (int) $installments,
+			'installments'             => $this->payment->get_valid_installments($installments),
 			'excluded_payment_methods' => $excluded_payment_methods,
 		);
 	}

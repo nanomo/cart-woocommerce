@@ -21,28 +21,30 @@ class WC_WooMercadoPago_Helper_Links {
 	 * Links by country configured in woocommerce.
 	 */
 	public static function woomercadopago_settings_links() {
-		$link_settings    = WC_WooMercadoPago_Module::define_link_country();
-		$link_prefix_mp   = 'https://www.mercadopago.';
-		$link_costs_mp    = 'costs-section';
-		$link_developers  = 'developers/';
-		$link_guides      = '/guides/plugins/woocommerce/integration';
-		$link_credentials = 'panel/credentials';
+		$link_settings       = WC_WooMercadoPago_Module::define_link_country();
+		$link_prefix_mp      = 'https://www.mercadopago.';
+		$link_prefix_mp_link = 'https://www.mercadopago.com/';
+		$link_costs_mp       = 'costs-section';
+		$link_developers     = 'developers/';
+		$link_guides         = '/guides/plugins/woocommerce/integration';
+		$link_credentials    = 'panel/credentials';
 
 		return array (
 
 			'link_costs' => $link_prefix_mp . $link_settings ['sufix_url'] . $link_costs_mp,
 			'link_guides_plugin' => $link_prefix_mp . $link_settings ['sufix_url'] . $link_developers . $link_settings ['translate'] . $link_guides,
-			'link_credentials' => $link_prefix_mp . $link_settings ['sufix_url'] . $link_developers . $link_credentials,
+			'link_credentials' => $link_prefix_mp_link . $link_developers . $link_credentials,
 		);
 	}
 
 	public static function get_mp_devsite_links() {
 		$link          = WC_WooMercadoPago_Module::define_link_country();
-		$base_link     = 'https://www.mercadopago.' . $link['sufix_url'] . 'developers/' . $link['translate'];
+		$base_link     = 'https://www.mercadopago.com/developers/' . $link['translate'];
 		$devsite_links = array(
 			'dev_program'       => $base_link . '/developer-program',
 			'notifications_ipn' => $base_link . '/guides/notifications/ipn',
-			'shopping_testing'  => $base_link . '/guides/plugins/woocommerce/testing'
+			'shopping_testing'  => $base_link . '/guides/plugins/woocommerce/testing',
+			'test_cards'        => $base_link . '/docs/checkout-api/integration-test/test-cards'
 		);
 
 		return $devsite_links;
@@ -160,11 +162,11 @@ class WC_WooMercadoPago_Helper_Links {
 				'FAQ_link' => 'https://www.mercadopago.com.ar/help/19040'
 			),
 			'mlm' => array(
-				'blog_link' => 'https://vendedores.mercadolibre.com.ar/nota/impulsa-tus-ventas-y-alcanza-mas-publico-con-mercado-credito',
+				'blog_link' => 'https://vendedores.mercadolibre.com.mx/nota/impulsa-tus-ventas-y-alcanza-a-mas-clientes-con-mercado-credito',
 				'FAQ_link' => 'https://www.mercadopago.com.mx/help/19040'
 			),
 			'mlb' => array(
-				'blog_link' => 'https://vendedores.mercadolibre.com.ar/nota/impulsa-tus-ventas-y-alcanza-mas-publico-con-mercado-credito',
+				'blog_link' => 'https://conteudo.mercadopago.com.br/parcelamento-via-boleto-bancario-no-mercado-pago-seus-clientes-ja-podem-solicitar',
 				'FAQ_link' => 'https://www.mercadopago.com.br/help/19040'
 			),
 		];
