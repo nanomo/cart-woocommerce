@@ -701,7 +701,7 @@ class MP {
 
 		$log = WC_WooMercadoPago_Log::init_mercado_pago_log( __FUNCTION__ );
 
-		if (isset($response['status'])) {
+		if ( isset($response['status']) ) {
 
 			if ( $response['status'] > 202 ) {
 				$log->write_log( 'API GET Credentials Wrapper error:', wp_json_encode( $response ) );
