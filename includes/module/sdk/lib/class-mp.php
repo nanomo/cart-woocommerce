@@ -699,16 +699,20 @@ class MP {
 
 		$response = MP_Rest_Client::get( $request );
 
-		if ( $response['status'] > 202 ) {
-			$log = WC_WooMercadoPago_Log::init_mercado_pago_log( __FUNCTION__ );
-			$log->write_log( 'API GET Credentials Wrapper error:', wp_json_encode( $response ) );
+		$log = WC_WooMercadoPago_Log::init_mercado_pago_log( __FUNCTION__ );
 
-			return false;
+		if ( isset($response['status']) ) {
+
+			if ( $response['status'] > 202 ) {
+				$log->write_log( 'API GET Credentials Wrapper error:', wp_json_encode( $response ) );
+				return false;
+			}
+
+			$this->set_cache_response( $key, $response['response'] );
+			return $response['response'];
 		}
-
-		$this->set_cache_response( $key, $response['response'] );
-
-		return $response['response'];
+		$log->write_log( 'API Response status is empty', wp_json_encode( $response ) );
+		return false;
 	}
 
 	public function get_me( $access_token ) {
