@@ -8,7 +8,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [6.2.0] - 2022-09-05
 
 ### Added
+- Added Mercado Credits tooltip
 - Added loader on custom checkout to avoid timeout, handle and show errors on screen
+- Added validation on REST Client to avoid return empty array on requests response
+
+### Changed
+- Changed Wallet Button layout to encourage more usage
 
 ### Fixed
 - Fixed email sending method for order placed with PIX
