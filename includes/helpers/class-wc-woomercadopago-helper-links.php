@@ -147,4 +147,32 @@ class WC_WooMercadoPago_Helper_Links {
 			'text_suffix'                               => __( 'Terms and Conditions', 'woocommerce-mercadopago' ),
 		);
 	}
+
+	/**
+	 * Get Mercado Pago Devsite Page Link
+	 *
+	 * @param String $country Country Acronym
+	 *
+	 * @return String
+	 */
+	public static function get_mc_blog_link( $country ) {
+		$country_links = [
+			'mla' => array(
+				'blog_link' => 'https://vendedores.mercadolibre.com.ar/nota/impulsa-tus-ventas-y-alcanza-mas-publico-con-mercado-credito',
+				'FAQ_link' => 'https://www.mercadopago.com.ar/help/19040'
+			),
+			'mlm' => array(
+				'blog_link' => 'https://vendedores.mercadolibre.com.mx/nota/impulsa-tus-ventas-y-alcanza-a-mas-clientes-con-mercado-credito',
+				'FAQ_link' => 'https://www.mercadopago.com.mx/help/19040'
+			),
+			'mlb' => array(
+				'blog_link' => 'https://conteudo.mercadopago.com.br/parcelamento-via-boleto-bancario-no-mercado-pago-seus-clientes-ja-podem-solicitar',
+				'FAQ_link' => 'https://www.mercadopago.com.br/help/19040'
+			),
+		];
+
+		$link = array_key_exists($country, $country_links) ? $country_links[$country] : $country_links['mla'];
+
+		return $link;
+	}
 }
