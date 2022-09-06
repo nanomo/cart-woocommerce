@@ -127,6 +127,7 @@ class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 			'checkout_payments_subtitle',
 			'enabled',
 			'title',
+			'field_checkout_custom_card_info_fees',
 			WC_WooMercadoPago_Helpers_CurrencyConverter::CONFIG_KEY,
 			'checkout_custom_wallet_button_toggle',
 			'wallet_button',
