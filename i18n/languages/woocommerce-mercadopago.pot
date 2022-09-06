@@ -530,23 +530,23 @@ msgid "Advanced configuration of the personalized payment experience"
 msgstr ""
 
 #: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:208, ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:208, ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:208
-msgid "Purchases with saved cards or money in Mercado Pago"
+msgid "Payments via Mercado Pago account"
 msgstr ""
 
 #: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:209, ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:209, ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:209
-msgid "Feature for those who have a saved card or money in Mercado Pago to buy without having to fill in details."
+msgid "Your customers pay faster with saved cards, money balance or other available methods in their Mercado Pago accounts."
 msgstr ""
 
 #: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:213, ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:213, ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:213
-msgid "The feature for payments with <b>saved cards</b> is <b>active</b>."
+msgid "Payments via Mercado Pago accounts are <b>active</b>."
 msgstr ""
 
 #: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:214, ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:214, ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:214
-msgid "The feature for payments with <b>saved cards</b> is <b>inactive</b>."
+msgid "Payments via Mercado Pago accounts are <b>inactive</b>."
 msgstr ""
 
 #: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:233, ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:233, ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:233
-msgid "You can see how the feature is in your store Checkout below:"
+msgid "Check an example of how it will appear in your store:"
 msgstr ""
 
 #: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:264, ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:264, ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:264
@@ -1266,15 +1266,15 @@ msgid "Rate the plugin"
 msgstr ""
 
 #: ../../includes/admin/notices/class-wc-woomercadopago-saved-cards.php:130, ../../includes/admin/notices/class-wc-woomercadopago-saved-cards.php:130, ../../includes/admin/notices/class-wc-woomercadopago-saved-cards.php:130
-msgid "Mercado Pago customers can now pay with stored cards."
+msgid "Enable payments via Mercado Pago account"
 msgstr ""
 
 #: ../../includes/admin/notices/class-wc-woomercadopago-saved-cards.php:133, ../../includes/admin/notices/class-wc-woomercadopago-saved-cards.php:133, ../../includes/admin/notices/class-wc-woomercadopago-saved-cards.php:133
-msgid "The function Saved card payments  is enabled. With this setting, customers using Mercado Pago can purchase without having to fill in payment details. You can control this option in the settings."
+msgid "When you enable this function, your customers pay faster using their Mercado Pago accounts.</br>The approval rate of these payments in your store can be 25% higher compared to other payment methods."
 msgstr ""
 
 #: ../../includes/admin/notices/class-wc-woomercadopago-saved-cards.php:142, ../../includes/admin/notices/class-wc-woomercadopago-saved-cards.php:142, ../../includes/admin/notices/class-wc-woomercadopago-saved-cards.php:142
-msgid "Go to settings"
+msgid "Activate"
 msgstr ""
 
 #: ../../includes/admin/views/html-admin-alert-frame.php:34, ../../includes/admin/views/html-admin-alert-frame.php:34, ../../includes/admin/views/html-admin-alert-frame.php:34, ../../includes/admin/views/html-admin-alert-woocommerce-miss.php:30, ../../includes/admin/views/html-admin-alert-woocommerce-miss.php:30, ../../includes/admin/views/html-admin-alert-woocommerce-miss.php:30
@@ -1792,7 +1792,7 @@ msgstr ""
 msgid "There was an error processing your payment. Please try again or contact us for Assistance."
 msgstr ""
 
-#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-basic.php:84, ../../includes/payments/hooks/class-wc-woomercadopago-hook-basic.php:84, ../../includes/payments/hooks/class-wc-woomercadopago-hook-basic.php:84, ../../templates/checkout/custom-checkout.php:35, ../../templates/checkout/custom-checkout.php:44, ../../templates/checkout/custom-checkout.php:35, ../../templates/checkout/custom-checkout.php:44, ../../templates/checkout/custom-checkout.php:35, ../../templates/checkout/custom-checkout.php:44, ../../templates/receipt/custom-checkout.php:41, ../../templates/receipt/custom-checkout.php:41, ../../templates/receipt/custom-checkout.php:41
+#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-basic.php:84, ../../includes/payments/hooks/class-wc-woomercadopago-hook-basic.php:84, ../../includes/payments/hooks/class-wc-woomercadopago-hook-basic.php:84, ../../templates/checkout/custom-checkout.php:44, ../../templates/checkout/custom-checkout.php:44, ../../templates/checkout/custom-checkout.php:44, ../../templates/receipt/custom-checkout.php:41, ../../templates/receipt/custom-checkout.php:41, ../../templates/receipt/custom-checkout.php:41
 msgid "Pay with Mercado Pago"
 msgstr ""
 
@@ -2020,11 +2020,11 @@ msgstr ""
 msgid ". Credit subject to approval."
 msgstr ""
 
-#: ../../includes/module/sdk/lib/class-mp.php:182, ../../includes/module/sdk/lib/class-mp.php:634, ../../includes/module/sdk/lib/class-mp.php:682, ../../includes/module/sdk/lib/class-mp.php:723, ../../includes/module/sdk/lib/class-mp.php:982, ../../includes/module/sdk/lib/class-mp.php:182, ../../includes/module/sdk/lib/class-mp.php:634, ../../includes/module/sdk/lib/class-mp.php:682, ../../includes/module/sdk/lib/class-mp.php:723, ../../includes/module/sdk/lib/class-mp.php:982, ../../includes/module/sdk/lib/class-mp.php:182, ../../includes/module/sdk/lib/class-mp.php:634, ../../includes/module/sdk/lib/class-mp.php:682, ../../includes/module/sdk/lib/class-mp.php:723, ../../includes/module/sdk/lib/class-mp.php:982
+#: ../../includes/module/sdk/lib/class-mp.php:182, ../../includes/module/sdk/lib/class-mp.php:634, ../../includes/module/sdk/lib/class-mp.php:682, ../../includes/module/sdk/lib/class-mp.php:727, ../../includes/module/sdk/lib/class-mp.php:986, ../../includes/module/sdk/lib/class-mp.php:182, ../../includes/module/sdk/lib/class-mp.php:634, ../../includes/module/sdk/lib/class-mp.php:682, ../../includes/module/sdk/lib/class-mp.php:727, ../../includes/module/sdk/lib/class-mp.php:986, ../../includes/module/sdk/lib/class-mp.php:182, ../../includes/module/sdk/lib/class-mp.php:634, ../../includes/module/sdk/lib/class-mp.php:682, ../../includes/module/sdk/lib/class-mp.php:727, ../../includes/module/sdk/lib/class-mp.php:986
 msgid "Response from cache"
 msgstr ""
 
-#: ../../includes/module/sdk/lib/class-mp.php:996, ../../includes/module/sdk/lib/class-mp.php:996, ../../includes/module/sdk/lib/class-mp.php:996
+#: ../../includes/module/sdk/lib/class-mp.php:1000, ../../includes/module/sdk/lib/class-mp.php:1000, ../../includes/module/sdk/lib/class-mp.php:1000
 msgid "Response from API"
 msgstr ""
 
@@ -2052,15 +2052,15 @@ msgid "Pay faster with Mercado Pago"
 msgstr ""
 
 #: ../../templates/checkout/basic-checkout.php:36, ../../templates/checkout/basic-checkout.php:36, ../../templates/checkout/basic-checkout.php:36
-msgid "Secure payment"
+msgid "If you already have a Mercado Libre account, use the same email and password"
 msgstr ""
 
 #: ../../templates/checkout/basic-checkout.php:37, ../../templates/checkout/basic-checkout.php:37, ../../templates/checkout/basic-checkout.php:37
-msgid "No need to fill out details"
+msgid "Buy with your balance or saved cards"
 msgstr ""
 
 #: ../../templates/checkout/basic-checkout.php:38, ../../templates/checkout/basic-checkout.php:38, ../../templates/checkout/basic-checkout.php:38
-msgid "Installments available"
+msgid "Earn more points and have exclusive benefits in Mercado Puntos"
 msgstr ""
 
 #: ../../templates/checkout/basic-checkout.php:41, ../../templates/checkout/basic-checkout.php:41, ../../templates/checkout/basic-checkout.php:41
@@ -2068,7 +2068,7 @@ msgid "List style type blue check"
 msgstr ""
 
 #: ../../templates/checkout/basic-checkout.php:53, ../../templates/checkout/basic-checkout.php:53, ../../templates/checkout/basic-checkout.php:53
-msgid "By confirming your purchase, you will be redirected to your Mercado Pago account"
+msgid "When you confirm your purchase, we will redirect you to your Mercado Pago account"
 msgstr ""
 
 #: ../../templates/checkout/basic-checkout.php:54, ../../templates/checkout/basic-checkout.php:54, ../../templates/checkout/basic-checkout.php:54
@@ -2095,8 +2095,12 @@ msgstr ""
 msgid "See test mode rules."
 msgstr ""
 
+#: ../../templates/checkout/custom-checkout.php:35, ../../templates/checkout/custom-checkout.php:35, ../../templates/checkout/custom-checkout.php:35
+msgid "Pay with saved cards"
+msgstr ""
+
 #: ../../templates/checkout/custom-checkout.php:39, ../../templates/checkout/custom-checkout.php:39, ../../templates/checkout/custom-checkout.php:39
-msgid "Pay faster with your saved cards and without completing data."
+msgid "Do you have a Mercado Libre account? Then use the same email and password to pay faster with Mercado Pago."
 msgstr ""
 
 #: ../../templates/checkout/custom-checkout.php:61, ../../templates/checkout/custom-checkout.php:61, ../../templates/checkout/custom-checkout.php:61
