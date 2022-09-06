@@ -479,6 +479,18 @@ class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 		) {
 			$response = $this->create_preference( $order, $custom_checkout );
 
+			$installments       = (float) $response['installments'];
+			$installment_amount = (float) $response['transaction_details']['installment_amount'];
+			$transaction_amount = (float) $response['transaction_amount'];
+			$total_paid_amount  = (float) $response['transaction_details']['total_paid_amount'];
+
+			$order->add_meta_data('mp_installments', $installments);
+			$order->add_meta_data('mp_transaction_details', $installment_amount);
+			$order->add_meta_data('mp_transaction_amount', $transaction_amount);
+			$order->add_meta_data('mp_total_paid_amount', $total_paid_amount);
+
+			$order->save();
+
 			if ( ! is_array( $response ) ) {
 				return array(
 					'result'   => 'fail',

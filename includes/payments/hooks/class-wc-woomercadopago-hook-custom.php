@@ -211,17 +211,14 @@ class WC_WooMercadoPago_Hook_Custom extends WC_WooMercadoPago_Hook_Abstract {
 		// @codingStandardsIgnoreLine
 		parent::update_mp_settings_script( $order_id );
 
-		$order      = wc_get_order( $order_id );
-		$paymentsId = ( method_exists( $order, 'get_meta' ) ) ? $order->get_meta( '_Mercado_Pago_Payment_IDs' ) : get_post_meta( $order->get_id(), '_Mercado_Pago_Payment_IDs', true );
-
-		$payment_info       = $this->mp_instance->search_payment_v1($paymentsId);
-		$installments       = (float) $payment_info['response']['installments'];
-		$installment_amount = (float) $payment_info['response']['transaction_details']['installment_amount'];
-		$transaction_amount = (float) $payment_info['response']['transaction_amount'];
-		$total_paid_amount  = (float) $payment_info['response']['transaction_details']['total_paid_amount'];
-
-		$currency_symbol = WC_WooMercadoPago_Configs::get_country_configs();
-		$total_diff_cost = $total_paid_amount - $transaction_amount;
+		$order = wc_get_order( $order_id );
+		$order->get_meta_data();
+		$installments       = $order->get_meta('mp_installments');
+		$installment_amount = $order->get_meta('mp_transaction_details');
+		$transaction_amount = $order->get_meta('mp_transaction_amount');
+		$total_paid_amount  = $order->get_meta('mp_total_paid_amount');
+		$currency_symbol    = WC_WooMercadoPago_Configs::get_country_configs();
+		$total_diff_cost    = $total_paid_amount - $transaction_amount;
 
 		$parameters_custom = array(
 			'title_installment_cost'   => __( 'Cost of installments', 'woocommerce-mercadopago' ),
