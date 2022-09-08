@@ -694,7 +694,6 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 			$this->normalize_common_admin_fields();
 		}
 		$form_fields['checkout_card_validate'] = $this->field_checkout_card_validate();
-		$form_fields['field_checkout_custom_card_info_fees']   = $this->field_checkout_custom_card_info_fees();
 		return $form_fields;
 	}
 
@@ -714,29 +713,6 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 			'default'     => $this->title,
 		);
 		return $field_title;
-	}
-
-	/**
-	 * Field checkout card info about PCJ and Fees
-	 *
-	 * @return array
-	 */
-	public function field_checkout_custom_card_info_fees() {
-		$value = array(
-			'title'             => __('Taxas de Parcelamento', 'woocommerce-mercadopago'),
-			'subtitle'          => __('Configure as taxas de parcelamento e se eles serão cobradas da loja ou do comprador.', 'woocommerce-mercadopago'),
-			'button_text'       => __('Configurar as taxas', 'woocommerce-mercadopago'),
-			'button_url'        => admin_url( 'admin.php?page=mercadopago-settings' ),
-			'icon'              => 'mp-icon-badge-info',
-			'color_card'        => 'mp-alert-color-sucess',
-			'size_card'         => 'mp-card-body-size',
-			'target'            => '_self',
-		);
-		
-		return array(
-			'type'               => 'mp_card_info',
-			'value'              => $value,
-		);
 	}
 
 	/**
