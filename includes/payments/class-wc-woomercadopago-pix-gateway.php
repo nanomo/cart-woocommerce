@@ -323,7 +323,7 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 	 */
 	public function field_checkout_about_pix() {
 		$link_content = wc_get_template_html(
-			'checkout/credential/about-pix.php',
+			'checkout/credential/generic-alert.php',
 			array(
 				'title'       => __( 'Want to learn how Pix works?', 'woocommerce-mercadopago' ),
 				'subtitle'    => __( 'We have created a page to explain how this new payment method works and its advantages.', 'woocommerce-mercadopago' ),
