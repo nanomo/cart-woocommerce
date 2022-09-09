@@ -171,12 +171,7 @@ class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 	public function field_checkout_about_fees() {
 		$link_content = wc_get_template_html(
 			'checkout/credential/generic-alert.php',
-			array(
-				'title'       => __( 'Installments Fees', 'woocommerce-mercadopago' ),
-				'subtitle'    => __( 'Set installment fees and whether they will be charged from the store or from the buyer.', 'woocommerce-mercadopago' ),
-				'url_link'    => $links['link_costs'],
-				'button_text' => __( 'Learn more about fees', 'woocommerce-mercadopago' ),
-			),
+			array(),
 			'woo/mercado/pago/generic-alert/',
 			WC_WooMercadoPago_Module::get_templates_path()
 		);
