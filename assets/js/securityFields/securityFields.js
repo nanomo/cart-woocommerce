@@ -4,8 +4,10 @@ var cardForm;
 var hasToken = false;
 var mercado_pago_submit = false;
 var triggeredPaymentMethodSelectedEvent = false;
+var cardFormError = false;
 var cardFormReady = false;
 var cardFormMounted = false;
+var cardFormTimeout = false;
 
 var form = document.querySelector("form[name=checkout]");
 var formId = "checkout";
@@ -302,6 +304,7 @@ function setCustomCheckoutError() {
   loader.style.display = 'none';
   container.style.display = 'none';
   error.style.display = 'block';
+
   cardFormReady = false;
 }
 
@@ -340,14 +343,24 @@ function cardFormLoad() {
 function handleCardFormLoad() {
   init_cardForm()
     .then(() => {
-      setCustomCheckoutLoaded();
+      if (!cardFormTimeout) {
+        setCustomCheckoutLoaded();
+      }
     })
     .catch((error) => {
+      cardFormError = true;
       const parsedError = handleCardFormErrors(error);
       sendError(parsedError);
       setCustomCheckoutError();
       console.error('Mercado Pago cardForm error: ', parsedError);
     });
+
+    setTimeout(() => {
+      if (!cardFormReady && !cardFormError) {
+        cardFormTimeout = true;
+        setCustomCheckoutError();
+      }
+    }, 10000);
 }
 
 function handleCardFormErrors(cardFormErrors) {
