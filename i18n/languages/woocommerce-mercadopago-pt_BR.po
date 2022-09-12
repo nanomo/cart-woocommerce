@@ -2962,14 +2962,18 @@ msgstr "Código de segurança incompleto"
 
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:188,
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:188
-msgid "Error loading form. Please refresh the page to try again."
-msgstr ""
-"Erro ao carregar o formulário. Atualize a página para tentar novamente."
+msgid "Error loading form."
+msgstr "Erro ao carregar o formulário."
 
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:189,
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:189
-msgid "Click here to see more details..."
-msgstr "Clique aqui para ver mais detalhes…"
+msgid "Please refresh the page to try again."
+msgstr "Atualize a página para tentar novamente."
+
+#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:190,
+#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:190
+msgid "Refresh page"
+msgstr "Atualizar página"
 
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:141,
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:141
@@ -3108,14 +3112,14 @@ msgstr ". Crédito sujeito a aprovação."
 #: ../../includes/module/sdk/lib/class-mp.php:182,
 #: ../../includes/module/sdk/lib/class-mp.php:634,
 #: ../../includes/module/sdk/lib/class-mp.php:682,
-#: ../../includes/module/sdk/lib/class-mp.php:723,
-#: ../../includes/module/sdk/lib/class-mp.php:982,
-#: ../../includes/module/sdk/lib/class-mp.php:982
+#: ../../includes/module/sdk/lib/class-mp.php:727,
+#: ../../includes/module/sdk/lib/class-mp.php:986,
+#: ../../includes/module/sdk/lib/class-mp.php:986
 msgid "Response from cache"
 msgstr "Resposta do cache"
 
-#: ../../includes/module/sdk/lib/class-mp.php:996,
-#: ../../includes/module/sdk/lib/class-mp.php:996
+#: ../../includes/module/sdk/lib/class-mp.php:1000,
+#: ../../includes/module/sdk/lib/class-mp.php:1000
 msgid "Response from API"
 msgstr "Resposta da API"
 
@@ -3372,6 +3376,9 @@ msgstr ""
 #: ../../templates/order-received/show-ticket.php:23
 msgid "Print ticket"
 msgstr "Imprimir boleto"
+
+#~ msgid "Click here to see more details..."
+#~ msgstr "Clique aqui para ver mais detalhes…"
 
 #~ msgid "Purchases with saved cards or money in Mercado Pago"
 #~ msgstr "Compras com cartões salvos ou saldo no Mercado Pago"
