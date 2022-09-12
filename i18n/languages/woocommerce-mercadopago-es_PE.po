@@ -2926,12 +2926,12 @@ msgstr "Haga clic aquí para ver más detalles…"
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:224,
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:224
 msgid "Cost of installments"
-msgstr "Custo do parcelamento:"
+msgstr "Coste de las cuotas:"
 
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:225,
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:225
 msgid "Total with installments"
-msgstr "Total parcelado:"
+msgstr "Total con cuotas:"
 
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:226,
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:226
