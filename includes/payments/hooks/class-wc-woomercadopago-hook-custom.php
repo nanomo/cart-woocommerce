@@ -223,7 +223,7 @@ class WC_WooMercadoPago_Hook_Custom extends WC_WooMercadoPago_Hook_Abstract {
 		$parameters_custom = array(
 			'title_installment_cost'   => __( 'Cost of installments', 'woocommerce-mercadopago' ),
 			'title_installment_total'  => __( 'Total with installments', 'woocommerce-mercadopago' ),
-			'text_installments'        => __( 'x', 'woocommerce-mercadopago' ),
+			'text_installments'        => __( 'installments', 'woocommerce-mercadopago' ),
 			'text_de'                  => __( 'de', 'woocommerce-mercadopago' ),
 			'currency'                 => $currency_symbol[ strtolower(get_option( '_site_id_v1' )) ]['currency_symbol'],
 			'total_paid_amount'        => number_format( $total_paid_amount, 2, ',', '.' ),
@@ -233,7 +233,7 @@ class WC_WooMercadoPago_Hook_Custom extends WC_WooMercadoPago_Hook_Abstract {
 			'installments'             => number_format( $installments ),
 		);
 
-		if ( ! 0 === $total_diff_cost ) {
+		if ( 0 !== $total_diff_cost ) {
 			wc_get_template(
 				'order-received/show-custom.php',
 				$parameters_custom,

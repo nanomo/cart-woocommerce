@@ -1890,7 +1890,7 @@ msgid "Total with installments"
 msgstr ""
 
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:226, ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:226, ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:226
-msgid "x"
+msgid "installments"
 msgstr ""
 
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:227, ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:227, ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:227

@@ -623,7 +623,7 @@ msgstr "ATÉ "
 #: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:402,
 #: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:402
 msgid " installments"
-msgstr "X"
+msgstr "x"
 
 #: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:519,
 #: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:401,
