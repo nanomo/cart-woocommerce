@@ -290,18 +290,18 @@ function setCustomCheckoutUnloaded() {
   cardFormReady = false;
 }
 
-function setCustomCheckoutError(err) {
+function setCustomCheckoutError() {
   const { loader, container, error } = getCustomCheckoutElements();
 
   var alertDetails = document.createElement('alert-details');
   alertDetails.setAttribute('title', wc_mercadopago_params.custom_checkout_sdk_handler.title);
   alertDetails.setAttribute('description', wc_mercadopago_params.custom_checkout_sdk_handler.description);
-  alertDetails.setAttribute('details', err);
+  alertDetails.setAttribute('retryButtonText', wc_mercadopago_params.custom_checkout_sdk_handler.retry_button);
 
   error.appendChild(alertDetails);
   loader.style.display = 'none';
   container.style.display = 'none';
-  error.style.display = 'flex';
+  error.style.display = 'block';
   cardFormReady = false;
 }
 
@@ -345,7 +345,7 @@ function handleCardFormLoad() {
     .catch((error) => {
       const parsedError = handleCardFormErrors(error);
       sendError(parsedError);
-      setCustomCheckoutError(parsedError);
+      setCustomCheckoutError();
       console.error('Mercado Pago cardForm error: ', parsedError);
     });
 }
