@@ -2935,15 +2935,8 @@ msgstr "Total parcelado:"
 
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:226,
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:226
-#, fuzzy
-#| msgid " installments"
-msgid "installments"
-msgstr " Cuotas"
-
-#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:227,
-#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:227
-msgid "de"
-msgstr "de"
+msgid "installments of"
+msgstr " cuotas de "
 
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:141,
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:141
@@ -3253,6 +3246,9 @@ msgstr ""
 #: ../../templates/order-received/show-ticket.php:23
 msgid "Print ticket"
 msgstr "Imprimir ticket"
+
+#~ msgid "de"
+#~ msgstr "de"
 
 #~ msgid "x"
 #~ msgstr "Cuotas"
