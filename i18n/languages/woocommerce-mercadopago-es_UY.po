@@ -647,7 +647,7 @@ msgstr "Pagos en efectivo "
 #: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:593,
 #: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:593
 msgid "Payment with Mercado Credito"
-msgstr "Pagar con Mercado Pago"
+msgstr "Pagos con Mercado Crédito"
 
 #: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:594,
 #: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:594
