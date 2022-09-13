@@ -620,7 +620,7 @@ msgstr "hasta "
 #: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:402,
 #: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:402
 msgid " installments"
-msgstr " Cuotas"
+msgstr " cuotas"
 
 #: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:519,
 #: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:401,
@@ -2926,22 +2926,17 @@ msgstr "Haga clic aquí para ver más detalles…"
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:224,
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:224
 msgid "Cost of installments"
-msgstr "Custo do parcelamento:"
+msgstr "Coste de las cuotas:"
 
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:225,
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:225
 msgid "Total with installments"
-msgstr "Total parcelado:"
+msgstr "Total con cuotas:"
 
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:226,
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:226
-msgid "x"
-msgstr "Cuotas"
-
-#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:227,
-#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:227
-msgid "de"
-msgstr "de"
+msgid "installments of"
+msgstr " cuotas de "
 
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:141,
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:141
@@ -3251,6 +3246,12 @@ msgstr ""
 #: ../../templates/order-received/show-ticket.php:23
 msgid "Print ticket"
 msgstr "Imprimir ticket"
+
+#~ msgid "de"
+#~ msgstr "de"
+
+#~ msgid "x"
+#~ msgstr "Cuotas"
 
 #, fuzzy
 #~| msgid "Important! To sell you must enter your credentials."

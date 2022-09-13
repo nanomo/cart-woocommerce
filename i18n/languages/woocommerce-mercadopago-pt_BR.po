@@ -623,7 +623,7 @@ msgstr "ATÉ "
 #: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:402,
 #: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:402
 msgid " installments"
-msgstr "X"
+msgstr "x"
 
 #: ../../includes/payments/class-wc-woomercadopago-basic-gateway.php:519,
 #: ../../includes/payments/class-wc-woomercadopago-custom-gateway.php:401,
@@ -2937,13 +2937,8 @@ msgstr "Total parcelado:"
 
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:226,
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:226
-msgid "x"
-msgstr "X"
-
-#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:227,
-#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:227
-msgid "de"
-msgstr "de"
+msgid "installments of"
+msgstr "x de "
 
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:141,
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:141
@@ -3248,6 +3243,12 @@ msgstr ""
 #: ../../templates/order-received/show-ticket.php:23
 msgid "Print ticket"
 msgstr "Imprimir boleto"
+
+#~ msgid "x"
+#~ msgstr "X"
+
+#~ msgid "de"
+#~ msgstr "de"
 
 #, fuzzy
 #~| msgid "Important! To sell you must enter your credentials."
