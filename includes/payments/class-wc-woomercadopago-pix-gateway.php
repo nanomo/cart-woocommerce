@@ -586,14 +586,14 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 	/**
 	 * Get pix template
 	 *
-	 * @param object $order Order.
+	 * @param WC_Order $order Order.
 	 * @return string
 	 */
 	public static function get_pix_template( $order ) {
 		$pix_on = get_post_meta( $order->get_id(), 'pix_on' );
 		$pix_on = (int) array_pop( $pix_on );
 
-		if ( 1 === $pix_on && 'pending' === $order->status ) {
+		if ( 1 === $pix_on && 'pending' === $order->get_status() ) {
 			$mp_pix_qr_code               = get_post_meta( $order->get_id(), 'mp_pix_qr_code' );
 			$mp_pix_qr_base64             = get_post_meta( $order->get_id(), 'mp_pix_qr_base64' );
 			$checkout_pix_date_expiration = get_post_meta($order->get_id(), 'checkout_pix_date_expiration');
