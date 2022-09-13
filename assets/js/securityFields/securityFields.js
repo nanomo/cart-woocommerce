@@ -4,8 +4,10 @@ var cardForm;
 var hasToken = false;
 var mercado_pago_submit = false;
 var triggeredPaymentMethodSelectedEvent = false;
+var cardFormError = false;
 var cardFormReady = false;
 var cardFormMounted = false;
+var cardFormTimeout = false;
 
 var form = document.querySelector("form[name=checkout]");
 var formId = "checkout";
@@ -290,18 +292,19 @@ function setCustomCheckoutUnloaded() {
   cardFormReady = false;
 }
 
-function setCustomCheckoutError(err) {
+function setCustomCheckoutError() {
   const { loader, container, error } = getCustomCheckoutElements();
 
   var alertDetails = document.createElement('alert-details');
   alertDetails.setAttribute('title', wc_mercadopago_params.custom_checkout_sdk_handler.title);
   alertDetails.setAttribute('description', wc_mercadopago_params.custom_checkout_sdk_handler.description);
-  alertDetails.setAttribute('details', err);
+  alertDetails.setAttribute('retryButtonText', wc_mercadopago_params.custom_checkout_sdk_handler.retry_button);
 
   error.appendChild(alertDetails);
   loader.style.display = 'none';
   container.style.display = 'none';
-  error.style.display = 'flex';
+  error.style.display = 'block';
+
   cardFormReady = false;
 }
 
@@ -340,14 +343,24 @@ function cardFormLoad() {
 function handleCardFormLoad() {
   init_cardForm()
     .then(() => {
-      setCustomCheckoutLoaded();
+      if (!cardFormTimeout) {
+        setCustomCheckoutLoaded();
+      }
     })
     .catch((error) => {
+      cardFormError = true;
       const parsedError = handleCardFormErrors(error);
       sendError(parsedError);
-      setCustomCheckoutError(parsedError);
+      setCustomCheckoutError();
       console.error('Mercado Pago cardForm error: ', parsedError);
     });
+
+    setTimeout(() => {
+      if (!cardFormReady && !cardFormError) {
+        cardFormTimeout = true;
+        setCustomCheckoutError();
+      }
+    }, 10000);
 }
 
 function handleCardFormErrors(cardFormErrors) {

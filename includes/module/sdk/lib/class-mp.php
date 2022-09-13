@@ -699,16 +699,20 @@ class MP {
 
 		$response = MP_Rest_Client::get( $request );
 
-		if ( $response['status'] > 202 ) {
-			$log = WC_WooMercadoPago_Log::init_mercado_pago_log( __FUNCTION__ );
-			$log->write_log( 'API GET Credentials Wrapper error:', wp_json_encode( $response ) );
+		$log = WC_WooMercadoPago_Log::init_mercado_pago_log( __FUNCTION__ );
 
-			return false;
+		if ( isset($response['status']) ) {
+
+			if ( $response['status'] > 202 ) {
+				$log->write_log( 'API GET Credentials Wrapper error:', wp_json_encode( $response ) );
+				return false;
+			}
+
+			$this->set_cache_response( $key, $response['response'] );
+			return $response['response'];
 		}
-
-		$this->set_cache_response( $key, $response['response'] );
-
-		return $response['response'];
+		$log->write_log( 'API Response status is empty', wp_json_encode( $response ) );
+		return false;
 	}
 
 	public function get_me( $access_token ) {
@@ -971,4 +975,35 @@ class MP {
 
 	}
 
+	public function get_payment_response_by_sites( $site ) {
+		$key   = sprintf( '%s%s', __FUNCTION__, $site );
+		$cache = $this->get_cache_response( $key );
+
+		if ( ! empty( $cache ) ) {
+			$this->debug_mode_log(
+				'get_payment_response_by_sites',
+				__FUNCTION__,
+				__( 'Response from cache', 'woocommerce-mercadopago' )
+			);
+
+			return $cache;
+		}
+
+		if ( ! empty( $site ) ) {
+			$payments = $this->get( '/sites/' . $site . '/payment_methods');
+
+			if ( isset( $payments['response'] ) ) {
+				$this->set_cache_response( $key, $payments['response']);
+				$this->debug_mode_log(
+					'get_payment_response_by_sites',
+					__FUNCTION__,
+					__( 'Response from API', 'woocommerce-mercadopago' )
+				);
+
+				return $payments['response'];
+			}
+		}
+
+		return [];
+	}
 }
