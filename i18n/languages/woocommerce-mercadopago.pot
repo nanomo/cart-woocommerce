@@ -1909,11 +1909,15 @@ msgid "Security code incomplete"
 msgstr ""
 
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:188, ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:188, ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:188
-msgid "Error loading form. Please refresh the page to try again."
+msgid "Error loading form."
 msgstr ""
 
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:189, ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:189, ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:189
-msgid "Click here to see more details..."
+msgid "Please refresh the page to try again."
+msgstr ""
+
+#: ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:190, ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:190, ../../includes/payments/hooks/class-wc-woomercadopago-hook-custom.php:190
+msgid "Refresh page"
 msgstr ""
 
 #: ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:141, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:141, ../../includes/payments/hooks/class-wc-woomercadopago-hook-pix.php:141
