@@ -108,11 +108,13 @@ class WC_WooMercadoPago_Module extends WC_WooMercadoPago_Configs {
 				$this,
 				'woomercadopago_settings_link'
 			) );
+
 			add_filter( 'plugin_row_meta', array( $this, 'mp_plugin_row_meta' ), 10, 2 );
 			add_action( 'mercadopago_plugin_updated', array(
 				'WC_WooMercadoPago_Credentials',
 				'mercadopago_payment_update'
 			) );
+
 			add_action( 'mercadopago_test_mode_update', array( $this, 'update_credential_production' ) );
 
 			if ( is_admin() ) {
@@ -140,6 +142,7 @@ class WC_WooMercadoPago_Module extends WC_WooMercadoPago_Configs {
 		include_once dirname( __FILE__ ) . '/../helpers/class-wc-woomercadopago-helpers-currencyconverter.php';
 		include_once dirname( __FILE__ ) . '/../helpers/class-wc-woomercadopago-composite-id-helper.php';
 		include_once dirname( __FILE__ ) . '/../helpers/class-wc-woomercadopago-helper-links.php';
+		include_once dirname( __FILE__ ) . '/../helpers/class-wc-woomercadopago-helper-credits.php';
 	}
 
 	/**
@@ -193,6 +196,7 @@ class WC_WooMercadoPago_Module extends WC_WooMercadoPago_Configs {
 		include_once dirname( __FILE__ ) . '/../payments/hooks/class-wc-woomercadopago-hook-custom.php';
 		include_once dirname( __FILE__ ) . '/../payments/hooks/class-wc-woomercadopago-hook-ticket.php';
 		include_once dirname( __FILE__ ) . '/../payments/hooks/class-wc-woomercadopago-hook-pix.php';
+		include_once dirname( __FILE__ ) . '/../products/hooks/class-wc-woomercadopago-products-hook-credits.php';
 	}
 
 	/**
@@ -257,6 +261,7 @@ class WC_WooMercadoPago_Module extends WC_WooMercadoPago_Configs {
 	 */
 	public static function get_mp_instance_singleton( $payment = null ) {
 		$mp = null;
+
 		if ( ! empty( $payment ) ) {
 			$class = get_class( $payment );
 			if ( ! isset( self::$mp_instance_ayment[ $class ] ) ) {
@@ -287,13 +292,16 @@ class WC_WooMercadoPago_Module extends WC_WooMercadoPago_Configs {
 	public static function get_mp_instance( $payment = null ) {
 		$credentials               = new WC_WooMercadoPago_Credentials( $payment );
 		$validate_credentials_type = $credentials->validate_credentials_type();
+
 		if ( WC_WooMercadoPago_Credentials::TYPE_ACCESS_TOKEN === $validate_credentials_type ) {
 			$mp = new MP( $credentials->access_token );
 			$mp->set_payment_class( $payment );
 		}
+
 		if ( WC_WooMercadoPago_Credentials::TYPE_ACCESS_CLIENT === $validate_credentials_type ) {
 			$mp = new MP( $credentials->client_id, $credentials->client_secret );
 			$mp->set_payment_class( $payment );
+
 			if ( ! empty( $payment ) ) {
 				$payment->sandbox = false;
 			}
@@ -311,6 +319,7 @@ class WC_WooMercadoPago_Module extends WC_WooMercadoPago_Configs {
 			'',
 			''
 		);
+
 		$mp->set_locale( $locale[1] );
 
 		return $mp;
@@ -420,7 +429,6 @@ class WC_WooMercadoPago_Module extends WC_WooMercadoPago_Configs {
 			return WC();
 		} else {
 			global $woocommerce;
-
 			return $woocommerce;
 		}
 	}
@@ -435,7 +443,6 @@ class WC_WooMercadoPago_Module extends WC_WooMercadoPago_Configs {
 	 */
 	public static function get_sponsor_id() {
 		$site_data = self::get_site_data();
-
 		return $site_data['sponsor_id'];
 	}
 
@@ -900,6 +907,7 @@ class WC_WooMercadoPago_Module extends WC_WooMercadoPago_Configs {
 		foreach ( WC_WooMercadoPago_Constants::PAYMENT_GATEWAYS as $gateway ) {
 			$key     = 'woocommerce_' . $gateway::get_id() . '_settings';
 			$options = get_option( $key );
+
 			if ( ! empty( $options ) ) {
 				$old_credential_is_prod                 = array_key_exists( 'checkout_credential_prod', $options ) && isset( $options['checkout_credential_prod'] ) ? $options['checkout_credential_prod'] : 'no';
 				$has_new_key                            = array_key_exists( 'checkbox_checkout_test_mode', $options ) && isset( $options['checkbox_checkout_test_mode'] );

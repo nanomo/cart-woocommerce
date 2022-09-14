@@ -586,7 +586,7 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 	/**
 	 * Get pix template
 	 *
-	 * @param object $order Order.
+	 * @param WC_Order $order Order.
 	 * @return string
 	 */
 	public static function get_pix_template( $order ) {
