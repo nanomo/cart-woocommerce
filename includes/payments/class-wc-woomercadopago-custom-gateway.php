@@ -197,7 +197,7 @@ class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 			'icon'              => 'mp-icon-badge-info',
 			'color_card'        => 'mp-alert-color-sucess',
 			'size_card'         => 'mp-card-body-size',
-			'target'            => '_self',
+			'target'            => '_blank',
 		);
 
 		return array(
