@@ -79,6 +79,17 @@ class WC_WooMercadoPago_Init {
 	}
 
 	/**
+	 * Sdk validation
+	 */
+	public static function wc_mercado_pago_notify_sdk_package_error() {
+		$type    = 'error';
+		$message = __( 'Mercado Pago Error: Missing the SDK package, your installation is incomplete.', 'woocommerce-mercadopago' );
+		// @todo using escaping function
+		// @codingStandardsIgnoreLine
+		echo WC_WooMercadoPago_Notices::get_alert_frame( $message, $type );
+	}
+
+	/**
 	 * Summary: Places a warning error to notify user that WooCommerce is missing.
 	 * Description: Places a warning error to notify user that WooCommerce is missing.
 	 */
@@ -178,6 +189,15 @@ class WC_WooMercadoPago_Init {
 	 */
 	public static function woocommerce_mercadopago_init() {
 		self::woocommerce_mercadopago_load_plugin_textdomain();
+
+		// Check if the sdk autoload file exists
+		$sdkAutoloadPath = dirname( __FILE__ ) . '/../../packages/sdk/vendor/autoload.php';
+		if ( file_exists( $sdkAutoloadPath ) ) {
+			require_once $sdkAutoloadPath;
+		} else {
+			add_action('admin_notices', array( __CLASS__, 'wc_mercado_pago_notify_sdk_package_error' ));
+		}
+
 		require_once dirname( __FILE__ ) . '/sdk/lib/rest-client/class-mp-rest-client-abstract.php';
 		require_once dirname( __FILE__ ) . '/sdk/lib/rest-client/class-mp-rest-client.php';
 		require_once dirname( __FILE__ ) . '/config/class-wc-woomercadopago-constants.php';
