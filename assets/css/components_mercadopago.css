@@ -234,7 +234,7 @@
 	padding: 9px 12px 7px;
 	background: #009ee3;
 	border-radius: 5px;
-	margin: 15px 0px 15px 0px;
+	margin: 15px 0px 5px 0px;
 	cursor: pointer;
 	transition: box-shadow 0.25s ease-out, background-color 0.2s ease-out;
 	box-shadow: 0 0 0 0 #fff;
