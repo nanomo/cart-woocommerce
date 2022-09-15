@@ -79,17 +79,6 @@ class WC_WooMercadoPago_Init {
 	}
 
 	/**
-	 * Sdk validation
-	 */
-	public static function wc_mercado_pago_notify_sdk_package_error() {
-		$type    = 'error';
-		$message = __( 'The Mercado Pago module needs the SDK package to work!', 'woocommerce-mercadopago' );
-		// @todo using escaping function
-		// @codingStandardsIgnoreLine
-		echo WC_WooMercadoPago_Notices::get_alert_frame( $message, $type );
-	}
-
-	/**
 	 * Summary: Places a warning error to notify user that WooCommerce is missing.
 	 * Description: Places a warning error to notify user that WooCommerce is missing.
 	 */
@@ -185,18 +174,34 @@ class WC_WooMercadoPago_Init {
 	}
 
 	/**
+	 * Sdk validation
+	 */
+	public static function wc_mercado_pago_notify_sdk_package_error() {
+		$type    = 'error';
+		$message = __( 'The Mercado Pago module needs the SDK package to work!', 'woocommerce-mercadopago' );
+		// @todo using escaping function
+		// @codingStandardsIgnoreLine
+		echo WC_WooMercadoPago_Notices::get_alert_frame( $message, $type );
+	}
+
+	/**
+	 * Load sdk package
+	 */
+	public static function woocommerce_mercadopago_load_sdk() {
+		$sdk_autoload_file = dirname( __FILE__ ) . '/../../packages/sdk/vendor/autoload.php';
+		if ( file_exists( $sdk_autoload_file ) ) {
+			require_once $sdk_autoload_file;
+		} else {
+			add_action('admin_notices', array( __CLASS__, 'wc_mercado_pago_notify_sdk_package_error' ));
+		}
+	}
+
+	/**
 	 * Init the plugin
 	 */
 	public static function woocommerce_mercadopago_init() {
 		self::woocommerce_mercadopago_load_plugin_textdomain();
-
-		// Check if the sdk autoload file exists
-		$sdkAutoloadPath = dirname( __FILE__ ) . '/../../packages/sdk/vendor/autoload.php';
-		if ( file_exists( $sdkAutoloadPath ) ) {
-			require_once $sdkAutoloadPath;
-		} else {
-			add_action('admin_notices', array( __CLASS__, 'wc_mercado_pago_notify_sdk_package_error' ));
-		}
+		self::woocommerce_mercadopago_load_sdk();
 
 		require_once dirname( __FILE__ ) . '/sdk/lib/rest-client/class-mp-rest-client-abstract.php';
 		require_once dirname( __FILE__ ) . '/sdk/lib/rest-client/class-mp-rest-client.php';
