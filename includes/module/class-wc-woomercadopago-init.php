@@ -83,7 +83,7 @@ class WC_WooMercadoPago_Init {
 	 */
 	public static function wc_mercado_pago_notify_sdk_package_error() {
 		$type    = 'error';
-		$message = __( 'Mercado Pago Error: Missing the SDK package, your installation is incomplete.', 'woocommerce-mercadopago' );
+		$message = __( 'The Mercado Pago module needs the SDK package to work!', 'woocommerce-mercadopago' );
 		// @todo using escaping function
 		// @codingStandardsIgnoreLine
 		echo WC_WooMercadoPago_Notices::get_alert_frame( $message, $type );
