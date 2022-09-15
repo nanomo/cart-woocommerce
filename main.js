@@ -25,7 +25,7 @@ function generatePotFiles() {
         destFile: './i18n/languages/woocommerce-mercadopago.pot',
         domain: 'woocommerce-mercadopago',
         lastTranslator: 'MPB Desenvolvimento <mpb_desenvolvimento@mercadopago.com.br>',
-        src: ['**/*.php', '**/**/*.php', '**/**/**/*.php']
+        src: ['includes/**/*.php', 'templates/**/*.php']
       });
 }
 
