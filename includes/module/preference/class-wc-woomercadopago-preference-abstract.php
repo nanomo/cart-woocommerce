@@ -607,9 +607,9 @@ abstract class WC_WooMercadoPago_Preference_Abstract extends WC_Payment_Gateway 
 			'pix_settings'     => $analytics->get_pix_settings(),
 			'seller_website'   => get_option('siteurl'),
 			'billing_address' => array(
-				'zip_code'    => html_entity_decode( is_object($this->order) &&
-				method_exists( $this->order, 'get_billing_postcode' ) ?
-					$this->order->get_billing_postcode() : $this->order->billing_postcode ),
+				'zip_code'    => html_entity_decode(str_replace('-', '', ( is_object($this->order) &&
+					method_exists( $this->order, 'get_billing_postcode' ) ?
+						$this->order->get_billing_postcode() : $this->order->billing_postcode ))),
 				'street_name' => html_entity_decode(
 				method_exists( $this->order, 'get_billing_address_1' ) ?
 					$this->order->get_billing_address_1() : $this->order->billing_address_1
