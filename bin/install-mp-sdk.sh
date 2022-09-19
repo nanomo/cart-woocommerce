@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 MP_SDK_DIR=$(cd -P . && pwd -P)"/packages/sdk"
+MP_SDK_AUTOLOAD_FILE=$MP_SDK_DIR"/vendor/autoload.php"
 
 sync_submodule() {
 	if [[ -f $1"/.git" || -d $1"/.git" ]]; then
@@ -11,7 +12,6 @@ sync_submodule() {
 			echo ""
 			echo -e "Different commits:"
 			echo -e "$SUBMODULE_STATUS"
-			echo ""
 			echo ""
 
 			git submodule sync --recursive -- $1
@@ -27,9 +27,11 @@ sync_submodule() {
 
 generate_submodule_autoload() {
 	if [ -d $1 ]; then
-		cd $1
-		composer install
-		composer dump-autoload -o -a
+		if [ ! -f "$MP_SDK_AUTOLOAD_FILE" ]; then
+			cd $1
+			composer install
+			composer dump-autoload
+		fi
 	fi
 }
 
