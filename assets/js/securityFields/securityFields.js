@@ -4,10 +4,8 @@ var cardForm;
 var hasToken = false;
 var mercado_pago_submit = false;
 var triggeredPaymentMethodSelectedEvent = false;
-var cardFormError = false;
 var cardFormReady = false;
 var cardFormMounted = false;
-var cardFormTimeout = false;
 
 var form = document.querySelector("form[name=checkout]");
 var formId = "checkout";
@@ -78,9 +76,9 @@ function createToken() {
 /**
  * Init cardForm
  */
-function init_cardForm() {
-  setCustomCheckoutOnLoad();
+function initCardForm() {
   var mp = new MercadoPago(wc_mercadopago_params.public_key);
+
   return new Promise((resolve, reject) => {
     cardForm = mp.cardForm({
       amount: getAmount(),
@@ -135,6 +133,10 @@ function init_cardForm() {
         },
       },
       callbacks: {
+        onFetching: () => {
+          handleCardFormTimeout();
+          setCustomCheckoutOnLoad();
+        },
         onReady: () => {
           resolve();
         },
@@ -254,60 +256,6 @@ function init_cardForm() {
   })
 }
 
-function getCustomCheckoutElements() {
-  return {
-    loader: document.getElementById('mp-custom-checkout-loader'),
-    container: document.getElementById('mp-custom-checkout-form-container'),
-    error: document.getElementById('mp-custom-checkout-error-container'),
-  }
-}
-
-function setCustomCheckoutOnLoad() {
-  const { loader, container, error } = getCustomCheckoutElements();
-
-  loader.style.display = 'flex';
-  container.style.display = 'none';
-  error.style.display = 'none';
-
-  if (error.firstElementChild) {
-    error.removeChild(error.firstElementChild);
-  }
-
-  cardFormReady = false;
-}
-
-function setCustomCheckoutLoaded() {
-  const { loader, container, error } = getCustomCheckoutElements();
-  loader.style.display = 'none';
-  container.style.display = 'block';
-  error.style.display = 'none';
-  cardFormReady = true;
-}
-
-function setCustomCheckoutUnloaded() {
-  const { loader, container, error } = getCustomCheckoutElements();
-  loader.style.display = 'flex';
-  container.style.display = 'none';
-  error.style.display = 'none';
-  cardFormReady = false;
-}
-
-function setCustomCheckoutError() {
-  const { loader, container, error } = getCustomCheckoutElements();
-
-  var alertDetails = document.createElement('alert-details');
-  alertDetails.setAttribute('title', wc_mercadopago_params.custom_checkout_sdk_handler.title);
-  alertDetails.setAttribute('description', wc_mercadopago_params.custom_checkout_sdk_handler.description);
-  alertDetails.setAttribute('retryButtonText', wc_mercadopago_params.custom_checkout_sdk_handler.retry_button);
-
-  error.appendChild(alertDetails);
-  loader.style.display = 'none';
-  container.style.display = 'none';
-  error.style.display = 'block';
-
-  cardFormReady = false;
-}
-
 function getAmount() {
   const amount = parseFloat(
     document.getElementById("mp-amount").value.replace(",", ".")
@@ -326,6 +274,74 @@ function removeBlockOverlay() {
   }
 }
 
+function removeCardFormErrorComponent(component) {
+  if (component.firstElementChild) {
+    component.removeChild(component.firstElementChild);
+  }
+}
+
+function getCustomCheckoutElements() {
+  return {
+    loader: document.getElementById('mp-custom-checkout-loader'),
+    container: document.getElementById('mp-custom-checkout-form-container'),
+    error: document.getElementById('mp-custom-checkout-error-container'),
+  }
+}
+
+function setCustomCheckoutOnLoad() {
+  cardFormReady = false;
+
+  const { loader, container, error } = getCustomCheckoutElements();
+
+  loader.style.display = 'flex';
+  container.style.display = 'none';
+  error.style.display = 'none';
+
+  removeCardFormErrorComponent(error);
+}
+
+function setCustomCheckoutLoaded() {
+  cardFormReady = true;
+
+  const { loader, container, error } = getCustomCheckoutElements();
+
+  loader.style.display = 'none';
+  container.style.display = 'block';
+  error.style.display = 'none';
+}
+
+function setCustomCheckoutUnloaded() {
+  cardFormReady = false;
+
+  const { loader, container, error } = getCustomCheckoutElements();
+
+  loader.style.display = 'flex';
+  container.style.display = 'none';
+  error.style.display = 'none';
+}
+
+function setCustomCheckoutError() {
+  cardFormReady = false;
+
+  const { loader, container, error } = getCustomCheckoutElements();
+
+  removeCardFormErrorComponent(error);
+
+  var errorWrapper = document.createElement('div');
+  var alertDetails = document.createElement('alert-details');
+
+  alertDetails.setAttribute('title', wc_mercadopago_params.custom_checkout_sdk_handler.title);
+  alertDetails.setAttribute('description', wc_mercadopago_params.custom_checkout_sdk_handler.description);
+  alertDetails.setAttribute('retryButtonText', wc_mercadopago_params.custom_checkout_sdk_handler.retry_button);
+
+  error.appendChild(errorWrapper);
+  error.firstChild.appendChild(alertDetails);
+
+  loader.style.display = 'none';
+  container.style.display = 'none';
+  error.style.display = 'block';
+}
+
 function cardFormLoad() {
   if (document.getElementById("payment_method_woo-mercado-pago-custom").checked) {
     setTimeout(() => {
@@ -341,26 +357,16 @@ function cardFormLoad() {
 }
 
 function handleCardFormLoad() {
-  init_cardForm()
+  initCardForm()
     .then(() => {
-      if (!cardFormTimeout) {
-        setCustomCheckoutLoaded();
-      }
+      setCustomCheckoutLoaded();
     })
     .catch((error) => {
-      cardFormError = true;
       const parsedError = handleCardFormErrors(error);
       sendError(parsedError);
       setCustomCheckoutError();
       console.error('Mercado Pago cardForm error: ', parsedError);
     });
-
-    setTimeout(() => {
-      if (!cardFormReady && !cardFormError) {
-        cardFormTimeout = true;
-        setCustomCheckoutError();
-      }
-    }, 10000);
 }
 
 function handleCardFormErrors(cardFormErrors) {
@@ -374,6 +380,15 @@ function handleCardFormErrors(cardFormErrors) {
   }
 
   return cardFormErrors.description || cardFormErrors.message;
+}
+
+function handleCardFormTimeout() {
+  setTimeout(() => {
+    if (!cardFormReady) {
+      sendError('cardform_10s_timeout');
+      setCustomCheckoutError();
+    }
+  }, 15000);
 }
 
 function sendError(error) {
