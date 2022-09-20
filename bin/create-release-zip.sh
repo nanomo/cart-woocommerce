@@ -2,7 +2,6 @@
 
 BIN_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 BASE_DIR=$BIN_DIR/..
-SDK_DIR=$BASE_DIR"/packages/sdk"
 AUTOLOAD_SCRIPT_FILE=$BIN_DIR/install-mp-sdk.sh
 TMP_DIR="/tmp/mercadopago"
 
@@ -17,7 +16,7 @@ if [ ! -d "$TMP_DIR" ]; then
 fi
 
 source $AUTOLOAD_SCRIPT_FILE
-generate_submodule_autoload $MP_SDK_DIR
+generate_submodule_autoload $BASE_DIR/packages/sdk
 
 cd $BASE_DIR
 cp -r assets i18n includes packages index.php readme.txt templates woocommerce-mercadopago.php $TMP_DIR

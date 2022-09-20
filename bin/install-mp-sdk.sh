@@ -2,8 +2,7 @@
 
 BIN_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 BASE_DIR=$BIN_DIR/..
-SDK_DIR=$BASE_DIR"/packages/sdk"
-SDK_AUTOLOAD_FILE=$SDK_DIR"/vendor/autoload.php"
+SDK_AUTOLOAD_FILE=$BASE_DIR/packages/sdk/vendor/autoload.php
 
 sync_submodule() {
 	if [[ -f $1"/.git" || -d $1"/.git" ]]; then
