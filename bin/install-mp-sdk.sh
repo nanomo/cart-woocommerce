@@ -28,6 +28,6 @@ sync_submodule() {
 generate_submodule_autoload() {
 	if [ -d $1 ]; then
 		cd $1
-		composer dump-autoload
+		composer dump-autoload -o
 	fi
 }
