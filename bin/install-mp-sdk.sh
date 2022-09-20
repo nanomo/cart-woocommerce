@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 
-MP_SDK_DIR=$(cd -P . && pwd -P)"/packages/sdk"
-MP_SDK_AUTOLOAD_FILE=$MP_SDK_DIR"/vendor/autoload.php"
+BIN_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+BASE_DIR=$BIN_DIR/..
+SDK_DIR=$BASE_DIR"/packages/sdk"
+SDK_AUTOLOAD_FILE=$SDK_DIR"/vendor/autoload.php"
 
 sync_submodule() {
 	if [[ -f $1"/.git" || -d $1"/.git" ]]; then
@@ -27,15 +29,9 @@ sync_submodule() {
 
 generate_submodule_autoload() {
 	if [ -d $1 ]; then
-		if [ ! -f "$MP_SDK_AUTOLOAD_FILE" ]; then
+		if [ ! -f "$SDK_AUTOLOAD_FILE" ]; then
 			cd $1
-			composer install
 			composer dump-autoload
 		fi
 	fi
 }
-
-sync_submodule $MP_SDK_DIR
-generate_submodule_autoload $MP_SDK_DIR
-
-exit 0
