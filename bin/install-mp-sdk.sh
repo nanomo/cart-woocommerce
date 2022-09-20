@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 
-BIN_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+BIN_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &>/dev/null && pwd)
 BASE_DIR=$BIN_DIR/..
-SDK_AUTOLOAD_FILE=$BASE_DIR/packages/sdk/vendor/autoload.php
 
 sync_submodule() {
 	if [[ -f $1"/.git" || -d $1"/.git" ]]; then
@@ -28,9 +27,7 @@ sync_submodule() {
 
 generate_submodule_autoload() {
 	if [ -d $1 ]; then
-		if [ ! -f "$SDK_AUTOLOAD_FILE" ]; then
-			cd $1
-			composer dump-autoload
-		fi
+		cd $1
+		composer dump-autoload
 	fi
 }
