@@ -13,10 +13,22 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+use MercadoPago\PP\Sdk\Sdk;
+
 /**
  * Class WC_WooMercadoPago_Preference_Abstract
  */
 abstract class WC_WooMercadoPago_Preference_Abstract extends WC_Payment_Gateway {
+
+	/**
+	 * SDK Preference
+	 */
+	protected $sdkPreference;
+
+	/**
+	 * SDK Preference
+	 */
+	protected $sdkPayment;
 
 	/**
 	 * Order
@@ -206,6 +218,16 @@ abstract class WC_WooMercadoPago_Preference_Abstract extends WC_Payment_Gateway 
 		if ( 0 < count( $this->order->get_fees() ) ) {
 			$this->items = array_merge( $this->items, $this->fees_cost_item() );
 		}
+
+		$apiKey       = ''; // will be removed
+		$accessToken  = $this->payment->get_option_mp( '_mp_access_token_test', '' );
+		$platformId   = WC_WooMercadoPago_Constants::PLATAFORM_ID;
+		$productId    = WC_WooMercadoPago_Constants::PRODUCT_ID_DESKTOP;
+		$integratorId = $this->payment->mp_options->get_integrator_id();
+
+		$sdk = new Sdk($apiKey, $accessToken, $platformId, $productId, $integratorId);
+		$this->sdkPreference = $sdk->getPreference();
+		$this->sdkPayment    = $sdk->getPayment();
 	}
 
 	/**
