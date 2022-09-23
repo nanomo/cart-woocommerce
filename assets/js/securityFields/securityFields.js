@@ -79,6 +79,9 @@ function createToken() {
 function initCardForm() {
   var mp = new MercadoPago(wc_mercadopago_params.public_key);
 
+  handleCardFormTimeout();
+  setCustomCheckoutOnLoad();
+
   return new Promise((resolve, reject) => {
     cardForm = mp.cardForm({
       amount: getAmount(),
@@ -133,10 +136,6 @@ function initCardForm() {
         },
       },
       callbacks: {
-        onFetching: () => {
-          handleCardFormTimeout();
-          setCustomCheckoutOnLoad();
-        },
         onReady: () => {
           resolve();
         },
