@@ -28,7 +28,7 @@ class WC_WooMercadoPago_Hook_Custom extends WC_WooMercadoPago_Hook_Abstract {
 			add_action( 'wp_enqueue_scripts', array( $this, 'add_checkout_scripts_custom' ) );
 			add_action( 'woocommerce_after_checkout_form', array( $this, 'add_mp_settings_script_custom' ) );
 			add_action( 'woocommerce_thankyou_' . $this->payment->id, array( $this, 'update_mp_settings_script_custom' ) );
-			add_action( 'woocommerce_order_details_after_order_table', array( $this, 'update_mp_settings_script_custom'));
+			add_action( 'woocommerce_order_details_after_order_table_', array( $this, 'update_mp_settings_script_custom'));
 			add_action( 'woocommerce_review_order_before_payment', array( $this, 'add_init_cardform_checkout'));
 		}
 
@@ -219,18 +219,18 @@ class WC_WooMercadoPago_Hook_Custom extends WC_WooMercadoPago_Hook_Abstract {
 		$transaction_amount = $order->get_meta('mp_transaction_amount');
 		$total_paid_amount  = $order->get_meta('mp_total_paid_amount');
 		$currency_symbol    = WC_WooMercadoPago_Configs::get_country_configs();
-		$total_diff_cost    = $total_paid_amount - $transaction_amount;
+		$total_diff_cost    = (float) $total_paid_amount - (float) $transaction_amount;
 
 		$parameters_custom = array(
 			'title_installment_cost'   => __( 'Cost of installments', 'woocommerce-mercadopago' ),
 			'title_installment_total'  => __( 'Total with installments', 'woocommerce-mercadopago' ),
 			'text_installments'        => __( 'installments of', 'woocommerce-mercadopago' ),
 			'currency'                 => $currency_symbol[ strtolower(get_option( '_site_id_v1' )) ]['currency_symbol'],
-			'total_paid_amount'        => number_format( $total_paid_amount, 2, ',', '.' ),
-			'transaction_amount'       => number_format( $transaction_amount, 2, ',', '.' ),
-			'total_diff_cost'          => number_format( $total_diff_cost, 2, ',', '.' ),
-			'installment_amount'       => number_format( $installment_amount, 2, ',', '.' ),
-			'installments'             => number_format( $installments ),
+			'total_paid_amount'        => number_format( floatval($total_paid_amount), 2, ',', '.' ),
+			'transaction_amount'       => number_format( floatval($transaction_amount), 2, ',', '.' ),
+			'total_diff_cost'          => number_format( floatval($total_diff_cost), 2, ',', '.' ),
+			'installment_amount'       => number_format( floatval($installment_amount), 2, ',', '.' ),
+			'installments'             => number_format( floatval($installments) ),
 		);
 
 		if ( 0 !== $total_diff_cost ) {
