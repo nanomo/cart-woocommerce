@@ -219,7 +219,7 @@ class WC_WooMercadoPago_Hook_Custom extends WC_WooMercadoPago_Hook_Abstract {
 		$transaction_amount = $order->get_meta('mp_transaction_amount');
 		$total_paid_amount  = $order->get_meta('mp_total_paid_amount');
 		$currency_symbol    = WC_WooMercadoPago_Configs::get_country_configs();
-		$total_diff_cost    = (int) $total_paid_amount - (int) $transaction_amount;
+		$total_diff_cost    = (float) $total_paid_amount - (float) $transaction_amount;
 
 		$parameters_custom = array(
 			'title_installment_cost'   => __( 'Cost of installments', 'woocommerce-mercadopago' ),
