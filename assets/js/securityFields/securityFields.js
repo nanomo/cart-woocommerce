@@ -385,10 +385,10 @@ function handleCardFormErrors(cardFormErrors) {
 function handleCardFormTimeout() {
   setTimeout(() => {
     if (!cardFormReady) {
-      sendError('cardform_10s_timeout');
+      sendError('mp_wc_cardform_timeout');
       setCustomCheckoutError();
     }
-  }, 15000);
+  }, 60000);
 }
 
 function sendError(error) {
