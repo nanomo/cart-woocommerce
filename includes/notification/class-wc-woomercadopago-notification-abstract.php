@@ -71,7 +71,7 @@ abstract class WC_WooMercadoPago_Notification_Abstract {
 		$integratorId = $this->payment->mp_options->get_integrator_id();
 
 		$sdk = new Sdk($apiKey, $accessToken, $platformId, $productId, $integratorId);
-		$this->sdkNotification = $sdk->getNotification();
+		$this->sdkNotification = $sdk->getNotificationInstance();
 
 		add_action( 'woocommerce_api_' . strtolower( get_class( $payment ) ), array( $this, 'check_ipn_response' ) );
 		// @todo remove when 5 is the most used.

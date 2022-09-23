@@ -219,15 +219,14 @@ abstract class WC_WooMercadoPago_Preference_Abstract extends WC_Payment_Gateway 
 			$this->items = array_merge( $this->items, $this->fees_cost_item() );
 		}
 
-		$apiKey       = ''; // will be removed
 		$accessToken  = $this->payment->get_option_mp( '_mp_access_token_test', '' );
 		$platformId   = WC_WooMercadoPago_Constants::PLATAFORM_ID;
 		$productId    = WC_WooMercadoPago_Constants::PRODUCT_ID_DESKTOP;
 		$integratorId = $this->payment->mp_options->get_integrator_id();
 
-		$sdk = new Sdk($apiKey, $accessToken, $platformId, $productId, $integratorId);
-		$this->sdkPreference = $sdk->getPreference();
-		$this->sdkPayment    = $sdk->getPayment();
+		$sdk = new Sdk($accessToken, $platformId, $productId, $integratorId);
+		$this->sdkPreference = $sdk->getPreferenceInstance();
+		$this->sdkPayment    = $sdk->getPaymentInstance();
 	}
 
 	/**
@@ -273,6 +272,25 @@ abstract class WC_WooMercadoPago_Preference_Abstract extends WC_Payment_Gateway 
 		}
 
 		return $preference;
+	}
+
+	/**
+	 * Make comum sdkPayment
+	 *
+	 * @return Payment
+	 */
+	public function make_comum_payment() {
+		$this->sdkPayment->binary_mode = $this->get_binary_mode( $this->payment );
+		$this->sdkPayment->external_reference = $this->get_external_reference( $this->payment );
+		$this->sdkPayment->notification_url = $this->get_notification_url();
+		$this->sdkPayment->statement_descriptor = get_option( 'mp_statement_descriptor', 'Mercado Pago' );
+		$this->sdkPayment->metadata = [];
+
+		if ( ! $this->test_user_v1 && ! $this->sandbox ) {
+			$this->sdkPayment->sponsor_id = $this->get_sponsor_id();
+		}
+
+		return $this->sdkPayment;
 	}
 
 	/**
@@ -548,8 +566,25 @@ abstract class WC_WooMercadoPago_Preference_Abstract extends WC_Payment_Gateway 
 		if ( isset($preference_log['token']) ) {
 			unset($preference_log['token']);
 		}
-		$this->log->write_log( 'Created preference: ', 'Preference: ' . wp_json_encode( $preference_log, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE ) );
+		$this->log->write_log( __FUNCTION__, 'Preference: ' . wp_json_encode( $preference_log, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE ) );
 		return $this->preference;
+	}
+
+	/**
+	 * Get sdkPayment
+	 *
+	 * @return Payment
+	 */
+	public function get_payment() {
+		$payment_log = clone $this->sdkPayment;
+
+		$this->log->write_log( __FUNCTION__, 'Token: ' . $payment_log->token );
+		if ( isset($payment_log->token) ) {
+			unset($payment_log->token);
+		}
+		$this->log->write_log( __FUNCTION__, 'Token: ' . $payment_log->token );
+		$this->log->write_log( __FUNCTION__, 'Payment: ' . wp_json_encode( $payment_log, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE ) );
+		return $this->sdkPayment;
 	}
 
 	/**
