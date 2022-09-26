@@ -232,7 +232,7 @@ class WC_WooMercadoPago_Hook_Custom extends WC_WooMercadoPago_Hook_Abstract {
 			'installments'             => number_format( floatval($installments) ),
 		);
 
-		if ( 0 != $total_diff_cost ) {
+		if ( $total_diff_cost > 0 ) {
 			add_action( 'woocommerce_order_details_after_order_table', array( $this, 'update_mp_settings_script_custom'));
 			wc_get_template(
 				'order-received/show-custom.php',
