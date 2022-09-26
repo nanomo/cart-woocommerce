@@ -35,7 +35,7 @@ class WC_WooMercadoPago_Preference_Basic extends WC_WooMercadoPago_Preference_Ab
 		$this->transaction->shipments = $this->transaction->shipments->setEntity( $this->shipments_receiver_address() );
 
 		$this->transaction->payment_methods = $this->transaction->payment_methods->setEntity( $this->get_payment_methods( $this->ex_payments, $this->installments ) );
-		$this->transaction->auto_return     = $this->transaction->setEntity( $this->auto_return() );
+		$this->transaction->auto_return     = $this->auto_return();
 
 		$internal_metadata           = parent::get_internal_metadata();
 		$merge_array                 = array_merge( $internal_metadata, $this->get_internal_metadata_basic() );
