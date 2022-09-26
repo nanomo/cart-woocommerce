@@ -257,8 +257,6 @@ abstract class WC_WooMercadoPago_Preference_Abstract extends WC_Payment_Gateway 
 
 	/**
 	 * Make commum transaction
-	 *
-	 * @param string $transactionType.
 	 */
 	public function make_commum_transaction() {
 		$this->transaction->binary_mode          = $this->get_binary_mode( $this->payment );
