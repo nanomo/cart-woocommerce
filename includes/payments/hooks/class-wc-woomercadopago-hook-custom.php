@@ -28,7 +28,6 @@ class WC_WooMercadoPago_Hook_Custom extends WC_WooMercadoPago_Hook_Abstract {
 			add_action( 'wp_enqueue_scripts', array( $this, 'add_checkout_scripts_custom' ) );
 			add_action( 'woocommerce_after_checkout_form', array( $this, 'add_mp_settings_script_custom' ) );
 			add_action( 'woocommerce_thankyou_' . $this->payment->id, array( $this, 'update_mp_settings_script_custom' ) );
-			add_action( 'woocommerce_order_details_after_order_table_', array( $this, 'update_mp_settings_script_custom'));
 			add_action( 'woocommerce_review_order_before_payment', array( $this, 'add_init_cardform_checkout'));
 		}
 
@@ -233,7 +232,8 @@ class WC_WooMercadoPago_Hook_Custom extends WC_WooMercadoPago_Hook_Abstract {
 			'installments'             => number_format( floatval($installments) ),
 		);
 
-		if ( 0 !== $total_diff_cost ) {
+		if ( $total_diff_cost > 0 ) {
+			add_action( 'woocommerce_order_details_after_order_table', array( $this, 'update_mp_settings_script_custom'));
 			wc_get_template(
 				'order-received/show-custom.php',
 				$parameters_custom,
