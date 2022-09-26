@@ -29,7 +29,7 @@ class WC_WooMercadoPago_Preference_Basic extends WC_WooMercadoPago_Preference_Ab
 		$this->transaction = $this->sdk->getPreferenceInstance();
 
 		$this->make_commum_transaction();
-		$this->transaction->items     = $this->items;
+		$this->transaction->items     = $this->transaction->items->setEntity( $this->items );
 		$this->transaction->payer     = $this->transaction->payer->setEntity( $this->get_payer_basic() );
 		$this->transaction->back_urls = $this->transaction->back_urls->setEntity( $this->get_back_urls() );
 		$this->transaction->shipments = $this->transaction->shipments->setEntity( $this->shipments_receiver_address() );
