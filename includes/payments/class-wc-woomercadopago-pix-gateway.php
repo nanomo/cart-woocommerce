@@ -507,7 +507,8 @@ class WC_WooMercadoPago_Pix_Gateway extends WC_WooMercadoPago_Payment_Abstract {
 	 */
 	public function create_payment( $order, $pix_checkout ) {
 		$preferences_pix = new WC_WooMercadoPago_Preference_Pix( $this, $order, $pix_checkout );
-		$payment     = $preferences_pix->get_payment();
+		$payment         = $preferences_pix->get_transaction( 'Payment' );
+
 		try {
 			$checkout_info = $payment->save();
 			$this->log->write_log( __FUNCTION__, 'Created Payment: ' . wp_json_encode( $checkout_info, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE ) );

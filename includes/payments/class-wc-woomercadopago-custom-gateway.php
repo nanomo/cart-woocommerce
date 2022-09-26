@@ -623,7 +623,7 @@ class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 	 */
 	protected function create_payment( $order, $custom_checkout ) {
 		$preferences_custom = new WC_WooMercadoPago_Preference_Custom( $this, $order, $custom_checkout );
-		$payment = $preferences_custom->get_payment();
+		$payment            = $preferences_custom->get_transaction( 'Payment' );
 
 		try {
 			$checkout_info = $payment->save();
