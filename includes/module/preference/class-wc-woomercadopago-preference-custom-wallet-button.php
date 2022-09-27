@@ -26,7 +26,7 @@ class WC_WooMercadoPago_Preference_Custom_Wallet_Button extends WC_WooMercadoPag
 	 */
 	public function __construct( $payment, $order ) {
 		parent::__construct( $payment, $order );
-		$this->preference['purpose'] = 'wallet_purchase';
+		$this->transaction->purpose = 'wallet_purchase';
 	}
 
 	/**

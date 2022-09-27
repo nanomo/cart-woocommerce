@@ -614,24 +614,15 @@ class WC_WooMercadoPago_Basic_Gateway extends WC_WooMercadoPago_Payment_Abstract
 	 * @return bool
 	 */
 	public function create_preference( $order ) {
-		$preferences_basic = new WC_WooMercadoPago_Preference_Basic( $this, $order );
-		$preferences       = $preferences_basic->get_preference();
+		$preference_basic = new WC_WooMercadoPago_Preference_Basic( $this, $order );
+		$preference       = $preference_basic->get_transaction( 'Preference' );
+
 		try {
-			$checkout_info = $this->mp->create_preference( wp_json_encode( $preferences ) );
+			$checkout_info = $preference->save();
 			$this->log->write_log( __FUNCTION__, 'Created Preference: ' . wp_json_encode( $checkout_info, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE ) );
-			if ( $checkout_info['status'] < 200 || $checkout_info['status'] >= 300 ) {
-				$this->log->write_log( __FUNCTION__, 'mercado pago gave error, payment creation failed with error: ' . $checkout_info['response']['message'] );
-				return false;
-			} elseif ( is_wp_error( $checkout_info ) ) {
-				$this->log->write_log( __FUNCTION__, 'WordPress gave error, payment creation failed with error: ' . $checkout_info['response']['message'] );
-				return false;
-			} else {
-				$this->log->write_log( __FUNCTION__, 'payment link generated with success from mercado pago, with structure as follow: ' . wp_json_encode( $checkout_info, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE ) );
-				if ( $this->sandbox ) {
-					return $checkout_info['response']['sandbox_init_point'];
-				}
-				return $checkout_info['response']['init_point'];
-			}
+			$this->log->write_log( __FUNCTION__, 'payment link generated with success from mercado pago, with structure as follow: ' . wp_json_encode( $checkout_info, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE ) );
+
+			return ( $this->sandbox ) ? $checkout_info['sandbox_init_point'] : $checkout_info['init_point'];
 		} catch ( WC_WooMercadoPago_Exception $ex ) {
 			$this->log->write_log( __FUNCTION__, 'payment creation failed with exception: ' . wp_json_encode( $ex, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE ) );
 			return false;

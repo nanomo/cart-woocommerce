@@ -15,15 +15,17 @@ sync_submodule() {
 			echo ""
 
 			git submodule sync --recursive -- $1
-			git submodule update --init --recursive -- $1 || true
-			git submodule update --init --recursive --force -- $1
+			git submodule update --init --remote --recursive -- $1 || true
+			git submodule update --init --remote --recursive --force -- $1
 		fi
 	else
 		git submodule sync --recursive --quiet -- $1
-		git submodule update --init --recursive -- $1 || true
-		git submodule update --init --recursive -- $1
+		git submodule update --init --remote --recursive -- $1 || true
+		git submodule update --init --remote --recursive -- $1
 	fi
 }
+
+sync_submodule $1
 
 generate_submodule_autoload() {
 	if [ -d $1 ]; then

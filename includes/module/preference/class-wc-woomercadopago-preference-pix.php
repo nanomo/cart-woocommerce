@@ -9,11 +9,6 @@
  * @package MercadoPago
  */
 
-use MercadoPago\PP\Sdk\Entity\Payment\AdditionalInfo;
-use MercadoPago\PP\Sdk\Entity\Payment\Address;
-use MercadoPago\PP\Sdk\Entity\Payment\Payer;
-use MercadoPago\PP\Sdk\Entity\Payment\PointOfInteraction;
-
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
@@ -34,28 +29,31 @@ class WC_WooMercadoPago_Preference_Pix extends WC_WooMercadoPago_Preference_Abst
 	public function __construct( $payment, $order, $pix_checkout ) {
 		parent::__construct( $payment, $order, $pix_checkout );
 		$pix_date_expiration               = $this->adjust_pix_date_expiration();
-		$this->sdkPayment                     = $this->make_comum_payment();
-		$this->sdkPayment->date_of_expiration = $this->get_date_of_expiration( $pix_date_expiration );
-		$this->sdkPayment->transaction_amount = $this->get_transaction_amount();
-		$this->sdkPayment->description        = implode( ', ', $this->list_of_items );
-		$this->sdkPayment->payment_method_id  = 'pix';
-		$this->sdkPayment->external_reference = $this->get_external_reference();
-		$this->sdkPayment->point_of_interaction->type = 'GATEWAY';
 
-		$this->sdkPayment->payer->email      = $this->get_email();
-		$this->sdkPayment->payer->first_name = ( method_exists( $this->order, 'get_id' ) ? html_entity_decode( $this->order->get_billing_first_name() ) : html_entity_decode( $this->order->billing_first_name ) );
-		$this->sdkPayment->payer->last_name  = ( method_exists( $this->order, 'get_id' ) ? html_entity_decode( $this->order->get_billing_last_name() ) : html_entity_decode( $this->order->billing_last_name ) );
+		$this->transaction = $this->sdk->getPaymentInstance();
+		$this->make_comum_transaction();
 
-		$this->sdkPayment->payer->address->zip_code      = html_entity_decode( method_exists( $this->order, 'get_id' ) ? $this->order->get_billing_postcode() : $this->order->billing_postcode );
-		$this->sdkPayment->payer->address->street_name   = html_entity_decode( method_exists( $this->order, 'get_id' ) ? $this->order->get_billing_address_1() : $this->order->billing_address_1 );
-		$this->sdkPayment->payer->address->street_number = '';
-		$this->sdkPayment->payer->address->neighborhood  = '';
-		$this->sdkPayment->payer->address->city          = html_entity_decode( method_exists( $this->order, 'get_id' ) ? $this->order->get_billing_city() : $this->order->billing_city );
-		$this->sdkPayment->payer->address->federal_unit  = html_entity_decode( method_exists( $this->order, 'get_id' ) ? $this->order->get_billing_state() : $this->order->billing_state );
+		$this->transaction->date_of_expiration = $this->get_date_of_expiration( $pix_date_expiration );
+		$this->transaction->transaction_amount = $this->get_transaction_amount();
+		$this->transaction->description        = implode( ', ', $this->list_of_items );
+		$this->transaction->payment_method_id  = 'pix';
+		$this->transaction->external_reference = $this->get_external_reference();
+		$this->transaction->point_of_interaction->type = 'GATEWAY';
 
-		$this->sdkPayment->additional_info->items     = $this->items;
-		$this->sdkPayment->additional_info->payer     = $this->get_payer_custom();
-		$this->sdkPayment->additional_info->shipments = $this->shipments_receiver_address();
+		$this->transaction->payer->email      = $this->get_email();
+		$this->transaction->payer->first_name = ( method_exists( $this->order, 'get_id' ) ? html_entity_decode( $this->order->get_billing_first_name() ) : html_entity_decode( $this->order->billing_first_name ) );
+		$this->transaction->payer->last_name  = ( method_exists( $this->order, 'get_id' ) ? html_entity_decode( $this->order->get_billing_last_name() ) : html_entity_decode( $this->order->billing_last_name ) );
+
+		$this->transaction->payer->address->zip_code      = html_entity_decode( method_exists( $this->order, 'get_id' ) ? $this->order->get_billing_postcode() : $this->order->billing_postcode );
+		$this->transaction->payer->address->street_name   = html_entity_decode( method_exists( $this->order, 'get_id' ) ? $this->order->get_billing_address_1() : $this->order->billing_address_1 );
+		$this->transaction->payer->address->street_number = '';
+		$this->transaction->payer->address->neighborhood  = '';
+		$this->transaction->payer->address->city          = html_entity_decode( method_exists( $this->order, 'get_id' ) ? $this->order->get_billing_city() : $this->order->billing_city );
+		$this->transaction->payer->address->federal_unit  = html_entity_decode( method_exists( $this->order, 'get_id' ) ? $this->order->get_billing_state() : $this->order->billing_state );
+
+		$this->transaction->additional_info->items     = $this->items;
+		$this->transaction->additional_info->payer     = $this->get_payer_custom();
+		$this->transaction->additional_info->shipments = $this->shipments_receiver_address();
 	}
 
 	public function get_internal_metadata() {

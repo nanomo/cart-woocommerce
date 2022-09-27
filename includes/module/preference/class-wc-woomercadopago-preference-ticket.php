@@ -27,37 +27,40 @@ class WC_WooMercadoPago_Preference_Ticket extends WC_WooMercadoPago_Preference_A
 	 */
 	public function __construct( $payment, $order, $ticket_checkout ) {
 		parent::__construct( $payment, $order, $ticket_checkout );
+		$this->transaction = $this->sdk->getPaymentInstance();
 
 		$helper                               = new WC_WooMercadoPago_Composite_Id_Helper();
 		$id                                   = $ticket_checkout['paymentMethodId'];
 		$date_expiration                      = $payment->get_option( 'date_expiration', WC_WooMercadoPago_Constants::DATE_EXPIRATION ) . ' days';
 		$this->paymentPlaceId                 = $helper->getPaymentPlaceId($id);
 
-		$this->sdkPayment                     = $this->make_comum_payment();
-		$this->sdkPayment->binary_mode        = true;
-		$this->sdkPayment->payment_method_id  = $helper->getPaymentMethodId($id);
-		$this->sdkPayment->date_of_expiration = $this->get_date_of_expiration( $date_expiration );
-		$this->sdkPayment->transaction_amount = $this->get_transaction_amount();
-		$this->sdkPayment->description        = implode( ', ', $this->list_of_items );
-		$this->sdkPayment->external_reference = $this->get_external_reference();
+		$this->transaction = $this->sdk->getPaymentInstance();
+		$this->make_comum_transaction();
 
-		$this->sdkPayment->payer->setEntity($this->get_payer_ticket($ticket_checkout));
+		$this->transaction->binary_mode        = true;
+		$this->transaction->payment_method_id  = $helper->getPaymentMethodId($id);
+		$this->transaction->date_of_expiration = $this->get_date_of_expiration( $date_expiration );
+		$this->transaction->transaction_amount = $this->get_transaction_amount();
+		$this->transaction->description        = implode( ', ', $this->list_of_items );
+		$this->transaction->external_reference = $this->get_external_reference();
+
+		$this->transaction->payer->setEntity($this->get_payer_ticket($ticket_checkout));
 
 		if ( 'webpay' === $ticket_checkout['paymentMethodId'] ) {
 			$this->set_webpay_properties();
 		}
 
-		$this->sdkPayment->additional_info->items->setEntity($this->items);
-		$this->sdkPayment->additional_info->payer->setEntity($this->get_payer_custom());
-		$this->sdkPayment->additional_info->shipments->setEntity($this->shipments_receiver_address());
+		$this->transaction->additional_info->items->setEntity($this->items);
+		$this->transaction->additional_info->payer->setEntity($this->get_payer_custom());
+		$this->transaction->additional_info->shipments->setEntity($this->shipments_receiver_address());
 
 		if (
 			isset( $this->checkout['discount'] ) && ! empty( $this->checkout['discount'] ) &&
 			isset( $this->checkout['coupon_code'] ) && ! empty( $this->checkout['coupon_code'] ) &&
 			$this->checkout['discount'] > 0 && 'woo-mercado-pago-ticket' === WC()->session->chosen_payment_method
 		) {
-			$this->sdkPayment->additional_info->items->setEntity($this->add_discounts());
-			$this->sdkPayment->setEntity($this->add_discounts_campaign());
+			$this->transaction->additional_info->items->setEntity($this->add_discounts());
+			$this->transaction->setEntity($this->add_discounts_campaign());
 		}
 	}
 
@@ -74,12 +77,12 @@ class WC_WooMercadoPago_Preference_Ticket extends WC_WooMercadoPago_Preference_A
 	}
 
 	public function set_webpay_properties() {
-		$this->sdkPayment->transaction_details->financial_institution = '1234';
-		$this->sdkPayment->callback_url                               = get_site_url();
-		$this->sdkPayment->additional_info->ip_address                = '127.0.0.1';
-		$this->sdkPayment->payer->identification->type                = 'RUT';
-		$this->sdkPayment->payer->identification->number              = '0';
-		$this->sdkPayment->payer->entity_type                         = 'individual';
+		$this->transaction->transaction_details->financial_institution = '1234';
+		$this->transaction->callback_url                               = get_site_url();
+		$this->transaction->additional_info->ip_address                = '127.0.0.1';
+		$this->transaction->payer->identification->type                = 'RUT';
+		$this->transaction->payer->identification->number              = '0';
+		$this->transaction->payer->entity_type                         = 'individual';
 	}
 
 	public function get_payer_ticket($ticket_checkout) {
@@ -88,13 +91,13 @@ class WC_WooMercadoPago_Preference_Ticket extends WC_WooMercadoPago_Preference_A
 		unset($payer['phone']);
 
 		if ( 'BRL' === $this->site_data[ $this->site_id ]['currency'] ) {
-			$this->sdkPayment->payer->identification->type   = 14 === strlen( $this->checkout['docNumber'] ) ? 'CPF' : 'CNPJ';
-			$this->sdkPayment->payer->identification->number = $this->checkout['docNumber'];
+			$this->transaction->payer->identification->type   = 14 === strlen( $this->checkout['docNumber'] ) ? 'CPF' : 'CNPJ';
+			$this->transaction->payer->identification->number = $this->checkout['docNumber'];
 		}
 
 		if ( 'UYU' === $this->site_data[ $this->site_id ]['currency'] ) {
-			$this->sdkPayment->payer->identification->type   = $ticket_checkout['docType'];
-			$this->sdkPayment->payer->identification->number = $ticket_checkout['docNumber'];
+			$this->transaction->payer->identification->type   = $ticket_checkout['docType'];
+			$this->transaction->payer->identification->number = $ticket_checkout['docNumber'];
 		}
 
 		return $payer;

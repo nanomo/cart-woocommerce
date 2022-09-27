@@ -27,38 +27,40 @@ class WC_WooMercadoPago_Preference_Custom extends WC_WooMercadoPago_Preference_A
 	 */
 	public function __construct( $payment, $order, $custom_checkout ) {
 		parent::__construct( $payment, $order, $custom_checkout );
-		$this->sdkPayment = $this->make_comum_payment();
 
-		$this->sdkPayment->transaction_amount = $this->get_transaction_amount();
-		$this->sdkPayment->token = $this->checkout['token'];
-		$this->sdkPayment->description = implode( ', ', $this->list_of_items );
-		$this->sdkPayment->installments = (int) $this->checkout['installments'];
-		$this->sdkPayment->payment_method_id = $this->checkout['paymentMethodId'];
-		$this->sdkPayment->payer->email = $this->get_email();
+		$this->transaction = $this->sdk->getPaymentInstance();
+		$this->make_comum_transaction();
+
+		$this->transaction->transaction_amount = $this->get_transaction_amount();
+		$this->transaction->token = $this->checkout['token'];
+		$this->transaction->description = implode( ', ', $this->list_of_items );
+		$this->transaction->installments = (int) $this->checkout['installments'];
+		$this->transaction->payment_method_id = $this->checkout['paymentMethodId'];
+		$this->transaction->payer->email = $this->get_email();
 
 		if ( array_key_exists( 'token', $this->checkout ) ) {
-			$this->sdkPayment->metadata['token'] = $this->checkout['token'];
+			$this->transaction->metadata['token'] = $this->checkout['token'];
 			if ( ! empty( $this->checkout['CustomerId'] ) ) {
-				$this->sdkPayment->payer->id = $this->checkout['CustomerId'];
+				$this->transaction->payer->id = $this->checkout['CustomerId'];
 			}
 			if ( ! empty( $this->checkout['issuer'] ) ) {
-				$this->sdkPayment->issuer_id = (int) $this->checkout['issuer'];
+				$this->transaction->issuer_id = (int) $this->checkout['issuer'];
 			}
 		}
 
 		// TODO: create proper instances for additional info properties
-		$this->sdkPayment->additional_info->items     = $this->items;
-		$this->sdkPayment->additional_info->payer     = $this->get_payer_custom();
-		$this->sdkPayment->additional_info->shipments = $this->shipments_receiver_address();
+		$this->transaction->additional_info->items     = $this->items;
+		$this->transaction->additional_info->payer     = $this->get_payer_custom();
+		$this->transaction->additional_info->shipments = $this->shipments_receiver_address();
 
 		if (
 			isset( $this->checkout['discount'] ) && ! empty( $this->checkout['discount'] ) &&
 			isset( $this->checkout['coupon_code'] ) && ! empty( $this->checkout['coupon_code'] ) &&
 			$this->checkout['discount'] > 0 && 'woo-mercado-pago-custom' === WC()->session->chosen_payment_method
 		) {
-			$this->sdkPayment->additional_info->items[] = $this->add_discounts();
+			$this->transaction->additional_info->items[] = $this->add_discounts();
 			// TODO create proper setDiscountsCampaign method
-			$this->sdkPayment             = array_merge( $this->preference, $this->add_discounts_campaign() );
+			$this->transaction = array_merge( $this->preference, $this->add_discounts_campaign() );
 		}
 	}
 
