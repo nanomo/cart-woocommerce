@@ -38,7 +38,7 @@ class WC_WooMercadoPago_Preference_Pix extends WC_WooMercadoPago_Preference_Abst
 		$this->transaction->description        = implode( ', ', $this->list_of_items );
 		$this->transaction->payment_method_id  = 'pix';
 		$this->transaction->external_reference = $this->get_external_reference();
-		$this->transaction->point_of_interaction->type = 'GATEWAY';
+		$this->transaction->point_of_interaction->type = 'CHECKOUT';
 
 		$this->transaction->payer->email      = $this->get_email();
 		$this->transaction->payer->first_name = ( method_exists( $this->order, 'get_id' ) ? html_entity_decode( $this->order->get_billing_first_name() ) : html_entity_decode( $this->order->billing_first_name ) );

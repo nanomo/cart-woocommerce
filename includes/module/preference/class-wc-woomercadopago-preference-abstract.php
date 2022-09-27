@@ -255,7 +255,7 @@ abstract class WC_WooMercadoPago_Preference_Abstract extends WC_Payment_Gateway 
 		$this->transaction->external_reference   = $this->get_external_reference( $this->payment );
 		$this->transaction->notification_url     = $this->get_notification_url();
 		$this->transaction->statement_descriptor = get_option( 'mp_statement_descriptor', 'Mercado Pago' );
-		$this->transaction->metadata             = [];
+		$this->transaction->metadata             = $this->get_internal_metadata();
 
 		if ( ! $this->test_user_v1 && ! $this->sandbox ) {
 			$this->transaction->sponsor_id = $this->get_sponsor_id();

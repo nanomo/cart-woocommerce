@@ -233,6 +233,7 @@ class WC_WooMercadoPago_Module extends WC_WooMercadoPago_Configs {
 	public function load_notifications() {
 		include_once dirname( __FILE__ ) . '/../notification/class-wc-woomercadopago-notification-abstract.php';
 		include_once dirname( __FILE__ ) . '/../notification/class-wc-woomercadopago-notification-ipn.php';
+		include_once dirname( __FILE__ ) . '/../notification/class-wc-woomercadopago-notification-core.php';
 		include_once dirname( __FILE__ ) . '/../notification/class-wc-woomercadopago-notification-webhook.php';
 	}
 

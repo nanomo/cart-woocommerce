@@ -28,7 +28,7 @@ class WC_WooMercadoPago_Preference_Basic extends WC_WooMercadoPago_Preference_Ab
 		parent::__construct( $payment, $order );
 		$this->transaction = $this->sdk->getPreferenceInstance();
 
-		$this->make_commum_transaction();
+		$this->make_comum_transaction();
 		$this->transaction->items     = $this->transaction->items->setEntity( $this->items );
 		$this->transaction->payer     = $this->transaction->payer->setEntity( $this->get_payer_basic() );
 		$this->transaction->back_urls = $this->transaction->back_urls->setEntity( $this->get_back_urls() );
@@ -36,10 +36,13 @@ class WC_WooMercadoPago_Preference_Basic extends WC_WooMercadoPago_Preference_Ab
 
 		$this->transaction->payment_methods = $this->transaction->payment_methods->setEntity( $this->get_payment_methods( $this->ex_payments, $this->installments ) );
 		$this->transaction->auto_return     = $this->auto_return();
+	}
 
-		$internal_metadata           = parent::get_internal_metadata();
-		$merge_array                 = array_merge( $internal_metadata, $this->get_internal_metadata_basic() );
-		$this->transaction->metadata = $merge_array;
+	public function get_internal_metadata() {
+		$metadata = parent::get_internal_metadata();
+		$metadata['checkout']      = 'smart';
+		$metadata['checkout_type'] = $this->payment->get_option_mp( 'method', 'redirect' );
+		return $metadata;
 	}
 
 	/**
@@ -133,17 +136,5 @@ class WC_WooMercadoPago_Preference_Basic extends WC_WooMercadoPago_Preference_Ab
 		if ( 'yes' === $auto_return ) {
 			return 'approved';
 		}
-	}
-
-	/**
-	 * Get internal metadata basic
-	 *
-	 * @return array
-	 */
-	public function get_internal_metadata_basic() {
-		return array(
-			'checkout'      => 'smart',
-			'checkout_type' => $this->payment->get_option_mp( 'method', 'redirect' ),
-		);
 	}
 }

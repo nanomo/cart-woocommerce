@@ -564,7 +564,7 @@ class WC_WooMercadoPago_Ticket_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 	 */
 	public function create_payment( $order, $ticket_checkout ) {
 		$preferences_ticket = new WC_WooMercadoPago_Preference_Ticket( $this, $order, $ticket_checkout );
-		$payment            = $preferences_ticket->get_payment();
+		$payment            = $preferences_ticket->get_transaction();
 		try {
 			$checkout_info = $payment->save();
 			$this->log->write_log( __FUNCTION__, 'Created Payment: ' . wp_json_encode( $checkout_info, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE ) );
