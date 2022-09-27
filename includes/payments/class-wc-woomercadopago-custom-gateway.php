@@ -53,7 +53,7 @@ class WC_WooMercadoPago_Custom_Gateway extends WC_WooMercadoPago_Payment_Abstrac
 		parent::__construct();
 		$this->form_fields         = $this->get_form_mp_fields();
 		$this->hook                = new WC_WooMercadoPago_Hook_Custom( $this );
-		$this->notification        = new WC_WooMercadoPago_Notification_Webhook( $this );
+		$this->notification        = new WC_WooMercadoPago_Notification_Core( $this );
 		$this->currency_convertion = true;
 		$this->icon                = $this->get_checkout_icon();
 	}
