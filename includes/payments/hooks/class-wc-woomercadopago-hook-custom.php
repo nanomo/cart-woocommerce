@@ -27,7 +27,7 @@ class WC_WooMercadoPago_Hook_Custom extends WC_WooMercadoPago_Hook_Abstract {
 		if ( ! empty( $this->payment->settings['enabled'] ) && 'yes' === $this->payment->settings['enabled'] ) {
 			add_action( 'wp_enqueue_scripts', array( $this, 'add_checkout_scripts_custom' ) );
 			add_action( 'woocommerce_after_checkout_form', array( $this, 'add_mp_settings_script_custom' ) );
-			add_action( 'woocommerce_thankyou', array( $this, 'update_mp_settings_script_custom' ) );
+			add_action( 'woocommerce_thankyou_' . $this->payment->id, array( $this, 'update_mp_settings_script_custom' ) );
 			add_action( 'woocommerce_review_order_before_payment', array( $this, 'add_init_cardform_checkout'));
 		}
 
@@ -209,7 +209,39 @@ class WC_WooMercadoPago_Hook_Custom extends WC_WooMercadoPago_Hook_Abstract {
 	public function update_mp_settings_script_custom( $order_id ) {
 		// @todo transform js return
 		// @codingStandardsIgnoreLine
-		echo parent::update_mp_settings_script( $order_id );
+		parent::update_mp_settings_script( $order_id );
+
+		$order = wc_get_order( $order_id );
+		$order->get_meta_data();
+		$installments       = $order->get_meta('mp_installments');
+		$installment_amount = $order->get_meta('mp_transaction_details');
+		$transaction_amount = $order->get_meta('mp_transaction_amount');
+		$total_paid_amount  = $order->get_meta('mp_total_paid_amount');
+		$currency_symbol    = WC_WooMercadoPago_Configs::get_country_configs();
+		$total_diff_cost    = (float) $total_paid_amount - (float) $transaction_amount;
+
+		$parameters_custom = array(
+			'title_installment_cost'   => __( 'Cost of installments', 'woocommerce-mercadopago' ),
+			'title_installment_total'  => __( 'Total with installments', 'woocommerce-mercadopago' ),
+			'text_installments'        => __( 'installments of', 'woocommerce-mercadopago' ),
+			'currency'                 => $currency_symbol[ strtolower(get_option( '_site_id_v1' )) ]['currency_symbol'],
+			'total_paid_amount'        => number_format( floatval($total_paid_amount), 2, ',', '.' ),
+			'transaction_amount'       => number_format( floatval($transaction_amount), 2, ',', '.' ),
+			'total_diff_cost'          => number_format( floatval($total_diff_cost), 2, ',', '.' ),
+			'installment_amount'       => number_format( floatval($installment_amount), 2, ',', '.' ),
+			'installments'             => number_format( floatval($installments) ),
+		);
+
+		if ( $total_diff_cost > 0 ) {
+			add_action( 'woocommerce_order_details_after_order_table', array( $this, 'update_mp_settings_script_custom'));
+			wc_get_template(
+				'order-received/show-custom.php',
+				$parameters_custom,
+				'woo/mercado/pago/module/',
+				WC_WooMercadoPago_Module::get_templates_path()
+			);
+		}
+
 	}
 
 	/**
