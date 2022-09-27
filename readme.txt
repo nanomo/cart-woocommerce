@@ -135,7 +135,7 @@ Set up both the plugin and the checkouts you want to activate on your payment av
 Check out our <a href="https://www.mercadopago.com.br/developers/pt/plugins_sdks/plugins/official/woo-commerce/">official documentation</a> for more information on the specific fields to configure.
 
 == Changelog ==
-= v6.3.0 (XX/09/2022) =
+= v6.3.0 (27/09/2022) =
 * Features
 - Added interest information on the order confirmation screen for payments with custom checkout
 
