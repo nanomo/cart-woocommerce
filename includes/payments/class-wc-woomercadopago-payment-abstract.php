@@ -13,6 +13,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+use MercadoPago\PP\Sdk\Sdk;
+
 /**
  * Class WC_WooMercadoPago_Payment_Abstract
  */
@@ -427,6 +429,25 @@ class WC_WooMercadoPago_Payment_Abstract extends WC_Payment_Gateway {
 		$this->logged_user_email    = ( 0 !== wp_get_current_user()->ID ) ? wp_get_current_user()->user_email : null;
 		$this->discount_action_url  = get_site_url() . '/index.php/woocommerce-mercadopago/?wc-api=' . get_class( $this );
 		add_action( 'woocommerce_after_settings_checkout', array($this, 'mercadopago_after_form') );
+	}
+
+	/**
+	 * Get SDK instance
+	 *
+	 * @return SDK
+	 */
+	public function get_sdk_instance() {
+		$is_production_mode = $this->is_production_mode();
+
+		$access_token       = 'no' === $is_production_mode || ! $is_production_mode
+			? get_option( '_mp_access_token_test' )
+			: get_option( '_mp_access_token_prod' );
+
+		$platform_id   = WC_WooMercadoPago_Constants::PLATAFORM_ID;
+		$product_id    = WC_WooMercadoPago_Module::is_mobile() ? WC_WooMercadoPago_Constants::PRODUCT_ID_MOBILE : WC_WooMercadoPago_Constants::PRODUCT_ID_DESKTOP;
+		$integrator_id = $this->integrator_id;
+
+		return new Sdk($access_token, $platform_id, $product_id, $integrator_id);
 	}
 
 	public function mercadopago_after_form() {

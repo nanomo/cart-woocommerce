@@ -13,8 +13,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-use MercadoPago\PP\Sdk\Sdk;
-
 /**
  * Class WC_WooMercadoPago_Preference_Abstract
  */
@@ -219,12 +217,7 @@ abstract class WC_WooMercadoPago_Preference_Abstract extends WC_Payment_Gateway 
 			$this->items = array_merge( $this->items, $this->fees_cost_item() );
 		}
 
-		$accessToken  = $this->payment->get_option_mp( '_mp_access_token_test', '' );
-		$platformId   = WC_WooMercadoPago_Constants::PLATAFORM_ID;
-		$productId    = WC_WooMercadoPago_Constants::PRODUCT_ID_DESKTOP;
-		$integratorId = $this->payment->mp_options->get_integrator_id();
-
-		$sdk = new Sdk($accessToken, $platformId, $productId, $integratorId);
+		$sdk = $payment->get_sdk_instance();
 		$this->sdkPreference = $sdk->getPreferenceInstance();
 		$this->sdkPayment    = $sdk->getPaymentInstance();
 	}
@@ -284,7 +277,7 @@ abstract class WC_WooMercadoPago_Preference_Abstract extends WC_Payment_Gateway 
 		$this->sdkPayment->external_reference = $this->get_external_reference( $this->payment );
 		$this->sdkPayment->notification_url = $this->get_notification_url();
 		$this->sdkPayment->statement_descriptor = get_option( 'mp_statement_descriptor', 'Mercado Pago' );
-		$this->sdkPayment->metadata = [];
+		$this->sdkPayment->metadata = $this->get_internal_metadata();
 
 		if ( ! $this->test_user_v1 && ! $this->sandbox ) {
 			$this->sdkPayment->sponsor_id = $this->get_sponsor_id();

@@ -13,9 +13,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-use MercadoPago\PP\Sdk\Entity\Payment\AdditionalInfo;
-use MercadoPago\PP\Sdk\Entity\Payment\Payer;
-
 /**
  * Class WC_WooMercadoPago_PreferenceCustom
  */
@@ -37,42 +34,39 @@ class WC_WooMercadoPago_Preference_Custom extends WC_WooMercadoPago_Preference_A
 		$this->sdkPayment->description = implode( ', ', $this->list_of_items );
 		$this->sdkPayment->installments = (int) $this->checkout['installments'];
 		$this->sdkPayment->payment_method_id = $this->checkout['paymentMethodId'];
-
-		$payer = new Payer();
-		$payer->email = $this->get_email();
+		$this->sdkPayment->payer->email = $this->get_email();
 
 		if ( array_key_exists( 'token', $this->checkout ) ) {
 			$this->sdkPayment->metadata['token'] = $this->checkout['token'];
 			if ( ! empty( $this->checkout['CustomerId'] ) ) {
-				$payer->id = $this->checkout['CustomerId'];
+				$this->sdkPayment->payer->id = $this->checkout['CustomerId'];
 			}
 			if ( ! empty( $this->checkout['issuer'] ) ) {
 				$this->sdkPayment->issuer_id = (int) $this->checkout['issuer'];
 			}
 		}
 
-		$this->sdkPayment->payer = $payer;
-
-		$additional_info = new AdditionalInfo();
-
 		// TODO: create proper instances for additional info properties
-		$additional_info->items     = $this->items;
-		$additional_info->payer     = $this->get_payer_custom();
-		$additional_info->shipments = $this->shipments_receiver_address();
+		$this->sdkPayment->additional_info->items     = $this->items;
+		$this->sdkPayment->additional_info->payer     = $this->get_payer_custom();
+		$this->sdkPayment->additional_info->shipments = $this->shipments_receiver_address();
 
 		if (
 			isset( $this->checkout['discount'] ) && ! empty( $this->checkout['discount'] ) &&
 			isset( $this->checkout['coupon_code'] ) && ! empty( $this->checkout['coupon_code'] ) &&
 			$this->checkout['discount'] > 0 && 'woo-mercado-pago-custom' === WC()->session->chosen_payment_method
 		) {
-			$additional_info->items[] = $this->add_discounts();
+			$this->sdkPayment->additional_info->items[] = $this->add_discounts();
 			// TODO create proper setDiscountsCampaign method
 			$this->sdkPayment             = array_merge( $this->preference, $this->add_discounts_campaign() );
 		}
+	}
 
-		$internal_metadata       = parent::get_internal_metadata();
-		$merge_array             = array_merge( $internal_metadata, $this->get_internal_metadata_custom() );
-		$this->sdkPayment->metadata = $merge_array;
+	public function get_internal_metadata() {
+		$metadata = parent::get_internal_metadata();
+		$metadata['checkout'] = 'custom';
+		$metadata['checkout_type'] = 'credit_type';
+		return $metadata;
 	}
 
 	/**
@@ -104,15 +98,4 @@ class WC_WooMercadoPago_Preference_Custom extends WC_WooMercadoPago_Preference_A
 		return $items;
 	}
 
-	/**
-	 * Get internal metadata custom
-	 *
-	 * @return array
-	 */
-	public function get_internal_metadata_custom() {
-		return array(
-			'checkout'      => 'custom',
-			'checkout_type' => 'credit_card',
-		);
-	}
 }
