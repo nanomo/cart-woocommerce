@@ -30,28 +30,29 @@ class WC_WooMercadoPago_Preference_Custom extends WC_WooMercadoPago_Preference_A
 	 */
 	public function __construct( $payment, $order, $custom_checkout ) {
 		parent::__construct( $payment, $order, $custom_checkout );
-		$this->sdkPayment = $this->make_comum_payment();
+		$this->transaction = $this->sdk->getPaymentInstance();
 
-		$this->sdkPayment->transaction_amount = $this->get_transaction_amount();
-		$this->sdkPayment->token = $this->checkout['token'];
-		$this->sdkPayment->description = implode( ', ', $this->list_of_items );
-		$this->sdkPayment->installments = (int) $this->checkout['installments'];
-		$this->sdkPayment->payment_method_id = $this->checkout['paymentMethodId'];
+		$this->make_commum_transaction();
+		$this->transaction->transaction_amount = $this->get_transaction_amount();
+		$this->transaction->token              = $this->checkout['token'];
+		$this->transaction->description        = implode( ', ', $this->list_of_items );
+		$this->transaction->installments       = (int) $this->checkout['installments'];
+		$this->transaction->payment_method_id  = $this->checkout['paymentMethodId'];
 
-		$payer = new Payer();
+		$payer        = new Payer();
 		$payer->email = $this->get_email();
 
 		if ( array_key_exists( 'token', $this->checkout ) ) {
-			$this->sdkPayment->metadata['token'] = $this->checkout['token'];
+			$this->transaction->metadata['token'] = $this->checkout['token'];
 			if ( ! empty( $this->checkout['CustomerId'] ) ) {
 				$payer->id = $this->checkout['CustomerId'];
 			}
 			if ( ! empty( $this->checkout['issuer'] ) ) {
-				$this->sdkPayment->issuer_id = (int) $this->checkout['issuer'];
+				$this->transaction->issuer_id = (int) $this->checkout['issuer'];
 			}
 		}
 
-		$this->sdkPayment->payer = $payer;
+		$this->transaction->payer = $payer;
 
 		$additional_info = new AdditionalInfo();
 
@@ -67,12 +68,12 @@ class WC_WooMercadoPago_Preference_Custom extends WC_WooMercadoPago_Preference_A
 		) {
 			$additional_info->items[] = $this->add_discounts();
 			// TODO create proper setDiscountsCampaign method
-			$this->sdkPayment             = array_merge( $this->preference, $this->add_discounts_campaign() );
+			$this->transaction = array_merge( $this->preference, $this->add_discounts_campaign() );
 		}
 
-		$internal_metadata       = parent::get_internal_metadata();
-		$merge_array             = array_merge( $internal_metadata, $this->get_internal_metadata_custom() );
-		$this->sdkPayment->metadata = $merge_array;
+		$internal_metadata           = parent::get_internal_metadata();
+		$merge_array                 = array_merge( $internal_metadata, $this->get_internal_metadata_custom() );
+		$this->transaction->metadata = $merge_array;
 	}
 
 	/**

@@ -33,19 +33,21 @@ class WC_WooMercadoPago_Preference_Pix extends WC_WooMercadoPago_Preference_Abst
 	 */
 	public function __construct( $payment, $order, $pix_checkout ) {
 		parent::__construct( $payment, $order, $pix_checkout );
-		$pix_date_expiration               = $this->adjust_pix_date_expiration();
-		$this->paymentSdk                     = $this->make_comum_payment();
-		$this->paymentSdk->date_of_expiration = $this->get_date_of_expiration( $pix_date_expiration );
-		$this->paymentSdk->transaction_amount = $this->get_transaction_amount();
-		$this->paymentSdk->description        = implode( ', ', $this->list_of_items );
-		$this->paymentSdk->payment_method_id  = 'pix';
-		$this->paymentSdk->external_reference = $this->get_external_reference();
+		$this->transaction = $this->sdk->getPaymentInstance();
 
-		$point_of_interaction = new PointOfInteraction();
-		$point_of_interaction->type = 'OPENPLATFORM';
-		$this->paymentSdk->point_of_interaction = $point_of_interaction;
+		$this->make_commum_transaction();
+		$pix_date_expiration                   = $this->adjust_pix_date_expiration();
+		$this->transaction->date_of_expiration = $this->get_date_of_expiration( $pix_date_expiration );
+		$this->transaction->transaction_amount = $this->get_transaction_amount();
+		$this->transaction->description        = implode( ', ', $this->list_of_items );
+		$this->transaction->payment_method_id  = 'pix';
+		$this->transaction->external_reference = $this->get_external_reference();
 
-		$payer_address = new Address();
+		$point_of_interaction                    = new PointOfInteraction();
+		$point_of_interaction->type              = 'OPENPLATFORM';
+		$this->transaction->point_of_interaction = $point_of_interaction;
+
+		$payer_address                = new Address();
 		$payer_address->zip_code      = html_entity_decode( method_exists( $this->order, 'get_id' ) ? $this->order->get_billing_postcode() : $this->order->billing_postcode );
 		$payer_address->street_name   = html_entity_decode( method_exists( $this->order, 'get_id' ) ? $this->order->get_billing_address_1() : $this->order->billing_address_1 );
 		$payer_address->street_number = '';
@@ -53,25 +55,25 @@ class WC_WooMercadoPago_Preference_Pix extends WC_WooMercadoPago_Preference_Abst
 		$payer_address->city          = html_entity_decode( method_exists( $this->order, 'get_id' ) ? $this->order->get_billing_city() : $this->order->billing_city );
 		$payer_address->federal_unit  = html_entity_decode( method_exists( $this->order, 'get_id' ) ? $this->order->get_billing_state() : $this->order->billing_state );
 
-		$payer = new Payer();
+		$payer             = new Payer();
 		$payer->email      = $this->get_email();
 		$payer->first_name = ( method_exists( $this->order, 'get_id' ) ? html_entity_decode( $this->order->get_billing_first_name() ) : html_entity_decode( $this->order->billing_first_name ) );
 		$payer->last_name  = ( method_exists( $this->order, 'get_id' ) ? html_entity_decode( $this->order->get_billing_last_name() ) : html_entity_decode( $this->order->billing_last_name ) );
 		$payer->address    = $payer_address;
 
-		$this->paymentSdk->payer = $payer;
+		$this->transaction->payer = $payer;
 
-		$additional_info = new AdditionalInfo();
+		$additional_info            = new AdditionalInfo();
 		$additional_info->items     = $this->items;
 		$additional_info->payer     = $this->get_payer_custom();
 		$additional_info->shipments = $this->shipments_receiver_address();
 		$additional_info->payer     = $this->get_payer_custom();
 
-		$this->paymentSdk->additional_info = $additional_info;
+		$this->transaction->additional_info = $additional_info;
 
-		$internal_metadata       = parent::get_internal_metadata();
-		$merge_array             = array_merge( $internal_metadata, $this->get_internal_metadata_pix() );
-		$this->paymentSdk->metadata = $merge_array;
+		$internal_metadata           = parent::get_internal_metadata();
+		$merge_array                 = array_merge( $internal_metadata, $this->get_internal_metadata_pix() );
+		$this->transaction->metadata = $merge_array;
 	}
 
 	/**

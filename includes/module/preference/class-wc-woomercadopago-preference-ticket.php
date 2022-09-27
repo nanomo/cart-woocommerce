@@ -32,23 +32,24 @@ class WC_WooMercadoPago_Preference_Ticket extends WC_WooMercadoPago_Preference_A
 	 */
 	public function __construct( $payment, $order, $ticket_checkout ) {
 		parent::__construct( $payment, $order, $ticket_checkout );
+		$this->transaction = $this->sdk->getPaymentInstance();
 
-		$helper                               = new WC_WooMercadoPago_Composite_Id_Helper();
-		$id                                   = $ticket_checkout['paymentMethodId'];
-		$date_expiration                      = $payment->get_option( 'date_expiration', WC_WooMercadoPago_Constants::DATE_EXPIRATION ) . ' days';
-		$this->sdkPayment                     = $this->make_comum_payment();
-		$this->sdkPayment->binary_mode        = true;
-		$this->sdkPayment->payment_method_id  = $helper->getPaymentMethodId($id);
-		$this->sdkPayment->date_of_expiration = $this->get_date_of_expiration( $date_expiration );
-		$this->sdkPayment->transaction_amount = $this->get_transaction_amount();
-		$this->sdkPayment->description        = implode( ', ', $this->list_of_items );
-		$this->sdkPayment->external_reference = $this->get_external_reference();
-		$get_payer                            = $this->get_payer_custom();
+		$this->make_commum_transaction();
+		$helper                                = new WC_WooMercadoPago_Composite_Id_Helper();
+		$id                                    = $ticket_checkout['paymentMethodId'];
+		$date_expiration                       = $payment->get_option( 'date_expiration', WC_WooMercadoPago_Constants::DATE_EXPIRATION ) . ' days';
+		$this->transaction->binary_mode        = true;
+		$this->transaction->payment_method_id  = $helper->getPaymentMethodId($id);
+		$this->transaction->date_of_expiration = $this->get_date_of_expiration( $date_expiration );
+		$this->transaction->transaction_amount = $this->get_transaction_amount();
+		$this->transaction->description        = implode( ', ', $this->list_of_items );
+		$this->transaction->external_reference = $this->get_external_reference();
+		$get_payer                             = $this->get_payer_custom();
 		unset($get_payer['phone']);
 
 		$payer = new Payer();
 		$payer->setEntity($get_payer);
-		$identification = new PayerIdentification();
+		$identification  = new PayerIdentification();
 		$additional_info = new AdditionalInfo();
 
 		if ( 'BRL' === $this->site_data[ $this->site_id ]['currency'] ) {
@@ -62,27 +63,27 @@ class WC_WooMercadoPago_Preference_Ticket extends WC_WooMercadoPago_Preference_A
 		}
 
 		if ( 'webpay' === $ticket_checkout['paymentMethodId'] ) {
-			$transaction_details = new TransactionDetails();
+			$transaction_details                        = new TransactionDetails();
 			$transaction_details->financial_institution = '1234';
-			$this->sdkPayment->transaction_details = $transaction_details;
+			$this->transaction->transaction_details     = $transaction_details;
 
-			$this->sdkPayment->callback_url = get_site_url();
-			$additional_info->ip_address    = '127.0.0.1';
-			$identification->type           = 'RUT';
-			$identification->number         = '0';
-			$payer->entity_type             = 'individual';
+			$this->transaction->callback_url = get_site_url();
+			$additional_info->ip_address     = '127.0.0.1';
+			$identification->type            = 'RUT';
+			$identification->number          = '0';
+			$payer->entity_type              = 'individual';
 		}
 
-		$payer->email = $this->get_email();
+		$payer->email          = $this->get_email();
 		$payer->identification = $identification;
 
-		$this->sdkPayment->payer = $payer;
+		$this->transaction->payer = $payer;
 
 		$additional_info->items     = $this->items;
 		$additional_info->payer     = $this->get_payer_custom();
 		$additional_info->shipments = $this->shipments_receiver_address();
 
-		$this->sdkPayment->additional_info = $additional_info;
+		$this->transaction->additional_info = $additional_info;
 
 		if (
 			isset( $this->checkout['discount'] ) && ! empty( $this->checkout['discount'] ) &&
@@ -90,15 +91,15 @@ class WC_WooMercadoPago_Preference_Ticket extends WC_WooMercadoPago_Preference_A
 			$this->checkout['discount'] > 0 && 'woo-mercado-pago-ticket' === WC()->session->chosen_payment_method
 		) {
 			$additional_info->items[] = $this->add_discounts();
-			$this->sdkPayment         = array_merge( $this->sdkPayment, $this->add_discounts_campaign() );
+			$this->transaction        = array_merge( $this->transaction, $this->add_discounts_campaign() );
 		}
 
-		$internal_metadata          = parent::get_internal_metadata();
-		$merge_array                = array_merge( $internal_metadata, $this->get_internal_metadata_ticket() );
-		$this->sdkPayment->metadata = $merge_array;
-		$paymentPlaceId             = $helper->getPaymentPlaceId($id);
+		$internal_metadata           = parent::get_internal_metadata();
+		$merge_array                 = array_merge( $internal_metadata, $this->get_internal_metadata_ticket() );
+		$this->transaction->metadata = $merge_array;
+		$paymentPlaceId              = $helper->getPaymentPlaceId($id);
 		if ( $paymentPlaceId ) {
-			$this->sdkPayment->metadata['payment_option_id'] = $paymentPlaceId;
+			$this->transaction->metadata['payment_option_id'] = $paymentPlaceId;
 		}
 	}
 

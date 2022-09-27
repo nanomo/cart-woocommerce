@@ -13,6 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+use MercadoPago\PP\Sdk\Entity\Preference\Preference;
 use MercadoPago\PP\Sdk\Sdk;
 
 /**
@@ -21,14 +22,16 @@ use MercadoPago\PP\Sdk\Sdk;
 abstract class WC_WooMercadoPago_Preference_Abstract extends WC_Payment_Gateway {
 
 	/**
-	 * SDK Preference
+	 * Sdk
 	 */
-	protected $sdkPreference;
+	protected $sdk;
 
 	/**
-	 * SDK Preference
+	 * Transaction
+	 *
+	 * @var Payment|Preference
 	 */
-	protected $sdkPayment;
+	protected $transaction;
 
 	/**
 	 * Order
@@ -224,9 +227,7 @@ abstract class WC_WooMercadoPago_Preference_Abstract extends WC_Payment_Gateway 
 		$productId    = WC_WooMercadoPago_Constants::PRODUCT_ID_DESKTOP;
 		$integratorId = $this->payment->mp_options->get_integrator_id();
 
-		$sdk = new Sdk($accessToken, $platformId, $productId, $integratorId);
-		$this->sdkPreference = $sdk->getPreferenceInstance();
-		$this->sdkPayment    = $sdk->getPaymentInstance();
+		$this->sdk = new Sdk( $accessToken, $platformId, $productId, $integratorId );
 	}
 
 	/**
@@ -255,42 +256,18 @@ abstract class WC_WooMercadoPago_Preference_Abstract extends WC_Payment_Gateway 
 	}
 
 	/**
-	 * Make commum preference
-	 *
-	 * @return array
+	 * Make commum transaction
 	 */
-	public function make_commum_preference() {
-		$preference = array(
-			'binary_mode'          => $this->get_binary_mode( $this->payment ),
-			'external_reference'   => $this->get_external_reference( $this->payment ),
-			'notification_url'     => $this->get_notification_url(),
-			'statement_descriptor' => get_option( 'mp_statement_descriptor', 'Mercado Pago' ),
-		);
+	public function make_commum_transaction() {
+		$this->transaction->binary_mode          = $this->get_binary_mode( $this->payment );
+		$this->transaction->external_reference   = $this->get_external_reference( $this->payment );
+		$this->transaction->notification_url     = $this->get_notification_url();
+		$this->transaction->statement_descriptor = get_option( 'mp_statement_descriptor', 'Mercado Pago' );
+		$this->transaction->metadata             = [];
 
 		if ( ! $this->test_user_v1 && ! $this->sandbox ) {
-			$preference['sponsor_id'] = $this->get_sponsor_id();
+			$this->transaction->sponsor_id = $this->get_sponsor_id();
 		}
-
-		return $preference;
-	}
-
-	/**
-	 * Make comum sdkPayment
-	 *
-	 * @return Payment
-	 */
-	public function make_comum_payment() {
-		$this->sdkPayment->binary_mode = $this->get_binary_mode( $this->payment );
-		$this->sdkPayment->external_reference = $this->get_external_reference( $this->payment );
-		$this->sdkPayment->notification_url = $this->get_notification_url();
-		$this->sdkPayment->statement_descriptor = get_option( 'mp_statement_descriptor', 'Mercado Pago' );
-		$this->sdkPayment->metadata = [];
-
-		if ( ! $this->test_user_v1 && ! $this->sandbox ) {
-			$this->sdkPayment->sponsor_id = $this->get_sponsor_id();
-		}
-
-		return $this->sdkPayment;
 	}
 
 	/**
@@ -556,35 +533,21 @@ abstract class WC_WooMercadoPago_Preference_Abstract extends WC_Payment_Gateway 
 	}
 
 	/**
-	 * Get preference
+	 * Get transaction
 	 *
-	 * @return array
-	 */
-	public function get_preference() {
-		$preference_log = $this->preference;
-
-		if ( isset($preference_log['token']) ) {
-			unset($preference_log['token']);
-		}
-		$this->log->write_log( __FUNCTION__, 'Preference: ' . wp_json_encode( $preference_log, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE ) );
-		return $this->preference;
-	}
-
-	/**
-	 * Get sdkPayment
+	 * @param string $transactionType.
 	 *
-	 * @return Payment
+	 * @return Payment|Preference
 	 */
-	public function get_payment() {
-		$payment_log = clone $this->sdkPayment;
+	public function get_transaction( $transactionType = 'Preference' ) {
+		$transaction_log = clone $this->transaction;
 
-		$this->log->write_log( __FUNCTION__, 'Token: ' . $payment_log->token );
-		if ( isset($payment_log->token) ) {
-			unset($payment_log->token);
+		if ( isset( $transaction_log->token ) ) {
+			unset( $transaction_log->token );
 		}
-		$this->log->write_log( __FUNCTION__, 'Token: ' . $payment_log->token );
-		$this->log->write_log( __FUNCTION__, 'Payment: ' . wp_json_encode( $payment_log, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE ) );
-		return $this->sdkPayment;
+
+		$this->log->write_log( __FUNCTION__, $transactionType . ': ' . wp_json_encode( $transaction_log, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE ) );
+		return $this->transaction;
 	}
 
 	/**
