@@ -55,7 +55,6 @@ abstract class WC_WooMercadoPago_Notification_Abstract {
 		$this->mp      = $payment->mp;
 		$this->log     = $payment->log;
 		$this->sandbox = $payment->sandbox;
-		$this->payment = $payment;
 
 		add_action( 'woocommerce_api_' . strtolower( get_class( $payment ) ), array( $this, 'check_ipn_response' ) );
 		// @todo remove when 5 is the most used.
